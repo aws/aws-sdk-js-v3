@@ -104,6 +104,413 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class Kafka extends KafkaClient {
   /**
    *
+   *             <p>Returns a list of all the operations that have been performed on the specified MSK cluster.</p>
+   *
+   */
+  public listClusterOperations(
+    args: ListClusterOperationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListClusterOperationsCommandOutput>;
+  public listClusterOperations(
+    args: ListClusterOperationsCommandInput,
+    cb: (err: any, data?: ListClusterOperationsCommandOutput) => void
+  ): void;
+  public listClusterOperations(
+    args: ListClusterOperationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListClusterOperationsCommandOutput) => void
+  ): void;
+  public listClusterOperations(
+    args: ListClusterOperationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListClusterOperationsCommandOutput) => void),
+    cb?: (err: any, data?: ListClusterOperationsCommandOutput) => void
+  ): Promise<ListClusterOperationsCommandOutput> | void {
+    const command = new ListClusterOperationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *             <p>Returns a description of this revision of the configuration.</p>
+   *
+   */
+  public describeConfigurationRevision(
+    args: DescribeConfigurationRevisionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeConfigurationRevisionCommandOutput>;
+  public describeConfigurationRevision(
+    args: DescribeConfigurationRevisionCommandInput,
+    cb: (err: any, data?: DescribeConfigurationRevisionCommandOutput) => void
+  ): void;
+  public describeConfigurationRevision(
+    args: DescribeConfigurationRevisionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeConfigurationRevisionCommandOutput) => void
+  ): void;
+  public describeConfigurationRevision(
+    args: DescribeConfigurationRevisionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeConfigurationRevisionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeConfigurationRevisionCommandOutput) => void
+  ): Promise<DescribeConfigurationRevisionCommandOutput> | void {
+    const command = new DescribeConfigurationRevisionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *             <p>Creates a new MSK cluster.</p>
+   *
+   */
+  public createCluster(
+    args: CreateClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateClusterCommandOutput>;
+  public createCluster(
+    args: CreateClusterCommandInput,
+    cb: (err: any, data?: CreateClusterCommandOutput) => void
+  ): void;
+  public createCluster(
+    args: CreateClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateClusterCommandOutput) => void
+  ): void;
+  public createCluster(
+    args: CreateClusterCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateClusterCommandOutput) => void),
+    cb?: (err: any, data?: CreateClusterCommandOutput) => void
+  ): Promise<CreateClusterCommandOutput> | void {
+    const command = new CreateClusterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *             <p>Creates a new MSK configuration.</p>
+   *
+   */
+  public createConfiguration(
+    args: CreateConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateConfigurationCommandOutput>;
+  public createConfiguration(
+    args: CreateConfigurationCommandInput,
+    cb: (err: any, data?: CreateConfigurationCommandOutput) => void
+  ): void;
+  public createConfiguration(
+    args: CreateConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateConfigurationCommandOutput) => void
+  ): void;
+  public createConfiguration(
+    args: CreateConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: CreateConfigurationCommandOutput) => void
+  ): Promise<CreateConfigurationCommandOutput> | void {
+    const command = new CreateConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *             <p>Returns a description of the cluster operation specified by the ARN.</p>
+   *
+   */
+  public describeClusterOperation(
+    args: DescribeClusterOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeClusterOperationCommandOutput>;
+  public describeClusterOperation(
+    args: DescribeClusterOperationCommandInput,
+    cb: (err: any, data?: DescribeClusterOperationCommandOutput) => void
+  ): void;
+  public describeClusterOperation(
+    args: DescribeClusterOperationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeClusterOperationCommandOutput) => void
+  ): void;
+  public describeClusterOperation(
+    args: DescribeClusterOperationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeClusterOperationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeClusterOperationCommandOutput) => void
+  ): Promise<DescribeClusterOperationCommandOutput> | void {
+    const command = new DescribeClusterOperationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *             <p>A list of brokers that a client application can use to bootstrap.</p>
+   *
+   */
+  public getBootstrapBrokers(
+    args: GetBootstrapBrokersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBootstrapBrokersCommandOutput>;
+  public getBootstrapBrokers(
+    args: GetBootstrapBrokersCommandInput,
+    cb: (err: any, data?: GetBootstrapBrokersCommandOutput) => void
+  ): void;
+  public getBootstrapBrokers(
+    args: GetBootstrapBrokersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBootstrapBrokersCommandOutput) => void
+  ): void;
+  public getBootstrapBrokers(
+    args: GetBootstrapBrokersCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetBootstrapBrokersCommandOutput) => void),
+    cb?: (err: any, data?: GetBootstrapBrokersCommandOutput) => void
+  ): Promise<GetBootstrapBrokersCommandOutput> | void {
+    const command = new GetBootstrapBrokersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *             <p>Removes the tags associated with the keys that are provided in the query.</p>
+   *
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *             <p>Returns a list of the broker nodes in the cluster.</p>
+   *
+   */
+  public listNodes(
+    args: ListNodesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNodesCommandOutput>;
+  public listNodes(
+    args: ListNodesCommandInput,
+    cb: (err: any, data?: ListNodesCommandOutput) => void
+  ): void;
+  public listNodes(
+    args: ListNodesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNodesCommandOutput) => void
+  ): void;
+  public listNodes(
+    args: ListNodesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListNodesCommandOutput) => void),
+    cb?: (err: any, data?: ListNodesCommandOutput) => void
+  ): Promise<ListNodesCommandOutput> | void {
+    const command = new ListNodesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *             <p>Returns a description of this MSK configuration.</p>
+   *
+   */
+  public describeConfiguration(
+    args: DescribeConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeConfigurationCommandOutput>;
+  public describeConfiguration(
+    args: DescribeConfigurationCommandInput,
+    cb: (err: any, data?: DescribeConfigurationCommandOutput) => void
+  ): void;
+  public describeConfiguration(
+    args: DescribeConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeConfigurationCommandOutput) => void
+  ): void;
+  public describeConfiguration(
+    args: DescribeConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeConfigurationCommandOutput) => void
+  ): Promise<DescribeConfigurationCommandOutput> | void {
+    const command = new DescribeConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *             <p>Adds tags to the specified MSK resource.</p>
+   *
+   */
+  public tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  public tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *             <p>Updates the cluster with the configuration that is specified in the request body.</p>
+   *
+   */
+  public updateClusterConfiguration(
+    args: UpdateClusterConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateClusterConfigurationCommandOutput>;
+  public updateClusterConfiguration(
+    args: UpdateClusterConfigurationCommandInput,
+    cb: (err: any, data?: UpdateClusterConfigurationCommandOutput) => void
+  ): void;
+  public updateClusterConfiguration(
+    args: UpdateClusterConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateClusterConfigurationCommandOutput) => void
+  ): void;
+  public updateClusterConfiguration(
+    args: UpdateClusterConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateClusterConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateClusterConfigurationCommandOutput) => void
+  ): Promise<UpdateClusterConfigurationCommandOutput> | void {
+    const command = new UpdateClusterConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
    *             <p>Returns a list of all the MSK clusters in the current Region.</p>
    *
    */
@@ -215,265 +622,6 @@ export class Kafka extends KafkaClient {
 
   /**
    *
-   *             <p>Returns a list of the broker nodes in the cluster.</p>
-   *
-   */
-  public listNodes(
-    args: ListNodesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListNodesCommandOutput>;
-  public listNodes(
-    args: ListNodesCommandInput,
-    cb: (err: any, data?: ListNodesCommandOutput) => void
-  ): void;
-  public listNodes(
-    args: ListNodesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListNodesCommandOutput) => void
-  ): void;
-  public listNodes(
-    args: ListNodesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListNodesCommandOutput) => void),
-    cb?: (err: any, data?: ListNodesCommandOutput) => void
-  ): Promise<ListNodesCommandOutput> | void {
-    const command = new ListNodesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *             <p>Updates the cluster with the configuration that is specified in the request body.</p>
-   *
-   */
-  public updateClusterConfiguration(
-    args: UpdateClusterConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateClusterConfigurationCommandOutput>;
-  public updateClusterConfiguration(
-    args: UpdateClusterConfigurationCommandInput,
-    cb: (err: any, data?: UpdateClusterConfigurationCommandOutput) => void
-  ): void;
-  public updateClusterConfiguration(
-    args: UpdateClusterConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateClusterConfigurationCommandOutput) => void
-  ): void;
-  public updateClusterConfiguration(
-    args: UpdateClusterConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateClusterConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: UpdateClusterConfigurationCommandOutput) => void
-  ): Promise<UpdateClusterConfigurationCommandOutput> | void {
-    const command = new UpdateClusterConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *             <p>Deletes the MSK cluster specified by the Amazon Resource Name (ARN) in the request.</p>
-   *
-   */
-  public deleteCluster(
-    args: DeleteClusterCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteClusterCommandOutput>;
-  public deleteCluster(
-    args: DeleteClusterCommandInput,
-    cb: (err: any, data?: DeleteClusterCommandOutput) => void
-  ): void;
-  public deleteCluster(
-    args: DeleteClusterCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteClusterCommandOutput) => void
-  ): void;
-  public deleteCluster(
-    args: DeleteClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteClusterCommandOutput) => void),
-    cb?: (err: any, data?: DeleteClusterCommandOutput) => void
-  ): Promise<DeleteClusterCommandOutput> | void {
-    const command = new DeleteClusterCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *             <p>Updates the EBS storage associated with MSK brokers.</p>
-   *
-   */
-  public updateBrokerStorage(
-    args: UpdateBrokerStorageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateBrokerStorageCommandOutput>;
-  public updateBrokerStorage(
-    args: UpdateBrokerStorageCommandInput,
-    cb: (err: any, data?: UpdateBrokerStorageCommandOutput) => void
-  ): void;
-  public updateBrokerStorage(
-    args: UpdateBrokerStorageCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateBrokerStorageCommandOutput) => void
-  ): void;
-  public updateBrokerStorage(
-    args: UpdateBrokerStorageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateBrokerStorageCommandOutput) => void),
-    cb?: (err: any, data?: UpdateBrokerStorageCommandOutput) => void
-  ): Promise<UpdateBrokerStorageCommandOutput> | void {
-    const command = new UpdateBrokerStorageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *             <p>Adds tags to the specified MSK resource.</p>
-   *
-   */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *             <p>Creates a new MSK configuration.</p>
-   *
-   */
-  public createConfiguration(
-    args: CreateConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateConfigurationCommandOutput>;
-  public createConfiguration(
-    args: CreateConfigurationCommandInput,
-    cb: (err: any, data?: CreateConfigurationCommandOutput) => void
-  ): void;
-  public createConfiguration(
-    args: CreateConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateConfigurationCommandOutput) => void
-  ): void;
-  public createConfiguration(
-    args: CreateConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: CreateConfigurationCommandOutput) => void
-  ): Promise<CreateConfigurationCommandOutput> | void {
-    const command = new CreateConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *             <p>Returns a description of the cluster operation specified by the ARN.</p>
-   *
-   */
-  public describeClusterOperation(
-    args: DescribeClusterOperationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeClusterOperationCommandOutput>;
-  public describeClusterOperation(
-    args: DescribeClusterOperationCommandInput,
-    cb: (err: any, data?: DescribeClusterOperationCommandOutput) => void
-  ): void;
-  public describeClusterOperation(
-    args: DescribeClusterOperationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeClusterOperationCommandOutput) => void
-  ): void;
-  public describeClusterOperation(
-    args: DescribeClusterOperationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeClusterOperationCommandOutput) => void),
-    cb?: (err: any, data?: DescribeClusterOperationCommandOutput) => void
-  ): Promise<DescribeClusterOperationCommandOutput> | void {
-    const command = new DescribeClusterOperationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
    *             <p>Updates the number of broker nodes in the cluster.</p>
    *
    */
@@ -511,104 +659,30 @@ export class Kafka extends KafkaClient {
 
   /**
    *
-   *             <p>Returns a list of all the operations that have been performed on the specified MSK cluster.</p>
+   *             <p>Updates the EBS storage associated with MSK brokers.</p>
    *
    */
-  public listClusterOperations(
-    args: ListClusterOperationsCommandInput,
+  public updateBrokerStorage(
+    args: UpdateBrokerStorageCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListClusterOperationsCommandOutput>;
-  public listClusterOperations(
-    args: ListClusterOperationsCommandInput,
-    cb: (err: any, data?: ListClusterOperationsCommandOutput) => void
+  ): Promise<UpdateBrokerStorageCommandOutput>;
+  public updateBrokerStorage(
+    args: UpdateBrokerStorageCommandInput,
+    cb: (err: any, data?: UpdateBrokerStorageCommandOutput) => void
   ): void;
-  public listClusterOperations(
-    args: ListClusterOperationsCommandInput,
+  public updateBrokerStorage(
+    args: UpdateBrokerStorageCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListClusterOperationsCommandOutput) => void
+    cb: (err: any, data?: UpdateBrokerStorageCommandOutput) => void
   ): void;
-  public listClusterOperations(
-    args: ListClusterOperationsCommandInput,
+  public updateBrokerStorage(
+    args: UpdateBrokerStorageCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListClusterOperationsCommandOutput) => void),
-    cb?: (err: any, data?: ListClusterOperationsCommandOutput) => void
-  ): Promise<ListClusterOperationsCommandOutput> | void {
-    const command = new ListClusterOperationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *             <p>Returns a description of this revision of the configuration.</p>
-   *
-   */
-  public describeConfigurationRevision(
-    args: DescribeConfigurationRevisionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeConfigurationRevisionCommandOutput>;
-  public describeConfigurationRevision(
-    args: DescribeConfigurationRevisionCommandInput,
-    cb: (err: any, data?: DescribeConfigurationRevisionCommandOutput) => void
-  ): void;
-  public describeConfigurationRevision(
-    args: DescribeConfigurationRevisionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeConfigurationRevisionCommandOutput) => void
-  ): void;
-  public describeConfigurationRevision(
-    args: DescribeConfigurationRevisionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeConfigurationRevisionCommandOutput) => void),
-    cb?: (err: any, data?: DescribeConfigurationRevisionCommandOutput) => void
-  ): Promise<DescribeConfigurationRevisionCommandOutput> | void {
-    const command = new DescribeConfigurationRevisionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *             <p>Returns a description of this MSK configuration.</p>
-   *
-   */
-  public describeConfiguration(
-    args: DescribeConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeConfigurationCommandOutput>;
-  public describeConfiguration(
-    args: DescribeConfigurationCommandInput,
-    cb: (err: any, data?: DescribeConfigurationCommandOutput) => void
-  ): void;
-  public describeConfiguration(
-    args: DescribeConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeConfigurationCommandOutput) => void
-  ): void;
-  public describeConfiguration(
-    args: DescribeConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: DescribeConfigurationCommandOutput) => void
-  ): Promise<DescribeConfigurationCommandOutput> | void {
-    const command = new DescribeConfigurationCommand(args);
+      | ((err: any, data?: UpdateBrokerStorageCommandOutput) => void),
+    cb?: (err: any, data?: UpdateBrokerStorageCommandOutput) => void
+  ): Promise<UpdateBrokerStorageCommandOutput> | void {
+    const command = new UpdateBrokerStorageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -696,104 +770,30 @@ export class Kafka extends KafkaClient {
 
   /**
    *
-   *             <p>Creates a new MSK cluster.</p>
+   *             <p>Deletes the MSK cluster specified by the Amazon Resource Name (ARN) in the request.</p>
    *
    */
-  public createCluster(
-    args: CreateClusterCommandInput,
+  public deleteCluster(
+    args: DeleteClusterCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreateClusterCommandOutput>;
-  public createCluster(
-    args: CreateClusterCommandInput,
-    cb: (err: any, data?: CreateClusterCommandOutput) => void
+  ): Promise<DeleteClusterCommandOutput>;
+  public deleteCluster(
+    args: DeleteClusterCommandInput,
+    cb: (err: any, data?: DeleteClusterCommandOutput) => void
   ): void;
-  public createCluster(
-    args: CreateClusterCommandInput,
+  public deleteCluster(
+    args: DeleteClusterCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateClusterCommandOutput) => void
+    cb: (err: any, data?: DeleteClusterCommandOutput) => void
   ): void;
-  public createCluster(
-    args: CreateClusterCommandInput,
+  public deleteCluster(
+    args: DeleteClusterCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: CreateClusterCommandOutput) => void),
-    cb?: (err: any, data?: CreateClusterCommandOutput) => void
-  ): Promise<CreateClusterCommandOutput> | void {
-    const command = new CreateClusterCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *             <p>A list of brokers that a client application can use to bootstrap.</p>
-   *
-   */
-  public getBootstrapBrokers(
-    args: GetBootstrapBrokersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetBootstrapBrokersCommandOutput>;
-  public getBootstrapBrokers(
-    args: GetBootstrapBrokersCommandInput,
-    cb: (err: any, data?: GetBootstrapBrokersCommandOutput) => void
-  ): void;
-  public getBootstrapBrokers(
-    args: GetBootstrapBrokersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetBootstrapBrokersCommandOutput) => void
-  ): void;
-  public getBootstrapBrokers(
-    args: GetBootstrapBrokersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBootstrapBrokersCommandOutput) => void),
-    cb?: (err: any, data?: GetBootstrapBrokersCommandOutput) => void
-  ): Promise<GetBootstrapBrokersCommandOutput> | void {
-    const command = new GetBootstrapBrokersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *             <p>Removes the tags associated with the keys that are provided in the query.</p>
-   *
-   */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
+      | ((err: any, data?: DeleteClusterCommandOutput) => void),
+    cb?: (err: any, data?: DeleteClusterCommandOutput) => void
+  ): Promise<DeleteClusterCommandOutput> | void {
+    const command = new DeleteClusterCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

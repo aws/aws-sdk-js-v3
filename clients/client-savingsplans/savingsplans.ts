@@ -52,6 +52,43 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class savingsplans extends savingsplansClient {
   /**
    *
+   *          <p>Adds the specified tags to the specified resource.</p>
+   *
+   */
+  public tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  public tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
    *          <p>Lists the tags for the specified resource.</p>
    *
    */
@@ -163,43 +200,6 @@ export class savingsplans extends savingsplansClient {
 
   /**
    *
-   *          <p>Adds the specified tags to the specified resource.</p>
-   *
-   */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
    *          <p>Creates a Savings Plan.</p>
    *
    */
@@ -224,6 +224,55 @@ export class savingsplans extends savingsplansClient {
     cb?: (err: any, data?: CreateSavingsPlanCommandOutput) => void
   ): Promise<CreateSavingsPlanCommandOutput> | void {
     const command = new CreateSavingsPlanCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Describes the specified Savings Plans offering rates.</p>
+   *
+   */
+  public describeSavingsPlansOfferingRates(
+    args: DescribeSavingsPlansOfferingRatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSavingsPlansOfferingRatesCommandOutput>;
+  public describeSavingsPlansOfferingRates(
+    args: DescribeSavingsPlansOfferingRatesCommandInput,
+    cb: (
+      err: any,
+      data?: DescribeSavingsPlansOfferingRatesCommandOutput
+    ) => void
+  ): void;
+  public describeSavingsPlansOfferingRates(
+    args: DescribeSavingsPlansOfferingRatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (
+      err: any,
+      data?: DescribeSavingsPlansOfferingRatesCommandOutput
+    ) => void
+  ): void;
+  public describeSavingsPlansOfferingRates(
+    args: DescribeSavingsPlansOfferingRatesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: DescribeSavingsPlansOfferingRatesCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: DescribeSavingsPlansOfferingRatesCommandOutput
+    ) => void
+  ): Promise<DescribeSavingsPlansOfferingRatesCommandOutput> | void {
+    const command = new DescribeSavingsPlansOfferingRatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -298,55 +347,6 @@ export class savingsplans extends savingsplansClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Describes the specified Savings Plans offering rates.</p>
-   *
-   */
-  public describeSavingsPlansOfferingRates(
-    args: DescribeSavingsPlansOfferingRatesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeSavingsPlansOfferingRatesCommandOutput>;
-  public describeSavingsPlansOfferingRates(
-    args: DescribeSavingsPlansOfferingRatesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeSavingsPlansOfferingRatesCommandOutput
-    ) => void
-  ): void;
-  public describeSavingsPlansOfferingRates(
-    args: DescribeSavingsPlansOfferingRatesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeSavingsPlansOfferingRatesCommandOutput
-    ) => void
-  ): void;
-  public describeSavingsPlansOfferingRates(
-    args: DescribeSavingsPlansOfferingRatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeSavingsPlansOfferingRatesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeSavingsPlansOfferingRatesCommandOutput
-    ) => void
-  ): Promise<DescribeSavingsPlansOfferingRatesCommandOutput> | void {
-    const command = new DescribeSavingsPlansOfferingRatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

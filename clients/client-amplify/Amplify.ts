@@ -197,382 +197,31 @@ export class Amplify extends AmplifyClient {
   /**
    *
    *         <p>
-   *             Untag resource with resourceArn.
+   *             Create a new DomainAssociation on an App
    *         </p>
    *
    */
-  public untagResource(
-    args: UntagResourceCommandInput,
+  public createDomainAssociation(
+    args: CreateDomainAssociationCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<CreateDomainAssociationCommandOutput>;
+  public createDomainAssociation(
+    args: CreateDomainAssociationCommandInput,
+    cb: (err: any, data?: CreateDomainAssociationCommandOutput) => void
   ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
+  public createDomainAssociation(
+    args: CreateDomainAssociationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
+    cb: (err: any, data?: CreateDomainAssociationCommandOutput) => void
   ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
+  public createDomainAssociation(
+    args: CreateDomainAssociationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             Updates a branch for an Amplify App.
-   *         </p>
-   *
-   */
-  public updateBranch(
-    args: UpdateBranchCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateBranchCommandOutput>;
-  public updateBranch(
-    args: UpdateBranchCommandInput,
-    cb: (err: any, data?: UpdateBranchCommandOutput) => void
-  ): void;
-  public updateBranch(
-    args: UpdateBranchCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateBranchCommandOutput) => void
-  ): void;
-  public updateBranch(
-    args: UpdateBranchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateBranchCommandOutput) => void),
-    cb?: (err: any, data?: UpdateBranchCommandOutput) => void
-  ): Promise<UpdateBranchCommandOutput> | void {
-    const command = new UpdateBranchCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             Tag resource with tag key and value.
-   *         </p>
-   *
-   */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             Delete an existing Amplify App by appId.
-   *         </p>
-   *
-   */
-  public deleteApp(
-    args: DeleteAppCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteAppCommandOutput>;
-  public deleteApp(
-    args: DeleteAppCommandInput,
-    cb: (err: any, data?: DeleteAppCommandOutput) => void
-  ): void;
-  public deleteApp(
-    args: DeleteAppCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteAppCommandOutput) => void
-  ): void;
-  public deleteApp(
-    args: DeleteAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAppCommandOutput) => void),
-    cb?: (err: any, data?: DeleteAppCommandOutput) => void
-  ): Promise<DeleteAppCommandOutput> | void {
-    const command = new DeleteAppCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             Lists existing Amplify Apps.
-   *         </p>
-   *
-   */
-  public listApps(
-    args: ListAppsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListAppsCommandOutput>;
-  public listApps(
-    args: ListAppsCommandInput,
-    cb: (err: any, data?: ListAppsCommandOutput) => void
-  ): void;
-  public listApps(
-    args: ListAppsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListAppsCommandOutput) => void
-  ): void;
-  public listApps(
-    args: ListAppsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAppsCommandOutput) => void),
-    cb?: (err: any, data?: ListAppsCommandOutput) => void
-  ): Promise<ListAppsCommandOutput> | void {
-    const command = new ListAppsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             Retrieves webhook info that corresponds to a webhookId.
-   *         </p>
-   *
-   */
-  public getWebhook(
-    args: GetWebhookCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetWebhookCommandOutput>;
-  public getWebhook(
-    args: GetWebhookCommandInput,
-    cb: (err: any, data?: GetWebhookCommandOutput) => void
-  ): void;
-  public getWebhook(
-    args: GetWebhookCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetWebhookCommandOutput) => void
-  ): void;
-  public getWebhook(
-    args: GetWebhookCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetWebhookCommandOutput) => void),
-    cb?: (err: any, data?: GetWebhookCommandOutput) => void
-  ): Promise<GetWebhookCommandOutput> | void {
-    const command = new GetWebhookCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             Lists backend environments for an Amplify App.
-   *         </p>
-   *
-   */
-  public listBackendEnvironments(
-    args: ListBackendEnvironmentsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListBackendEnvironmentsCommandOutput>;
-  public listBackendEnvironments(
-    args: ListBackendEnvironmentsCommandInput,
-    cb: (err: any, data?: ListBackendEnvironmentsCommandOutput) => void
-  ): void;
-  public listBackendEnvironments(
-    args: ListBackendEnvironmentsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListBackendEnvironmentsCommandOutput) => void
-  ): void;
-  public listBackendEnvironments(
-    args: ListBackendEnvironmentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBackendEnvironmentsCommandOutput) => void),
-    cb?: (err: any, data?: ListBackendEnvironmentsCommandOutput) => void
-  ): Promise<ListBackendEnvironmentsCommandOutput> | void {
-    const command = new ListBackendEnvironmentsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             Creates a new Branch for an Amplify App.
-   *         </p>
-   *
-   */
-  public createBranch(
-    args: CreateBranchCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateBranchCommandOutput>;
-  public createBranch(
-    args: CreateBranchCommandInput,
-    cb: (err: any, data?: CreateBranchCommandOutput) => void
-  ): void;
-  public createBranch(
-    args: CreateBranchCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateBranchCommandOutput) => void
-  ): void;
-  public createBranch(
-    args: CreateBranchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateBranchCommandOutput) => void),
-    cb?: (err: any, data?: CreateBranchCommandOutput) => void
-  ): Promise<CreateBranchCommandOutput> | void {
-    const command = new CreateBranchCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             Lists branches for an Amplify App.
-   *         </p>
-   *
-   */
-  public listBranches(
-    args: ListBranchesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListBranchesCommandOutput>;
-  public listBranches(
-    args: ListBranchesCommandInput,
-    cb: (err: any, data?: ListBranchesCommandOutput) => void
-  ): void;
-  public listBranches(
-    args: ListBranchesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListBranchesCommandOutput) => void
-  ): void;
-  public listBranches(
-    args: ListBranchesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBranchesCommandOutput) => void),
-    cb?: (err: any, data?: ListBranchesCommandOutput) => void
-  ): Promise<ListBranchesCommandOutput> | void {
-    const command = new ListBranchesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             Deletes a webhook.
-   *         </p>
-   *
-   */
-  public deleteWebhook(
-    args: DeleteWebhookCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteWebhookCommandOutput>;
-  public deleteWebhook(
-    args: DeleteWebhookCommandInput,
-    cb: (err: any, data?: DeleteWebhookCommandOutput) => void
-  ): void;
-  public deleteWebhook(
-    args: DeleteWebhookCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteWebhookCommandOutput) => void
-  ): void;
-  public deleteWebhook(
-    args: DeleteWebhookCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteWebhookCommandOutput) => void),
-    cb?: (err: any, data?: DeleteWebhookCommandOutput) => void
-  ): Promise<DeleteWebhookCommandOutput> | void {
-    const command = new DeleteWebhookCommand(args);
+      | ((err: any, data?: CreateDomainAssociationCommandOutput) => void),
+    cb?: (err: any, data?: CreateDomainAssociationCommandOutput) => void
+  ): Promise<CreateDomainAssociationCommandOutput> | void {
+    const command = new CreateDomainAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -626,357 +275,6 @@ export class Amplify extends AmplifyClient {
   /**
    *
    *         <p>
-   *             Get a job for a branch, part of an Amplify App.
-   *         </p>
-   *
-   */
-  public getJob(
-    args: GetJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetJobCommandOutput>;
-  public getJob(
-    args: GetJobCommandInput,
-    cb: (err: any, data?: GetJobCommandOutput) => void
-  ): void;
-  public getJob(
-    args: GetJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetJobCommandOutput) => void
-  ): void;
-  public getJob(
-    args: GetJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobCommandOutput) => void),
-    cb?: (err: any, data?: GetJobCommandOutput) => void
-  ): Promise<GetJobCommandOutput> | void {
-    const command = new GetJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             Create a new DomainAssociation on an App
-   *         </p>
-   *
-   */
-  public updateDomainAssociation(
-    args: UpdateDomainAssociationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateDomainAssociationCommandOutput>;
-  public updateDomainAssociation(
-    args: UpdateDomainAssociationCommandInput,
-    cb: (err: any, data?: UpdateDomainAssociationCommandOutput) => void
-  ): void;
-  public updateDomainAssociation(
-    args: UpdateDomainAssociationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateDomainAssociationCommandOutput) => void
-  ): void;
-  public updateDomainAssociation(
-    args: UpdateDomainAssociationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDomainAssociationCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDomainAssociationCommandOutput) => void
-  ): Promise<UpdateDomainAssociationCommandOutput> | void {
-    const command = new UpdateDomainAssociationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             Stop a job that is in progress, for an Amplify branch, part of Amplify App.
-   *         </p>
-   *
-   */
-  public stopJob(
-    args: StopJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StopJobCommandOutput>;
-  public stopJob(
-    args: StopJobCommandInput,
-    cb: (err: any, data?: StopJobCommandOutput) => void
-  ): void;
-  public stopJob(
-    args: StopJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StopJobCommandOutput) => void
-  ): void;
-  public stopJob(
-    args: StopJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopJobCommandOutput) => void),
-    cb?: (err: any, data?: StopJobCommandOutput) => void
-  ): Promise<StopJobCommandOutput> | void {
-    const command = new StopJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             List webhooks with an app.
-   *         </p>
-   *
-   */
-  public listWebhooks(
-    args: ListWebhooksCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListWebhooksCommandOutput>;
-  public listWebhooks(
-    args: ListWebhooksCommandInput,
-    cb: (err: any, data?: ListWebhooksCommandOutput) => void
-  ): void;
-  public listWebhooks(
-    args: ListWebhooksCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListWebhooksCommandOutput) => void
-  ): void;
-  public listWebhooks(
-    args: ListWebhooksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListWebhooksCommandOutput) => void),
-    cb?: (err: any, data?: ListWebhooksCommandOutput) => void
-  ): Promise<ListWebhooksCommandOutput> | void {
-    const command = new ListWebhooksCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             Creates a new Amplify App.
-   *         </p>
-   *
-   */
-  public createApp(
-    args: CreateAppCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateAppCommandOutput>;
-  public createApp(
-    args: CreateAppCommandInput,
-    cb: (err: any, data?: CreateAppCommandOutput) => void
-  ): void;
-  public createApp(
-    args: CreateAppCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateAppCommandOutput) => void
-  ): void;
-  public createApp(
-    args: CreateAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAppCommandOutput) => void),
-    cb?: (err: any, data?: CreateAppCommandOutput) => void
-  ): Promise<CreateAppCommandOutput> | void {
-    const command = new CreateAppCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             Starts a new job for a branch, part of an Amplify App.
-   *         </p>
-   *
-   */
-  public startJob(
-    args: StartJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartJobCommandOutput>;
-  public startJob(
-    args: StartJobCommandInput,
-    cb: (err: any, data?: StartJobCommandOutput) => void
-  ): void;
-  public startJob(
-    args: StartJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartJobCommandOutput) => void
-  ): void;
-  public startJob(
-    args: StartJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartJobCommandOutput) => void),
-    cb?: (err: any, data?: StartJobCommandOutput) => void
-  ): Promise<StartJobCommandOutput> | void {
-    const command = new StartJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             List tags for resource.
-   *         </p>
-   *
-   */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             Deletes a DomainAssociation.
-   *         </p>
-   *
-   */
-  public deleteDomainAssociation(
-    args: DeleteDomainAssociationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteDomainAssociationCommandOutput>;
-  public deleteDomainAssociation(
-    args: DeleteDomainAssociationCommandInput,
-    cb: (err: any, data?: DeleteDomainAssociationCommandOutput) => void
-  ): void;
-  public deleteDomainAssociation(
-    args: DeleteDomainAssociationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteDomainAssociationCommandOutput) => void
-  ): void;
-  public deleteDomainAssociation(
-    args: DeleteDomainAssociationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDomainAssociationCommandOutput) => void),
-    cb?: (err: any, data?: DeleteDomainAssociationCommandOutput) => void
-  ): Promise<DeleteDomainAssociationCommandOutput> | void {
-    const command = new DeleteDomainAssociationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             Retrieves an existing Amplify App by appId.
-   *         </p>
-   *
-   */
-  public getApp(
-    args: GetAppCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetAppCommandOutput>;
-  public getApp(
-    args: GetAppCommandInput,
-    cb: (err: any, data?: GetAppCommandOutput) => void
-  ): void;
-  public getApp(
-    args: GetAppCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetAppCommandOutput) => void
-  ): void;
-  public getApp(
-    args: GetAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAppCommandOutput) => void),
-    cb?: (err: any, data?: GetAppCommandOutput) => void
-  ): Promise<GetAppCommandOutput> | void {
-    const command = new GetAppCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
    *             Delete a job, for an Amplify branch, part of Amplify App.
    *         </p>
    *
@@ -1002,357 +300,6 @@ export class Amplify extends AmplifyClient {
     cb?: (err: any, data?: DeleteJobCommandOutput) => void
   ): Promise<DeleteJobCommandOutput> | void {
     const command = new DeleteJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             Create a deployment for manual deploy apps. (Apps are not connected to repository)
-   *         </p>
-   *
-   */
-  public createDeployment(
-    args: CreateDeploymentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateDeploymentCommandOutput>;
-  public createDeployment(
-    args: CreateDeploymentCommandInput,
-    cb: (err: any, data?: CreateDeploymentCommandOutput) => void
-  ): void;
-  public createDeployment(
-    args: CreateDeploymentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateDeploymentCommandOutput) => void
-  ): void;
-  public createDeployment(
-    args: CreateDeploymentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDeploymentCommandOutput) => void),
-    cb?: (err: any, data?: CreateDeploymentCommandOutput) => void
-  ): Promise<CreateDeploymentCommandOutput> | void {
-    const command = new CreateDeploymentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             Create a new webhook on an App.
-   *         </p>
-   *
-   */
-  public createWebhook(
-    args: CreateWebhookCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateWebhookCommandOutput>;
-  public createWebhook(
-    args: CreateWebhookCommandInput,
-    cb: (err: any, data?: CreateWebhookCommandOutput) => void
-  ): void;
-  public createWebhook(
-    args: CreateWebhookCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateWebhookCommandOutput) => void
-  ): void;
-  public createWebhook(
-    args: CreateWebhookCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateWebhookCommandOutput) => void),
-    cb?: (err: any, data?: CreateWebhookCommandOutput) => void
-  ): Promise<CreateWebhookCommandOutput> | void {
-    const command = new CreateWebhookCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             List artifacts with an app, a branch, a job and an artifact type.
-   *         </p>
-   *
-   */
-  public listArtifacts(
-    args: ListArtifactsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListArtifactsCommandOutput>;
-  public listArtifacts(
-    args: ListArtifactsCommandInput,
-    cb: (err: any, data?: ListArtifactsCommandOutput) => void
-  ): void;
-  public listArtifacts(
-    args: ListArtifactsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListArtifactsCommandOutput) => void
-  ): void;
-  public listArtifacts(
-    args: ListArtifactsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListArtifactsCommandOutput) => void),
-    cb?: (err: any, data?: ListArtifactsCommandOutput) => void
-  ): Promise<ListArtifactsCommandOutput> | void {
-    const command = new ListArtifactsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             Start a deployment for manual deploy apps. (Apps are not connected to repository)
-   *         </p>
-   *
-   */
-  public startDeployment(
-    args: StartDeploymentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartDeploymentCommandOutput>;
-  public startDeployment(
-    args: StartDeploymentCommandInput,
-    cb: (err: any, data?: StartDeploymentCommandOutput) => void
-  ): void;
-  public startDeployment(
-    args: StartDeploymentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartDeploymentCommandOutput) => void
-  ): void;
-  public startDeployment(
-    args: StartDeploymentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartDeploymentCommandOutput) => void),
-    cb?: (err: any, data?: StartDeploymentCommandOutput) => void
-  ): Promise<StartDeploymentCommandOutput> | void {
-    const command = new StartDeploymentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             Retrieve website access logs for a specific time range via a pre-signed URL.
-   *         </p>
-   *
-   */
-  public generateAccessLogs(
-    args: GenerateAccessLogsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GenerateAccessLogsCommandOutput>;
-  public generateAccessLogs(
-    args: GenerateAccessLogsCommandInput,
-    cb: (err: any, data?: GenerateAccessLogsCommandOutput) => void
-  ): void;
-  public generateAccessLogs(
-    args: GenerateAccessLogsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GenerateAccessLogsCommandOutput) => void
-  ): void;
-  public generateAccessLogs(
-    args: GenerateAccessLogsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GenerateAccessLogsCommandOutput) => void),
-    cb?: (err: any, data?: GenerateAccessLogsCommandOutput) => void
-  ): Promise<GenerateAccessLogsCommandOutput> | void {
-    const command = new GenerateAccessLogsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             Create a new DomainAssociation on an App
-   *         </p>
-   *
-   */
-  public createDomainAssociation(
-    args: CreateDomainAssociationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateDomainAssociationCommandOutput>;
-  public createDomainAssociation(
-    args: CreateDomainAssociationCommandInput,
-    cb: (err: any, data?: CreateDomainAssociationCommandOutput) => void
-  ): void;
-  public createDomainAssociation(
-    args: CreateDomainAssociationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateDomainAssociationCommandOutput) => void
-  ): void;
-  public createDomainAssociation(
-    args: CreateDomainAssociationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDomainAssociationCommandOutput) => void),
-    cb?: (err: any, data?: CreateDomainAssociationCommandOutput) => void
-  ): Promise<CreateDomainAssociationCommandOutput> | void {
-    const command = new CreateDomainAssociationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             List domains with an app
-   *         </p>
-   *
-   */
-  public listDomainAssociations(
-    args: ListDomainAssociationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDomainAssociationsCommandOutput>;
-  public listDomainAssociations(
-    args: ListDomainAssociationsCommandInput,
-    cb: (err: any, data?: ListDomainAssociationsCommandOutput) => void
-  ): void;
-  public listDomainAssociations(
-    args: ListDomainAssociationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDomainAssociationsCommandOutput) => void
-  ): void;
-  public listDomainAssociations(
-    args: ListDomainAssociationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDomainAssociationsCommandOutput) => void),
-    cb?: (err: any, data?: ListDomainAssociationsCommandOutput) => void
-  ): Promise<ListDomainAssociationsCommandOutput> | void {
-    const command = new ListDomainAssociationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             Retrieves a branch for an Amplify App.
-   *         </p>
-   *
-   */
-  public getBranch(
-    args: GetBranchCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetBranchCommandOutput>;
-  public getBranch(
-    args: GetBranchCommandInput,
-    cb: (err: any, data?: GetBranchCommandOutput) => void
-  ): void;
-  public getBranch(
-    args: GetBranchCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetBranchCommandOutput) => void
-  ): void;
-  public getBranch(
-    args: GetBranchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBranchCommandOutput) => void),
-    cb?: (err: any, data?: GetBranchCommandOutput) => void
-  ): Promise<GetBranchCommandOutput> | void {
-    const command = new GetBranchCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             Retrieves a backend environment for an Amplify App.
-   *         </p>
-   *
-   */
-  public getBackendEnvironment(
-    args: GetBackendEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetBackendEnvironmentCommandOutput>;
-  public getBackendEnvironment(
-    args: GetBackendEnvironmentCommandInput,
-    cb: (err: any, data?: GetBackendEnvironmentCommandOutput) => void
-  ): void;
-  public getBackendEnvironment(
-    args: GetBackendEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetBackendEnvironmentCommandOutput) => void
-  ): void;
-  public getBackendEnvironment(
-    args: GetBackendEnvironmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBackendEnvironmentCommandOutput) => void),
-    cb?: (err: any, data?: GetBackendEnvironmentCommandOutput) => void
-  ): Promise<GetBackendEnvironmentCommandOutput> | void {
-    const command = new GetBackendEnvironmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1406,31 +353,31 @@ export class Amplify extends AmplifyClient {
   /**
    *
    *         <p>
-   *             Retrieves artifact info that corresponds to a artifactId.
+   *             Create a deployment for manual deploy apps. (Apps are not connected to repository)
    *         </p>
    *
    */
-  public getArtifactUrl(
-    args: GetArtifactUrlCommandInput,
+  public createDeployment(
+    args: CreateDeploymentCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<GetArtifactUrlCommandOutput>;
-  public getArtifactUrl(
-    args: GetArtifactUrlCommandInput,
-    cb: (err: any, data?: GetArtifactUrlCommandOutput) => void
+  ): Promise<CreateDeploymentCommandOutput>;
+  public createDeployment(
+    args: CreateDeploymentCommandInput,
+    cb: (err: any, data?: CreateDeploymentCommandOutput) => void
   ): void;
-  public getArtifactUrl(
-    args: GetArtifactUrlCommandInput,
+  public createDeployment(
+    args: CreateDeploymentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetArtifactUrlCommandOutput) => void
+    cb: (err: any, data?: CreateDeploymentCommandOutput) => void
   ): void;
-  public getArtifactUrl(
-    args: GetArtifactUrlCommandInput,
+  public createDeployment(
+    args: CreateDeploymentCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: GetArtifactUrlCommandOutput) => void),
-    cb?: (err: any, data?: GetArtifactUrlCommandOutput) => void
-  ): Promise<GetArtifactUrlCommandOutput> | void {
-    const command = new GetArtifactUrlCommand(args);
+      | ((err: any, data?: CreateDeploymentCommandOutput) => void),
+    cb?: (err: any, data?: CreateDeploymentCommandOutput) => void
+  ): Promise<CreateDeploymentCommandOutput> | void {
+    const command = new CreateDeploymentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1470,6 +417,84 @@ export class Amplify extends AmplifyClient {
     cb?: (err: any, data?: ListJobsCommandOutput) => void
   ): Promise<ListJobsCommandOutput> | void {
     const command = new ListJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             Tag resource with tag key and value.
+   *         </p>
+   *
+   */
+  public tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  public tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             List tags for resource.
+   *         </p>
+   *
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1601,6 +626,45 @@ export class Amplify extends AmplifyClient {
   /**
    *
    *         <p>
+   *             Lists backend environments for an Amplify App.
+   *         </p>
+   *
+   */
+  public listBackendEnvironments(
+    args: ListBackendEnvironmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBackendEnvironmentsCommandOutput>;
+  public listBackendEnvironments(
+    args: ListBackendEnvironmentsCommandInput,
+    cb: (err: any, data?: ListBackendEnvironmentsCommandOutput) => void
+  ): void;
+  public listBackendEnvironments(
+    args: ListBackendEnvironmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBackendEnvironmentsCommandOutput) => void
+  ): void;
+  public listBackendEnvironments(
+    args: ListBackendEnvironmentsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListBackendEnvironmentsCommandOutput) => void),
+    cb?: (err: any, data?: ListBackendEnvironmentsCommandOutput) => void
+  ): Promise<ListBackendEnvironmentsCommandOutput> | void {
+    const command = new ListBackendEnvironmentsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
    *             Deletes a branch for an Amplify App.
    *         </p>
    *
@@ -1626,6 +690,942 @@ export class Amplify extends AmplifyClient {
     cb?: (err: any, data?: DeleteBranchCommandOutput) => void
   ): Promise<DeleteBranchCommandOutput> | void {
     const command = new DeleteBranchCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             Retrieves an existing Amplify App by appId.
+   *         </p>
+   *
+   */
+  public getApp(
+    args: GetAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAppCommandOutput>;
+  public getApp(
+    args: GetAppCommandInput,
+    cb: (err: any, data?: GetAppCommandOutput) => void
+  ): void;
+  public getApp(
+    args: GetAppCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAppCommandOutput) => void
+  ): void;
+  public getApp(
+    args: GetAppCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetAppCommandOutput) => void),
+    cb?: (err: any, data?: GetAppCommandOutput) => void
+  ): Promise<GetAppCommandOutput> | void {
+    const command = new GetAppCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             Retrieves artifact info that corresponds to a artifactId.
+   *         </p>
+   *
+   */
+  public getArtifactUrl(
+    args: GetArtifactUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetArtifactUrlCommandOutput>;
+  public getArtifactUrl(
+    args: GetArtifactUrlCommandInput,
+    cb: (err: any, data?: GetArtifactUrlCommandOutput) => void
+  ): void;
+  public getArtifactUrl(
+    args: GetArtifactUrlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetArtifactUrlCommandOutput) => void
+  ): void;
+  public getArtifactUrl(
+    args: GetArtifactUrlCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetArtifactUrlCommandOutput) => void),
+    cb?: (err: any, data?: GetArtifactUrlCommandOutput) => void
+  ): Promise<GetArtifactUrlCommandOutput> | void {
+    const command = new GetArtifactUrlCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             Retrieves a branch for an Amplify App.
+   *         </p>
+   *
+   */
+  public getBranch(
+    args: GetBranchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBranchCommandOutput>;
+  public getBranch(
+    args: GetBranchCommandInput,
+    cb: (err: any, data?: GetBranchCommandOutput) => void
+  ): void;
+  public getBranch(
+    args: GetBranchCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBranchCommandOutput) => void
+  ): void;
+  public getBranch(
+    args: GetBranchCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetBranchCommandOutput) => void),
+    cb?: (err: any, data?: GetBranchCommandOutput) => void
+  ): Promise<GetBranchCommandOutput> | void {
+    const command = new GetBranchCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             List domains with an app
+   *         </p>
+   *
+   */
+  public listDomainAssociations(
+    args: ListDomainAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDomainAssociationsCommandOutput>;
+  public listDomainAssociations(
+    args: ListDomainAssociationsCommandInput,
+    cb: (err: any, data?: ListDomainAssociationsCommandOutput) => void
+  ): void;
+  public listDomainAssociations(
+    args: ListDomainAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDomainAssociationsCommandOutput) => void
+  ): void;
+  public listDomainAssociations(
+    args: ListDomainAssociationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDomainAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: ListDomainAssociationsCommandOutput) => void
+  ): Promise<ListDomainAssociationsCommandOutput> | void {
+    const command = new ListDomainAssociationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             Retrieves a backend environment for an Amplify App.
+   *         </p>
+   *
+   */
+  public getBackendEnvironment(
+    args: GetBackendEnvironmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBackendEnvironmentCommandOutput>;
+  public getBackendEnvironment(
+    args: GetBackendEnvironmentCommandInput,
+    cb: (err: any, data?: GetBackendEnvironmentCommandOutput) => void
+  ): void;
+  public getBackendEnvironment(
+    args: GetBackendEnvironmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBackendEnvironmentCommandOutput) => void
+  ): void;
+  public getBackendEnvironment(
+    args: GetBackendEnvironmentCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetBackendEnvironmentCommandOutput) => void),
+    cb?: (err: any, data?: GetBackendEnvironmentCommandOutput) => void
+  ): Promise<GetBackendEnvironmentCommandOutput> | void {
+    const command = new GetBackendEnvironmentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             Retrieve website access logs for a specific time range via a pre-signed URL.
+   *         </p>
+   *
+   */
+  public generateAccessLogs(
+    args: GenerateAccessLogsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GenerateAccessLogsCommandOutput>;
+  public generateAccessLogs(
+    args: GenerateAccessLogsCommandInput,
+    cb: (err: any, data?: GenerateAccessLogsCommandOutput) => void
+  ): void;
+  public generateAccessLogs(
+    args: GenerateAccessLogsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GenerateAccessLogsCommandOutput) => void
+  ): void;
+  public generateAccessLogs(
+    args: GenerateAccessLogsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GenerateAccessLogsCommandOutput) => void),
+    cb?: (err: any, data?: GenerateAccessLogsCommandOutput) => void
+  ): Promise<GenerateAccessLogsCommandOutput> | void {
+    const command = new GenerateAccessLogsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             Deletes a webhook.
+   *         </p>
+   *
+   */
+  public deleteWebhook(
+    args: DeleteWebhookCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWebhookCommandOutput>;
+  public deleteWebhook(
+    args: DeleteWebhookCommandInput,
+    cb: (err: any, data?: DeleteWebhookCommandOutput) => void
+  ): void;
+  public deleteWebhook(
+    args: DeleteWebhookCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWebhookCommandOutput) => void
+  ): void;
+  public deleteWebhook(
+    args: DeleteWebhookCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteWebhookCommandOutput) => void),
+    cb?: (err: any, data?: DeleteWebhookCommandOutput) => void
+  ): Promise<DeleteWebhookCommandOutput> | void {
+    const command = new DeleteWebhookCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             Creates a new Amplify App.
+   *         </p>
+   *
+   */
+  public createApp(
+    args: CreateAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAppCommandOutput>;
+  public createApp(
+    args: CreateAppCommandInput,
+    cb: (err: any, data?: CreateAppCommandOutput) => void
+  ): void;
+  public createApp(
+    args: CreateAppCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAppCommandOutput) => void
+  ): void;
+  public createApp(
+    args: CreateAppCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateAppCommandOutput) => void),
+    cb?: (err: any, data?: CreateAppCommandOutput) => void
+  ): Promise<CreateAppCommandOutput> | void {
+    const command = new CreateAppCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             Creates a new Branch for an Amplify App.
+   *         </p>
+   *
+   */
+  public createBranch(
+    args: CreateBranchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBranchCommandOutput>;
+  public createBranch(
+    args: CreateBranchCommandInput,
+    cb: (err: any, data?: CreateBranchCommandOutput) => void
+  ): void;
+  public createBranch(
+    args: CreateBranchCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateBranchCommandOutput) => void
+  ): void;
+  public createBranch(
+    args: CreateBranchCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateBranchCommandOutput) => void),
+    cb?: (err: any, data?: CreateBranchCommandOutput) => void
+  ): Promise<CreateBranchCommandOutput> | void {
+    const command = new CreateBranchCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             Create a new DomainAssociation on an App
+   *         </p>
+   *
+   */
+  public updateDomainAssociation(
+    args: UpdateDomainAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDomainAssociationCommandOutput>;
+  public updateDomainAssociation(
+    args: UpdateDomainAssociationCommandInput,
+    cb: (err: any, data?: UpdateDomainAssociationCommandOutput) => void
+  ): void;
+  public updateDomainAssociation(
+    args: UpdateDomainAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDomainAssociationCommandOutput) => void
+  ): void;
+  public updateDomainAssociation(
+    args: UpdateDomainAssociationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateDomainAssociationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateDomainAssociationCommandOutput) => void
+  ): Promise<UpdateDomainAssociationCommandOutput> | void {
+    const command = new UpdateDomainAssociationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             Lists branches for an Amplify App.
+   *         </p>
+   *
+   */
+  public listBranches(
+    args: ListBranchesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBranchesCommandOutput>;
+  public listBranches(
+    args: ListBranchesCommandInput,
+    cb: (err: any, data?: ListBranchesCommandOutput) => void
+  ): void;
+  public listBranches(
+    args: ListBranchesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBranchesCommandOutput) => void
+  ): void;
+  public listBranches(
+    args: ListBranchesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListBranchesCommandOutput) => void),
+    cb?: (err: any, data?: ListBranchesCommandOutput) => void
+  ): Promise<ListBranchesCommandOutput> | void {
+    const command = new ListBranchesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             Start a deployment for manual deploy apps. (Apps are not connected to repository)
+   *         </p>
+   *
+   */
+  public startDeployment(
+    args: StartDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartDeploymentCommandOutput>;
+  public startDeployment(
+    args: StartDeploymentCommandInput,
+    cb: (err: any, data?: StartDeploymentCommandOutput) => void
+  ): void;
+  public startDeployment(
+    args: StartDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartDeploymentCommandOutput) => void
+  ): void;
+  public startDeployment(
+    args: StartDeploymentCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartDeploymentCommandOutput) => void),
+    cb?: (err: any, data?: StartDeploymentCommandOutput) => void
+  ): Promise<StartDeploymentCommandOutput> | void {
+    const command = new StartDeploymentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             Lists existing Amplify Apps.
+   *         </p>
+   *
+   */
+  public listApps(
+    args: ListAppsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAppsCommandOutput>;
+  public listApps(
+    args: ListAppsCommandInput,
+    cb: (err: any, data?: ListAppsCommandOutput) => void
+  ): void;
+  public listApps(
+    args: ListAppsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAppsCommandOutput) => void
+  ): void;
+  public listApps(
+    args: ListAppsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListAppsCommandOutput) => void),
+    cb?: (err: any, data?: ListAppsCommandOutput) => void
+  ): Promise<ListAppsCommandOutput> | void {
+    const command = new ListAppsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             Retrieves webhook info that corresponds to a webhookId.
+   *         </p>
+   *
+   */
+  public getWebhook(
+    args: GetWebhookCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWebhookCommandOutput>;
+  public getWebhook(
+    args: GetWebhookCommandInput,
+    cb: (err: any, data?: GetWebhookCommandOutput) => void
+  ): void;
+  public getWebhook(
+    args: GetWebhookCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetWebhookCommandOutput) => void
+  ): void;
+  public getWebhook(
+    args: GetWebhookCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetWebhookCommandOutput) => void),
+    cb?: (err: any, data?: GetWebhookCommandOutput) => void
+  ): Promise<GetWebhookCommandOutput> | void {
+    const command = new GetWebhookCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             Stop a job that is in progress, for an Amplify branch, part of Amplify App.
+   *         </p>
+   *
+   */
+  public stopJob(
+    args: StopJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopJobCommandOutput>;
+  public stopJob(
+    args: StopJobCommandInput,
+    cb: (err: any, data?: StopJobCommandOutput) => void
+  ): void;
+  public stopJob(
+    args: StopJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopJobCommandOutput) => void
+  ): void;
+  public stopJob(
+    args: StopJobCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StopJobCommandOutput) => void),
+    cb?: (err: any, data?: StopJobCommandOutput) => void
+  ): Promise<StopJobCommandOutput> | void {
+    const command = new StopJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             Delete an existing Amplify App by appId.
+   *         </p>
+   *
+   */
+  public deleteApp(
+    args: DeleteAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAppCommandOutput>;
+  public deleteApp(
+    args: DeleteAppCommandInput,
+    cb: (err: any, data?: DeleteAppCommandOutput) => void
+  ): void;
+  public deleteApp(
+    args: DeleteAppCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAppCommandOutput) => void
+  ): void;
+  public deleteApp(
+    args: DeleteAppCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteAppCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAppCommandOutput) => void
+  ): Promise<DeleteAppCommandOutput> | void {
+    const command = new DeleteAppCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             Deletes a DomainAssociation.
+   *         </p>
+   *
+   */
+  public deleteDomainAssociation(
+    args: DeleteDomainAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDomainAssociationCommandOutput>;
+  public deleteDomainAssociation(
+    args: DeleteDomainAssociationCommandInput,
+    cb: (err: any, data?: DeleteDomainAssociationCommandOutput) => void
+  ): void;
+  public deleteDomainAssociation(
+    args: DeleteDomainAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDomainAssociationCommandOutput) => void
+  ): void;
+  public deleteDomainAssociation(
+    args: DeleteDomainAssociationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteDomainAssociationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDomainAssociationCommandOutput) => void
+  ): Promise<DeleteDomainAssociationCommandOutput> | void {
+    const command = new DeleteDomainAssociationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             Starts a new job for a branch, part of an Amplify App.
+   *         </p>
+   *
+   */
+  public startJob(
+    args: StartJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartJobCommandOutput>;
+  public startJob(
+    args: StartJobCommandInput,
+    cb: (err: any, data?: StartJobCommandOutput) => void
+  ): void;
+  public startJob(
+    args: StartJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartJobCommandOutput) => void
+  ): void;
+  public startJob(
+    args: StartJobCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartJobCommandOutput) => void),
+    cb?: (err: any, data?: StartJobCommandOutput) => void
+  ): Promise<StartJobCommandOutput> | void {
+    const command = new StartJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             Create a new webhook on an App.
+   *         </p>
+   *
+   */
+  public createWebhook(
+    args: CreateWebhookCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWebhookCommandOutput>;
+  public createWebhook(
+    args: CreateWebhookCommandInput,
+    cb: (err: any, data?: CreateWebhookCommandOutput) => void
+  ): void;
+  public createWebhook(
+    args: CreateWebhookCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWebhookCommandOutput) => void
+  ): void;
+  public createWebhook(
+    args: CreateWebhookCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateWebhookCommandOutput) => void),
+    cb?: (err: any, data?: CreateWebhookCommandOutput) => void
+  ): Promise<CreateWebhookCommandOutput> | void {
+    const command = new CreateWebhookCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             List webhooks with an app.
+   *         </p>
+   *
+   */
+  public listWebhooks(
+    args: ListWebhooksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWebhooksCommandOutput>;
+  public listWebhooks(
+    args: ListWebhooksCommandInput,
+    cb: (err: any, data?: ListWebhooksCommandOutput) => void
+  ): void;
+  public listWebhooks(
+    args: ListWebhooksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWebhooksCommandOutput) => void
+  ): void;
+  public listWebhooks(
+    args: ListWebhooksCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListWebhooksCommandOutput) => void),
+    cb?: (err: any, data?: ListWebhooksCommandOutput) => void
+  ): Promise<ListWebhooksCommandOutput> | void {
+    const command = new ListWebhooksCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             List artifacts with an app, a branch, a job and an artifact type.
+   *         </p>
+   *
+   */
+  public listArtifacts(
+    args: ListArtifactsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListArtifactsCommandOutput>;
+  public listArtifacts(
+    args: ListArtifactsCommandInput,
+    cb: (err: any, data?: ListArtifactsCommandOutput) => void
+  ): void;
+  public listArtifacts(
+    args: ListArtifactsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListArtifactsCommandOutput) => void
+  ): void;
+  public listArtifacts(
+    args: ListArtifactsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListArtifactsCommandOutput) => void),
+    cb?: (err: any, data?: ListArtifactsCommandOutput) => void
+  ): Promise<ListArtifactsCommandOutput> | void {
+    const command = new ListArtifactsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             Untag resource with resourceArn.
+   *         </p>
+   *
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             Updates a branch for an Amplify App.
+   *         </p>
+   *
+   */
+  public updateBranch(
+    args: UpdateBranchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateBranchCommandOutput>;
+  public updateBranch(
+    args: UpdateBranchCommandInput,
+    cb: (err: any, data?: UpdateBranchCommandOutput) => void
+  ): void;
+  public updateBranch(
+    args: UpdateBranchCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateBranchCommandOutput) => void
+  ): void;
+  public updateBranch(
+    args: UpdateBranchCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateBranchCommandOutput) => void),
+    cb?: (err: any, data?: UpdateBranchCommandOutput) => void
+  ): Promise<UpdateBranchCommandOutput> | void {
+    const command = new UpdateBranchCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             Get a job for a branch, part of an Amplify App.
+   *         </p>
+   *
+   */
+  public getJob(
+    args: GetJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetJobCommandOutput>;
+  public getJob(
+    args: GetJobCommandInput,
+    cb: (err: any, data?: GetJobCommandOutput) => void
+  ): void;
+  public getJob(
+    args: GetJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetJobCommandOutput) => void
+  ): void;
+  public getJob(
+    args: GetJobCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetJobCommandOutput) => void),
+    cb?: (err: any, data?: GetJobCommandOutput) => void
+  ): Promise<GetJobCommandOutput> | void {
+    const command = new GetJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

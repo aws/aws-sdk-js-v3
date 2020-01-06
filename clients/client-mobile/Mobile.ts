@@ -137,6 +137,164 @@ export class Mobile extends MobileClient {
   /**
    *
    *         <p>
+   *             List all available bundles.
+   *         </p>
+   *
+   */
+  public listBundles(
+    args: ListBundlesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBundlesCommandOutput>;
+  public listBundles(
+    args: ListBundlesCommandInput,
+    cb: (err: any, data?: ListBundlesCommandOutput) => void
+  ): void;
+  public listBundles(
+    args: ListBundlesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBundlesCommandOutput) => void
+  ): void;
+  public listBundles(
+    args: ListBundlesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListBundlesCommandOutput) => void),
+    cb?: (err: any, data?: ListBundlesCommandOutput) => void
+  ): Promise<ListBundlesCommandOutput> | void {
+    const command = new ListBundlesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             Exports project configuration to a snapshot which can be downloaded and shared.
+   *             Note that mobile app push credentials are encrypted in exported projects, so they
+   *             can only be shared successfully within the same AWS account.
+   *         </p>
+   *
+   */
+  public exportProject(
+    args: ExportProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExportProjectCommandOutput>;
+  public exportProject(
+    args: ExportProjectCommandInput,
+    cb: (err: any, data?: ExportProjectCommandOutput) => void
+  ): void;
+  public exportProject(
+    args: ExportProjectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExportProjectCommandOutput) => void
+  ): void;
+  public exportProject(
+    args: ExportProjectCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ExportProjectCommandOutput) => void),
+    cb?: (err: any, data?: ExportProjectCommandOutput) => void
+  ): Promise<ExportProjectCommandOutput> | void {
+    const command = new ExportProjectCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             Creates an AWS Mobile Hub project.
+   *         </p>
+   *
+   */
+  public createProject(
+    args: CreateProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateProjectCommandOutput>;
+  public createProject(
+    args: CreateProjectCommandInput,
+    cb: (err: any, data?: CreateProjectCommandOutput) => void
+  ): void;
+  public createProject(
+    args: CreateProjectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateProjectCommandOutput) => void
+  ): void;
+  public createProject(
+    args: CreateProjectCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateProjectCommandOutput) => void),
+    cb?: (err: any, data?: CreateProjectCommandOutput) => void
+  ): Promise<CreateProjectCommandOutput> | void {
+    const command = new CreateProjectCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
+   *             Get the bundle details for the requested bundle id.
+   *         </p>
+   *
+   */
+  public describeBundle(
+    args: DescribeBundleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeBundleCommandOutput>;
+  public describeBundle(
+    args: DescribeBundleCommandInput,
+    cb: (err: any, data?: DescribeBundleCommandOutput) => void
+  ): void;
+  public describeBundle(
+    args: DescribeBundleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeBundleCommandOutput) => void
+  ): void;
+  public describeBundle(
+    args: DescribeBundleCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeBundleCommandOutput) => void),
+    cb?: (err: any, data?: DescribeBundleCommandOutput) => void
+  ): Promise<DescribeBundleCommandOutput> | void {
+    const command = new DescribeBundleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>
    *             Generates customized software development kit (SDK) and or tool packages
    *             used to integrate mobile web or mobile app clients with backend AWS resources.
    *         </p>
@@ -241,164 +399,6 @@ export class Mobile extends MobileClient {
     cb?: (err: any, data?: ListProjectsCommandOutput) => void
   ): Promise<ListProjectsCommandOutput> | void {
     const command = new ListProjectsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             Creates an AWS Mobile Hub project.
-   *         </p>
-   *
-   */
-  public createProject(
-    args: CreateProjectCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateProjectCommandOutput>;
-  public createProject(
-    args: CreateProjectCommandInput,
-    cb: (err: any, data?: CreateProjectCommandOutput) => void
-  ): void;
-  public createProject(
-    args: CreateProjectCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateProjectCommandOutput) => void
-  ): void;
-  public createProject(
-    args: CreateProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateProjectCommandOutput) => void),
-    cb?: (err: any, data?: CreateProjectCommandOutput) => void
-  ): Promise<CreateProjectCommandOutput> | void {
-    const command = new CreateProjectCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             Get the bundle details for the requested bundle id.
-   *         </p>
-   *
-   */
-  public describeBundle(
-    args: DescribeBundleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeBundleCommandOutput>;
-  public describeBundle(
-    args: DescribeBundleCommandInput,
-    cb: (err: any, data?: DescribeBundleCommandOutput) => void
-  ): void;
-  public describeBundle(
-    args: DescribeBundleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeBundleCommandOutput) => void
-  ): void;
-  public describeBundle(
-    args: DescribeBundleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeBundleCommandOutput) => void),
-    cb?: (err: any, data?: DescribeBundleCommandOutput) => void
-  ): Promise<DescribeBundleCommandOutput> | void {
-    const command = new DescribeBundleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             List all available bundles.
-   *         </p>
-   *
-   */
-  public listBundles(
-    args: ListBundlesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListBundlesCommandOutput>;
-  public listBundles(
-    args: ListBundlesCommandInput,
-    cb: (err: any, data?: ListBundlesCommandOutput) => void
-  ): void;
-  public listBundles(
-    args: ListBundlesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListBundlesCommandOutput) => void
-  ): void;
-  public listBundles(
-    args: ListBundlesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBundlesCommandOutput) => void),
-    cb?: (err: any, data?: ListBundlesCommandOutput) => void
-  ): Promise<ListBundlesCommandOutput> | void {
-    const command = new ListBundlesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>
-   *             Exports project configuration to a snapshot which can be downloaded and shared.
-   *             Note that mobile app push credentials are encrypted in exported projects, so they
-   *             can only be shared successfully within the same AWS account.
-   *         </p>
-   *
-   */
-  public exportProject(
-    args: ExportProjectCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ExportProjectCommandOutput>;
-  public exportProject(
-    args: ExportProjectCommandInput,
-    cb: (err: any, data?: ExportProjectCommandOutput) => void
-  ): void;
-  public exportProject(
-    args: ExportProjectCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ExportProjectCommandOutput) => void
-  ): void;
-  public exportProject(
-    args: ExportProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ExportProjectCommandOutput) => void),
-    cb?: (err: any, data?: ExportProjectCommandOutput) => void
-  ): Promise<ExportProjectCommandOutput> | void {
-    const command = new ExportProjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

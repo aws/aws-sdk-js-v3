@@ -45,30 +45,35 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class RDSData extends RDSDataClient {
   /**
-   * <p>Ends a SQL transaction started with the <code>BeginTransaction</code> operation and
-   *             commits the changes.</p>
+   * <p>Runs a SQL statement against a database.</p>
+   *         <important>
+   *             <p>If a call isn't part of a transaction because it doesn't include the
+   *                     <code>transactionID</code> parameter, changes that result from the call are
+   *                 committed automatically.</p>
+   *         </important>
+   *         <p>The response size limit is 1 MB or 1,000 records. If the call returns more than 1 MB of response data or over 1,000 records, the call is terminated.</p>
    */
-  public commitTransaction(
-    args: CommitTransactionCommandInput,
+  public executeStatement(
+    args: ExecuteStatementCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CommitTransactionCommandOutput>;
-  public commitTransaction(
-    args: CommitTransactionCommandInput,
-    cb: (err: any, data?: CommitTransactionCommandOutput) => void
+  ): Promise<ExecuteStatementCommandOutput>;
+  public executeStatement(
+    args: ExecuteStatementCommandInput,
+    cb: (err: any, data?: ExecuteStatementCommandOutput) => void
   ): void;
-  public commitTransaction(
-    args: CommitTransactionCommandInput,
+  public executeStatement(
+    args: ExecuteStatementCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CommitTransactionCommandOutput) => void
+    cb: (err: any, data?: ExecuteStatementCommandOutput) => void
   ): void;
-  public commitTransaction(
-    args: CommitTransactionCommandInput,
+  public executeStatement(
+    args: ExecuteStatementCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: CommitTransactionCommandOutput) => void),
-    cb?: (err: any, data?: CommitTransactionCommandOutput) => void
-  ): Promise<CommitTransactionCommandOutput> | void {
-    const command = new CommitTransactionCommand(args);
+      | ((err: any, data?: ExecuteStatementCommandOutput) => void),
+    cb?: (err: any, data?: ExecuteStatementCommandOutput) => void
+  ): Promise<ExecuteStatementCommandOutput> | void {
+    const command = new ExecuteStatementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -81,40 +86,33 @@ export class RDSData extends RDSDataClient {
   }
 
   /**
-   * <p>Starts a SQL transaction.</p>
-   *
+   * <p>Runs one or more SQL statements.</p>
    *         <important>
-   *             <p>A transaction can run for a maximum of 24 hours. A transaction is terminated and
-   *                 rolled back automatically after 24 hours.</p>
-   *             <p>A transaction times out if no calls use its transaction ID in three minutes.
-   *                 If a transaction times out before it's committed, it's rolled back
-   *                 automatically.</p>
-   *             <p>DDL statements inside a transaction cause an implicit commit. We recommend
-   *                 that you run each DDL statement in a separate <code>ExecuteStatement</code> call with
-   *                 <code>continueAfterTimeout</code> enabled.</p>
+   *             <p>This operation is deprecated. Use the <code>BatchExecuteStatement</code> or
+   *                     <code>ExecuteStatement</code> operation.</p>
    *         </important>
    */
-  public beginTransaction(
-    args: BeginTransactionCommandInput,
+  public executeSql(
+    args: ExecuteSqlCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<BeginTransactionCommandOutput>;
-  public beginTransaction(
-    args: BeginTransactionCommandInput,
-    cb: (err: any, data?: BeginTransactionCommandOutput) => void
+  ): Promise<ExecuteSqlCommandOutput>;
+  public executeSql(
+    args: ExecuteSqlCommandInput,
+    cb: (err: any, data?: ExecuteSqlCommandOutput) => void
   ): void;
-  public beginTransaction(
-    args: BeginTransactionCommandInput,
+  public executeSql(
+    args: ExecuteSqlCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: BeginTransactionCommandOutput) => void
+    cb: (err: any, data?: ExecuteSqlCommandOutput) => void
   ): void;
-  public beginTransaction(
-    args: BeginTransactionCommandInput,
+  public executeSql(
+    args: ExecuteSqlCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: BeginTransactionCommandOutput) => void),
-    cb?: (err: any, data?: BeginTransactionCommandOutput) => void
-  ): Promise<BeginTransactionCommandOutput> | void {
-    const command = new BeginTransactionCommand(args);
+      | ((err: any, data?: ExecuteSqlCommandOutput) => void),
+    cb?: (err: any, data?: ExecuteSqlCommandOutput) => void
+  ): Promise<ExecuteSqlCommandOutput> | void {
+    const command = new ExecuteSqlCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -205,33 +203,40 @@ export class RDSData extends RDSDataClient {
   }
 
   /**
-   * <p>Runs one or more SQL statements.</p>
+   * <p>Starts a SQL transaction.</p>
+   *
    *         <important>
-   *             <p>This operation is deprecated. Use the <code>BatchExecuteStatement</code> or
-   *                     <code>ExecuteStatement</code> operation.</p>
+   *             <p>A transaction can run for a maximum of 24 hours. A transaction is terminated and
+   *                 rolled back automatically after 24 hours.</p>
+   *             <p>A transaction times out if no calls use its transaction ID in three minutes.
+   *                 If a transaction times out before it's committed, it's rolled back
+   *                 automatically.</p>
+   *             <p>DDL statements inside a transaction cause an implicit commit. We recommend
+   *                 that you run each DDL statement in a separate <code>ExecuteStatement</code> call with
+   *                 <code>continueAfterTimeout</code> enabled.</p>
    *         </important>
    */
-  public executeSql(
-    args: ExecuteSqlCommandInput,
+  public beginTransaction(
+    args: BeginTransactionCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ExecuteSqlCommandOutput>;
-  public executeSql(
-    args: ExecuteSqlCommandInput,
-    cb: (err: any, data?: ExecuteSqlCommandOutput) => void
+  ): Promise<BeginTransactionCommandOutput>;
+  public beginTransaction(
+    args: BeginTransactionCommandInput,
+    cb: (err: any, data?: BeginTransactionCommandOutput) => void
   ): void;
-  public executeSql(
-    args: ExecuteSqlCommandInput,
+  public beginTransaction(
+    args: BeginTransactionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ExecuteSqlCommandOutput) => void
+    cb: (err: any, data?: BeginTransactionCommandOutput) => void
   ): void;
-  public executeSql(
-    args: ExecuteSqlCommandInput,
+  public beginTransaction(
+    args: BeginTransactionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ExecuteSqlCommandOutput) => void),
-    cb?: (err: any, data?: ExecuteSqlCommandOutput) => void
-  ): Promise<ExecuteSqlCommandOutput> | void {
-    const command = new ExecuteSqlCommand(args);
+      | ((err: any, data?: BeginTransactionCommandOutput) => void),
+    cb?: (err: any, data?: BeginTransactionCommandOutput) => void
+  ): Promise<BeginTransactionCommandOutput> | void {
+    const command = new BeginTransactionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -244,35 +249,30 @@ export class RDSData extends RDSDataClient {
   }
 
   /**
-   * <p>Runs a SQL statement against a database.</p>
-   *         <important>
-   *             <p>If a call isn't part of a transaction because it doesn't include the
-   *                     <code>transactionID</code> parameter, changes that result from the call are
-   *                 committed automatically.</p>
-   *         </important>
-   *         <p>The response size limit is 1 MB or 1,000 records. If the call returns more than 1 MB of response data or over 1,000 records, the call is terminated.</p>
+   * <p>Ends a SQL transaction started with the <code>BeginTransaction</code> operation and
+   *             commits the changes.</p>
    */
-  public executeStatement(
-    args: ExecuteStatementCommandInput,
+  public commitTransaction(
+    args: CommitTransactionCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ExecuteStatementCommandOutput>;
-  public executeStatement(
-    args: ExecuteStatementCommandInput,
-    cb: (err: any, data?: ExecuteStatementCommandOutput) => void
+  ): Promise<CommitTransactionCommandOutput>;
+  public commitTransaction(
+    args: CommitTransactionCommandInput,
+    cb: (err: any, data?: CommitTransactionCommandOutput) => void
   ): void;
-  public executeStatement(
-    args: ExecuteStatementCommandInput,
+  public commitTransaction(
+    args: CommitTransactionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ExecuteStatementCommandOutput) => void
+    cb: (err: any, data?: CommitTransactionCommandOutput) => void
   ): void;
-  public executeStatement(
-    args: ExecuteStatementCommandInput,
+  public commitTransaction(
+    args: CommitTransactionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ExecuteStatementCommandOutput) => void),
-    cb?: (err: any, data?: ExecuteStatementCommandOutput) => void
-  ): Promise<ExecuteStatementCommandOutput> | void {
-    const command = new ExecuteStatementCommand(args);
+      | ((err: any, data?: CommitTransactionCommandOutput) => void),
+    cb?: (err: any, data?: CommitTransactionCommandOutput) => void
+  ): Promise<CommitTransactionCommandOutput> | void {
+    const command = new CommitTransactionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

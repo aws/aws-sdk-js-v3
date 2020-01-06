@@ -100,303 +100,32 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class CognitoSync extends CognitoSyncClient {
   /**
    *
-   *          <p>Sets the AWS Lambda function for a given event type for an identity pool. This request only updates the key/value pair specified. Other key/values pairs are not updated. To remove a key value pair, pass a empty value for the particular key.</p>
-   *          <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
-   *
-   */
-  public setCognitoEvents(
-    args: SetCognitoEventsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SetCognitoEventsCommandOutput>;
-  public setCognitoEvents(
-    args: SetCognitoEventsCommandInput,
-    cb: (err: any, data?: SetCognitoEventsCommandOutput) => void
-  ): void;
-  public setCognitoEvents(
-    args: SetCognitoEventsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: SetCognitoEventsCommandOutput) => void
-  ): void;
-  public setCognitoEvents(
-    args: SetCognitoEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetCognitoEventsCommandOutput) => void),
-    cb?: (err: any, data?: SetCognitoEventsCommandOutput) => void
-  ): Promise<SetCognitoEventsCommandOutput> | void {
-    const command = new SetCognitoEventsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Lists datasets for an identity. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p>
-   *          <p>ListDatasets can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use the Cognito Identity credentials to make this API call.</p>
+   *          <p>Gets a list of identity pools registered with Cognito.</p>
+   *          <p>ListIdentityPoolUsage can only be called with developer credentials. You cannot make this API call with the temporary user credentials provided by Cognito Identity.</p>
    *
    *
    */
-  public listDatasets(
-    args: ListDatasetsCommandInput,
+  public listIdentityPoolUsage(
+    args: ListIdentityPoolUsageCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListDatasetsCommandOutput>;
-  public listDatasets(
-    args: ListDatasetsCommandInput,
-    cb: (err: any, data?: ListDatasetsCommandOutput) => void
+  ): Promise<ListIdentityPoolUsageCommandOutput>;
+  public listIdentityPoolUsage(
+    args: ListIdentityPoolUsageCommandInput,
+    cb: (err: any, data?: ListIdentityPoolUsageCommandOutput) => void
   ): void;
-  public listDatasets(
-    args: ListDatasetsCommandInput,
+  public listIdentityPoolUsage(
+    args: ListIdentityPoolUsageCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDatasetsCommandOutput) => void
+    cb: (err: any, data?: ListIdentityPoolUsageCommandOutput) => void
   ): void;
-  public listDatasets(
-    args: ListDatasetsCommandInput,
+  public listIdentityPoolUsage(
+    args: ListIdentityPoolUsageCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListDatasetsCommandOutput) => void),
-    cb?: (err: any, data?: ListDatasetsCommandOutput) => void
-  ): Promise<ListDatasetsCommandOutput> | void {
-    const command = new ListDatasetsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Gets usage details (for example, data storage) about a particular identity pool.</p>
-   *          <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
-   *
-   *
-   *
-   */
-  public describeIdentityPoolUsage(
-    args: DescribeIdentityPoolUsageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeIdentityPoolUsageCommandOutput>;
-  public describeIdentityPoolUsage(
-    args: DescribeIdentityPoolUsageCommandInput,
-    cb: (err: any, data?: DescribeIdentityPoolUsageCommandOutput) => void
-  ): void;
-  public describeIdentityPoolUsage(
-    args: DescribeIdentityPoolUsageCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeIdentityPoolUsageCommandOutput) => void
-  ): void;
-  public describeIdentityPoolUsage(
-    args: DescribeIdentityPoolUsageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeIdentityPoolUsageCommandOutput) => void),
-    cb?: (err: any, data?: DescribeIdentityPoolUsageCommandOutput) => void
-  ): Promise<DescribeIdentityPoolUsageCommandOutput> | void {
-    const command = new DescribeIdentityPoolUsageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Registers a device to receive push sync notifications.</p>
-   *          <p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>
-   *
-   *
-   */
-  public registerDevice(
-    args: RegisterDeviceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RegisterDeviceCommandOutput>;
-  public registerDevice(
-    args: RegisterDeviceCommandInput,
-    cb: (err: any, data?: RegisterDeviceCommandOutput) => void
-  ): void;
-  public registerDevice(
-    args: RegisterDeviceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RegisterDeviceCommandOutput) => void
-  ): void;
-  public registerDevice(
-    args: RegisterDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterDeviceCommandOutput) => void),
-    cb?: (err: any, data?: RegisterDeviceCommandOutput) => void
-  ): Promise<RegisterDeviceCommandOutput> | void {
-    const command = new RegisterDeviceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Gets usage information for an identity, including number of datasets and data usage.</p>
-   *          <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>
-   *
-   *
-   */
-  public describeIdentityUsage(
-    args: DescribeIdentityUsageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeIdentityUsageCommandOutput>;
-  public describeIdentityUsage(
-    args: DescribeIdentityUsageCommandInput,
-    cb: (err: any, data?: DescribeIdentityUsageCommandOutput) => void
-  ): void;
-  public describeIdentityUsage(
-    args: DescribeIdentityUsageCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeIdentityUsageCommandOutput) => void
-  ): void;
-  public describeIdentityUsage(
-    args: DescribeIdentityUsageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeIdentityUsageCommandOutput) => void),
-    cb?: (err: any, data?: DescribeIdentityUsageCommandOutput) => void
-  ): Promise<DescribeIdentityUsageCommandOutput> | void {
-    const command = new DescribeIdentityUsageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Gets the configuration settings of an identity pool.</p>
-   *          <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
-   *
-   *
-   */
-  public getIdentityPoolConfiguration(
-    args: GetIdentityPoolConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetIdentityPoolConfigurationCommandOutput>;
-  public getIdentityPoolConfiguration(
-    args: GetIdentityPoolConfigurationCommandInput,
-    cb: (err: any, data?: GetIdentityPoolConfigurationCommandOutput) => void
-  ): void;
-  public getIdentityPoolConfiguration(
-    args: GetIdentityPoolConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetIdentityPoolConfigurationCommandOutput) => void
-  ): void;
-  public getIdentityPoolConfiguration(
-    args: GetIdentityPoolConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetIdentityPoolConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: GetIdentityPoolConfigurationCommandOutput) => void
-  ): Promise<GetIdentityPoolConfigurationCommandOutput> | void {
-    const command = new GetIdentityPoolConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Get the status of the last BulkPublish operation for an identity pool.</p>
-   *          <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
-   *
-   */
-  public getBulkPublishDetails(
-    args: GetBulkPublishDetailsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetBulkPublishDetailsCommandOutput>;
-  public getBulkPublishDetails(
-    args: GetBulkPublishDetailsCommandInput,
-    cb: (err: any, data?: GetBulkPublishDetailsCommandOutput) => void
-  ): void;
-  public getBulkPublishDetails(
-    args: GetBulkPublishDetailsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetBulkPublishDetailsCommandOutput) => void
-  ): void;
-  public getBulkPublishDetails(
-    args: GetBulkPublishDetailsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBulkPublishDetailsCommandOutput) => void),
-    cb?: (err: any, data?: GetBulkPublishDetailsCommandOutput) => void
-  ): Promise<GetBulkPublishDetailsCommandOutput> | void {
-    const command = new GetBulkPublishDetailsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Gets the events and the corresponding Lambda functions associated with an identity pool.</p>
-   *          <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
-   *
-   */
-  public getCognitoEvents(
-    args: GetCognitoEventsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetCognitoEventsCommandOutput>;
-  public getCognitoEvents(
-    args: GetCognitoEventsCommandInput,
-    cb: (err: any, data?: GetCognitoEventsCommandOutput) => void
-  ): void;
-  public getCognitoEvents(
-    args: GetCognitoEventsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetCognitoEventsCommandOutput) => void
-  ): void;
-  public getCognitoEvents(
-    args: GetCognitoEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCognitoEventsCommandOutput) => void),
-    cb?: (err: any, data?: GetCognitoEventsCommandOutput) => void
-  ): Promise<GetCognitoEventsCommandOutput> | void {
-    const command = new GetCognitoEventsCommand(args);
+      | ((err: any, data?: ListIdentityPoolUsageCommandOutput) => void),
+    cb?: (err: any, data?: ListIdentityPoolUsageCommandOutput) => void
+  ): Promise<ListIdentityPoolUsageCommandOutput> | void {
+    const command = new ListIdentityPoolUsageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -450,84 +179,6 @@ export class CognitoSync extends CognitoSyncClient {
 
   /**
    *
-   *          <p>Unsubscribes from receiving notifications when a dataset is modified by another device.</p>
-   *          <p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>
-   *
-   *
-   */
-  public unsubscribeFromDataset(
-    args: UnsubscribeFromDatasetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UnsubscribeFromDatasetCommandOutput>;
-  public unsubscribeFromDataset(
-    args: UnsubscribeFromDatasetCommandInput,
-    cb: (err: any, data?: UnsubscribeFromDatasetCommandOutput) => void
-  ): void;
-  public unsubscribeFromDataset(
-    args: UnsubscribeFromDatasetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UnsubscribeFromDatasetCommandOutput) => void
-  ): void;
-  public unsubscribeFromDataset(
-    args: UnsubscribeFromDatasetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UnsubscribeFromDatasetCommandOutput) => void),
-    cb?: (err: any, data?: UnsubscribeFromDatasetCommandOutput) => void
-  ): Promise<UnsubscribeFromDatasetCommandOutput> | void {
-    const command = new UnsubscribeFromDatasetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Gets a list of identity pools registered with Cognito.</p>
-   *          <p>ListIdentityPoolUsage can only be called with developer credentials. You cannot make this API call with the temporary user credentials provided by Cognito Identity.</p>
-   *
-   *
-   */
-  public listIdentityPoolUsage(
-    args: ListIdentityPoolUsageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListIdentityPoolUsageCommandOutput>;
-  public listIdentityPoolUsage(
-    args: ListIdentityPoolUsageCommandInput,
-    cb: (err: any, data?: ListIdentityPoolUsageCommandOutput) => void
-  ): void;
-  public listIdentityPoolUsage(
-    args: ListIdentityPoolUsageCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListIdentityPoolUsageCommandOutput) => void
-  ): void;
-  public listIdentityPoolUsage(
-    args: ListIdentityPoolUsageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListIdentityPoolUsageCommandOutput) => void),
-    cb?: (err: any, data?: ListIdentityPoolUsageCommandOutput) => void
-  ): Promise<ListIdentityPoolUsageCommandOutput> | void {
-    const command = new ListIdentityPoolUsageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
    *          <p>Deletes the specific dataset. The dataset will be deleted permanently, and the action can't be undone. Datasets that this dataset was merged with will no longer report the merge. Any subsequent operation on this dataset will result in a ResourceNotFoundException.</p>
    *           <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>
    *
@@ -553,6 +204,160 @@ export class CognitoSync extends CognitoSyncClient {
     cb?: (err: any, data?: DeleteDatasetCommandOutput) => void
   ): Promise<DeleteDatasetCommandOutput> | void {
     const command = new DeleteDatasetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Subscribes to receive notifications when a dataset is modified by another device.</p>
+   *          <p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>
+   *
+   *
+   */
+  public subscribeToDataset(
+    args: SubscribeToDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SubscribeToDatasetCommandOutput>;
+  public subscribeToDataset(
+    args: SubscribeToDatasetCommandInput,
+    cb: (err: any, data?: SubscribeToDatasetCommandOutput) => void
+  ): void;
+  public subscribeToDataset(
+    args: SubscribeToDatasetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SubscribeToDatasetCommandOutput) => void
+  ): void;
+  public subscribeToDataset(
+    args: SubscribeToDatasetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: SubscribeToDatasetCommandOutput) => void),
+    cb?: (err: any, data?: SubscribeToDatasetCommandOutput) => void
+  ): Promise<SubscribeToDatasetCommandOutput> | void {
+    const command = new SubscribeToDatasetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Gets meta data about a dataset by identity and dataset name. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p>
+   *          <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use Cognito Identity credentials to make this API call.</p>
+   *
+   */
+  public describeDataset(
+    args: DescribeDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDatasetCommandOutput>;
+  public describeDataset(
+    args: DescribeDatasetCommandInput,
+    cb: (err: any, data?: DescribeDatasetCommandOutput) => void
+  ): void;
+  public describeDataset(
+    args: DescribeDatasetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDatasetCommandOutput) => void
+  ): void;
+  public describeDataset(
+    args: DescribeDatasetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeDatasetCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDatasetCommandOutput) => void
+  ): Promise<DescribeDatasetCommandOutput> | void {
+    const command = new DescribeDatasetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Gets the configuration settings of an identity pool.</p>
+   *          <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+   *
+   *
+   */
+  public getIdentityPoolConfiguration(
+    args: GetIdentityPoolConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIdentityPoolConfigurationCommandOutput>;
+  public getIdentityPoolConfiguration(
+    args: GetIdentityPoolConfigurationCommandInput,
+    cb: (err: any, data?: GetIdentityPoolConfigurationCommandOutput) => void
+  ): void;
+  public getIdentityPoolConfiguration(
+    args: GetIdentityPoolConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIdentityPoolConfigurationCommandOutput) => void
+  ): void;
+  public getIdentityPoolConfiguration(
+    args: GetIdentityPoolConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetIdentityPoolConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetIdentityPoolConfigurationCommandOutput) => void
+  ): Promise<GetIdentityPoolConfigurationCommandOutput> | void {
+    const command = new GetIdentityPoolConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Gets the events and the corresponding Lambda functions associated with an identity pool.</p>
+   *          <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+   *
+   */
+  public getCognitoEvents(
+    args: GetCognitoEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCognitoEventsCommandOutput>;
+  public getCognitoEvents(
+    args: GetCognitoEventsCommandInput,
+    cb: (err: any, data?: GetCognitoEventsCommandOutput) => void
+  ): void;
+  public getCognitoEvents(
+    args: GetCognitoEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCognitoEventsCommandOutput) => void
+  ): void;
+  public getCognitoEvents(
+    args: GetCognitoEventsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetCognitoEventsCommandOutput) => void),
+    cb?: (err: any, data?: GetCognitoEventsCommandOutput) => void
+  ): Promise<GetCognitoEventsCommandOutput> | void {
+    const command = new GetCognitoEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -643,6 +448,45 @@ export class CognitoSync extends CognitoSyncClient {
 
   /**
    *
+   *          <p>Unsubscribes from receiving notifications when a dataset is modified by another device.</p>
+   *          <p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>
+   *
+   *
+   */
+  public unsubscribeFromDataset(
+    args: UnsubscribeFromDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UnsubscribeFromDatasetCommandOutput>;
+  public unsubscribeFromDataset(
+    args: UnsubscribeFromDatasetCommandInput,
+    cb: (err: any, data?: UnsubscribeFromDatasetCommandOutput) => void
+  ): void;
+  public unsubscribeFromDataset(
+    args: UnsubscribeFromDatasetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UnsubscribeFromDatasetCommandOutput) => void
+  ): void;
+  public unsubscribeFromDataset(
+    args: UnsubscribeFromDatasetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UnsubscribeFromDatasetCommandOutput) => void),
+    cb?: (err: any, data?: UnsubscribeFromDatasetCommandOutput) => void
+  ): Promise<UnsubscribeFromDatasetCommandOutput> | void {
+    const command = new UnsubscribeFromDatasetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
    *          <p>Gets paginated records, optionally changed after a particular sync count for a dataset and identity. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p>
    *          <p>ListRecords can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use Cognito Identity credentials to make this API call.</p>
    *
@@ -682,32 +526,32 @@ export class CognitoSync extends CognitoSyncClient {
 
   /**
    *
-   *          <p>Subscribes to receive notifications when a dataset is modified by another device.</p>
-   *          <p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>
+   *          <p>Gets usage information for an identity, including number of datasets and data usage.</p>
+   *          <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>
    *
    *
    */
-  public subscribeToDataset(
-    args: SubscribeToDatasetCommandInput,
+  public describeIdentityUsage(
+    args: DescribeIdentityUsageCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<SubscribeToDatasetCommandOutput>;
-  public subscribeToDataset(
-    args: SubscribeToDatasetCommandInput,
-    cb: (err: any, data?: SubscribeToDatasetCommandOutput) => void
+  ): Promise<DescribeIdentityUsageCommandOutput>;
+  public describeIdentityUsage(
+    args: DescribeIdentityUsageCommandInput,
+    cb: (err: any, data?: DescribeIdentityUsageCommandOutput) => void
   ): void;
-  public subscribeToDataset(
-    args: SubscribeToDatasetCommandInput,
+  public describeIdentityUsage(
+    args: DescribeIdentityUsageCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: SubscribeToDatasetCommandOutput) => void
+    cb: (err: any, data?: DescribeIdentityUsageCommandOutput) => void
   ): void;
-  public subscribeToDataset(
-    args: SubscribeToDatasetCommandInput,
+  public describeIdentityUsage(
+    args: DescribeIdentityUsageCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: SubscribeToDatasetCommandOutput) => void),
-    cb?: (err: any, data?: SubscribeToDatasetCommandOutput) => void
-  ): Promise<SubscribeToDatasetCommandOutput> | void {
-    const command = new SubscribeToDatasetCommand(args);
+      | ((err: any, data?: DescribeIdentityUsageCommandOutput) => void),
+    cb?: (err: any, data?: DescribeIdentityUsageCommandOutput) => void
+  ): Promise<DescribeIdentityUsageCommandOutput> | void {
+    const command = new DescribeIdentityUsageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -721,31 +565,187 @@ export class CognitoSync extends CognitoSyncClient {
 
   /**
    *
-   *          <p>Gets meta data about a dataset by identity and dataset name. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p>
-   *          <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use Cognito Identity credentials to make this API call.</p>
+   *          <p>Get the status of the last BulkPublish operation for an identity pool.</p>
+   *          <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
    *
    */
-  public describeDataset(
-    args: DescribeDatasetCommandInput,
+  public getBulkPublishDetails(
+    args: GetBulkPublishDetailsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DescribeDatasetCommandOutput>;
-  public describeDataset(
-    args: DescribeDatasetCommandInput,
-    cb: (err: any, data?: DescribeDatasetCommandOutput) => void
+  ): Promise<GetBulkPublishDetailsCommandOutput>;
+  public getBulkPublishDetails(
+    args: GetBulkPublishDetailsCommandInput,
+    cb: (err: any, data?: GetBulkPublishDetailsCommandOutput) => void
   ): void;
-  public describeDataset(
-    args: DescribeDatasetCommandInput,
+  public getBulkPublishDetails(
+    args: GetBulkPublishDetailsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeDatasetCommandOutput) => void
+    cb: (err: any, data?: GetBulkPublishDetailsCommandOutput) => void
   ): void;
-  public describeDataset(
-    args: DescribeDatasetCommandInput,
+  public getBulkPublishDetails(
+    args: GetBulkPublishDetailsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDatasetCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDatasetCommandOutput) => void
-  ): Promise<DescribeDatasetCommandOutput> | void {
-    const command = new DescribeDatasetCommand(args);
+      | ((err: any, data?: GetBulkPublishDetailsCommandOutput) => void),
+    cb?: (err: any, data?: GetBulkPublishDetailsCommandOutput) => void
+  ): Promise<GetBulkPublishDetailsCommandOutput> | void {
+    const command = new GetBulkPublishDetailsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Lists datasets for an identity. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p>
+   *          <p>ListDatasets can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use the Cognito Identity credentials to make this API call.</p>
+   *
+   *
+   */
+  public listDatasets(
+    args: ListDatasetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDatasetsCommandOutput>;
+  public listDatasets(
+    args: ListDatasetsCommandInput,
+    cb: (err: any, data?: ListDatasetsCommandOutput) => void
+  ): void;
+  public listDatasets(
+    args: ListDatasetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDatasetsCommandOutput) => void
+  ): void;
+  public listDatasets(
+    args: ListDatasetsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDatasetsCommandOutput) => void),
+    cb?: (err: any, data?: ListDatasetsCommandOutput) => void
+  ): Promise<ListDatasetsCommandOutput> | void {
+    const command = new ListDatasetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Sets the AWS Lambda function for a given event type for an identity pool. This request only updates the key/value pair specified. Other key/values pairs are not updated. To remove a key value pair, pass a empty value for the particular key.</p>
+   *          <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+   *
+   */
+  public setCognitoEvents(
+    args: SetCognitoEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SetCognitoEventsCommandOutput>;
+  public setCognitoEvents(
+    args: SetCognitoEventsCommandInput,
+    cb: (err: any, data?: SetCognitoEventsCommandOutput) => void
+  ): void;
+  public setCognitoEvents(
+    args: SetCognitoEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SetCognitoEventsCommandOutput) => void
+  ): void;
+  public setCognitoEvents(
+    args: SetCognitoEventsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: SetCognitoEventsCommandOutput) => void),
+    cb?: (err: any, data?: SetCognitoEventsCommandOutput) => void
+  ): Promise<SetCognitoEventsCommandOutput> | void {
+    const command = new SetCognitoEventsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Gets usage details (for example, data storage) about a particular identity pool.</p>
+   *          <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+   *
+   *
+   *
+   */
+  public describeIdentityPoolUsage(
+    args: DescribeIdentityPoolUsageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIdentityPoolUsageCommandOutput>;
+  public describeIdentityPoolUsage(
+    args: DescribeIdentityPoolUsageCommandInput,
+    cb: (err: any, data?: DescribeIdentityPoolUsageCommandOutput) => void
+  ): void;
+  public describeIdentityPoolUsage(
+    args: DescribeIdentityPoolUsageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIdentityPoolUsageCommandOutput) => void
+  ): void;
+  public describeIdentityPoolUsage(
+    args: DescribeIdentityPoolUsageCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeIdentityPoolUsageCommandOutput) => void),
+    cb?: (err: any, data?: DescribeIdentityPoolUsageCommandOutput) => void
+  ): Promise<DescribeIdentityPoolUsageCommandOutput> | void {
+    const command = new DescribeIdentityPoolUsageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Registers a device to receive push sync notifications.</p>
+   *          <p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>
+   *
+   *
+   */
+  public registerDevice(
+    args: RegisterDeviceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterDeviceCommandOutput>;
+  public registerDevice(
+    args: RegisterDeviceCommandInput,
+    cb: (err: any, data?: RegisterDeviceCommandOutput) => void
+  ): void;
+  public registerDevice(
+    args: RegisterDeviceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterDeviceCommandOutput) => void
+  ): void;
+  public registerDevice(
+    args: RegisterDeviceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RegisterDeviceCommandOutput) => void),
+    cb?: (err: any, data?: RegisterDeviceCommandOutput) => void
+  ): Promise<RegisterDeviceCommandOutput> | void {
+    const command = new RegisterDeviceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

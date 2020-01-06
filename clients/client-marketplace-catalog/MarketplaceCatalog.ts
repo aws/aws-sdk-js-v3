@@ -200,43 +200,6 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
 
   /**
    *
-   *         <p>Returns the metadata and content of the entity.</p>
-   *
-   */
-  public describeEntity(
-    args: DescribeEntityCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeEntityCommandOutput>;
-  public describeEntity(
-    args: DescribeEntityCommandInput,
-    cb: (err: any, data?: DescribeEntityCommandOutput) => void
-  ): void;
-  public describeEntity(
-    args: DescribeEntityCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeEntityCommandOutput) => void
-  ): void;
-  public describeEntity(
-    args: DescribeEntityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEntityCommandOutput) => void),
-    cb?: (err: any, data?: DescribeEntityCommandOutput) => void
-  ): Promise<DescribeEntityCommandOutput> | void {
-    const command = new DescribeEntityCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
    *         <p>Used to cancel an open change request. Must be sent before the status of the request
    *             changes to <code>APPLYING</code>, the final stage of completing your change request. You
    *             can describe a change during the 60-day request history retention period for API
@@ -264,6 +227,43 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
     cb?: (err: any, data?: CancelChangeSetCommandOutput) => void
   ): Promise<CancelChangeSetCommandOutput> | void {
     const command = new CancelChangeSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>Returns the metadata and content of the entity.</p>
+   *
+   */
+  public describeEntity(
+    args: DescribeEntityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEntityCommandOutput>;
+  public describeEntity(
+    args: DescribeEntityCommandInput,
+    cb: (err: any, data?: DescribeEntityCommandOutput) => void
+  ): void;
+  public describeEntity(
+    args: DescribeEntityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEntityCommandOutput) => void
+  ): void;
+  public describeEntity(
+    args: DescribeEntityCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeEntityCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEntityCommandOutput) => void
+  ): Promise<DescribeEntityCommandOutput> | void {
+    const command = new DescribeEntityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

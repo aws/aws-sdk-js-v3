@@ -338,262 +338,32 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class QuickSight extends QuickSightClient {
   /**
    *
-   * 		       <p>Deletes the data source permanently. This action breaks
-   * 			all the datasets that reference the deleted data source.</p>
+   * 		       <p>Describes the permissions on a dataset.</p>
+   * 		       <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.</p>
    *
    *
    */
-  public deleteDataSource(
-    args: DeleteDataSourceCommandInput,
+  public describeDataSetPermissions(
+    args: DescribeDataSetPermissionsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteDataSourceCommandOutput>;
-  public deleteDataSource(
-    args: DeleteDataSourceCommandInput,
-    cb: (err: any, data?: DeleteDataSourceCommandOutput) => void
+  ): Promise<DescribeDataSetPermissionsCommandOutput>;
+  public describeDataSetPermissions(
+    args: DescribeDataSetPermissionsCommandInput,
+    cb: (err: any, data?: DescribeDataSetPermissionsCommandOutput) => void
   ): void;
-  public deleteDataSource(
-    args: DeleteDataSourceCommandInput,
+  public describeDataSetPermissions(
+    args: DescribeDataSetPermissionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteDataSourceCommandOutput) => void
+    cb: (err: any, data?: DescribeDataSetPermissionsCommandOutput) => void
   ): void;
-  public deleteDataSource(
-    args: DeleteDataSourceCommandInput,
+  public describeDataSetPermissions(
+    args: DescribeDataSetPermissionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDataSourceCommandOutput) => void),
-    cb?: (err: any, data?: DeleteDataSourceCommandOutput) => void
-  ): Promise<DeleteDataSourceCommandOutput> | void {
-    const command = new DeleteDataSourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Lists all the versions of the templates in the Quicksight account.</p>
-   *
-   */
-  public listTemplateVersions(
-    args: ListTemplateVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTemplateVersionsCommandOutput>;
-  public listTemplateVersions(
-    args: ListTemplateVersionsCommandInput,
-    cb: (err: any, data?: ListTemplateVersionsCommandOutput) => void
-  ): void;
-  public listTemplateVersions(
-    args: ListTemplateVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTemplateVersionsCommandOutput) => void
-  ): void;
-  public listTemplateVersions(
-    args: ListTemplateVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTemplateVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListTemplateVersionsCommandOutput) => void
-  ): Promise<ListTemplateVersionsCommandOutput> | void {
-    const command = new ListTemplateVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Returns an Amazon QuickSight group's description and Amazon Resource Name (ARN). </p>
-   *
-   */
-  public describeGroup(
-    args: DescribeGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeGroupCommandOutput>;
-  public describeGroup(
-    args: DescribeGroupCommandInput,
-    cb: (err: any, data?: DescribeGroupCommandOutput) => void
-  ): void;
-  public describeGroup(
-    args: DescribeGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeGroupCommandOutput) => void
-  ): void;
-  public describeGroup(
-    args: DescribeGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeGroupCommandOutput) => void),
-    cb?: (err: any, data?: DescribeGroupCommandOutput) => void
-  ): Promise<DescribeGroupCommandOutput> | void {
-    const command = new DescribeGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Removes a user from a group so that the user is no longer a member of the group.</p>
-   *
-   */
-  public deleteGroupMembership(
-    args: DeleteGroupMembershipCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteGroupMembershipCommandOutput>;
-  public deleteGroupMembership(
-    args: DeleteGroupMembershipCommandInput,
-    cb: (err: any, data?: DeleteGroupMembershipCommandOutput) => void
-  ): void;
-  public deleteGroupMembership(
-    args: DeleteGroupMembershipCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteGroupMembershipCommandOutput) => void
-  ): void;
-  public deleteGroupMembership(
-    args: DeleteGroupMembershipCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGroupMembershipCommandOutput) => void),
-    cb?: (err: any, data?: DeleteGroupMembershipCommandOutput) => void
-  ): Promise<DeleteGroupMembershipCommandOutput> | void {
-    const command = new DeleteGroupMembershipCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Lists the Amazon QuickSight groups that an Amazon QuickSight user is a member of.</p>
-   *
-   */
-  public listUserGroups(
-    args: ListUserGroupsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListUserGroupsCommandOutput>;
-  public listUserGroups(
-    args: ListUserGroupsCommandInput,
-    cb: (err: any, data?: ListUserGroupsCommandOutput) => void
-  ): void;
-  public listUserGroups(
-    args: ListUserGroupsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListUserGroupsCommandOutput) => void
-  ): void;
-  public listUserGroups(
-    args: ListUserGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUserGroupsCommandOutput) => void),
-    cb?: (err: any, data?: ListUserGroupsCommandOutput) => void
-  ): Promise<ListUserGroupsCommandOutput> | void {
-    const command = new ListUserGroupsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Lists all the versions of the dashboards in the Quicksight subscription.</p>
-   *
-   */
-  public listDashboardVersions(
-    args: ListDashboardVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDashboardVersionsCommandOutput>;
-  public listDashboardVersions(
-    args: ListDashboardVersionsCommandInput,
-    cb: (err: any, data?: ListDashboardVersionsCommandOutput) => void
-  ): void;
-  public listDashboardVersions(
-    args: ListDashboardVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDashboardVersionsCommandOutput) => void
-  ): void;
-  public listDashboardVersions(
-    args: ListDashboardVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDashboardVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListDashboardVersionsCommandOutput) => void
-  ): Promise<ListDashboardVersionsCommandOutput> | void {
-    const command = new ListDashboardVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Generates a server-side embeddable URL and authorization code. Before this can work
-   * 			properly, first you need to configure the dashboards and user permissions. For more
-   * 			information, see the Amazon QuickSight User Guide section on <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-dashboards.html">Embedding
-   * 			Amazon QuickSight Dashboards</a> or see the Amazon QuickSight API Reference section on
-   * 			<a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/qs-dev-embedded-dashboards.html">Embedding
-   * 			Amazon QuickSight Dashboards</a>
-   * 			.</p>
-   * 		       <p>Currently, you can use <code>GetDashboardEmbedURL</code> only from the server, not from
-   * 			the user’s browser.</p>
-   *
-   */
-  public getDashboardEmbedUrl(
-    args: GetDashboardEmbedUrlCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDashboardEmbedUrlCommandOutput>;
-  public getDashboardEmbedUrl(
-    args: GetDashboardEmbedUrlCommandInput,
-    cb: (err: any, data?: GetDashboardEmbedUrlCommandOutput) => void
-  ): void;
-  public getDashboardEmbedUrl(
-    args: GetDashboardEmbedUrlCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDashboardEmbedUrlCommandOutput) => void
-  ): void;
-  public getDashboardEmbedUrl(
-    args: GetDashboardEmbedUrlCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDashboardEmbedUrlCommandOutput) => void),
-    cb?: (err: any, data?: GetDashboardEmbedUrlCommandOutput) => void
-  ): Promise<GetDashboardEmbedUrlCommandOutput> | void {
-    const command = new GetDashboardEmbedUrlCommand(args);
+      | ((err: any, data?: DescribeDataSetPermissionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDataSetPermissionsCommandOutput) => void
+  ): Promise<DescribeDataSetPermissionsCommandOutput> | void {
+    const command = new DescribeDataSetPermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -682,30 +452,30 @@ export class QuickSight extends QuickSightClient {
 
   /**
    *
-   * 		       <p>Returns information about a user, given the user name. </p>
+   * 		       <p>Lists the Amazon QuickSight groups that an Amazon QuickSight user is a member of.</p>
    *
    */
-  public describeUser(
-    args: DescribeUserCommandInput,
+  public listUserGroups(
+    args: ListUserGroupsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DescribeUserCommandOutput>;
-  public describeUser(
-    args: DescribeUserCommandInput,
-    cb: (err: any, data?: DescribeUserCommandOutput) => void
+  ): Promise<ListUserGroupsCommandOutput>;
+  public listUserGroups(
+    args: ListUserGroupsCommandInput,
+    cb: (err: any, data?: ListUserGroupsCommandOutput) => void
   ): void;
-  public describeUser(
-    args: DescribeUserCommandInput,
+  public listUserGroups(
+    args: ListUserGroupsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeUserCommandOutput) => void
+    cb: (err: any, data?: ListUserGroupsCommandOutput) => void
   ): void;
-  public describeUser(
-    args: DescribeUserCommandInput,
+  public listUserGroups(
+    args: ListUserGroupsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUserCommandOutput) => void),
-    cb?: (err: any, data?: DescribeUserCommandOutput) => void
-  ): Promise<DescribeUserCommandOutput> | void {
-    const command = new DescribeUserCommand(args);
+      | ((err: any, data?: ListUserGroupsCommandOutput) => void),
+    cb?: (err: any, data?: ListUserGroupsCommandOutput) => void
+  ): Promise<ListUserGroupsCommandOutput> | void {
+    const command = new ListUserGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -719,141 +489,31 @@ export class QuickSight extends QuickSightClient {
 
   /**
    *
-   * 		       <p>Adds an Amazon QuickSight user to an Amazon QuickSight group. </p>
+   * 		       <p>Lists data sources in current AWS Region that belong to this AWS account.</p>
+   *
    *
    */
-  public createGroupMembership(
-    args: CreateGroupMembershipCommandInput,
+  public listDataSources(
+    args: ListDataSourcesCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreateGroupMembershipCommandOutput>;
-  public createGroupMembership(
-    args: CreateGroupMembershipCommandInput,
-    cb: (err: any, data?: CreateGroupMembershipCommandOutput) => void
+  ): Promise<ListDataSourcesCommandOutput>;
+  public listDataSources(
+    args: ListDataSourcesCommandInput,
+    cb: (err: any, data?: ListDataSourcesCommandOutput) => void
   ): void;
-  public createGroupMembership(
-    args: CreateGroupMembershipCommandInput,
+  public listDataSources(
+    args: ListDataSourcesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateGroupMembershipCommandOutput) => void
+    cb: (err: any, data?: ListDataSourcesCommandOutput) => void
   ): void;
-  public createGroupMembership(
-    args: CreateGroupMembershipCommandInput,
+  public listDataSources(
+    args: ListDataSourcesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: CreateGroupMembershipCommandOutput) => void),
-    cb?: (err: any, data?: CreateGroupMembershipCommandOutput) => void
-  ): Promise<CreateGroupMembershipCommandOutput> | void {
-    const command = new CreateGroupMembershipCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Updates the permissions on a template.</p>
-   *
-   */
-  public updateTemplatePermissions(
-    args: UpdateTemplatePermissionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateTemplatePermissionsCommandOutput>;
-  public updateTemplatePermissions(
-    args: UpdateTemplatePermissionsCommandInput,
-    cb: (err: any, data?: UpdateTemplatePermissionsCommandOutput) => void
-  ): void;
-  public updateTemplatePermissions(
-    args: UpdateTemplatePermissionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateTemplatePermissionsCommandOutput) => void
-  ): void;
-  public updateTemplatePermissions(
-    args: UpdateTemplatePermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTemplatePermissionsCommandOutput) => void),
-    cb?: (err: any, data?: UpdateTemplatePermissionsCommandOutput) => void
-  ): Promise<UpdateTemplatePermissionsCommandOutput> | void {
-    const command = new UpdateTemplatePermissionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Returns a list of all of the Amazon QuickSight users belonging to this account. </p>
-   *
-   */
-  public listUsers(
-    args: ListUsersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListUsersCommandOutput>;
-  public listUsers(
-    args: ListUsersCommandInput,
-    cb: (err: any, data?: ListUsersCommandOutput) => void
-  ): void;
-  public listUsers(
-    args: ListUsersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListUsersCommandOutput) => void
-  ): void;
-  public listUsers(
-    args: ListUsersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUsersCommandOutput) => void),
-    cb?: (err: any, data?: ListUsersCommandOutput) => void
-  ): Promise<ListUsersCommandOutput> | void {
-    const command = new ListUsersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Describes a template's metadata.</p>
-   *
-   */
-  public describeTemplate(
-    args: DescribeTemplateCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeTemplateCommandOutput>;
-  public describeTemplate(
-    args: DescribeTemplateCommandInput,
-    cb: (err: any, data?: DescribeTemplateCommandOutput) => void
-  ): void;
-  public describeTemplate(
-    args: DescribeTemplateCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeTemplateCommandOutput) => void
-  ): void;
-  public describeTemplate(
-    args: DescribeTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTemplateCommandOutput) => void),
-    cb?: (err: any, data?: DescribeTemplateCommandOutput) => void
-  ): Promise<DescribeTemplateCommandOutput> | void {
-    const command = new DescribeTemplateCommand(args);
+      | ((err: any, data?: ListDataSourcesCommandOutput) => void),
+    cb?: (err: any, data?: ListDataSourcesCommandOutput) => void
+  ): Promise<ListDataSourcesCommandOutput> | void {
+    const command = new ListDataSourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -908,30 +568,30 @@ export class QuickSight extends QuickSightClient {
 
   /**
    *
-   * 		       <p>Lists all user groups in Amazon QuickSight. </p>
+   * 		       <p>Returns information about a user, given the user name. </p>
    *
    */
-  public listGroups(
-    args: ListGroupsCommandInput,
+  public describeUser(
+    args: DescribeUserCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListGroupsCommandOutput>;
-  public listGroups(
-    args: ListGroupsCommandInput,
-    cb: (err: any, data?: ListGroupsCommandOutput) => void
+  ): Promise<DescribeUserCommandOutput>;
+  public describeUser(
+    args: DescribeUserCommandInput,
+    cb: (err: any, data?: DescribeUserCommandOutput) => void
   ): void;
-  public listGroups(
-    args: ListGroupsCommandInput,
+  public describeUser(
+    args: DescribeUserCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListGroupsCommandOutput) => void
+    cb: (err: any, data?: DescribeUserCommandOutput) => void
   ): void;
-  public listGroups(
-    args: ListGroupsCommandInput,
+  public describeUser(
+    args: DescribeUserCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListGroupsCommandOutput) => void),
-    cb?: (err: any, data?: ListGroupsCommandOutput) => void
-  ): Promise<ListGroupsCommandOutput> | void {
-    const command = new ListGroupsCommand(args);
+      | ((err: any, data?: DescribeUserCommandOutput) => void),
+    cb?: (err: any, data?: DescribeUserCommandOutput) => void
+  ): Promise<DescribeUserCommandOutput> | void {
+    const command = new DescribeUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -945,30 +605,30 @@ export class QuickSight extends QuickSightClient {
 
   /**
    *
-   * 		       <p>Updates a template from an existing QuickSight analysis.</p>
+   * 		       <p>Updates the permissions on a template.</p>
    *
    */
-  public updateTemplate(
-    args: UpdateTemplateCommandInput,
+  public updateTemplatePermissions(
+    args: UpdateTemplatePermissionsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UpdateTemplateCommandOutput>;
-  public updateTemplate(
-    args: UpdateTemplateCommandInput,
-    cb: (err: any, data?: UpdateTemplateCommandOutput) => void
+  ): Promise<UpdateTemplatePermissionsCommandOutput>;
+  public updateTemplatePermissions(
+    args: UpdateTemplatePermissionsCommandInput,
+    cb: (err: any, data?: UpdateTemplatePermissionsCommandOutput) => void
   ): void;
-  public updateTemplate(
-    args: UpdateTemplateCommandInput,
+  public updateTemplatePermissions(
+    args: UpdateTemplatePermissionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateTemplateCommandOutput) => void
+    cb: (err: any, data?: UpdateTemplatePermissionsCommandOutput) => void
   ): void;
-  public updateTemplate(
-    args: UpdateTemplateCommandInput,
+  public updateTemplatePermissions(
+    args: UpdateTemplatePermissionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTemplateCommandOutput) => void),
-    cb?: (err: any, data?: UpdateTemplateCommandOutput) => void
-  ): Promise<UpdateTemplateCommandOutput> | void {
-    const command = new UpdateTemplateCommand(args);
+      | ((err: any, data?: UpdateTemplatePermissionsCommandOutput) => void),
+    cb?: (err: any, data?: UpdateTemplatePermissionsCommandOutput) => void
+  ): Promise<UpdateTemplatePermissionsCommandOutput> | void {
+    const command = new UpdateTemplatePermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -982,30 +642,32 @@ export class QuickSight extends QuickSightClient {
 
   /**
    *
-   * 		       <p>Describes a data source.</p>
+   * 		       <p>Creates an assignment with one specified IAM policy Amazon Resource Name (ARN) and will assigned to specified groups or users of QuickSight.
+   * 		Users and groups need to be in the same namespace.
+   * 		</p>
    *
    */
-  public describeDataSource(
-    args: DescribeDataSourceCommandInput,
+  public createIAMPolicyAssignment(
+    args: CreateIAMPolicyAssignmentCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DescribeDataSourceCommandOutput>;
-  public describeDataSource(
-    args: DescribeDataSourceCommandInput,
-    cb: (err: any, data?: DescribeDataSourceCommandOutput) => void
+  ): Promise<CreateIAMPolicyAssignmentCommandOutput>;
+  public createIAMPolicyAssignment(
+    args: CreateIAMPolicyAssignmentCommandInput,
+    cb: (err: any, data?: CreateIAMPolicyAssignmentCommandOutput) => void
   ): void;
-  public describeDataSource(
-    args: DescribeDataSourceCommandInput,
+  public createIAMPolicyAssignment(
+    args: CreateIAMPolicyAssignmentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeDataSourceCommandOutput) => void
+    cb: (err: any, data?: CreateIAMPolicyAssignmentCommandOutput) => void
   ): void;
-  public describeDataSource(
-    args: DescribeDataSourceCommandInput,
+  public createIAMPolicyAssignment(
+    args: CreateIAMPolicyAssignmentCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDataSourceCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDataSourceCommandOutput) => void
-  ): Promise<DescribeDataSourceCommandOutput> | void {
-    const command = new DescribeDataSourceCommand(args);
+      | ((err: any, data?: CreateIAMPolicyAssignmentCommandOutput) => void),
+    cb?: (err: any, data?: CreateIAMPolicyAssignmentCommandOutput) => void
+  ): Promise<CreateIAMPolicyAssignmentCommandOutput> | void {
+    const command = new CreateIAMPolicyAssignmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1019,30 +681,30 @@ export class QuickSight extends QuickSightClient {
 
   /**
    *
-   * 		       <p>Update template alias of given template.</p>
+   * 		       <p>Lists the tags assigned to a resource.</p>
    *
    */
-  public deleteTemplateAlias(
-    args: DeleteTemplateAliasCommandInput,
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteTemplateAliasCommandOutput>;
-  public deleteTemplateAlias(
-    args: DeleteTemplateAliasCommandInput,
-    cb: (err: any, data?: DeleteTemplateAliasCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
-  public deleteTemplateAlias(
-    args: DeleteTemplateAliasCommandInput,
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteTemplateAliasCommandOutput) => void
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
-  public deleteTemplateAlias(
-    args: DeleteTemplateAliasCommandInput,
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTemplateAliasCommandOutput) => void),
-    cb?: (err: any, data?: DeleteTemplateAliasCommandOutput) => void
-  ): Promise<DeleteTemplateAliasCommandOutput> | void {
-    const command = new DeleteTemplateAliasCommand(args);
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1056,32 +718,30 @@ export class QuickSight extends QuickSightClient {
 
   /**
    *
-   * 		       <p>Deletes the Amazon QuickSight user that is associated with the identity of the AWS
-   * 			Identity and Access Management (IAM) user or role that's making the call. The IAM user
-   * 			isn't deleted as a result of this call. </p>
+   * 		       <p>Describes read and write permissions on a dashboard.</p>
    *
    */
-  public deleteUser(
-    args: DeleteUserCommandInput,
+  public describeDashboardPermissions(
+    args: DescribeDashboardPermissionsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteUserCommandOutput>;
-  public deleteUser(
-    args: DeleteUserCommandInput,
-    cb: (err: any, data?: DeleteUserCommandOutput) => void
+  ): Promise<DescribeDashboardPermissionsCommandOutput>;
+  public describeDashboardPermissions(
+    args: DescribeDashboardPermissionsCommandInput,
+    cb: (err: any, data?: DescribeDashboardPermissionsCommandOutput) => void
   ): void;
-  public deleteUser(
-    args: DeleteUserCommandInput,
+  public describeDashboardPermissions(
+    args: DescribeDashboardPermissionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteUserCommandOutput) => void
+    cb: (err: any, data?: DescribeDashboardPermissionsCommandOutput) => void
   ): void;
-  public deleteUser(
-    args: DeleteUserCommandInput,
+  public describeDashboardPermissions(
+    args: DescribeDashboardPermissionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserCommandOutput) => void),
-    cb?: (err: any, data?: DeleteUserCommandOutput) => void
-  ): Promise<DeleteUserCommandOutput> | void {
-    const command = new DeleteUserCommand(args);
+      | ((err: any, data?: DescribeDashboardPermissionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDashboardPermissionsCommandOutput) => void
+  ): Promise<DescribeDashboardPermissionsCommandOutput> | void {
+    const command = new DescribeDashboardPermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1132,30 +792,104 @@ export class QuickSight extends QuickSightClient {
 
   /**
    *
-   * 		       <p>Removes a user group from Amazon QuickSight. </p>
+   * 		       <p>Lists assignments in current QuickSight account.</p>
    *
    */
-  public deleteGroup(
-    args: DeleteGroupCommandInput,
+  public listIAMPolicyAssignments(
+    args: ListIAMPolicyAssignmentsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteGroupCommandOutput>;
-  public deleteGroup(
-    args: DeleteGroupCommandInput,
-    cb: (err: any, data?: DeleteGroupCommandOutput) => void
+  ): Promise<ListIAMPolicyAssignmentsCommandOutput>;
+  public listIAMPolicyAssignments(
+    args: ListIAMPolicyAssignmentsCommandInput,
+    cb: (err: any, data?: ListIAMPolicyAssignmentsCommandOutput) => void
   ): void;
-  public deleteGroup(
-    args: DeleteGroupCommandInput,
+  public listIAMPolicyAssignments(
+    args: ListIAMPolicyAssignmentsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteGroupCommandOutput) => void
+    cb: (err: any, data?: ListIAMPolicyAssignmentsCommandOutput) => void
   ): void;
-  public deleteGroup(
-    args: DeleteGroupCommandInput,
+  public listIAMPolicyAssignments(
+    args: ListIAMPolicyAssignmentsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGroupCommandOutput) => void),
-    cb?: (err: any, data?: DeleteGroupCommandOutput) => void
-  ): Promise<DeleteGroupCommandOutput> | void {
-    const command = new DeleteGroupCommand(args);
+      | ((err: any, data?: ListIAMPolicyAssignmentsCommandOutput) => void),
+    cb?: (err: any, data?: ListIAMPolicyAssignmentsCommandOutput) => void
+  ): Promise<ListIAMPolicyAssignmentsCommandOutput> | void {
+    const command = new ListIAMPolicyAssignmentsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Describes a data source.</p>
+   *
+   */
+  public describeDataSource(
+    args: DescribeDataSourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDataSourceCommandOutput>;
+  public describeDataSource(
+    args: DescribeDataSourceCommandInput,
+    cb: (err: any, data?: DescribeDataSourceCommandOutput) => void
+  ): void;
+  public describeDataSource(
+    args: DescribeDataSourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDataSourceCommandOutput) => void
+  ): void;
+  public describeDataSource(
+    args: DescribeDataSourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeDataSourceCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDataSourceCommandOutput) => void
+  ): Promise<DescribeDataSourceCommandOutput> | void {
+    const command = new DescribeDataSourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Removes a user from a group so that the user is no longer a member of the group.</p>
+   *
+   */
+  public deleteGroupMembership(
+    args: DeleteGroupMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGroupMembershipCommandOutput>;
+  public deleteGroupMembership(
+    args: DeleteGroupMembershipCommandInput,
+    cb: (err: any, data?: DeleteGroupMembershipCommandOutput) => void
+  ): void;
+  public deleteGroupMembership(
+    args: DeleteGroupMembershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteGroupMembershipCommandOutput) => void
+  ): void;
+  public deleteGroupMembership(
+    args: DeleteGroupMembershipCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteGroupMembershipCommandOutput) => void),
+    cb?: (err: any, data?: DeleteGroupMembershipCommandOutput) => void
+  ): Promise<DeleteGroupMembershipCommandOutput> | void {
+    const command = new DeleteGroupMembershipCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1209,30 +943,30 @@ export class QuickSight extends QuickSightClient {
 
   /**
    *
-   * 		       <p>Lists member users in a group.</p>
+   * 		       <p>Lists all the versions of the templates in the Quicksight account.</p>
    *
    */
-  public listGroupMemberships(
-    args: ListGroupMembershipsCommandInput,
+  public listTemplateVersions(
+    args: ListTemplateVersionsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListGroupMembershipsCommandOutput>;
-  public listGroupMemberships(
-    args: ListGroupMembershipsCommandInput,
-    cb: (err: any, data?: ListGroupMembershipsCommandOutput) => void
+  ): Promise<ListTemplateVersionsCommandOutput>;
+  public listTemplateVersions(
+    args: ListTemplateVersionsCommandInput,
+    cb: (err: any, data?: ListTemplateVersionsCommandOutput) => void
   ): void;
-  public listGroupMemberships(
-    args: ListGroupMembershipsCommandInput,
+  public listTemplateVersions(
+    args: ListTemplateVersionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListGroupMembershipsCommandOutput) => void
+    cb: (err: any, data?: ListTemplateVersionsCommandOutput) => void
   ): void;
-  public listGroupMemberships(
-    args: ListGroupMembershipsCommandInput,
+  public listTemplateVersions(
+    args: ListTemplateVersionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListGroupMembershipsCommandOutput) => void),
-    cb?: (err: any, data?: ListGroupMembershipsCommandOutput) => void
-  ): Promise<ListGroupMembershipsCommandOutput> | void {
-    const command = new ListGroupMembershipsCommand(args);
+      | ((err: any, data?: ListTemplateVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListTemplateVersionsCommandOutput) => void
+  ): Promise<ListTemplateVersionsCommandOutput> | void {
+    const command = new ListTemplateVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1246,32 +980,30 @@ export class QuickSight extends QuickSightClient {
 
   /**
    *
-   * 		       <p>Lists all of the datasets belonging to this account in an AWS region.</p>
-   * 		       <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/*</code>.</p>
-   *
+   * 		       <p>Updates a template from an existing QuickSight analysis.</p>
    *
    */
-  public listDataSets(
-    args: ListDataSetsCommandInput,
+  public updateTemplate(
+    args: UpdateTemplateCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListDataSetsCommandOutput>;
-  public listDataSets(
-    args: ListDataSetsCommandInput,
-    cb: (err: any, data?: ListDataSetsCommandOutput) => void
+  ): Promise<UpdateTemplateCommandOutput>;
+  public updateTemplate(
+    args: UpdateTemplateCommandInput,
+    cb: (err: any, data?: UpdateTemplateCommandOutput) => void
   ): void;
-  public listDataSets(
-    args: ListDataSetsCommandInput,
+  public updateTemplate(
+    args: UpdateTemplateCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDataSetsCommandOutput) => void
+    cb: (err: any, data?: UpdateTemplateCommandOutput) => void
   ): void;
-  public listDataSets(
-    args: ListDataSetsCommandInput,
+  public updateTemplate(
+    args: UpdateTemplateCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListDataSetsCommandOutput) => void),
-    cb?: (err: any, data?: ListDataSetsCommandOutput) => void
-  ): Promise<ListDataSetsCommandOutput> | void {
-    const command = new ListDataSetsCommand(args);
+      | ((err: any, data?: UpdateTemplateCommandOutput) => void),
+    cb?: (err: any, data?: UpdateTemplateCommandOutput) => void
+  ): Promise<UpdateTemplateCommandOutput> | void {
+    const command = new UpdateTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1285,36 +1017,255 @@ export class QuickSight extends QuickSightClient {
 
   /**
    *
-   * 		       <p>Creates a template from an existing QuickSight analysis or template. The resulting template
-   * 			can be used to create a dashboard.</p>
-   * 		       <p>A template is an entity in QuickSight which encapsulates the metadata required to create an
-   * 			analysis that can be used to create dashboard. It adds a layer of abstraction by use
-   * 			placeholders to replace the dataset associated with the analysis. You can use templates to
-   * 			create dashboards by replacing dataset placeholders with datasets which follow the same
-   * 			schema that was used to create the source analysis and template.</p>
+   * 		       <p>Deletes an existing assignment.</p>
    *
    */
-  public createTemplate(
-    args: CreateTemplateCommandInput,
+  public deleteIAMPolicyAssignment(
+    args: DeleteIAMPolicyAssignmentCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreateTemplateCommandOutput>;
-  public createTemplate(
-    args: CreateTemplateCommandInput,
-    cb: (err: any, data?: CreateTemplateCommandOutput) => void
+  ): Promise<DeleteIAMPolicyAssignmentCommandOutput>;
+  public deleteIAMPolicyAssignment(
+    args: DeleteIAMPolicyAssignmentCommandInput,
+    cb: (err: any, data?: DeleteIAMPolicyAssignmentCommandOutput) => void
   ): void;
-  public createTemplate(
-    args: CreateTemplateCommandInput,
+  public deleteIAMPolicyAssignment(
+    args: DeleteIAMPolicyAssignmentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateTemplateCommandOutput) => void
+    cb: (err: any, data?: DeleteIAMPolicyAssignmentCommandOutput) => void
   ): void;
-  public createTemplate(
-    args: CreateTemplateCommandInput,
+  public deleteIAMPolicyAssignment(
+    args: DeleteIAMPolicyAssignmentCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: CreateTemplateCommandOutput) => void),
-    cb?: (err: any, data?: CreateTemplateCommandOutput) => void
-  ): Promise<CreateTemplateCommandOutput> | void {
-    const command = new CreateTemplateCommand(args);
+      | ((err: any, data?: DeleteIAMPolicyAssignmentCommandOutput) => void),
+    cb?: (err: any, data?: DeleteIAMPolicyAssignmentCommandOutput) => void
+  ): Promise<DeleteIAMPolicyAssignmentCommandOutput> | void {
+    const command = new DeleteIAMPolicyAssignmentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Creates an Amazon QuickSight user, whose identity is associated with the AWS Identity
+   * 			and Access Management (IAM) identity or role specified in the request. </p>
+   *
+   */
+  public registerUser(
+    args: RegisterUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterUserCommandOutput>;
+  public registerUser(
+    args: RegisterUserCommandInput,
+    cb: (err: any, data?: RegisterUserCommandOutput) => void
+  ): void;
+  public registerUser(
+    args: RegisterUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterUserCommandOutput) => void
+  ): void;
+  public registerUser(
+    args: RegisterUserCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RegisterUserCommandOutput) => void),
+    cb?: (err: any, data?: RegisterUserCommandOutput) => void
+  ): Promise<RegisterUserCommandOutput> | void {
+    const command = new RegisterUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Updates the permissions to a data source.</p>
+   *
+   *
+   */
+  public updateDataSourcePermissions(
+    args: UpdateDataSourcePermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDataSourcePermissionsCommandOutput>;
+  public updateDataSourcePermissions(
+    args: UpdateDataSourcePermissionsCommandInput,
+    cb: (err: any, data?: UpdateDataSourcePermissionsCommandOutput) => void
+  ): void;
+  public updateDataSourcePermissions(
+    args: UpdateDataSourcePermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDataSourcePermissionsCommandOutput) => void
+  ): void;
+  public updateDataSourcePermissions(
+    args: UpdateDataSourcePermissionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateDataSourcePermissionsCommandOutput) => void),
+    cb?: (err: any, data?: UpdateDataSourcePermissionsCommandOutput) => void
+  ): Promise<UpdateDataSourcePermissionsCommandOutput> | void {
+    const command = new UpdateDataSourcePermissionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Lists dashboards in the AWS account.</p>
+   *
+   */
+  public listDashboards(
+    args: ListDashboardsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDashboardsCommandOutput>;
+  public listDashboards(
+    args: ListDashboardsCommandInput,
+    cb: (err: any, data?: ListDashboardsCommandOutput) => void
+  ): void;
+  public listDashboards(
+    args: ListDashboardsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDashboardsCommandOutput) => void
+  ): void;
+  public listDashboards(
+    args: ListDashboardsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDashboardsCommandOutput) => void),
+    cb?: (err: any, data?: ListDashboardsCommandOutput) => void
+  ): Promise<ListDashboardsCommandOutput> | void {
+    const command = new ListDashboardsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Updates a data source.</p>
+   *
+   *
+   */
+  public updateDataSource(
+    args: UpdateDataSourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDataSourceCommandOutput>;
+  public updateDataSource(
+    args: UpdateDataSourceCommandInput,
+    cb: (err: any, data?: UpdateDataSourceCommandOutput) => void
+  ): void;
+  public updateDataSource(
+    args: UpdateDataSourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDataSourceCommandOutput) => void
+  ): void;
+  public updateDataSource(
+    args: UpdateDataSourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateDataSourceCommandOutput) => void),
+    cb?: (err: any, data?: UpdateDataSourceCommandOutput) => void
+  ): Promise<UpdateDataSourceCommandOutput> | void {
+    const command = new UpdateDataSourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Update template alias of given template.</p>
+   *
+   */
+  public deleteTemplateAlias(
+    args: DeleteTemplateAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTemplateAliasCommandOutput>;
+  public deleteTemplateAlias(
+    args: DeleteTemplateAliasCommandInput,
+    cb: (err: any, data?: DeleteTemplateAliasCommandOutput) => void
+  ): void;
+  public deleteTemplateAlias(
+    args: DeleteTemplateAliasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTemplateAliasCommandOutput) => void
+  ): void;
+  public deleteTemplateAlias(
+    args: DeleteTemplateAliasCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteTemplateAliasCommandOutput) => void),
+    cb?: (err: any, data?: DeleteTemplateAliasCommandOutput) => void
+  ): Promise<DeleteTemplateAliasCommandOutput> | void {
+    const command = new DeleteTemplateAliasCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Creates a template alias for a template.</p>
+   *
+   */
+  public createTemplateAlias(
+    args: CreateTemplateAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTemplateAliasCommandOutput>;
+  public createTemplateAlias(
+    args: CreateTemplateAliasCommandInput,
+    cb: (err: any, data?: CreateTemplateAliasCommandOutput) => void
+  ): void;
+  public createTemplateAlias(
+    args: CreateTemplateAliasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTemplateAliasCommandOutput) => void
+  ): void;
+  public createTemplateAlias(
+    args: CreateTemplateAliasCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateTemplateAliasCommandOutput) => void),
+    cb?: (err: any, data?: CreateTemplateAliasCommandOutput) => void
+  ): Promise<CreateTemplateAliasCommandOutput> | void {
+    const command = new CreateTemplateAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1372,31 +1323,385 @@ export class QuickSight extends QuickSightClient {
 
   /**
    *
-   * 		       <p>Updates the permissions to a data source.</p>
+   * 		       <p>Cancels an ongoing ingestion of data into SPICE.</p>
    *
    *
    */
-  public updateDataSourcePermissions(
-    args: UpdateDataSourcePermissionsCommandInput,
+  public cancelIngestion(
+    args: CancelIngestionCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UpdateDataSourcePermissionsCommandOutput>;
-  public updateDataSourcePermissions(
-    args: UpdateDataSourcePermissionsCommandInput,
-    cb: (err: any, data?: UpdateDataSourcePermissionsCommandOutput) => void
+  ): Promise<CancelIngestionCommandOutput>;
+  public cancelIngestion(
+    args: CancelIngestionCommandInput,
+    cb: (err: any, data?: CancelIngestionCommandOutput) => void
   ): void;
-  public updateDataSourcePermissions(
-    args: UpdateDataSourcePermissionsCommandInput,
+  public cancelIngestion(
+    args: CancelIngestionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateDataSourcePermissionsCommandOutput) => void
+    cb: (err: any, data?: CancelIngestionCommandOutput) => void
   ): void;
-  public updateDataSourcePermissions(
-    args: UpdateDataSourcePermissionsCommandInput,
+  public cancelIngestion(
+    args: CancelIngestionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDataSourcePermissionsCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDataSourcePermissionsCommandOutput) => void
-  ): Promise<UpdateDataSourcePermissionsCommandOutput> | void {
-    const command = new UpdateDataSourcePermissionsCommand(args);
+      | ((err: any, data?: CancelIngestionCommandOutput) => void),
+    cb?: (err: any, data?: CancelIngestionCommandOutput) => void
+  ): Promise<CancelIngestionCommandOutput> | void {
+    const command = new CancelIngestionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Creates a dataset.</p>
+   *
+   *
+   */
+  public createDataSet(
+    args: CreateDataSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataSetCommandOutput>;
+  public createDataSet(
+    args: CreateDataSetCommandInput,
+    cb: (err: any, data?: CreateDataSetCommandOutput) => void
+  ): void;
+  public createDataSet(
+    args: CreateDataSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDataSetCommandOutput) => void
+  ): void;
+  public createDataSet(
+    args: CreateDataSetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateDataSetCommandOutput) => void),
+    cb?: (err: any, data?: CreateDataSetCommandOutput) => void
+  ): Promise<CreateDataSetCommandOutput> | void {
+    const command = new CreateDataSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Lists all the aliases of a template.</p>
+   *
+   *
+   */
+  public listTemplateAliases(
+    args: ListTemplateAliasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTemplateAliasesCommandOutput>;
+  public listTemplateAliases(
+    args: ListTemplateAliasesCommandInput,
+    cb: (err: any, data?: ListTemplateAliasesCommandOutput) => void
+  ): void;
+  public listTemplateAliases(
+    args: ListTemplateAliasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTemplateAliasesCommandOutput) => void
+  ): void;
+  public listTemplateAliases(
+    args: ListTemplateAliasesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTemplateAliasesCommandOutput) => void),
+    cb?: (err: any, data?: ListTemplateAliasesCommandOutput) => void
+  ): Promise<ListTemplateAliasesCommandOutput> | void {
+    const command = new ListTemplateAliasesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Generates a server-side embeddable URL and authorization code. Before this can work
+   * 			properly, first you need to configure the dashboards and user permissions. For more
+   * 			information, see the Amazon QuickSight User Guide section on <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-dashboards.html">Embedding
+   * 			Amazon QuickSight Dashboards</a> or see the Amazon QuickSight API Reference section on
+   * 			<a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/qs-dev-embedded-dashboards.html">Embedding
+   * 			Amazon QuickSight Dashboards</a>
+   * 			.</p>
+   * 		       <p>Currently, you can use <code>GetDashboardEmbedURL</code> only from the server, not from
+   * 			the user’s browser.</p>
+   *
+   */
+  public getDashboardEmbedUrl(
+    args: GetDashboardEmbedUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDashboardEmbedUrlCommandOutput>;
+  public getDashboardEmbedUrl(
+    args: GetDashboardEmbedUrlCommandInput,
+    cb: (err: any, data?: GetDashboardEmbedUrlCommandOutput) => void
+  ): void;
+  public getDashboardEmbedUrl(
+    args: GetDashboardEmbedUrlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDashboardEmbedUrlCommandOutput) => void
+  ): void;
+  public getDashboardEmbedUrl(
+    args: GetDashboardEmbedUrlCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetDashboardEmbedUrlCommandOutput) => void),
+    cb?: (err: any, data?: GetDashboardEmbedUrlCommandOutput) => void
+  ): Promise<GetDashboardEmbedUrlCommandOutput> | void {
+    const command = new GetDashboardEmbedUrlCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Updates an Amazon QuickSight user.</p>
+   *
+   */
+  public updateUser(
+    args: UpdateUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateUserCommandOutput>;
+  public updateUser(
+    args: UpdateUserCommandInput,
+    cb: (err: any, data?: UpdateUserCommandOutput) => void
+  ): void;
+  public updateUser(
+    args: UpdateUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateUserCommandOutput) => void
+  ): void;
+  public updateUser(
+    args: UpdateUserCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateUserCommandOutput) => void),
+    cb?: (err: any, data?: UpdateUserCommandOutput) => void
+  ): Promise<UpdateUserCommandOutput> | void {
+    const command = new UpdateUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Lists all the assignments and the Amazon Resource Names (ARNs) for
+   * 			the associated IAM policies assigned to the specified user and the
+   * 			group or groups that the user belongs to.</p>
+   *
+   */
+  public listIAMPolicyAssignmentsForUser(
+    args: ListIAMPolicyAssignmentsForUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIAMPolicyAssignmentsForUserCommandOutput>;
+  public listIAMPolicyAssignmentsForUser(
+    args: ListIAMPolicyAssignmentsForUserCommandInput,
+    cb: (err: any, data?: ListIAMPolicyAssignmentsForUserCommandOutput) => void
+  ): void;
+  public listIAMPolicyAssignmentsForUser(
+    args: ListIAMPolicyAssignmentsForUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIAMPolicyAssignmentsForUserCommandOutput) => void
+  ): void;
+  public listIAMPolicyAssignmentsForUser(
+    args: ListIAMPolicyAssignmentsForUserCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: ListIAMPolicyAssignmentsForUserCommandOutput
+        ) => void),
+    cb?: (err: any, data?: ListIAMPolicyAssignmentsForUserCommandOutput) => void
+  ): Promise<ListIAMPolicyAssignmentsForUserCommandOutput> | void {
+    const command = new ListIAMPolicyAssignmentsForUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Deletes a dashboard.</p>
+   *
+   */
+  public deleteDashboard(
+    args: DeleteDashboardCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDashboardCommandOutput>;
+  public deleteDashboard(
+    args: DeleteDashboardCommandInput,
+    cb: (err: any, data?: DeleteDashboardCommandOutput) => void
+  ): void;
+  public deleteDashboard(
+    args: DeleteDashboardCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDashboardCommandOutput) => void
+  ): void;
+  public deleteDashboard(
+    args: DeleteDashboardCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteDashboardCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDashboardCommandOutput) => void
+  ): Promise<DeleteDashboardCommandOutput> | void {
+    const command = new DeleteDashboardCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Describes read and write permissions on a template.</p>
+   *
+   */
+  public describeTemplatePermissions(
+    args: DescribeTemplatePermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTemplatePermissionsCommandOutput>;
+  public describeTemplatePermissions(
+    args: DescribeTemplatePermissionsCommandInput,
+    cb: (err: any, data?: DescribeTemplatePermissionsCommandOutput) => void
+  ): void;
+  public describeTemplatePermissions(
+    args: DescribeTemplatePermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTemplatePermissionsCommandOutput) => void
+  ): void;
+  public describeTemplatePermissions(
+    args: DescribeTemplatePermissionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeTemplatePermissionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTemplatePermissionsCommandOutput) => void
+  ): Promise<DescribeTemplatePermissionsCommandOutput> | void {
+    const command = new DescribeTemplatePermissionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Lists all of the datasets belonging to this account in an AWS region.</p>
+   * 		       <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/*</code>.</p>
+   *
+   *
+   */
+  public listDataSets(
+    args: ListDataSetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataSetsCommandOutput>;
+  public listDataSets(
+    args: ListDataSetsCommandInput,
+    cb: (err: any, data?: ListDataSetsCommandOutput) => void
+  ): void;
+  public listDataSets(
+    args: ListDataSetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataSetsCommandOutput) => void
+  ): void;
+  public listDataSets(
+    args: ListDataSetsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDataSetsCommandOutput) => void),
+    cb?: (err: any, data?: ListDataSetsCommandOutput) => void
+  ): Promise<ListDataSetsCommandOutput> | void {
+    const command = new ListDataSetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Creates an Amazon QuickSight group.</p>
+   * 		       <p>The permissions resource is
+   * 					<code>arn:aws:quicksight:us-east-1:<i><relevant-aws-account-id></i>:group/default/<i><group-name></i>
+   *             </code>.</p>
+   * 		       <p>The response is a group object.</p>
+   *
+   */
+  public createGroup(
+    args: CreateGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGroupCommandOutput>;
+  public createGroup(
+    args: CreateGroupCommandInput,
+    cb: (err: any, data?: CreateGroupCommandOutput) => void
+  ): void;
+  public createGroup(
+    args: CreateGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateGroupCommandOutput) => void
+  ): void;
+  public createGroup(
+    args: CreateGroupCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateGroupCommandOutput) => void),
+    cb?: (err: any, data?: CreateGroupCommandOutput) => void
+  ): Promise<CreateGroupCommandOutput> | void {
+    const command = new CreateGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1447,30 +1752,31 @@ export class QuickSight extends QuickSightClient {
 
   /**
    *
-   * 		       <p>Updates read and write permissions on a dashboard.</p>
+   * 		       <p>Creates a data source.</p>
+   *
    *
    */
-  public updateDashboardPermissions(
-    args: UpdateDashboardPermissionsCommandInput,
+  public createDataSource(
+    args: CreateDataSourceCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UpdateDashboardPermissionsCommandOutput>;
-  public updateDashboardPermissions(
-    args: UpdateDashboardPermissionsCommandInput,
-    cb: (err: any, data?: UpdateDashboardPermissionsCommandOutput) => void
+  ): Promise<CreateDataSourceCommandOutput>;
+  public createDataSource(
+    args: CreateDataSourceCommandInput,
+    cb: (err: any, data?: CreateDataSourceCommandOutput) => void
   ): void;
-  public updateDashboardPermissions(
-    args: UpdateDashboardPermissionsCommandInput,
+  public createDataSource(
+    args: CreateDataSourceCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateDashboardPermissionsCommandOutput) => void
+    cb: (err: any, data?: CreateDataSourceCommandOutput) => void
   ): void;
-  public updateDashboardPermissions(
-    args: UpdateDashboardPermissionsCommandInput,
+  public createDataSource(
+    args: CreateDataSourceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDashboardPermissionsCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDashboardPermissionsCommandOutput) => void
-  ): Promise<UpdateDashboardPermissionsCommandOutput> | void {
-    const command = new UpdateDashboardPermissionsCommand(args);
+      | ((err: any, data?: CreateDataSourceCommandOutput) => void),
+    cb?: (err: any, data?: CreateDataSourceCommandOutput) => void
+  ): Promise<CreateDataSourceCommandOutput> | void {
+    const command = new CreateDataSourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1484,30 +1790,105 @@ export class QuickSight extends QuickSightClient {
 
   /**
    *
-   * 		       <p>Deletes a dashboard.</p>
+   * 		       <p>Updates a dataset.</p>
+   *
    *
    */
-  public deleteDashboard(
-    args: DeleteDashboardCommandInput,
+  public updateDataSet(
+    args: UpdateDataSetCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteDashboardCommandOutput>;
-  public deleteDashboard(
-    args: DeleteDashboardCommandInput,
-    cb: (err: any, data?: DeleteDashboardCommandOutput) => void
+  ): Promise<UpdateDataSetCommandOutput>;
+  public updateDataSet(
+    args: UpdateDataSetCommandInput,
+    cb: (err: any, data?: UpdateDataSetCommandOutput) => void
   ): void;
-  public deleteDashboard(
-    args: DeleteDashboardCommandInput,
+  public updateDataSet(
+    args: UpdateDataSetCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteDashboardCommandOutput) => void
+    cb: (err: any, data?: UpdateDataSetCommandOutput) => void
   ): void;
-  public deleteDashboard(
-    args: DeleteDashboardCommandInput,
+  public updateDataSet(
+    args: UpdateDataSetCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDashboardCommandOutput) => void),
-    cb?: (err: any, data?: DeleteDashboardCommandOutput) => void
-  ): Promise<DeleteDashboardCommandOutput> | void {
-    const command = new DeleteDashboardCommand(args);
+      | ((err: any, data?: UpdateDataSetCommandOutput) => void),
+    cb?: (err: any, data?: UpdateDataSetCommandOutput) => void
+  ): Promise<UpdateDataSetCommandOutput> | void {
+    const command = new UpdateDataSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Describes a template's metadata.</p>
+   *
+   */
+  public describeTemplate(
+    args: DescribeTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTemplateCommandOutput>;
+  public describeTemplate(
+    args: DescribeTemplateCommandInput,
+    cb: (err: any, data?: DescribeTemplateCommandOutput) => void
+  ): void;
+  public describeTemplate(
+    args: DescribeTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTemplateCommandOutput) => void
+  ): void;
+  public describeTemplate(
+    args: DescribeTemplateCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeTemplateCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTemplateCommandOutput) => void
+  ): Promise<DescribeTemplateCommandOutput> | void {
+    const command = new DescribeTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Lists member users in a group.</p>
+   *
+   */
+  public listGroupMemberships(
+    args: ListGroupMembershipsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGroupMembershipsCommandOutput>;
+  public listGroupMemberships(
+    args: ListGroupMembershipsCommandInput,
+    cb: (err: any, data?: ListGroupMembershipsCommandOutput) => void
+  ): void;
+  public listGroupMemberships(
+    args: ListGroupMembershipsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListGroupMembershipsCommandOutput) => void
+  ): void;
+  public listGroupMemberships(
+    args: ListGroupMembershipsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListGroupMembershipsCommandOutput) => void),
+    cb?: (err: any, data?: ListGroupMembershipsCommandOutput) => void
+  ): Promise<ListGroupMembershipsCommandOutput> | void {
+    const command = new ListGroupMembershipsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1559,30 +1940,32 @@ export class QuickSight extends QuickSightClient {
 
   /**
    *
-   * 		       <p>Updates an Amazon QuickSight user.</p>
+   * 		       <p>Deletes the Amazon QuickSight user that is associated with the identity of the AWS
+   * 			Identity and Access Management (IAM) user or role that's making the call. The IAM user
+   * 			isn't deleted as a result of this call. </p>
    *
    */
-  public updateUser(
-    args: UpdateUserCommandInput,
+  public deleteUser(
+    args: DeleteUserCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UpdateUserCommandOutput>;
-  public updateUser(
-    args: UpdateUserCommandInput,
-    cb: (err: any, data?: UpdateUserCommandOutput) => void
+  ): Promise<DeleteUserCommandOutput>;
+  public deleteUser(
+    args: DeleteUserCommandInput,
+    cb: (err: any, data?: DeleteUserCommandOutput) => void
   ): void;
-  public updateUser(
-    args: UpdateUserCommandInput,
+  public deleteUser(
+    args: DeleteUserCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateUserCommandOutput) => void
+    cb: (err: any, data?: DeleteUserCommandOutput) => void
   ): void;
-  public updateUser(
-    args: UpdateUserCommandInput,
+  public deleteUser(
+    args: DeleteUserCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUserCommandOutput) => void),
-    cb?: (err: any, data?: UpdateUserCommandOutput) => void
-  ): Promise<UpdateUserCommandOutput> | void {
-    const command = new UpdateUserCommand(args);
+      | ((err: any, data?: DeleteUserCommandOutput) => void),
+    cb?: (err: any, data?: DeleteUserCommandOutput) => void
+  ): Promise<DeleteUserCommandOutput> | void {
+    const command = new DeleteUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1596,30 +1979,30 @@ export class QuickSight extends QuickSightClient {
 
   /**
    *
-   * 		       <p>Describes read and write permissions on a template.</p>
+   * 		       <p>Describes an existing IAMPolicy Assignment by specified assignment name.</p>
    *
    */
-  public describeTemplatePermissions(
-    args: DescribeTemplatePermissionsCommandInput,
+  public describeIAMPolicyAssignment(
+    args: DescribeIAMPolicyAssignmentCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DescribeTemplatePermissionsCommandOutput>;
-  public describeTemplatePermissions(
-    args: DescribeTemplatePermissionsCommandInput,
-    cb: (err: any, data?: DescribeTemplatePermissionsCommandOutput) => void
+  ): Promise<DescribeIAMPolicyAssignmentCommandOutput>;
+  public describeIAMPolicyAssignment(
+    args: DescribeIAMPolicyAssignmentCommandInput,
+    cb: (err: any, data?: DescribeIAMPolicyAssignmentCommandOutput) => void
   ): void;
-  public describeTemplatePermissions(
-    args: DescribeTemplatePermissionsCommandInput,
+  public describeIAMPolicyAssignment(
+    args: DescribeIAMPolicyAssignmentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeTemplatePermissionsCommandOutput) => void
+    cb: (err: any, data?: DescribeIAMPolicyAssignmentCommandOutput) => void
   ): void;
-  public describeTemplatePermissions(
-    args: DescribeTemplatePermissionsCommandInput,
+  public describeIAMPolicyAssignment(
+    args: DescribeIAMPolicyAssignmentCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTemplatePermissionsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeTemplatePermissionsCommandOutput) => void
-  ): Promise<DescribeTemplatePermissionsCommandOutput> | void {
-    const command = new DescribeTemplatePermissionsCommand(args);
+      | ((err: any, data?: DescribeIAMPolicyAssignmentCommandOutput) => void),
+    cb?: (err: any, data?: DescribeIAMPolicyAssignmentCommandOutput) => void
+  ): Promise<DescribeIAMPolicyAssignmentCommandOutput> | void {
+    const command = new DescribeIAMPolicyAssignmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1633,31 +2016,372 @@ export class QuickSight extends QuickSightClient {
 
   /**
    *
-   * 		       <p>Creates an Amazon QuickSight user, whose identity is associated with the AWS Identity
-   * 			and Access Management (IAM) identity or role specified in the request. </p>
+   * 		       <p>Updates the template alias of a template.</p>
    *
    */
-  public registerUser(
-    args: RegisterUserCommandInput,
+  public updateTemplateAlias(
+    args: UpdateTemplateAliasCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<RegisterUserCommandOutput>;
-  public registerUser(
-    args: RegisterUserCommandInput,
-    cb: (err: any, data?: RegisterUserCommandOutput) => void
+  ): Promise<UpdateTemplateAliasCommandOutput>;
+  public updateTemplateAlias(
+    args: UpdateTemplateAliasCommandInput,
+    cb: (err: any, data?: UpdateTemplateAliasCommandOutput) => void
   ): void;
-  public registerUser(
-    args: RegisterUserCommandInput,
+  public updateTemplateAlias(
+    args: UpdateTemplateAliasCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: RegisterUserCommandOutput) => void
+    cb: (err: any, data?: UpdateTemplateAliasCommandOutput) => void
   ): void;
-  public registerUser(
-    args: RegisterUserCommandInput,
+  public updateTemplateAlias(
+    args: UpdateTemplateAliasCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: RegisterUserCommandOutput) => void),
-    cb?: (err: any, data?: RegisterUserCommandOutput) => void
-  ): Promise<RegisterUserCommandOutput> | void {
-    const command = new RegisterUserCommand(args);
+      | ((err: any, data?: UpdateTemplateAliasCommandOutput) => void),
+    cb?: (err: any, data?: UpdateTemplateAliasCommandOutput) => void
+  ): Promise<UpdateTemplateAliasCommandOutput> | void {
+    const command = new UpdateTemplateAliasCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Provides a summary for a dashboard.</p>
+   *
+   */
+  public describeDashboard(
+    args: DescribeDashboardCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDashboardCommandOutput>;
+  public describeDashboard(
+    args: DescribeDashboardCommandInput,
+    cb: (err: any, data?: DescribeDashboardCommandOutput) => void
+  ): void;
+  public describeDashboard(
+    args: DescribeDashboardCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDashboardCommandOutput) => void
+  ): void;
+  public describeDashboard(
+    args: DescribeDashboardCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeDashboardCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDashboardCommandOutput) => void
+  ): Promise<DescribeDashboardCommandOutput> | void {
+    const command = new DescribeDashboardCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Updates read and write permissions on a dashboard.</p>
+   *
+   */
+  public updateDashboardPermissions(
+    args: UpdateDashboardPermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDashboardPermissionsCommandOutput>;
+  public updateDashboardPermissions(
+    args: UpdateDashboardPermissionsCommandInput,
+    cb: (err: any, data?: UpdateDashboardPermissionsCommandOutput) => void
+  ): void;
+  public updateDashboardPermissions(
+    args: UpdateDashboardPermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDashboardPermissionsCommandOutput) => void
+  ): void;
+  public updateDashboardPermissions(
+    args: UpdateDashboardPermissionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateDashboardPermissionsCommandOutput) => void),
+    cb?: (err: any, data?: UpdateDashboardPermissionsCommandOutput) => void
+  ): Promise<UpdateDashboardPermissionsCommandOutput> | void {
+    const command = new UpdateDashboardPermissionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Deletes a dataset.</p>
+   *
+   *
+   */
+  public deleteDataSet(
+    args: DeleteDataSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataSetCommandOutput>;
+  public deleteDataSet(
+    args: DeleteDataSetCommandInput,
+    cb: (err: any, data?: DeleteDataSetCommandOutput) => void
+  ): void;
+  public deleteDataSet(
+    args: DeleteDataSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDataSetCommandOutput) => void
+  ): void;
+  public deleteDataSet(
+    args: DeleteDataSetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteDataSetCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDataSetCommandOutput) => void
+  ): Promise<DeleteDataSetCommandOutput> | void {
+    const command = new DeleteDataSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Lists all user groups in Amazon QuickSight. </p>
+   *
+   */
+  public listGroups(
+    args: ListGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGroupsCommandOutput>;
+  public listGroups(
+    args: ListGroupsCommandInput,
+    cb: (err: any, data?: ListGroupsCommandOutput) => void
+  ): void;
+  public listGroups(
+    args: ListGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListGroupsCommandOutput) => void
+  ): void;
+  public listGroups(
+    args: ListGroupsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListGroupsCommandOutput) => void),
+    cb?: (err: any, data?: ListGroupsCommandOutput) => void
+  ): Promise<ListGroupsCommandOutput> | void {
+    const command = new ListGroupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Removes a user group from Amazon QuickSight. </p>
+   *
+   */
+  public deleteGroup(
+    args: DeleteGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGroupCommandOutput>;
+  public deleteGroup(
+    args: DeleteGroupCommandInput,
+    cb: (err: any, data?: DeleteGroupCommandOutput) => void
+  ): void;
+  public deleteGroup(
+    args: DeleteGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteGroupCommandOutput) => void
+  ): void;
+  public deleteGroup(
+    args: DeleteGroupCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteGroupCommandOutput) => void),
+    cb?: (err: any, data?: DeleteGroupCommandOutput) => void
+  ): Promise<DeleteGroupCommandOutput> | void {
+    const command = new DeleteGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Returns a list of all of the Amazon QuickSight users belonging to this account. </p>
+   *
+   */
+  public listUsers(
+    args: ListUsersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUsersCommandOutput>;
+  public listUsers(
+    args: ListUsersCommandInput,
+    cb: (err: any, data?: ListUsersCommandOutput) => void
+  ): void;
+  public listUsers(
+    args: ListUsersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListUsersCommandOutput) => void
+  ): void;
+  public listUsers(
+    args: ListUsersCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListUsersCommandOutput) => void),
+    cb?: (err: any, data?: ListUsersCommandOutput) => void
+  ): Promise<ListUsersCommandOutput> | void {
+    const command = new ListUsersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Lists all the versions of the dashboards in the Quicksight subscription.</p>
+   *
+   */
+  public listDashboardVersions(
+    args: ListDashboardVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDashboardVersionsCommandOutput>;
+  public listDashboardVersions(
+    args: ListDashboardVersionsCommandInput,
+    cb: (err: any, data?: ListDashboardVersionsCommandOutput) => void
+  ): void;
+  public listDashboardVersions(
+    args: ListDashboardVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDashboardVersionsCommandOutput) => void
+  ): void;
+  public listDashboardVersions(
+    args: ListDashboardVersionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDashboardVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListDashboardVersionsCommandOutput) => void
+  ): Promise<ListDashboardVersionsCommandOutput> | void {
+    const command = new ListDashboardVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Updates the permissions on a dataset.</p>
+   * 		       <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.</p>
+   *
+   *
+   */
+  public updateDataSetPermissions(
+    args: UpdateDataSetPermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDataSetPermissionsCommandOutput>;
+  public updateDataSetPermissions(
+    args: UpdateDataSetPermissionsCommandInput,
+    cb: (err: any, data?: UpdateDataSetPermissionsCommandOutput) => void
+  ): void;
+  public updateDataSetPermissions(
+    args: UpdateDataSetPermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDataSetPermissionsCommandOutput) => void
+  ): void;
+  public updateDataSetPermissions(
+    args: UpdateDataSetPermissionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateDataSetPermissionsCommandOutput) => void),
+    cb?: (err: any, data?: UpdateDataSetPermissionsCommandOutput) => void
+  ): Promise<UpdateDataSetPermissionsCommandOutput> | void {
+    const command = new UpdateDataSetPermissionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Creates a template from an existing QuickSight analysis or template. The resulting template
+   * 			can be used to create a dashboard.</p>
+   * 		       <p>A template is an entity in QuickSight which encapsulates the metadata required to create an
+   * 			analysis that can be used to create dashboard. It adds a layer of abstraction by use
+   * 			placeholders to replace the dataset associated with the analysis. You can use templates to
+   * 			create dashboards by replacing dataset placeholders with datasets which follow the same
+   * 			schema that was used to create the source analysis and template.</p>
+   *
+   */
+  public createTemplate(
+    args: CreateTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTemplateCommandOutput>;
+  public createTemplate(
+    args: CreateTemplateCommandInput,
+    cb: (err: any, data?: CreateTemplateCommandOutput) => void
+  ): void;
+  public createTemplate(
+    args: CreateTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTemplateCommandOutput) => void
+  ): void;
+  public createTemplate(
+    args: CreateTemplateCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateTemplateCommandOutput) => void),
+    cb?: (err: any, data?: CreateTemplateCommandOutput) => void
+  ): Promise<CreateTemplateCommandOutput> | void {
+    const command = new CreateTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1708,30 +2432,30 @@ export class QuickSight extends QuickSightClient {
 
   /**
    *
-   * 		       <p>Deletes a user identified by its principal ID. </p>
+   * 		       <p>Updates an existing assignment. This operation updates only the optional parameter or parameters that are specified in the request.</p>
    *
    */
-  public deleteUserByPrincipalId(
-    args: DeleteUserByPrincipalIdCommandInput,
+  public updateIAMPolicyAssignment(
+    args: UpdateIAMPolicyAssignmentCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteUserByPrincipalIdCommandOutput>;
-  public deleteUserByPrincipalId(
-    args: DeleteUserByPrincipalIdCommandInput,
-    cb: (err: any, data?: DeleteUserByPrincipalIdCommandOutput) => void
+  ): Promise<UpdateIAMPolicyAssignmentCommandOutput>;
+  public updateIAMPolicyAssignment(
+    args: UpdateIAMPolicyAssignmentCommandInput,
+    cb: (err: any, data?: UpdateIAMPolicyAssignmentCommandOutput) => void
   ): void;
-  public deleteUserByPrincipalId(
-    args: DeleteUserByPrincipalIdCommandInput,
+  public updateIAMPolicyAssignment(
+    args: UpdateIAMPolicyAssignmentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteUserByPrincipalIdCommandOutput) => void
+    cb: (err: any, data?: UpdateIAMPolicyAssignmentCommandOutput) => void
   ): void;
-  public deleteUserByPrincipalId(
-    args: DeleteUserByPrincipalIdCommandInput,
+  public updateIAMPolicyAssignment(
+    args: UpdateIAMPolicyAssignmentCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserByPrincipalIdCommandOutput) => void),
-    cb?: (err: any, data?: DeleteUserByPrincipalIdCommandOutput) => void
-  ): Promise<DeleteUserByPrincipalIdCommandOutput> | void {
-    const command = new DeleteUserByPrincipalIdCommand(args);
+      | ((err: any, data?: UpdateIAMPolicyAssignmentCommandOutput) => void),
+    cb?: (err: any, data?: UpdateIAMPolicyAssignmentCommandOutput) => void
+  ): Promise<UpdateIAMPolicyAssignmentCommandOutput> | void {
+    const command = new UpdateIAMPolicyAssignmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1745,51 +2469,68 @@ export class QuickSight extends QuickSightClient {
 
   /**
    *
-   * 		       <p>Assigns one or more tags (key-value pairs) to the specified QuickSight resource. </p>
-   * 		       <p>Tags can help you organize and categorize your resources. You can also use them to
-   * 			scope user permissions, by granting a user permission to access or change only resources
-   * 			with certain tag values. You can use the <code>TagResource</code> operation with a
-   * 			resource that already has tags. If you specify a new tag key for the resource, this tag
-   * 			is appended to the list of tags associated with the resource. If you specify a tag key
-   * 			that is already associated with the resource, the new tag value that you specify
-   * 			replaces the previous value for that tag.</p>
-   * 		       <p>You can associate as many as 50 tags with a resource. QuickSight supports tagging on data
-   * 			set, data source, dashboard, and template. </p>
-   * 		       <p>Tagging for QuickSight works in a similar way to tagging for other AWS services, except for
-   * 			the following:</p>
-   * 		       <ul>
-   *             <li>
-   *                <p>You can't use tags to track AWS costs for QuickSight. This restriction is because QuickSight
-   * 					costs are based on users and SPICE capacity, which aren't taggable
-   * 					resources.</p>
-   *             </li>
-   *             <li>
-   *                <p>QuickSight doesn't currently support the Tag Editor for AWS Resource Groups.</p>
-   *             </li>
-   *          </ul>
+   * 		       <p>Updates a dashboard in the AWS account.</p>
    *
    */
-  public tagResource(
-    args: TagResourceCommandInput,
+  public updateDashboard(
+    args: UpdateDashboardCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<UpdateDashboardCommandOutput>;
+  public updateDashboard(
+    args: UpdateDashboardCommandInput,
+    cb: (err: any, data?: UpdateDashboardCommandOutput) => void
   ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
+  public updateDashboard(
+    args: UpdateDashboardCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
+    cb: (err: any, data?: UpdateDashboardCommandOutput) => void
   ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
+  public updateDashboard(
+    args: UpdateDashboardCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
+      | ((err: any, data?: UpdateDashboardCommandOutput) => void),
+    cb?: (err: any, data?: UpdateDashboardCommandOutput) => void
+  ): Promise<UpdateDashboardCommandOutput> | void {
+    const command = new UpdateDashboardCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		       <p>Lists the history of SPICE ingestions for a dataset.</p>
+   *
+   *
+   */
+  public listIngestions(
+    args: ListIngestionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIngestionsCommandOutput>;
+  public listIngestions(
+    args: ListIngestionsCommandInput,
+    cb: (err: any, data?: ListIngestionsCommandOutput) => void
+  ): void;
+  public listIngestions(
+    args: ListIngestionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIngestionsCommandOutput) => void
+  ): void;
+  public listIngestions(
+    args: ListIngestionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListIngestionsCommandOutput) => void),
+    cb?: (err: any, data?: ListIngestionsCommandOutput) => void
+  ): Promise<ListIngestionsCommandOutput> | void {
+    const command = new ListIngestionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1878,31 +2619,32 @@ export class QuickSight extends QuickSightClient {
 
   /**
    *
-   * 		       <p>Creates a data source.</p>
+   * 		       <p>Deletes the data source permanently. This action breaks
+   * 			all the datasets that reference the deleted data source.</p>
    *
    *
    */
-  public createDataSource(
-    args: CreateDataSourceCommandInput,
+  public deleteDataSource(
+    args: DeleteDataSourceCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreateDataSourceCommandOutput>;
-  public createDataSource(
-    args: CreateDataSourceCommandInput,
-    cb: (err: any, data?: CreateDataSourceCommandOutput) => void
+  ): Promise<DeleteDataSourceCommandOutput>;
+  public deleteDataSource(
+    args: DeleteDataSourceCommandInput,
+    cb: (err: any, data?: DeleteDataSourceCommandOutput) => void
   ): void;
-  public createDataSource(
-    args: CreateDataSourceCommandInput,
+  public deleteDataSource(
+    args: DeleteDataSourceCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateDataSourceCommandOutput) => void
+    cb: (err: any, data?: DeleteDataSourceCommandOutput) => void
   ): void;
-  public createDataSource(
-    args: CreateDataSourceCommandInput,
+  public deleteDataSource(
+    args: DeleteDataSourceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: CreateDataSourceCommandOutput) => void),
-    cb?: (err: any, data?: CreateDataSourceCommandOutput) => void
-  ): Promise<CreateDataSourceCommandOutput> | void {
-    const command = new CreateDataSourceCommand(args);
+      | ((err: any, data?: DeleteDataSourceCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDataSourceCommandOutput) => void
+  ): Promise<DeleteDataSourceCommandOutput> | void {
+    const command = new DeleteDataSourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1916,31 +2658,30 @@ export class QuickSight extends QuickSightClient {
 
   /**
    *
-   * 		       <p>Creates a dataset.</p>
-   *
+   * 		       <p>Deletes a user identified by its principal ID. </p>
    *
    */
-  public createDataSet(
-    args: CreateDataSetCommandInput,
+  public deleteUserByPrincipalId(
+    args: DeleteUserByPrincipalIdCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreateDataSetCommandOutput>;
-  public createDataSet(
-    args: CreateDataSetCommandInput,
-    cb: (err: any, data?: CreateDataSetCommandOutput) => void
+  ): Promise<DeleteUserByPrincipalIdCommandOutput>;
+  public deleteUserByPrincipalId(
+    args: DeleteUserByPrincipalIdCommandInput,
+    cb: (err: any, data?: DeleteUserByPrincipalIdCommandOutput) => void
   ): void;
-  public createDataSet(
-    args: CreateDataSetCommandInput,
+  public deleteUserByPrincipalId(
+    args: DeleteUserByPrincipalIdCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateDataSetCommandOutput) => void
+    cb: (err: any, data?: DeleteUserByPrincipalIdCommandOutput) => void
   ): void;
-  public createDataSet(
-    args: CreateDataSetCommandInput,
+  public deleteUserByPrincipalId(
+    args: DeleteUserByPrincipalIdCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: CreateDataSetCommandOutput) => void),
-    cb?: (err: any, data?: CreateDataSetCommandOutput) => void
-  ): Promise<CreateDataSetCommandOutput> | void {
-    const command = new CreateDataSetCommand(args);
+      | ((err: any, data?: DeleteUserByPrincipalIdCommandOutput) => void),
+    cb?: (err: any, data?: DeleteUserByPrincipalIdCommandOutput) => void
+  ): Promise<DeleteUserByPrincipalIdCommandOutput> | void {
+    const command = new DeleteUserByPrincipalIdCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1954,31 +2695,30 @@ export class QuickSight extends QuickSightClient {
 
   /**
    *
-   * 		       <p>Lists the history of SPICE ingestions for a dataset.</p>
-   *
+   * 		       <p>Returns an Amazon QuickSight group's description and Amazon Resource Name (ARN). </p>
    *
    */
-  public listIngestions(
-    args: ListIngestionsCommandInput,
+  public describeGroup(
+    args: DescribeGroupCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListIngestionsCommandOutput>;
-  public listIngestions(
-    args: ListIngestionsCommandInput,
-    cb: (err: any, data?: ListIngestionsCommandOutput) => void
+  ): Promise<DescribeGroupCommandOutput>;
+  public describeGroup(
+    args: DescribeGroupCommandInput,
+    cb: (err: any, data?: DescribeGroupCommandOutput) => void
   ): void;
-  public listIngestions(
-    args: ListIngestionsCommandInput,
+  public describeGroup(
+    args: DescribeGroupCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListIngestionsCommandOutput) => void
+    cb: (err: any, data?: DescribeGroupCommandOutput) => void
   ): void;
-  public listIngestions(
-    args: ListIngestionsCommandInput,
+  public describeGroup(
+    args: DescribeGroupCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListIngestionsCommandOutput) => void),
-    cb?: (err: any, data?: ListIngestionsCommandOutput) => void
-  ): Promise<ListIngestionsCommandOutput> | void {
-    const command = new ListIngestionsCommand(args);
+      | ((err: any, data?: DescribeGroupCommandOutput) => void),
+    cb?: (err: any, data?: DescribeGroupCommandOutput) => void
+  ): Promise<DescribeGroupCommandOutput> | void {
+    const command = new DescribeGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1992,32 +2732,30 @@ export class QuickSight extends QuickSightClient {
 
   /**
    *
-   * 		       <p>Updates the permissions on a dataset.</p>
-   * 		       <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.</p>
-   *
+   * 		       <p>Adds an Amazon QuickSight user to an Amazon QuickSight group. </p>
    *
    */
-  public updateDataSetPermissions(
-    args: UpdateDataSetPermissionsCommandInput,
+  public createGroupMembership(
+    args: CreateGroupMembershipCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UpdateDataSetPermissionsCommandOutput>;
-  public updateDataSetPermissions(
-    args: UpdateDataSetPermissionsCommandInput,
-    cb: (err: any, data?: UpdateDataSetPermissionsCommandOutput) => void
+  ): Promise<CreateGroupMembershipCommandOutput>;
+  public createGroupMembership(
+    args: CreateGroupMembershipCommandInput,
+    cb: (err: any, data?: CreateGroupMembershipCommandOutput) => void
   ): void;
-  public updateDataSetPermissions(
-    args: UpdateDataSetPermissionsCommandInput,
+  public createGroupMembership(
+    args: CreateGroupMembershipCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateDataSetPermissionsCommandOutput) => void
+    cb: (err: any, data?: CreateGroupMembershipCommandOutput) => void
   ): void;
-  public updateDataSetPermissions(
-    args: UpdateDataSetPermissionsCommandInput,
+  public createGroupMembership(
+    args: CreateGroupMembershipCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDataSetPermissionsCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDataSetPermissionsCommandOutput) => void
-  ): Promise<UpdateDataSetPermissionsCommandOutput> | void {
-    const command = new UpdateDataSetPermissionsCommand(args);
+      | ((err: any, data?: CreateGroupMembershipCommandOutput) => void),
+    cb?: (err: any, data?: CreateGroupMembershipCommandOutput) => void
+  ): Promise<CreateGroupMembershipCommandOutput> | void {
+    const command = new CreateGroupMembershipCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2031,789 +2769,51 @@ export class QuickSight extends QuickSightClient {
 
   /**
    *
-   * 		       <p>Describes read and write permissions on a dashboard.</p>
+   * 		       <p>Assigns one or more tags (key-value pairs) to the specified QuickSight resource. </p>
+   * 		       <p>Tags can help you organize and categorize your resources. You can also use them to
+   * 			scope user permissions, by granting a user permission to access or change only resources
+   * 			with certain tag values. You can use the <code>TagResource</code> operation with a
+   * 			resource that already has tags. If you specify a new tag key for the resource, this tag
+   * 			is appended to the list of tags associated with the resource. If you specify a tag key
+   * 			that is already associated with the resource, the new tag value that you specify
+   * 			replaces the previous value for that tag.</p>
+   * 		       <p>You can associate as many as 50 tags with a resource. QuickSight supports tagging on data
+   * 			set, data source, dashboard, and template. </p>
+   * 		       <p>Tagging for QuickSight works in a similar way to tagging for other AWS services, except for
+   * 			the following:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>You can't use tags to track AWS costs for QuickSight. This restriction is because QuickSight
+   * 					costs are based on users and SPICE capacity, which aren't taggable
+   * 					resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>QuickSight doesn't currently support the Tag Editor for AWS Resource Groups.</p>
+   *             </li>
+   *          </ul>
    *
    */
-  public describeDashboardPermissions(
-    args: DescribeDashboardPermissionsCommandInput,
+  public tagResource(
+    args: TagResourceCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DescribeDashboardPermissionsCommandOutput>;
-  public describeDashboardPermissions(
-    args: DescribeDashboardPermissionsCommandInput,
-    cb: (err: any, data?: DescribeDashboardPermissionsCommandOutput) => void
+  ): Promise<TagResourceCommandOutput>;
+  public tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
-  public describeDashboardPermissions(
-    args: DescribeDashboardPermissionsCommandInput,
+  public tagResource(
+    args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeDashboardPermissionsCommandOutput) => void
+    cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
-  public describeDashboardPermissions(
-    args: DescribeDashboardPermissionsCommandInput,
+  public tagResource(
+    args: TagResourceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDashboardPermissionsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDashboardPermissionsCommandOutput) => void
-  ): Promise<DescribeDashboardPermissionsCommandOutput> | void {
-    const command = new DescribeDashboardPermissionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Cancels an ongoing ingestion of data into SPICE.</p>
-   *
-   *
-   */
-  public cancelIngestion(
-    args: CancelIngestionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CancelIngestionCommandOutput>;
-  public cancelIngestion(
-    args: CancelIngestionCommandInput,
-    cb: (err: any, data?: CancelIngestionCommandOutput) => void
-  ): void;
-  public cancelIngestion(
-    args: CancelIngestionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CancelIngestionCommandOutput) => void
-  ): void;
-  public cancelIngestion(
-    args: CancelIngestionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelIngestionCommandOutput) => void),
-    cb?: (err: any, data?: CancelIngestionCommandOutput) => void
-  ): Promise<CancelIngestionCommandOutput> | void {
-    const command = new CancelIngestionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Updates an existing assignment. This operation updates only the optional parameter or parameters that are specified in the request.</p>
-   *
-   */
-  public updateIAMPolicyAssignment(
-    args: UpdateIAMPolicyAssignmentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateIAMPolicyAssignmentCommandOutput>;
-  public updateIAMPolicyAssignment(
-    args: UpdateIAMPolicyAssignmentCommandInput,
-    cb: (err: any, data?: UpdateIAMPolicyAssignmentCommandOutput) => void
-  ): void;
-  public updateIAMPolicyAssignment(
-    args: UpdateIAMPolicyAssignmentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateIAMPolicyAssignmentCommandOutput) => void
-  ): void;
-  public updateIAMPolicyAssignment(
-    args: UpdateIAMPolicyAssignmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateIAMPolicyAssignmentCommandOutput) => void),
-    cb?: (err: any, data?: UpdateIAMPolicyAssignmentCommandOutput) => void
-  ): Promise<UpdateIAMPolicyAssignmentCommandOutput> | void {
-    const command = new UpdateIAMPolicyAssignmentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Creates an assignment with one specified IAM policy Amazon Resource Name (ARN) and will assigned to specified groups or users of QuickSight.
-   * 		Users and groups need to be in the same namespace.
-   * 		</p>
-   *
-   */
-  public createIAMPolicyAssignment(
-    args: CreateIAMPolicyAssignmentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateIAMPolicyAssignmentCommandOutput>;
-  public createIAMPolicyAssignment(
-    args: CreateIAMPolicyAssignmentCommandInput,
-    cb: (err: any, data?: CreateIAMPolicyAssignmentCommandOutput) => void
-  ): void;
-  public createIAMPolicyAssignment(
-    args: CreateIAMPolicyAssignmentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateIAMPolicyAssignmentCommandOutput) => void
-  ): void;
-  public createIAMPolicyAssignment(
-    args: CreateIAMPolicyAssignmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateIAMPolicyAssignmentCommandOutput) => void),
-    cb?: (err: any, data?: CreateIAMPolicyAssignmentCommandOutput) => void
-  ): Promise<CreateIAMPolicyAssignmentCommandOutput> | void {
-    const command = new CreateIAMPolicyAssignmentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Updates a dashboard in the AWS account.</p>
-   *
-   */
-  public updateDashboard(
-    args: UpdateDashboardCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateDashboardCommandOutput>;
-  public updateDashboard(
-    args: UpdateDashboardCommandInput,
-    cb: (err: any, data?: UpdateDashboardCommandOutput) => void
-  ): void;
-  public updateDashboard(
-    args: UpdateDashboardCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateDashboardCommandOutput) => void
-  ): void;
-  public updateDashboard(
-    args: UpdateDashboardCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDashboardCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDashboardCommandOutput) => void
-  ): Promise<UpdateDashboardCommandOutput> | void {
-    const command = new UpdateDashboardCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Creates an Amazon QuickSight group.</p>
-   * 		       <p>The permissions resource is
-   * 					<code>arn:aws:quicksight:us-east-1:<i><relevant-aws-account-id></i>:group/default/<i><group-name></i>
-   *             </code>.</p>
-   * 		       <p>The response is a group object.</p>
-   *
-   */
-  public createGroup(
-    args: CreateGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateGroupCommandOutput>;
-  public createGroup(
-    args: CreateGroupCommandInput,
-    cb: (err: any, data?: CreateGroupCommandOutput) => void
-  ): void;
-  public createGroup(
-    args: CreateGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateGroupCommandOutput) => void
-  ): void;
-  public createGroup(
-    args: CreateGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGroupCommandOutput) => void),
-    cb?: (err: any, data?: CreateGroupCommandOutput) => void
-  ): Promise<CreateGroupCommandOutput> | void {
-    const command = new CreateGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Updates a data source.</p>
-   *
-   *
-   */
-  public updateDataSource(
-    args: UpdateDataSourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateDataSourceCommandOutput>;
-  public updateDataSource(
-    args: UpdateDataSourceCommandInput,
-    cb: (err: any, data?: UpdateDataSourceCommandOutput) => void
-  ): void;
-  public updateDataSource(
-    args: UpdateDataSourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateDataSourceCommandOutput) => void
-  ): void;
-  public updateDataSource(
-    args: UpdateDataSourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDataSourceCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDataSourceCommandOutput) => void
-  ): Promise<UpdateDataSourceCommandOutput> | void {
-    const command = new UpdateDataSourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Lists all the assignments and the Amazon Resource Names (ARNs) for
-   * 			the associated IAM policies assigned to the specified user and the
-   * 			group or groups that the user belongs to.</p>
-   *
-   */
-  public listIAMPolicyAssignmentsForUser(
-    args: ListIAMPolicyAssignmentsForUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListIAMPolicyAssignmentsForUserCommandOutput>;
-  public listIAMPolicyAssignmentsForUser(
-    args: ListIAMPolicyAssignmentsForUserCommandInput,
-    cb: (err: any, data?: ListIAMPolicyAssignmentsForUserCommandOutput) => void
-  ): void;
-  public listIAMPolicyAssignmentsForUser(
-    args: ListIAMPolicyAssignmentsForUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListIAMPolicyAssignmentsForUserCommandOutput) => void
-  ): void;
-  public listIAMPolicyAssignmentsForUser(
-    args: ListIAMPolicyAssignmentsForUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListIAMPolicyAssignmentsForUserCommandOutput
-        ) => void),
-    cb?: (err: any, data?: ListIAMPolicyAssignmentsForUserCommandOutput) => void
-  ): Promise<ListIAMPolicyAssignmentsForUserCommandOutput> | void {
-    const command = new ListIAMPolicyAssignmentsForUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Lists dashboards in the AWS account.</p>
-   *
-   */
-  public listDashboards(
-    args: ListDashboardsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDashboardsCommandOutput>;
-  public listDashboards(
-    args: ListDashboardsCommandInput,
-    cb: (err: any, data?: ListDashboardsCommandOutput) => void
-  ): void;
-  public listDashboards(
-    args: ListDashboardsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDashboardsCommandOutput) => void
-  ): void;
-  public listDashboards(
-    args: ListDashboardsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDashboardsCommandOutput) => void),
-    cb?: (err: any, data?: ListDashboardsCommandOutput) => void
-  ): Promise<ListDashboardsCommandOutput> | void {
-    const command = new ListDashboardsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Describes an existing IAMPolicy Assignment by specified assignment name.</p>
-   *
-   */
-  public describeIAMPolicyAssignment(
-    args: DescribeIAMPolicyAssignmentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeIAMPolicyAssignmentCommandOutput>;
-  public describeIAMPolicyAssignment(
-    args: DescribeIAMPolicyAssignmentCommandInput,
-    cb: (err: any, data?: DescribeIAMPolicyAssignmentCommandOutput) => void
-  ): void;
-  public describeIAMPolicyAssignment(
-    args: DescribeIAMPolicyAssignmentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeIAMPolicyAssignmentCommandOutput) => void
-  ): void;
-  public describeIAMPolicyAssignment(
-    args: DescribeIAMPolicyAssignmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeIAMPolicyAssignmentCommandOutput) => void),
-    cb?: (err: any, data?: DescribeIAMPolicyAssignmentCommandOutput) => void
-  ): Promise<DescribeIAMPolicyAssignmentCommandOutput> | void {
-    const command = new DescribeIAMPolicyAssignmentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Provides a summary for a dashboard.</p>
-   *
-   */
-  public describeDashboard(
-    args: DescribeDashboardCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeDashboardCommandOutput>;
-  public describeDashboard(
-    args: DescribeDashboardCommandInput,
-    cb: (err: any, data?: DescribeDashboardCommandOutput) => void
-  ): void;
-  public describeDashboard(
-    args: DescribeDashboardCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeDashboardCommandOutput) => void
-  ): void;
-  public describeDashboard(
-    args: DescribeDashboardCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDashboardCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDashboardCommandOutput) => void
-  ): Promise<DescribeDashboardCommandOutput> | void {
-    const command = new DescribeDashboardCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Lists all the aliases of a template.</p>
-   *
-   *
-   */
-  public listTemplateAliases(
-    args: ListTemplateAliasesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTemplateAliasesCommandOutput>;
-  public listTemplateAliases(
-    args: ListTemplateAliasesCommandInput,
-    cb: (err: any, data?: ListTemplateAliasesCommandOutput) => void
-  ): void;
-  public listTemplateAliases(
-    args: ListTemplateAliasesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTemplateAliasesCommandOutput) => void
-  ): void;
-  public listTemplateAliases(
-    args: ListTemplateAliasesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTemplateAliasesCommandOutput) => void),
-    cb?: (err: any, data?: ListTemplateAliasesCommandOutput) => void
-  ): Promise<ListTemplateAliasesCommandOutput> | void {
-    const command = new ListTemplateAliasesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Lists data sources in current AWS Region that belong to this AWS account.</p>
-   *
-   *
-   */
-  public listDataSources(
-    args: ListDataSourcesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDataSourcesCommandOutput>;
-  public listDataSources(
-    args: ListDataSourcesCommandInput,
-    cb: (err: any, data?: ListDataSourcesCommandOutput) => void
-  ): void;
-  public listDataSources(
-    args: ListDataSourcesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDataSourcesCommandOutput) => void
-  ): void;
-  public listDataSources(
-    args: ListDataSourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDataSourcesCommandOutput) => void),
-    cb?: (err: any, data?: ListDataSourcesCommandOutput) => void
-  ): Promise<ListDataSourcesCommandOutput> | void {
-    const command = new ListDataSourcesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Updates a dataset.</p>
-   *
-   *
-   */
-  public updateDataSet(
-    args: UpdateDataSetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateDataSetCommandOutput>;
-  public updateDataSet(
-    args: UpdateDataSetCommandInput,
-    cb: (err: any, data?: UpdateDataSetCommandOutput) => void
-  ): void;
-  public updateDataSet(
-    args: UpdateDataSetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateDataSetCommandOutput) => void
-  ): void;
-  public updateDataSet(
-    args: UpdateDataSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDataSetCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDataSetCommandOutput) => void
-  ): Promise<UpdateDataSetCommandOutput> | void {
-    const command = new UpdateDataSetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Lists the tags assigned to a resource.</p>
-   *
-   */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Deletes a dataset.</p>
-   *
-   *
-   */
-  public deleteDataSet(
-    args: DeleteDataSetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteDataSetCommandOutput>;
-  public deleteDataSet(
-    args: DeleteDataSetCommandInput,
-    cb: (err: any, data?: DeleteDataSetCommandOutput) => void
-  ): void;
-  public deleteDataSet(
-    args: DeleteDataSetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteDataSetCommandOutput) => void
-  ): void;
-  public deleteDataSet(
-    args: DeleteDataSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDataSetCommandOutput) => void),
-    cb?: (err: any, data?: DeleteDataSetCommandOutput) => void
-  ): Promise<DeleteDataSetCommandOutput> | void {
-    const command = new DeleteDataSetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Deletes an existing assignment.</p>
-   *
-   */
-  public deleteIAMPolicyAssignment(
-    args: DeleteIAMPolicyAssignmentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteIAMPolicyAssignmentCommandOutput>;
-  public deleteIAMPolicyAssignment(
-    args: DeleteIAMPolicyAssignmentCommandInput,
-    cb: (err: any, data?: DeleteIAMPolicyAssignmentCommandOutput) => void
-  ): void;
-  public deleteIAMPolicyAssignment(
-    args: DeleteIAMPolicyAssignmentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteIAMPolicyAssignmentCommandOutput) => void
-  ): void;
-  public deleteIAMPolicyAssignment(
-    args: DeleteIAMPolicyAssignmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteIAMPolicyAssignmentCommandOutput) => void),
-    cb?: (err: any, data?: DeleteIAMPolicyAssignmentCommandOutput) => void
-  ): Promise<DeleteIAMPolicyAssignmentCommandOutput> | void {
-    const command = new DeleteIAMPolicyAssignmentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Lists assignments in current QuickSight account.</p>
-   *
-   */
-  public listIAMPolicyAssignments(
-    args: ListIAMPolicyAssignmentsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListIAMPolicyAssignmentsCommandOutput>;
-  public listIAMPolicyAssignments(
-    args: ListIAMPolicyAssignmentsCommandInput,
-    cb: (err: any, data?: ListIAMPolicyAssignmentsCommandOutput) => void
-  ): void;
-  public listIAMPolicyAssignments(
-    args: ListIAMPolicyAssignmentsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListIAMPolicyAssignmentsCommandOutput) => void
-  ): void;
-  public listIAMPolicyAssignments(
-    args: ListIAMPolicyAssignmentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListIAMPolicyAssignmentsCommandOutput) => void),
-    cb?: (err: any, data?: ListIAMPolicyAssignmentsCommandOutput) => void
-  ): Promise<ListIAMPolicyAssignmentsCommandOutput> | void {
-    const command = new ListIAMPolicyAssignmentsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Creates a template alias for a template.</p>
-   *
-   */
-  public createTemplateAlias(
-    args: CreateTemplateAliasCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateTemplateAliasCommandOutput>;
-  public createTemplateAlias(
-    args: CreateTemplateAliasCommandInput,
-    cb: (err: any, data?: CreateTemplateAliasCommandOutput) => void
-  ): void;
-  public createTemplateAlias(
-    args: CreateTemplateAliasCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateTemplateAliasCommandOutput) => void
-  ): void;
-  public createTemplateAlias(
-    args: CreateTemplateAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTemplateAliasCommandOutput) => void),
-    cb?: (err: any, data?: CreateTemplateAliasCommandOutput) => void
-  ): Promise<CreateTemplateAliasCommandOutput> | void {
-    const command = new CreateTemplateAliasCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Updates the template alias of a template.</p>
-   *
-   */
-  public updateTemplateAlias(
-    args: UpdateTemplateAliasCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateTemplateAliasCommandOutput>;
-  public updateTemplateAlias(
-    args: UpdateTemplateAliasCommandInput,
-    cb: (err: any, data?: UpdateTemplateAliasCommandOutput) => void
-  ): void;
-  public updateTemplateAlias(
-    args: UpdateTemplateAliasCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateTemplateAliasCommandOutput) => void
-  ): void;
-  public updateTemplateAlias(
-    args: UpdateTemplateAliasCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTemplateAliasCommandOutput) => void),
-    cb?: (err: any, data?: UpdateTemplateAliasCommandOutput) => void
-  ): Promise<UpdateTemplateAliasCommandOutput> | void {
-    const command = new UpdateTemplateAliasCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		       <p>Describes the permissions on a dataset.</p>
-   * 		       <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.</p>
-   *
-   *
-   */
-  public describeDataSetPermissions(
-    args: DescribeDataSetPermissionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeDataSetPermissionsCommandOutput>;
-  public describeDataSetPermissions(
-    args: DescribeDataSetPermissionsCommandInput,
-    cb: (err: any, data?: DescribeDataSetPermissionsCommandOutput) => void
-  ): void;
-  public describeDataSetPermissions(
-    args: DescribeDataSetPermissionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeDataSetPermissionsCommandOutput) => void
-  ): void;
-  public describeDataSetPermissions(
-    args: DescribeDataSetPermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDataSetPermissionsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDataSetPermissionsCommandOutput) => void
-  ): Promise<DescribeDataSetPermissionsCommandOutput> | void {
-    const command = new DescribeDataSetPermissionsCommand(args);
+      | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -150,275 +150,6 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class NetworkManager extends NetworkManagerClient {
   /**
    *
-   *         <p>Describes one or more global networks. By default, all global networks are
-   *             described. To describe the objects in your global network, you must use the appropriate
-   *                 <code>Get*</code> action. For example, to list the transit gateways in your global
-   *             network, use <a>GetTransitGatewayRegistrations</a>.</p>
-   *
-   */
-  public describeGlobalNetworks(
-    args: DescribeGlobalNetworksCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeGlobalNetworksCommandOutput>;
-  public describeGlobalNetworks(
-    args: DescribeGlobalNetworksCommandInput,
-    cb: (err: any, data?: DescribeGlobalNetworksCommandOutput) => void
-  ): void;
-  public describeGlobalNetworks(
-    args: DescribeGlobalNetworksCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeGlobalNetworksCommandOutput) => void
-  ): void;
-  public describeGlobalNetworks(
-    args: DescribeGlobalNetworksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeGlobalNetworksCommandOutput) => void),
-    cb?: (err: any, data?: DescribeGlobalNetworksCommandOutput) => void
-  ): Promise<DescribeGlobalNetworksCommandOutput> | void {
-    const command = new DescribeGlobalNetworksCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>Creates a new device in a global network. If you specify both a site ID and a
-   *             location, the location of the site is used for visualization in the Network Manager console.</p>
-   *
-   */
-  public createDevice(
-    args: CreateDeviceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateDeviceCommandOutput>;
-  public createDevice(
-    args: CreateDeviceCommandInput,
-    cb: (err: any, data?: CreateDeviceCommandOutput) => void
-  ): void;
-  public createDevice(
-    args: CreateDeviceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateDeviceCommandOutput) => void
-  ): void;
-  public createDevice(
-    args: CreateDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDeviceCommandOutput) => void),
-    cb?: (err: any, data?: CreateDeviceCommandOutput) => void
-  ): Promise<CreateDeviceCommandOutput> | void {
-    const command = new CreateDeviceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>Updates the details for an existing device. To remove information for any of the
-   *             parameters, specify an empty string.</p>
-   *
-   */
-  public updateDevice(
-    args: UpdateDeviceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateDeviceCommandOutput>;
-  public updateDevice(
-    args: UpdateDeviceCommandInput,
-    cb: (err: any, data?: UpdateDeviceCommandOutput) => void
-  ): void;
-  public updateDevice(
-    args: UpdateDeviceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateDeviceCommandOutput) => void
-  ): void;
-  public updateDevice(
-    args: UpdateDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDeviceCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDeviceCommandOutput) => void
-  ): Promise<UpdateDeviceCommandOutput> | void {
-    const command = new UpdateDeviceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>Lists the tags for a specified resource.</p>
-   *
-   */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>Updates the information for an existing site. To remove information for any of the
-   *             parameters, specify an empty string.</p>
-   *
-   */
-  public updateSite(
-    args: UpdateSiteCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateSiteCommandOutput>;
-  public updateSite(
-    args: UpdateSiteCommandInput,
-    cb: (err: any, data?: UpdateSiteCommandOutput) => void
-  ): void;
-  public updateSite(
-    args: UpdateSiteCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateSiteCommandOutput) => void
-  ): void;
-  public updateSite(
-    args: UpdateSiteCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSiteCommandOutput) => void),
-    cb?: (err: any, data?: UpdateSiteCommandOutput) => void
-  ): Promise<UpdateSiteCommandOutput> | void {
-    const command = new UpdateSiteCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>Associates a link to a device. A device can be associated to multiple links and a link can be associated to multiple devices. The device and link must be in the same global network and the same site.</p>
-   *
-   */
-  public associateLink(
-    args: AssociateLinkCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AssociateLinkCommandOutput>;
-  public associateLink(
-    args: AssociateLinkCommandInput,
-    cb: (err: any, data?: AssociateLinkCommandOutput) => void
-  ): void;
-  public associateLink(
-    args: AssociateLinkCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AssociateLinkCommandOutput) => void
-  ): void;
-  public associateLink(
-    args: AssociateLinkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateLinkCommandOutput) => void),
-    cb?: (err: any, data?: AssociateLinkCommandOutput) => void
-  ): Promise<AssociateLinkCommandOutput> | void {
-    const command = new AssociateLinkCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>Gets the association information for customer gateways that are associated with
-   *             devices and links in your global network.</p>
-   *
-   */
-  public getCustomerGatewayAssociations(
-    args: GetCustomerGatewayAssociationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetCustomerGatewayAssociationsCommandOutput>;
-  public getCustomerGatewayAssociations(
-    args: GetCustomerGatewayAssociationsCommandInput,
-    cb: (err: any, data?: GetCustomerGatewayAssociationsCommandOutput) => void
-  ): void;
-  public getCustomerGatewayAssociations(
-    args: GetCustomerGatewayAssociationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetCustomerGatewayAssociationsCommandOutput) => void
-  ): void;
-  public getCustomerGatewayAssociations(
-    args: GetCustomerGatewayAssociationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetCustomerGatewayAssociationsCommandOutput
-        ) => void),
-    cb?: (err: any, data?: GetCustomerGatewayAssociationsCommandOutput) => void
-  ): Promise<GetCustomerGatewayAssociationsCommandOutput> | void {
-    const command = new GetCustomerGatewayAssociationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
    *         <p>Deletes an existing global network. You must first delete all global network objects
    *             (devices, links, and sites) and deregister all transit gateways.</p>
    *
@@ -502,407 +233,30 @@ export class NetworkManager extends NetworkManagerClient {
 
   /**
    *
-   *         <p>Creates a new link for a specified site.</p>
+   *         <p>Gets information about one or more of your devices in a global network.</p>
    *
    */
-  public createLink(
-    args: CreateLinkCommandInput,
+  public getDevices(
+    args: GetDevicesCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreateLinkCommandOutput>;
-  public createLink(
-    args: CreateLinkCommandInput,
-    cb: (err: any, data?: CreateLinkCommandOutput) => void
+  ): Promise<GetDevicesCommandOutput>;
+  public getDevices(
+    args: GetDevicesCommandInput,
+    cb: (err: any, data?: GetDevicesCommandOutput) => void
   ): void;
-  public createLink(
-    args: CreateLinkCommandInput,
+  public getDevices(
+    args: GetDevicesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateLinkCommandOutput) => void
+    cb: (err: any, data?: GetDevicesCommandOutput) => void
   ): void;
-  public createLink(
-    args: CreateLinkCommandInput,
+  public getDevices(
+    args: GetDevicesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: CreateLinkCommandOutput) => void),
-    cb?: (err: any, data?: CreateLinkCommandOutput) => void
-  ): Promise<CreateLinkCommandOutput> | void {
-    const command = new CreateLinkCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>Deletes an existing device. You must first disassociate the device from any links and
-   *             customer gateways.</p>
-   *
-   */
-  public deleteDevice(
-    args: DeleteDeviceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteDeviceCommandOutput>;
-  public deleteDevice(
-    args: DeleteDeviceCommandInput,
-    cb: (err: any, data?: DeleteDeviceCommandOutput) => void
-  ): void;
-  public deleteDevice(
-    args: DeleteDeviceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteDeviceCommandOutput) => void
-  ): void;
-  public deleteDevice(
-    args: DeleteDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDeviceCommandOutput) => void),
-    cb?: (err: any, data?: DeleteDeviceCommandOutput) => void
-  ): Promise<DeleteDeviceCommandOutput> | void {
-    const command = new DeleteDeviceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>Gets information about one or more links in a specified global network.</p>
-   *         <p>If you specify the site ID, you cannot specify the type or provider in the same request. You can specify the type and provider in the same request.</p>
-   *
-   */
-  public getLinks(
-    args: GetLinksCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetLinksCommandOutput>;
-  public getLinks(
-    args: GetLinksCommandInput,
-    cb: (err: any, data?: GetLinksCommandOutput) => void
-  ): void;
-  public getLinks(
-    args: GetLinksCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetLinksCommandOutput) => void
-  ): void;
-  public getLinks(
-    args: GetLinksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLinksCommandOutput) => void),
-    cb?: (err: any, data?: GetLinksCommandOutput) => void
-  ): Promise<GetLinksCommandOutput> | void {
-    const command = new GetLinksCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>Disassociates an existing device from a link. You must first disassociate any customer
-   *             gateways that are associated with the link.</p>
-   *
-   */
-  public disassociateLink(
-    args: DisassociateLinkCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DisassociateLinkCommandOutput>;
-  public disassociateLink(
-    args: DisassociateLinkCommandInput,
-    cb: (err: any, data?: DisassociateLinkCommandOutput) => void
-  ): void;
-  public disassociateLink(
-    args: DisassociateLinkCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DisassociateLinkCommandOutput) => void
-  ): void;
-  public disassociateLink(
-    args: DisassociateLinkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateLinkCommandOutput) => void),
-    cb?: (err: any, data?: DisassociateLinkCommandOutput) => void
-  ): Promise<DisassociateLinkCommandOutput> | void {
-    const command = new DisassociateLinkCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>Tags a specified resource.</p>
-   *
-   */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>Deletes an existing link. You must first disassociate the link from any devices and
-   *             customer gateways.</p>
-   *
-   */
-  public deleteLink(
-    args: DeleteLinkCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteLinkCommandOutput>;
-  public deleteLink(
-    args: DeleteLinkCommandInput,
-    cb: (err: any, data?: DeleteLinkCommandOutput) => void
-  ): void;
-  public deleteLink(
-    args: DeleteLinkCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteLinkCommandOutput) => void
-  ): void;
-  public deleteLink(
-    args: DeleteLinkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLinkCommandOutput) => void),
-    cb?: (err: any, data?: DeleteLinkCommandOutput) => void
-  ): Promise<DeleteLinkCommandOutput> | void {
-    const command = new DeleteLinkCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>Disassociates a customer gateway from a device and a link.</p>
-   *
-   */
-  public disassociateCustomerGateway(
-    args: DisassociateCustomerGatewayCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DisassociateCustomerGatewayCommandOutput>;
-  public disassociateCustomerGateway(
-    args: DisassociateCustomerGatewayCommandInput,
-    cb: (err: any, data?: DisassociateCustomerGatewayCommandOutput) => void
-  ): void;
-  public disassociateCustomerGateway(
-    args: DisassociateCustomerGatewayCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DisassociateCustomerGatewayCommandOutput) => void
-  ): void;
-  public disassociateCustomerGateway(
-    args: DisassociateCustomerGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateCustomerGatewayCommandOutput) => void),
-    cb?: (err: any, data?: DisassociateCustomerGatewayCommandOutput) => void
-  ): Promise<DisassociateCustomerGatewayCommandOutput> | void {
-    const command = new DisassociateCustomerGatewayCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>Creates a new, empty global network.</p>
-   *
-   */
-  public createGlobalNetwork(
-    args: CreateGlobalNetworkCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateGlobalNetworkCommandOutput>;
-  public createGlobalNetwork(
-    args: CreateGlobalNetworkCommandInput,
-    cb: (err: any, data?: CreateGlobalNetworkCommandOutput) => void
-  ): void;
-  public createGlobalNetwork(
-    args: CreateGlobalNetworkCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateGlobalNetworkCommandOutput) => void
-  ): void;
-  public createGlobalNetwork(
-    args: CreateGlobalNetworkCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGlobalNetworkCommandOutput) => void),
-    cb?: (err: any, data?: CreateGlobalNetworkCommandOutput) => void
-  ): Promise<CreateGlobalNetworkCommandOutput> | void {
-    const command = new CreateGlobalNetworkCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>Registers a transit gateway in your global network. The transit gateway can be in any
-   *             AWS Region, but it must be owned by the same AWS account that owns the global network.
-   *             You cannot register a transit gateway in more than one global network.</p>
-   *
-   */
-  public registerTransitGateway(
-    args: RegisterTransitGatewayCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RegisterTransitGatewayCommandOutput>;
-  public registerTransitGateway(
-    args: RegisterTransitGatewayCommandInput,
-    cb: (err: any, data?: RegisterTransitGatewayCommandOutput) => void
-  ): void;
-  public registerTransitGateway(
-    args: RegisterTransitGatewayCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RegisterTransitGatewayCommandOutput) => void
-  ): void;
-  public registerTransitGateway(
-    args: RegisterTransitGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterTransitGatewayCommandOutput) => void),
-    cb?: (err: any, data?: RegisterTransitGatewayCommandOutput) => void
-  ): Promise<RegisterTransitGatewayCommandOutput> | void {
-    const command = new RegisterTransitGatewayCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>Gets information about one or more of your sites in a global network.</p>
-   *
-   */
-  public getSites(
-    args: GetSitesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetSitesCommandOutput>;
-  public getSites(
-    args: GetSitesCommandInput,
-    cb: (err: any, data?: GetSitesCommandOutput) => void
-  ): void;
-  public getSites(
-    args: GetSitesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetSitesCommandOutput) => void
-  ): void;
-  public getSites(
-    args: GetSitesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSitesCommandOutput) => void),
-    cb?: (err: any, data?: GetSitesCommandOutput) => void
-  ): Promise<GetSitesCommandOutput> | void {
-    const command = new GetSitesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>Deregisters a transit gateway from your global network. This action does not delete
-   *             your transit gateway, or modify any of its attachments. This action removes any customer gateway associations.</p>
-   *
-   */
-  public deregisterTransitGateway(
-    args: DeregisterTransitGatewayCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeregisterTransitGatewayCommandOutput>;
-  public deregisterTransitGateway(
-    args: DeregisterTransitGatewayCommandInput,
-    cb: (err: any, data?: DeregisterTransitGatewayCommandOutput) => void
-  ): void;
-  public deregisterTransitGateway(
-    args: DeregisterTransitGatewayCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeregisterTransitGatewayCommandOutput) => void
-  ): void;
-  public deregisterTransitGateway(
-    args: DeregisterTransitGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterTransitGatewayCommandOutput) => void),
-    cb?: (err: any, data?: DeregisterTransitGatewayCommandOutput) => void
-  ): Promise<DeregisterTransitGatewayCommandOutput> | void {
-    const command = new DeregisterTransitGatewayCommand(args);
+      | ((err: any, data?: GetDevicesCommandOutput) => void),
+    cb?: (err: any, data?: GetDevicesCommandOutput) => void
+  ): Promise<GetDevicesCommandOutput> | void {
+    const command = new GetDevicesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1031,30 +385,106 @@ export class NetworkManager extends NetworkManagerClient {
 
   /**
    *
-   *         <p>Gets information about one or more of your devices in a global network.</p>
+   *         <p>Disassociates an existing device from a link. You must first disassociate any customer
+   *             gateways that are associated with the link.</p>
    *
    */
-  public getDevices(
-    args: GetDevicesCommandInput,
+  public disassociateLink(
+    args: DisassociateLinkCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<GetDevicesCommandOutput>;
-  public getDevices(
-    args: GetDevicesCommandInput,
-    cb: (err: any, data?: GetDevicesCommandOutput) => void
+  ): Promise<DisassociateLinkCommandOutput>;
+  public disassociateLink(
+    args: DisassociateLinkCommandInput,
+    cb: (err: any, data?: DisassociateLinkCommandOutput) => void
   ): void;
-  public getDevices(
-    args: GetDevicesCommandInput,
+  public disassociateLink(
+    args: DisassociateLinkCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDevicesCommandOutput) => void
+    cb: (err: any, data?: DisassociateLinkCommandOutput) => void
   ): void;
-  public getDevices(
-    args: GetDevicesCommandInput,
+  public disassociateLink(
+    args: DisassociateLinkCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: GetDevicesCommandOutput) => void),
-    cb?: (err: any, data?: GetDevicesCommandOutput) => void
-  ): Promise<GetDevicesCommandOutput> | void {
-    const command = new GetDevicesCommand(args);
+      | ((err: any, data?: DisassociateLinkCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateLinkCommandOutput) => void
+  ): Promise<DisassociateLinkCommandOutput> | void {
+    const command = new DisassociateLinkCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>Deregisters a transit gateway from your global network. This action does not delete
+   *             your transit gateway, or modify any of its attachments. This action removes any customer gateway associations.</p>
+   *
+   */
+  public deregisterTransitGateway(
+    args: DeregisterTransitGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterTransitGatewayCommandOutput>;
+  public deregisterTransitGateway(
+    args: DeregisterTransitGatewayCommandInput,
+    cb: (err: any, data?: DeregisterTransitGatewayCommandOutput) => void
+  ): void;
+  public deregisterTransitGateway(
+    args: DeregisterTransitGatewayCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeregisterTransitGatewayCommandOutput) => void
+  ): void;
+  public deregisterTransitGateway(
+    args: DeregisterTransitGatewayCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeregisterTransitGatewayCommandOutput) => void),
+    cb?: (err: any, data?: DeregisterTransitGatewayCommandOutput) => void
+  ): Promise<DeregisterTransitGatewayCommandOutput> | void {
+    const command = new DeregisterTransitGatewayCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>Tags a specified resource.</p>
+   *
+   */
+  public tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  public tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1106,30 +536,144 @@ export class NetworkManager extends NetworkManagerClient {
 
   /**
    *
-   *         <p>Removes tags from a specified resource.</p>
+   *         <p>Updates the details for an existing device. To remove information for any of the
+   *             parameters, specify an empty string.</p>
    *
    */
-  public untagResource(
-    args: UntagResourceCommandInput,
+  public updateDevice(
+    args: UpdateDeviceCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UpdateDeviceCommandOutput>;
+  public updateDevice(
+    args: UpdateDeviceCommandInput,
+    cb: (err: any, data?: UpdateDeviceCommandOutput) => void
   ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
+  public updateDevice(
+    args: UpdateDeviceCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
+    cb: (err: any, data?: UpdateDeviceCommandOutput) => void
   ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
+  public updateDevice(
+    args: UpdateDeviceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
+      | ((err: any, data?: UpdateDeviceCommandOutput) => void),
+    cb?: (err: any, data?: UpdateDeviceCommandOutput) => void
+  ): Promise<UpdateDeviceCommandOutput> | void {
+    const command = new UpdateDeviceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>Creates a new device in a global network. If you specify both a site ID and a
+   *             location, the location of the site is used for visualization in the Network Manager console.</p>
+   *
+   */
+  public createDevice(
+    args: CreateDeviceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDeviceCommandOutput>;
+  public createDevice(
+    args: CreateDeviceCommandInput,
+    cb: (err: any, data?: CreateDeviceCommandOutput) => void
+  ): void;
+  public createDevice(
+    args: CreateDeviceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDeviceCommandOutput) => void
+  ): void;
+  public createDevice(
+    args: CreateDeviceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateDeviceCommandOutput) => void),
+    cb?: (err: any, data?: CreateDeviceCommandOutput) => void
+  ): Promise<CreateDeviceCommandOutput> | void {
+    const command = new CreateDeviceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>Associates a link to a device. A device can be associated to multiple links and a link can be associated to multiple devices. The device and link must be in the same global network and the same site.</p>
+   *
+   */
+  public associateLink(
+    args: AssociateLinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateLinkCommandOutput>;
+  public associateLink(
+    args: AssociateLinkCommandInput,
+    cb: (err: any, data?: AssociateLinkCommandOutput) => void
+  ): void;
+  public associateLink(
+    args: AssociateLinkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateLinkCommandOutput) => void
+  ): void;
+  public associateLink(
+    args: AssociateLinkCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AssociateLinkCommandOutput) => void),
+    cb?: (err: any, data?: AssociateLinkCommandOutput) => void
+  ): Promise<AssociateLinkCommandOutput> | void {
+    const command = new AssociateLinkCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>Gets the link associations for a device or a link. Either the device ID or the link ID
+   *             must be specified.</p>
+   *
+   */
+  public getLinkAssociations(
+    args: GetLinkAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLinkAssociationsCommandOutput>;
+  public getLinkAssociations(
+    args: GetLinkAssociationsCommandInput,
+    cb: (err: any, data?: GetLinkAssociationsCommandOutput) => void
+  ): void;
+  public getLinkAssociations(
+    args: GetLinkAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLinkAssociationsCommandOutput) => void
+  ): void;
+  public getLinkAssociations(
+    args: GetLinkAssociationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetLinkAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: GetLinkAssociationsCommandOutput) => void
+  ): Promise<GetLinkAssociationsCommandOutput> | void {
+    const command = new GetLinkAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1181,31 +725,487 @@ export class NetworkManager extends NetworkManagerClient {
 
   /**
    *
-   *         <p>Gets the link associations for a device or a link. Either the device ID or the link ID
-   *             must be specified.</p>
+   *         <p>Removes tags from a specified resource.</p>
    *
    */
-  public getLinkAssociations(
-    args: GetLinkAssociationsCommandInput,
+  public untagResource(
+    args: UntagResourceCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<GetLinkAssociationsCommandOutput>;
-  public getLinkAssociations(
-    args: GetLinkAssociationsCommandInput,
-    cb: (err: any, data?: GetLinkAssociationsCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
-  public getLinkAssociations(
-    args: GetLinkAssociationsCommandInput,
+  public untagResource(
+    args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetLinkAssociationsCommandOutput) => void
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
-  public getLinkAssociations(
-    args: GetLinkAssociationsCommandInput,
+  public untagResource(
+    args: UntagResourceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: GetLinkAssociationsCommandOutput) => void),
-    cb?: (err: any, data?: GetLinkAssociationsCommandOutput) => void
-  ): Promise<GetLinkAssociationsCommandOutput> | void {
-    const command = new GetLinkAssociationsCommand(args);
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>Gets information about one or more links in a specified global network.</p>
+   *         <p>If you specify the site ID, you cannot specify the type or provider in the same request. You can specify the type and provider in the same request.</p>
+   *
+   */
+  public getLinks(
+    args: GetLinksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLinksCommandOutput>;
+  public getLinks(
+    args: GetLinksCommandInput,
+    cb: (err: any, data?: GetLinksCommandOutput) => void
+  ): void;
+  public getLinks(
+    args: GetLinksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLinksCommandOutput) => void
+  ): void;
+  public getLinks(
+    args: GetLinksCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetLinksCommandOutput) => void),
+    cb?: (err: any, data?: GetLinksCommandOutput) => void
+  ): Promise<GetLinksCommandOutput> | void {
+    const command = new GetLinksCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>Deletes an existing device. You must first disassociate the device from any links and
+   *             customer gateways.</p>
+   *
+   */
+  public deleteDevice(
+    args: DeleteDeviceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDeviceCommandOutput>;
+  public deleteDevice(
+    args: DeleteDeviceCommandInput,
+    cb: (err: any, data?: DeleteDeviceCommandOutput) => void
+  ): void;
+  public deleteDevice(
+    args: DeleteDeviceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDeviceCommandOutput) => void
+  ): void;
+  public deleteDevice(
+    args: DeleteDeviceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteDeviceCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDeviceCommandOutput) => void
+  ): Promise<DeleteDeviceCommandOutput> | void {
+    const command = new DeleteDeviceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>Lists the tags for a specified resource.</p>
+   *
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>Updates the information for an existing site. To remove information for any of the
+   *             parameters, specify an empty string.</p>
+   *
+   */
+  public updateSite(
+    args: UpdateSiteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSiteCommandOutput>;
+  public updateSite(
+    args: UpdateSiteCommandInput,
+    cb: (err: any, data?: UpdateSiteCommandOutput) => void
+  ): void;
+  public updateSite(
+    args: UpdateSiteCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSiteCommandOutput) => void
+  ): void;
+  public updateSite(
+    args: UpdateSiteCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateSiteCommandOutput) => void),
+    cb?: (err: any, data?: UpdateSiteCommandOutput) => void
+  ): Promise<UpdateSiteCommandOutput> | void {
+    const command = new UpdateSiteCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>Deletes an existing link. You must first disassociate the link from any devices and
+   *             customer gateways.</p>
+   *
+   */
+  public deleteLink(
+    args: DeleteLinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLinkCommandOutput>;
+  public deleteLink(
+    args: DeleteLinkCommandInput,
+    cb: (err: any, data?: DeleteLinkCommandOutput) => void
+  ): void;
+  public deleteLink(
+    args: DeleteLinkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLinkCommandOutput) => void
+  ): void;
+  public deleteLink(
+    args: DeleteLinkCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteLinkCommandOutput) => void),
+    cb?: (err: any, data?: DeleteLinkCommandOutput) => void
+  ): Promise<DeleteLinkCommandOutput> | void {
+    const command = new DeleteLinkCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>Disassociates a customer gateway from a device and a link.</p>
+   *
+   */
+  public disassociateCustomerGateway(
+    args: DisassociateCustomerGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateCustomerGatewayCommandOutput>;
+  public disassociateCustomerGateway(
+    args: DisassociateCustomerGatewayCommandInput,
+    cb: (err: any, data?: DisassociateCustomerGatewayCommandOutput) => void
+  ): void;
+  public disassociateCustomerGateway(
+    args: DisassociateCustomerGatewayCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateCustomerGatewayCommandOutput) => void
+  ): void;
+  public disassociateCustomerGateway(
+    args: DisassociateCustomerGatewayCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisassociateCustomerGatewayCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateCustomerGatewayCommandOutput) => void
+  ): Promise<DisassociateCustomerGatewayCommandOutput> | void {
+    const command = new DisassociateCustomerGatewayCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>Creates a new link for a specified site.</p>
+   *
+   */
+  public createLink(
+    args: CreateLinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLinkCommandOutput>;
+  public createLink(
+    args: CreateLinkCommandInput,
+    cb: (err: any, data?: CreateLinkCommandOutput) => void
+  ): void;
+  public createLink(
+    args: CreateLinkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLinkCommandOutput) => void
+  ): void;
+  public createLink(
+    args: CreateLinkCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateLinkCommandOutput) => void),
+    cb?: (err: any, data?: CreateLinkCommandOutput) => void
+  ): Promise<CreateLinkCommandOutput> | void {
+    const command = new CreateLinkCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>Gets the association information for customer gateways that are associated with
+   *             devices and links in your global network.</p>
+   *
+   */
+  public getCustomerGatewayAssociations(
+    args: GetCustomerGatewayAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCustomerGatewayAssociationsCommandOutput>;
+  public getCustomerGatewayAssociations(
+    args: GetCustomerGatewayAssociationsCommandInput,
+    cb: (err: any, data?: GetCustomerGatewayAssociationsCommandOutput) => void
+  ): void;
+  public getCustomerGatewayAssociations(
+    args: GetCustomerGatewayAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCustomerGatewayAssociationsCommandOutput) => void
+  ): void;
+  public getCustomerGatewayAssociations(
+    args: GetCustomerGatewayAssociationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: GetCustomerGatewayAssociationsCommandOutput
+        ) => void),
+    cb?: (err: any, data?: GetCustomerGatewayAssociationsCommandOutput) => void
+  ): Promise<GetCustomerGatewayAssociationsCommandOutput> | void {
+    const command = new GetCustomerGatewayAssociationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>Creates a new, empty global network.</p>
+   *
+   */
+  public createGlobalNetwork(
+    args: CreateGlobalNetworkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGlobalNetworkCommandOutput>;
+  public createGlobalNetwork(
+    args: CreateGlobalNetworkCommandInput,
+    cb: (err: any, data?: CreateGlobalNetworkCommandOutput) => void
+  ): void;
+  public createGlobalNetwork(
+    args: CreateGlobalNetworkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateGlobalNetworkCommandOutput) => void
+  ): void;
+  public createGlobalNetwork(
+    args: CreateGlobalNetworkCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateGlobalNetworkCommandOutput) => void),
+    cb?: (err: any, data?: CreateGlobalNetworkCommandOutput) => void
+  ): Promise<CreateGlobalNetworkCommandOutput> | void {
+    const command = new CreateGlobalNetworkCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>Registers a transit gateway in your global network. The transit gateway can be in any
+   *             AWS Region, but it must be owned by the same AWS account that owns the global network.
+   *             You cannot register a transit gateway in more than one global network.</p>
+   *
+   */
+  public registerTransitGateway(
+    args: RegisterTransitGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterTransitGatewayCommandOutput>;
+  public registerTransitGateway(
+    args: RegisterTransitGatewayCommandInput,
+    cb: (err: any, data?: RegisterTransitGatewayCommandOutput) => void
+  ): void;
+  public registerTransitGateway(
+    args: RegisterTransitGatewayCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterTransitGatewayCommandOutput) => void
+  ): void;
+  public registerTransitGateway(
+    args: RegisterTransitGatewayCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RegisterTransitGatewayCommandOutput) => void),
+    cb?: (err: any, data?: RegisterTransitGatewayCommandOutput) => void
+  ): Promise<RegisterTransitGatewayCommandOutput> | void {
+    const command = new RegisterTransitGatewayCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>Gets information about one or more of your sites in a global network.</p>
+   *
+   */
+  public getSites(
+    args: GetSitesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSitesCommandOutput>;
+  public getSites(
+    args: GetSitesCommandInput,
+    cb: (err: any, data?: GetSitesCommandOutput) => void
+  ): void;
+  public getSites(
+    args: GetSitesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSitesCommandOutput) => void
+  ): void;
+  public getSites(
+    args: GetSitesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetSitesCommandOutput) => void),
+    cb?: (err: any, data?: GetSitesCommandOutput) => void
+  ): Promise<GetSitesCommandOutput> | void {
+    const command = new GetSitesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>Describes one or more global networks. By default, all global networks are
+   *             described. To describe the objects in your global network, you must use the appropriate
+   *                 <code>Get*</code> action. For example, to list the transit gateways in your global
+   *             network, use <a>GetTransitGatewayRegistrations</a>.</p>
+   *
+   */
+  public describeGlobalNetworks(
+    args: DescribeGlobalNetworksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeGlobalNetworksCommandOutput>;
+  public describeGlobalNetworks(
+    args: DescribeGlobalNetworksCommandInput,
+    cb: (err: any, data?: DescribeGlobalNetworksCommandOutput) => void
+  ): void;
+  public describeGlobalNetworks(
+    args: DescribeGlobalNetworksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeGlobalNetworksCommandOutput) => void
+  ): void;
+  public describeGlobalNetworks(
+    args: DescribeGlobalNetworksCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeGlobalNetworksCommandOutput) => void),
+    cb?: (err: any, data?: DescribeGlobalNetworksCommandOutput) => void
+  ): Promise<DescribeGlobalNetworksCommandOutput> | void {
+    const command = new DescribeGlobalNetworksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

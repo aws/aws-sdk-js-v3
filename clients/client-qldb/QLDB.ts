@@ -84,31 +84,38 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class QLDB extends QLDBClient {
   /**
    *
-   *          <p>Removes one or more tags from a specified Amazon QLDB resource. You can specify up to 50
-   *          tag keys to remove.</p>
+   *          <p>Returns a journal block object at a specified address in a ledger. Also returns a proof
+   *          of the specified block for verification if <code>DigestTipAddress</code> is
+   *          provided.</p>
+   *          <p>If the specified ledger doesn't exist or is in <code>DELETING</code> status, then throws
+   *             <code>ResourceNotFoundException</code>.</p>
+   *          <p>If the specified ledger is in <code>CREATING</code> status, then throws
+   *             <code>ResourcePreconditionNotMetException</code>.</p>
+   *          <p>If no block exists with the specified address, then throws
+   *             <code>InvalidParameterException</code>.</p>
    *
    */
-  public untagResource(
-    args: UntagResourceCommandInput,
+  public getBlock(
+    args: GetBlockCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<GetBlockCommandOutput>;
+  public getBlock(
+    args: GetBlockCommandInput,
+    cb: (err: any, data?: GetBlockCommandOutput) => void
   ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
+  public getBlock(
+    args: GetBlockCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
+    cb: (err: any, data?: GetBlockCommandOutput) => void
   ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
+  public getBlock(
+    args: GetBlockCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
+      | ((err: any, data?: GetBlockCommandOutput) => void),
+    cb?: (err: any, data?: GetBlockCommandOutput) => void
+  ): Promise<GetBlockCommandOutput> | void {
+    const command = new GetBlockCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -122,33 +129,31 @@ export class QLDB extends QLDBClient {
 
   /**
    *
-   *          <p>Returns an array of ledger summaries that are associated with the current AWS account
-   *          and Region.</p>
-   *          <p>This action returns a maximum of 100 items and is paginated so that you can
-   *          retrieve all the items by calling <code>ListLedgers</code> multiple times.</p>
+   *          <p>Returns the digest of a ledger at the latest committed block in the journal. The
+   *          response includes a 256-bit hash value and a block address.</p>
    *
    */
-  public listLedgers(
-    args: ListLedgersCommandInput,
+  public getDigest(
+    args: GetDigestCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListLedgersCommandOutput>;
-  public listLedgers(
-    args: ListLedgersCommandInput,
-    cb: (err: any, data?: ListLedgersCommandOutput) => void
+  ): Promise<GetDigestCommandOutput>;
+  public getDigest(
+    args: GetDigestCommandInput,
+    cb: (err: any, data?: GetDigestCommandOutput) => void
   ): void;
-  public listLedgers(
-    args: ListLedgersCommandInput,
+  public getDigest(
+    args: GetDigestCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListLedgersCommandOutput) => void
+    cb: (err: any, data?: GetDigestCommandOutput) => void
   ): void;
-  public listLedgers(
-    args: ListLedgersCommandInput,
+  public getDigest(
+    args: GetDigestCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListLedgersCommandOutput) => void),
-    cb?: (err: any, data?: ListLedgersCommandOutput) => void
-  ): Promise<ListLedgersCommandOutput> | void {
-    const command = new ListLedgersCommand(args);
+      | ((err: any, data?: GetDigestCommandOutput) => void),
+    cb?: (err: any, data?: GetDigestCommandOutput) => void
+  ): Promise<GetDigestCommandOutput> | void {
+    const command = new GetDigestCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -162,111 +167,34 @@ export class QLDB extends QLDBClient {
 
   /**
    *
-   *          <p>Returns a revision data object for a specified document ID and block address. Also
-   *          returns a proof of the specified revision for verification if <code>DigestTipAddress</code>
-   *          is provided.</p>
-   *
-   */
-  public getRevision(
-    args: GetRevisionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetRevisionCommandOutput>;
-  public getRevision(
-    args: GetRevisionCommandInput,
-    cb: (err: any, data?: GetRevisionCommandOutput) => void
-  ): void;
-  public getRevision(
-    args: GetRevisionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetRevisionCommandOutput) => void
-  ): void;
-  public getRevision(
-    args: GetRevisionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRevisionCommandOutput) => void),
-    cb?: (err: any, data?: GetRevisionCommandOutput) => void
-  ): Promise<GetRevisionCommandOutput> | void {
-    const command = new GetRevisionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Returns an array of journal export job descriptions for a specified ledger.</p>
+   *          <p>Returns an array of journal export job descriptions for all ledgers that are associated
+   *          with the current AWS account and Region.</p>
    *          <p>This action returns a maximum of <code>MaxResults</code> items, and is paginated so that
-   *          you can retrieve all the items by calling <code>ListJournalS3ExportsForLedger</code>
-   *          multiple times.</p>
+   *          you can retrieve all the items by calling <code>ListJournalS3Exports</code> multiple
+   *          times.</p>
    *
    */
-  public listJournalS3ExportsForLedger(
-    args: ListJournalS3ExportsForLedgerCommandInput,
+  public listJournalS3Exports(
+    args: ListJournalS3ExportsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListJournalS3ExportsForLedgerCommandOutput>;
-  public listJournalS3ExportsForLedger(
-    args: ListJournalS3ExportsForLedgerCommandInput,
-    cb: (err: any, data?: ListJournalS3ExportsForLedgerCommandOutput) => void
+  ): Promise<ListJournalS3ExportsCommandOutput>;
+  public listJournalS3Exports(
+    args: ListJournalS3ExportsCommandInput,
+    cb: (err: any, data?: ListJournalS3ExportsCommandOutput) => void
   ): void;
-  public listJournalS3ExportsForLedger(
-    args: ListJournalS3ExportsForLedgerCommandInput,
+  public listJournalS3Exports(
+    args: ListJournalS3ExportsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListJournalS3ExportsForLedgerCommandOutput) => void
+    cb: (err: any, data?: ListJournalS3ExportsCommandOutput) => void
   ): void;
-  public listJournalS3ExportsForLedger(
-    args: ListJournalS3ExportsForLedgerCommandInput,
+  public listJournalS3Exports(
+    args: ListJournalS3ExportsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListJournalS3ExportsForLedgerCommandOutput) => void),
-    cb?: (err: any, data?: ListJournalS3ExportsForLedgerCommandOutput) => void
-  ): Promise<ListJournalS3ExportsForLedgerCommandOutput> | void {
-    const command = new ListJournalS3ExportsForLedgerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Adds one or more tags to a specified Amazon QLDB resource.</p>
-   *          <p>A resource can have up to 50 tags. If you try to create more than 50 tags for a
-   *          resource, your request fails and returns an error.</p>
-   *
-   */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
+      | ((err: any, data?: ListJournalS3ExportsCommandOutput) => void),
+    cb?: (err: any, data?: ListJournalS3ExportsCommandOutput) => void
+  ): Promise<ListJournalS3ExportsCommandOutput> | void {
+    const command = new ListJournalS3ExportsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -365,89 +293,6 @@ export class QLDB extends QLDBClient {
 
   /**
    *
-   *          <p>Returns a journal block object at a specified address in a ledger. Also returns a proof
-   *          of the specified block for verification if <code>DigestTipAddress</code> is
-   *          provided.</p>
-   *          <p>If the specified ledger doesn't exist or is in <code>DELETING</code> status, then throws
-   *             <code>ResourceNotFoundException</code>.</p>
-   *          <p>If the specified ledger is in <code>CREATING</code> status, then throws
-   *             <code>ResourcePreconditionNotMetException</code>.</p>
-   *          <p>If no block exists with the specified address, then throws
-   *             <code>InvalidParameterException</code>.</p>
-   *
-   */
-  public getBlock(
-    args: GetBlockCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetBlockCommandOutput>;
-  public getBlock(
-    args: GetBlockCommandInput,
-    cb: (err: any, data?: GetBlockCommandOutput) => void
-  ): void;
-  public getBlock(
-    args: GetBlockCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetBlockCommandOutput) => void
-  ): void;
-  public getBlock(
-    args: GetBlockCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBlockCommandOutput) => void),
-    cb?: (err: any, data?: GetBlockCommandOutput) => void
-  ): Promise<GetBlockCommandOutput> | void {
-    const command = new GetBlockCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Returns the digest of a ledger at the latest committed block in the journal. The
-   *          response includes a 256-bit hash value and a block address.</p>
-   *
-   */
-  public getDigest(
-    args: GetDigestCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDigestCommandOutput>;
-  public getDigest(
-    args: GetDigestCommandInput,
-    cb: (err: any, data?: GetDigestCommandOutput) => void
-  ): void;
-  public getDigest(
-    args: GetDigestCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDigestCommandOutput) => void
-  ): void;
-  public getDigest(
-    args: GetDigestCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDigestCommandOutput) => void),
-    cb?: (err: any, data?: GetDigestCommandOutput) => void
-  ): Promise<GetDigestCommandOutput> | void {
-    const command = new GetDigestCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
    *          <p>Returns information about a ledger, including its state and when it was created.</p>
    *
    */
@@ -509,6 +354,239 @@ export class QLDB extends QLDBClient {
     cb?: (err: any, data?: UpdateLedgerCommandOutput) => void
   ): Promise<UpdateLedgerCommandOutput> | void {
     const command = new UpdateLedgerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Returns an array of ledger summaries that are associated with the current AWS account
+   *          and Region.</p>
+   *          <p>This action returns a maximum of 100 items and is paginated so that you can
+   *          retrieve all the items by calling <code>ListLedgers</code> multiple times.</p>
+   *
+   */
+  public listLedgers(
+    args: ListLedgersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLedgersCommandOutput>;
+  public listLedgers(
+    args: ListLedgersCommandInput,
+    cb: (err: any, data?: ListLedgersCommandOutput) => void
+  ): void;
+  public listLedgers(
+    args: ListLedgersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLedgersCommandOutput) => void
+  ): void;
+  public listLedgers(
+    args: ListLedgersCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListLedgersCommandOutput) => void),
+    cb?: (err: any, data?: ListLedgersCommandOutput) => void
+  ): Promise<ListLedgersCommandOutput> | void {
+    const command = new ListLedgersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Adds one or more tags to a specified Amazon QLDB resource.</p>
+   *          <p>A resource can have up to 50 tags. If you try to create more than 50 tags for a
+   *          resource, your request fails and returns an error.</p>
+   *
+   */
+  public tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  public tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Returns all tags for a specified Amazon QLDB resource.</p>
+   *
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Removes one or more tags from a specified Amazon QLDB resource. You can specify up to 50
+   *          tag keys to remove.</p>
+   *
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Returns an array of journal export job descriptions for a specified ledger.</p>
+   *          <p>This action returns a maximum of <code>MaxResults</code> items, and is paginated so that
+   *          you can retrieve all the items by calling <code>ListJournalS3ExportsForLedger</code>
+   *          multiple times.</p>
+   *
+   */
+  public listJournalS3ExportsForLedger(
+    args: ListJournalS3ExportsForLedgerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListJournalS3ExportsForLedgerCommandOutput>;
+  public listJournalS3ExportsForLedger(
+    args: ListJournalS3ExportsForLedgerCommandInput,
+    cb: (err: any, data?: ListJournalS3ExportsForLedgerCommandOutput) => void
+  ): void;
+  public listJournalS3ExportsForLedger(
+    args: ListJournalS3ExportsForLedgerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListJournalS3ExportsForLedgerCommandOutput) => void
+  ): void;
+  public listJournalS3ExportsForLedger(
+    args: ListJournalS3ExportsForLedgerCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListJournalS3ExportsForLedgerCommandOutput) => void),
+    cb?: (err: any, data?: ListJournalS3ExportsForLedgerCommandOutput) => void
+  ): Promise<ListJournalS3ExportsForLedgerCommandOutput> | void {
+    const command = new ListJournalS3ExportsForLedgerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Returns a revision data object for a specified document ID and block address. Also
+   *          returns a proof of the specified revision for verification if <code>DigestTipAddress</code>
+   *          is provided.</p>
+   *
+   */
+  public getRevision(
+    args: GetRevisionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRevisionCommandOutput>;
+  public getRevision(
+    args: GetRevisionCommandInput,
+    cb: (err: any, data?: GetRevisionCommandOutput) => void
+  ): void;
+  public getRevision(
+    args: GetRevisionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRevisionCommandOutput) => void
+  ): void;
+  public getRevision(
+    args: GetRevisionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetRevisionCommandOutput) => void),
+    cb?: (err: any, data?: GetRevisionCommandOutput) => void
+  ): Promise<GetRevisionCommandOutput> | void {
+    const command = new GetRevisionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -588,84 +666,6 @@ export class QLDB extends QLDBClient {
     cb?: (err: any, data?: CreateLedgerCommandOutput) => void
   ): Promise<CreateLedgerCommandOutput> | void {
     const command = new CreateLedgerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Returns an array of journal export job descriptions for all ledgers that are associated
-   *          with the current AWS account and Region.</p>
-   *          <p>This action returns a maximum of <code>MaxResults</code> items, and is paginated so that
-   *          you can retrieve all the items by calling <code>ListJournalS3Exports</code> multiple
-   *          times.</p>
-   *
-   */
-  public listJournalS3Exports(
-    args: ListJournalS3ExportsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListJournalS3ExportsCommandOutput>;
-  public listJournalS3Exports(
-    args: ListJournalS3ExportsCommandInput,
-    cb: (err: any, data?: ListJournalS3ExportsCommandOutput) => void
-  ): void;
-  public listJournalS3Exports(
-    args: ListJournalS3ExportsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListJournalS3ExportsCommandOutput) => void
-  ): void;
-  public listJournalS3Exports(
-    args: ListJournalS3ExportsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJournalS3ExportsCommandOutput) => void),
-    cb?: (err: any, data?: ListJournalS3ExportsCommandOutput) => void
-  ): Promise<ListJournalS3ExportsCommandOutput> | void {
-    const command = new ListJournalS3ExportsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Returns all tags for a specified Amazon QLDB resource.</p>
-   *
-   */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

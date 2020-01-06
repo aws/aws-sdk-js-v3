@@ -140,6 +140,154 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class Connect extends ConnectClient {
   /**
    *
+   *          <p>Provides summary information about the routing profiles for the specified Amazon Connect instance.</p>
+   *
+   */
+  public listRoutingProfiles(
+    args: ListRoutingProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRoutingProfilesCommandOutput>;
+  public listRoutingProfiles(
+    args: ListRoutingProfilesCommandInput,
+    cb: (err: any, data?: ListRoutingProfilesCommandOutput) => void
+  ): void;
+  public listRoutingProfiles(
+    args: ListRoutingProfilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRoutingProfilesCommandOutput) => void
+  ): void;
+  public listRoutingProfiles(
+    args: ListRoutingProfilesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListRoutingProfilesCommandOutput) => void),
+    cb?: (err: any, data?: ListRoutingProfilesCommandOutput) => void
+  ): Promise<ListRoutingProfilesCommandOutput> | void {
+    const command = new ListRoutingProfilesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Provides information about the phone numbers for the specified Amazon Connect instance.</p>
+   *
+   */
+  public listPhoneNumbers(
+    args: ListPhoneNumbersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPhoneNumbersCommandOutput>;
+  public listPhoneNumbers(
+    args: ListPhoneNumbersCommandInput,
+    cb: (err: any, data?: ListPhoneNumbersCommandOutput) => void
+  ): void;
+  public listPhoneNumbers(
+    args: ListPhoneNumbersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPhoneNumbersCommandOutput) => void
+  ): void;
+  public listPhoneNumbers(
+    args: ListPhoneNumbersCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListPhoneNumbersCommandOutput) => void),
+    cb?: (err: any, data?: ListPhoneNumbersCommandOutput) => void
+  ): Promise<ListPhoneNumbersCommandOutput> | void {
+    const command = new ListPhoneNumbersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Provides information about the hours of operation for the specified Amazon Connect instance.</p>
+   *
+   */
+  public listHoursOfOperations(
+    args: ListHoursOfOperationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListHoursOfOperationsCommandOutput>;
+  public listHoursOfOperations(
+    args: ListHoursOfOperationsCommandInput,
+    cb: (err: any, data?: ListHoursOfOperationsCommandOutput) => void
+  ): void;
+  public listHoursOfOperations(
+    args: ListHoursOfOperationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListHoursOfOperationsCommandOutput) => void
+  ): void;
+  public listHoursOfOperations(
+    args: ListHoursOfOperationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListHoursOfOperationsCommandOutput) => void),
+    cb?: (err: any, data?: ListHoursOfOperationsCommandOutput) => void
+  ): Promise<ListHoursOfOperationsCommandOutput> | void {
+    const command = new ListHoursOfOperationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Provides information about the contact flows for the specified Amazon Connect instance.</p>
+   *
+   */
+  public listContactFlows(
+    args: ListContactFlowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListContactFlowsCommandOutput>;
+  public listContactFlows(
+    args: ListContactFlowsCommandInput,
+    cb: (err: any, data?: ListContactFlowsCommandOutput) => void
+  ): void;
+  public listContactFlows(
+    args: ListContactFlowsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListContactFlowsCommandOutput) => void
+  ): void;
+  public listContactFlows(
+    args: ListContactFlowsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListContactFlowsCommandOutput) => void),
+    cb?: (err: any, data?: ListContactFlowsCommandOutput) => void
+  ): Promise<ListContactFlowsCommandOutput> | void {
+    const command = new ListContactFlowsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
    *          <p>Creates or updates the contact attributes associated with the specified contact.</p>
    *          <p>You can add or update attributes for both ongoing and completed contacts. For example,
    *    you can update the customer's name or the reason the customer called while the call is active,
@@ -192,43 +340,6 @@ export class Connect extends ConnectClient {
 
   /**
    *
-   *          <p>Ends the specified contact.</p>
-   *
-   */
-  public stopContact(
-    args: StopContactCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StopContactCommandOutput>;
-  public stopContact(
-    args: StopContactCommandInput,
-    cb: (err: any, data?: StopContactCommandOutput) => void
-  ): void;
-  public stopContact(
-    args: StopContactCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StopContactCommandOutput) => void
-  ): void;
-  public stopContact(
-    args: StopContactCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopContactCommandOutput) => void),
-    cb?: (err: any, data?: StopContactCommandOutput) => void
-  ): Promise<StopContactCommandOutput> | void {
-    const command = new StopContactCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
    *          <p>Assigns the specified hierarchy group to the specified user.</p>
    *
    */
@@ -253,6 +364,43 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: UpdateUserHierarchyCommandOutput) => void
   ): Promise<UpdateUserHierarchyCommandOutput> | void {
     const command = new UpdateUserHierarchyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Updates the phone configuration settings for the specified user.</p>
+   *
+   */
+  public updateUserPhoneConfig(
+    args: UpdateUserPhoneConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateUserPhoneConfigCommandOutput>;
+  public updateUserPhoneConfig(
+    args: UpdateUserPhoneConfigCommandInput,
+    cb: (err: any, data?: UpdateUserPhoneConfigCommandOutput) => void
+  ): void;
+  public updateUserPhoneConfig(
+    args: UpdateUserPhoneConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateUserPhoneConfigCommandOutput) => void
+  ): void;
+  public updateUserPhoneConfig(
+    args: UpdateUserPhoneConfigCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateUserPhoneConfigCommandOutput) => void),
+    cb?: (err: any, data?: UpdateUserPhoneConfigCommandOutput) => void
+  ): Promise<UpdateUserPhoneConfigCommandOutput> | void {
+    const command = new UpdateUserPhoneConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -307,80 +455,6 @@ export class Connect extends ConnectClient {
 
   /**
    *
-   *          <p>Assigns the specified routing profile to the specified user.</p>
-   *
-   */
-  public updateUserRoutingProfile(
-    args: UpdateUserRoutingProfileCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateUserRoutingProfileCommandOutput>;
-  public updateUserRoutingProfile(
-    args: UpdateUserRoutingProfileCommandInput,
-    cb: (err: any, data?: UpdateUserRoutingProfileCommandOutput) => void
-  ): void;
-  public updateUserRoutingProfile(
-    args: UpdateUserRoutingProfileCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateUserRoutingProfileCommandOutput) => void
-  ): void;
-  public updateUserRoutingProfile(
-    args: UpdateUserRoutingProfileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUserRoutingProfileCommandOutput) => void),
-    cb?: (err: any, data?: UpdateUserRoutingProfileCommandOutput) => void
-  ): Promise<UpdateUserRoutingProfileCommandOutput> | void {
-    const command = new UpdateUserRoutingProfileCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Describes the specified hierarchy group.</p>
-   *
-   */
-  public describeUserHierarchyGroup(
-    args: DescribeUserHierarchyGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeUserHierarchyGroupCommandOutput>;
-  public describeUserHierarchyGroup(
-    args: DescribeUserHierarchyGroupCommandInput,
-    cb: (err: any, data?: DescribeUserHierarchyGroupCommandOutput) => void
-  ): void;
-  public describeUserHierarchyGroup(
-    args: DescribeUserHierarchyGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeUserHierarchyGroupCommandOutput) => void
-  ): void;
-  public describeUserHierarchyGroup(
-    args: DescribeUserHierarchyGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUserHierarchyGroupCommandOutput) => void),
-    cb?: (err: any, data?: DescribeUserHierarchyGroupCommandOutput) => void
-  ): Promise<DescribeUserHierarchyGroupCommandOutput> | void {
-    const command = new DescribeUserHierarchyGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
    *          <p>Describes the hierarchy structure of the specified Amazon Connect instance.</p>
    *
    */
@@ -408,43 +482,6 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: DescribeUserHierarchyStructureCommandOutput) => void
   ): Promise<DescribeUserHierarchyStructureCommandOutput> | void {
     const command = new DescribeUserHierarchyStructureCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Deletes a user account from the specified Amazon Connect instance.</p>
-   *
-   */
-  public deleteUser(
-    args: DeleteUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteUserCommandOutput>;
-  public deleteUser(
-    args: DeleteUserCommandInput,
-    cb: (err: any, data?: DeleteUserCommandOutput) => void
-  ): void;
-  public deleteUser(
-    args: DeleteUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteUserCommandOutput) => void
-  ): void;
-  public deleteUser(
-    args: DeleteUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserCommandOutput) => void),
-    cb?: (err: any, data?: DeleteUserCommandOutput) => void
-  ): Promise<DeleteUserCommandOutput> | void {
-    const command = new DeleteUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -495,293 +532,30 @@ export class Connect extends ConnectClient {
 
   /**
    *
-   *          <p>Creates a user account for the specified Amazon Connect instance.</p>
+   *          <p>Provides summary information about the hierarchy groups for the specified Amazon Connect instance.</p>
    *
    */
-  public createUser(
-    args: CreateUserCommandInput,
+  public listUserHierarchyGroups(
+    args: ListUserHierarchyGroupsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreateUserCommandOutput>;
-  public createUser(
-    args: CreateUserCommandInput,
-    cb: (err: any, data?: CreateUserCommandOutput) => void
+  ): Promise<ListUserHierarchyGroupsCommandOutput>;
+  public listUserHierarchyGroups(
+    args: ListUserHierarchyGroupsCommandInput,
+    cb: (err: any, data?: ListUserHierarchyGroupsCommandOutput) => void
   ): void;
-  public createUser(
-    args: CreateUserCommandInput,
+  public listUserHierarchyGroups(
+    args: ListUserHierarchyGroupsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateUserCommandOutput) => void
+    cb: (err: any, data?: ListUserHierarchyGroupsCommandOutput) => void
   ): void;
-  public createUser(
-    args: CreateUserCommandInput,
+  public listUserHierarchyGroups(
+    args: ListUserHierarchyGroupsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: CreateUserCommandOutput) => void),
-    cb?: (err: any, data?: CreateUserCommandOutput) => void
-  ): Promise<CreateUserCommandOutput> | void {
-    const command = new CreateUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Gets the real-time metric data from the specified Amazon Connect instance.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-reports.html">Real-time Metrics Reports</a>
-   *    in the <i>Amazon Connect Administrator Guide</i>.</p>
-   *
-   *
-   *
-   */
-  public getCurrentMetricData(
-    args: GetCurrentMetricDataCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetCurrentMetricDataCommandOutput>;
-  public getCurrentMetricData(
-    args: GetCurrentMetricDataCommandInput,
-    cb: (err: any, data?: GetCurrentMetricDataCommandOutput) => void
-  ): void;
-  public getCurrentMetricData(
-    args: GetCurrentMetricDataCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetCurrentMetricDataCommandOutput) => void
-  ): void;
-  public getCurrentMetricData(
-    args: GetCurrentMetricDataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCurrentMetricDataCommandOutput) => void),
-    cb?: (err: any, data?: GetCurrentMetricDataCommandOutput) => void
-  ): Promise<GetCurrentMetricDataCommandOutput> | void {
-    const command = new GetCurrentMetricDataCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Provides summary information about the users for the specified Amazon Connect instance.</p>
-   *
-   */
-  public listUsers(
-    args: ListUsersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListUsersCommandOutput>;
-  public listUsers(
-    args: ListUsersCommandInput,
-    cb: (err: any, data?: ListUsersCommandOutput) => void
-  ): void;
-  public listUsers(
-    args: ListUsersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListUsersCommandOutput) => void
-  ): void;
-  public listUsers(
-    args: ListUsersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUsersCommandOutput) => void),
-    cb?: (err: any, data?: ListUsersCommandOutput) => void
-  ): Promise<ListUsersCommandOutput> | void {
-    const command = new ListUsersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Retrieves the contact attributes for the specified contact.</p>
-   *
-   */
-  public getContactAttributes(
-    args: GetContactAttributesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetContactAttributesCommandOutput>;
-  public getContactAttributes(
-    args: GetContactAttributesCommandInput,
-    cb: (err: any, data?: GetContactAttributesCommandOutput) => void
-  ): void;
-  public getContactAttributes(
-    args: GetContactAttributesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetContactAttributesCommandOutput) => void
-  ): void;
-  public getContactAttributes(
-    args: GetContactAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetContactAttributesCommandOutput) => void),
-    cb?: (err: any, data?: GetContactAttributesCommandOutput) => void
-  ): Promise<GetContactAttributesCommandOutput> | void {
-    const command = new GetContactAttributesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Describes the specified user account.</p>
-   *
-   */
-  public describeUser(
-    args: DescribeUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeUserCommandOutput>;
-  public describeUser(
-    args: DescribeUserCommandInput,
-    cb: (err: any, data?: DescribeUserCommandOutput) => void
-  ): void;
-  public describeUser(
-    args: DescribeUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeUserCommandOutput) => void
-  ): void;
-  public describeUser(
-    args: DescribeUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUserCommandOutput) => void),
-    cb?: (err: any, data?: DescribeUserCommandOutput) => void
-  ): Promise<DescribeUserCommandOutput> | void {
-    const command = new DescribeUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Provides information about the phone numbers for the specified Amazon Connect instance.</p>
-   *
-   */
-  public listPhoneNumbers(
-    args: ListPhoneNumbersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListPhoneNumbersCommandOutput>;
-  public listPhoneNumbers(
-    args: ListPhoneNumbersCommandInput,
-    cb: (err: any, data?: ListPhoneNumbersCommandOutput) => void
-  ): void;
-  public listPhoneNumbers(
-    args: ListPhoneNumbersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListPhoneNumbersCommandOutput) => void
-  ): void;
-  public listPhoneNumbers(
-    args: ListPhoneNumbersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPhoneNumbersCommandOutput) => void),
-    cb?: (err: any, data?: ListPhoneNumbersCommandOutput) => void
-  ): Promise<ListPhoneNumbersCommandOutput> | void {
-    const command = new ListPhoneNumbersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Provides summary information about the routing profiles for the specified Amazon Connect instance.</p>
-   *
-   */
-  public listRoutingProfiles(
-    args: ListRoutingProfilesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListRoutingProfilesCommandOutput>;
-  public listRoutingProfiles(
-    args: ListRoutingProfilesCommandInput,
-    cb: (err: any, data?: ListRoutingProfilesCommandOutput) => void
-  ): void;
-  public listRoutingProfiles(
-    args: ListRoutingProfilesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListRoutingProfilesCommandOutput) => void
-  ): void;
-  public listRoutingProfiles(
-    args: ListRoutingProfilesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRoutingProfilesCommandOutput) => void),
-    cb?: (err: any, data?: ListRoutingProfilesCommandOutput) => void
-  ): Promise<ListRoutingProfilesCommandOutput> | void {
-    const command = new ListRoutingProfilesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Provides information about the contact flows for the specified Amazon Connect instance.</p>
-   *
-   */
-  public listContactFlows(
-    args: ListContactFlowsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListContactFlowsCommandOutput>;
-  public listContactFlows(
-    args: ListContactFlowsCommandInput,
-    cb: (err: any, data?: ListContactFlowsCommandOutput) => void
-  ): void;
-  public listContactFlows(
-    args: ListContactFlowsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListContactFlowsCommandOutput) => void
-  ): void;
-  public listContactFlows(
-    args: ListContactFlowsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListContactFlowsCommandOutput) => void),
-    cb?: (err: any, data?: ListContactFlowsCommandOutput) => void
-  ): Promise<ListContactFlowsCommandOutput> | void {
-    const command = new ListContactFlowsCommand(args);
+      | ((err: any, data?: ListUserHierarchyGroupsCommandOutput) => void),
+    cb?: (err: any, data?: ListUserHierarchyGroupsCommandOutput) => void
+  ): Promise<ListUserHierarchyGroupsCommandOutput> | void {
+    const command = new ListUserHierarchyGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -832,30 +606,67 @@ export class Connect extends ConnectClient {
 
   /**
    *
-   *          <p>Provides summary information about the hierarchy groups for the specified Amazon Connect instance.</p>
+   *          <p>Deletes a user account from the specified Amazon Connect instance.</p>
    *
    */
-  public listUserHierarchyGroups(
-    args: ListUserHierarchyGroupsCommandInput,
+  public deleteUser(
+    args: DeleteUserCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListUserHierarchyGroupsCommandOutput>;
-  public listUserHierarchyGroups(
-    args: ListUserHierarchyGroupsCommandInput,
-    cb: (err: any, data?: ListUserHierarchyGroupsCommandOutput) => void
+  ): Promise<DeleteUserCommandOutput>;
+  public deleteUser(
+    args: DeleteUserCommandInput,
+    cb: (err: any, data?: DeleteUserCommandOutput) => void
   ): void;
-  public listUserHierarchyGroups(
-    args: ListUserHierarchyGroupsCommandInput,
+  public deleteUser(
+    args: DeleteUserCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListUserHierarchyGroupsCommandOutput) => void
+    cb: (err: any, data?: DeleteUserCommandOutput) => void
   ): void;
-  public listUserHierarchyGroups(
-    args: ListUserHierarchyGroupsCommandInput,
+  public deleteUser(
+    args: DeleteUserCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListUserHierarchyGroupsCommandOutput) => void),
-    cb?: (err: any, data?: ListUserHierarchyGroupsCommandOutput) => void
-  ): Promise<ListUserHierarchyGroupsCommandOutput> | void {
-    const command = new ListUserHierarchyGroupsCommand(args);
+      | ((err: any, data?: DeleteUserCommandOutput) => void),
+    cb?: (err: any, data?: DeleteUserCommandOutput) => void
+  ): Promise<DeleteUserCommandOutput> | void {
+    const command = new DeleteUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Creates a user account for the specified Amazon Connect instance.</p>
+   *
+   */
+  public createUser(
+    args: CreateUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateUserCommandOutput>;
+  public createUser(
+    args: CreateUserCommandInput,
+    cb: (err: any, data?: CreateUserCommandOutput) => void
+  ): void;
+  public createUser(
+    args: CreateUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateUserCommandOutput) => void
+  ): void;
+  public createUser(
+    args: CreateUserCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateUserCommandOutput) => void),
+    cb?: (err: any, data?: CreateUserCommandOutput) => void
+  ): Promise<CreateUserCommandOutput> | void {
+    const command = new CreateUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -896,80 +707,6 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: StartOutboundVoiceContactCommandOutput) => void
   ): Promise<StartOutboundVoiceContactCommandOutput> | void {
     const command = new StartOutboundVoiceContactCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Updates the phone configuration settings for the specified user.</p>
-   *
-   */
-  public updateUserPhoneConfig(
-    args: UpdateUserPhoneConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateUserPhoneConfigCommandOutput>;
-  public updateUserPhoneConfig(
-    args: UpdateUserPhoneConfigCommandInput,
-    cb: (err: any, data?: UpdateUserPhoneConfigCommandOutput) => void
-  ): void;
-  public updateUserPhoneConfig(
-    args: UpdateUserPhoneConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateUserPhoneConfigCommandOutput) => void
-  ): void;
-  public updateUserPhoneConfig(
-    args: UpdateUserPhoneConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUserPhoneConfigCommandOutput) => void),
-    cb?: (err: any, data?: UpdateUserPhoneConfigCommandOutput) => void
-  ): Promise<UpdateUserPhoneConfigCommandOutput> | void {
-    const command = new UpdateUserPhoneConfigCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Provides information about the hours of operation for the specified Amazon Connect instance.</p>
-   *
-   */
-  public listHoursOfOperations(
-    args: ListHoursOfOperationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListHoursOfOperationsCommandOutput>;
-  public listHoursOfOperations(
-    args: ListHoursOfOperationsCommandInput,
-    cb: (err: any, data?: ListHoursOfOperationsCommandOutput) => void
-  ): void;
-  public listHoursOfOperations(
-    args: ListHoursOfOperationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListHoursOfOperationsCommandOutput) => void
-  ): void;
-  public listHoursOfOperations(
-    args: ListHoursOfOperationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListHoursOfOperationsCommandOutput) => void),
-    cb?: (err: any, data?: ListHoursOfOperationsCommandOutput) => void
-  ): Promise<ListHoursOfOperationsCommandOutput> | void {
-    const command = new ListHoursOfOperationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1081,6 +818,269 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: ListSecurityProfilesCommandOutput) => void
   ): Promise<ListSecurityProfilesCommandOutput> | void {
     const command = new ListSecurityProfilesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Retrieves the contact attributes for the specified contact.</p>
+   *
+   */
+  public getContactAttributes(
+    args: GetContactAttributesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetContactAttributesCommandOutput>;
+  public getContactAttributes(
+    args: GetContactAttributesCommandInput,
+    cb: (err: any, data?: GetContactAttributesCommandOutput) => void
+  ): void;
+  public getContactAttributes(
+    args: GetContactAttributesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetContactAttributesCommandOutput) => void
+  ): void;
+  public getContactAttributes(
+    args: GetContactAttributesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetContactAttributesCommandOutput) => void),
+    cb?: (err: any, data?: GetContactAttributesCommandOutput) => void
+  ): Promise<GetContactAttributesCommandOutput> | void {
+    const command = new GetContactAttributesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Ends the specified contact.</p>
+   *
+   */
+  public stopContact(
+    args: StopContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopContactCommandOutput>;
+  public stopContact(
+    args: StopContactCommandInput,
+    cb: (err: any, data?: StopContactCommandOutput) => void
+  ): void;
+  public stopContact(
+    args: StopContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopContactCommandOutput) => void
+  ): void;
+  public stopContact(
+    args: StopContactCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StopContactCommandOutput) => void),
+    cb?: (err: any, data?: StopContactCommandOutput) => void
+  ): Promise<StopContactCommandOutput> | void {
+    const command = new StopContactCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Describes the specified hierarchy group.</p>
+   *
+   */
+  public describeUserHierarchyGroup(
+    args: DescribeUserHierarchyGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeUserHierarchyGroupCommandOutput>;
+  public describeUserHierarchyGroup(
+    args: DescribeUserHierarchyGroupCommandInput,
+    cb: (err: any, data?: DescribeUserHierarchyGroupCommandOutput) => void
+  ): void;
+  public describeUserHierarchyGroup(
+    args: DescribeUserHierarchyGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeUserHierarchyGroupCommandOutput) => void
+  ): void;
+  public describeUserHierarchyGroup(
+    args: DescribeUserHierarchyGroupCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeUserHierarchyGroupCommandOutput) => void),
+    cb?: (err: any, data?: DescribeUserHierarchyGroupCommandOutput) => void
+  ): Promise<DescribeUserHierarchyGroupCommandOutput> | void {
+    const command = new DescribeUserHierarchyGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Describes the specified user account.</p>
+   *
+   */
+  public describeUser(
+    args: DescribeUserCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeUserCommandOutput>;
+  public describeUser(
+    args: DescribeUserCommandInput,
+    cb: (err: any, data?: DescribeUserCommandOutput) => void
+  ): void;
+  public describeUser(
+    args: DescribeUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeUserCommandOutput) => void
+  ): void;
+  public describeUser(
+    args: DescribeUserCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeUserCommandOutput) => void),
+    cb?: (err: any, data?: DescribeUserCommandOutput) => void
+  ): Promise<DescribeUserCommandOutput> | void {
+    const command = new DescribeUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Gets the real-time metric data from the specified Amazon Connect instance.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-reports.html">Real-time Metrics Reports</a>
+   *    in the <i>Amazon Connect Administrator Guide</i>.</p>
+   *
+   *
+   *
+   */
+  public getCurrentMetricData(
+    args: GetCurrentMetricDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCurrentMetricDataCommandOutput>;
+  public getCurrentMetricData(
+    args: GetCurrentMetricDataCommandInput,
+    cb: (err: any, data?: GetCurrentMetricDataCommandOutput) => void
+  ): void;
+  public getCurrentMetricData(
+    args: GetCurrentMetricDataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCurrentMetricDataCommandOutput) => void
+  ): void;
+  public getCurrentMetricData(
+    args: GetCurrentMetricDataCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetCurrentMetricDataCommandOutput) => void),
+    cb?: (err: any, data?: GetCurrentMetricDataCommandOutput) => void
+  ): Promise<GetCurrentMetricDataCommandOutput> | void {
+    const command = new GetCurrentMetricDataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Provides summary information about the users for the specified Amazon Connect instance.</p>
+   *
+   */
+  public listUsers(
+    args: ListUsersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUsersCommandOutput>;
+  public listUsers(
+    args: ListUsersCommandInput,
+    cb: (err: any, data?: ListUsersCommandOutput) => void
+  ): void;
+  public listUsers(
+    args: ListUsersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListUsersCommandOutput) => void
+  ): void;
+  public listUsers(
+    args: ListUsersCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListUsersCommandOutput) => void),
+    cb?: (err: any, data?: ListUsersCommandOutput) => void
+  ): Promise<ListUsersCommandOutput> | void {
+    const command = new ListUsersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Assigns the specified routing profile to the specified user.</p>
+   *
+   */
+  public updateUserRoutingProfile(
+    args: UpdateUserRoutingProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateUserRoutingProfileCommandOutput>;
+  public updateUserRoutingProfile(
+    args: UpdateUserRoutingProfileCommandInput,
+    cb: (err: any, data?: UpdateUserRoutingProfileCommandOutput) => void
+  ): void;
+  public updateUserRoutingProfile(
+    args: UpdateUserRoutingProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateUserRoutingProfileCommandOutput) => void
+  ): void;
+  public updateUserRoutingProfile(
+    args: UpdateUserRoutingProfileCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateUserRoutingProfileCommandOutput) => void),
+    cb?: (err: any, data?: UpdateUserRoutingProfileCommandOutput) => void
+  ): Promise<UpdateUserRoutingProfileCommandOutput> | void {
+    const command = new UpdateUserRoutingProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

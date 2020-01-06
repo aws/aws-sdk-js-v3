@@ -99,6 +99,243 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class Batch extends BatchClient {
   /**
    *
+   *          <p>Deletes the specified job queue. You must first disable submissions for a queue with the <a>UpdateJobQueue</a> operation. All jobs in the queue are terminated when you delete a job queue.</p>
+   *          <p>It is not necessary to disassociate compute environments from a queue before submitting a
+   *     <code>DeleteJobQueue</code> request.</p>
+   *
+   *
+   */
+  public deleteJobQueue(
+    args: DeleteJobQueueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteJobQueueCommandOutput>;
+  public deleteJobQueue(
+    args: DeleteJobQueueCommandInput,
+    cb: (err: any, data?: DeleteJobQueueCommandOutput) => void
+  ): void;
+  public deleteJobQueue(
+    args: DeleteJobQueueCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteJobQueueCommandOutput) => void
+  ): void;
+  public deleteJobQueue(
+    args: DeleteJobQueueCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteJobQueueCommandOutput) => void),
+    cb?: (err: any, data?: DeleteJobQueueCommandOutput) => void
+  ): Promise<DeleteJobQueueCommandOutput> | void {
+    const command = new DeleteJobQueueCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Terminates a job in a job queue. Jobs that are in the <code>STARTING</code> or <code>RUNNING</code> state are
+   *    terminated, which causes them to transition to <code>FAILED</code>. Jobs that have not progressed to the
+   *     <code>STARTING</code> state are cancelled.</p>
+   *
+   *
+   */
+  public terminateJob(
+    args: TerminateJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TerminateJobCommandOutput>;
+  public terminateJob(
+    args: TerminateJobCommandInput,
+    cb: (err: any, data?: TerminateJobCommandOutput) => void
+  ): void;
+  public terminateJob(
+    args: TerminateJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TerminateJobCommandOutput) => void
+  ): void;
+  public terminateJob(
+    args: TerminateJobCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TerminateJobCommandOutput) => void),
+    cb?: (err: any, data?: TerminateJobCommandOutput) => void
+  ): Promise<TerminateJobCommandOutput> | void {
+    const command = new TerminateJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Describes a list of job definitions. You can specify a <code>status</code> (such as <code>ACTIVE</code>) to only
+   *    return job definitions that match that status.</p>
+   *
+   *
+   */
+  public describeJobDefinitions(
+    args: DescribeJobDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeJobDefinitionsCommandOutput>;
+  public describeJobDefinitions(
+    args: DescribeJobDefinitionsCommandInput,
+    cb: (err: any, data?: DescribeJobDefinitionsCommandOutput) => void
+  ): void;
+  public describeJobDefinitions(
+    args: DescribeJobDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeJobDefinitionsCommandOutput) => void
+  ): void;
+  public describeJobDefinitions(
+    args: DescribeJobDefinitionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeJobDefinitionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeJobDefinitionsCommandOutput) => void
+  ): Promise<DescribeJobDefinitionsCommandOutput> | void {
+    const command = new DescribeJobDefinitionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Deletes an AWS Batch compute environment.</p>
+   *          <p>Before you can delete a compute environment, you must set its state to <code>DISABLED</code> with the <a>UpdateComputeEnvironment</a> API operation and disassociate it from any job queues with the <a>UpdateJobQueue</a> API operation.</p>
+   *
+   *
+   */
+  public deleteComputeEnvironment(
+    args: DeleteComputeEnvironmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteComputeEnvironmentCommandOutput>;
+  public deleteComputeEnvironment(
+    args: DeleteComputeEnvironmentCommandInput,
+    cb: (err: any, data?: DeleteComputeEnvironmentCommandOutput) => void
+  ): void;
+  public deleteComputeEnvironment(
+    args: DeleteComputeEnvironmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteComputeEnvironmentCommandOutput) => void
+  ): void;
+  public deleteComputeEnvironment(
+    args: DeleteComputeEnvironmentCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteComputeEnvironmentCommandOutput) => void),
+    cb?: (err: any, data?: DeleteComputeEnvironmentCommandOutput) => void
+  ): Promise<DeleteComputeEnvironmentCommandOutput> | void {
+    const command = new DeleteComputeEnvironmentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Updates a job queue.</p>
+   *
+   *
+   */
+  public updateJobQueue(
+    args: UpdateJobQueueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateJobQueueCommandOutput>;
+  public updateJobQueue(
+    args: UpdateJobQueueCommandInput,
+    cb: (err: any, data?: UpdateJobQueueCommandOutput) => void
+  ): void;
+  public updateJobQueue(
+    args: UpdateJobQueueCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateJobQueueCommandOutput) => void
+  ): void;
+  public updateJobQueue(
+    args: UpdateJobQueueCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateJobQueueCommandOutput) => void),
+    cb?: (err: any, data?: UpdateJobQueueCommandOutput) => void
+  ): Promise<UpdateJobQueueCommandOutput> | void {
+    const command = new UpdateJobQueueCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Describes one or more of your compute environments.</p>
+   *          <p>If you are using an unmanaged compute environment, you can use the <code>DescribeComputeEnvironment</code>
+   *    operation to determine the <code>ecsClusterArn</code> that you should launch your Amazon ECS container instances
+   *    into.</p>
+   *
+   *
+   */
+  public describeComputeEnvironments(
+    args: DescribeComputeEnvironmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeComputeEnvironmentsCommandOutput>;
+  public describeComputeEnvironments(
+    args: DescribeComputeEnvironmentsCommandInput,
+    cb: (err: any, data?: DescribeComputeEnvironmentsCommandOutput) => void
+  ): void;
+  public describeComputeEnvironments(
+    args: DescribeComputeEnvironmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeComputeEnvironmentsCommandOutput) => void
+  ): void;
+  public describeComputeEnvironments(
+    args: DescribeComputeEnvironmentsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeComputeEnvironmentsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeComputeEnvironmentsCommandOutput) => void
+  ): Promise<DescribeComputeEnvironmentsCommandOutput> | void {
+    const command = new DescribeComputeEnvironmentsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
    *          <p>Creates an AWS Batch job queue. When you create a job queue, you associate one or more compute environments to the
    *    queue and assign an order of preference for the compute environments.</p>
    *          <p>You also set a priority to the job queue that determines the order in which the AWS Batch scheduler places jobs
@@ -333,305 +570,32 @@ export class Batch extends BatchClient {
 
   /**
    *
-   *          <p>Registers an AWS Batch job definition.</p>
+   *          <p>Submits an AWS Batch job from a job definition. Parameters specified during <a>SubmitJob</a> override
+   *    parameters defined in the job definition.</p>
    *
    *
    */
-  public registerJobDefinition(
-    args: RegisterJobDefinitionCommandInput,
+  public submitJob(
+    args: SubmitJobCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<RegisterJobDefinitionCommandOutput>;
-  public registerJobDefinition(
-    args: RegisterJobDefinitionCommandInput,
-    cb: (err: any, data?: RegisterJobDefinitionCommandOutput) => void
+  ): Promise<SubmitJobCommandOutput>;
+  public submitJob(
+    args: SubmitJobCommandInput,
+    cb: (err: any, data?: SubmitJobCommandOutput) => void
   ): void;
-  public registerJobDefinition(
-    args: RegisterJobDefinitionCommandInput,
+  public submitJob(
+    args: SubmitJobCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: RegisterJobDefinitionCommandOutput) => void
+    cb: (err: any, data?: SubmitJobCommandOutput) => void
   ): void;
-  public registerJobDefinition(
-    args: RegisterJobDefinitionCommandInput,
+  public submitJob(
+    args: SubmitJobCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: RegisterJobDefinitionCommandOutput) => void),
-    cb?: (err: any, data?: RegisterJobDefinitionCommandOutput) => void
-  ): Promise<RegisterJobDefinitionCommandOutput> | void {
-    const command = new RegisterJobDefinitionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Deregisters an AWS Batch job definition.</p>
-   *
-   *
-   */
-  public deregisterJobDefinition(
-    args: DeregisterJobDefinitionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeregisterJobDefinitionCommandOutput>;
-  public deregisterJobDefinition(
-    args: DeregisterJobDefinitionCommandInput,
-    cb: (err: any, data?: DeregisterJobDefinitionCommandOutput) => void
-  ): void;
-  public deregisterJobDefinition(
-    args: DeregisterJobDefinitionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeregisterJobDefinitionCommandOutput) => void
-  ): void;
-  public deregisterJobDefinition(
-    args: DeregisterJobDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterJobDefinitionCommandOutput) => void),
-    cb?: (err: any, data?: DeregisterJobDefinitionCommandOutput) => void
-  ): Promise<DeregisterJobDefinitionCommandOutput> | void {
-    const command = new DeregisterJobDefinitionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Deletes the specified job queue. You must first disable submissions for a queue with the <a>UpdateJobQueue</a> operation. All jobs in the queue are terminated when you delete a job queue.</p>
-   *          <p>It is not necessary to disassociate compute environments from a queue before submitting a
-   *     <code>DeleteJobQueue</code> request.</p>
-   *
-   *
-   */
-  public deleteJobQueue(
-    args: DeleteJobQueueCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteJobQueueCommandOutput>;
-  public deleteJobQueue(
-    args: DeleteJobQueueCommandInput,
-    cb: (err: any, data?: DeleteJobQueueCommandOutput) => void
-  ): void;
-  public deleteJobQueue(
-    args: DeleteJobQueueCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteJobQueueCommandOutput) => void
-  ): void;
-  public deleteJobQueue(
-    args: DeleteJobQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteJobQueueCommandOutput) => void),
-    cb?: (err: any, data?: DeleteJobQueueCommandOutput) => void
-  ): Promise<DeleteJobQueueCommandOutput> | void {
-    const command = new DeleteJobQueueCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Terminates a job in a job queue. Jobs that are in the <code>STARTING</code> or <code>RUNNING</code> state are
-   *    terminated, which causes them to transition to <code>FAILED</code>. Jobs that have not progressed to the
-   *     <code>STARTING</code> state are cancelled.</p>
-   *
-   *
-   */
-  public terminateJob(
-    args: TerminateJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TerminateJobCommandOutput>;
-  public terminateJob(
-    args: TerminateJobCommandInput,
-    cb: (err: any, data?: TerminateJobCommandOutput) => void
-  ): void;
-  public terminateJob(
-    args: TerminateJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TerminateJobCommandOutput) => void
-  ): void;
-  public terminateJob(
-    args: TerminateJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TerminateJobCommandOutput) => void),
-    cb?: (err: any, data?: TerminateJobCommandOutput) => void
-  ): Promise<TerminateJobCommandOutput> | void {
-    const command = new TerminateJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Deletes an AWS Batch compute environment.</p>
-   *          <p>Before you can delete a compute environment, you must set its state to <code>DISABLED</code> with the <a>UpdateComputeEnvironment</a> API operation and disassociate it from any job queues with the <a>UpdateJobQueue</a> API operation.</p>
-   *
-   *
-   */
-  public deleteComputeEnvironment(
-    args: DeleteComputeEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteComputeEnvironmentCommandOutput>;
-  public deleteComputeEnvironment(
-    args: DeleteComputeEnvironmentCommandInput,
-    cb: (err: any, data?: DeleteComputeEnvironmentCommandOutput) => void
-  ): void;
-  public deleteComputeEnvironment(
-    args: DeleteComputeEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteComputeEnvironmentCommandOutput) => void
-  ): void;
-  public deleteComputeEnvironment(
-    args: DeleteComputeEnvironmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteComputeEnvironmentCommandOutput) => void),
-    cb?: (err: any, data?: DeleteComputeEnvironmentCommandOutput) => void
-  ): Promise<DeleteComputeEnvironmentCommandOutput> | void {
-    const command = new DeleteComputeEnvironmentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Updates a job queue.</p>
-   *
-   *
-   */
-  public updateJobQueue(
-    args: UpdateJobQueueCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateJobQueueCommandOutput>;
-  public updateJobQueue(
-    args: UpdateJobQueueCommandInput,
-    cb: (err: any, data?: UpdateJobQueueCommandOutput) => void
-  ): void;
-  public updateJobQueue(
-    args: UpdateJobQueueCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateJobQueueCommandOutput) => void
-  ): void;
-  public updateJobQueue(
-    args: UpdateJobQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateJobQueueCommandOutput) => void),
-    cb?: (err: any, data?: UpdateJobQueueCommandOutput) => void
-  ): Promise<UpdateJobQueueCommandOutput> | void {
-    const command = new UpdateJobQueueCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Describes one or more of your compute environments.</p>
-   *          <p>If you are using an unmanaged compute environment, you can use the <code>DescribeComputeEnvironment</code>
-   *    operation to determine the <code>ecsClusterArn</code> that you should launch your Amazon ECS container instances
-   *    into.</p>
-   *
-   *
-   */
-  public describeComputeEnvironments(
-    args: DescribeComputeEnvironmentsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeComputeEnvironmentsCommandOutput>;
-  public describeComputeEnvironments(
-    args: DescribeComputeEnvironmentsCommandInput,
-    cb: (err: any, data?: DescribeComputeEnvironmentsCommandOutput) => void
-  ): void;
-  public describeComputeEnvironments(
-    args: DescribeComputeEnvironmentsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeComputeEnvironmentsCommandOutput) => void
-  ): void;
-  public describeComputeEnvironments(
-    args: DescribeComputeEnvironmentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeComputeEnvironmentsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeComputeEnvironmentsCommandOutput) => void
-  ): Promise<DescribeComputeEnvironmentsCommandOutput> | void {
-    const command = new DescribeComputeEnvironmentsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Updates an AWS Batch compute environment.</p>
-   *
-   *
-   */
-  public updateComputeEnvironment(
-    args: UpdateComputeEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateComputeEnvironmentCommandOutput>;
-  public updateComputeEnvironment(
-    args: UpdateComputeEnvironmentCommandInput,
-    cb: (err: any, data?: UpdateComputeEnvironmentCommandOutput) => void
-  ): void;
-  public updateComputeEnvironment(
-    args: UpdateComputeEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateComputeEnvironmentCommandOutput) => void
-  ): void;
-  public updateComputeEnvironment(
-    args: UpdateComputeEnvironmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateComputeEnvironmentCommandOutput) => void),
-    cb?: (err: any, data?: UpdateComputeEnvironmentCommandOutput) => void
-  ): Promise<UpdateComputeEnvironmentCommandOutput> | void {
-    const command = new UpdateComputeEnvironmentCommand(args);
+      | ((err: any, data?: SubmitJobCommandOutput) => void),
+    cb?: (err: any, data?: SubmitJobCommandOutput) => void
+  ): Promise<SubmitJobCommandOutput> | void {
+    const command = new SubmitJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -697,32 +661,31 @@ export class Batch extends BatchClient {
 
   /**
    *
-   *          <p>Describes a list of job definitions. You can specify a <code>status</code> (such as <code>ACTIVE</code>) to only
-   *    return job definitions that match that status.</p>
+   *          <p>Updates an AWS Batch compute environment.</p>
    *
    *
    */
-  public describeJobDefinitions(
-    args: DescribeJobDefinitionsCommandInput,
+  public updateComputeEnvironment(
+    args: UpdateComputeEnvironmentCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DescribeJobDefinitionsCommandOutput>;
-  public describeJobDefinitions(
-    args: DescribeJobDefinitionsCommandInput,
-    cb: (err: any, data?: DescribeJobDefinitionsCommandOutput) => void
+  ): Promise<UpdateComputeEnvironmentCommandOutput>;
+  public updateComputeEnvironment(
+    args: UpdateComputeEnvironmentCommandInput,
+    cb: (err: any, data?: UpdateComputeEnvironmentCommandOutput) => void
   ): void;
-  public describeJobDefinitions(
-    args: DescribeJobDefinitionsCommandInput,
+  public updateComputeEnvironment(
+    args: UpdateComputeEnvironmentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeJobDefinitionsCommandOutput) => void
+    cb: (err: any, data?: UpdateComputeEnvironmentCommandOutput) => void
   ): void;
-  public describeJobDefinitions(
-    args: DescribeJobDefinitionsCommandInput,
+  public updateComputeEnvironment(
+    args: UpdateComputeEnvironmentCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DescribeJobDefinitionsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeJobDefinitionsCommandOutput) => void
-  ): Promise<DescribeJobDefinitionsCommandOutput> | void {
-    const command = new DescribeJobDefinitionsCommand(args);
+      | ((err: any, data?: UpdateComputeEnvironmentCommandOutput) => void),
+    cb?: (err: any, data?: UpdateComputeEnvironmentCommandOutput) => void
+  ): Promise<UpdateComputeEnvironmentCommandOutput> | void {
+    const command = new UpdateComputeEnvironmentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -736,32 +699,69 @@ export class Batch extends BatchClient {
 
   /**
    *
-   *          <p>Submits an AWS Batch job from a job definition. Parameters specified during <a>SubmitJob</a> override
-   *    parameters defined in the job definition.</p>
+   *          <p>Registers an AWS Batch job definition.</p>
    *
    *
    */
-  public submitJob(
-    args: SubmitJobCommandInput,
+  public registerJobDefinition(
+    args: RegisterJobDefinitionCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<SubmitJobCommandOutput>;
-  public submitJob(
-    args: SubmitJobCommandInput,
-    cb: (err: any, data?: SubmitJobCommandOutput) => void
+  ): Promise<RegisterJobDefinitionCommandOutput>;
+  public registerJobDefinition(
+    args: RegisterJobDefinitionCommandInput,
+    cb: (err: any, data?: RegisterJobDefinitionCommandOutput) => void
   ): void;
-  public submitJob(
-    args: SubmitJobCommandInput,
+  public registerJobDefinition(
+    args: RegisterJobDefinitionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: SubmitJobCommandOutput) => void
+    cb: (err: any, data?: RegisterJobDefinitionCommandOutput) => void
   ): void;
-  public submitJob(
-    args: SubmitJobCommandInput,
+  public registerJobDefinition(
+    args: RegisterJobDefinitionCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: SubmitJobCommandOutput) => void),
-    cb?: (err: any, data?: SubmitJobCommandOutput) => void
-  ): Promise<SubmitJobCommandOutput> | void {
-    const command = new SubmitJobCommand(args);
+      | ((err: any, data?: RegisterJobDefinitionCommandOutput) => void),
+    cb?: (err: any, data?: RegisterJobDefinitionCommandOutput) => void
+  ): Promise<RegisterJobDefinitionCommandOutput> | void {
+    const command = new RegisterJobDefinitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Deregisters an AWS Batch job definition.</p>
+   *
+   *
+   */
+  public deregisterJobDefinition(
+    args: DeregisterJobDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterJobDefinitionCommandOutput>;
+  public deregisterJobDefinition(
+    args: DeregisterJobDefinitionCommandInput,
+    cb: (err: any, data?: DeregisterJobDefinitionCommandOutput) => void
+  ): void;
+  public deregisterJobDefinition(
+    args: DeregisterJobDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeregisterJobDefinitionCommandOutput) => void
+  ): void;
+  public deregisterJobDefinition(
+    args: DeregisterJobDefinitionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeregisterJobDefinitionCommandOutput) => void),
+    cb?: (err: any, data?: DeregisterJobDefinitionCommandOutput) => void
+  ): Promise<DeregisterJobDefinitionCommandOutput> | void {
+    const command = new DeregisterJobDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

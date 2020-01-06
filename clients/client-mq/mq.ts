@@ -116,29 +116,29 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class mq extends mqClient {
   /**
-   * Describe available engine types and versions.
+   * Returns information about the specified broker.
    */
-  public describeBrokerEngineTypes(
-    args: DescribeBrokerEngineTypesCommandInput,
+  public describeBroker(
+    args: DescribeBrokerCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DescribeBrokerEngineTypesCommandOutput>;
-  public describeBrokerEngineTypes(
-    args: DescribeBrokerEngineTypesCommandInput,
-    cb: (err: any, data?: DescribeBrokerEngineTypesCommandOutput) => void
+  ): Promise<DescribeBrokerCommandOutput>;
+  public describeBroker(
+    args: DescribeBrokerCommandInput,
+    cb: (err: any, data?: DescribeBrokerCommandOutput) => void
   ): void;
-  public describeBrokerEngineTypes(
-    args: DescribeBrokerEngineTypesCommandInput,
+  public describeBroker(
+    args: DescribeBrokerCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeBrokerEngineTypesCommandOutput) => void
+    cb: (err: any, data?: DescribeBrokerCommandOutput) => void
   ): void;
-  public describeBrokerEngineTypes(
-    args: DescribeBrokerEngineTypesCommandInput,
+  public describeBroker(
+    args: DescribeBrokerCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DescribeBrokerEngineTypesCommandOutput) => void),
-    cb?: (err: any, data?: DescribeBrokerEngineTypesCommandOutput) => void
-  ): Promise<DescribeBrokerEngineTypesCommandOutput> | void {
-    const command = new DescribeBrokerEngineTypesCommand(args);
+      | ((err: any, data?: DescribeBrokerCommandOutput) => void),
+    cb?: (err: any, data?: DescribeBrokerCommandOutput) => void
+  ): Promise<DescribeBrokerCommandOutput> | void {
+    const command = new DescribeBrokerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -151,29 +151,29 @@ export class mq extends mqClient {
   }
 
   /**
-   * Returns information about an ActiveMQ user.
+   * Creates an ActiveMQ user.
    */
-  public describeUser(
-    args: DescribeUserCommandInput,
+  public createUser(
+    args: CreateUserCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DescribeUserCommandOutput>;
-  public describeUser(
-    args: DescribeUserCommandInput,
-    cb: (err: any, data?: DescribeUserCommandOutput) => void
+  ): Promise<CreateUserCommandOutput>;
+  public createUser(
+    args: CreateUserCommandInput,
+    cb: (err: any, data?: CreateUserCommandOutput) => void
   ): void;
-  public describeUser(
-    args: DescribeUserCommandInput,
+  public createUser(
+    args: CreateUserCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeUserCommandOutput) => void
+    cb: (err: any, data?: CreateUserCommandOutput) => void
   ): void;
-  public describeUser(
-    args: DescribeUserCommandInput,
+  public createUser(
+    args: CreateUserCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUserCommandOutput) => void),
-    cb?: (err: any, data?: DescribeUserCommandOutput) => void
-  ): Promise<DescribeUserCommandOutput> | void {
-    const command = new DescribeUserCommand(args);
+      | ((err: any, data?: CreateUserCommandOutput) => void),
+    cb?: (err: any, data?: CreateUserCommandOutput) => void
+  ): Promise<CreateUserCommandOutput> | void {
+    const command = new CreateUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -186,29 +186,29 @@ export class mq extends mqClient {
   }
 
   /**
-   * Returns a list of all revisions for the specified configuration.
+   * Updates the information for an ActiveMQ user.
    */
-  public listConfigurationRevisions(
-    args: ListConfigurationRevisionsCommandInput,
+  public updateUser(
+    args: UpdateUserCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListConfigurationRevisionsCommandOutput>;
-  public listConfigurationRevisions(
-    args: ListConfigurationRevisionsCommandInput,
-    cb: (err: any, data?: ListConfigurationRevisionsCommandOutput) => void
+  ): Promise<UpdateUserCommandOutput>;
+  public updateUser(
+    args: UpdateUserCommandInput,
+    cb: (err: any, data?: UpdateUserCommandOutput) => void
   ): void;
-  public listConfigurationRevisions(
-    args: ListConfigurationRevisionsCommandInput,
+  public updateUser(
+    args: UpdateUserCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListConfigurationRevisionsCommandOutput) => void
+    cb: (err: any, data?: UpdateUserCommandOutput) => void
   ): void;
-  public listConfigurationRevisions(
-    args: ListConfigurationRevisionsCommandInput,
+  public updateUser(
+    args: UpdateUserCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListConfigurationRevisionsCommandOutput) => void),
-    cb?: (err: any, data?: ListConfigurationRevisionsCommandOutput) => void
-  ): Promise<ListConfigurationRevisionsCommandOutput> | void {
-    const command = new ListConfigurationRevisionsCommand(args);
+      | ((err: any, data?: UpdateUserCommandOutput) => void),
+    cb?: (err: any, data?: UpdateUserCommandOutput) => void
+  ): Promise<UpdateUserCommandOutput> | void {
+    const command = new UpdateUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -221,29 +221,29 @@ export class mq extends mqClient {
   }
 
   /**
-   * Updates the specified configuration.
+   * Deletes an ActiveMQ user.
    */
-  public updateConfiguration(
-    args: UpdateConfigurationCommandInput,
+  public deleteUser(
+    args: DeleteUserCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UpdateConfigurationCommandOutput>;
-  public updateConfiguration(
-    args: UpdateConfigurationCommandInput,
-    cb: (err: any, data?: UpdateConfigurationCommandOutput) => void
+  ): Promise<DeleteUserCommandOutput>;
+  public deleteUser(
+    args: DeleteUserCommandInput,
+    cb: (err: any, data?: DeleteUserCommandOutput) => void
   ): void;
-  public updateConfiguration(
-    args: UpdateConfigurationCommandInput,
+  public deleteUser(
+    args: DeleteUserCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateConfigurationCommandOutput) => void
+    cb: (err: any, data?: DeleteUserCommandOutput) => void
   ): void;
-  public updateConfiguration(
-    args: UpdateConfigurationCommandInput,
+  public deleteUser(
+    args: DeleteUserCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: UpdateConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: UpdateConfigurationCommandOutput) => void
-  ): Promise<UpdateConfigurationCommandOutput> | void {
-    const command = new UpdateConfigurationCommand(args);
+      | ((err: any, data?: DeleteUserCommandOutput) => void),
+    cb?: (err: any, data?: DeleteUserCommandOutput) => void
+  ): Promise<DeleteUserCommandOutput> | void {
+    const command = new DeleteUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -256,29 +256,29 @@ export class mq extends mqClient {
   }
 
   /**
-   * Lists tags for a resource.
+   * Reboots a broker. Note: This API is asynchronous.
    */
-  public listTags(
-    args: ListTagsCommandInput,
+  public rebootBroker(
+    args: RebootBrokerCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListTagsCommandOutput>;
-  public listTags(
-    args: ListTagsCommandInput,
-    cb: (err: any, data?: ListTagsCommandOutput) => void
+  ): Promise<RebootBrokerCommandOutput>;
+  public rebootBroker(
+    args: RebootBrokerCommandInput,
+    cb: (err: any, data?: RebootBrokerCommandOutput) => void
   ): void;
-  public listTags(
-    args: ListTagsCommandInput,
+  public rebootBroker(
+    args: RebootBrokerCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsCommandOutput) => void
+    cb: (err: any, data?: RebootBrokerCommandOutput) => void
   ): void;
-  public listTags(
-    args: ListTagsCommandInput,
+  public rebootBroker(
+    args: RebootBrokerCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsCommandOutput) => void
-  ): Promise<ListTagsCommandOutput> | void {
-    const command = new ListTagsCommand(args);
+      | ((err: any, data?: RebootBrokerCommandOutput) => void),
+    cb?: (err: any, data?: RebootBrokerCommandOutput) => void
+  ): Promise<RebootBrokerCommandOutput> | void {
+    const command = new RebootBrokerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -431,29 +431,29 @@ export class mq extends mqClient {
   }
 
   /**
-   * Updates the information for an ActiveMQ user.
+   * Returns information about an ActiveMQ user.
    */
-  public updateUser(
-    args: UpdateUserCommandInput,
+  public describeUser(
+    args: DescribeUserCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UpdateUserCommandOutput>;
-  public updateUser(
-    args: UpdateUserCommandInput,
-    cb: (err: any, data?: UpdateUserCommandOutput) => void
+  ): Promise<DescribeUserCommandOutput>;
+  public describeUser(
+    args: DescribeUserCommandInput,
+    cb: (err: any, data?: DescribeUserCommandOutput) => void
   ): void;
-  public updateUser(
-    args: UpdateUserCommandInput,
+  public describeUser(
+    args: DescribeUserCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateUserCommandOutput) => void
+    cb: (err: any, data?: DescribeUserCommandOutput) => void
   ): void;
-  public updateUser(
-    args: UpdateUserCommandInput,
+  public describeUser(
+    args: DescribeUserCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: UpdateUserCommandOutput) => void),
-    cb?: (err: any, data?: UpdateUserCommandOutput) => void
-  ): Promise<UpdateUserCommandOutput> | void {
-    const command = new UpdateUserCommand(args);
+      | ((err: any, data?: DescribeUserCommandOutput) => void),
+    cb?: (err: any, data?: DescribeUserCommandOutput) => void
+  ): Promise<DescribeUserCommandOutput> | void {
+    const command = new DescribeUserCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -466,99 +466,29 @@ export class mq extends mqClient {
   }
 
   /**
-   * Deletes an ActiveMQ user.
+   * Returns a list of all revisions for the specified configuration.
    */
-  public deleteUser(
-    args: DeleteUserCommandInput,
+  public listConfigurationRevisions(
+    args: ListConfigurationRevisionsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteUserCommandOutput>;
-  public deleteUser(
-    args: DeleteUserCommandInput,
-    cb: (err: any, data?: DeleteUserCommandOutput) => void
+  ): Promise<ListConfigurationRevisionsCommandOutput>;
+  public listConfigurationRevisions(
+    args: ListConfigurationRevisionsCommandInput,
+    cb: (err: any, data?: ListConfigurationRevisionsCommandOutput) => void
   ): void;
-  public deleteUser(
-    args: DeleteUserCommandInput,
+  public listConfigurationRevisions(
+    args: ListConfigurationRevisionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteUserCommandOutput) => void
+    cb: (err: any, data?: ListConfigurationRevisionsCommandOutput) => void
   ): void;
-  public deleteUser(
-    args: DeleteUserCommandInput,
+  public listConfigurationRevisions(
+    args: ListConfigurationRevisionsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserCommandOutput) => void),
-    cb?: (err: any, data?: DeleteUserCommandOutput) => void
-  ): Promise<DeleteUserCommandOutput> | void {
-    const command = new DeleteUserCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * Returns information about the specified broker.
-   */
-  public describeBroker(
-    args: DescribeBrokerCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeBrokerCommandOutput>;
-  public describeBroker(
-    args: DescribeBrokerCommandInput,
-    cb: (err: any, data?: DescribeBrokerCommandOutput) => void
-  ): void;
-  public describeBroker(
-    args: DescribeBrokerCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeBrokerCommandOutput) => void
-  ): void;
-  public describeBroker(
-    args: DescribeBrokerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeBrokerCommandOutput) => void),
-    cb?: (err: any, data?: DescribeBrokerCommandOutput) => void
-  ): Promise<DescribeBrokerCommandOutput> | void {
-    const command = new DescribeBrokerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * Creates an ActiveMQ user.
-   */
-  public createUser(
-    args: CreateUserCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateUserCommandOutput>;
-  public createUser(
-    args: CreateUserCommandInput,
-    cb: (err: any, data?: CreateUserCommandOutput) => void
-  ): void;
-  public createUser(
-    args: CreateUserCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateUserCommandOutput) => void
-  ): void;
-  public createUser(
-    args: CreateUserCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateUserCommandOutput) => void),
-    cb?: (err: any, data?: CreateUserCommandOutput) => void
-  ): Promise<CreateUserCommandOutput> | void {
-    const command = new CreateUserCommand(args);
+      | ((err: any, data?: ListConfigurationRevisionsCommandOutput) => void),
+    cb?: (err: any, data?: ListConfigurationRevisionsCommandOutput) => void
+  ): Promise<ListConfigurationRevisionsCommandOutput> | void {
+    const command = new ListConfigurationRevisionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -606,134 +536,29 @@ export class mq extends mqClient {
   }
 
   /**
-   * Adds a pending configuration change to a broker.
+   * Describe available engine types and versions.
    */
-  public updateBroker(
-    args: UpdateBrokerCommandInput,
+  public describeBrokerEngineTypes(
+    args: DescribeBrokerEngineTypesCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UpdateBrokerCommandOutput>;
-  public updateBroker(
-    args: UpdateBrokerCommandInput,
-    cb: (err: any, data?: UpdateBrokerCommandOutput) => void
+  ): Promise<DescribeBrokerEngineTypesCommandOutput>;
+  public describeBrokerEngineTypes(
+    args: DescribeBrokerEngineTypesCommandInput,
+    cb: (err: any, data?: DescribeBrokerEngineTypesCommandOutput) => void
   ): void;
-  public updateBroker(
-    args: UpdateBrokerCommandInput,
+  public describeBrokerEngineTypes(
+    args: DescribeBrokerEngineTypesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateBrokerCommandOutput) => void
+    cb: (err: any, data?: DescribeBrokerEngineTypesCommandOutput) => void
   ): void;
-  public updateBroker(
-    args: UpdateBrokerCommandInput,
+  public describeBrokerEngineTypes(
+    args: DescribeBrokerEngineTypesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: UpdateBrokerCommandOutput) => void),
-    cb?: (err: any, data?: UpdateBrokerCommandOutput) => void
-  ): Promise<UpdateBrokerCommandOutput> | void {
-    const command = new UpdateBrokerCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * Returns a list of all brokers.
-   */
-  public listBrokers(
-    args: ListBrokersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListBrokersCommandOutput>;
-  public listBrokers(
-    args: ListBrokersCommandInput,
-    cb: (err: any, data?: ListBrokersCommandOutput) => void
-  ): void;
-  public listBrokers(
-    args: ListBrokersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListBrokersCommandOutput) => void
-  ): void;
-  public listBrokers(
-    args: ListBrokersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBrokersCommandOutput) => void),
-    cb?: (err: any, data?: ListBrokersCommandOutput) => void
-  ): Promise<ListBrokersCommandOutput> | void {
-    const command = new ListBrokersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * Describe available broker instance options.
-   */
-  public describeBrokerInstanceOptions(
-    args: DescribeBrokerInstanceOptionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeBrokerInstanceOptionsCommandOutput>;
-  public describeBrokerInstanceOptions(
-    args: DescribeBrokerInstanceOptionsCommandInput,
-    cb: (err: any, data?: DescribeBrokerInstanceOptionsCommandOutput) => void
-  ): void;
-  public describeBrokerInstanceOptions(
-    args: DescribeBrokerInstanceOptionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeBrokerInstanceOptionsCommandOutput) => void
-  ): void;
-  public describeBrokerInstanceOptions(
-    args: DescribeBrokerInstanceOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeBrokerInstanceOptionsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeBrokerInstanceOptionsCommandOutput) => void
-  ): Promise<DescribeBrokerInstanceOptionsCommandOutput> | void {
-    const command = new DescribeBrokerInstanceOptionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * Returns a list of all ActiveMQ users.
-   */
-  public listUsers(
-    args: ListUsersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListUsersCommandOutput>;
-  public listUsers(
-    args: ListUsersCommandInput,
-    cb: (err: any, data?: ListUsersCommandOutput) => void
-  ): void;
-  public listUsers(
-    args: ListUsersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListUsersCommandOutput) => void
-  ): void;
-  public listUsers(
-    args: ListUsersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListUsersCommandOutput) => void),
-    cb?: (err: any, data?: ListUsersCommandOutput) => void
-  ): Promise<ListUsersCommandOutput> | void {
-    const command = new ListUsersCommand(args);
+      | ((err: any, data?: DescribeBrokerEngineTypesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeBrokerEngineTypesCommandOutput) => void
+  ): Promise<DescribeBrokerEngineTypesCommandOutput> | void {
+    const command = new DescribeBrokerEngineTypesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -769,6 +594,41 @@ export class mq extends mqClient {
     cb?: (err: any, data?: CreateConfigurationCommandOutput) => void
   ): Promise<CreateConfigurationCommandOutput> | void {
     const command = new CreateConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Returns a list of all ActiveMQ users.
+   */
+  public listUsers(
+    args: ListUsersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUsersCommandOutput>;
+  public listUsers(
+    args: ListUsersCommandInput,
+    cb: (err: any, data?: ListUsersCommandOutput) => void
+  ): void;
+  public listUsers(
+    args: ListUsersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListUsersCommandOutput) => void
+  ): void;
+  public listUsers(
+    args: ListUsersCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListUsersCommandOutput) => void),
+    cb?: (err: any, data?: ListUsersCommandOutput) => void
+  ): Promise<ListUsersCommandOutput> | void {
+    const command = new ListUsersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -851,29 +711,169 @@ export class mq extends mqClient {
   }
 
   /**
-   * Reboots a broker. Note: This API is asynchronous.
+   * Returns a list of all brokers.
    */
-  public rebootBroker(
-    args: RebootBrokerCommandInput,
+  public listBrokers(
+    args: ListBrokersCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<RebootBrokerCommandOutput>;
-  public rebootBroker(
-    args: RebootBrokerCommandInput,
-    cb: (err: any, data?: RebootBrokerCommandOutput) => void
+  ): Promise<ListBrokersCommandOutput>;
+  public listBrokers(
+    args: ListBrokersCommandInput,
+    cb: (err: any, data?: ListBrokersCommandOutput) => void
   ): void;
-  public rebootBroker(
-    args: RebootBrokerCommandInput,
+  public listBrokers(
+    args: ListBrokersCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: RebootBrokerCommandOutput) => void
+    cb: (err: any, data?: ListBrokersCommandOutput) => void
   ): void;
-  public rebootBroker(
-    args: RebootBrokerCommandInput,
+  public listBrokers(
+    args: ListBrokersCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: RebootBrokerCommandOutput) => void),
-    cb?: (err: any, data?: RebootBrokerCommandOutput) => void
-  ): Promise<RebootBrokerCommandOutput> | void {
-    const command = new RebootBrokerCommand(args);
+      | ((err: any, data?: ListBrokersCommandOutput) => void),
+    cb?: (err: any, data?: ListBrokersCommandOutput) => void
+  ): Promise<ListBrokersCommandOutput> | void {
+    const command = new ListBrokersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Describe available broker instance options.
+   */
+  public describeBrokerInstanceOptions(
+    args: DescribeBrokerInstanceOptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeBrokerInstanceOptionsCommandOutput>;
+  public describeBrokerInstanceOptions(
+    args: DescribeBrokerInstanceOptionsCommandInput,
+    cb: (err: any, data?: DescribeBrokerInstanceOptionsCommandOutput) => void
+  ): void;
+  public describeBrokerInstanceOptions(
+    args: DescribeBrokerInstanceOptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeBrokerInstanceOptionsCommandOutput) => void
+  ): void;
+  public describeBrokerInstanceOptions(
+    args: DescribeBrokerInstanceOptionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeBrokerInstanceOptionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeBrokerInstanceOptionsCommandOutput) => void
+  ): Promise<DescribeBrokerInstanceOptionsCommandOutput> | void {
+    const command = new DescribeBrokerInstanceOptionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Lists tags for a resource.
+   */
+  public listTags(
+    args: ListTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsCommandOutput>;
+  public listTags(
+    args: ListTagsCommandInput,
+    cb: (err: any, data?: ListTagsCommandOutput) => void
+  ): void;
+  public listTags(
+    args: ListTagsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsCommandOutput) => void
+  ): void;
+  public listTags(
+    args: ListTagsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsCommandOutput) => void
+  ): Promise<ListTagsCommandOutput> | void {
+    const command = new ListTagsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Adds a pending configuration change to a broker.
+   */
+  public updateBroker(
+    args: UpdateBrokerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateBrokerCommandOutput>;
+  public updateBroker(
+    args: UpdateBrokerCommandInput,
+    cb: (err: any, data?: UpdateBrokerCommandOutput) => void
+  ): void;
+  public updateBroker(
+    args: UpdateBrokerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateBrokerCommandOutput) => void
+  ): void;
+  public updateBroker(
+    args: UpdateBrokerCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateBrokerCommandOutput) => void),
+    cb?: (err: any, data?: UpdateBrokerCommandOutput) => void
+  ): Promise<UpdateBrokerCommandOutput> | void {
+    const command = new UpdateBrokerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Updates the specified configuration.
+   */
+  public updateConfiguration(
+    args: UpdateConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConfigurationCommandOutput>;
+  public updateConfiguration(
+    args: UpdateConfigurationCommandInput,
+    cb: (err: any, data?: UpdateConfigurationCommandOutput) => void
+  ): void;
+  public updateConfiguration(
+    args: UpdateConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConfigurationCommandOutput) => void
+  ): void;
+  public updateConfiguration(
+    args: UpdateConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateConfigurationCommandOutput) => void
+  ): Promise<UpdateConfigurationCommandOutput> | void {
+    const command = new UpdateConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

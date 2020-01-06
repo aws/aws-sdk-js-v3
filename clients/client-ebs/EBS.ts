@@ -40,43 +40,6 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class EBS extends EBSClient {
   /**
    *
-   *         <p>Returns the block indexes and block tokens for blocks in an Amazon Elastic Block Store snapshot.</p>
-   *
-   */
-  public listSnapshotBlocks(
-    args: ListSnapshotBlocksCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListSnapshotBlocksCommandOutput>;
-  public listSnapshotBlocks(
-    args: ListSnapshotBlocksCommandInput,
-    cb: (err: any, data?: ListSnapshotBlocksCommandOutput) => void
-  ): void;
-  public listSnapshotBlocks(
-    args: ListSnapshotBlocksCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListSnapshotBlocksCommandOutput) => void
-  ): void;
-  public listSnapshotBlocks(
-    args: ListSnapshotBlocksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSnapshotBlocksCommandOutput) => void),
-    cb?: (err: any, data?: ListSnapshotBlocksCommandOutput) => void
-  ): Promise<ListSnapshotBlocksCommandOutput> | void {
-    const command = new ListSnapshotBlocksCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
    *         <p>Returns the data in a block in an Amazon Elastic Block Store snapshot.</p>
    *
    */
@@ -139,6 +102,43 @@ export class EBS extends EBSClient {
     cb?: (err: any, data?: ListChangedBlocksCommandOutput) => void
   ): Promise<ListChangedBlocksCommandOutput> | void {
     const command = new ListChangedBlocksCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>Returns the block indexes and block tokens for blocks in an Amazon Elastic Block Store snapshot.</p>
+   *
+   */
+  public listSnapshotBlocks(
+    args: ListSnapshotBlocksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSnapshotBlocksCommandOutput>;
+  public listSnapshotBlocks(
+    args: ListSnapshotBlocksCommandInput,
+    cb: (err: any, data?: ListSnapshotBlocksCommandOutput) => void
+  ): void;
+  public listSnapshotBlocks(
+    args: ListSnapshotBlocksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSnapshotBlocksCommandOutput) => void
+  ): void;
+  public listSnapshotBlocks(
+    args: ListSnapshotBlocksCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListSnapshotBlocksCommandOutput) => void),
+    cb?: (err: any, data?: ListSnapshotBlocksCommandOutput) => void
+  ): Promise<ListSnapshotBlocksCommandOutput> | void {
+    const command = new ListSnapshotBlocksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

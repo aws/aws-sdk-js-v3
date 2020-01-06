@@ -151,204 +151,29 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class schemas extends schemasClient {
   /**
-   * <p>Retrieve the schema definition.</p>
+   * <p>Deletes a discoverer.</p>
    */
-  public describeSchema(
-    args: DescribeSchemaCommandInput,
+  public deleteDiscoverer(
+    args: DeleteDiscovererCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DescribeSchemaCommandOutput>;
-  public describeSchema(
-    args: DescribeSchemaCommandInput,
-    cb: (err: any, data?: DescribeSchemaCommandOutput) => void
+  ): Promise<DeleteDiscovererCommandOutput>;
+  public deleteDiscoverer(
+    args: DeleteDiscovererCommandInput,
+    cb: (err: any, data?: DeleteDiscovererCommandOutput) => void
   ): void;
-  public describeSchema(
-    args: DescribeSchemaCommandInput,
+  public deleteDiscoverer(
+    args: DeleteDiscovererCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeSchemaCommandOutput) => void
+    cb: (err: any, data?: DeleteDiscovererCommandOutput) => void
   ): void;
-  public describeSchema(
-    args: DescribeSchemaCommandInput,
+  public deleteDiscoverer(
+    args: DeleteDiscovererCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSchemaCommandOutput) => void),
-    cb?: (err: any, data?: DescribeSchemaCommandOutput) => void
-  ): Promise<DescribeSchemaCommandOutput> | void {
-    const command = new DescribeSchemaCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>List the discoverers.</p>
-   */
-  public listDiscoverers(
-    args: ListDiscoverersCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDiscoverersCommandOutput>;
-  public listDiscoverers(
-    args: ListDiscoverersCommandInput,
-    cb: (err: any, data?: ListDiscoverersCommandOutput) => void
-  ): void;
-  public listDiscoverers(
-    args: ListDiscoverersCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDiscoverersCommandOutput) => void
-  ): void;
-  public listDiscoverers(
-    args: ListDiscoverersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDiscoverersCommandOutput) => void),
-    cb?: (err: any, data?: ListDiscoverersCommandOutput) => void
-  ): Promise<ListDiscoverersCommandOutput> | void {
-    const command = new ListDiscoverersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Delete the schema version definition</p>
-   */
-  public deleteSchemaVersion(
-    args: DeleteSchemaVersionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteSchemaVersionCommandOutput>;
-  public deleteSchemaVersion(
-    args: DeleteSchemaVersionCommandInput,
-    cb: (err: any, data?: DeleteSchemaVersionCommandOutput) => void
-  ): void;
-  public deleteSchemaVersion(
-    args: DeleteSchemaVersionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteSchemaVersionCommandOutput) => void
-  ): void;
-  public deleteSchemaVersion(
-    args: DeleteSchemaVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSchemaVersionCommandOutput) => void),
-    cb?: (err: any, data?: DeleteSchemaVersionCommandOutput) => void
-  ): Promise<DeleteSchemaVersionCommandOutput> | void {
-    const command = new DeleteSchemaVersionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Updates a registry.</p>
-   */
-  public updateRegistry(
-    args: UpdateRegistryCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateRegistryCommandOutput>;
-  public updateRegistry(
-    args: UpdateRegistryCommandInput,
-    cb: (err: any, data?: UpdateRegistryCommandOutput) => void
-  ): void;
-  public updateRegistry(
-    args: UpdateRegistryCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateRegistryCommandOutput) => void
-  ): void;
-  public updateRegistry(
-    args: UpdateRegistryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRegistryCommandOutput) => void),
-    cb?: (err: any, data?: UpdateRegistryCommandOutput) => void
-  ): Promise<UpdateRegistryCommandOutput> | void {
-    const command = new UpdateRegistryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Put code binding URI</p>
-   */
-  public putCodeBinding(
-    args: PutCodeBindingCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutCodeBindingCommandOutput>;
-  public putCodeBinding(
-    args: PutCodeBindingCommandInput,
-    cb: (err: any, data?: PutCodeBindingCommandOutput) => void
-  ): void;
-  public putCodeBinding(
-    args: PutCodeBindingCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutCodeBindingCommandOutput) => void
-  ): void;
-  public putCodeBinding(
-    args: PutCodeBindingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutCodeBindingCommandOutput) => void),
-    cb?: (err: any, data?: PutCodeBindingCommandOutput) => void
-  ): Promise<PutCodeBindingCommandOutput> | void {
-    const command = new PutCodeBindingCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Stops the discoverer</p>
-   */
-  public stopDiscoverer(
-    args: StopDiscovererCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StopDiscovererCommandOutput>;
-  public stopDiscoverer(
-    args: StopDiscovererCommandInput,
-    cb: (err: any, data?: StopDiscovererCommandOutput) => void
-  ): void;
-  public stopDiscoverer(
-    args: StopDiscovererCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StopDiscovererCommandOutput) => void
-  ): void;
-  public stopDiscoverer(
-    args: StopDiscovererCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopDiscovererCommandOutput) => void),
-    cb?: (err: any, data?: StopDiscovererCommandOutput) => void
-  ): Promise<StopDiscovererCommandOutput> | void {
-    const command = new StopDiscovererCommand(args);
+      | ((err: any, data?: DeleteDiscovererCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDiscovererCommandOutput) => void
+  ): Promise<DeleteDiscovererCommandOutput> | void {
+    const command = new DeleteDiscovererCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -396,41 +221,6 @@ export class schemas extends schemasClient {
   }
 
   /**
-   * <p>Add tags to a resource.</p>
-   */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Delete a schema definition.</p>
    */
   public deleteSchema(
@@ -465,41 +255,6 @@ export class schemas extends schemasClient {
     }
   }
 
-  /**
-   * <p>Updates the discoverer</p>
-   */
-  public updateDiscoverer(
-    args: UpdateDiscovererCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateDiscovererCommandOutput>;
-  public updateDiscoverer(
-    args: UpdateDiscovererCommandInput,
-    cb: (err: any, data?: UpdateDiscovererCommandOutput) => void
-  ): void;
-  public updateDiscoverer(
-    args: UpdateDiscovererCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateDiscovererCommandOutput) => void
-  ): void;
-  public updateDiscoverer(
-    args: UpdateDiscovererCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDiscovererCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDiscovererCommandOutput) => void
-  ): Promise<UpdateDiscovererCommandOutput> | void {
-    const command = new UpdateDiscovererCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
   public lockServiceLinkedRole(
     args: LockServiceLinkedRoleCommandInput,
     options?: __HttpHandlerOptions
@@ -521,41 +276,6 @@ export class schemas extends schemasClient {
     cb?: (err: any, data?: LockServiceLinkedRoleCommandOutput) => void
   ): Promise<LockServiceLinkedRoleCommandOutput> | void {
     const command = new LockServiceLinkedRoleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Starts the discoverer</p>
-   */
-  public startDiscoverer(
-    args: StartDiscovererCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartDiscovererCommandOutput>;
-  public startDiscoverer(
-    args: StartDiscovererCommandInput,
-    cb: (err: any, data?: StartDiscovererCommandOutput) => void
-  ): void;
-  public startDiscoverer(
-    args: StartDiscovererCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartDiscovererCommandOutput) => void
-  ): void;
-  public startDiscoverer(
-    args: StartDiscovererCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartDiscovererCommandOutput) => void),
-    cb?: (err: any, data?: StartDiscovererCommandOutput) => void
-  ): Promise<StartDiscovererCommandOutput> | void {
-    const command = new StartDiscovererCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -603,6 +323,41 @@ export class schemas extends schemasClient {
   }
 
   /**
+   * <p>Delete the schema version definition</p>
+   */
+  public deleteSchemaVersion(
+    args: DeleteSchemaVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSchemaVersionCommandOutput>;
+  public deleteSchemaVersion(
+    args: DeleteSchemaVersionCommandInput,
+    cb: (err: any, data?: DeleteSchemaVersionCommandOutput) => void
+  ): void;
+  public deleteSchemaVersion(
+    args: DeleteSchemaVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSchemaVersionCommandOutput) => void
+  ): void;
+  public deleteSchemaVersion(
+    args: DeleteSchemaVersionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteSchemaVersionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteSchemaVersionCommandOutput) => void
+  ): Promise<DeleteSchemaVersionCommandOutput> | void {
+    const command = new DeleteSchemaVersionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describe the code binding URI.</p>
    */
   public describeCodeBinding(
@@ -626,6 +381,283 @@ export class schemas extends schemasClient {
     cb?: (err: any, data?: DescribeCodeBindingCommandOutput) => void
   ): Promise<DescribeCodeBindingCommandOutput> | void {
     const command = new DescribeCodeBindingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Put code binding URI</p>
+   */
+  public putCodeBinding(
+    args: PutCodeBindingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutCodeBindingCommandOutput>;
+  public putCodeBinding(
+    args: PutCodeBindingCommandInput,
+    cb: (err: any, data?: PutCodeBindingCommandOutput) => void
+  ): void;
+  public putCodeBinding(
+    args: PutCodeBindingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutCodeBindingCommandOutput) => void
+  ): void;
+  public putCodeBinding(
+    args: PutCodeBindingCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutCodeBindingCommandOutput) => void),
+    cb?: (err: any, data?: PutCodeBindingCommandOutput) => void
+  ): Promise<PutCodeBindingCommandOutput> | void {
+    const command = new PutCodeBindingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieve the schema definition.</p>
+   */
+  public describeSchema(
+    args: DescribeSchemaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSchemaCommandOutput>;
+  public describeSchema(
+    args: DescribeSchemaCommandInput,
+    cb: (err: any, data?: DescribeSchemaCommandOutput) => void
+  ): void;
+  public describeSchema(
+    args: DescribeSchemaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSchemaCommandOutput) => void
+  ): void;
+  public describeSchema(
+    args: DescribeSchemaCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeSchemaCommandOutput) => void),
+    cb?: (err: any, data?: DescribeSchemaCommandOutput) => void
+  ): Promise<DescribeSchemaCommandOutput> | void {
+    const command = new DescribeSchemaCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides a list of the schema versions and related information.</p>
+   */
+  public listSchemaVersions(
+    args: ListSchemaVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSchemaVersionsCommandOutput>;
+  public listSchemaVersions(
+    args: ListSchemaVersionsCommandInput,
+    cb: (err: any, data?: ListSchemaVersionsCommandOutput) => void
+  ): void;
+  public listSchemaVersions(
+    args: ListSchemaVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSchemaVersionsCommandOutput) => void
+  ): void;
+  public listSchemaVersions(
+    args: ListSchemaVersionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListSchemaVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListSchemaVersionsCommandOutput) => void
+  ): Promise<ListSchemaVersionsCommandOutput> | void {
+    const command = new ListSchemaVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List the discoverers.</p>
+   */
+  public listDiscoverers(
+    args: ListDiscoverersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDiscoverersCommandOutput>;
+  public listDiscoverers(
+    args: ListDiscoverersCommandInput,
+    cb: (err: any, data?: ListDiscoverersCommandOutput) => void
+  ): void;
+  public listDiscoverers(
+    args: ListDiscoverersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDiscoverersCommandOutput) => void
+  ): void;
+  public listDiscoverers(
+    args: ListDiscoverersCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDiscoverersCommandOutput) => void),
+    cb?: (err: any, data?: ListDiscoverersCommandOutput) => void
+  ): Promise<ListDiscoverersCommandOutput> | void {
+    const command = new ListDiscoverersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public unlockServiceLinkedRole(
+    args: UnlockServiceLinkedRoleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UnlockServiceLinkedRoleCommandOutput>;
+  public unlockServiceLinkedRole(
+    args: UnlockServiceLinkedRoleCommandInput,
+    cb: (err: any, data?: UnlockServiceLinkedRoleCommandOutput) => void
+  ): void;
+  public unlockServiceLinkedRole(
+    args: UnlockServiceLinkedRoleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UnlockServiceLinkedRoleCommandOutput) => void
+  ): void;
+  public unlockServiceLinkedRole(
+    args: UnlockServiceLinkedRoleCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UnlockServiceLinkedRoleCommandOutput) => void),
+    cb?: (err: any, data?: UnlockServiceLinkedRoleCommandOutput) => void
+  ): Promise<UnlockServiceLinkedRoleCommandOutput> | void {
+    const command = new UnlockServiceLinkedRoleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Get the discovered schema that was generated based on sampled events.</p>
+   */
+  public getDiscoveredSchema(
+    args: GetDiscoveredSchemaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDiscoveredSchemaCommandOutput>;
+  public getDiscoveredSchema(
+    args: GetDiscoveredSchemaCommandInput,
+    cb: (err: any, data?: GetDiscoveredSchemaCommandOutput) => void
+  ): void;
+  public getDiscoveredSchema(
+    args: GetDiscoveredSchemaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDiscoveredSchemaCommandOutput) => void
+  ): void;
+  public getDiscoveredSchema(
+    args: GetDiscoveredSchemaCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetDiscoveredSchemaCommandOutput) => void),
+    cb?: (err: any, data?: GetDiscoveredSchemaCommandOutput) => void
+  ): Promise<GetDiscoveredSchemaCommandOutput> | void {
+    const command = new GetDiscoveredSchemaCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the discoverer</p>
+   */
+  public updateDiscoverer(
+    args: UpdateDiscovererCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDiscovererCommandOutput>;
+  public updateDiscoverer(
+    args: UpdateDiscovererCommandInput,
+    cb: (err: any, data?: UpdateDiscovererCommandOutput) => void
+  ): void;
+  public updateDiscoverer(
+    args: UpdateDiscovererCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDiscovererCommandOutput) => void
+  ): void;
+  public updateDiscoverer(
+    args: UpdateDiscovererCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateDiscovererCommandOutput) => void),
+    cb?: (err: any, data?: UpdateDiscovererCommandOutput) => void
+  ): Promise<UpdateDiscovererCommandOutput> | void {
+    const command = new UpdateDiscovererCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a Registry.</p>
+   */
+  public deleteRegistry(
+    args: DeleteRegistryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRegistryCommandOutput>;
+  public deleteRegistry(
+    args: DeleteRegistryCommandInput,
+    cb: (err: any, data?: DeleteRegistryCommandOutput) => void
+  ): void;
+  public deleteRegistry(
+    args: DeleteRegistryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRegistryCommandOutput) => void
+  ): void;
+  public deleteRegistry(
+    args: DeleteRegistryCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteRegistryCommandOutput) => void),
+    cb?: (err: any, data?: DeleteRegistryCommandOutput) => void
+  ): Promise<DeleteRegistryCommandOutput> | void {
+    const command = new DeleteRegistryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -673,6 +705,181 @@ export class schemas extends schemasClient {
   }
 
   /**
+   * <p>Describes the registry.</p>
+   */
+  public describeRegistry(
+    args: DescribeRegistryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRegistryCommandOutput>;
+  public describeRegistry(
+    args: DescribeRegistryCommandInput,
+    cb: (err: any, data?: DescribeRegistryCommandOutput) => void
+  ): void;
+  public describeRegistry(
+    args: DescribeRegistryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRegistryCommandOutput) => void
+  ): void;
+  public describeRegistry(
+    args: DescribeRegistryCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeRegistryCommandOutput) => void),
+    cb?: (err: any, data?: DescribeRegistryCommandOutput) => void
+  ): Promise<DescribeRegistryCommandOutput> | void {
+    const command = new DescribeRegistryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Get tags for resource.</p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Search the schemas</p>
+   */
+  public searchSchemas(
+    args: SearchSchemasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchSchemasCommandOutput>;
+  public searchSchemas(
+    args: SearchSchemasCommandInput,
+    cb: (err: any, data?: SearchSchemasCommandOutput) => void
+  ): void;
+  public searchSchemas(
+    args: SearchSchemasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchSchemasCommandOutput) => void
+  ): void;
+  public searchSchemas(
+    args: SearchSchemasCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: SearchSchemasCommandOutput) => void),
+    cb?: (err: any, data?: SearchSchemasCommandOutput) => void
+  ): Promise<SearchSchemasCommandOutput> | void {
+    const command = new SearchSchemasCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a registry.</p>
+   */
+  public updateRegistry(
+    args: UpdateRegistryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRegistryCommandOutput>;
+  public updateRegistry(
+    args: UpdateRegistryCommandInput,
+    cb: (err: any, data?: UpdateRegistryCommandOutput) => void
+  ): void;
+  public updateRegistry(
+    args: UpdateRegistryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRegistryCommandOutput) => void
+  ): void;
+  public updateRegistry(
+    args: UpdateRegistryCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateRegistryCommandOutput) => void),
+    cb?: (err: any, data?: UpdateRegistryCommandOutput) => void
+  ): Promise<UpdateRegistryCommandOutput> | void {
+    const command = new UpdateRegistryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Stops the discoverer</p>
+   */
+  public stopDiscoverer(
+    args: StopDiscovererCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopDiscovererCommandOutput>;
+  public stopDiscoverer(
+    args: StopDiscovererCommandInput,
+    cb: (err: any, data?: StopDiscovererCommandOutput) => void
+  ): void;
+  public stopDiscoverer(
+    args: StopDiscovererCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopDiscovererCommandOutput) => void
+  ): void;
+  public stopDiscoverer(
+    args: StopDiscovererCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StopDiscovererCommandOutput) => void),
+    cb?: (err: any, data?: StopDiscovererCommandOutput) => void
+  ): Promise<StopDiscovererCommandOutput> | void {
+    const command = new StopDiscovererCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates the schema definition</p>
    */
   public updateSchema(
@@ -696,41 +903,6 @@ export class schemas extends schemasClient {
     cb?: (err: any, data?: UpdateSchemaCommandOutput) => void
   ): Promise<UpdateSchemaCommandOutput> | void {
     const command = new UpdateSchemaCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Provides a list of the schema versions and related information.</p>
-   */
-  public listSchemaVersions(
-    args: ListSchemaVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListSchemaVersionsCommandOutput>;
-  public listSchemaVersions(
-    args: ListSchemaVersionsCommandInput,
-    cb: (err: any, data?: ListSchemaVersionsCommandOutput) => void
-  ): void;
-  public listSchemaVersions(
-    args: ListSchemaVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListSchemaVersionsCommandOutput) => void
-  ): void;
-  public listSchemaVersions(
-    args: ListSchemaVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSchemaVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListSchemaVersionsCommandOutput) => void
-  ): Promise<ListSchemaVersionsCommandOutput> | void {
-    const command = new ListSchemaVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -813,29 +985,29 @@ export class schemas extends schemasClient {
   }
 
   /**
-   * <p>Creates a schema definition.</p>
+   * <p>Creates a discoverer.</p>
    */
-  public createSchema(
-    args: CreateSchemaCommandInput,
+  public createDiscoverer(
+    args: CreateDiscovererCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreateSchemaCommandOutput>;
-  public createSchema(
-    args: CreateSchemaCommandInput,
-    cb: (err: any, data?: CreateSchemaCommandOutput) => void
+  ): Promise<CreateDiscovererCommandOutput>;
+  public createDiscoverer(
+    args: CreateDiscovererCommandInput,
+    cb: (err: any, data?: CreateDiscovererCommandOutput) => void
   ): void;
-  public createSchema(
-    args: CreateSchemaCommandInput,
+  public createDiscoverer(
+    args: CreateDiscovererCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateSchemaCommandOutput) => void
+    cb: (err: any, data?: CreateDiscovererCommandOutput) => void
   ): void;
-  public createSchema(
-    args: CreateSchemaCommandInput,
+  public createDiscoverer(
+    args: CreateDiscovererCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: CreateSchemaCommandOutput) => void),
-    cb?: (err: any, data?: CreateSchemaCommandOutput) => void
-  ): Promise<CreateSchemaCommandOutput> | void {
-    const command = new CreateSchemaCommand(args);
+      | ((err: any, data?: CreateDiscovererCommandOutput) => void),
+    cb?: (err: any, data?: CreateDiscovererCommandOutput) => void
+  ): Promise<CreateDiscovererCommandOutput> | void {
+    const command = new CreateDiscovererCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -883,29 +1055,29 @@ export class schemas extends schemasClient {
   }
 
   /**
-   * <p>Search the schemas</p>
+   * <p>Add tags to a resource.</p>
    */
-  public searchSchemas(
-    args: SearchSchemasCommandInput,
+  public tagResource(
+    args: TagResourceCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<SearchSchemasCommandOutput>;
-  public searchSchemas(
-    args: SearchSchemasCommandInput,
-    cb: (err: any, data?: SearchSchemasCommandOutput) => void
+  ): Promise<TagResourceCommandOutput>;
+  public tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
-  public searchSchemas(
-    args: SearchSchemasCommandInput,
+  public tagResource(
+    args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: SearchSchemasCommandOutput) => void
+    cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
-  public searchSchemas(
-    args: SearchSchemasCommandInput,
+  public tagResource(
+    args: TagResourceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: SearchSchemasCommandOutput) => void),
-    cb?: (err: any, data?: SearchSchemasCommandOutput) => void
-  ): Promise<SearchSchemasCommandOutput> | void {
-    const command = new SearchSchemasCommand(args);
+      | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -918,29 +1090,29 @@ export class schemas extends schemasClient {
   }
 
   /**
-   * <p>Creates a discoverer.</p>
+   * <p>Starts the discoverer</p>
    */
-  public createDiscoverer(
-    args: CreateDiscovererCommandInput,
+  public startDiscoverer(
+    args: StartDiscovererCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreateDiscovererCommandOutput>;
-  public createDiscoverer(
-    args: CreateDiscovererCommandInput,
-    cb: (err: any, data?: CreateDiscovererCommandOutput) => void
+  ): Promise<StartDiscovererCommandOutput>;
+  public startDiscoverer(
+    args: StartDiscovererCommandInput,
+    cb: (err: any, data?: StartDiscovererCommandOutput) => void
   ): void;
-  public createDiscoverer(
-    args: CreateDiscovererCommandInput,
+  public startDiscoverer(
+    args: StartDiscovererCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateDiscovererCommandOutput) => void
+    cb: (err: any, data?: StartDiscovererCommandOutput) => void
   ): void;
-  public createDiscoverer(
-    args: CreateDiscovererCommandInput,
+  public startDiscoverer(
+    args: StartDiscovererCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: CreateDiscovererCommandOutput) => void),
-    cb?: (err: any, data?: CreateDiscovererCommandOutput) => void
-  ): Promise<CreateDiscovererCommandOutput> | void {
-    const command = new CreateDiscovererCommand(args);
+      | ((err: any, data?: StartDiscovererCommandOutput) => void),
+    cb?: (err: any, data?: StartDiscovererCommandOutput) => void
+  ): Promise<StartDiscovererCommandOutput> | void {
+    const command = new StartDiscovererCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -953,201 +1125,29 @@ export class schemas extends schemasClient {
   }
 
   /**
-   * <p>Deletes a discoverer.</p>
+   * <p>Creates a schema definition.</p>
    */
-  public deleteDiscoverer(
-    args: DeleteDiscovererCommandInput,
+  public createSchema(
+    args: CreateSchemaCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteDiscovererCommandOutput>;
-  public deleteDiscoverer(
-    args: DeleteDiscovererCommandInput,
-    cb: (err: any, data?: DeleteDiscovererCommandOutput) => void
+  ): Promise<CreateSchemaCommandOutput>;
+  public createSchema(
+    args: CreateSchemaCommandInput,
+    cb: (err: any, data?: CreateSchemaCommandOutput) => void
   ): void;
-  public deleteDiscoverer(
-    args: DeleteDiscovererCommandInput,
+  public createSchema(
+    args: CreateSchemaCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteDiscovererCommandOutput) => void
+    cb: (err: any, data?: CreateSchemaCommandOutput) => void
   ): void;
-  public deleteDiscoverer(
-    args: DeleteDiscovererCommandInput,
+  public createSchema(
+    args: CreateSchemaCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDiscovererCommandOutput) => void),
-    cb?: (err: any, data?: DeleteDiscovererCommandOutput) => void
-  ): Promise<DeleteDiscovererCommandOutput> | void {
-    const command = new DeleteDiscovererCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Describes the registry.</p>
-   */
-  public describeRegistry(
-    args: DescribeRegistryCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeRegistryCommandOutput>;
-  public describeRegistry(
-    args: DescribeRegistryCommandInput,
-    cb: (err: any, data?: DescribeRegistryCommandOutput) => void
-  ): void;
-  public describeRegistry(
-    args: DescribeRegistryCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeRegistryCommandOutput) => void
-  ): void;
-  public describeRegistry(
-    args: DescribeRegistryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRegistryCommandOutput) => void),
-    cb?: (err: any, data?: DescribeRegistryCommandOutput) => void
-  ): Promise<DescribeRegistryCommandOutput> | void {
-    const command = new DescribeRegistryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Get tags for resource.</p>
-   */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  public unlockServiceLinkedRole(
-    args: UnlockServiceLinkedRoleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UnlockServiceLinkedRoleCommandOutput>;
-  public unlockServiceLinkedRole(
-    args: UnlockServiceLinkedRoleCommandInput,
-    cb: (err: any, data?: UnlockServiceLinkedRoleCommandOutput) => void
-  ): void;
-  public unlockServiceLinkedRole(
-    args: UnlockServiceLinkedRoleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UnlockServiceLinkedRoleCommandOutput) => void
-  ): void;
-  public unlockServiceLinkedRole(
-    args: UnlockServiceLinkedRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UnlockServiceLinkedRoleCommandOutput) => void),
-    cb?: (err: any, data?: UnlockServiceLinkedRoleCommandOutput) => void
-  ): Promise<UnlockServiceLinkedRoleCommandOutput> | void {
-    const command = new UnlockServiceLinkedRoleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes a Registry.</p>
-   */
-  public deleteRegistry(
-    args: DeleteRegistryCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteRegistryCommandOutput>;
-  public deleteRegistry(
-    args: DeleteRegistryCommandInput,
-    cb: (err: any, data?: DeleteRegistryCommandOutput) => void
-  ): void;
-  public deleteRegistry(
-    args: DeleteRegistryCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteRegistryCommandOutput) => void
-  ): void;
-  public deleteRegistry(
-    args: DeleteRegistryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRegistryCommandOutput) => void),
-    cb?: (err: any, data?: DeleteRegistryCommandOutput) => void
-  ): Promise<DeleteRegistryCommandOutput> | void {
-    const command = new DeleteRegistryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Get the discovered schema that was generated based on sampled events.</p>
-   */
-  public getDiscoveredSchema(
-    args: GetDiscoveredSchemaCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDiscoveredSchemaCommandOutput>;
-  public getDiscoveredSchema(
-    args: GetDiscoveredSchemaCommandInput,
-    cb: (err: any, data?: GetDiscoveredSchemaCommandOutput) => void
-  ): void;
-  public getDiscoveredSchema(
-    args: GetDiscoveredSchemaCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDiscoveredSchemaCommandOutput) => void
-  ): void;
-  public getDiscoveredSchema(
-    args: GetDiscoveredSchemaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDiscoveredSchemaCommandOutput) => void),
-    cb?: (err: any, data?: GetDiscoveredSchemaCommandOutput) => void
-  ): Promise<GetDiscoveredSchemaCommandOutput> | void {
-    const command = new GetDiscoveredSchemaCommand(args);
+      | ((err: any, data?: CreateSchemaCommandOutput) => void),
+    cb?: (err: any, data?: CreateSchemaCommandOutput) => void
+  ): Promise<CreateSchemaCommandOutput> | void {
+    const command = new CreateSchemaCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
