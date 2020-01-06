@@ -3743,7 +3743,7 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -3762,7 +3762,7 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
     ResourceId: undefined,
     ResourceType: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -3789,7 +3789,7 @@ const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
   if (output.headers["Retry-After"] !== undefined) {
     contents.RetryAfterSeconds = parseInt(output.headers["Retry-After"], 10);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -3808,7 +3808,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     ResourceId: undefined,
     ResourceType: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -3835,7 +3835,7 @@ const deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse = async (
     ResourceType: undefined,
     ServiceCode: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.LimitCode !== undefined) {
     contents.LimitCode = data.LimitCode;
   }
@@ -3868,7 +3868,7 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
   if (output.headers["Retry-After"] !== undefined) {
     contents.RetryAfterSeconds = parseInt(output.headers["Retry-After"], 10);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -3887,7 +3887,7 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
     Message: undefined,
     Reason: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Fields !== undefined) {
     contents.Fields = deserializeAws_restJson1_1ValidationExceptionFieldList(
       data.Fields,
