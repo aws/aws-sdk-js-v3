@@ -1,14 +1,8 @@
-<<<<<<< HEAD
 var { ElasticBeanstalk } = require('../../../clients/node/client-elastic-beanstalk-node');
 
 module.exports = function() {
   this.Before("@elasticbeanstalk", function (callback) {
     this.service = new ElasticBeanstalk({});
-=======
-module.exports = function() {
-  this.Before("@elasticbeanstalk", function (callback) {
-    this.service = new this.AWS.ElasticBeanstalk();
->>>>>>> chore: copy v2 integ tests to v3 (#479)
     callback();
   });
 
