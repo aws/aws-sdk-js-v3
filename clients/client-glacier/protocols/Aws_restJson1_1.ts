@@ -4030,7 +4030,7 @@ const deserializeAws_restJson1_1InsufficientCapacityExceptionResponse = async (
     message: undefined,
     type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.code !== undefined) {
     contents.code = data.code;
   }
@@ -4055,7 +4055,7 @@ const deserializeAws_restJson1_1InvalidParameterValueExceptionResponse = async (
     message: undefined,
     type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.code !== undefined) {
     contents.code = data.code;
   }
@@ -4080,7 +4080,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     message: undefined,
     type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.code !== undefined) {
     contents.code = data.code;
   }
@@ -4105,7 +4105,7 @@ const deserializeAws_restJson1_1MissingParameterValueExceptionResponse = async (
     message: undefined,
     type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.code !== undefined) {
     contents.code = data.code;
   }
@@ -4130,7 +4130,7 @@ const deserializeAws_restJson1_1PolicyEnforcedExceptionResponse = async (
     message: undefined,
     type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.code !== undefined) {
     contents.code = data.code;
   }
@@ -4155,7 +4155,7 @@ const deserializeAws_restJson1_1RequestTimeoutExceptionResponse = async (
     message: undefined,
     type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.code !== undefined) {
     contents.code = data.code;
   }
@@ -4180,7 +4180,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     message: undefined,
     type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.code !== undefined) {
     contents.code = data.code;
   }
@@ -4205,7 +4205,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
     message: undefined,
     type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.code !== undefined) {
     contents.code = data.code;
   }

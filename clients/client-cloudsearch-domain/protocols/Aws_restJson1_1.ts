@@ -361,7 +361,7 @@ const deserializeAws_restJson1_1DocumentServiceExceptionResponse = async (
     message: undefined,
     status: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -381,7 +381,7 @@ const deserializeAws_restJson1_1SearchExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }

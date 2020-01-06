@@ -1469,7 +1469,7 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
     code: undefined,
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.code !== undefined) {
     contents.code = data.code;
   }
@@ -1490,7 +1490,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
     code: undefined,
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.code !== undefined) {
     contents.code = data.code;
   }
@@ -1511,7 +1511,7 @@ const deserializeAws_restJson1_1ResourceConflictExceptionResponse = async (
     code: undefined,
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.code !== undefined) {
     contents.code = data.code;
   }
@@ -1532,7 +1532,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     code: undefined,
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.code !== undefined) {
     contents.code = data.code;
   }
@@ -1553,7 +1553,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
     code: undefined,
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.code !== undefined) {
     contents.code = data.code;
   }

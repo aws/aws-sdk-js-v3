@@ -365,7 +365,7 @@ const deserializeAws_restJson1_1PayloadTooLargeExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.Message = data.message;
   }

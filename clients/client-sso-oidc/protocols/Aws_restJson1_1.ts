@@ -483,7 +483,7 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
     error: undefined,
     error_description: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.error !== undefined) {
     contents.error = data.error;
   }
@@ -504,7 +504,7 @@ const deserializeAws_restJson1_1AuthorizationPendingExceptionResponse = async (
     error: undefined,
     error_description: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.error !== undefined) {
     contents.error = data.error;
   }
@@ -525,7 +525,7 @@ const deserializeAws_restJson1_1ExpiredTokenExceptionResponse = async (
     error: undefined,
     error_description: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.error !== undefined) {
     contents.error = data.error;
   }
@@ -546,7 +546,7 @@ const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
     error: undefined,
     error_description: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.error !== undefined) {
     contents.error = data.error;
   }
@@ -567,7 +567,7 @@ const deserializeAws_restJson1_1InvalidClientExceptionResponse = async (
     error: undefined,
     error_description: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.error !== undefined) {
     contents.error = data.error;
   }
@@ -588,7 +588,7 @@ const deserializeAws_restJson1_1InvalidClientMetadataExceptionResponse = async (
     error: undefined,
     error_description: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.error !== undefined) {
     contents.error = data.error;
   }
@@ -609,7 +609,7 @@ const deserializeAws_restJson1_1InvalidGrantExceptionResponse = async (
     error: undefined,
     error_description: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.error !== undefined) {
     contents.error = data.error;
   }
@@ -630,7 +630,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
     error: undefined,
     error_description: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.error !== undefined) {
     contents.error = data.error;
   }
@@ -651,7 +651,7 @@ const deserializeAws_restJson1_1InvalidScopeExceptionResponse = async (
     error: undefined,
     error_description: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.error !== undefined) {
     contents.error = data.error;
   }
@@ -672,7 +672,7 @@ const deserializeAws_restJson1_1SlowDownExceptionResponse = async (
     error: undefined,
     error_description: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.error !== undefined) {
     contents.error = data.error;
   }
@@ -693,7 +693,7 @@ const deserializeAws_restJson1_1UnauthorizedClientExceptionResponse = async (
     error: undefined,
     error_description: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.error !== undefined) {
     contents.error = data.error;
   }
@@ -714,7 +714,7 @@ const deserializeAws_restJson1_1UnsupportedGrantTypeExceptionResponse = async (
     error: undefined,
     error_description: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.error !== undefined) {
     contents.error = data.error;
   }

@@ -1523,7 +1523,7 @@ const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
     Message: undefined,
     ParameterName: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1544,7 +1544,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     Message: undefined,
     ResourceType: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1566,7 +1566,7 @@ const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
     ResourceName: undefined,
     ResourceType: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1591,7 +1591,7 @@ const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
     ResourceName: undefined,
     ResourceType: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1616,7 +1616,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     ResourceName: undefined,
     ResourceType: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1641,7 +1641,7 @@ const deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse = as
     ResourceName: undefined,
     ResourceType: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }

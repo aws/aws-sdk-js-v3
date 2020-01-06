@@ -857,7 +857,7 @@ const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
     Code: undefined,
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -880,7 +880,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
     MutuallyExclusiveParameters: undefined,
     RequiredParameters: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -914,7 +914,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     Message: undefined,
     ResourceType: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }
@@ -940,7 +940,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     ResourceIds: undefined,
     ResourceType: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Code !== undefined) {
     contents.Code = data.Code;
   }

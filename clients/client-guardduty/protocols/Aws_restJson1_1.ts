@@ -5084,7 +5084,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.Message = data.message;
   }
@@ -5105,7 +5105,7 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
     Message: undefined,
     Type: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.Message = data.message;
   }
