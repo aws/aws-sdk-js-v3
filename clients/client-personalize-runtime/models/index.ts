@@ -1,0 +1,170 @@
+import * as _smithy from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+export interface GetPersonalizedRankingRequest {
+  __type?: "GetPersonalizedRankingRequest";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the campaign to use
+   *       for generating the personalized ranking.</p>
+   *
+   */
+  campaignArn: string | undefined;
+
+  /**
+   *
+   *          <p>A list of items (itemId's) to rank. If an item was not included in the training
+   *       dataset, the item is appended to the end of the reranked list.</p>
+   *
+   */
+  inputList: Array<string> | undefined;
+
+  /**
+   *
+   *          <p>The user for which you want the campaign to provide
+   *       a personalized ranking.</p>
+   *
+   */
+  userId: string | undefined;
+}
+
+export namespace GetPersonalizedRankingRequest {
+  export function isa(o: any): o is GetPersonalizedRankingRequest {
+    return _smithy.isa(o, "GetPersonalizedRankingRequest");
+  }
+}
+
+export interface GetPersonalizedRankingResponse extends $MetadataBearer {
+  __type?: "GetPersonalizedRankingResponse";
+  /**
+   *
+   *          <p>A list of items in order of most likely interest to the user.</p>
+   *
+   */
+  personalizedRanking?: Array<PredictedItem>;
+}
+
+export namespace GetPersonalizedRankingResponse {
+  export function isa(o: any): o is GetPersonalizedRankingResponse {
+    return _smithy.isa(o, "GetPersonalizedRankingResponse");
+  }
+}
+
+export interface GetRecommendationsRequest {
+  __type?: "GetRecommendationsRequest";
+  /**
+   *
+   *          <p>The Amazon Resource Name (ARN) of the campaign to use
+   *       for getting recommendations.</p>
+   *
+   */
+  campaignArn: string | undefined;
+
+  /**
+   *
+   *          <p>The item ID to provide recommendations for.</p>
+   *          <p>Required for <code>RELATED_ITEMS</code> recipe type.</p>
+   *
+   */
+  itemId?: string;
+
+  /**
+   *
+   *          <p>The number of results to return. The default is 25. The maximum is 100.</p>
+   *
+   */
+  numResults?: number;
+
+  /**
+   *
+   *          <p>The user ID to provide recommendations for.</p>
+   *          <p>Required for <code>USER_PERSONALIZATION</code> recipe type.</p>
+   *
+   */
+  userId?: string;
+}
+
+export namespace GetRecommendationsRequest {
+  export function isa(o: any): o is GetRecommendationsRequest {
+    return _smithy.isa(o, "GetRecommendationsRequest");
+  }
+}
+
+export interface GetRecommendationsResponse extends $MetadataBearer {
+  __type?: "GetRecommendationsResponse";
+  /**
+   *
+   *
+   *          <p>A list of recommendations.</p>
+   *
+   */
+  itemList?: Array<PredictedItem>;
+}
+
+export namespace GetRecommendationsResponse {
+  export function isa(o: any): o is GetRecommendationsResponse {
+    return _smithy.isa(o, "GetRecommendationsResponse");
+  }
+}
+
+/**
+ *
+ *
+ *          <p>An object that identifies an item.</p>
+ *          <p>The  and
+ *        APIs return a list of <code>PredictedItem</code>s.</p>
+ *
+ */
+export interface PredictedItem {
+  __type?: "PredictedItem";
+  /**
+   *
+   *          <p>The recommended item ID.</p>
+   *
+   */
+  itemId?: string;
+}
+
+export namespace PredictedItem {
+  export function isa(o: any): o is PredictedItem {
+    return _smithy.isa(o, "PredictedItem");
+  }
+}
+
+/**
+ *
+ *          <p>Provide a valid value for the field or parameter.</p>
+ *
+ */
+export interface InvalidInputException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "InvalidInputException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidInputException {
+  export function isa(o: any): o is InvalidInputException {
+    return _smithy.isa(o, "InvalidInputException");
+  }
+}
+
+/**
+ *
+ *          <p>The specified resource does not exist.</p>
+ *
+ */
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
+  __type: "ResourceNotFoundException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export function isa(o: any): o is ResourceNotFoundException {
+    return _smithy.isa(o, "ResourceNotFoundException");
+  }
+}
