@@ -6827,7 +6827,7 @@ const deserializeAws_restJson1_1BadGatewayExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.Message = data.message;
   }
@@ -6844,7 +6844,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.Message = data.message;
   }
@@ -6861,7 +6861,7 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.Message = data.message;
   }
@@ -6878,7 +6878,7 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.Message = data.message;
   }
@@ -6895,7 +6895,7 @@ const deserializeAws_restJson1_1GatewayTimeoutExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.Message = data.message;
   }
@@ -6912,7 +6912,7 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.Message = data.message;
   }
@@ -6929,7 +6929,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.Message = data.message;
   }
@@ -6946,7 +6946,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.Message = data.message;
   }
@@ -6964,7 +6964,7 @@ const deserializeAws_restJson1_1UnprocessableEntityExceptionResponse = async (
     Message: undefined,
     ValidationErrors: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.Message = data.message;
   }

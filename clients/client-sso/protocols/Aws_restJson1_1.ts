@@ -442,7 +442,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -459,7 +459,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -476,7 +476,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -493,7 +493,7 @@ const deserializeAws_restJson1_1UnauthorizedExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }

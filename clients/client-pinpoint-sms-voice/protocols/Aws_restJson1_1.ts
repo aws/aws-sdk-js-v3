@@ -941,7 +941,7 @@ const deserializeAws_restJson1_1AlreadyExistsExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -958,7 +958,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -975,7 +975,7 @@ const deserializeAws_restJson1_1InternalServiceErrorExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -992,7 +992,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1009,7 +1009,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }
@@ -1026,7 +1026,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.Message !== undefined) {
     contents.Message = data.Message;
   }

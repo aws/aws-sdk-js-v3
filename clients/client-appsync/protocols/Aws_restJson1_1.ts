@@ -5100,7 +5100,7 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -5117,7 +5117,7 @@ const deserializeAws_restJson1_1ApiKeyLimitExceededExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -5134,7 +5134,7 @@ const deserializeAws_restJson1_1ApiKeyValidityOutOfBoundsExceptionResponse = asy
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -5151,7 +5151,7 @@ const deserializeAws_restJson1_1ApiLimitExceededExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -5168,7 +5168,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -5185,7 +5185,7 @@ const deserializeAws_restJson1_1ConcurrentModificationExceptionResponse = async 
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -5202,7 +5202,7 @@ const deserializeAws_restJson1_1GraphQLSchemaExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -5219,7 +5219,7 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -5236,7 +5236,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -5253,7 +5253,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -5270,7 +5270,7 @@ const deserializeAws_restJson1_1UnauthorizedExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }

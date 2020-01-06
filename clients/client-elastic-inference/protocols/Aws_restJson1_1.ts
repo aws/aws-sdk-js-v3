@@ -315,7 +315,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -332,7 +332,7 @@ const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -349,7 +349,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }

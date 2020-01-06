@@ -5065,7 +5065,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -5082,7 +5082,7 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -5099,7 +5099,7 @@ const deserializeAws_restJson1_1InternalFailureExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -5120,7 +5120,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
   if (output.headers["Retry-After"] !== undefined) {
     contents.retryAfterSeconds = output.headers["Retry-After"];
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -5137,7 +5137,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -5154,7 +5154,7 @@ const deserializeAws_restJson1_1PreconditionFailedExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -5172,7 +5172,7 @@ const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
     exampleReference: undefined,
     referenceType: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.exampleReference !== undefined) {
     contents.exampleReference = deserializeAws_restJson1_1ResourceReference(
       data.exampleReference,

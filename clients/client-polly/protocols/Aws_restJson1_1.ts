@@ -1108,7 +1108,7 @@ const deserializeAws_restJson1_1EngineNotSupportedExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1125,7 +1125,7 @@ const deserializeAws_restJson1_1InvalidLexiconExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1142,7 +1142,7 @@ const deserializeAws_restJson1_1InvalidNextTokenExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1159,7 +1159,7 @@ const deserializeAws_restJson1_1InvalidS3BucketExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1176,7 +1176,7 @@ const deserializeAws_restJson1_1InvalidS3KeyExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1193,7 +1193,7 @@ const deserializeAws_restJson1_1InvalidSampleRateExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1210,7 +1210,7 @@ const deserializeAws_restJson1_1InvalidSnsTopicArnExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1227,7 +1227,7 @@ const deserializeAws_restJson1_1InvalidSsmlExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1244,7 +1244,7 @@ const deserializeAws_restJson1_1InvalidTaskIdExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1261,7 +1261,7 @@ const deserializeAws_restJson1_1LanguageNotSupportedExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1278,7 +1278,7 @@ const deserializeAws_restJson1_1LexiconNotFoundExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1295,7 +1295,7 @@ const deserializeAws_restJson1_1LexiconSizeExceededExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1312,7 +1312,7 @@ const deserializeAws_restJson1_1MarksNotSupportedForFormatExceptionResponse = as
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1329,7 +1329,7 @@ const deserializeAws_restJson1_1MaxLexemeLengthExceededExceptionResponse = async
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1346,7 +1346,7 @@ const deserializeAws_restJson1_1MaxLexiconsNumberExceededExceptionResponse = asy
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1363,7 +1363,7 @@ const deserializeAws_restJson1_1ServiceFailureExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1380,7 +1380,7 @@ const deserializeAws_restJson1_1SsmlMarksNotSupportedForTextTypeExceptionRespons
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1397,7 +1397,7 @@ const deserializeAws_restJson1_1SynthesisTaskNotFoundExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1414,7 +1414,7 @@ const deserializeAws_restJson1_1TextLengthExceededExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1431,7 +1431,7 @@ const deserializeAws_restJson1_1UnsupportedPlsAlphabetExceptionResponse = async 
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
@@ -1448,7 +1448,7 @@ const deserializeAws_restJson1_1UnsupportedPlsLanguageExceptionResponse = async 
     $metadata: deserializeMetadata(output),
     message: undefined
   };
-  const data: any = await parseBody(output.body, context);
+  const data: any = output.body;
   if (data.message !== undefined) {
     contents.message = data.message;
   }
