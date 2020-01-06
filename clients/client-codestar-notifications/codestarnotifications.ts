@@ -157,32 +157,30 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class codestarnotifications extends codestarnotificationsClient {
   /**
    *
-   *          <p>Removes an association between a notification rule and an Amazon SNS topic so that
-   *             subscribers to that topic stop receiving notifications when the events described in the
-   *             rule are triggered.</p>
+   *          <p>Returns a list of the notification rule targets for an AWS account.</p>
    *
    */
-  public unsubscribe(
-    args: UnsubscribeCommandInput,
+  public listTargets(
+    args: ListTargetsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UnsubscribeCommandOutput>;
-  public unsubscribe(
-    args: UnsubscribeCommandInput,
-    cb: (err: any, data?: UnsubscribeCommandOutput) => void
+  ): Promise<ListTargetsCommandOutput>;
+  public listTargets(
+    args: ListTargetsCommandInput,
+    cb: (err: any, data?: ListTargetsCommandOutput) => void
   ): void;
-  public unsubscribe(
-    args: UnsubscribeCommandInput,
+  public listTargets(
+    args: ListTargetsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UnsubscribeCommandOutput) => void
+    cb: (err: any, data?: ListTargetsCommandOutput) => void
   ): void;
-  public unsubscribe(
-    args: UnsubscribeCommandInput,
+  public listTargets(
+    args: ListTargetsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: UnsubscribeCommandOutput) => void),
-    cb?: (err: any, data?: UnsubscribeCommandOutput) => void
-  ): Promise<UnsubscribeCommandOutput> | void {
-    const command = new UnsubscribeCommand(args);
+      | ((err: any, data?: ListTargetsCommandOutput) => void),
+    cb?: (err: any, data?: ListTargetsCommandOutput) => void
+  ): Promise<ListTargetsCommandOutput> | void {
+    const command = new ListTargetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -196,30 +194,68 @@ export class codestarnotifications extends codestarnotificationsClient {
 
   /**
    *
-   *          <p>Returns information about the event types available for configuring notifications.</p>
+   *          <p>Deletes a specified target for notifications.</p>
    *
    */
-  public listEventTypes(
-    args: ListEventTypesCommandInput,
+  public deleteTarget(
+    args: DeleteTargetCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListEventTypesCommandOutput>;
-  public listEventTypes(
-    args: ListEventTypesCommandInput,
-    cb: (err: any, data?: ListEventTypesCommandOutput) => void
+  ): Promise<DeleteTargetCommandOutput>;
+  public deleteTarget(
+    args: DeleteTargetCommandInput,
+    cb: (err: any, data?: DeleteTargetCommandOutput) => void
   ): void;
-  public listEventTypes(
-    args: ListEventTypesCommandInput,
+  public deleteTarget(
+    args: DeleteTargetCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListEventTypesCommandOutput) => void
+    cb: (err: any, data?: DeleteTargetCommandOutput) => void
   ): void;
-  public listEventTypes(
-    args: ListEventTypesCommandInput,
+  public deleteTarget(
+    args: DeleteTargetCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListEventTypesCommandOutput) => void),
-    cb?: (err: any, data?: ListEventTypesCommandOutput) => void
-  ): Promise<ListEventTypesCommandOutput> | void {
-    const command = new ListEventTypesCommand(args);
+      | ((err: any, data?: DeleteTargetCommandOutput) => void),
+    cb?: (err: any, data?: DeleteTargetCommandOutput) => void
+  ): Promise<DeleteTargetCommandOutput> | void {
+    const command = new DeleteTargetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Removes the association between one or more provided tags and a notification
+   *             rule.</p>
+   *
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -307,80 +343,6 @@ export class codestarnotifications extends codestarnotificationsClient {
 
   /**
    *
-   *          <p>Returns a list of the notification rule targets for an AWS account.</p>
-   *
-   */
-  public listTargets(
-    args: ListTargetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTargetsCommandOutput>;
-  public listTargets(
-    args: ListTargetsCommandInput,
-    cb: (err: any, data?: ListTargetsCommandOutput) => void
-  ): void;
-  public listTargets(
-    args: ListTargetsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTargetsCommandOutput) => void
-  ): void;
-  public listTargets(
-    args: ListTargetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTargetsCommandOutput) => void),
-    cb?: (err: any, data?: ListTargetsCommandOutput) => void
-  ): Promise<ListTargetsCommandOutput> | void {
-    const command = new ListTargetsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Associates a set of provided tags with a notification rule.</p>
-   *
-   */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
    *          <p>Returns a list of the tags associated with a notification rule.</p>
    *
    */
@@ -405,44 +367,6 @@ export class codestarnotifications extends codestarnotificationsClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Removes the association between one or more provided tags and a notification
-   *             rule.</p>
-   *
-   */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -493,71 +417,30 @@ export class codestarnotifications extends codestarnotificationsClient {
 
   /**
    *
-   *          <p>Creates an association between a notification rule and an SNS topic so that the
-   *             associated target can receive notifications when the events described in the rule are
-   *             triggered.</p>
+   *          <p>Returns information about the event types available for configuring notifications.</p>
    *
    */
-  public subscribe(
-    args: SubscribeCommandInput,
+  public listEventTypes(
+    args: ListEventTypesCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<SubscribeCommandOutput>;
-  public subscribe(
-    args: SubscribeCommandInput,
-    cb: (err: any, data?: SubscribeCommandOutput) => void
+  ): Promise<ListEventTypesCommandOutput>;
+  public listEventTypes(
+    args: ListEventTypesCommandInput,
+    cb: (err: any, data?: ListEventTypesCommandOutput) => void
   ): void;
-  public subscribe(
-    args: SubscribeCommandInput,
+  public listEventTypes(
+    args: ListEventTypesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: SubscribeCommandOutput) => void
+    cb: (err: any, data?: ListEventTypesCommandOutput) => void
   ): void;
-  public subscribe(
-    args: SubscribeCommandInput,
+  public listEventTypes(
+    args: ListEventTypesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: SubscribeCommandOutput) => void),
-    cb?: (err: any, data?: SubscribeCommandOutput) => void
-  ): Promise<SubscribeCommandOutput> | void {
-    const command = new SubscribeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Creates a notification rule for a resource. The rule specifies the events you want
-   *             notifications about and the targets (such as SNS topics) where you want to receive
-   *             them.</p>
-   *
-   */
-  public createNotificationRule(
-    args: CreateNotificationRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateNotificationRuleCommandOutput>;
-  public createNotificationRule(
-    args: CreateNotificationRuleCommandInput,
-    cb: (err: any, data?: CreateNotificationRuleCommandOutput) => void
-  ): void;
-  public createNotificationRule(
-    args: CreateNotificationRuleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateNotificationRuleCommandOutput) => void
-  ): void;
-  public createNotificationRule(
-    args: CreateNotificationRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateNotificationRuleCommandOutput) => void),
-    cb?: (err: any, data?: CreateNotificationRuleCommandOutput) => void
-  ): Promise<CreateNotificationRuleCommandOutput> | void {
-    const command = new CreateNotificationRuleCommand(args);
+      | ((err: any, data?: ListEventTypesCommandOutput) => void),
+    cb?: (err: any, data?: ListEventTypesCommandOutput) => void
+  ): Promise<ListEventTypesCommandOutput> | void {
+    const command = new ListEventTypesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -613,30 +496,147 @@ export class codestarnotifications extends codestarnotificationsClient {
 
   /**
    *
-   *          <p>Deletes a specified target for notifications.</p>
+   *          <p>Creates a notification rule for a resource. The rule specifies the events you want
+   *             notifications about and the targets (such as SNS topics) where you want to receive
+   *             them.</p>
    *
    */
-  public deleteTarget(
-    args: DeleteTargetCommandInput,
+  public createNotificationRule(
+    args: CreateNotificationRuleCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteTargetCommandOutput>;
-  public deleteTarget(
-    args: DeleteTargetCommandInput,
-    cb: (err: any, data?: DeleteTargetCommandOutput) => void
+  ): Promise<CreateNotificationRuleCommandOutput>;
+  public createNotificationRule(
+    args: CreateNotificationRuleCommandInput,
+    cb: (err: any, data?: CreateNotificationRuleCommandOutput) => void
   ): void;
-  public deleteTarget(
-    args: DeleteTargetCommandInput,
+  public createNotificationRule(
+    args: CreateNotificationRuleCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteTargetCommandOutput) => void
+    cb: (err: any, data?: CreateNotificationRuleCommandOutput) => void
   ): void;
-  public deleteTarget(
-    args: DeleteTargetCommandInput,
+  public createNotificationRule(
+    args: CreateNotificationRuleCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTargetCommandOutput) => void),
-    cb?: (err: any, data?: DeleteTargetCommandOutput) => void
-  ): Promise<DeleteTargetCommandOutput> | void {
-    const command = new DeleteTargetCommand(args);
+      | ((err: any, data?: CreateNotificationRuleCommandOutput) => void),
+    cb?: (err: any, data?: CreateNotificationRuleCommandOutput) => void
+  ): Promise<CreateNotificationRuleCommandOutput> | void {
+    const command = new CreateNotificationRuleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Creates an association between a notification rule and an SNS topic so that the
+   *             associated target can receive notifications when the events described in the rule are
+   *             triggered.</p>
+   *
+   */
+  public subscribe(
+    args: SubscribeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SubscribeCommandOutput>;
+  public subscribe(
+    args: SubscribeCommandInput,
+    cb: (err: any, data?: SubscribeCommandOutput) => void
+  ): void;
+  public subscribe(
+    args: SubscribeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SubscribeCommandOutput) => void
+  ): void;
+  public subscribe(
+    args: SubscribeCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: SubscribeCommandOutput) => void),
+    cb?: (err: any, data?: SubscribeCommandOutput) => void
+  ): Promise<SubscribeCommandOutput> | void {
+    const command = new SubscribeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Associates a set of provided tags with a notification rule.</p>
+   *
+   */
+  public tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  public tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Removes an association between a notification rule and an Amazon SNS topic so that
+   *             subscribers to that topic stop receiving notifications when the events described in the
+   *             rule are triggered.</p>
+   *
+   */
+  public unsubscribe(
+    args: UnsubscribeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UnsubscribeCommandOutput>;
+  public unsubscribe(
+    args: UnsubscribeCommandInput,
+    cb: (err: any, data?: UnsubscribeCommandOutput) => void
+  ): void;
+  public unsubscribe(
+    args: UnsubscribeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UnsubscribeCommandOutput) => void
+  ): void;
+  public unsubscribe(
+    args: UnsubscribeCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UnsubscribeCommandOutput) => void),
+    cb?: (err: any, data?: UnsubscribeCommandOutput) => void
+  ): Promise<UnsubscribeCommandOutput> | void {
+    const command = new UnsubscribeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -95,6 +95,138 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class ElasticTranscoder extends ElasticTranscoderClient {
   /**
    *
+   *         <p>The DeletePipeline operation removes a pipeline.</p>
+   *         <p> You can only delete a pipeline that has never been used or that is not currently in use
+   *             (doesn't contain any active jobs). If the pipeline is currently in use,
+   *                 <code>DeletePipeline</code> returns an error. </p>
+   *
+   *
+   */
+  public deletePipeline(
+    args: DeletePipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePipelineCommandOutput>;
+  public deletePipeline(
+    args: DeletePipelineCommandInput,
+    cb: (err: any, data?: DeletePipelineCommandOutput) => void
+  ): void;
+  public deletePipeline(
+    args: DeletePipelineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePipelineCommandOutput) => void
+  ): void;
+  public deletePipeline(
+    args: DeletePipelineCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeletePipelineCommandOutput) => void),
+    cb?: (err: any, data?: DeletePipelineCommandOutput) => void
+  ): Promise<DeletePipelineCommandOutput> | void {
+    const command = new DeletePipelineCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>The ListJobsByPipeline operation gets a list of the jobs currently in a pipeline.</p>
+   *         <p>Elastic Transcoder returns all of the jobs currently in the specified pipeline. The response body contains
+   *             one element for each job that satisfies the search criteria.</p>
+   *
+   *
+   */
+  public listJobsByPipeline(
+    args: ListJobsByPipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListJobsByPipelineCommandOutput>;
+  public listJobsByPipeline(
+    args: ListJobsByPipelineCommandInput,
+    cb: (err: any, data?: ListJobsByPipelineCommandOutput) => void
+  ): void;
+  public listJobsByPipeline(
+    args: ListJobsByPipelineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListJobsByPipelineCommandOutput) => void
+  ): void;
+  public listJobsByPipeline(
+    args: ListJobsByPipelineCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListJobsByPipelineCommandOutput) => void),
+    cb?: (err: any, data?: ListJobsByPipelineCommandOutput) => void
+  ): Promise<ListJobsByPipelineCommandOutput> | void {
+    const command = new ListJobsByPipelineCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>The CreatePreset operation creates a preset with settings that you specify.</p>
+   *         <important>
+   *             <p>Elastic Transcoder checks the CreatePreset settings to ensure that they meet Elastic Transcoder requirements
+   *             and to determine whether they comply with H.264 standards. If your settings are not
+   *             valid for Elastic Transcoder, Elastic Transcoder returns an HTTP 400 response (<code>ValidationException</code>) and
+   *             does not create the preset. If the settings are valid for Elastic Transcoder but aren't strictly
+   *             compliant with the H.264 standard, Elastic Transcoder creates the preset and returns a warning message
+   *             in the response. This helps you determine whether your settings comply with the H.264
+   *             standard while giving you greater flexibility with respect to the video that Elastic Transcoder
+   *             produces.</p>
+   *          </important>
+   *         <p>Elastic Transcoder uses the H.264 video-compression format. For more information, see the International
+   *             Telecommunication Union publication <i>Recommendation ITU-T H.264: Advanced video coding
+   *                 for generic audiovisual services</i>.</p>
+   *
+   *
+   */
+  public createPreset(
+    args: CreatePresetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePresetCommandOutput>;
+  public createPreset(
+    args: CreatePresetCommandInput,
+    cb: (err: any, data?: CreatePresetCommandOutput) => void
+  ): void;
+  public createPreset(
+    args: CreatePresetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePresetCommandOutput) => void
+  ): void;
+  public createPreset(
+    args: CreatePresetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreatePresetCommandOutput) => void),
+    cb?: (err: any, data?: CreatePresetCommandOutput) => void
+  ): Promise<CreatePresetCommandOutput> | void {
+    const command = new CreatePresetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
    *         <p>The TestRole operation tests the IAM role used to create the pipeline.</p>
    *         <p>The <code>TestRole</code> action lets you determine whether the IAM role you are using
    *             has sufficient permissions to let Elastic Transcoder perform tasks associated with the transcoding
@@ -176,36 +308,31 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
 
   /**
    *
-   *         <p>The CancelJob operation cancels an unfinished job.</p>
-   *         <note>
-   *             <p>You can only cancel a job that has a status of <code>Submitted</code>. To prevent a
-   *             pipeline from starting to process a job while you're getting the job identifier, use
-   *                 <a>UpdatePipelineStatus</a> to temporarily pause the pipeline.</p>
-   *          </note>
+   *         <p>The ListPipelines operation gets a list of the pipelines associated with the current AWS account.</p>
    *
    *
    */
-  public cancelJob(
-    args: CancelJobCommandInput,
+  public listPipelines(
+    args: ListPipelinesCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CancelJobCommandOutput>;
-  public cancelJob(
-    args: CancelJobCommandInput,
-    cb: (err: any, data?: CancelJobCommandOutput) => void
+  ): Promise<ListPipelinesCommandOutput>;
+  public listPipelines(
+    args: ListPipelinesCommandInput,
+    cb: (err: any, data?: ListPipelinesCommandOutput) => void
   ): void;
-  public cancelJob(
-    args: CancelJobCommandInput,
+  public listPipelines(
+    args: ListPipelinesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CancelJobCommandOutput) => void
+    cb: (err: any, data?: ListPipelinesCommandOutput) => void
   ): void;
-  public cancelJob(
-    args: CancelJobCommandInput,
+  public listPipelines(
+    args: ListPipelinesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: CancelJobCommandOutput) => void),
-    cb?: (err: any, data?: CancelJobCommandOutput) => void
-  ): Promise<CancelJobCommandOutput> | void {
-    const command = new CancelJobCommand(args);
+      | ((err: any, data?: ListPipelinesCommandOutput) => void),
+    cb?: (err: any, data?: ListPipelinesCommandOutput) => void
+  ): Promise<ListPipelinesCommandOutput> | void {
+    const command = new ListPipelinesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -219,113 +346,31 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
 
   /**
    *
-   *         <p>With the UpdatePipelineNotifications operation, you can update Amazon Simple Notification Service (Amazon SNS) notifications for a pipeline.</p>
-   *         <p>When you update notifications for a pipeline, Elastic Transcoder returns the values that you specified in the request.</p>
+   *         <p>The ReadPreset operation gets detailed information about a preset.</p>
    *
    *
    */
-  public updatePipelineNotifications(
-    args: UpdatePipelineNotificationsCommandInput,
+  public readPreset(
+    args: ReadPresetCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UpdatePipelineNotificationsCommandOutput>;
-  public updatePipelineNotifications(
-    args: UpdatePipelineNotificationsCommandInput,
-    cb: (err: any, data?: UpdatePipelineNotificationsCommandOutput) => void
+  ): Promise<ReadPresetCommandOutput>;
+  public readPreset(
+    args: ReadPresetCommandInput,
+    cb: (err: any, data?: ReadPresetCommandOutput) => void
   ): void;
-  public updatePipelineNotifications(
-    args: UpdatePipelineNotificationsCommandInput,
+  public readPreset(
+    args: ReadPresetCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdatePipelineNotificationsCommandOutput) => void
+    cb: (err: any, data?: ReadPresetCommandOutput) => void
   ): void;
-  public updatePipelineNotifications(
-    args: UpdatePipelineNotificationsCommandInput,
+  public readPreset(
+    args: ReadPresetCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePipelineNotificationsCommandOutput) => void),
-    cb?: (err: any, data?: UpdatePipelineNotificationsCommandOutput) => void
-  ): Promise<UpdatePipelineNotificationsCommandOutput> | void {
-    const command = new UpdatePipelineNotificationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>The ListJobsByStatus operation gets a list of jobs that have a specified status. The response
-   *             body contains one element for each job that satisfies the search criteria.</p>
-   *
-   *
-   */
-  public listJobsByStatus(
-    args: ListJobsByStatusCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListJobsByStatusCommandOutput>;
-  public listJobsByStatus(
-    args: ListJobsByStatusCommandInput,
-    cb: (err: any, data?: ListJobsByStatusCommandOutput) => void
-  ): void;
-  public listJobsByStatus(
-    args: ListJobsByStatusCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListJobsByStatusCommandOutput) => void
-  ): void;
-  public listJobsByStatus(
-    args: ListJobsByStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobsByStatusCommandOutput) => void),
-    cb?: (err: any, data?: ListJobsByStatusCommandOutput) => void
-  ): Promise<ListJobsByStatusCommandOutput> | void {
-    const command = new ListJobsByStatusCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p> Use the <code>UpdatePipeline</code> operation to update settings for a pipeline.</p>
-   *         <important>
-   *             <p>When you change pipeline settings, your changes take effect immediately.
-   *             Jobs that you have already submitted and that Elastic Transcoder has not started to process are
-   *             affected in addition to jobs that you submit after you change settings. </p>
-   *          </important>
-   *
-   */
-  public updatePipeline(
-    args: UpdatePipelineCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdatePipelineCommandOutput>;
-  public updatePipeline(
-    args: UpdatePipelineCommandInput,
-    cb: (err: any, data?: UpdatePipelineCommandOutput) => void
-  ): void;
-  public updatePipeline(
-    args: UpdatePipelineCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdatePipelineCommandOutput) => void
-  ): void;
-  public updatePipeline(
-    args: UpdatePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePipelineCommandOutput) => void),
-    cb?: (err: any, data?: UpdatePipelineCommandOutput) => void
-  ): Promise<UpdatePipelineCommandOutput> | void {
-    const command = new UpdatePipelineCommand(args);
+      | ((err: any, data?: ReadPresetCommandOutput) => void),
+    cb?: (err: any, data?: ReadPresetCommandOutput) => void
+  ): Promise<ReadPresetCommandOutput> | void {
+    const command = new ReadPresetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -418,117 +463,31 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
 
   /**
    *
-   *         <p>The DeletePipeline operation removes a pipeline.</p>
-   *         <p> You can only delete a pipeline that has never been used or that is not currently in use
-   *             (doesn't contain any active jobs). If the pipeline is currently in use,
-   *                 <code>DeletePipeline</code> returns an error. </p>
+   *         <p>The ReadPipeline operation gets detailed information about a pipeline.</p>
    *
    *
    */
-  public deletePipeline(
-    args: DeletePipelineCommandInput,
+  public readPipeline(
+    args: ReadPipelineCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeletePipelineCommandOutput>;
-  public deletePipeline(
-    args: DeletePipelineCommandInput,
-    cb: (err: any, data?: DeletePipelineCommandOutput) => void
+  ): Promise<ReadPipelineCommandOutput>;
+  public readPipeline(
+    args: ReadPipelineCommandInput,
+    cb: (err: any, data?: ReadPipelineCommandOutput) => void
   ): void;
-  public deletePipeline(
-    args: DeletePipelineCommandInput,
+  public readPipeline(
+    args: ReadPipelineCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeletePipelineCommandOutput) => void
+    cb: (err: any, data?: ReadPipelineCommandOutput) => void
   ): void;
-  public deletePipeline(
-    args: DeletePipelineCommandInput,
+  public readPipeline(
+    args: ReadPipelineCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DeletePipelineCommandOutput) => void),
-    cb?: (err: any, data?: DeletePipelineCommandOutput) => void
-  ): Promise<DeletePipelineCommandOutput> | void {
-    const command = new DeletePipelineCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>The ListJobsByPipeline operation gets a list of the jobs currently in a pipeline.</p>
-   *         <p>Elastic Transcoder returns all of the jobs currently in the specified pipeline. The response body contains
-   *             one element for each job that satisfies the search criteria.</p>
-   *
-   *
-   */
-  public listJobsByPipeline(
-    args: ListJobsByPipelineCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListJobsByPipelineCommandOutput>;
-  public listJobsByPipeline(
-    args: ListJobsByPipelineCommandInput,
-    cb: (err: any, data?: ListJobsByPipelineCommandOutput) => void
-  ): void;
-  public listJobsByPipeline(
-    args: ListJobsByPipelineCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListJobsByPipelineCommandOutput) => void
-  ): void;
-  public listJobsByPipeline(
-    args: ListJobsByPipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobsByPipelineCommandOutput) => void),
-    cb?: (err: any, data?: ListJobsByPipelineCommandOutput) => void
-  ): Promise<ListJobsByPipelineCommandOutput> | void {
-    const command = new ListJobsByPipelineCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>The UpdatePipelineStatus operation pauses or reactivates a pipeline, so that the pipeline
-   *             stops or restarts the processing of jobs.</p>
-   *         <p>Changing the pipeline status is useful if you want to cancel one or more jobs. You can't
-   *             cancel jobs after Elastic Transcoder has started processing them; if you pause the pipeline to which
-   *             you submitted the jobs, you have more time to get the job IDs for the jobs that you want
-   *             to cancel, and to send a <a>CancelJob</a> request. </p>
-   *
-   *
-   */
-  public updatePipelineStatus(
-    args: UpdatePipelineStatusCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdatePipelineStatusCommandOutput>;
-  public updatePipelineStatus(
-    args: UpdatePipelineStatusCommandInput,
-    cb: (err: any, data?: UpdatePipelineStatusCommandOutput) => void
-  ): void;
-  public updatePipelineStatus(
-    args: UpdatePipelineStatusCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdatePipelineStatusCommandOutput) => void
-  ): void;
-  public updatePipelineStatus(
-    args: UpdatePipelineStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePipelineStatusCommandOutput) => void),
-    cb?: (err: any, data?: UpdatePipelineStatusCommandOutput) => void
-  ): Promise<UpdatePipelineStatusCommandOutput> | void {
-    const command = new UpdatePipelineStatusCommand(args);
+      | ((err: any, data?: ReadPipelineCommandOutput) => void),
+    cb?: (err: any, data?: ReadPipelineCommandOutput) => void
+  ): Promise<ReadPipelineCommandOutput> | void {
+    const command = new ReadPipelineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -623,31 +582,32 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
 
   /**
    *
-   *         <p>The ReadPreset operation gets detailed information about a preset.</p>
+   *         <p>With the UpdatePipelineNotifications operation, you can update Amazon Simple Notification Service (Amazon SNS) notifications for a pipeline.</p>
+   *         <p>When you update notifications for a pipeline, Elastic Transcoder returns the values that you specified in the request.</p>
    *
    *
    */
-  public readPreset(
-    args: ReadPresetCommandInput,
+  public updatePipelineNotifications(
+    args: UpdatePipelineNotificationsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ReadPresetCommandOutput>;
-  public readPreset(
-    args: ReadPresetCommandInput,
-    cb: (err: any, data?: ReadPresetCommandOutput) => void
+  ): Promise<UpdatePipelineNotificationsCommandOutput>;
+  public updatePipelineNotifications(
+    args: UpdatePipelineNotificationsCommandInput,
+    cb: (err: any, data?: UpdatePipelineNotificationsCommandOutput) => void
   ): void;
-  public readPreset(
-    args: ReadPresetCommandInput,
+  public updatePipelineNotifications(
+    args: UpdatePipelineNotificationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ReadPresetCommandOutput) => void
+    cb: (err: any, data?: UpdatePipelineNotificationsCommandOutput) => void
   ): void;
-  public readPreset(
-    args: ReadPresetCommandInput,
+  public updatePipelineNotifications(
+    args: UpdatePipelineNotificationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ReadPresetCommandOutput) => void),
-    cb?: (err: any, data?: ReadPresetCommandOutput) => void
-  ): Promise<ReadPresetCommandOutput> | void {
-    const command = new ReadPresetCommand(args);
+      | ((err: any, data?: UpdatePipelineNotificationsCommandOutput) => void),
+    cb?: (err: any, data?: UpdatePipelineNotificationsCommandOutput) => void
+  ): Promise<UpdatePipelineNotificationsCommandOutput> | void {
+    const command = new UpdatePipelineNotificationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -661,44 +621,35 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
 
   /**
    *
-   *         <p>The CreatePreset operation creates a preset with settings that you specify.</p>
+   *         <p> Use the <code>UpdatePipeline</code> operation to update settings for a pipeline.</p>
    *         <important>
-   *             <p>Elastic Transcoder checks the CreatePreset settings to ensure that they meet Elastic Transcoder requirements
-   *             and to determine whether they comply with H.264 standards. If your settings are not
-   *             valid for Elastic Transcoder, Elastic Transcoder returns an HTTP 400 response (<code>ValidationException</code>) and
-   *             does not create the preset. If the settings are valid for Elastic Transcoder but aren't strictly
-   *             compliant with the H.264 standard, Elastic Transcoder creates the preset and returns a warning message
-   *             in the response. This helps you determine whether your settings comply with the H.264
-   *             standard while giving you greater flexibility with respect to the video that Elastic Transcoder
-   *             produces.</p>
+   *             <p>When you change pipeline settings, your changes take effect immediately.
+   *             Jobs that you have already submitted and that Elastic Transcoder has not started to process are
+   *             affected in addition to jobs that you submit after you change settings. </p>
    *          </important>
-   *         <p>Elastic Transcoder uses the H.264 video-compression format. For more information, see the International
-   *             Telecommunication Union publication <i>Recommendation ITU-T H.264: Advanced video coding
-   *                 for generic audiovisual services</i>.</p>
-   *
    *
    */
-  public createPreset(
-    args: CreatePresetCommandInput,
+  public updatePipeline(
+    args: UpdatePipelineCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreatePresetCommandOutput>;
-  public createPreset(
-    args: CreatePresetCommandInput,
-    cb: (err: any, data?: CreatePresetCommandOutput) => void
+  ): Promise<UpdatePipelineCommandOutput>;
+  public updatePipeline(
+    args: UpdatePipelineCommandInput,
+    cb: (err: any, data?: UpdatePipelineCommandOutput) => void
   ): void;
-  public createPreset(
-    args: CreatePresetCommandInput,
+  public updatePipeline(
+    args: UpdatePipelineCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreatePresetCommandOutput) => void
+    cb: (err: any, data?: UpdatePipelineCommandOutput) => void
   ): void;
-  public createPreset(
-    args: CreatePresetCommandInput,
+  public updatePipeline(
+    args: UpdatePipelineCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: CreatePresetCommandOutput) => void),
-    cb?: (err: any, data?: CreatePresetCommandOutput) => void
-  ): Promise<CreatePresetCommandOutput> | void {
-    const command = new CreatePresetCommand(args);
+      | ((err: any, data?: UpdatePipelineCommandOutput) => void),
+    cb?: (err: any, data?: UpdatePipelineCommandOutput) => void
+  ): Promise<UpdatePipelineCommandOutput> | void {
+    const command = new UpdatePipelineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -712,31 +663,32 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
 
   /**
    *
-   *         <p>The ListPipelines operation gets a list of the pipelines associated with the current AWS account.</p>
+   *         <p>The ListJobsByStatus operation gets a list of jobs that have a specified status. The response
+   *             body contains one element for each job that satisfies the search criteria.</p>
    *
    *
    */
-  public listPipelines(
-    args: ListPipelinesCommandInput,
+  public listJobsByStatus(
+    args: ListJobsByStatusCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListPipelinesCommandOutput>;
-  public listPipelines(
-    args: ListPipelinesCommandInput,
-    cb: (err: any, data?: ListPipelinesCommandOutput) => void
+  ): Promise<ListJobsByStatusCommandOutput>;
+  public listJobsByStatus(
+    args: ListJobsByStatusCommandInput,
+    cb: (err: any, data?: ListJobsByStatusCommandOutput) => void
   ): void;
-  public listPipelines(
-    args: ListPipelinesCommandInput,
+  public listJobsByStatus(
+    args: ListJobsByStatusCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListPipelinesCommandOutput) => void
+    cb: (err: any, data?: ListJobsByStatusCommandOutput) => void
   ): void;
-  public listPipelines(
-    args: ListPipelinesCommandInput,
+  public listJobsByStatus(
+    args: ListJobsByStatusCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListPipelinesCommandOutput) => void),
-    cb?: (err: any, data?: ListPipelinesCommandOutput) => void
-  ): Promise<ListPipelinesCommandOutput> | void {
-    const command = new ListPipelinesCommand(args);
+      | ((err: any, data?: ListJobsByStatusCommandOutput) => void),
+    cb?: (err: any, data?: ListJobsByStatusCommandOutput) => void
+  ): Promise<ListJobsByStatusCommandOutput> | void {
+    const command = new ListJobsByStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -750,31 +702,79 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
 
   /**
    *
-   *         <p>The ReadPipeline operation gets detailed information about a pipeline.</p>
+   *         <p>The CancelJob operation cancels an unfinished job.</p>
+   *         <note>
+   *             <p>You can only cancel a job that has a status of <code>Submitted</code>. To prevent a
+   *             pipeline from starting to process a job while you're getting the job identifier, use
+   *                 <a>UpdatePipelineStatus</a> to temporarily pause the pipeline.</p>
+   *          </note>
    *
    *
    */
-  public readPipeline(
-    args: ReadPipelineCommandInput,
+  public cancelJob(
+    args: CancelJobCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ReadPipelineCommandOutput>;
-  public readPipeline(
-    args: ReadPipelineCommandInput,
-    cb: (err: any, data?: ReadPipelineCommandOutput) => void
+  ): Promise<CancelJobCommandOutput>;
+  public cancelJob(
+    args: CancelJobCommandInput,
+    cb: (err: any, data?: CancelJobCommandOutput) => void
   ): void;
-  public readPipeline(
-    args: ReadPipelineCommandInput,
+  public cancelJob(
+    args: CancelJobCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ReadPipelineCommandOutput) => void
+    cb: (err: any, data?: CancelJobCommandOutput) => void
   ): void;
-  public readPipeline(
-    args: ReadPipelineCommandInput,
+  public cancelJob(
+    args: CancelJobCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ReadPipelineCommandOutput) => void),
-    cb?: (err: any, data?: ReadPipelineCommandOutput) => void
-  ): Promise<ReadPipelineCommandOutput> | void {
-    const command = new ReadPipelineCommand(args);
+      | ((err: any, data?: CancelJobCommandOutput) => void),
+    cb?: (err: any, data?: CancelJobCommandOutput) => void
+  ): Promise<CancelJobCommandOutput> | void {
+    const command = new CancelJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>The UpdatePipelineStatus operation pauses or reactivates a pipeline, so that the pipeline
+   *             stops or restarts the processing of jobs.</p>
+   *         <p>Changing the pipeline status is useful if you want to cancel one or more jobs. You can't
+   *             cancel jobs after Elastic Transcoder has started processing them; if you pause the pipeline to which
+   *             you submitted the jobs, you have more time to get the job IDs for the jobs that you want
+   *             to cancel, and to send a <a>CancelJob</a> request. </p>
+   *
+   *
+   */
+  public updatePipelineStatus(
+    args: UpdatePipelineStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePipelineStatusCommandOutput>;
+  public updatePipelineStatus(
+    args: UpdatePipelineStatusCommandInput,
+    cb: (err: any, data?: UpdatePipelineStatusCommandOutput) => void
+  ): void;
+  public updatePipelineStatus(
+    args: UpdatePipelineStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePipelineStatusCommandOutput) => void
+  ): void;
+  public updatePipelineStatus(
+    args: UpdatePipelineStatusCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdatePipelineStatusCommandOutput) => void),
+    cb?: (err: any, data?: UpdatePipelineStatusCommandOutput) => void
+  ): Promise<UpdatePipelineStatusCommandOutput> | void {
+    const command = new UpdatePipelineStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

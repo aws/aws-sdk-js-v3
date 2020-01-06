@@ -41,32 +41,31 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class SSOOIDC extends SSOOIDCClient {
   /**
    *
-   *          <p>Creates and returns an access token for the authorized client. The access token issued
-   *       will be used to fetch short-term credentials for the assigned roles in the AWS
-   *       account.</p>
+   *          <p>Registers a client with AWS SSO. This allows clients to initiate device authorization.
+   *       The output should be persisted for reuse through many authentication requests.</p>
    *
    */
-  public createToken(
-    args: CreateTokenCommandInput,
+  public registerClient(
+    args: RegisterClientCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreateTokenCommandOutput>;
-  public createToken(
-    args: CreateTokenCommandInput,
-    cb: (err: any, data?: CreateTokenCommandOutput) => void
+  ): Promise<RegisterClientCommandOutput>;
+  public registerClient(
+    args: RegisterClientCommandInput,
+    cb: (err: any, data?: RegisterClientCommandOutput) => void
   ): void;
-  public createToken(
-    args: CreateTokenCommandInput,
+  public registerClient(
+    args: RegisterClientCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateTokenCommandOutput) => void
+    cb: (err: any, data?: RegisterClientCommandOutput) => void
   ): void;
-  public createToken(
-    args: CreateTokenCommandInput,
+  public registerClient(
+    args: RegisterClientCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: CreateTokenCommandOutput) => void),
-    cb?: (err: any, data?: CreateTokenCommandOutput) => void
-  ): Promise<CreateTokenCommandOutput> | void {
-    const command = new CreateTokenCommand(args);
+      | ((err: any, data?: RegisterClientCommandOutput) => void),
+    cb?: (err: any, data?: RegisterClientCommandOutput) => void
+  ): Promise<RegisterClientCommandOutput> | void {
+    const command = new RegisterClientCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -117,31 +116,32 @@ export class SSOOIDC extends SSOOIDCClient {
 
   /**
    *
-   *          <p>Registers a client with AWS SSO. This allows clients to initiate device authorization.
-   *       The output should be persisted for reuse through many authentication requests.</p>
+   *          <p>Creates and returns an access token for the authorized client. The access token issued
+   *       will be used to fetch short-term credentials for the assigned roles in the AWS
+   *       account.</p>
    *
    */
-  public registerClient(
-    args: RegisterClientCommandInput,
+  public createToken(
+    args: CreateTokenCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<RegisterClientCommandOutput>;
-  public registerClient(
-    args: RegisterClientCommandInput,
-    cb: (err: any, data?: RegisterClientCommandOutput) => void
+  ): Promise<CreateTokenCommandOutput>;
+  public createToken(
+    args: CreateTokenCommandInput,
+    cb: (err: any, data?: CreateTokenCommandOutput) => void
   ): void;
-  public registerClient(
-    args: RegisterClientCommandInput,
+  public createToken(
+    args: CreateTokenCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: RegisterClientCommandOutput) => void
+    cb: (err: any, data?: CreateTokenCommandOutput) => void
   ): void;
-  public registerClient(
-    args: RegisterClientCommandInput,
+  public createToken(
+    args: CreateTokenCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: RegisterClientCommandOutput) => void),
-    cb?: (err: any, data?: RegisterClientCommandOutput) => void
-  ): Promise<RegisterClientCommandOutput> | void {
-    const command = new RegisterClientCommand(args);
+      | ((err: any, data?: CreateTokenCommandOutput) => void),
+    cb?: (err: any, data?: CreateTokenCommandOutput) => void
+  ): Promise<CreateTokenCommandOutput> | void {
+    const command = new CreateTokenCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -96,178 +96,6 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class MediaPackage extends MediaPackageClient {
   /**
-   * Updates an existing OriginEndpoint.
-   */
-  public updateOriginEndpoint(
-    args: UpdateOriginEndpointCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateOriginEndpointCommandOutput>;
-  public updateOriginEndpoint(
-    args: UpdateOriginEndpointCommandInput,
-    cb: (err: any, data?: UpdateOriginEndpointCommandOutput) => void
-  ): void;
-  public updateOriginEndpoint(
-    args: UpdateOriginEndpointCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateOriginEndpointCommandOutput) => void
-  ): void;
-  public updateOriginEndpoint(
-    args: UpdateOriginEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateOriginEndpointCommandOutput) => void),
-    cb?: (err: any, data?: UpdateOriginEndpointCommandOutput) => void
-  ): Promise<UpdateOriginEndpointCommandOutput> | void {
-    const command = new UpdateOriginEndpointCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * Creates a new Channel.
-   */
-  public createChannel(
-    args: CreateChannelCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateChannelCommandOutput>;
-  public createChannel(
-    args: CreateChannelCommandInput,
-    cb: (err: any, data?: CreateChannelCommandOutput) => void
-  ): void;
-  public createChannel(
-    args: CreateChannelCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateChannelCommandOutput) => void
-  ): void;
-  public createChannel(
-    args: CreateChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateChannelCommandOutput) => void),
-    cb?: (err: any, data?: CreateChannelCommandOutput) => void
-  ): Promise<CreateChannelCommandOutput> | void {
-    const command = new CreateChannelCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * Returns a collection of Channels.
-   */
-  public listChannels(
-    args: ListChannelsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListChannelsCommandOutput>;
-  public listChannels(
-    args: ListChannelsCommandInput,
-    cb: (err: any, data?: ListChannelsCommandOutput) => void
-  ): void;
-  public listChannels(
-    args: ListChannelsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListChannelsCommandOutput) => void
-  ): void;
-  public listChannels(
-    args: ListChannelsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListChannelsCommandOutput) => void),
-    cb?: (err: any, data?: ListChannelsCommandOutput) => void
-  ): Promise<ListChannelsCommandOutput> | void {
-    const command = new ListChannelsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * Gets details about an existing HarvestJob.
-   */
-  public describeHarvestJob(
-    args: DescribeHarvestJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeHarvestJobCommandOutput>;
-  public describeHarvestJob(
-    args: DescribeHarvestJobCommandInput,
-    cb: (err: any, data?: DescribeHarvestJobCommandOutput) => void
-  ): void;
-  public describeHarvestJob(
-    args: DescribeHarvestJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeHarvestJobCommandOutput) => void
-  ): void;
-  public describeHarvestJob(
-    args: DescribeHarvestJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeHarvestJobCommandOutput) => void),
-    cb?: (err: any, data?: DescribeHarvestJobCommandOutput) => void
-  ): Promise<DescribeHarvestJobCommandOutput> | void {
-    const command = new DescribeHarvestJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * Gets details about a Channel.
    */
   public describeChannel(
@@ -408,29 +236,29 @@ export class MediaPackage extends MediaPackageClient {
   }
 
   /**
-   * Gets details about an existing OriginEndpoint.
+   * Updates an existing Channel.
    */
-  public describeOriginEndpoint(
-    args: DescribeOriginEndpointCommandInput,
+  public updateChannel(
+    args: UpdateChannelCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DescribeOriginEndpointCommandOutput>;
-  public describeOriginEndpoint(
-    args: DescribeOriginEndpointCommandInput,
-    cb: (err: any, data?: DescribeOriginEndpointCommandOutput) => void
+  ): Promise<UpdateChannelCommandOutput>;
+  public updateChannel(
+    args: UpdateChannelCommandInput,
+    cb: (err: any, data?: UpdateChannelCommandOutput) => void
   ): void;
-  public describeOriginEndpoint(
-    args: DescribeOriginEndpointCommandInput,
+  public updateChannel(
+    args: UpdateChannelCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeOriginEndpointCommandOutput) => void
+    cb: (err: any, data?: UpdateChannelCommandOutput) => void
   ): void;
-  public describeOriginEndpoint(
-    args: DescribeOriginEndpointCommandInput,
+  public updateChannel(
+    args: UpdateChannelCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DescribeOriginEndpointCommandOutput) => void),
-    cb?: (err: any, data?: DescribeOriginEndpointCommandOutput) => void
-  ): Promise<DescribeOriginEndpointCommandOutput> | void {
-    const command = new DescribeOriginEndpointCommand(args);
+      | ((err: any, data?: UpdateChannelCommandOutput) => void),
+    cb?: (err: any, data?: UpdateChannelCommandOutput) => void
+  ): Promise<UpdateChannelCommandOutput> | void {
+    const command = new UpdateChannelCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -442,30 +270,27 @@ export class MediaPackage extends MediaPackageClient {
     }
   }
 
-  /**
-   * Changes the Channel's first IngestEndpoint's username and password. WARNING - This API is deprecated. Please use RotateIngestEndpointCredentials instead
-   */
-  public rotateChannelCredentials(
-    args: RotateChannelCredentialsCommandInput,
+  public tagResource(
+    args: TagResourceCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<RotateChannelCredentialsCommandOutput>;
-  public rotateChannelCredentials(
-    args: RotateChannelCredentialsCommandInput,
-    cb: (err: any, data?: RotateChannelCredentialsCommandOutput) => void
+  ): Promise<TagResourceCommandOutput>;
+  public tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
-  public rotateChannelCredentials(
-    args: RotateChannelCredentialsCommandInput,
+  public tagResource(
+    args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: RotateChannelCredentialsCommandOutput) => void
+    cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
-  public rotateChannelCredentials(
-    args: RotateChannelCredentialsCommandInput,
+  public tagResource(
+    args: TagResourceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: RotateChannelCredentialsCommandOutput) => void),
-    cb?: (err: any, data?: RotateChannelCredentialsCommandOutput) => void
-  ): Promise<RotateChannelCredentialsCommandOutput> | void {
-    const command = new RotateChannelCredentialsCommand(args);
+      | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -513,29 +338,169 @@ export class MediaPackage extends MediaPackageClient {
   }
 
   /**
-   * Updates an existing Channel.
+   * Returns a collection of Channels.
    */
-  public updateChannel(
-    args: UpdateChannelCommandInput,
+  public listChannels(
+    args: ListChannelsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UpdateChannelCommandOutput>;
-  public updateChannel(
-    args: UpdateChannelCommandInput,
-    cb: (err: any, data?: UpdateChannelCommandOutput) => void
+  ): Promise<ListChannelsCommandOutput>;
+  public listChannels(
+    args: ListChannelsCommandInput,
+    cb: (err: any, data?: ListChannelsCommandOutput) => void
   ): void;
-  public updateChannel(
-    args: UpdateChannelCommandInput,
+  public listChannels(
+    args: ListChannelsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateChannelCommandOutput) => void
+    cb: (err: any, data?: ListChannelsCommandOutput) => void
   ): void;
-  public updateChannel(
-    args: UpdateChannelCommandInput,
+  public listChannels(
+    args: ListChannelsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: UpdateChannelCommandOutput) => void),
-    cb?: (err: any, data?: UpdateChannelCommandOutput) => void
-  ): Promise<UpdateChannelCommandOutput> | void {
-    const command = new UpdateChannelCommand(args);
+      | ((err: any, data?: ListChannelsCommandOutput) => void),
+    cb?: (err: any, data?: ListChannelsCommandOutput) => void
+  ): Promise<ListChannelsCommandOutput> | void {
+    const command = new ListChannelsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Changes the Channel's first IngestEndpoint's username and password. WARNING - This API is deprecated. Please use RotateIngestEndpointCredentials instead
+   */
+  public rotateChannelCredentials(
+    args: RotateChannelCredentialsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RotateChannelCredentialsCommandOutput>;
+  public rotateChannelCredentials(
+    args: RotateChannelCredentialsCommandInput,
+    cb: (err: any, data?: RotateChannelCredentialsCommandOutput) => void
+  ): void;
+  public rotateChannelCredentials(
+    args: RotateChannelCredentialsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RotateChannelCredentialsCommandOutput) => void
+  ): void;
+  public rotateChannelCredentials(
+    args: RotateChannelCredentialsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RotateChannelCredentialsCommandOutput) => void),
+    cb?: (err: any, data?: RotateChannelCredentialsCommandOutput) => void
+  ): Promise<RotateChannelCredentialsCommandOutput> | void {
+    const command = new RotateChannelCredentialsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Creates a new Channel.
+   */
+  public createChannel(
+    args: CreateChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateChannelCommandOutput>;
+  public createChannel(
+    args: CreateChannelCommandInput,
+    cb: (err: any, data?: CreateChannelCommandOutput) => void
+  ): void;
+  public createChannel(
+    args: CreateChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateChannelCommandOutput) => void
+  ): void;
+  public createChannel(
+    args: CreateChannelCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateChannelCommandOutput) => void),
+    cb?: (err: any, data?: CreateChannelCommandOutput) => void
+  ): Promise<CreateChannelCommandOutput> | void {
+    const command = new CreateChannelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Gets details about an existing HarvestJob.
+   */
+  public describeHarvestJob(
+    args: DescribeHarvestJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeHarvestJobCommandOutput>;
+  public describeHarvestJob(
+    args: DescribeHarvestJobCommandInput,
+    cb: (err: any, data?: DescribeHarvestJobCommandOutput) => void
+  ): void;
+  public describeHarvestJob(
+    args: DescribeHarvestJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeHarvestJobCommandOutput) => void
+  ): void;
+  public describeHarvestJob(
+    args: DescribeHarvestJobCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeHarvestJobCommandOutput) => void),
+    cb?: (err: any, data?: DescribeHarvestJobCommandOutput) => void
+  ): Promise<DescribeHarvestJobCommandOutput> | void {
+    const command = new DescribeHarvestJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Returns a collection of HarvestJob records.
+   */
+  public listHarvestJobs(
+    args: ListHarvestJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListHarvestJobsCommandOutput>;
+  public listHarvestJobs(
+    args: ListHarvestJobsCommandInput,
+    cb: (err: any, data?: ListHarvestJobsCommandOutput) => void
+  ): void;
+  public listHarvestJobs(
+    args: ListHarvestJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListHarvestJobsCommandOutput) => void
+  ): void;
+  public listHarvestJobs(
+    args: ListHarvestJobsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListHarvestJobsCommandOutput) => void),
+    cb?: (err: any, data?: ListHarvestJobsCommandOutput) => void
+  ): Promise<ListHarvestJobsCommandOutput> | void {
+    const command = new ListHarvestJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -685,29 +650,64 @@ export class MediaPackage extends MediaPackageClient {
   }
 
   /**
-   * Returns a collection of HarvestJob records.
+   * Gets details about an existing OriginEndpoint.
    */
-  public listHarvestJobs(
-    args: ListHarvestJobsCommandInput,
+  public describeOriginEndpoint(
+    args: DescribeOriginEndpointCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListHarvestJobsCommandOutput>;
-  public listHarvestJobs(
-    args: ListHarvestJobsCommandInput,
-    cb: (err: any, data?: ListHarvestJobsCommandOutput) => void
+  ): Promise<DescribeOriginEndpointCommandOutput>;
+  public describeOriginEndpoint(
+    args: DescribeOriginEndpointCommandInput,
+    cb: (err: any, data?: DescribeOriginEndpointCommandOutput) => void
   ): void;
-  public listHarvestJobs(
-    args: ListHarvestJobsCommandInput,
+  public describeOriginEndpoint(
+    args: DescribeOriginEndpointCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListHarvestJobsCommandOutput) => void
+    cb: (err: any, data?: DescribeOriginEndpointCommandOutput) => void
   ): void;
-  public listHarvestJobs(
-    args: ListHarvestJobsCommandInput,
+  public describeOriginEndpoint(
+    args: DescribeOriginEndpointCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListHarvestJobsCommandOutput) => void),
-    cb?: (err: any, data?: ListHarvestJobsCommandOutput) => void
-  ): Promise<ListHarvestJobsCommandOutput> | void {
-    const command = new ListHarvestJobsCommand(args);
+      | ((err: any, data?: DescribeOriginEndpointCommandOutput) => void),
+    cb?: (err: any, data?: DescribeOriginEndpointCommandOutput) => void
+  ): Promise<DescribeOriginEndpointCommandOutput> | void {
+    const command = new DescribeOriginEndpointCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Updates an existing OriginEndpoint.
+   */
+  public updateOriginEndpoint(
+    args: UpdateOriginEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateOriginEndpointCommandOutput>;
+  public updateOriginEndpoint(
+    args: UpdateOriginEndpointCommandInput,
+    cb: (err: any, data?: UpdateOriginEndpointCommandOutput) => void
+  ): void;
+  public updateOriginEndpoint(
+    args: UpdateOriginEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateOriginEndpointCommandOutput) => void
+  ): void;
+  public updateOriginEndpoint(
+    args: UpdateOriginEndpointCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateOriginEndpointCommandOutput) => void),
+    cb?: (err: any, data?: UpdateOriginEndpointCommandOutput) => void
+  ): Promise<UpdateOriginEndpointCommandOutput> | void {
+    const command = new UpdateOriginEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

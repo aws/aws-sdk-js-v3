@@ -97,47 +97,6 @@ export class Polly extends PollyClient {
 
   /**
    *
-   *          <p>Deletes the specified pronunciation lexicon stored in an AWS Region.
-   *       A lexicon which has been deleted is not available for speech synthesis,
-   *       nor is it possible to retrieve it using either the
-   *       <code>GetLexicon</code> or <code>ListLexicon</code> APIs.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
-   *
-   */
-  public deleteLexicon(
-    args: DeleteLexiconCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteLexiconCommandOutput>;
-  public deleteLexicon(
-    args: DeleteLexiconCommandInput,
-    cb: (err: any, data?: DeleteLexiconCommandOutput) => void
-  ): void;
-  public deleteLexicon(
-    args: DeleteLexiconCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteLexiconCommandOutput) => void
-  ): void;
-  public deleteLexicon(
-    args: DeleteLexiconCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLexiconCommandOutput) => void),
-    cb?: (err: any, data?: DeleteLexiconCommandOutput) => void
-  ): Promise<DeleteLexiconCommandOutput> | void {
-    const command = new DeleteLexiconCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
    *          <p>Returns a list of SpeechSynthesisTask objects ordered by their creation date. This operation
    *       can filter the tasks by their status, for example, allowing users to list only tasks that are completed.</p>
    *
@@ -176,69 +135,34 @@ export class Polly extends PollyClient {
 
   /**
    *
-   *          <p>Returns a list of pronunciation lexicons stored in an AWS Region.
-   *       For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
+   *          <p>Deletes the specified pronunciation lexicon stored in an AWS Region.
+   *       A lexicon which has been deleted is not available for speech synthesis,
+   *       nor is it possible to retrieve it using either the
+   *       <code>GetLexicon</code> or <code>ListLexicon</code> APIs.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
    *
    */
-  public listLexicons(
-    args: ListLexiconsCommandInput,
+  public deleteLexicon(
+    args: DeleteLexiconCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListLexiconsCommandOutput>;
-  public listLexicons(
-    args: ListLexiconsCommandInput,
-    cb: (err: any, data?: ListLexiconsCommandOutput) => void
+  ): Promise<DeleteLexiconCommandOutput>;
+  public deleteLexicon(
+    args: DeleteLexiconCommandInput,
+    cb: (err: any, data?: DeleteLexiconCommandOutput) => void
   ): void;
-  public listLexicons(
-    args: ListLexiconsCommandInput,
+  public deleteLexicon(
+    args: DeleteLexiconCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListLexiconsCommandOutput) => void
+    cb: (err: any, data?: DeleteLexiconCommandOutput) => void
   ): void;
-  public listLexicons(
-    args: ListLexiconsCommandInput,
+  public deleteLexicon(
+    args: DeleteLexiconCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListLexiconsCommandOutput) => void),
-    cb?: (err: any, data?: ListLexiconsCommandOutput) => void
-  ): Promise<ListLexiconsCommandOutput> | void {
-    const command = new ListLexiconsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Returns the content of the specified pronunciation lexicon stored in an AWS Region.
-   *       For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
-   *
-   */
-  public getLexicon(
-    args: GetLexiconCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetLexiconCommandOutput>;
-  public getLexicon(
-    args: GetLexiconCommandInput,
-    cb: (err: any, data?: GetLexiconCommandOutput) => void
-  ): void;
-  public getLexicon(
-    args: GetLexiconCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetLexiconCommandOutput) => void
-  ): void;
-  public getLexicon(
-    args: GetLexiconCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLexiconCommandOutput) => void),
-    cb?: (err: any, data?: GetLexiconCommandOutput) => void
-  ): Promise<GetLexiconCommandOutput> | void {
-    const command = new GetLexiconCommand(args);
+      | ((err: any, data?: DeleteLexiconCommandOutput) => void),
+    cb?: (err: any, data?: DeleteLexiconCommandOutput) => void
+  ): Promise<DeleteLexiconCommandOutput> | void {
+    const command = new DeleteLexiconCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -348,6 +272,45 @@ export class Polly extends PollyClient {
 
   /**
    *
+   *          <p>Retrieves a specific SpeechSynthesisTask object based on its TaskID. This object
+   *       contains information about the given speech synthesis task, including the status of the
+   *       task, and a link to the S3 bucket containing the output of the task.</p>
+   *
+   */
+  public getSpeechSynthesisTask(
+    args: GetSpeechSynthesisTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSpeechSynthesisTaskCommandOutput>;
+  public getSpeechSynthesisTask(
+    args: GetSpeechSynthesisTaskCommandInput,
+    cb: (err: any, data?: GetSpeechSynthesisTaskCommandOutput) => void
+  ): void;
+  public getSpeechSynthesisTask(
+    args: GetSpeechSynthesisTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSpeechSynthesisTaskCommandOutput) => void
+  ): void;
+  public getSpeechSynthesisTask(
+    args: GetSpeechSynthesisTaskCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetSpeechSynthesisTaskCommandOutput) => void),
+    cb?: (err: any, data?: GetSpeechSynthesisTaskCommandOutput) => void
+  ): Promise<GetSpeechSynthesisTaskCommandOutput> | void {
+    const command = new GetSpeechSynthesisTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
    *          <p>Stores a pronunciation lexicon in an AWS Region.
    *       If a lexicon with the same name already exists in the region,
    *       it is overwritten by the new lexicon.
@@ -390,32 +353,69 @@ export class Polly extends PollyClient {
 
   /**
    *
-   *          <p>Retrieves a specific SpeechSynthesisTask object based on its TaskID. This object
-   *       contains information about the given speech synthesis task, including the status of the
-   *       task, and a link to the S3 bucket containing the output of the task.</p>
+   *          <p>Returns the content of the specified pronunciation lexicon stored in an AWS Region.
+   *       For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
    *
    */
-  public getSpeechSynthesisTask(
-    args: GetSpeechSynthesisTaskCommandInput,
+  public getLexicon(
+    args: GetLexiconCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<GetSpeechSynthesisTaskCommandOutput>;
-  public getSpeechSynthesisTask(
-    args: GetSpeechSynthesisTaskCommandInput,
-    cb: (err: any, data?: GetSpeechSynthesisTaskCommandOutput) => void
+  ): Promise<GetLexiconCommandOutput>;
+  public getLexicon(
+    args: GetLexiconCommandInput,
+    cb: (err: any, data?: GetLexiconCommandOutput) => void
   ): void;
-  public getSpeechSynthesisTask(
-    args: GetSpeechSynthesisTaskCommandInput,
+  public getLexicon(
+    args: GetLexiconCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetSpeechSynthesisTaskCommandOutput) => void
+    cb: (err: any, data?: GetLexiconCommandOutput) => void
   ): void;
-  public getSpeechSynthesisTask(
-    args: GetSpeechSynthesisTaskCommandInput,
+  public getLexicon(
+    args: GetLexiconCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: GetSpeechSynthesisTaskCommandOutput) => void),
-    cb?: (err: any, data?: GetSpeechSynthesisTaskCommandOutput) => void
-  ): Promise<GetSpeechSynthesisTaskCommandOutput> | void {
-    const command = new GetSpeechSynthesisTaskCommand(args);
+      | ((err: any, data?: GetLexiconCommandOutput) => void),
+    cb?: (err: any, data?: GetLexiconCommandOutput) => void
+  ): Promise<GetLexiconCommandOutput> | void {
+    const command = new GetLexiconCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Returns a list of pronunciation lexicons stored in an AWS Region.
+   *       For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
+   *
+   */
+  public listLexicons(
+    args: ListLexiconsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLexiconsCommandOutput>;
+  public listLexicons(
+    args: ListLexiconsCommandInput,
+    cb: (err: any, data?: ListLexiconsCommandOutput) => void
+  ): void;
+  public listLexicons(
+    args: ListLexiconsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLexiconsCommandOutput) => void
+  ): void;
+  public listLexicons(
+    args: ListLexiconsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListLexiconsCommandOutput) => void),
+    cb?: (err: any, data?: ListLexiconsCommandOutput) => void
+  ): Promise<ListLexiconsCommandOutput> | void {
+    const command = new ListLexiconsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

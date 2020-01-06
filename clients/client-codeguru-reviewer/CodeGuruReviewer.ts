@@ -69,43 +69,6 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
 
   /**
    *
-   *          <p>Describes a repository association.</p>
-   *
-   */
-  public describeRepositoryAssociation(
-    args: DescribeRepositoryAssociationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeRepositoryAssociationCommandOutput>;
-  public describeRepositoryAssociation(
-    args: DescribeRepositoryAssociationCommandInput,
-    cb: (err: any, data?: DescribeRepositoryAssociationCommandOutput) => void
-  ): void;
-  public describeRepositoryAssociation(
-    args: DescribeRepositoryAssociationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeRepositoryAssociationCommandOutput) => void
-  ): void;
-  public describeRepositoryAssociation(
-    args: DescribeRepositoryAssociationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRepositoryAssociationCommandOutput) => void),
-    cb?: (err: any, data?: DescribeRepositoryAssociationCommandOutput) => void
-  ): Promise<DescribeRepositoryAssociationCommandOutput> | void {
-    const command = new DescribeRepositoryAssociationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
    *          <p>Lists repository associations. You can optionally filter on one or more
    *         of the following recommendation properties: provider types, states, names, and owners.</p>
    *
@@ -168,6 +131,43 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
     cb?: (err: any, data?: DisassociateRepositoryCommandOutput) => void
   ): Promise<DisassociateRepositoryCommandOutput> | void {
     const command = new DisassociateRepositoryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Describes a repository association.</p>
+   *
+   */
+  public describeRepositoryAssociation(
+    args: DescribeRepositoryAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRepositoryAssociationCommandOutput>;
+  public describeRepositoryAssociation(
+    args: DescribeRepositoryAssociationCommandInput,
+    cb: (err: any, data?: DescribeRepositoryAssociationCommandOutput) => void
+  ): void;
+  public describeRepositoryAssociation(
+    args: DescribeRepositoryAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRepositoryAssociationCommandOutput) => void
+  ): void;
+  public describeRepositoryAssociation(
+    args: DescribeRepositoryAssociationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeRepositoryAssociationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeRepositoryAssociationCommandOutput) => void
+  ): Promise<DescribeRepositoryAssociationCommandOutput> | void {
+    const command = new DescribeRepositoryAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

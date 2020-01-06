@@ -36,120 +36,6 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class MediaStoreData extends MediaStoreDataClient {
   /**
    *
-   *          <p>Provides a list of metadata entries about folders and objects in the specified
-   *          folder.</p>
-   *
-   */
-  public listItems(
-    args: ListItemsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListItemsCommandOutput>;
-  public listItems(
-    args: ListItemsCommandInput,
-    cb: (err: any, data?: ListItemsCommandOutput) => void
-  ): void;
-  public listItems(
-    args: ListItemsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListItemsCommandOutput) => void
-  ): void;
-  public listItems(
-    args: ListItemsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListItemsCommandOutput) => void),
-    cb?: (err: any, data?: ListItemsCommandOutput) => void
-  ): Promise<ListItemsCommandOutput> | void {
-    const command = new ListItemsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Deletes an object at the specified path.</p>
-   *
-   *
-   */
-  public deleteObject(
-    args: DeleteObjectCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteObjectCommandOutput>;
-  public deleteObject(
-    args: DeleteObjectCommandInput,
-    cb: (err: any, data?: DeleteObjectCommandOutput) => void
-  ): void;
-  public deleteObject(
-    args: DeleteObjectCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteObjectCommandOutput) => void
-  ): void;
-  public deleteObject(
-    args: DeleteObjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteObjectCommandOutput) => void),
-    cb?: (err: any, data?: DeleteObjectCommandOutput) => void
-  ): Promise<DeleteObjectCommandOutput> | void {
-    const command = new DeleteObjectCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Uploads an object to the specified path. Object sizes are limited to 25 MB.</p>
-   *
-   *
-   */
-  public putObject(
-    args: PutObjectCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutObjectCommandOutput>;
-  public putObject(
-    args: PutObjectCommandInput,
-    cb: (err: any, data?: PutObjectCommandOutput) => void
-  ): void;
-  public putObject(
-    args: PutObjectCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutObjectCommandOutput) => void
-  ): void;
-  public putObject(
-    args: PutObjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutObjectCommandOutput) => void),
-    cb?: (err: any, data?: PutObjectCommandOutput) => void
-  ): Promise<PutObjectCommandOutput> | void {
-    const command = new PutObjectCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
    *          <p>Gets the headers for an object at the specified path.</p>
    *
    *
@@ -213,6 +99,120 @@ export class MediaStoreData extends MediaStoreDataClient {
     cb?: (err: any, data?: GetObjectCommandOutput) => void
   ): Promise<GetObjectCommandOutput> | void {
     const command = new GetObjectCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Uploads an object to the specified path. Object sizes are limited to 25 MB.</p>
+   *
+   *
+   */
+  public putObject(
+    args: PutObjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutObjectCommandOutput>;
+  public putObject(
+    args: PutObjectCommandInput,
+    cb: (err: any, data?: PutObjectCommandOutput) => void
+  ): void;
+  public putObject(
+    args: PutObjectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutObjectCommandOutput) => void
+  ): void;
+  public putObject(
+    args: PutObjectCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutObjectCommandOutput) => void),
+    cb?: (err: any, data?: PutObjectCommandOutput) => void
+  ): Promise<PutObjectCommandOutput> | void {
+    const command = new PutObjectCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Provides a list of metadata entries about folders and objects in the specified
+   *          folder.</p>
+   *
+   */
+  public listItems(
+    args: ListItemsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListItemsCommandOutput>;
+  public listItems(
+    args: ListItemsCommandInput,
+    cb: (err: any, data?: ListItemsCommandOutput) => void
+  ): void;
+  public listItems(
+    args: ListItemsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListItemsCommandOutput) => void
+  ): void;
+  public listItems(
+    args: ListItemsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListItemsCommandOutput) => void),
+    cb?: (err: any, data?: ListItemsCommandOutput) => void
+  ): Promise<ListItemsCommandOutput> | void {
+    const command = new ListItemsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Deletes an object at the specified path.</p>
+   *
+   *
+   */
+  public deleteObject(
+    args: DeleteObjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteObjectCommandOutput>;
+  public deleteObject(
+    args: DeleteObjectCommandInput,
+    cb: (err: any, data?: DeleteObjectCommandOutput) => void
+  ): void;
+  public deleteObject(
+    args: DeleteObjectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteObjectCommandOutput) => void
+  ): void;
+  public deleteObject(
+    args: DeleteObjectCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteObjectCommandOutput) => void),
+    cb?: (err: any, data?: DeleteObjectCommandOutput) => void
+  ): Promise<DeleteObjectCommandOutput> | void {
+    const command = new DeleteObjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

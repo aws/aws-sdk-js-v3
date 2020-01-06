@@ -101,29 +101,29 @@ export class MediaPackageVod extends MediaPackageVodClient {
   }
 
   /**
-   * Deletes an existing MediaPackage VOD Asset resource.
+   * Deletes a MediaPackage VOD PackagingGroup resource.
    */
-  public deleteAsset(
-    args: DeleteAssetCommandInput,
+  public deletePackagingGroup(
+    args: DeletePackagingGroupCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteAssetCommandOutput>;
-  public deleteAsset(
-    args: DeleteAssetCommandInput,
-    cb: (err: any, data?: DeleteAssetCommandOutput) => void
+  ): Promise<DeletePackagingGroupCommandOutput>;
+  public deletePackagingGroup(
+    args: DeletePackagingGroupCommandInput,
+    cb: (err: any, data?: DeletePackagingGroupCommandOutput) => void
   ): void;
-  public deleteAsset(
-    args: DeleteAssetCommandInput,
+  public deletePackagingGroup(
+    args: DeletePackagingGroupCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteAssetCommandOutput) => void
+    cb: (err: any, data?: DeletePackagingGroupCommandOutput) => void
   ): void;
-  public deleteAsset(
-    args: DeleteAssetCommandInput,
+  public deletePackagingGroup(
+    args: DeletePackagingGroupCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAssetCommandOutput) => void),
-    cb?: (err: any, data?: DeleteAssetCommandOutput) => void
-  ): Promise<DeleteAssetCommandOutput> | void {
-    const command = new DeleteAssetCommand(args);
+      | ((err: any, data?: DeletePackagingGroupCommandOutput) => void),
+    cb?: (err: any, data?: DeletePackagingGroupCommandOutput) => void
+  ): Promise<DeletePackagingGroupCommandOutput> | void {
+    const command = new DeletePackagingGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -136,29 +136,29 @@ export class MediaPackageVod extends MediaPackageVodClient {
   }
 
   /**
-   * Creates a new MediaPackage VOD Asset resource.
+   * Creates a new MediaPackage VOD PackagingConfiguration resource.
    */
-  public createAsset(
-    args: CreateAssetCommandInput,
+  public createPackagingConfiguration(
+    args: CreatePackagingConfigurationCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreateAssetCommandOutput>;
-  public createAsset(
-    args: CreateAssetCommandInput,
-    cb: (err: any, data?: CreateAssetCommandOutput) => void
+  ): Promise<CreatePackagingConfigurationCommandOutput>;
+  public createPackagingConfiguration(
+    args: CreatePackagingConfigurationCommandInput,
+    cb: (err: any, data?: CreatePackagingConfigurationCommandOutput) => void
   ): void;
-  public createAsset(
-    args: CreateAssetCommandInput,
+  public createPackagingConfiguration(
+    args: CreatePackagingConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateAssetCommandOutput) => void
+    cb: (err: any, data?: CreatePackagingConfigurationCommandOutput) => void
   ): void;
-  public createAsset(
-    args: CreateAssetCommandInput,
+  public createPackagingConfiguration(
+    args: CreatePackagingConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: CreateAssetCommandOutput) => void),
-    cb?: (err: any, data?: CreateAssetCommandOutput) => void
-  ): Promise<CreateAssetCommandOutput> | void {
-    const command = new CreateAssetCommand(args);
+      | ((err: any, data?: CreatePackagingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: CreatePackagingConfigurationCommandOutput) => void
+  ): Promise<CreatePackagingConfigurationCommandOutput> | void {
+    const command = new CreatePackagingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -171,29 +171,29 @@ export class MediaPackageVod extends MediaPackageVodClient {
   }
 
   /**
-   * Creates a new MediaPackage VOD PackagingGroup resource.
+   * Returns a collection of MediaPackage VOD PackagingConfiguration resources.
    */
-  public createPackagingGroup(
-    args: CreatePackagingGroupCommandInput,
+  public listPackagingConfigurations(
+    args: ListPackagingConfigurationsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreatePackagingGroupCommandOutput>;
-  public createPackagingGroup(
-    args: CreatePackagingGroupCommandInput,
-    cb: (err: any, data?: CreatePackagingGroupCommandOutput) => void
+  ): Promise<ListPackagingConfigurationsCommandOutput>;
+  public listPackagingConfigurations(
+    args: ListPackagingConfigurationsCommandInput,
+    cb: (err: any, data?: ListPackagingConfigurationsCommandOutput) => void
   ): void;
-  public createPackagingGroup(
-    args: CreatePackagingGroupCommandInput,
+  public listPackagingConfigurations(
+    args: ListPackagingConfigurationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreatePackagingGroupCommandOutput) => void
+    cb: (err: any, data?: ListPackagingConfigurationsCommandOutput) => void
   ): void;
-  public createPackagingGroup(
-    args: CreatePackagingGroupCommandInput,
+  public listPackagingConfigurations(
+    args: ListPackagingConfigurationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: CreatePackagingGroupCommandOutput) => void),
-    cb?: (err: any, data?: CreatePackagingGroupCommandOutput) => void
-  ): Promise<CreatePackagingGroupCommandOutput> | void {
-    const command = new CreatePackagingGroupCommand(args);
+      | ((err: any, data?: ListPackagingConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: ListPackagingConfigurationsCommandOutput) => void
+  ): Promise<ListPackagingConfigurationsCommandOutput> | void {
+    const command = new ListPackagingConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -206,29 +206,67 @@ export class MediaPackageVod extends MediaPackageVodClient {
   }
 
   /**
-   * Returns a collection of MediaPackage VOD PackagingGroup resources.
+   * Returns a description of a MediaPackage VOD PackagingConfiguration resource.
    */
-  public listPackagingGroups(
-    args: ListPackagingGroupsCommandInput,
+  public describePackagingConfiguration(
+    args: DescribePackagingConfigurationCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListPackagingGroupsCommandOutput>;
-  public listPackagingGroups(
-    args: ListPackagingGroupsCommandInput,
-    cb: (err: any, data?: ListPackagingGroupsCommandOutput) => void
+  ): Promise<DescribePackagingConfigurationCommandOutput>;
+  public describePackagingConfiguration(
+    args: DescribePackagingConfigurationCommandInput,
+    cb: (err: any, data?: DescribePackagingConfigurationCommandOutput) => void
   ): void;
-  public listPackagingGroups(
-    args: ListPackagingGroupsCommandInput,
+  public describePackagingConfiguration(
+    args: DescribePackagingConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListPackagingGroupsCommandOutput) => void
+    cb: (err: any, data?: DescribePackagingConfigurationCommandOutput) => void
   ): void;
-  public listPackagingGroups(
-    args: ListPackagingGroupsCommandInput,
+  public describePackagingConfiguration(
+    args: DescribePackagingConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListPackagingGroupsCommandOutput) => void),
-    cb?: (err: any, data?: ListPackagingGroupsCommandOutput) => void
-  ): Promise<ListPackagingGroupsCommandOutput> | void {
-    const command = new ListPackagingGroupsCommand(args);
+      | ((
+          err: any,
+          data?: DescribePackagingConfigurationCommandOutput
+        ) => void),
+    cb?: (err: any, data?: DescribePackagingConfigurationCommandOutput) => void
+  ): Promise<DescribePackagingConfigurationCommandOutput> | void {
+    const command = new DescribePackagingConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Deletes a MediaPackage VOD PackagingConfiguration resource.
+   */
+  public deletePackagingConfiguration(
+    args: DeletePackagingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePackagingConfigurationCommandOutput>;
+  public deletePackagingConfiguration(
+    args: DeletePackagingConfigurationCommandInput,
+    cb: (err: any, data?: DeletePackagingConfigurationCommandOutput) => void
+  ): void;
+  public deletePackagingConfiguration(
+    args: DeletePackagingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePackagingConfigurationCommandOutput) => void
+  ): void;
+  public deletePackagingConfiguration(
+    args: DeletePackagingConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeletePackagingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeletePackagingConfigurationCommandOutput) => void
+  ): Promise<DeletePackagingConfigurationCommandOutput> | void {
+    const command = new DeletePackagingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -311,29 +349,29 @@ export class MediaPackageVod extends MediaPackageVodClient {
   }
 
   /**
-   * Deletes a MediaPackage VOD PackagingGroup resource.
+   * Creates a new MediaPackage VOD Asset resource.
    */
-  public deletePackagingGroup(
-    args: DeletePackagingGroupCommandInput,
+  public createAsset(
+    args: CreateAssetCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeletePackagingGroupCommandOutput>;
-  public deletePackagingGroup(
-    args: DeletePackagingGroupCommandInput,
-    cb: (err: any, data?: DeletePackagingGroupCommandOutput) => void
+  ): Promise<CreateAssetCommandOutput>;
+  public createAsset(
+    args: CreateAssetCommandInput,
+    cb: (err: any, data?: CreateAssetCommandOutput) => void
   ): void;
-  public deletePackagingGroup(
-    args: DeletePackagingGroupCommandInput,
+  public createAsset(
+    args: CreateAssetCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeletePackagingGroupCommandOutput) => void
+    cb: (err: any, data?: CreateAssetCommandOutput) => void
   ): void;
-  public deletePackagingGroup(
-    args: DeletePackagingGroupCommandInput,
+  public createAsset(
+    args: CreateAssetCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DeletePackagingGroupCommandOutput) => void),
-    cb?: (err: any, data?: DeletePackagingGroupCommandOutput) => void
-  ): Promise<DeletePackagingGroupCommandOutput> | void {
-    const command = new DeletePackagingGroupCommand(args);
+      | ((err: any, data?: CreateAssetCommandOutput) => void),
+    cb?: (err: any, data?: CreateAssetCommandOutput) => void
+  ): Promise<CreateAssetCommandOutput> | void {
+    const command = new CreateAssetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -346,29 +384,29 @@ export class MediaPackageVod extends MediaPackageVodClient {
   }
 
   /**
-   * Returns a collection of MediaPackage VOD PackagingConfiguration resources.
+   * Deletes an existing MediaPackage VOD Asset resource.
    */
-  public listPackagingConfigurations(
-    args: ListPackagingConfigurationsCommandInput,
+  public deleteAsset(
+    args: DeleteAssetCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListPackagingConfigurationsCommandOutput>;
-  public listPackagingConfigurations(
-    args: ListPackagingConfigurationsCommandInput,
-    cb: (err: any, data?: ListPackagingConfigurationsCommandOutput) => void
+  ): Promise<DeleteAssetCommandOutput>;
+  public deleteAsset(
+    args: DeleteAssetCommandInput,
+    cb: (err: any, data?: DeleteAssetCommandOutput) => void
   ): void;
-  public listPackagingConfigurations(
-    args: ListPackagingConfigurationsCommandInput,
+  public deleteAsset(
+    args: DeleteAssetCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListPackagingConfigurationsCommandOutput) => void
+    cb: (err: any, data?: DeleteAssetCommandOutput) => void
   ): void;
-  public listPackagingConfigurations(
-    args: ListPackagingConfigurationsCommandInput,
+  public deleteAsset(
+    args: DeleteAssetCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListPackagingConfigurationsCommandOutput) => void),
-    cb?: (err: any, data?: ListPackagingConfigurationsCommandOutput) => void
-  ): Promise<ListPackagingConfigurationsCommandOutput> | void {
-    const command = new ListPackagingConfigurationsCommand(args);
+      | ((err: any, data?: DeleteAssetCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAssetCommandOutput) => void
+  ): Promise<DeleteAssetCommandOutput> | void {
+    const command = new DeleteAssetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -381,29 +419,29 @@ export class MediaPackageVod extends MediaPackageVodClient {
   }
 
   /**
-   * Creates a new MediaPackage VOD PackagingConfiguration resource.
+   * Creates a new MediaPackage VOD PackagingGroup resource.
    */
-  public createPackagingConfiguration(
-    args: CreatePackagingConfigurationCommandInput,
+  public createPackagingGroup(
+    args: CreatePackagingGroupCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreatePackagingConfigurationCommandOutput>;
-  public createPackagingConfiguration(
-    args: CreatePackagingConfigurationCommandInput,
-    cb: (err: any, data?: CreatePackagingConfigurationCommandOutput) => void
+  ): Promise<CreatePackagingGroupCommandOutput>;
+  public createPackagingGroup(
+    args: CreatePackagingGroupCommandInput,
+    cb: (err: any, data?: CreatePackagingGroupCommandOutput) => void
   ): void;
-  public createPackagingConfiguration(
-    args: CreatePackagingConfigurationCommandInput,
+  public createPackagingGroup(
+    args: CreatePackagingGroupCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreatePackagingConfigurationCommandOutput) => void
+    cb: (err: any, data?: CreatePackagingGroupCommandOutput) => void
   ): void;
-  public createPackagingConfiguration(
-    args: CreatePackagingConfigurationCommandInput,
+  public createPackagingGroup(
+    args: CreatePackagingGroupCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: CreatePackagingConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: CreatePackagingConfigurationCommandOutput) => void
-  ): Promise<CreatePackagingConfigurationCommandOutput> | void {
-    const command = new CreatePackagingConfigurationCommand(args);
+      | ((err: any, data?: CreatePackagingGroupCommandOutput) => void),
+    cb?: (err: any, data?: CreatePackagingGroupCommandOutput) => void
+  ): Promise<CreatePackagingGroupCommandOutput> | void {
+    const command = new CreatePackagingGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -416,67 +454,29 @@ export class MediaPackageVod extends MediaPackageVodClient {
   }
 
   /**
-   * Deletes a MediaPackage VOD PackagingConfiguration resource.
+   * Returns a collection of MediaPackage VOD PackagingGroup resources.
    */
-  public deletePackagingConfiguration(
-    args: DeletePackagingConfigurationCommandInput,
+  public listPackagingGroups(
+    args: ListPackagingGroupsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeletePackagingConfigurationCommandOutput>;
-  public deletePackagingConfiguration(
-    args: DeletePackagingConfigurationCommandInput,
-    cb: (err: any, data?: DeletePackagingConfigurationCommandOutput) => void
+  ): Promise<ListPackagingGroupsCommandOutput>;
+  public listPackagingGroups(
+    args: ListPackagingGroupsCommandInput,
+    cb: (err: any, data?: ListPackagingGroupsCommandOutput) => void
   ): void;
-  public deletePackagingConfiguration(
-    args: DeletePackagingConfigurationCommandInput,
+  public listPackagingGroups(
+    args: ListPackagingGroupsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeletePackagingConfigurationCommandOutput) => void
+    cb: (err: any, data?: ListPackagingGroupsCommandOutput) => void
   ): void;
-  public deletePackagingConfiguration(
-    args: DeletePackagingConfigurationCommandInput,
+  public listPackagingGroups(
+    args: ListPackagingGroupsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DeletePackagingConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: DeletePackagingConfigurationCommandOutput) => void
-  ): Promise<DeletePackagingConfigurationCommandOutput> | void {
-    const command = new DeletePackagingConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * Returns a description of a MediaPackage VOD PackagingConfiguration resource.
-   */
-  public describePackagingConfiguration(
-    args: DescribePackagingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribePackagingConfigurationCommandOutput>;
-  public describePackagingConfiguration(
-    args: DescribePackagingConfigurationCommandInput,
-    cb: (err: any, data?: DescribePackagingConfigurationCommandOutput) => void
-  ): void;
-  public describePackagingConfiguration(
-    args: DescribePackagingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribePackagingConfigurationCommandOutput) => void
-  ): void;
-  public describePackagingConfiguration(
-    args: DescribePackagingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribePackagingConfigurationCommandOutput
-        ) => void),
-    cb?: (err: any, data?: DescribePackagingConfigurationCommandOutput) => void
-  ): Promise<DescribePackagingConfigurationCommandOutput> | void {
-    const command = new DescribePackagingConfigurationCommand(args);
+      | ((err: any, data?: ListPackagingGroupsCommandOutput) => void),
+    cb?: (err: any, data?: ListPackagingGroupsCommandOutput) => void
+  ): Promise<ListPackagingGroupsCommandOutput> | void {
+    const command = new ListPackagingGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

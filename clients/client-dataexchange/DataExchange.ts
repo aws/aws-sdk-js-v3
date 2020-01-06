@@ -116,6 +116,426 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class DataExchange extends DataExchangeClient {
   /**
+   * <p>This operation deletes an asset.</p>
+   */
+  public deleteAsset(
+    args: DeleteAssetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAssetCommandOutput>;
+  public deleteAsset(
+    args: DeleteAssetCommandInput,
+    cb: (err: any, data?: DeleteAssetCommandOutput) => void
+  ): void;
+  public deleteAsset(
+    args: DeleteAssetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAssetCommandOutput) => void
+  ): void;
+  public deleteAsset(
+    args: DeleteAssetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteAssetCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAssetCommandOutput) => void
+  ): Promise<DeleteAssetCommandOutput> | void {
+    const command = new DeleteAssetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This operation creates a revision for a data set.</p>
+   */
+  public createRevision(
+    args: CreateRevisionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRevisionCommandOutput>;
+  public createRevision(
+    args: CreateRevisionCommandInput,
+    cb: (err: any, data?: CreateRevisionCommandOutput) => void
+  ): void;
+  public createRevision(
+    args: CreateRevisionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRevisionCommandOutput) => void
+  ): void;
+  public createRevision(
+    args: CreateRevisionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateRevisionCommandOutput) => void),
+    cb?: (err: any, data?: CreateRevisionCommandOutput) => void
+  ): Promise<CreateRevisionCommandOutput> | void {
+    const command = new CreateRevisionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This operation updates an asset.</p>
+   */
+  public updateAsset(
+    args: UpdateAssetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAssetCommandOutput>;
+  public updateAsset(
+    args: UpdateAssetCommandInput,
+    cb: (err: any, data?: UpdateAssetCommandOutput) => void
+  ): void;
+  public updateAsset(
+    args: UpdateAssetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAssetCommandOutput) => void
+  ): void;
+  public updateAsset(
+    args: UpdateAssetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateAssetCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAssetCommandOutput) => void
+  ): Promise<UpdateAssetCommandOutput> | void {
+    const command = new UpdateAssetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This operation returns information about a revision.</p>
+   */
+  public getRevision(
+    args: GetRevisionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRevisionCommandOutput>;
+  public getRevision(
+    args: GetRevisionCommandInput,
+    cb: (err: any, data?: GetRevisionCommandOutput) => void
+  ): void;
+  public getRevision(
+    args: GetRevisionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRevisionCommandOutput) => void
+  ): void;
+  public getRevision(
+    args: GetRevisionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetRevisionCommandOutput) => void),
+    cb?: (err: any, data?: GetRevisionCommandOutput) => void
+  ): Promise<GetRevisionCommandOutput> | void {
+    const command = new GetRevisionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This operation returns information about a data set.</p>
+   */
+  public getDataSet(
+    args: GetDataSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataSetCommandOutput>;
+  public getDataSet(
+    args: GetDataSetCommandInput,
+    cb: (err: any, data?: GetDataSetCommandOutput) => void
+  ): void;
+  public getDataSet(
+    args: GetDataSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataSetCommandOutput) => void
+  ): void;
+  public getDataSet(
+    args: GetDataSetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetDataSetCommandOutput) => void),
+    cb?: (err: any, data?: GetDataSetCommandOutput) => void
+  ): Promise<GetDataSetCommandOutput> | void {
+    const command = new GetDataSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This operation returns information about an asset.</p>
+   */
+  public getAsset(
+    args: GetAssetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAssetCommandOutput>;
+  public getAsset(
+    args: GetAssetCommandInput,
+    cb: (err: any, data?: GetAssetCommandOutput) => void
+  ): void;
+  public getAsset(
+    args: GetAssetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAssetCommandOutput) => void
+  ): void;
+  public getAsset(
+    args: GetAssetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetAssetCommandOutput) => void),
+    cb?: (err: any, data?: GetAssetCommandOutput) => void
+  ): Promise<GetAssetCommandOutput> | void {
+    const command = new GetAssetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This operation starts a job.</p>
+   */
+  public startJob(
+    args: StartJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartJobCommandOutput>;
+  public startJob(
+    args: StartJobCommandInput,
+    cb: (err: any, data?: StartJobCommandOutput) => void
+  ): void;
+  public startJob(
+    args: StartJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartJobCommandOutput) => void
+  ): void;
+  public startJob(
+    args: StartJobCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartJobCommandOutput) => void),
+    cb?: (err: any, data?: StartJobCommandOutput) => void
+  ): Promise<StartJobCommandOutput> | void {
+    const command = new StartJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This operation lists a revision's assets sorted alphabetically in descending order.</p>
+   */
+  public listRevisionAssets(
+    args: ListRevisionAssetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRevisionAssetsCommandOutput>;
+  public listRevisionAssets(
+    args: ListRevisionAssetsCommandInput,
+    cb: (err: any, data?: ListRevisionAssetsCommandOutput) => void
+  ): void;
+  public listRevisionAssets(
+    args: ListRevisionAssetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRevisionAssetsCommandOutput) => void
+  ): void;
+  public listRevisionAssets(
+    args: ListRevisionAssetsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListRevisionAssetsCommandOutput) => void),
+    cb?: (err: any, data?: ListRevisionAssetsCommandOutput) => void
+  ): Promise<ListRevisionAssetsCommandOutput> | void {
+    const command = new ListRevisionAssetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This operation lists your jobs sorted by CreatedAt in descending order.</p>
+   */
+  public listJobs(
+    args: ListJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListJobsCommandOutput>;
+  public listJobs(
+    args: ListJobsCommandInput,
+    cb: (err: any, data?: ListJobsCommandOutput) => void
+  ): void;
+  public listJobs(
+    args: ListJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListJobsCommandOutput) => void
+  ): void;
+  public listJobs(
+    args: ListJobsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListJobsCommandOutput) => void),
+    cb?: (err: any, data?: ListJobsCommandOutput) => void
+  ): Promise<ListJobsCommandOutput> | void {
+    const command = new ListJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This operation cancels a job. Jobs can be cancelled only when they are in the WAITING state.</p>
+   */
+  public cancelJob(
+    args: CancelJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelJobCommandOutput>;
+  public cancelJob(
+    args: CancelJobCommandInput,
+    cb: (err: any, data?: CancelJobCommandOutput) => void
+  ): void;
+  public cancelJob(
+    args: CancelJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelJobCommandOutput) => void
+  ): void;
+  public cancelJob(
+    args: CancelJobCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CancelJobCommandOutput) => void),
+    cb?: (err: any, data?: CancelJobCommandOutput) => void
+  ): Promise<CancelJobCommandOutput> | void {
+    const command = new CancelJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This operation tags a resource.</p>
+   */
+  public tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  public tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This operation deletes a data set.</p>
+   */
+  public deleteDataSet(
+    args: DeleteDataSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataSetCommandOutput>;
+  public deleteDataSet(
+    args: DeleteDataSetCommandInput,
+    cb: (err: any, data?: DeleteDataSetCommandOutput) => void
+  ): void;
+  public deleteDataSet(
+    args: DeleteDataSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDataSetCommandOutput) => void
+  ): void;
+  public deleteDataSet(
+    args: DeleteDataSetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteDataSetCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDataSetCommandOutput) => void
+  ): Promise<DeleteDataSetCommandOutput> | void {
+    const command = new DeleteDataSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>This operation deletes a revision.</p>
    */
   public deleteRevision(
@@ -221,286 +641,6 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
-   * <p>This operation deletes a data set.</p>
-   */
-  public deleteDataSet(
-    args: DeleteDataSetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteDataSetCommandOutput>;
-  public deleteDataSet(
-    args: DeleteDataSetCommandInput,
-    cb: (err: any, data?: DeleteDataSetCommandOutput) => void
-  ): void;
-  public deleteDataSet(
-    args: DeleteDataSetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteDataSetCommandOutput) => void
-  ): void;
-  public deleteDataSet(
-    args: DeleteDataSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDataSetCommandOutput) => void),
-    cb?: (err: any, data?: DeleteDataSetCommandOutput) => void
-  ): Promise<DeleteDataSetCommandOutput> | void {
-    const command = new DeleteDataSetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>This operation returns information about a data set.</p>
-   */
-  public getDataSet(
-    args: GetDataSetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDataSetCommandOutput>;
-  public getDataSet(
-    args: GetDataSetCommandInput,
-    cb: (err: any, data?: GetDataSetCommandOutput) => void
-  ): void;
-  public getDataSet(
-    args: GetDataSetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDataSetCommandOutput) => void
-  ): void;
-  public getDataSet(
-    args: GetDataSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDataSetCommandOutput) => void),
-    cb?: (err: any, data?: GetDataSetCommandOutput) => void
-  ): Promise<GetDataSetCommandOutput> | void {
-    const command = new GetDataSetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>This operation lists a revision's assets sorted alphabetically in descending order.</p>
-   */
-  public listRevisionAssets(
-    args: ListRevisionAssetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListRevisionAssetsCommandOutput>;
-  public listRevisionAssets(
-    args: ListRevisionAssetsCommandInput,
-    cb: (err: any, data?: ListRevisionAssetsCommandOutput) => void
-  ): void;
-  public listRevisionAssets(
-    args: ListRevisionAssetsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListRevisionAssetsCommandOutput) => void
-  ): void;
-  public listRevisionAssets(
-    args: ListRevisionAssetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRevisionAssetsCommandOutput) => void),
-    cb?: (err: any, data?: ListRevisionAssetsCommandOutput) => void
-  ): Promise<ListRevisionAssetsCommandOutput> | void {
-    const command = new ListRevisionAssetsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>This operation returns information about a job.</p>
-   */
-  public getJob(
-    args: GetJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetJobCommandOutput>;
-  public getJob(
-    args: GetJobCommandInput,
-    cb: (err: any, data?: GetJobCommandOutput) => void
-  ): void;
-  public getJob(
-    args: GetJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetJobCommandOutput) => void
-  ): void;
-  public getJob(
-    args: GetJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobCommandOutput) => void),
-    cb?: (err: any, data?: GetJobCommandOutput) => void
-  ): Promise<GetJobCommandOutput> | void {
-    const command = new GetJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>This operation returns information about an asset.</p>
-   */
-  public getAsset(
-    args: GetAssetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetAssetCommandOutput>;
-  public getAsset(
-    args: GetAssetCommandInput,
-    cb: (err: any, data?: GetAssetCommandOutput) => void
-  ): void;
-  public getAsset(
-    args: GetAssetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetAssetCommandOutput) => void
-  ): void;
-  public getAsset(
-    args: GetAssetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAssetCommandOutput) => void),
-    cb?: (err: any, data?: GetAssetCommandOutput) => void
-  ): Promise<GetAssetCommandOutput> | void {
-    const command = new GetAssetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>This operation removes one or more tags from a resource.</p>
-   */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>This operation starts a job.</p>
-   */
-  public startJob(
-    args: StartJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartJobCommandOutput>;
-  public startJob(
-    args: StartJobCommandInput,
-    cb: (err: any, data?: StartJobCommandOutput) => void
-  ): void;
-  public startJob(
-    args: StartJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartJobCommandOutput) => void
-  ): void;
-  public startJob(
-    args: StartJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartJobCommandOutput) => void),
-    cb?: (err: any, data?: StartJobCommandOutput) => void
-  ): Promise<StartJobCommandOutput> | void {
-    const command = new StartJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>This operation updates an asset.</p>
-   */
-  public updateAsset(
-    args: UpdateAssetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateAssetCommandOutput>;
-  public updateAsset(
-    args: UpdateAssetCommandInput,
-    cb: (err: any, data?: UpdateAssetCommandOutput) => void
-  ): void;
-  public updateAsset(
-    args: UpdateAssetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateAssetCommandOutput) => void
-  ): void;
-  public updateAsset(
-    args: UpdateAssetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAssetCommandOutput) => void),
-    cb?: (err: any, data?: UpdateAssetCommandOutput) => void
-  ): Promise<UpdateAssetCommandOutput> | void {
-    const command = new UpdateAssetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>This operation updates a revision.</p>
    */
   public updateRevision(
@@ -536,239 +676,29 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
-   * <p>This operation deletes an asset.</p>
+   * <p>This operation lists your data sets. When listing by origin OWNED, results are sorted by CreatedAt in descending order. When listing by origin ENTITLED, there is no order and the maxResults parameter is ignored.</p>
    */
-  public deleteAsset(
-    args: DeleteAssetCommandInput,
+  public listDataSets(
+    args: ListDataSetsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteAssetCommandOutput>;
-  public deleteAsset(
-    args: DeleteAssetCommandInput,
-    cb: (err: any, data?: DeleteAssetCommandOutput) => void
+  ): Promise<ListDataSetsCommandOutput>;
+  public listDataSets(
+    args: ListDataSetsCommandInput,
+    cb: (err: any, data?: ListDataSetsCommandOutput) => void
   ): void;
-  public deleteAsset(
-    args: DeleteAssetCommandInput,
+  public listDataSets(
+    args: ListDataSetsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteAssetCommandOutput) => void
+    cb: (err: any, data?: ListDataSetsCommandOutput) => void
   ): void;
-  public deleteAsset(
-    args: DeleteAssetCommandInput,
+  public listDataSets(
+    args: ListDataSetsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAssetCommandOutput) => void),
-    cb?: (err: any, data?: DeleteAssetCommandOutput) => void
-  ): Promise<DeleteAssetCommandOutput> | void {
-    const command = new DeleteAssetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>This operation creates a revision for a data set.</p>
-   */
-  public createRevision(
-    args: CreateRevisionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateRevisionCommandOutput>;
-  public createRevision(
-    args: CreateRevisionCommandInput,
-    cb: (err: any, data?: CreateRevisionCommandOutput) => void
-  ): void;
-  public createRevision(
-    args: CreateRevisionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateRevisionCommandOutput) => void
-  ): void;
-  public createRevision(
-    args: CreateRevisionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRevisionCommandOutput) => void),
-    cb?: (err: any, data?: CreateRevisionCommandOutput) => void
-  ): Promise<CreateRevisionCommandOutput> | void {
-    const command = new CreateRevisionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>This operation updates a data set.</p>
-   */
-  public updateDataSet(
-    args: UpdateDataSetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateDataSetCommandOutput>;
-  public updateDataSet(
-    args: UpdateDataSetCommandInput,
-    cb: (err: any, data?: UpdateDataSetCommandOutput) => void
-  ): void;
-  public updateDataSet(
-    args: UpdateDataSetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateDataSetCommandOutput) => void
-  ): void;
-  public updateDataSet(
-    args: UpdateDataSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDataSetCommandOutput) => void),
-    cb?: (err: any, data?: UpdateDataSetCommandOutput) => void
-  ): Promise<UpdateDataSetCommandOutput> | void {
-    const command = new UpdateDataSetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>This operation cancels a job. Jobs can be cancelled only when they are in the WAITING state.</p>
-   */
-  public cancelJob(
-    args: CancelJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CancelJobCommandOutput>;
-  public cancelJob(
-    args: CancelJobCommandInput,
-    cb: (err: any, data?: CancelJobCommandOutput) => void
-  ): void;
-  public cancelJob(
-    args: CancelJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CancelJobCommandOutput) => void
-  ): void;
-  public cancelJob(
-    args: CancelJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelJobCommandOutput) => void),
-    cb?: (err: any, data?: CancelJobCommandOutput) => void
-  ): Promise<CancelJobCommandOutput> | void {
-    const command = new CancelJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>This operation lists your jobs sorted by CreatedAt in descending order.</p>
-   */
-  public listJobs(
-    args: ListJobsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListJobsCommandOutput>;
-  public listJobs(
-    args: ListJobsCommandInput,
-    cb: (err: any, data?: ListJobsCommandOutput) => void
-  ): void;
-  public listJobs(
-    args: ListJobsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListJobsCommandOutput) => void
-  ): void;
-  public listJobs(
-    args: ListJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobsCommandOutput) => void),
-    cb?: (err: any, data?: ListJobsCommandOutput) => void
-  ): Promise<ListJobsCommandOutput> | void {
-    const command = new ListJobsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>This operation tags a resource.</p>
-   */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>This operation lists the tags on the resource.</p>
-   */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
+      | ((err: any, data?: ListDataSetsCommandOutput) => void),
+    cb?: (err: any, data?: ListDataSetsCommandOutput) => void
+  ): Promise<ListDataSetsCommandOutput> | void {
+    const command = new ListDataSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -816,29 +746,29 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
-   * <p>This operation returns information about a revision.</p>
+   * <p>This operation returns information about a job.</p>
    */
-  public getRevision(
-    args: GetRevisionCommandInput,
+  public getJob(
+    args: GetJobCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<GetRevisionCommandOutput>;
-  public getRevision(
-    args: GetRevisionCommandInput,
-    cb: (err: any, data?: GetRevisionCommandOutput) => void
+  ): Promise<GetJobCommandOutput>;
+  public getJob(
+    args: GetJobCommandInput,
+    cb: (err: any, data?: GetJobCommandOutput) => void
   ): void;
-  public getRevision(
-    args: GetRevisionCommandInput,
+  public getJob(
+    args: GetJobCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetRevisionCommandOutput) => void
+    cb: (err: any, data?: GetJobCommandOutput) => void
   ): void;
-  public getRevision(
-    args: GetRevisionCommandInput,
+  public getJob(
+    args: GetJobCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: GetRevisionCommandOutput) => void),
-    cb?: (err: any, data?: GetRevisionCommandOutput) => void
-  ): Promise<GetRevisionCommandOutput> | void {
-    const command = new GetRevisionCommand(args);
+      | ((err: any, data?: GetJobCommandOutput) => void),
+    cb?: (err: any, data?: GetJobCommandOutput) => void
+  ): Promise<GetJobCommandOutput> | void {
+    const command = new GetJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -851,29 +781,99 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
-   * <p>This operation lists your data sets. When listing by origin OWNED, results are sorted by CreatedAt in descending order. When listing by origin ENTITLED, there is no order and the maxResults parameter is ignored.</p>
+   * <p>This operation removes one or more tags from a resource.</p>
    */
-  public listDataSets(
-    args: ListDataSetsCommandInput,
+  public untagResource(
+    args: UntagResourceCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListDataSetsCommandOutput>;
-  public listDataSets(
-    args: ListDataSetsCommandInput,
-    cb: (err: any, data?: ListDataSetsCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
-  public listDataSets(
-    args: ListDataSetsCommandInput,
+  public untagResource(
+    args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDataSetsCommandOutput) => void
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
-  public listDataSets(
-    args: ListDataSetsCommandInput,
+  public untagResource(
+    args: UntagResourceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListDataSetsCommandOutput) => void),
-    cb?: (err: any, data?: ListDataSetsCommandOutput) => void
-  ): Promise<ListDataSetsCommandOutput> | void {
-    const command = new ListDataSetsCommand(args);
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This operation updates a data set.</p>
+   */
+  public updateDataSet(
+    args: UpdateDataSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDataSetCommandOutput>;
+  public updateDataSet(
+    args: UpdateDataSetCommandInput,
+    cb: (err: any, data?: UpdateDataSetCommandOutput) => void
+  ): void;
+  public updateDataSet(
+    args: UpdateDataSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDataSetCommandOutput) => void
+  ): void;
+  public updateDataSet(
+    args: UpdateDataSetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateDataSetCommandOutput) => void),
+    cb?: (err: any, data?: UpdateDataSetCommandOutput) => void
+  ): Promise<UpdateDataSetCommandOutput> | void {
+    const command = new UpdateDataSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This operation lists the tags on the resource.</p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
