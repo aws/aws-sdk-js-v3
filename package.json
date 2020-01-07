@@ -12,7 +12,7 @@
     "clear-build-info": "rimraf ./packages/*/*.tsbuildinfo ./clients/*/*/*.tsbuildinfo",
     "build:crypto-dependencies": "lerna run --scope '@aws-sdk/types' --scope '@aws-sdk/util-utf8-browser' --scope '@aws-sdk/util-locate-window' --scope '@aws-sdk/hash-node' --include-dependencies pretest",
     "build:smithy-client": "yarn build:crypto-dependencies && lerna run --scope '@aws-sdk/client-rds-data' --include-dependencies pretest",
-    "build:all": "yarn build:crypto-dependencies && lerna run --scope '@aws-sdk/client-*' --include-dependencies pretest",
+    "build:all": "yarn build:crypto-dependencies && lerna run pretest --include-dependencies --include-dependents",
     "pretest:all": "yarn build:all",
     "test:all": "jest --coverage --passWithNoTests",
     "test:functional": "jest --config tests/functional/jest.config.js --passWithNoTests",
