@@ -1258,7 +1258,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon Elastic Transcoder"
+        "smithy.api#title": "Amazon Elastic Transcoder",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://elastictranscoder.amazonaws.com/doc/2012-09-25/"
+        }
       }
     },
     "com.amazonaws.etscustomer#ExceptionMessage": {

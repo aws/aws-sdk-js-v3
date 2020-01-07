@@ -82,7 +82,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified load balancer does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.elb.version_2012_06_01#AccessPointPort": {
@@ -431,7 +432,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified ARN does not refer to a valid SSL certificate in AWS Identity and Access Management (IAM) \n            or AWS Certificate Manager (ACM). Note that if you recently uploaded the certificate to IAM, this error might \n            indicate that the certificate is not fully available yet.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.elb.version_2012_06_01#ConfigureHealthCheck": {
@@ -1074,7 +1076,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>A request made by Elastic Load Balancing to another service exceeds the maximum request rate permitted for your account.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.elb.version_2012_06_01#DeregisterEndPointsInput": {
@@ -1587,7 +1590,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified load balancer name already exists for this account.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.elb.version_2012_06_01#DuplicateListenerException": {
@@ -1599,7 +1603,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>A listener already exists for the specified load balancer name and port, but with a different instance port, protocol, or SSL certificate.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.elb.version_2012_06_01#DuplicatePolicyNameException": {
@@ -1611,7 +1616,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>A policy with the specified name already exists for this load balancer.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.elb.version_2012_06_01#DuplicateTagKeysException": {
@@ -1623,7 +1629,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>A tag key was specified more than once.</p> \n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.elb.version_2012_06_01#ElasticLoadBalancing_v7": {
@@ -1928,7 +1935,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The requested configuration change is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazon.elb.version_2012_06_01#InvalidEndPointException": {
@@ -1940,7 +1948,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified endpoint is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.elb.version_2012_06_01#InvalidSchemeException": {
@@ -1952,7 +1961,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified value for the schema is not valid. You can only specify a scheme for load balancers in a VPC.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.elb.version_2012_06_01#InvalidSecurityGroupException": {
@@ -1964,7 +1974,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>One or more of the specified security groups do not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.elb.version_2012_06_01#InvalidSubnetException": {
@@ -1976,7 +1987,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified VPC has no associated Internet gateway.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.elb.version_2012_06_01#LBCookieStickinessPolicies": {
@@ -2107,7 +2119,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The load balancer does not have a listener configured at the specified port.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.elb.version_2012_06_01#Listeners": {
@@ -2125,7 +2138,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified load balancer attribute does not exist.</p>  \n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.elb.version_2012_06_01#LoadBalancerAttributes": {
@@ -2380,7 +2394,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This operation is not allowed.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.elb.version_2012_06_01#PageSize": {
@@ -2565,7 +2580,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>One or more of the specified policies do not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.elb.version_2012_06_01#PolicyTypeDescription": {
@@ -2618,7 +2634,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>One or more of the specified policy types do not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.elb.version_2012_06_01#Ports": {
@@ -3013,7 +3030,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>One or more of the specified subnets do not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.elb.version_2012_06_01#Subnets": {
@@ -3134,7 +3152,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The quota for the number of load balancers has been reached.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.elb.version_2012_06_01#TooManyPoliciesException": {
@@ -3146,7 +3165,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The quota for the number of policies for this load balancer has been reached.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.elb.version_2012_06_01#TooManyTagsException": {
@@ -3158,7 +3178,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The quota for the number of tags that can be assigned to a load balancer has been reached.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.elb.version_2012_06_01#UnhealthyThreshold": {
@@ -3179,7 +3200,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified protocol or signature version is not supported.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.elb.version_2012_06_01#VPCId": {

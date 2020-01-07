@@ -1272,7 +1272,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon Kinesis"
+        "smithy.api#title": "Amazon Kinesis",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://kinesis.amazonaws.com/doc/2013-12-02"
+        }
       }
     },
     "com.amazonaws.kinesis.v20131202#LimitExceededException": {

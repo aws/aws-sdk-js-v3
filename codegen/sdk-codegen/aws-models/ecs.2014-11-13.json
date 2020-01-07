@@ -227,7 +227,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon EC2 Container Service"
+        "smithy.api#title": "Amazon EC2 Container Service",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://ecs.amazonaws.com/doc/2014-11-13/"
+        }
       }
     },
     "com.amazonaws.madison.frontend#AssignPublicIp": {

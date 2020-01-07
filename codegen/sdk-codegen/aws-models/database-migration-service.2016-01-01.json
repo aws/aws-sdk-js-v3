@@ -69,7 +69,10 @@
     "com.amazonaws.dms.v20160101#AccountQuotaList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.dms.v20160101#AccountQuota"
+        "target": "com.amazonaws.dms.v20160101#AccountQuota",
+        "traits": {
+          "smithy.api#xmlName": "AccountQuota"
+        }
       }
     },
     "com.amazonaws.dms.v20160101#AddTagsToResource": {
@@ -280,7 +283,10 @@
             ]
           }
         ],
-        "smithy.api#title": "AWS Database Migration Service"
+        "smithy.api#title": "AWS Database Migration Service",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://dms.amazonaws.com/doc/2016-01-01/"
+        }
       }
     },
     "com.amazonaws.dms.v20160101#ApplyPendingMaintenanceAction": {
@@ -472,7 +478,10 @@
     "com.amazonaws.dms.v20160101#CertificateList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.dms.v20160101#Certificate"
+        "target": "com.amazonaws.dms.v20160101#Certificate",
+        "traits": {
+          "smithy.api#xmlName": "Certificate"
+        }
       }
     },
     "com.amazonaws.dms.v20160101#CertificateWallet": {
@@ -538,7 +547,10 @@
     "com.amazonaws.dms.v20160101#ConnectionList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.dms.v20160101#Connection"
+        "target": "com.amazonaws.dms.v20160101#Connection",
+        "traits": {
+          "smithy.api#xmlName": "Connection"
+        }
       }
     },
     "com.amazonaws.dms.v20160101#CreateEndpoint": {
@@ -3032,7 +3044,10 @@
     "com.amazonaws.dms.v20160101#EndpointList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.dms.v20160101#Endpoint"
+        "target": "com.amazonaws.dms.v20160101#Endpoint",
+        "traits": {
+          "smithy.api#xmlName": "Endpoint"
+        }
       }
     },
     "com.amazonaws.dms.v20160101#Event": {
@@ -3076,7 +3091,10 @@
     "com.amazonaws.dms.v20160101#EventCategoriesList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.dms.v20160101#String"
+        "target": "com.amazonaws.dms.v20160101#String",
+        "traits": {
+          "smithy.api#xmlName": "EventCategory"
+        }
       }
     },
     "com.amazonaws.dms.v20160101#EventCategoryGroup": {
@@ -3102,13 +3120,19 @@
     "com.amazonaws.dms.v20160101#EventCategoryGroupList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.dms.v20160101#EventCategoryGroup"
+        "target": "com.amazonaws.dms.v20160101#EventCategoryGroup",
+        "traits": {
+          "smithy.api#xmlName": "EventCategoryGroup"
+        }
       }
     },
     "com.amazonaws.dms.v20160101#EventList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.dms.v20160101#Event"
+        "target": "com.amazonaws.dms.v20160101#Event",
+        "traits": {
+          "smithy.api#xmlName": "Event"
+        }
       }
     },
     "com.amazonaws.dms.v20160101#EventSubscription": {
@@ -3176,7 +3200,10 @@
     "com.amazonaws.dms.v20160101#EventSubscriptionsList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.dms.v20160101#EventSubscription"
+        "target": "com.amazonaws.dms.v20160101#EventSubscription",
+        "traits": {
+          "smithy.api#xmlName": "EventSubscription"
+        }
       }
     },
     "com.amazonaws.dms#ExceptionMessage": {
@@ -3207,13 +3234,19 @@
     "com.amazonaws.dms.v20160101#FilterList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.dms.v20160101#Filter"
+        "target": "com.amazonaws.dms.v20160101#Filter",
+        "traits": {
+          "smithy.api#xmlName": "Filter"
+        }
       }
     },
     "com.amazonaws.dms.v20160101#FilterValueList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.dms.v20160101#String"
+        "target": "com.amazonaws.dms.v20160101#String",
+        "traits": {
+          "smithy.api#xmlName": "Value"
+        }
       }
     },
     "com.amazonaws.dms.v20160101#ImportCertificate": {
@@ -4250,7 +4283,10 @@
     "com.amazonaws.dms.v20160101#OrderableReplicationInstanceList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.dms.v20160101#OrderableReplicationInstance"
+        "target": "com.amazonaws.dms.v20160101#OrderableReplicationInstance",
+        "traits": {
+          "smithy.api#xmlName": "OrderableReplicationInstance"
+        }
       }
     },
     "com.amazonaws.dms.v20160101#ParquetVersionValue": {
@@ -4313,13 +4349,19 @@
     "com.amazonaws.dms.v20160101#PendingMaintenanceActionDetails": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.dms.v20160101#PendingMaintenanceAction"
+        "target": "com.amazonaws.dms.v20160101#PendingMaintenanceAction",
+        "traits": {
+          "smithy.api#xmlName": "PendingMaintenanceAction"
+        }
       }
     },
     "com.amazonaws.dms.v20160101#PendingMaintenanceActions": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.dms.v20160101#ResourcePendingMaintenanceActions"
+        "target": "com.amazonaws.dms.v20160101#ResourcePendingMaintenanceActions",
+        "traits": {
+          "smithy.api#xmlName": "ResourcePendingMaintenanceActions"
+        }
       }
     },
     "com.amazonaws.dms.v20160101#RebootReplicationInstance": {
@@ -4934,7 +4976,10 @@
     "com.amazonaws.dms.v20160101#ReplicationInstanceList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.dms.v20160101#ReplicationInstance"
+        "target": "com.amazonaws.dms.v20160101#ReplicationInstance",
+        "traits": {
+          "smithy.api#xmlName": "ReplicationInstance"
+        }
       }
     },
     "com.amazonaws.dms.v20160101#ReplicationInstancePrivateIpAddressList": {
@@ -5069,7 +5114,10 @@
     "com.amazonaws.dms.v20160101#ReplicationSubnetGroups": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.dms.v20160101#ReplicationSubnetGroup"
+        "target": "com.amazonaws.dms.v20160101#ReplicationSubnetGroup",
+        "traits": {
+          "smithy.api#xmlName": "ReplicationSubnetGroup"
+        }
       }
     },
     "com.amazonaws.dms.v20160101#ReplicationTask": {
@@ -5235,13 +5283,19 @@
     "com.amazonaws.dms.v20160101#ReplicationTaskAssessmentResultList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.dms.v20160101#ReplicationTaskAssessmentResult"
+        "target": "com.amazonaws.dms.v20160101#ReplicationTaskAssessmentResult",
+        "traits": {
+          "smithy.api#xmlName": "ReplicationTaskAssessmentResult"
+        }
       }
     },
     "com.amazonaws.dms.v20160101#ReplicationTaskList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.dms.v20160101#ReplicationTask"
+        "target": "com.amazonaws.dms.v20160101#ReplicationTask",
+        "traits": {
+          "smithy.api#xmlName": "ReplicationTask"
+        }
       }
     },
     "com.amazonaws.dms.v20160101#ReplicationTaskStats": {
@@ -5562,7 +5616,10 @@
     "com.amazonaws.dms.v20160101#SourceIdsList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.dms.v20160101#String"
+        "target": "com.amazonaws.dms.v20160101#String",
+        "traits": {
+          "smithy.api#xmlName": "SourceId"
+        }
       }
     },
     "com.amazonaws.dms.v20160101#SourceType": {
@@ -5826,13 +5883,19 @@
     "com.amazonaws.dms.v20160101#SubnetIdentifierList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.dms.v20160101#String"
+        "target": "com.amazonaws.dms.v20160101#String",
+        "traits": {
+          "smithy.api#xmlName": "SubnetIdentifier"
+        }
       }
     },
     "com.amazonaws.dms.v20160101#SubnetList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.dms.v20160101#Subnet"
+        "target": "com.amazonaws.dms.v20160101#Subnet",
+        "traits": {
+          "smithy.api#xmlName": "Subnet"
+        }
       }
     },
     "com.amazonaws.dms.v20160101#SupportedEndpointType": {
@@ -5870,7 +5933,10 @@
     "com.amazonaws.dms.v20160101#SupportedEndpointTypeList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.dms.v20160101#SupportedEndpointType"
+        "target": "com.amazonaws.dms.v20160101#SupportedEndpointType",
+        "traits": {
+          "smithy.api#xmlName": "SupportedEndpointType"
+        }
       }
     },
     "com.amazonaws.dms.v20160101#TStamp": {
@@ -6035,7 +6101,10 @@
     "com.amazonaws.dms.v20160101#TagList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.dms.v20160101#Tag"
+        "target": "com.amazonaws.dms.v20160101#Tag",
+        "traits": {
+          "smithy.api#xmlName": "Tag"
+        }
       }
     },
     "com.amazonaws.dms.v20160101#TestConnection": {
@@ -6118,7 +6187,10 @@
     "com.amazonaws.dms.v20160101#VpcSecurityGroupIdList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.dms.v20160101#String"
+        "target": "com.amazonaws.dms.v20160101#String",
+        "traits": {
+          "smithy.api#xmlName": "VpcSecurityGroupId"
+        }
       }
     },
     "com.amazonaws.dms.v20160101#VpcSecurityGroupMembership": {
@@ -6144,7 +6216,10 @@
     "com.amazonaws.dms.v20160101#VpcSecurityGroupMembershipList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.dms.v20160101#VpcSecurityGroupMembership"
+        "target": "com.amazonaws.dms.v20160101#VpcSecurityGroupMembership",
+        "traits": {
+          "smithy.api#xmlName": "VpcSecurityGroupMembership"
+        }
       }
     }
   }

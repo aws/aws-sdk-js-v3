@@ -139,7 +139,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon EventBridge"
+        "smithy.api#title": "Amazon EventBridge",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://events.amazonaws.com/doc/2015-10-07"
+        }
       }
     },
     "com.amazon.jetstream.v20151007#AccountId": {

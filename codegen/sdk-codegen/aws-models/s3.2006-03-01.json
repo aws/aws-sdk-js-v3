@@ -179,9 +179,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.s3#AllowedHeader"
-      },
-      "traits": {
-        "smithy.api#xmlFlattened": true
       }
     },
     "com.amazonaws.s3#AllowedMethod": {
@@ -191,9 +188,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.s3#AllowedMethod"
-      },
-      "traits": {
-        "smithy.api#xmlFlattened": true
       }
     },
     "com.amazonaws.s3#AllowedOrigin": {
@@ -203,9 +197,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.s3#AllowedOrigin"
-      },
-      "traits": {
-        "smithy.api#xmlFlattened": true
       }
     },
     "com.amazonaws.s3#AmazonS3": {
@@ -541,9 +532,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.s3#AnalyticsConfiguration"
-      },
-      "traits": {
-        "smithy.api#xmlFlattened": true
       }
     },
     "com.amazonaws.s3#AnalyticsExportDestination": {
@@ -699,6 +687,7 @@
           "traits": {
             "smithy.api#documentation": "\n         <p>A lifecycle rule for individual objects in an Amazon S3 bucket.</p>\n      ",
             "smithy.api#required": true,
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "Rule"
           }
         }
@@ -787,6 +776,7 @@
           "traits": {
             "smithy.api#documentation": "\n         <p>A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.</p>\n      ",
             "smithy.api#required": true,
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "CORSRule"
           }
         }
@@ -802,6 +792,7 @@
           "target": "com.amazonaws.s3#AllowedHeaders",
           "traits": {
             "smithy.api#documentation": "\n         <p>Headers that are specified in the <code>Access-Control-Request-Headers</code>\n      header. These headers are allowed in a preflight OPTIONS request. In response to\n      any preflight OPTIONS request, Amazon S3 returns any requested headers that are\n      allowed.</p>\n      ",
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "AllowedHeader"
           }
         },
@@ -810,6 +801,7 @@
           "traits": {
             "smithy.api#documentation": " \n         <p>An HTTP method that you allow the origin to execute. Valid values are\n      <code>GET</code>, <code>PUT</code>, <code>HEAD</code>, <code>POST</code>, and\n      <code>DELETE</code>.</p>\n      ",
             "smithy.api#required": true,
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "AllowedMethod"
           }
         },
@@ -818,6 +810,7 @@
           "traits": {
             "smithy.api#documentation": "\n         <p>One or more origins you want customers to be able to access the bucket from.</p>\n      ",
             "smithy.api#required": true,
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "AllowedOrigin"
           }
         },
@@ -825,6 +818,7 @@
           "target": "com.amazonaws.s3#ExposeHeaders",
           "traits": {
             "smithy.api#documentation": "\n         <p>One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript <code>XMLHttpRequest</code> object).</p>\n      ",
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "ExposeHeader"
           }
         },
@@ -843,9 +837,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.s3#CORSRule"
-      },
-      "traits": {
-        "smithy.api#xmlFlattened": true
       }
     },
     "com.amazonaws.s3#CSVInput": {
@@ -963,9 +954,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.s3#CommonPrefix"
-      },
-      "traits": {
-        "smithy.api#xmlFlattened": true
       }
     },
     "com.amazonaws.s3#CompleteMultipartUpload": {
@@ -1098,6 +1086,7 @@
           "target": "com.amazonaws.s3#CompletedPartList",
           "traits": {
             "smithy.api#documentation": "\n         <p>Array of CompletedPart data types.</p>\n      ",
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "Part"
           }
         }
@@ -1130,9 +1119,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.s3#CompletedPart"
-      },
-      "traits": {
-        "smithy.api#xmlFlattened": true
       }
     },
     "com.amazonaws.s3#CompressionType": {
@@ -2094,6 +2080,7 @@
           "traits": {
             "smithy.api#documentation": "\n         <p>The objects to delete.</p>\n      ",
             "smithy.api#required": true,
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "Object"
           }
         },
@@ -2500,9 +2487,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.s3#DeleteMarkerEntry"
-      },
-      "traits": {
-        "smithy.api#xmlFlattened": true
       }
     },
     "com.amazonaws.s3#DeleteObject": {
@@ -2675,13 +2659,15 @@
         "Deleted": {
           "target": "com.amazonaws.s3#DeletedObjects",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Container element for a successful delete. It identifies the object that was successfully deleted.</p>\n      "
+            "smithy.api#documentation": "\n         <p>Container element for a successful delete. It identifies the object that was successfully deleted.</p>\n      ",
+            "smithy.api#xmlFlattened": true
           }
         },
         "Errors": {
           "target": "com.amazonaws.s3#Errors",
           "traits": {
             "smithy.api#documentation": "\n         <p>Container for a failed delete operation that describes the object that Amazon S3 attempted to delete and the error it encountered.</p>\n      ",
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "Error"
           }
         },
@@ -2797,9 +2783,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.s3#DeletedObject"
-      },
-      "traits": {
-        "smithy.api#xmlFlattened": true
       }
     },
     "com.amazonaws.s3#Delimiter": {
@@ -2982,9 +2965,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.s3#Error"
-      },
-      "traits": {
-        "smithy.api#xmlFlattened": true
       }
     },
     "com.amazonaws.s3#Event": {
@@ -3016,9 +2996,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.s3#Event"
-      },
-      "traits": {
-        "smithy.api#xmlFlattened": true
       }
     },
     "com.amazonaws.s3#ExistingObjectReplication": {
@@ -3070,9 +3047,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.s3#ExposeHeader"
-      },
-      "traits": {
-        "smithy.api#xmlFlattened": true
       }
     },
     "com.amazonaws.s3#Expression": {
@@ -3136,8 +3110,7 @@
         "target": "com.amazonaws.s3#FilterRule"
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>A list of containers for the key-value pair that defines the criteria for the filter\n         rule.</p>\n      ",
-        "smithy.api#xmlFlattened": true
+        "smithy.api#documentation": "\n         <p>A list of containers for the key-value pair that defines the criteria for the filter\n         rule.</p>\n      "
       }
     },
     "com.amazonaws.s3#FilterRuleName": {
@@ -3315,6 +3288,7 @@
           "target": "com.amazonaws.s3#CORSRules",
           "traits": {
             "smithy.api#documentation": "\n         <p>A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.</p>\n      ",
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "CORSRule"
           }
         }
@@ -3448,6 +3422,7 @@
           "target": "com.amazonaws.s3#LifecycleRules",
           "traits": {
             "smithy.api#documentation": "\n         <p>Container for a lifecycle rule.</p>\n      ",
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "Rule"
           }
         }
@@ -5347,9 +5322,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.s3#InventoryConfiguration"
-      },
-      "traits": {
-        "smithy.api#xmlFlattened": true
       }
     },
     "com.amazonaws.s3#InventoryDestination": {
@@ -5593,6 +5565,7 @@
           "traits": {
             "smithy.api#documentation": "\n         <p>The Amazon S3 bucket event for which to invoke the AWS Lambda function.\n         For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html\">Supported Event Types</a> in the\n         <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n      ",
             "smithy.api#required": true,
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "Event"
           }
         },
@@ -5619,9 +5592,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.s3#LambdaFunctionConfiguration"
-      },
-      "traits": {
-        "smithy.api#xmlFlattened": true
       }
     },
     "com.amazonaws.s3#LastModified": {
@@ -5681,6 +5651,7 @@
           "target": "com.amazonaws.s3#NoncurrentVersionTransitionList",
           "traits": {
             "smithy.api#documentation": "\n         <p> Specifies the transition rule for the lifecycle rule that describes when noncurrent\n         objects transition to a specific storage class. If your bucket is versioning-enabled (or\n         versioning is suspended), you can set this action to request that Amazon S3 transition\n         noncurrent object versions to a specific storage class at a set period in the object's\n         lifetime. </p>\n      ",
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "NoncurrentVersionTransition"
           }
         },
@@ -5702,6 +5673,7 @@
           "target": "com.amazonaws.s3#TransitionList",
           "traits": {
             "smithy.api#documentation": "\n         <p>Specifies when an Amazon S3 object transitions to a specified storage class.</p>\n      ",
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "Transition"
           }
         }
@@ -5759,9 +5731,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.s3#LifecycleRule"
-      },
-      "traits": {
-        "smithy.api#xmlFlattened": true
       }
     },
     "com.amazonaws.s3#ListBucketAnalyticsConfigurations": {
@@ -5788,6 +5757,7 @@
           "target": "com.amazonaws.s3#AnalyticsConfigurationList",
           "traits": {
             "smithy.api#documentation": "\n         <p>The list of analytics configurations for a bucket.</p>\n      ",
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "AnalyticsConfiguration"
           }
         },
@@ -5861,6 +5831,7 @@
           "target": "com.amazonaws.s3#InventoryConfigurationList",
           "traits": {
             "smithy.api#documentation": "\n         <p>The list of inventory configurations for a bucket.</p>\n      ",
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "InventoryConfiguration"
           }
         },
@@ -5934,6 +5905,7 @@
           "target": "com.amazonaws.s3#MetricsConfigurationList",
           "traits": {
             "smithy.api#documentation": "\n         <p>The list of metrics configurations for a bucket.</p>\n      ",
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "MetricsConfiguration"
           }
         },
@@ -6025,7 +5997,8 @@
         "CommonPrefixes": {
           "target": "com.amazonaws.s3#CommonPrefixList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>If you specify a delimiter in the request, then the result returns each distinct key\n         prefix containing the delimiter in a <code>CommonPrefixes</code> element. The distinct key\n         prefixes are returned in the <code>Prefix</code> child element.</p>\n      "
+            "smithy.api#documentation": "\n         <p>If you specify a delimiter in the request, then the result returns each distinct key\n         prefix containing the delimiter in a <code>CommonPrefixes</code> element. The distinct key\n         prefixes are returned in the <code>Prefix</code> child element.</p>\n      ",
+            "smithy.api#xmlFlattened": true
           }
         },
         "Delimiter": {
@@ -6086,6 +6059,7 @@
           "target": "com.amazonaws.s3#MultipartUploadList",
           "traits": {
             "smithy.api#documentation": "\n         <p>Container for elements related to a particular multipart upload. A response can contain\n         zero or more <code>Upload</code> elements.</p>\n      ",
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "Upload"
           }
         }
@@ -6168,13 +6142,15 @@
         "CommonPrefixes": {
           "target": "com.amazonaws.s3#CommonPrefixList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.</p>\n      "
+            "smithy.api#documentation": "\n         <p>All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.</p>\n      ",
+            "smithy.api#xmlFlattened": true
           }
         },
         "DeleteMarkers": {
           "target": "com.amazonaws.s3#DeleteMarkers",
           "traits": {
             "smithy.api#documentation": "\n         <p>Container for an object that is a delete marker.</p>\n      ",
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "DeleteMarker"
           }
         },
@@ -6242,6 +6218,7 @@
           "target": "com.amazonaws.s3#ObjectVersionList",
           "traits": {
             "smithy.api#documentation": "\n         <p>Container for version information.</p>\n      ",
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "Version"
           }
         }
@@ -6329,13 +6306,15 @@
         "CommonPrefixes": {
           "target": "com.amazonaws.s3#CommonPrefixList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>All of the keys rolled up in a common prefix count as a single return when calculating the number of returns. </p>\n         \n         <p>A response can contain CommonPrefixes only if you specify a delimiter.</p>\n         \n         <p>CommonPrefixes contains all (if there are any) keys between Prefix and the next occurrence of the string specified by the delimiter.</p>\n         \n        <p> CommonPrefixes lists keys that act like subdirectories in the directory specified by Prefix.</p>\n         \n         <p>For example, if the prefix is notes/ and the delimiter is a slash (/) as in notes/summer/july, the common prefix is notes/summer/. All of the keys that roll up into a common prefix count as a single return when calculating the number of returns.</p>\n      "
+            "smithy.api#documentation": "\n         <p>All of the keys rolled up in a common prefix count as a single return when calculating the number of returns. </p>\n         \n         <p>A response can contain CommonPrefixes only if you specify a delimiter.</p>\n         \n         <p>CommonPrefixes contains all (if there are any) keys between Prefix and the next occurrence of the string specified by the delimiter.</p>\n         \n        <p> CommonPrefixes lists keys that act like subdirectories in the directory specified by Prefix.</p>\n         \n         <p>For example, if the prefix is notes/ and the delimiter is a slash (/) as in notes/summer/july, the common prefix is notes/summer/. All of the keys that roll up into a common prefix count as a single return when calculating the number of returns.</p>\n      ",
+            "smithy.api#xmlFlattened": true
           }
         },
         "Contents": {
           "target": "com.amazonaws.s3#ObjectList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Metadata about each object returned.</p>\n      "
+            "smithy.api#documentation": "\n         <p>Metadata about each object returned.</p>\n      ",
+            "smithy.api#xmlFlattened": true
           }
         },
         "Delimiter": {
@@ -6470,13 +6449,15 @@
         "CommonPrefixes": {
           "target": "com.amazonaws.s3#CommonPrefixList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.</p>\n      \n         <p>A response can contain <code>CommonPrefixes</code> only if you specify a delimiter.</p>\n      \n         <p>\n            <code>CommonPrefixes</code> contains all (if there are any) keys between <code>Prefix</code> and the next occurrence of the string specified by a delimiter.</p>\n      \n         <p>\n            <code>CommonPrefixes</code> lists keys that act like subdirectories in the directory specified by <code>Prefix</code>.</p>\n      \n         <p>For example, if the prefix is <code>notes/</code> and the delimiter is a slash (<code>/</code>) as in <code>notes/summer/july</code>, the common prefix is <code>notes/summer/</code>. All of the keys that roll up into a common prefix count as a single return when calculating the number of returns. </p>\n   \n      "
+            "smithy.api#documentation": "\n         <p>All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.</p>\n      \n         <p>A response can contain <code>CommonPrefixes</code> only if you specify a delimiter.</p>\n      \n         <p>\n            <code>CommonPrefixes</code> contains all (if there are any) keys between <code>Prefix</code> and the next occurrence of the string specified by a delimiter.</p>\n      \n         <p>\n            <code>CommonPrefixes</code> lists keys that act like subdirectories in the directory specified by <code>Prefix</code>.</p>\n      \n         <p>For example, if the prefix is <code>notes/</code> and the delimiter is a slash (<code>/</code>) as in <code>notes/summer/july</code>, the common prefix is <code>notes/summer/</code>. All of the keys that roll up into a common prefix count as a single return when calculating the number of returns. </p>\n   \n      ",
+            "smithy.api#xmlFlattened": true
           }
         },
         "Contents": {
           "target": "com.amazonaws.s3#ObjectList",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Metadata about each object returned.</p>\n      "
+            "smithy.api#documentation": "\n         <p>Metadata about each object returned.</p>\n      ",
+            "smithy.api#xmlFlattened": true
           }
         },
         "ContinuationToken": {
@@ -6696,6 +6677,7 @@
           "target": "com.amazonaws.s3#Parts",
           "traits": {
             "smithy.api#documentation": "\n         <p> Container for elements related to a particular part. A response can contain zero or\n         more <code>Part</code> elements.</p>\n      ",
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "Part"
           }
         },
@@ -6954,9 +6936,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.s3#MetricsConfiguration"
-      },
-      "traits": {
-        "smithy.api#xmlFlattened": true
       }
     },
     "com.amazonaws.s3#MetricsFilter": {
@@ -7054,9 +7033,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.s3#MultipartUpload"
-      },
-      "traits": {
-        "smithy.api#xmlFlattened": true
       }
     },
     "com.amazonaws.s3#NextKeyMarker": {
@@ -7139,9 +7115,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.s3#NoncurrentVersionTransition"
-      },
-      "traits": {
-        "smithy.api#xmlFlattened": true
       }
     },
     "com.amazonaws.s3#NotificationConfiguration": {
@@ -7151,6 +7124,7 @@
           "target": "com.amazonaws.s3#LambdaFunctionConfigurationList",
           "traits": {
             "smithy.api#documentation": "\n         <p>Describes the AWS Lambda functions to invoke and the events for which to invoke them.</p>\n      ",
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "CloudFunctionConfiguration"
           }
         },
@@ -7158,6 +7132,7 @@
           "target": "com.amazonaws.s3#QueueConfigurationList",
           "traits": {
             "smithy.api#documentation": "\n         <p>The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.</p>\n      ",
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "QueueConfiguration"
           }
         },
@@ -7165,6 +7140,7 @@
           "target": "com.amazonaws.s3#TopicConfigurationList",
           "traits": {
             "smithy.api#documentation": "\n         <p>The topic to which notifications are sent and the events for which notifications are generated.</p>\n      ",
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "TopicConfiguration"
           }
         }
@@ -7284,9 +7260,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.s3#ObjectIdentifier"
-      },
-      "traits": {
-        "smithy.api#xmlFlattened": true
       }
     },
     "com.amazonaws.s3#ObjectKey": {
@@ -7301,9 +7274,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.s3#Object"
-      },
-      "traits": {
-        "smithy.api#xmlFlattened": true
       }
     },
     "com.amazonaws.s3#ObjectLockConfiguration": {
@@ -7506,9 +7476,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.s3#ObjectVersion"
-      },
-      "traits": {
-        "smithy.api#xmlFlattened": true
       }
     },
     "com.amazonaws.s3#ObjectVersionStorageClass": {
@@ -7630,9 +7597,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.s3#Part"
-      },
-      "traits": {
-        "smithy.api#xmlFlattened": true
       }
     },
     "com.amazonaws.s3#PartsCount": {
@@ -9256,6 +9220,7 @@
           "traits": {
             "smithy.api#documentation": "\n         <p>A collection of bucket events for which to send notifications</p>\n      ",
             "smithy.api#required": true,
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "Event"
           }
         },
@@ -9282,9 +9247,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.s3#QueueConfiguration"
-      },
-      "traits": {
-        "smithy.api#xmlFlattened": true
       }
     },
     "com.amazonaws.s3#Quiet": {
@@ -9413,6 +9375,7 @@
           "traits": {
             "smithy.api#documentation": "\n         <p>A container for one or more replication rules. A replication configuration must have at\n      least one rule and can contain a maximum of 1,000 rules. </p>\n \n      ",
             "smithy.api#required": true,
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "Rule"
           }
         }
@@ -9541,9 +9504,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.s3#ReplicationRule"
-      },
-      "traits": {
-        "smithy.api#xmlFlattened": true
       }
     },
     "com.amazonaws.s3#ReplicationStatus": {
@@ -9852,6 +9812,7 @@
         "FilterRules": {
           "target": "com.amazonaws.s3#FilterRuleList",
           "traits": {
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "FilterRule"
           }
         }
@@ -10210,6 +10171,7 @@
           "traits": {
             "smithy.api#documentation": "\n         <p>Container for information about a particular server-side encryption configuration rule.</p>\n      ",
             "smithy.api#required": true,
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "Rule"
           }
         }
@@ -10236,9 +10198,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.s3#ServerSideEncryptionRule"
-      },
-      "traits": {
-        "smithy.api#xmlFlattened": true
       }
     },
     "com.amazonaws.s3#Setting": {
@@ -10513,6 +10472,7 @@
           "traits": {
             "smithy.api#documentation": "\n         <p>The Amazon S3 bucket event about which to send notifications. For more\n         information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html\">Supported Event\n            Types</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n      ",
             "smithy.api#required": true,
+            "smithy.api#xmlFlattened": true,
             "smithy.api#xmlName": "Event"
           }
         },
@@ -10539,9 +10499,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.s3#TopicConfiguration"
-      },
-      "traits": {
-        "smithy.api#xmlFlattened": true
       }
     },
     "com.amazonaws.s3#Transition": {
@@ -10574,9 +10531,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.s3#Transition"
-      },
-      "traits": {
-        "smithy.api#xmlFlattened": true
       }
     },
     "com.amazonaws.s3#TransitionStorageClass": {

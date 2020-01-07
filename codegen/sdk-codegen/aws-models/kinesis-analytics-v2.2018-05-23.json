@@ -1336,7 +1336,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Exception thrown as a result of concurrent modifications to an application. This error can\n      be the result of attempting to modify an application without using the current application\n      ID.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazonaws.kinesis.analytics.v20180523#ConfigurationType": {
@@ -2918,7 +2919,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon Kinesis Analytics"
+        "smithy.api#title": "Amazon Kinesis Analytics",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://analytics.kinesis.amazonaws.com/doc/2018-05-23"
+        }
       }
     },
     "com.amazonaws.kinesis.analytics.v20180523#KinesisFirehoseInput": {
@@ -4460,7 +4464,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The service cannot complete the request.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 503
       }
     },
     "com.amazonaws.kinesis.analytics.v20180523#SnapshotDetails": {

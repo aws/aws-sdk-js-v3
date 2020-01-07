@@ -61,7 +61,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that either your AWS credentials are invalid or you do not have access to the EC2 instance.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazon.aws.sshaccessproxyservice#AvailabilityZone": {
@@ -83,7 +84,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the instance requested was not found in the given zone.  Check that you have provided a valid instance ID and the correct zone.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazon.aws.sshaccessproxyservice#InstanceId": {
@@ -115,7 +117,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that you provided bad input.  Ensure you have a valid instance ID, the correct zone, and a valid SSH public key.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.aws.sshaccessproxyservice#RequestId": {
@@ -218,7 +221,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the service encountered an error.  Follow the message's instructions and try again.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazon.aws.sshaccessproxyservice#String": {
@@ -236,7 +240,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates you have been making requests too frequently and have been throttled.  Wait for a while and try again.  If higher call volume is warranted contact AWS Support.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
       }
     }
   }

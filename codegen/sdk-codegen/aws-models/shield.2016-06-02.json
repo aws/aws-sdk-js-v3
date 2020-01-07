@@ -100,7 +100,10 @@
             ]
           }
         ],
-        "smithy.api#title": "AWS Shield"
+        "smithy.api#title": "AWS Shield",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://ddp.amazonaws.com/doc/2016-06-02/"
+        }
       }
     },
     "com.amazonaws.bardockcustomerapiservice.v20160616#AccessDeniedException": {
