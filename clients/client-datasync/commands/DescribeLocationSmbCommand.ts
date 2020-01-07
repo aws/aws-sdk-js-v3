@@ -1,0 +1,87 @@
+import {
+  DataSyncClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes
+} from "../DataSyncClient";
+import {
+  DescribeLocationSmbRequest,
+  DescribeLocationSmbResponse
+} from "../models/index";
+import {
+  deserializeAws_json1_1DescribeLocationSmbCommand,
+  serializeAws_json1_1DescribeLocationSmbCommand
+} from "../protocols/Aws_json1_1";
+import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse
+} from "@aws-sdk/protocol-http";
+import { Command as $Command } from "@aws-sdk/smithy-client";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  MiddlewareStack,
+  SerdeContext,
+  HttpHandlerOptions as __HttpHandlerOptions
+} from "@aws-sdk/types";
+
+export type DescribeLocationSmbCommandInput = DescribeLocationSmbRequest;
+export type DescribeLocationSmbCommandOutput = DescribeLocationSmbResponse;
+
+export class DescribeLocationSmbCommand extends $Command<
+  DescribeLocationSmbCommandInput,
+  DescribeLocationSmbCommandOutput,
+  DataSyncClientResolvedConfig
+> {
+  // Start section: command_properties
+  // End section: command_properties
+
+  constructor(readonly input: DescribeLocationSmbCommandInput) {
+    // Start section: command_constructor
+    super();
+    // End section: command_constructor
+  }
+
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: DataSyncClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<
+    DescribeLocationSmbCommandInput,
+    DescribeLocationSmbCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger: {} as any
+    };
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  private serialize(
+    input: DescribeLocationSmbCommandInput,
+    context: SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_json1_1DescribeLocationSmbCommand(input, context);
+  }
+
+  private deserialize(
+    output: __HttpResponse,
+    context: SerdeContext
+  ): Promise<DescribeLocationSmbCommandOutput> {
+    return deserializeAws_json1_1DescribeLocationSmbCommand(output, context);
+  }
+
+  // Start section: command_body_extra
+  // End section: command_body_extra
+}
