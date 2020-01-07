@@ -55,23 +55,6 @@
   dependencies:
     tslib "^1.9.3"
 
-"@aws-sdk/apply-body-checksum-middleware@^0.1.0-preview.8":
-  version "0.1.0-preview.8"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/apply-body-checksum-middleware/-/apply-body-checksum-middleware-0.1.0-preview.8.tgz#19a37c810c7f5f00cb5f4d194ad167b5b5b0aa81"
-  integrity sha512-UoK128Kum26NYuOfnG1vVjfFfYBy7m8bIkBYlORwrGYLHawUwaxan8MTCrk4P/XSlYm0NsyAicAVDvAeGWSZXA==
-  dependencies:
-    "@aws-sdk/is-array-buffer" "^0.1.0-preview.3"
-    "@aws-sdk/types" "^0.1.0-preview.7"
-    tslib "^1.8.0"
-
-"@aws-sdk/bucket-endpoint-middleware@^0.1.0-preview.7":
-  version "0.1.0-preview.7"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/bucket-endpoint-middleware/-/bucket-endpoint-middleware-0.1.0-preview.7.tgz#5322caabfcef9c8416b026bfc000c3a46b8b7e55"
-  integrity sha512-XUrR/fKADNTXgW5wfp0U2K2WD+4NiY/njne7rR0YTNZHE0eWD0q0YvRx4LXj6HFraAUqZ8liPG2k/BjzdT8M0Q==
-  dependencies:
-    "@aws-sdk/types" "^0.1.0-preview.7"
-    tslib "^1.8.0"
-
 "@aws-sdk/client-cognito-identity-browser@^0.1.0-preview.10":
   version "0.1.0-preview.10"
   resolved "https://registry.yarnpkg.com/@aws-sdk/client-cognito-identity-browser/-/client-cognito-identity-browser-0.1.0-preview.10.tgz#148bd70a282da20e1f2b5e75fe290c08f31a535c"
@@ -99,45 +82,6 @@
     "@aws-sdk/util-body-length-browser" "^0.1.0-preview.3"
     "@aws-sdk/util-user-agent-browser" "^0.1.0-preview.9"
     "@aws-sdk/util-utf8-browser" "^0.1.0-preview.3"
-    tslib "^1.8.0"
-
-"@aws-sdk/client-s3-node@^0.1.0-preview.7":
-  version "0.1.0-preview.7"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/client-s3-node/-/client-s3-node-0.1.0-preview.7.tgz#0a69535012320e135408788e0b611b6612c60b2c"
-  integrity sha512-eDwBUN/tMmsYJIyvsXf6wLQobZKHndlXXcl7SBiO7SqxtprD79JInyRn5RzfMiaiq+Gy20LeZ5JOvmhfkWaxBA==
-  dependencies:
-    "@aws-sdk/apply-body-checksum-middleware" "^0.1.0-preview.8"
-    "@aws-sdk/bucket-endpoint-middleware" "^0.1.0-preview.7"
-    "@aws-sdk/config-resolver" "^0.1.0-preview.7"
-    "@aws-sdk/core-handler" "^0.1.0-preview.7"
-    "@aws-sdk/credential-provider-node" "^0.1.0-preview.10"
-    "@aws-sdk/hash-node" "^0.1.0-preview.8"
-    "@aws-sdk/hash-stream-node" "^0.1.0-preview.9"
-    "@aws-sdk/location-constraint-middleware" "^0.1.0-preview.7"
-    "@aws-sdk/middleware-content-length" "^0.1.0-preview.7"
-    "@aws-sdk/middleware-expect-continue" "^0.1.0-preview.8"
-    "@aws-sdk/middleware-header-default" "^0.1.0-preview.7"
-    "@aws-sdk/middleware-sdk-s3" "^0.1.0-preview.4"
-    "@aws-sdk/middleware-serializer" "^0.1.0-preview.7"
-    "@aws-sdk/middleware-stack" "^0.1.0-preview.9"
-    "@aws-sdk/node-http-handler" "^0.1.0-preview.8"
-    "@aws-sdk/protocol-rest" "^0.1.0-preview.10"
-    "@aws-sdk/query-error-unmarshaller" "^0.1.0-preview.8"
-    "@aws-sdk/region-provider" "^0.1.0-preview.7"
-    "@aws-sdk/retry-middleware" "^0.1.0-preview.7"
-    "@aws-sdk/s3-error-unmarshaller" "^0.1.0-preview.5"
-    "@aws-sdk/signature-v4" "^0.1.0-preview.10"
-    "@aws-sdk/signing-middleware" "^0.1.0-preview.10"
-    "@aws-sdk/ssec-middleware" "^0.1.0-preview.8"
-    "@aws-sdk/stream-collector-node" "^0.1.0-preview.9"
-    "@aws-sdk/types" "^0.1.0-preview.7"
-    "@aws-sdk/url-parser-node" "^0.1.0-preview.8"
-    "@aws-sdk/util-base64-node" "^0.1.0-preview.4"
-    "@aws-sdk/util-body-length-node" "^0.1.0-preview.5"
-    "@aws-sdk/util-user-agent-node" "^0.1.0-preview.10"
-    "@aws-sdk/util-utf8-node" "^0.1.0-preview.4"
-    "@aws-sdk/xml-body-builder" "^0.1.0-preview.7"
-    "@aws-sdk/xml-body-parser" "^0.1.0-preview.9"
     tslib "^1.8.0"
 
 "@aws-sdk/core-handler@^0.1.0-preview.7":
@@ -184,14 +128,6 @@
     "@aws-sdk/types" "^0.1.0-preview.7"
     tslib "^1.8.0"
 
-"@aws-sdk/location-constraint-middleware@^0.1.0-preview.7":
-  version "0.1.0-preview.7"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/location-constraint-middleware/-/location-constraint-middleware-0.1.0-preview.7.tgz#0ae88632dc37187b95242e8a0370b345745b3a48"
-  integrity sha512-K7EZ77oSVqyrTDZKJ8OQ7m1/EAEoRFUknE0HsiTRImhRHqxPhR+sP6brWU+gdywgYbDVaXJox30GUMNAOqhs9Q==
-  dependencies:
-    "@aws-sdk/types" "^0.1.0-preview.7"
-    tslib "^1.8.0"
-
 "@aws-sdk/middleware-serializer@^0.1.0-preview.7":
   version "0.1.0-preview.7"
   resolved "https://registry.yarnpkg.com/@aws-sdk/middleware-serializer/-/middleware-serializer-0.1.0-preview.7.tgz#7d4ed3d16b47f12f7ed0762ff9594c0f2da9c96c"
@@ -211,30 +147,6 @@
     "@aws-sdk/util-error-constructor" "^0.1.0-preview.7"
     tslib "^1.8.0"
 
-"@aws-sdk/protocol-rest@^0.1.0-preview.10":
-  version "0.1.0-preview.10"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/protocol-rest/-/protocol-rest-0.1.0-preview.10.tgz#e082b709356df7d79a64eadbcc4225aecedf36a9"
-  integrity sha512-wzQV8h+rxWOOKkpwZpgx/glPz2mrH3nGZG7JyqxzEdveRmCMKSS27tqTc2XGlf8x1lGfTBZVg3XTWYrPTBHvlw==
-  dependencies:
-    "@aws-sdk/is-array-buffer" "^0.1.0-preview.3"
-    "@aws-sdk/is-iterable" "^0.1.0-preview.3"
-    "@aws-sdk/protocol-timestamp" "^0.1.0-preview.7"
-    "@aws-sdk/response-metadata-extractor" "^0.1.0-preview.8"
-    "@aws-sdk/types" "^0.1.0-preview.7"
-    "@aws-sdk/util-error-constructor" "^0.1.0-preview.7"
-    "@aws-sdk/util-uri-escape" "^0.1.0-preview.3"
-    tslib "^1.8.0"
-
-"@aws-sdk/query-error-unmarshaller@^0.1.0-preview.8":
-  version "0.1.0-preview.8"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/query-error-unmarshaller/-/query-error-unmarshaller-0.1.0-preview.8.tgz#bcee4a3adda59b63e21eee220f13b1be7ddb8549"
-  integrity sha512-41lNT9delFhOss5H3eoi/2wYLYFuVqLXutRb5ZM5VvdhE4ZG+L8oE8HM0LSwQBttQFHaZcjdx3x3n9EVatSuCw==
-  dependencies:
-    "@aws-sdk/response-metadata-extractor" "^0.1.0-preview.8"
-    "@aws-sdk/types" "^0.1.0-preview.7"
-    "@aws-sdk/util-error-constructor" "^0.1.0-preview.7"
-    tslib "^1.8.0"
-
 "@aws-sdk/retry-middleware@^0.1.0-preview.7":
   version "0.1.0-preview.7"
   resolved "https://registry.yarnpkg.com/@aws-sdk/retry-middleware/-/retry-middleware-0.1.0-preview.7.tgz#4923089c9a2c5306c91489fd7d041f70f4b597e2"
@@ -244,39 +156,12 @@
     "@aws-sdk/types" "^0.1.0-preview.7"
     tslib "^1.8.0"
 
-"@aws-sdk/s3-error-unmarshaller@^0.1.0-preview.5":
-  version "0.1.0-preview.5"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/s3-error-unmarshaller/-/s3-error-unmarshaller-0.1.0-preview.5.tgz#c17ad7cda6cbde8647fdd3b19be51dedc1f81e0e"
-  integrity sha512-YrHm3qt0Y/k6d0qLDNOylRDAb15EN+0gxtlKo1CUMnlcy3UDi7VjiHbvFuMnkUgb3snXJy1Womj4XkkSznGBtA==
-  dependencies:
-    "@aws-sdk/response-metadata-extractor" "^0.1.0-preview.8"
-    "@aws-sdk/types" "^0.1.0-preview.7"
-    "@aws-sdk/util-error-constructor" "^0.1.0-preview.7"
-    tslib "^1.8.0"
-
 "@aws-sdk/signing-middleware@^0.1.0-preview.10":
   version "0.1.0-preview.10"
   resolved "https://registry.yarnpkg.com/@aws-sdk/signing-middleware/-/signing-middleware-0.1.0-preview.10.tgz#906ff790653c6a07563d9aed5e4805ce276668c0"
   integrity sha512-aKyPNr41JuOhl3QGqGp+XSerwPRbkG/TzBHiNsRX/0EeB1ZyxZ2cckhssswL3k4lvEBPQS0SqnGi2FHXozyOvw==
   dependencies:
     "@aws-sdk/signature-v4" "^0.1.0-preview.10"
-    "@aws-sdk/types" "^0.1.0-preview.7"
-    tslib "^1.8.0"
-
-"@aws-sdk/ssec-middleware@^0.1.0-preview.8":
-  version "0.1.0-preview.8"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/ssec-middleware/-/ssec-middleware-0.1.0-preview.8.tgz#d82764bbb1fa4397711ee74f4625be20a86c52f5"
-  integrity sha512-vDxnda94Wp2M1RXQXPJYedDwNt9sAN2j+N6QvDpwOZ2G2qEVLOvkPPTEz2GwzU6dTQY3HSd/Psomz+9OeamWtA==
-  dependencies:
-    "@aws-sdk/types" "^0.1.0-preview.7"
-    tslib "^1.8.0"
-
-"@aws-sdk/xml-body-parser@^0.1.0-preview.9":
-  version "0.1.0-preview.9"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/xml-body-parser/-/xml-body-parser-0.1.0-preview.9.tgz#d98849bf5b76838c2c99a2dba1f206d028331cb9"
-  integrity sha512-MdRXPxuK27258zlPmfSFgLZ5ljTC7AvMq+J8Hkr6/s4iFeQJjzxXHCmRJ7r/9maUQ0LV8VXDw6khxIQdHKMWAA==
-  dependencies:
-    "@aws-sdk/protocol-timestamp" "^0.1.0-preview.7"
     "@aws-sdk/types" "^0.1.0-preview.7"
     tslib "^1.8.0"
 
