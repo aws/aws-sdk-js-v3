@@ -1,55 +1,40 @@
 import {
-  CommandInput,
-  FinalizeHandler,
-  FinalizeHandlerArguments,
   HttpRequest,
-  AWSClient,
-  Command,
   MetadataBearer,
-  MiddlewareStack
+  SerializeMiddleware
 } from "@aws-sdk/types";
+import { MiddlewareStack } from "@aws-sdk/middleware-stack";
+import { Client, Command } from "@aws-sdk/smithy-client";
 
 export async function createRequest<
   InputTypesUnion extends object,
   InputType extends InputTypesUnion,
-  StreamType,
   OutputType extends MetadataBearer = MetadataBearer
 >(
-  client: AWSClient<InputTypesUnion, MetadataBearer, StreamType>,
-  command: Command<
-    InputTypesUnion,
+  client: Client<any, InputTypesUnion, MetadataBearer, any>,
+  command: Command<InputType, OutputType, any, InputTypesUnion, MetadataBearer>
+): Promise<HttpRequest> {
+  const presignMiddleware: SerializeMiddleware<
     InputType,
-    MetadataBearer,
-    OutputType,
-    any,
-    StreamType
-  >
-): Promise<HttpRequest<StreamType>> {
-  const presignHandler: FinalizeHandler<
-    any,
-    HttpRequest<StreamType>,
-    StreamType
-  > = async (
-    args: FinalizeHandlerArguments<CommandInput>
-  ): Promise<HttpRequest<StreamType>> => Promise.resolve(args.request);
+    OutputType
+  > = next => async args => {
+    return { output: { request: args.request } as any, response: undefined };
+  };
   const clientStack = client.middlewareStack.clone();
-  const commandStack = (command.middlewareStack.clone() as unknown) as MiddlewareStack<
+  const commandStack = command.middlewareStack.clone();
+  const concatenatedStack = clientStack.concat(commandStack) as MiddlewareStack<
     InputType,
-    any,
-    StreamType
+    OutputType
   >;
-  const concatenatedStack = clientStack
-    .concat(commandStack)
-    .filter(middlewareStats => {
-      return (
-        middlewareStats.step === "initialize" ||
-        middlewareStats.step === "serialize"
-      );
-    });
+  //add middleware to the last of 'build' step
+  concatenatedStack.add(presignMiddleware, {
+    step: "serialize",
+    priority: "low"
+  });
 
-  const handler = concatenatedStack.resolve(presignHandler, {
-    model: command.model,
+  const handler = concatenatedStack.resolve((() => {}) as any, {
     logger: {} as any
   });
-  return await handler(command);
+  //@ts-ignore
+  return await handler(command).then(output => output.output.request);
 }
