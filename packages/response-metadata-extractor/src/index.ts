@@ -5,9 +5,7 @@ const REQUEST_ID_ALT_HEADER = "x-amzn-requestid";
 const EXTENDED_REQUEST_ID_HEADER = "x-amz-id-2";
 const CF_ID_HEADER = "x-amz-cf-id";
 
-export function extractMetadata(
-  httpResponse: HttpResponse<any>
-): ResponseMetadata {
+export function extractMetadata(httpResponse: HttpResponse): ResponseMetadata {
   const httpHeaders: HeaderBag = Object.keys(httpResponse.headers).reduce(
     (lowercase: HeaderBag, headerName: string) => {
       lowercase[headerName.toLowerCase()] = httpResponse.headers[headerName];
