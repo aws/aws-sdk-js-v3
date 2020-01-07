@@ -11,7 +11,7 @@ phases:
       - echo Building...
       - yarn --frozen-lockfile
       - echo Executing unit tests
-      - yarn build:smithy-client #TODO: change to `yarn test:all` after clients are ready
+      - yarn test:all
       - echo Executing functional test
       - yarn test:functional
   post_build:
