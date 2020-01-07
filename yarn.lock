@@ -140,6 +140,14 @@
     "@aws-sdk/xml-body-parser" "^0.1.0-preview.9"
     tslib "^1.8.0"
 
+"@aws-sdk/core-handler@^0.1.0-preview.7":
+  version "0.1.0-preview.7"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/core-handler/-/core-handler-0.1.0-preview.7.tgz#2deb6e8a64a4138ebfe8c4337bd84f48a3fdbb0d"
+  integrity sha512-F+BAYmcPGbbK2w6Y9i4RgK9f8ojUuQKoZuFCxiYoujLGoak/p81gACTz3dQyV9/NiY46EvmdpyaGQeLtpfuriQ==
+  dependencies:
+    "@aws-sdk/types" "^0.1.0-preview.7"
+    tslib "^1.8.0"
+
 "@aws-sdk/json-builder@^0.1.0-preview.7":
   version "0.1.0-preview.7"
   resolved "https://registry.yarnpkg.com/@aws-sdk/json-builder/-/json-builder-0.1.0-preview.7.tgz#1b0511671b1adc302c913bbde4199552bdab679b"
