@@ -56,85 +56,6 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class Polly extends PollyClient {
   /**
    *
-   *          <p>Allows the creation of an asynchronous synthesis task, by starting a new <code>SpeechSynthesisTask</code>. This
-   *       operation requires all the standard information needed for speech synthesis, plus the name of an Amazon S3 bucket
-   *       for the service to store the output of the synthesis task and two optional parameters (OutputS3KeyPrefix and SnsTopicArn).
-   *       Once the synthesis task is created, this operation will return a SpeechSynthesisTask object, which will include an
-   *       identifier of this task as well as the current status.</p>
-   *
-   */
-  public startSpeechSynthesisTask(
-    args: StartSpeechSynthesisTaskCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartSpeechSynthesisTaskCommandOutput>;
-  public startSpeechSynthesisTask(
-    args: StartSpeechSynthesisTaskCommandInput,
-    cb: (err: any, data?: StartSpeechSynthesisTaskCommandOutput) => void
-  ): void;
-  public startSpeechSynthesisTask(
-    args: StartSpeechSynthesisTaskCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartSpeechSynthesisTaskCommandOutput) => void
-  ): void;
-  public startSpeechSynthesisTask(
-    args: StartSpeechSynthesisTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartSpeechSynthesisTaskCommandOutput) => void),
-    cb?: (err: any, data?: StartSpeechSynthesisTaskCommandOutput) => void
-  ): Promise<StartSpeechSynthesisTaskCommandOutput> | void {
-    const command = new StartSpeechSynthesisTaskCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Returns a list of SpeechSynthesisTask objects ordered by their creation date. This operation
-   *       can filter the tasks by their status, for example, allowing users to list only tasks that are completed.</p>
-   *
-   */
-  public listSpeechSynthesisTasks(
-    args: ListSpeechSynthesisTasksCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListSpeechSynthesisTasksCommandOutput>;
-  public listSpeechSynthesisTasks(
-    args: ListSpeechSynthesisTasksCommandInput,
-    cb: (err: any, data?: ListSpeechSynthesisTasksCommandOutput) => void
-  ): void;
-  public listSpeechSynthesisTasks(
-    args: ListSpeechSynthesisTasksCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListSpeechSynthesisTasksCommandOutput) => void
-  ): void;
-  public listSpeechSynthesisTasks(
-    args: ListSpeechSynthesisTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSpeechSynthesisTasksCommandOutput) => void),
-    cb?: (err: any, data?: ListSpeechSynthesisTasksCommandOutput) => void
-  ): Promise<ListSpeechSynthesisTasksCommandOutput> | void {
-    const command = new ListSpeechSynthesisTasksCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
    *          <p>Deletes the specified pronunciation lexicon stored in an AWS Region.
    *       A lexicon which has been deleted is not available for speech synthesis,
    *       nor is it possible to retrieve it using either the
@@ -232,33 +153,31 @@ export class Polly extends PollyClient {
 
   /**
    *
-   *          <p>Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes.
-   *       SSML input must be valid, well-formed SSML.
-   *       Some alphabets might not be available with all the voices (for example, Cyrillic might not be read at all by English voices) unless phoneme mapping is used.
-   *       For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html">How it Works</a>.</p>
+   *          <p>Returns the content of the specified pronunciation lexicon stored in an AWS Region.
+   *       For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
    *
    */
-  public synthesizeSpeech(
-    args: SynthesizeSpeechCommandInput,
+  public getLexicon(
+    args: GetLexiconCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<SynthesizeSpeechCommandOutput>;
-  public synthesizeSpeech(
-    args: SynthesizeSpeechCommandInput,
-    cb: (err: any, data?: SynthesizeSpeechCommandOutput) => void
+  ): Promise<GetLexiconCommandOutput>;
+  public getLexicon(
+    args: GetLexiconCommandInput,
+    cb: (err: any, data?: GetLexiconCommandOutput) => void
   ): void;
-  public synthesizeSpeech(
-    args: SynthesizeSpeechCommandInput,
+  public getLexicon(
+    args: GetLexiconCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: SynthesizeSpeechCommandOutput) => void
+    cb: (err: any, data?: GetLexiconCommandOutput) => void
   ): void;
-  public synthesizeSpeech(
-    args: SynthesizeSpeechCommandInput,
+  public getLexicon(
+    args: GetLexiconCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: SynthesizeSpeechCommandOutput) => void),
-    cb?: (err: any, data?: SynthesizeSpeechCommandOutput) => void
-  ): Promise<SynthesizeSpeechCommandOutput> | void {
-    const command = new SynthesizeSpeechCommand(args);
+      | ((err: any, data?: GetLexiconCommandOutput) => void),
+    cb?: (err: any, data?: GetLexiconCommandOutput) => void
+  ): Promise<GetLexiconCommandOutput> | void {
+    const command = new GetLexiconCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -298,6 +217,82 @@ export class Polly extends PollyClient {
     cb?: (err: any, data?: GetSpeechSynthesisTaskCommandOutput) => void
   ): Promise<GetSpeechSynthesisTaskCommandOutput> | void {
     const command = new GetSpeechSynthesisTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Returns a list of pronunciation lexicons stored in an AWS Region.
+   *       For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
+   *
+   */
+  public listLexicons(
+    args: ListLexiconsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLexiconsCommandOutput>;
+  public listLexicons(
+    args: ListLexiconsCommandInput,
+    cb: (err: any, data?: ListLexiconsCommandOutput) => void
+  ): void;
+  public listLexicons(
+    args: ListLexiconsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLexiconsCommandOutput) => void
+  ): void;
+  public listLexicons(
+    args: ListLexiconsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListLexiconsCommandOutput) => void),
+    cb?: (err: any, data?: ListLexiconsCommandOutput) => void
+  ): Promise<ListLexiconsCommandOutput> | void {
+    const command = new ListLexiconsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Returns a list of SpeechSynthesisTask objects ordered by their creation date. This operation
+   *       can filter the tasks by their status, for example, allowing users to list only tasks that are completed.</p>
+   *
+   */
+  public listSpeechSynthesisTasks(
+    args: ListSpeechSynthesisTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSpeechSynthesisTasksCommandOutput>;
+  public listSpeechSynthesisTasks(
+    args: ListSpeechSynthesisTasksCommandInput,
+    cb: (err: any, data?: ListSpeechSynthesisTasksCommandOutput) => void
+  ): void;
+  public listSpeechSynthesisTasks(
+    args: ListSpeechSynthesisTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSpeechSynthesisTasksCommandOutput) => void
+  ): void;
+  public listSpeechSynthesisTasks(
+    args: ListSpeechSynthesisTasksCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListSpeechSynthesisTasksCommandOutput) => void),
+    cb?: (err: any, data?: ListSpeechSynthesisTasksCommandOutput) => void
+  ): Promise<ListSpeechSynthesisTasksCommandOutput> | void {
+    const command = new ListSpeechSynthesisTasksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -353,31 +348,34 @@ export class Polly extends PollyClient {
 
   /**
    *
-   *          <p>Returns the content of the specified pronunciation lexicon stored in an AWS Region.
-   *       For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
+   *          <p>Allows the creation of an asynchronous synthesis task, by starting a new <code>SpeechSynthesisTask</code>. This
+   *       operation requires all the standard information needed for speech synthesis, plus the name of an Amazon S3 bucket
+   *       for the service to store the output of the synthesis task and two optional parameters (OutputS3KeyPrefix and SnsTopicArn).
+   *       Once the synthesis task is created, this operation will return a SpeechSynthesisTask object, which will include an
+   *       identifier of this task as well as the current status.</p>
    *
    */
-  public getLexicon(
-    args: GetLexiconCommandInput,
+  public startSpeechSynthesisTask(
+    args: StartSpeechSynthesisTaskCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<GetLexiconCommandOutput>;
-  public getLexicon(
-    args: GetLexiconCommandInput,
-    cb: (err: any, data?: GetLexiconCommandOutput) => void
+  ): Promise<StartSpeechSynthesisTaskCommandOutput>;
+  public startSpeechSynthesisTask(
+    args: StartSpeechSynthesisTaskCommandInput,
+    cb: (err: any, data?: StartSpeechSynthesisTaskCommandOutput) => void
   ): void;
-  public getLexicon(
-    args: GetLexiconCommandInput,
+  public startSpeechSynthesisTask(
+    args: StartSpeechSynthesisTaskCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetLexiconCommandOutput) => void
+    cb: (err: any, data?: StartSpeechSynthesisTaskCommandOutput) => void
   ): void;
-  public getLexicon(
-    args: GetLexiconCommandInput,
+  public startSpeechSynthesisTask(
+    args: StartSpeechSynthesisTaskCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: GetLexiconCommandOutput) => void),
-    cb?: (err: any, data?: GetLexiconCommandOutput) => void
-  ): Promise<GetLexiconCommandOutput> | void {
-    const command = new GetLexiconCommand(args);
+      | ((err: any, data?: StartSpeechSynthesisTaskCommandOutput) => void),
+    cb?: (err: any, data?: StartSpeechSynthesisTaskCommandOutput) => void
+  ): Promise<StartSpeechSynthesisTaskCommandOutput> | void {
+    const command = new StartSpeechSynthesisTaskCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -391,31 +389,33 @@ export class Polly extends PollyClient {
 
   /**
    *
-   *          <p>Returns a list of pronunciation lexicons stored in an AWS Region.
-   *       For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
+   *          <p>Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes.
+   *       SSML input must be valid, well-formed SSML.
+   *       Some alphabets might not be available with all the voices (for example, Cyrillic might not be read at all by English voices) unless phoneme mapping is used.
+   *       For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html">How it Works</a>.</p>
    *
    */
-  public listLexicons(
-    args: ListLexiconsCommandInput,
+  public synthesizeSpeech(
+    args: SynthesizeSpeechCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListLexiconsCommandOutput>;
-  public listLexicons(
-    args: ListLexiconsCommandInput,
-    cb: (err: any, data?: ListLexiconsCommandOutput) => void
+  ): Promise<SynthesizeSpeechCommandOutput>;
+  public synthesizeSpeech(
+    args: SynthesizeSpeechCommandInput,
+    cb: (err: any, data?: SynthesizeSpeechCommandOutput) => void
   ): void;
-  public listLexicons(
-    args: ListLexiconsCommandInput,
+  public synthesizeSpeech(
+    args: SynthesizeSpeechCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListLexiconsCommandOutput) => void
+    cb: (err: any, data?: SynthesizeSpeechCommandOutput) => void
   ): void;
-  public listLexicons(
-    args: ListLexiconsCommandInput,
+  public synthesizeSpeech(
+    args: SynthesizeSpeechCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListLexiconsCommandOutput) => void),
-    cb?: (err: any, data?: ListLexiconsCommandOutput) => void
-  ): Promise<ListLexiconsCommandOutput> | void {
-    const command = new ListLexiconsCommand(args);
+      | ((err: any, data?: SynthesizeSpeechCommandOutput) => void),
+    cb?: (err: any, data?: SynthesizeSpeechCommandOutput) => void
+  ): Promise<SynthesizeSpeechCommandOutput> | void {
+    const command = new SynthesizeSpeechCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

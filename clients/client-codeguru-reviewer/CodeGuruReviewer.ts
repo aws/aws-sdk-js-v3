@@ -69,31 +69,30 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
 
   /**
    *
-   *          <p>Lists repository associations. You can optionally filter on one or more
-   *         of the following recommendation properties: provider types, states, names, and owners.</p>
+   *          <p>Describes a repository association.</p>
    *
    */
-  public listRepositoryAssociations(
-    args: ListRepositoryAssociationsCommandInput,
+  public describeRepositoryAssociation(
+    args: DescribeRepositoryAssociationCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListRepositoryAssociationsCommandOutput>;
-  public listRepositoryAssociations(
-    args: ListRepositoryAssociationsCommandInput,
-    cb: (err: any, data?: ListRepositoryAssociationsCommandOutput) => void
+  ): Promise<DescribeRepositoryAssociationCommandOutput>;
+  public describeRepositoryAssociation(
+    args: DescribeRepositoryAssociationCommandInput,
+    cb: (err: any, data?: DescribeRepositoryAssociationCommandOutput) => void
   ): void;
-  public listRepositoryAssociations(
-    args: ListRepositoryAssociationsCommandInput,
+  public describeRepositoryAssociation(
+    args: DescribeRepositoryAssociationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListRepositoryAssociationsCommandOutput) => void
+    cb: (err: any, data?: DescribeRepositoryAssociationCommandOutput) => void
   ): void;
-  public listRepositoryAssociations(
-    args: ListRepositoryAssociationsCommandInput,
+  public describeRepositoryAssociation(
+    args: DescribeRepositoryAssociationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListRepositoryAssociationsCommandOutput) => void),
-    cb?: (err: any, data?: ListRepositoryAssociationsCommandOutput) => void
-  ): Promise<ListRepositoryAssociationsCommandOutput> | void {
-    const command = new ListRepositoryAssociationsCommand(args);
+      | ((err: any, data?: DescribeRepositoryAssociationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeRepositoryAssociationCommandOutput) => void
+  ): Promise<DescribeRepositoryAssociationCommandOutput> | void {
+    const command = new DescribeRepositoryAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -144,30 +143,31 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
 
   /**
    *
-   *          <p>Describes a repository association.</p>
+   *          <p>Lists repository associations. You can optionally filter on one or more
+   *         of the following recommendation properties: provider types, states, names, and owners.</p>
    *
    */
-  public describeRepositoryAssociation(
-    args: DescribeRepositoryAssociationCommandInput,
+  public listRepositoryAssociations(
+    args: ListRepositoryAssociationsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DescribeRepositoryAssociationCommandOutput>;
-  public describeRepositoryAssociation(
-    args: DescribeRepositoryAssociationCommandInput,
-    cb: (err: any, data?: DescribeRepositoryAssociationCommandOutput) => void
+  ): Promise<ListRepositoryAssociationsCommandOutput>;
+  public listRepositoryAssociations(
+    args: ListRepositoryAssociationsCommandInput,
+    cb: (err: any, data?: ListRepositoryAssociationsCommandOutput) => void
   ): void;
-  public describeRepositoryAssociation(
-    args: DescribeRepositoryAssociationCommandInput,
+  public listRepositoryAssociations(
+    args: ListRepositoryAssociationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeRepositoryAssociationCommandOutput) => void
+    cb: (err: any, data?: ListRepositoryAssociationsCommandOutput) => void
   ): void;
-  public describeRepositoryAssociation(
-    args: DescribeRepositoryAssociationCommandInput,
+  public listRepositoryAssociations(
+    args: ListRepositoryAssociationsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRepositoryAssociationCommandOutput) => void),
-    cb?: (err: any, data?: DescribeRepositoryAssociationCommandOutput) => void
-  ): Promise<DescribeRepositoryAssociationCommandOutput> | void {
-    const command = new DescribeRepositoryAssociationCommand(args);
+      | ((err: any, data?: ListRepositoryAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: ListRepositoryAssociationsCommandOutput) => void
+  ): Promise<ListRepositoryAssociationsCommandOutput> | void {
+    const command = new ListRepositoryAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

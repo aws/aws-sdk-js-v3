@@ -131,29 +131,64 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class MediaConvert extends MediaConvertClient {
   /**
-   * Permanently delete a queue you have created.
+   * Associates an AWS Certificate Manager (ACM) Amazon Resource Name (ARN) with AWS Elemental MediaConvert.
    */
-  public deleteQueue(
-    args: DeleteQueueCommandInput,
+  public associateCertificate(
+    args: AssociateCertificateCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteQueueCommandOutput>;
-  public deleteQueue(
-    args: DeleteQueueCommandInput,
-    cb: (err: any, data?: DeleteQueueCommandOutput) => void
+  ): Promise<AssociateCertificateCommandOutput>;
+  public associateCertificate(
+    args: AssociateCertificateCommandInput,
+    cb: (err: any, data?: AssociateCertificateCommandOutput) => void
   ): void;
-  public deleteQueue(
-    args: DeleteQueueCommandInput,
+  public associateCertificate(
+    args: AssociateCertificateCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteQueueCommandOutput) => void
+    cb: (err: any, data?: AssociateCertificateCommandOutput) => void
   ): void;
-  public deleteQueue(
-    args: DeleteQueueCommandInput,
+  public associateCertificate(
+    args: AssociateCertificateCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DeleteQueueCommandOutput) => void),
-    cb?: (err: any, data?: DeleteQueueCommandOutput) => void
-  ): Promise<DeleteQueueCommandOutput> | void {
-    const command = new DeleteQueueCommand(args);
+      | ((err: any, data?: AssociateCertificateCommandOutput) => void),
+    cb?: (err: any, data?: AssociateCertificateCommandOutput) => void
+  ): Promise<AssociateCertificateCommandOutput> | void {
+    const command = new AssociateCertificateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Permanently cancel a job. Once you have canceled a job, you can't start it again.
+   */
+  public cancelJob(
+    args: CancelJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelJobCommandOutput>;
+  public cancelJob(
+    args: CancelJobCommandInput,
+    cb: (err: any, data?: CancelJobCommandOutput) => void
+  ): void;
+  public cancelJob(
+    args: CancelJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelJobCommandOutput) => void
+  ): void;
+  public cancelJob(
+    args: CancelJobCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CancelJobCommandOutput) => void),
+    cb?: (err: any, data?: CancelJobCommandOutput) => void
+  ): Promise<CancelJobCommandOutput> | void {
+    const command = new CancelJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -201,111 +236,6 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
-   * Remove tags from a MediaConvert queue, preset, or job template. For information about tagging, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-resources.html
-   */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * Modify one of your existing queues.
-   */
-  public updateQueue(
-    args: UpdateQueueCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateQueueCommandOutput>;
-  public updateQueue(
-    args: UpdateQueueCommandInput,
-    cb: (err: any, data?: UpdateQueueCommandOutput) => void
-  ): void;
-  public updateQueue(
-    args: UpdateQueueCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateQueueCommandOutput) => void
-  ): void;
-  public updateQueue(
-    args: UpdateQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateQueueCommandOutput) => void),
-    cb?: (err: any, data?: UpdateQueueCommandOutput) => void
-  ): Promise<UpdateQueueCommandOutput> | void {
-    const command = new UpdateQueueCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * Retrieve the JSON for a specific preset.
-   */
-  public getPreset(
-    args: GetPresetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetPresetCommandOutput>;
-  public getPreset(
-    args: GetPresetCommandInput,
-    cb: (err: any, data?: GetPresetCommandOutput) => void
-  ): void;
-  public getPreset(
-    args: GetPresetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetPresetCommandOutput) => void
-  ): void;
-  public getPreset(
-    args: GetPresetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPresetCommandOutput) => void),
-    cb?: (err: any, data?: GetPresetCommandOutput) => void
-  ): Promise<GetPresetCommandOutput> | void {
-    const command = new GetPresetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * Create a new job template. For information about job templates see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
    */
   public createJobTemplate(
@@ -329,6 +259,181 @@ export class MediaConvert extends MediaConvertClient {
     cb?: (err: any, data?: CreateJobTemplateCommandOutput) => void
   ): Promise<CreateJobTemplateCommandOutput> | void {
     const command = new CreateJobTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Create a new preset. For information about job templates see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+   */
+  public createPreset(
+    args: CreatePresetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePresetCommandOutput>;
+  public createPreset(
+    args: CreatePresetCommandInput,
+    cb: (err: any, data?: CreatePresetCommandOutput) => void
+  ): void;
+  public createPreset(
+    args: CreatePresetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePresetCommandOutput) => void
+  ): void;
+  public createPreset(
+    args: CreatePresetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreatePresetCommandOutput) => void),
+    cb?: (err: any, data?: CreatePresetCommandOutput) => void
+  ): Promise<CreatePresetCommandOutput> | void {
+    const command = new CreatePresetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Create a new transcoding queue. For information about queues, see Working With Queues in the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html
+   */
+  public createQueue(
+    args: CreateQueueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateQueueCommandOutput>;
+  public createQueue(
+    args: CreateQueueCommandInput,
+    cb: (err: any, data?: CreateQueueCommandOutput) => void
+  ): void;
+  public createQueue(
+    args: CreateQueueCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateQueueCommandOutput) => void
+  ): void;
+  public createQueue(
+    args: CreateQueueCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateQueueCommandOutput) => void),
+    cb?: (err: any, data?: CreateQueueCommandOutput) => void
+  ): Promise<CreateQueueCommandOutput> | void {
+    const command = new CreateQueueCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Permanently delete a job template you have created.
+   */
+  public deleteJobTemplate(
+    args: DeleteJobTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteJobTemplateCommandOutput>;
+  public deleteJobTemplate(
+    args: DeleteJobTemplateCommandInput,
+    cb: (err: any, data?: DeleteJobTemplateCommandOutput) => void
+  ): void;
+  public deleteJobTemplate(
+    args: DeleteJobTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteJobTemplateCommandOutput) => void
+  ): void;
+  public deleteJobTemplate(
+    args: DeleteJobTemplateCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteJobTemplateCommandOutput) => void),
+    cb?: (err: any, data?: DeleteJobTemplateCommandOutput) => void
+  ): Promise<DeleteJobTemplateCommandOutput> | void {
+    const command = new DeleteJobTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Permanently delete a preset you have created.
+   */
+  public deletePreset(
+    args: DeletePresetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePresetCommandOutput>;
+  public deletePreset(
+    args: DeletePresetCommandInput,
+    cb: (err: any, data?: DeletePresetCommandOutput) => void
+  ): void;
+  public deletePreset(
+    args: DeletePresetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePresetCommandOutput) => void
+  ): void;
+  public deletePreset(
+    args: DeletePresetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeletePresetCommandOutput) => void),
+    cb?: (err: any, data?: DeletePresetCommandOutput) => void
+  ): Promise<DeletePresetCommandOutput> | void {
+    const command = new DeletePresetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Permanently delete a queue you have created.
+   */
+  public deleteQueue(
+    args: DeleteQueueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteQueueCommandOutput>;
+  public deleteQueue(
+    args: DeleteQueueCommandInput,
+    cb: (err: any, data?: DeleteQueueCommandOutput) => void
+  ): void;
+  public deleteQueue(
+    args: DeleteQueueCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteQueueCommandOutput) => void
+  ): void;
+  public deleteQueue(
+    args: DeleteQueueCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteQueueCommandOutput) => void),
+    cb?: (err: any, data?: DeleteQueueCommandOutput) => void
+  ): Promise<DeleteQueueCommandOutput> | void {
+    const command = new DeleteQueueCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -376,29 +481,29 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
-   * Associates an AWS Certificate Manager (ACM) Amazon Resource Name (ARN) with AWS Elemental MediaConvert.
+   * Removes an association between the Amazon Resource Name (ARN) of an AWS Certificate Manager (ACM) certificate and an AWS Elemental MediaConvert resource.
    */
-  public associateCertificate(
-    args: AssociateCertificateCommandInput,
+  public disassociateCertificate(
+    args: DisassociateCertificateCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<AssociateCertificateCommandOutput>;
-  public associateCertificate(
-    args: AssociateCertificateCommandInput,
-    cb: (err: any, data?: AssociateCertificateCommandOutput) => void
+  ): Promise<DisassociateCertificateCommandOutput>;
+  public disassociateCertificate(
+    args: DisassociateCertificateCommandInput,
+    cb: (err: any, data?: DisassociateCertificateCommandOutput) => void
   ): void;
-  public associateCertificate(
-    args: AssociateCertificateCommandInput,
+  public disassociateCertificate(
+    args: DisassociateCertificateCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: AssociateCertificateCommandOutput) => void
+    cb: (err: any, data?: DisassociateCertificateCommandOutput) => void
   ): void;
-  public associateCertificate(
-    args: AssociateCertificateCommandInput,
+  public disassociateCertificate(
+    args: DisassociateCertificateCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: AssociateCertificateCommandOutput) => void),
-    cb?: (err: any, data?: AssociateCertificateCommandOutput) => void
-  ): Promise<AssociateCertificateCommandOutput> | void {
-    const command = new AssociateCertificateCommand(args);
+      | ((err: any, data?: DisassociateCertificateCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateCertificateCommandOutput) => void
+  ): Promise<DisassociateCertificateCommandOutput> | void {
+    const command = new DisassociateCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -411,29 +516,99 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
-   * Retrieve a JSON array of up to twenty of your queues. This will return the queues themselves, not just a list of them. To retrieve the next twenty queues, use the nextToken string returned with the array.
+   * Retrieve the JSON for a specific completed transcoding job.
    */
-  public listQueues(
-    args: ListQueuesCommandInput,
+  public getJob(
+    args: GetJobCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListQueuesCommandOutput>;
-  public listQueues(
-    args: ListQueuesCommandInput,
-    cb: (err: any, data?: ListQueuesCommandOutput) => void
+  ): Promise<GetJobCommandOutput>;
+  public getJob(
+    args: GetJobCommandInput,
+    cb: (err: any, data?: GetJobCommandOutput) => void
   ): void;
-  public listQueues(
-    args: ListQueuesCommandInput,
+  public getJob(
+    args: GetJobCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListQueuesCommandOutput) => void
+    cb: (err: any, data?: GetJobCommandOutput) => void
   ): void;
-  public listQueues(
-    args: ListQueuesCommandInput,
+  public getJob(
+    args: GetJobCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListQueuesCommandOutput) => void),
-    cb?: (err: any, data?: ListQueuesCommandOutput) => void
-  ): Promise<ListQueuesCommandOutput> | void {
-    const command = new ListQueuesCommand(args);
+      | ((err: any, data?: GetJobCommandOutput) => void),
+    cb?: (err: any, data?: GetJobCommandOutput) => void
+  ): Promise<GetJobCommandOutput> | void {
+    const command = new GetJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Retrieve the JSON for a specific job template.
+   */
+  public getJobTemplate(
+    args: GetJobTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetJobTemplateCommandOutput>;
+  public getJobTemplate(
+    args: GetJobTemplateCommandInput,
+    cb: (err: any, data?: GetJobTemplateCommandOutput) => void
+  ): void;
+  public getJobTemplate(
+    args: GetJobTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetJobTemplateCommandOutput) => void
+  ): void;
+  public getJobTemplate(
+    args: GetJobTemplateCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetJobTemplateCommandOutput) => void),
+    cb?: (err: any, data?: GetJobTemplateCommandOutput) => void
+  ): Promise<GetJobTemplateCommandOutput> | void {
+    const command = new GetJobTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Retrieve the JSON for a specific preset.
+   */
+  public getPreset(
+    args: GetPresetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPresetCommandOutput>;
+  public getPreset(
+    args: GetPresetCommandInput,
+    cb: (err: any, data?: GetPresetCommandOutput) => void
+  ): void;
+  public getPreset(
+    args: GetPresetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPresetCommandOutput) => void
+  ): void;
+  public getPreset(
+    args: GetPresetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetPresetCommandOutput) => void),
+    cb?: (err: any, data?: GetPresetCommandOutput) => void
+  ): Promise<GetPresetCommandOutput> | void {
+    const command = new GetPresetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -516,169 +691,29 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
-   * Permanently delete a job template you have created.
+   * Retrieve a JSON array of up to twenty of your most recently created jobs. This array includes in-process, completed, and errored jobs. This will return the jobs themselves, not just a list of the jobs. To retrieve the twenty next most recent jobs, use the nextToken string returned with the array.
    */
-  public deleteJobTemplate(
-    args: DeleteJobTemplateCommandInput,
+  public listJobs(
+    args: ListJobsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteJobTemplateCommandOutput>;
-  public deleteJobTemplate(
-    args: DeleteJobTemplateCommandInput,
-    cb: (err: any, data?: DeleteJobTemplateCommandOutput) => void
+  ): Promise<ListJobsCommandOutput>;
+  public listJobs(
+    args: ListJobsCommandInput,
+    cb: (err: any, data?: ListJobsCommandOutput) => void
   ): void;
-  public deleteJobTemplate(
-    args: DeleteJobTemplateCommandInput,
+  public listJobs(
+    args: ListJobsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteJobTemplateCommandOutput) => void
+    cb: (err: any, data?: ListJobsCommandOutput) => void
   ): void;
-  public deleteJobTemplate(
-    args: DeleteJobTemplateCommandInput,
+  public listJobs(
+    args: ListJobsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DeleteJobTemplateCommandOutput) => void),
-    cb?: (err: any, data?: DeleteJobTemplateCommandOutput) => void
-  ): Promise<DeleteJobTemplateCommandOutput> | void {
-    const command = new DeleteJobTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * Retrieve the JSON for a specific completed transcoding job.
-   */
-  public getJob(
-    args: GetJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetJobCommandOutput>;
-  public getJob(
-    args: GetJobCommandInput,
-    cb: (err: any, data?: GetJobCommandOutput) => void
-  ): void;
-  public getJob(
-    args: GetJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetJobCommandOutput) => void
-  ): void;
-  public getJob(
-    args: GetJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobCommandOutput) => void),
-    cb?: (err: any, data?: GetJobCommandOutput) => void
-  ): Promise<GetJobCommandOutput> | void {
-    const command = new GetJobCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * Retrieve the tags for a MediaConvert resource.
-   */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * Permanently delete a preset you have created.
-   */
-  public deletePreset(
-    args: DeletePresetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeletePresetCommandOutput>;
-  public deletePreset(
-    args: DeletePresetCommandInput,
-    cb: (err: any, data?: DeletePresetCommandOutput) => void
-  ): void;
-  public deletePreset(
-    args: DeletePresetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeletePresetCommandOutput) => void
-  ): void;
-  public deletePreset(
-    args: DeletePresetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePresetCommandOutput) => void),
-    cb?: (err: any, data?: DeletePresetCommandOutput) => void
-  ): Promise<DeletePresetCommandOutput> | void {
-    const command = new DeletePresetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * Create a new transcoding queue. For information about queues, see Working With Queues in the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html
-   */
-  public createQueue(
-    args: CreateQueueCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateQueueCommandOutput>;
-  public createQueue(
-    args: CreateQueueCommandInput,
-    cb: (err: any, data?: CreateQueueCommandOutput) => void
-  ): void;
-  public createQueue(
-    args: CreateQueueCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateQueueCommandOutput) => void
-  ): void;
-  public createQueue(
-    args: CreateQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateQueueCommandOutput) => void),
-    cb?: (err: any, data?: CreateQueueCommandOutput) => void
-  ): Promise<CreateQueueCommandOutput> | void {
-    const command = new CreateQueueCommand(args);
+      | ((err: any, data?: ListJobsCommandOutput) => void),
+    cb?: (err: any, data?: ListJobsCommandOutput) => void
+  ): Promise<ListJobsCommandOutput> | void {
+    const command = new ListJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -726,29 +761,29 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
-   * Retrieve a JSON array of up to twenty of your most recently created jobs. This array includes in-process, completed, and errored jobs. This will return the jobs themselves, not just a list of the jobs. To retrieve the twenty next most recent jobs, use the nextToken string returned with the array.
+   * Retrieve a JSON array of up to twenty of your queues. This will return the queues themselves, not just a list of them. To retrieve the next twenty queues, use the nextToken string returned with the array.
    */
-  public listJobs(
-    args: ListJobsCommandInput,
+  public listQueues(
+    args: ListQueuesCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListJobsCommandOutput>;
-  public listJobs(
-    args: ListJobsCommandInput,
-    cb: (err: any, data?: ListJobsCommandOutput) => void
+  ): Promise<ListQueuesCommandOutput>;
+  public listQueues(
+    args: ListQueuesCommandInput,
+    cb: (err: any, data?: ListQueuesCommandOutput) => void
   ): void;
-  public listJobs(
-    args: ListJobsCommandInput,
+  public listQueues(
+    args: ListQueuesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListJobsCommandOutput) => void
+    cb: (err: any, data?: ListQueuesCommandOutput) => void
   ): void;
-  public listJobs(
-    args: ListJobsCommandInput,
+  public listQueues(
+    args: ListQueuesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListJobsCommandOutput) => void),
-    cb?: (err: any, data?: ListJobsCommandOutput) => void
-  ): Promise<ListJobsCommandOutput> | void {
-    const command = new ListJobsCommand(args);
+      | ((err: any, data?: ListQueuesCommandOutput) => void),
+    cb?: (err: any, data?: ListQueuesCommandOutput) => void
+  ): Promise<ListQueuesCommandOutput> | void {
+    const command = new ListQueuesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -761,29 +796,29 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
-   * Create a new preset. For information about job templates see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+   * Retrieve the tags for a MediaConvert resource.
    */
-  public createPreset(
-    args: CreatePresetCommandInput,
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreatePresetCommandOutput>;
-  public createPreset(
-    args: CreatePresetCommandInput,
-    cb: (err: any, data?: CreatePresetCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
-  public createPreset(
-    args: CreatePresetCommandInput,
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreatePresetCommandOutput) => void
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
-  public createPreset(
-    args: CreatePresetCommandInput,
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: CreatePresetCommandOutput) => void),
-    cb?: (err: any, data?: CreatePresetCommandOutput) => void
-  ): Promise<CreatePresetCommandOutput> | void {
-    const command = new CreatePresetCommand(args);
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -831,99 +866,29 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
-   * Removes an association between the Amazon Resource Name (ARN) of an AWS Certificate Manager (ACM) certificate and an AWS Elemental MediaConvert resource.
+   * Remove tags from a MediaConvert queue, preset, or job template. For information about tagging, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-resources.html
    */
-  public disassociateCertificate(
-    args: DisassociateCertificateCommandInput,
+  public untagResource(
+    args: UntagResourceCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DisassociateCertificateCommandOutput>;
-  public disassociateCertificate(
-    args: DisassociateCertificateCommandInput,
-    cb: (err: any, data?: DisassociateCertificateCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
-  public disassociateCertificate(
-    args: DisassociateCertificateCommandInput,
+  public untagResource(
+    args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DisassociateCertificateCommandOutput) => void
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
-  public disassociateCertificate(
-    args: DisassociateCertificateCommandInput,
+  public untagResource(
+    args: UntagResourceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateCertificateCommandOutput) => void),
-    cb?: (err: any, data?: DisassociateCertificateCommandOutput) => void
-  ): Promise<DisassociateCertificateCommandOutput> | void {
-    const command = new DisassociateCertificateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * Retrieve the JSON for a specific job template.
-   */
-  public getJobTemplate(
-    args: GetJobTemplateCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetJobTemplateCommandOutput>;
-  public getJobTemplate(
-    args: GetJobTemplateCommandInput,
-    cb: (err: any, data?: GetJobTemplateCommandOutput) => void
-  ): void;
-  public getJobTemplate(
-    args: GetJobTemplateCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetJobTemplateCommandOutput) => void
-  ): void;
-  public getJobTemplate(
-    args: GetJobTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobTemplateCommandOutput) => void),
-    cb?: (err: any, data?: GetJobTemplateCommandOutput) => void
-  ): Promise<GetJobTemplateCommandOutput> | void {
-    const command = new GetJobTemplateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * Modify one of your existing presets.
-   */
-  public updatePreset(
-    args: UpdatePresetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdatePresetCommandOutput>;
-  public updatePreset(
-    args: UpdatePresetCommandInput,
-    cb: (err: any, data?: UpdatePresetCommandOutput) => void
-  ): void;
-  public updatePreset(
-    args: UpdatePresetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdatePresetCommandOutput) => void
-  ): void;
-  public updatePreset(
-    args: UpdatePresetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePresetCommandOutput) => void),
-    cb?: (err: any, data?: UpdatePresetCommandOutput) => void
-  ): Promise<UpdatePresetCommandOutput> | void {
-    const command = new UpdatePresetCommand(args);
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -971,29 +936,64 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
-   * Permanently cancel a job. Once you have canceled a job, you can't start it again.
+   * Modify one of your existing presets.
    */
-  public cancelJob(
-    args: CancelJobCommandInput,
+  public updatePreset(
+    args: UpdatePresetCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CancelJobCommandOutput>;
-  public cancelJob(
-    args: CancelJobCommandInput,
-    cb: (err: any, data?: CancelJobCommandOutput) => void
+  ): Promise<UpdatePresetCommandOutput>;
+  public updatePreset(
+    args: UpdatePresetCommandInput,
+    cb: (err: any, data?: UpdatePresetCommandOutput) => void
   ): void;
-  public cancelJob(
-    args: CancelJobCommandInput,
+  public updatePreset(
+    args: UpdatePresetCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CancelJobCommandOutput) => void
+    cb: (err: any, data?: UpdatePresetCommandOutput) => void
   ): void;
-  public cancelJob(
-    args: CancelJobCommandInput,
+  public updatePreset(
+    args: UpdatePresetCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: CancelJobCommandOutput) => void),
-    cb?: (err: any, data?: CancelJobCommandOutput) => void
-  ): Promise<CancelJobCommandOutput> | void {
-    const command = new CancelJobCommand(args);
+      | ((err: any, data?: UpdatePresetCommandOutput) => void),
+    cb?: (err: any, data?: UpdatePresetCommandOutput) => void
+  ): Promise<UpdatePresetCommandOutput> | void {
+    const command = new UpdatePresetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Modify one of your existing queues.
+   */
+  public updateQueue(
+    args: UpdateQueueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateQueueCommandOutput>;
+  public updateQueue(
+    args: UpdateQueueCommandInput,
+    cb: (err: any, data?: UpdateQueueCommandOutput) => void
+  ): void;
+  public updateQueue(
+    args: UpdateQueueCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateQueueCommandOutput) => void
+  ): void;
+  public updateQueue(
+    args: UpdateQueueCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateQueueCommandOutput) => void),
+    cb?: (err: any, data?: UpdateQueueCommandOutput) => void
+  ): Promise<UpdateQueueCommandOutput> | void {
+    const command = new UpdateQueueCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

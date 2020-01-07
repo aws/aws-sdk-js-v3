@@ -45,30 +45,107 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class MarketplaceCatalog extends MarketplaceCatalogClient {
   /**
    *
-   *         <p>Provides the list of entities of a given type.</p>
+   *         <p>Used to cancel an open change request. Must be sent before the status of the request
+   *             changes to <code>APPLYING</code>, the final stage of completing your change request. You
+   *             can describe a change during the 60-day request history retention period for API
+   *             calls.</p>
    *
    */
-  public listEntities(
-    args: ListEntitiesCommandInput,
+  public cancelChangeSet(
+    args: CancelChangeSetCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListEntitiesCommandOutput>;
-  public listEntities(
-    args: ListEntitiesCommandInput,
-    cb: (err: any, data?: ListEntitiesCommandOutput) => void
+  ): Promise<CancelChangeSetCommandOutput>;
+  public cancelChangeSet(
+    args: CancelChangeSetCommandInput,
+    cb: (err: any, data?: CancelChangeSetCommandOutput) => void
   ): void;
-  public listEntities(
-    args: ListEntitiesCommandInput,
+  public cancelChangeSet(
+    args: CancelChangeSetCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListEntitiesCommandOutput) => void
+    cb: (err: any, data?: CancelChangeSetCommandOutput) => void
   ): void;
-  public listEntities(
-    args: ListEntitiesCommandInput,
+  public cancelChangeSet(
+    args: CancelChangeSetCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListEntitiesCommandOutput) => void),
-    cb?: (err: any, data?: ListEntitiesCommandOutput) => void
-  ): Promise<ListEntitiesCommandOutput> | void {
-    const command = new ListEntitiesCommand(args);
+      | ((err: any, data?: CancelChangeSetCommandOutput) => void),
+    cb?: (err: any, data?: CancelChangeSetCommandOutput) => void
+  ): Promise<CancelChangeSetCommandOutput> | void {
+    const command = new CancelChangeSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>Provides information about a given change set.</p>
+   *
+   */
+  public describeChangeSet(
+    args: DescribeChangeSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeChangeSetCommandOutput>;
+  public describeChangeSet(
+    args: DescribeChangeSetCommandInput,
+    cb: (err: any, data?: DescribeChangeSetCommandOutput) => void
+  ): void;
+  public describeChangeSet(
+    args: DescribeChangeSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeChangeSetCommandOutput) => void
+  ): void;
+  public describeChangeSet(
+    args: DescribeChangeSetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeChangeSetCommandOutput) => void),
+    cb?: (err: any, data?: DescribeChangeSetCommandOutput) => void
+  ): Promise<DescribeChangeSetCommandOutput> | void {
+    const command = new DescribeChangeSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>Returns the metadata and content of the entity.</p>
+   *
+   */
+  public describeEntity(
+    args: DescribeEntityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEntityCommandOutput>;
+  public describeEntity(
+    args: DescribeEntityCommandInput,
+    cb: (err: any, data?: DescribeEntityCommandOutput) => void
+  ): void;
+  public describeEntity(
+    args: DescribeEntityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEntityCommandOutput) => void
+  ): void;
+  public describeEntity(
+    args: DescribeEntityCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeEntityCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEntityCommandOutput) => void
+  ): Promise<DescribeEntityCommandOutput> | void {
+    const command = new DescribeEntityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -125,30 +202,30 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
 
   /**
    *
-   *         <p>Provides information about a given change set.</p>
+   *         <p>Provides the list of entities of a given type.</p>
    *
    */
-  public describeChangeSet(
-    args: DescribeChangeSetCommandInput,
+  public listEntities(
+    args: ListEntitiesCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DescribeChangeSetCommandOutput>;
-  public describeChangeSet(
-    args: DescribeChangeSetCommandInput,
-    cb: (err: any, data?: DescribeChangeSetCommandOutput) => void
+  ): Promise<ListEntitiesCommandOutput>;
+  public listEntities(
+    args: ListEntitiesCommandInput,
+    cb: (err: any, data?: ListEntitiesCommandOutput) => void
   ): void;
-  public describeChangeSet(
-    args: DescribeChangeSetCommandInput,
+  public listEntities(
+    args: ListEntitiesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeChangeSetCommandOutput) => void
+    cb: (err: any, data?: ListEntitiesCommandOutput) => void
   ): void;
-  public describeChangeSet(
-    args: DescribeChangeSetCommandInput,
+  public listEntities(
+    args: ListEntitiesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DescribeChangeSetCommandOutput) => void),
-    cb?: (err: any, data?: DescribeChangeSetCommandOutput) => void
-  ): Promise<DescribeChangeSetCommandOutput> | void {
-    const command = new DescribeChangeSetCommand(args);
+      | ((err: any, data?: ListEntitiesCommandOutput) => void),
+    cb?: (err: any, data?: ListEntitiesCommandOutput) => void
+  ): Promise<ListEntitiesCommandOutput> | void {
+    const command = new ListEntitiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -187,83 +264,6 @@ export class MarketplaceCatalog extends MarketplaceCatalogClient {
     cb?: (err: any, data?: StartChangeSetCommandOutput) => void
   ): Promise<StartChangeSetCommandOutput> | void {
     const command = new StartChangeSetCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>Returns the metadata and content of the entity.</p>
-   *
-   */
-  public describeEntity(
-    args: DescribeEntityCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeEntityCommandOutput>;
-  public describeEntity(
-    args: DescribeEntityCommandInput,
-    cb: (err: any, data?: DescribeEntityCommandOutput) => void
-  ): void;
-  public describeEntity(
-    args: DescribeEntityCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeEntityCommandOutput) => void
-  ): void;
-  public describeEntity(
-    args: DescribeEntityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEntityCommandOutput) => void),
-    cb?: (err: any, data?: DescribeEntityCommandOutput) => void
-  ): Promise<DescribeEntityCommandOutput> | void {
-    const command = new DescribeEntityCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>Used to cancel an open change request. Must be sent before the status of the request
-   *             changes to <code>APPLYING</code>, the final stage of completing your change request. You
-   *             can describe a change during the 60-day request history retention period for API
-   *             calls.</p>
-   *
-   */
-  public cancelChangeSet(
-    args: CancelChangeSetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CancelChangeSetCommandOutput>;
-  public cancelChangeSet(
-    args: CancelChangeSetCommandInput,
-    cb: (err: any, data?: CancelChangeSetCommandOutput) => void
-  ): void;
-  public cancelChangeSet(
-    args: CancelChangeSetCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CancelChangeSetCommandOutput) => void
-  ): void;
-  public cancelChangeSet(
-    args: CancelChangeSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelChangeSetCommandOutput) => void),
-    cb?: (err: any, data?: CancelChangeSetCommandOutput) => void
-  ): Promise<CancelChangeSetCommandOutput> | void {
-    const command = new CancelChangeSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

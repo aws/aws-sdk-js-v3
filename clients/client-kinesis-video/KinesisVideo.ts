@@ -59,32 +59,131 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class KinesisVideo extends KinesisVideoClient {
   /**
    *
-   *          <p>Removes one or more tags from a stream. In the request, specify only a tag key or keys;
-   *       don't specify the value. If you specify a tag key that does not exist, it's ignored.</p>
-   *          <p>In the request, you must provide the <code>StreamName</code> or <code>StreamARN</code>.</p>
+   *          <p>Creates a new Kinesis video stream. </p>
+   *
+   *          <p>When you create a new stream, Kinesis Video Streams assigns it a version number.
+   *       When you change the stream's metadata, Kinesis Video Streams updates the version.
+   *     </p>
+   *          <p>
+   *             <code>CreateStream</code> is an asynchronous operation.</p>
+   *          <p>For information about how the service works, see
+   *
+   *       <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html">How it Works</a>.
+   *     </p>
+   *          <p>You must have permissions for the
+   *       <code>KinesisVideo:CreateStream</code> action.</p>
    *
    */
-  public untagStream(
-    args: UntagStreamCommandInput,
+  public createStream(
+    args: CreateStreamCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UntagStreamCommandOutput>;
-  public untagStream(
-    args: UntagStreamCommandInput,
-    cb: (err: any, data?: UntagStreamCommandOutput) => void
+  ): Promise<CreateStreamCommandOutput>;
+  public createStream(
+    args: CreateStreamCommandInput,
+    cb: (err: any, data?: CreateStreamCommandOutput) => void
   ): void;
-  public untagStream(
-    args: UntagStreamCommandInput,
+  public createStream(
+    args: CreateStreamCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagStreamCommandOutput) => void
+    cb: (err: any, data?: CreateStreamCommandOutput) => void
   ): void;
-  public untagStream(
-    args: UntagStreamCommandInput,
+  public createStream(
+    args: CreateStreamCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: UntagStreamCommandOutput) => void),
-    cb?: (err: any, data?: UntagStreamCommandOutput) => void
-  ): Promise<UntagStreamCommandOutput> | void {
-    const command = new UntagStreamCommand(args);
+      | ((err: any, data?: CreateStreamCommandOutput) => void),
+    cb?: (err: any, data?: CreateStreamCommandOutput) => void
+  ): Promise<CreateStreamCommandOutput> | void {
+    const command = new CreateStreamCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Deletes a Kinesis video stream and the data contained in the stream.
+   *
+   *
+   *     </p>
+   *          <p>This method marks the stream for deletion, and makes the data in the stream inaccessible immediately.</p>
+   *          <p>
+   *
+   *     </p>
+   *          <p> To ensure that you have the latest version of the stream before deleting it, you can
+   *       specify the stream version. Kinesis Video Streams assigns a version to each stream. When you
+   *       update a stream, Kinesis Video Streams assigns a new version number. To get the latest stream
+   *       version, use the <code>DescribeStream</code> API. </p>
+   *          <p>This operation requires permission for the <code>KinesisVideo:DeleteStream</code>
+   *       action.</p>
+   *
+   */
+  public deleteStream(
+    args: DeleteStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteStreamCommandOutput>;
+  public deleteStream(
+    args: DeleteStreamCommandInput,
+    cb: (err: any, data?: DeleteStreamCommandOutput) => void
+  ): void;
+  public deleteStream(
+    args: DeleteStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteStreamCommandOutput) => void
+  ): void;
+  public deleteStream(
+    args: DeleteStreamCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteStreamCommandOutput) => void),
+    cb?: (err: any, data?: DeleteStreamCommandOutput) => void
+  ): Promise<DeleteStreamCommandOutput> | void {
+    const command = new DeleteStreamCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Returns the most current information about the specified stream.
+   *     You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.
+   *     </p>
+   *
+   */
+  public describeStream(
+    args: DescribeStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeStreamCommandOutput>;
+  public describeStream(
+    args: DescribeStreamCommandInput,
+    cb: (err: any, data?: DescribeStreamCommandOutput) => void
+  ): void;
+  public describeStream(
+    args: DescribeStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeStreamCommandOutput) => void
+  ): void;
+  public describeStream(
+    args: DescribeStreamCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeStreamCommandOutput) => void),
+    cb?: (err: any, data?: DescribeStreamCommandOutput) => void
+  ): Promise<DescribeStreamCommandOutput> | void {
+    const command = new DescribeStreamCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -144,32 +243,70 @@ export class KinesisVideo extends KinesisVideoClient {
 
   /**
    *
-   *          <p>Returns the most current information about the specified stream.
-   *     You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.
+   *          <p>Returns an array of <code>StreamInfo</code> objects. Each object describes a stream.
+   *       To retrieve only streams that satisfy a specific condition, you can specify a <code>StreamNameCondition</code>.
    *     </p>
    *
    */
-  public describeStream(
-    args: DescribeStreamCommandInput,
+  public listStreams(
+    args: ListStreamsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DescribeStreamCommandOutput>;
-  public describeStream(
-    args: DescribeStreamCommandInput,
-    cb: (err: any, data?: DescribeStreamCommandOutput) => void
+  ): Promise<ListStreamsCommandOutput>;
+  public listStreams(
+    args: ListStreamsCommandInput,
+    cb: (err: any, data?: ListStreamsCommandOutput) => void
   ): void;
-  public describeStream(
-    args: DescribeStreamCommandInput,
+  public listStreams(
+    args: ListStreamsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeStreamCommandOutput) => void
+    cb: (err: any, data?: ListStreamsCommandOutput) => void
   ): void;
-  public describeStream(
-    args: DescribeStreamCommandInput,
+  public listStreams(
+    args: ListStreamsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStreamCommandOutput) => void),
-    cb?: (err: any, data?: DescribeStreamCommandOutput) => void
-  ): Promise<DescribeStreamCommandOutput> | void {
-    const command = new DescribeStreamCommand(args);
+      | ((err: any, data?: ListStreamsCommandOutput) => void),
+    cb?: (err: any, data?: ListStreamsCommandOutput) => void
+  ): Promise<ListStreamsCommandOutput> | void {
+    const command = new ListStreamsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Returns a list of tags associated with the specified stream.</p>
+   *          <p>In the request, you must specify either the <code>StreamName</code> or the <code>StreamARN</code>. </p>
+   *
+   */
+  public listTagsForStream(
+    args: ListTagsForStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForStreamCommandOutput>;
+  public listTagsForStream(
+    args: ListTagsForStreamCommandInput,
+    cb: (err: any, data?: ListTagsForStreamCommandOutput) => void
+  ): void;
+  public listTagsForStream(
+    args: ListTagsForStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForStreamCommandOutput) => void
+  ): void;
+  public listTagsForStream(
+    args: ListTagsForStreamCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForStreamCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForStreamCommandOutput) => void
+  ): Promise<ListTagsForStreamCommandOutput> | void {
+    const command = new ListTagsForStreamCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -214,6 +351,45 @@ export class KinesisVideo extends KinesisVideoClient {
     cb?: (err: any, data?: TagStreamCommandOutput) => void
   ): Promise<TagStreamCommandOutput> | void {
     const command = new TagStreamCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Removes one or more tags from a stream. In the request, specify only a tag key or keys;
+   *       don't specify the value. If you specify a tag key that does not exist, it's ignored.</p>
+   *          <p>In the request, you must provide the <code>StreamName</code> or <code>StreamARN</code>.</p>
+   *
+   */
+  public untagStream(
+    args: UntagStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagStreamCommandOutput>;
+  public untagStream(
+    args: UntagStreamCommandInput,
+    cb: (err: any, data?: UntagStreamCommandOutput) => void
+  ): void;
+  public untagStream(
+    args: UntagStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagStreamCommandOutput) => void
+  ): void;
+  public untagStream(
+    args: UntagStreamCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagStreamCommandOutput) => void),
+    cb?: (err: any, data?: UntagStreamCommandOutput) => void
+  ): Promise<UntagStreamCommandOutput> | void {
+    const command = new UntagStreamCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -322,182 +498,6 @@ export class KinesisVideo extends KinesisVideoClient {
     cb?: (err: any, data?: UpdateStreamCommandOutput) => void
   ): Promise<UpdateStreamCommandOutput> | void {
     const command = new UpdateStreamCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Deletes a Kinesis video stream and the data contained in the stream.
-   *
-   *
-   *     </p>
-   *          <p>This method marks the stream for deletion, and makes the data in the stream inaccessible immediately.</p>
-   *          <p>
-   *
-   *     </p>
-   *          <p> To ensure that you have the latest version of the stream before deleting it, you can
-   *       specify the stream version. Kinesis Video Streams assigns a version to each stream. When you
-   *       update a stream, Kinesis Video Streams assigns a new version number. To get the latest stream
-   *       version, use the <code>DescribeStream</code> API. </p>
-   *          <p>This operation requires permission for the <code>KinesisVideo:DeleteStream</code>
-   *       action.</p>
-   *
-   */
-  public deleteStream(
-    args: DeleteStreamCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteStreamCommandOutput>;
-  public deleteStream(
-    args: DeleteStreamCommandInput,
-    cb: (err: any, data?: DeleteStreamCommandOutput) => void
-  ): void;
-  public deleteStream(
-    args: DeleteStreamCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteStreamCommandOutput) => void
-  ): void;
-  public deleteStream(
-    args: DeleteStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteStreamCommandOutput) => void),
-    cb?: (err: any, data?: DeleteStreamCommandOutput) => void
-  ): Promise<DeleteStreamCommandOutput> | void {
-    const command = new DeleteStreamCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Creates a new Kinesis video stream. </p>
-   *
-   *          <p>When you create a new stream, Kinesis Video Streams assigns it a version number.
-   *       When you change the stream's metadata, Kinesis Video Streams updates the version.
-   *     </p>
-   *          <p>
-   *             <code>CreateStream</code> is an asynchronous operation.</p>
-   *          <p>For information about how the service works, see
-   *
-   *       <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html">How it Works</a>.
-   *     </p>
-   *          <p>You must have permissions for the
-   *       <code>KinesisVideo:CreateStream</code> action.</p>
-   *
-   */
-  public createStream(
-    args: CreateStreamCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateStreamCommandOutput>;
-  public createStream(
-    args: CreateStreamCommandInput,
-    cb: (err: any, data?: CreateStreamCommandOutput) => void
-  ): void;
-  public createStream(
-    args: CreateStreamCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateStreamCommandOutput) => void
-  ): void;
-  public createStream(
-    args: CreateStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateStreamCommandOutput) => void),
-    cb?: (err: any, data?: CreateStreamCommandOutput) => void
-  ): Promise<CreateStreamCommandOutput> | void {
-    const command = new CreateStreamCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Returns a list of tags associated with the specified stream.</p>
-   *          <p>In the request, you must specify either the <code>StreamName</code> or the <code>StreamARN</code>. </p>
-   *
-   */
-  public listTagsForStream(
-    args: ListTagsForStreamCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsForStreamCommandOutput>;
-  public listTagsForStream(
-    args: ListTagsForStreamCommandInput,
-    cb: (err: any, data?: ListTagsForStreamCommandOutput) => void
-  ): void;
-  public listTagsForStream(
-    args: ListTagsForStreamCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForStreamCommandOutput) => void
-  ): void;
-  public listTagsForStream(
-    args: ListTagsForStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForStreamCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForStreamCommandOutput) => void
-  ): Promise<ListTagsForStreamCommandOutput> | void {
-    const command = new ListTagsForStreamCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Returns an array of <code>StreamInfo</code> objects. Each object describes a stream.
-   *       To retrieve only streams that satisfy a specific condition, you can specify a <code>StreamNameCondition</code>.
-   *     </p>
-   *
-   */
-  public listStreams(
-    args: ListStreamsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListStreamsCommandOutput>;
-  public listStreams(
-    args: ListStreamsCommandInput,
-    cb: (err: any, data?: ListStreamsCommandOutput) => void
-  ): void;
-  public listStreams(
-    args: ListStreamsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListStreamsCommandOutput) => void
-  ): void;
-  public listStreams(
-    args: ListStreamsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListStreamsCommandOutput) => void),
-    cb?: (err: any, data?: ListStreamsCommandOutput) => void
-  ): Promise<ListStreamsCommandOutput> | void {
-    const command = new ListStreamsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

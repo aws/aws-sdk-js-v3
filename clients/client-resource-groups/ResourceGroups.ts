@@ -101,117 +101,6 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class ResourceGroups extends ResourceGroupsClient {
   /**
    *
-   *          <p>Returns a list of ARNs of resources that are members of a specified resource group.</p>
-   *
-   */
-  public listGroupResources(
-    args: ListGroupResourcesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListGroupResourcesCommandOutput>;
-  public listGroupResources(
-    args: ListGroupResourcesCommandInput,
-    cb: (err: any, data?: ListGroupResourcesCommandOutput) => void
-  ): void;
-  public listGroupResources(
-    args: ListGroupResourcesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListGroupResourcesCommandOutput) => void
-  ): void;
-  public listGroupResources(
-    args: ListGroupResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGroupResourcesCommandOutput) => void),
-    cb?: (err: any, data?: ListGroupResourcesCommandOutput) => void
-  ): Promise<ListGroupResourcesCommandOutput> | void {
-    const command = new ListGroupResourcesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Adds tags to a resource group with the specified ARN. Existing tags on a resource group are not changed if they are not specified in the request parameters.</p>
-   *
-   */
-  public tag(
-    args: TagCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagCommandOutput>;
-  public tag(
-    args: TagCommandInput,
-    cb: (err: any, data?: TagCommandOutput) => void
-  ): void;
-  public tag(
-    args: TagCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagCommandOutput) => void
-  ): void;
-  public tag(
-    args: TagCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagCommandOutput) => void),
-    cb?: (err: any, data?: TagCommandOutput) => void
-  ): Promise<TagCommandOutput> | void {
-    const command = new TagCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Updates an existing group with a new or changed description. You cannot update the name of a resource group.</p>
-   *
-   */
-  public updateGroup(
-    args: UpdateGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateGroupCommandOutput>;
-  public updateGroup(
-    args: UpdateGroupCommandInput,
-    cb: (err: any, data?: UpdateGroupCommandOutput) => void
-  ): void;
-  public updateGroup(
-    args: UpdateGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateGroupCommandOutput) => void
-  ): void;
-  public updateGroup(
-    args: UpdateGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGroupCommandOutput) => void),
-    cb?: (err: any, data?: UpdateGroupCommandOutput) => void
-  ): Promise<UpdateGroupCommandOutput> | void {
-    const command = new UpdateGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
    *          <p>Creates a group with a specified name, description, and resource query.</p>
    *
    */
@@ -249,154 +138,6 @@ export class ResourceGroups extends ResourceGroupsClient {
 
   /**
    *
-   *          <p>Updates the resource query of a group.</p>
-   *
-   */
-  public updateGroupQuery(
-    args: UpdateGroupQueryCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateGroupQueryCommandOutput>;
-  public updateGroupQuery(
-    args: UpdateGroupQueryCommandInput,
-    cb: (err: any, data?: UpdateGroupQueryCommandOutput) => void
-  ): void;
-  public updateGroupQuery(
-    args: UpdateGroupQueryCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateGroupQueryCommandOutput) => void
-  ): void;
-  public updateGroupQuery(
-    args: UpdateGroupQueryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGroupQueryCommandOutput) => void),
-    cb?: (err: any, data?: UpdateGroupQueryCommandOutput) => void
-  ): Promise<UpdateGroupQueryCommandOutput> | void {
-    const command = new UpdateGroupQueryCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Returns a list of AWS resource identifiers that matches a specified query. The query uses the same format as a resource query in a CreateGroup or UpdateGroupQuery operation.</p>
-   *
-   */
-  public searchResources(
-    args: SearchResourcesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SearchResourcesCommandOutput>;
-  public searchResources(
-    args: SearchResourcesCommandInput,
-    cb: (err: any, data?: SearchResourcesCommandOutput) => void
-  ): void;
-  public searchResources(
-    args: SearchResourcesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: SearchResourcesCommandOutput) => void
-  ): void;
-  public searchResources(
-    args: SearchResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchResourcesCommandOutput) => void),
-    cb?: (err: any, data?: SearchResourcesCommandOutput) => void
-  ): Promise<SearchResourcesCommandOutput> | void {
-    const command = new SearchResourcesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Returns a list of existing resource groups in your account.</p>
-   *
-   */
-  public listGroups(
-    args: ListGroupsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListGroupsCommandOutput>;
-  public listGroups(
-    args: ListGroupsCommandInput,
-    cb: (err: any, data?: ListGroupsCommandOutput) => void
-  ): void;
-  public listGroups(
-    args: ListGroupsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListGroupsCommandOutput) => void
-  ): void;
-  public listGroups(
-    args: ListGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGroupsCommandOutput) => void),
-    cb?: (err: any, data?: ListGroupsCommandOutput) => void
-  ): Promise<ListGroupsCommandOutput> | void {
-    const command = new ListGroupsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Deletes specified tags from a specified resource.</p>
-   *
-   */
-  public untag(
-    args: UntagCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagCommandOutput>;
-  public untag(
-    args: UntagCommandInput,
-    cb: (err: any, data?: UntagCommandOutput) => void
-  ): void;
-  public untag(
-    args: UntagCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagCommandOutput) => void
-  ): void;
-  public untag(
-    args: UntagCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagCommandOutput) => void),
-    cb?: (err: any, data?: UntagCommandOutput) => void
-  ): Promise<UntagCommandOutput> | void {
-    const command = new UntagCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
    *          <p>Deletes a specified resource group. Deleting a resource group does not delete resources that are members of the group; it only deletes the group structure.</p>
    *
    */
@@ -421,6 +162,43 @@ export class ResourceGroups extends ResourceGroupsClient {
     cb?: (err: any, data?: DeleteGroupCommandOutput) => void
   ): Promise<DeleteGroupCommandOutput> | void {
     const command = new DeleteGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Returns information about a specified resource group.</p>
+   *
+   */
+  public getGroup(
+    args: GetGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetGroupCommandOutput>;
+  public getGroup(
+    args: GetGroupCommandInput,
+    cb: (err: any, data?: GetGroupCommandOutput) => void
+  ): void;
+  public getGroup(
+    args: GetGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetGroupCommandOutput) => void
+  ): void;
+  public getGroup(
+    args: GetGroupCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetGroupCommandOutput) => void),
+    cb?: (err: any, data?: GetGroupCommandOutput) => void
+  ): Promise<GetGroupCommandOutput> | void {
+    const command = new GetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -508,30 +286,252 @@ export class ResourceGroups extends ResourceGroupsClient {
 
   /**
    *
-   *          <p>Returns information about a specified resource group.</p>
+   *          <p>Returns a list of ARNs of resources that are members of a specified resource group.</p>
    *
    */
-  public getGroup(
-    args: GetGroupCommandInput,
+  public listGroupResources(
+    args: ListGroupResourcesCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<GetGroupCommandOutput>;
-  public getGroup(
-    args: GetGroupCommandInput,
-    cb: (err: any, data?: GetGroupCommandOutput) => void
+  ): Promise<ListGroupResourcesCommandOutput>;
+  public listGroupResources(
+    args: ListGroupResourcesCommandInput,
+    cb: (err: any, data?: ListGroupResourcesCommandOutput) => void
   ): void;
-  public getGroup(
-    args: GetGroupCommandInput,
+  public listGroupResources(
+    args: ListGroupResourcesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetGroupCommandOutput) => void
+    cb: (err: any, data?: ListGroupResourcesCommandOutput) => void
   ): void;
-  public getGroup(
-    args: GetGroupCommandInput,
+  public listGroupResources(
+    args: ListGroupResourcesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: GetGroupCommandOutput) => void),
-    cb?: (err: any, data?: GetGroupCommandOutput) => void
-  ): Promise<GetGroupCommandOutput> | void {
-    const command = new GetGroupCommand(args);
+      | ((err: any, data?: ListGroupResourcesCommandOutput) => void),
+    cb?: (err: any, data?: ListGroupResourcesCommandOutput) => void
+  ): Promise<ListGroupResourcesCommandOutput> | void {
+    const command = new ListGroupResourcesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Returns a list of existing resource groups in your account.</p>
+   *
+   */
+  public listGroups(
+    args: ListGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGroupsCommandOutput>;
+  public listGroups(
+    args: ListGroupsCommandInput,
+    cb: (err: any, data?: ListGroupsCommandOutput) => void
+  ): void;
+  public listGroups(
+    args: ListGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListGroupsCommandOutput) => void
+  ): void;
+  public listGroups(
+    args: ListGroupsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListGroupsCommandOutput) => void),
+    cb?: (err: any, data?: ListGroupsCommandOutput) => void
+  ): Promise<ListGroupsCommandOutput> | void {
+    const command = new ListGroupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Returns a list of AWS resource identifiers that matches a specified query. The query uses the same format as a resource query in a CreateGroup or UpdateGroupQuery operation.</p>
+   *
+   */
+  public searchResources(
+    args: SearchResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchResourcesCommandOutput>;
+  public searchResources(
+    args: SearchResourcesCommandInput,
+    cb: (err: any, data?: SearchResourcesCommandOutput) => void
+  ): void;
+  public searchResources(
+    args: SearchResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchResourcesCommandOutput) => void
+  ): void;
+  public searchResources(
+    args: SearchResourcesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: SearchResourcesCommandOutput) => void),
+    cb?: (err: any, data?: SearchResourcesCommandOutput) => void
+  ): Promise<SearchResourcesCommandOutput> | void {
+    const command = new SearchResourcesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Adds tags to a resource group with the specified ARN. Existing tags on a resource group are not changed if they are not specified in the request parameters.</p>
+   *
+   */
+  public tag(
+    args: TagCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagCommandOutput>;
+  public tag(
+    args: TagCommandInput,
+    cb: (err: any, data?: TagCommandOutput) => void
+  ): void;
+  public tag(
+    args: TagCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagCommandOutput) => void
+  ): void;
+  public tag(
+    args: TagCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagCommandOutput) => void),
+    cb?: (err: any, data?: TagCommandOutput) => void
+  ): Promise<TagCommandOutput> | void {
+    const command = new TagCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Deletes specified tags from a specified resource.</p>
+   *
+   */
+  public untag(
+    args: UntagCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagCommandOutput>;
+  public untag(
+    args: UntagCommandInput,
+    cb: (err: any, data?: UntagCommandOutput) => void
+  ): void;
+  public untag(
+    args: UntagCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagCommandOutput) => void
+  ): void;
+  public untag(
+    args: UntagCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagCommandOutput) => void),
+    cb?: (err: any, data?: UntagCommandOutput) => void
+  ): Promise<UntagCommandOutput> | void {
+    const command = new UntagCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Updates an existing group with a new or changed description. You cannot update the name of a resource group.</p>
+   *
+   */
+  public updateGroup(
+    args: UpdateGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateGroupCommandOutput>;
+  public updateGroup(
+    args: UpdateGroupCommandInput,
+    cb: (err: any, data?: UpdateGroupCommandOutput) => void
+  ): void;
+  public updateGroup(
+    args: UpdateGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateGroupCommandOutput) => void
+  ): void;
+  public updateGroup(
+    args: UpdateGroupCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateGroupCommandOutput) => void),
+    cb?: (err: any, data?: UpdateGroupCommandOutput) => void
+  ): Promise<UpdateGroupCommandOutput> | void {
+    const command = new UpdateGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Updates the resource query of a group.</p>
+   *
+   */
+  public updateGroupQuery(
+    args: UpdateGroupQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateGroupQueryCommandOutput>;
+  public updateGroupQuery(
+    args: UpdateGroupQueryCommandInput,
+    cb: (err: any, data?: UpdateGroupQueryCommandOutput) => void
+  ): void;
+  public updateGroupQuery(
+    args: UpdateGroupQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateGroupQueryCommandOutput) => void
+  ): void;
+  public updateGroupQuery(
+    args: UpdateGroupQueryCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateGroupQueryCommandOutput) => void),
+    cb?: (err: any, data?: UpdateGroupQueryCommandOutput) => void
+  ): Promise<UpdateGroupQueryCommandOutput> | void {
+    const command = new UpdateGroupQueryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

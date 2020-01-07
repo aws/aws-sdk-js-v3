@@ -110,142 +110,32 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class XRay extends XRayClient {
   /**
    *
-   *          <p>Requests a sampling quota for rules that the service is using to sample requests.
-   *       </p>
+   *          <p>Retrieves a list of traces specified by ID. Each trace is a collection of segment
+   *       documents that originates from a single request. Use <code>GetTraceSummaries</code> to get a
+   *       list of trace IDs.</p>
    *
    */
-  public getSamplingTargets(
-    args: GetSamplingTargetsCommandInput,
+  public batchGetTraces(
+    args: BatchGetTracesCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<GetSamplingTargetsCommandOutput>;
-  public getSamplingTargets(
-    args: GetSamplingTargetsCommandInput,
-    cb: (err: any, data?: GetSamplingTargetsCommandOutput) => void
+  ): Promise<BatchGetTracesCommandOutput>;
+  public batchGetTraces(
+    args: BatchGetTracesCommandInput,
+    cb: (err: any, data?: BatchGetTracesCommandOutput) => void
   ): void;
-  public getSamplingTargets(
-    args: GetSamplingTargetsCommandInput,
+  public batchGetTraces(
+    args: BatchGetTracesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetSamplingTargetsCommandOutput) => void
+    cb: (err: any, data?: BatchGetTracesCommandOutput) => void
   ): void;
-  public getSamplingTargets(
-    args: GetSamplingTargetsCommandInput,
+  public batchGetTraces(
+    args: BatchGetTracesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: GetSamplingTargetsCommandOutput) => void),
-    cb?: (err: any, data?: GetSamplingTargetsCommandOutput) => void
-  ): Promise<GetSamplingTargetsCommandOutput> | void {
-    const command = new GetSamplingTargetsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Retrieves all sampling rules.</p>
-   *
-   */
-  public getSamplingRules(
-    args: GetSamplingRulesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetSamplingRulesCommandOutput>;
-  public getSamplingRules(
-    args: GetSamplingRulesCommandInput,
-    cb: (err: any, data?: GetSamplingRulesCommandOutput) => void
-  ): void;
-  public getSamplingRules(
-    args: GetSamplingRulesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetSamplingRulesCommandOutput) => void
-  ): void;
-  public getSamplingRules(
-    args: GetSamplingRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSamplingRulesCommandOutput) => void),
-    cb?: (err: any, data?: GetSamplingRulesCommandOutput) => void
-  ): Promise<GetSamplingRulesCommandOutput> | void {
-    const command = new GetSamplingRulesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Modifies a sampling rule's configuration.</p>
-   *
-   */
-  public updateSamplingRule(
-    args: UpdateSamplingRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateSamplingRuleCommandOutput>;
-  public updateSamplingRule(
-    args: UpdateSamplingRuleCommandInput,
-    cb: (err: any, data?: UpdateSamplingRuleCommandOutput) => void
-  ): void;
-  public updateSamplingRule(
-    args: UpdateSamplingRuleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateSamplingRuleCommandOutput) => void
-  ): void;
-  public updateSamplingRule(
-    args: UpdateSamplingRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSamplingRuleCommandOutput) => void),
-    cb?: (err: any, data?: UpdateSamplingRuleCommandOutput) => void
-  ): Promise<UpdateSamplingRuleCommandOutput> | void {
-    const command = new UpdateSamplingRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Retrieves information about recent sampling results for all sampling rules.</p>
-   *
-   */
-  public getSamplingStatisticSummaries(
-    args: GetSamplingStatisticSummariesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetSamplingStatisticSummariesCommandOutput>;
-  public getSamplingStatisticSummaries(
-    args: GetSamplingStatisticSummariesCommandInput,
-    cb: (err: any, data?: GetSamplingStatisticSummariesCommandOutput) => void
-  ): void;
-  public getSamplingStatisticSummaries(
-    args: GetSamplingStatisticSummariesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetSamplingStatisticSummariesCommandOutput) => void
-  ): void;
-  public getSamplingStatisticSummaries(
-    args: GetSamplingStatisticSummariesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSamplingStatisticSummariesCommandOutput) => void),
-    cb?: (err: any, data?: GetSamplingStatisticSummariesCommandOutput) => void
-  ): Promise<GetSamplingStatisticSummariesCommandOutput> | void {
-    const command = new GetSamplingStatisticSummariesCommand(args);
+      | ((err: any, data?: BatchGetTracesCommandOutput) => void),
+    cb?: (err: any, data?: BatchGetTracesCommandOutput) => void
+  ): Promise<BatchGetTracesCommandOutput> | void {
+    const command = new BatchGetTracesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -296,6 +186,346 @@ export class XRay extends XRayClient {
 
   /**
    *
+   *          <p>Creates a rule to control sampling behavior for instrumented applications. Services
+   *          retrieve rules with <a>GetSamplingRules</a>, and evaluate each rule in ascending
+   *          order of <i>priority</i> for each request. If a rule matches, the service
+   *          records a trace, borrowing it from the reservoir size. After 10 seconds, the service
+   *          reports back to X-Ray with <a>GetSamplingTargets</a> to get updated versions of
+   *          each in-use rule. The updated rule contains a trace quota that the service can use instead
+   *          of borrowing from the reservoir.</p>
+   *
+   */
+  public createSamplingRule(
+    args: CreateSamplingRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSamplingRuleCommandOutput>;
+  public createSamplingRule(
+    args: CreateSamplingRuleCommandInput,
+    cb: (err: any, data?: CreateSamplingRuleCommandOutput) => void
+  ): void;
+  public createSamplingRule(
+    args: CreateSamplingRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSamplingRuleCommandOutput) => void
+  ): void;
+  public createSamplingRule(
+    args: CreateSamplingRuleCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateSamplingRuleCommandOutput) => void),
+    cb?: (err: any, data?: CreateSamplingRuleCommandOutput) => void
+  ): Promise<CreateSamplingRuleCommandOutput> | void {
+    const command = new CreateSamplingRuleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>Deletes a group resource.</p>
+   *
+   */
+  public deleteGroup(
+    args: DeleteGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGroupCommandOutput>;
+  public deleteGroup(
+    args: DeleteGroupCommandInput,
+    cb: (err: any, data?: DeleteGroupCommandOutput) => void
+  ): void;
+  public deleteGroup(
+    args: DeleteGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteGroupCommandOutput) => void
+  ): void;
+  public deleteGroup(
+    args: DeleteGroupCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteGroupCommandOutput) => void),
+    cb?: (err: any, data?: DeleteGroupCommandOutput) => void
+  ): Promise<DeleteGroupCommandOutput> | void {
+    const command = new DeleteGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Deletes a sampling rule.</p>
+   *
+   */
+  public deleteSamplingRule(
+    args: DeleteSamplingRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSamplingRuleCommandOutput>;
+  public deleteSamplingRule(
+    args: DeleteSamplingRuleCommandInput,
+    cb: (err: any, data?: DeleteSamplingRuleCommandOutput) => void
+  ): void;
+  public deleteSamplingRule(
+    args: DeleteSamplingRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSamplingRuleCommandOutput) => void
+  ): void;
+  public deleteSamplingRule(
+    args: DeleteSamplingRuleCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteSamplingRuleCommandOutput) => void),
+    cb?: (err: any, data?: DeleteSamplingRuleCommandOutput) => void
+  ): Promise<DeleteSamplingRuleCommandOutput> | void {
+    const command = new DeleteSamplingRuleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Retrieves the current encryption configuration for X-Ray data.</p>
+   *
+   */
+  public getEncryptionConfig(
+    args: GetEncryptionConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEncryptionConfigCommandOutput>;
+  public getEncryptionConfig(
+    args: GetEncryptionConfigCommandInput,
+    cb: (err: any, data?: GetEncryptionConfigCommandOutput) => void
+  ): void;
+  public getEncryptionConfig(
+    args: GetEncryptionConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEncryptionConfigCommandOutput) => void
+  ): void;
+  public getEncryptionConfig(
+    args: GetEncryptionConfigCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetEncryptionConfigCommandOutput) => void),
+    cb?: (err: any, data?: GetEncryptionConfigCommandOutput) => void
+  ): Promise<GetEncryptionConfigCommandOutput> | void {
+    const command = new GetEncryptionConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>Retrieves group resource details.</p>
+   *
+   */
+  public getGroup(
+    args: GetGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetGroupCommandOutput>;
+  public getGroup(
+    args: GetGroupCommandInput,
+    cb: (err: any, data?: GetGroupCommandOutput) => void
+  ): void;
+  public getGroup(
+    args: GetGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetGroupCommandOutput) => void
+  ): void;
+  public getGroup(
+    args: GetGroupCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetGroupCommandOutput) => void),
+    cb?: (err: any, data?: GetGroupCommandOutput) => void
+  ): Promise<GetGroupCommandOutput> | void {
+    const command = new GetGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>Retrieves all active group details.</p>
+   *
+   */
+  public getGroups(
+    args: GetGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetGroupsCommandOutput>;
+  public getGroups(
+    args: GetGroupsCommandInput,
+    cb: (err: any, data?: GetGroupsCommandOutput) => void
+  ): void;
+  public getGroups(
+    args: GetGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetGroupsCommandOutput) => void
+  ): void;
+  public getGroups(
+    args: GetGroupsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetGroupsCommandOutput) => void),
+    cb?: (err: any, data?: GetGroupsCommandOutput) => void
+  ): Promise<GetGroupsCommandOutput> | void {
+    const command = new GetGroupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Retrieves all sampling rules.</p>
+   *
+   */
+  public getSamplingRules(
+    args: GetSamplingRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSamplingRulesCommandOutput>;
+  public getSamplingRules(
+    args: GetSamplingRulesCommandInput,
+    cb: (err: any, data?: GetSamplingRulesCommandOutput) => void
+  ): void;
+  public getSamplingRules(
+    args: GetSamplingRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSamplingRulesCommandOutput) => void
+  ): void;
+  public getSamplingRules(
+    args: GetSamplingRulesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetSamplingRulesCommandOutput) => void),
+    cb?: (err: any, data?: GetSamplingRulesCommandOutput) => void
+  ): Promise<GetSamplingRulesCommandOutput> | void {
+    const command = new GetSamplingRulesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Retrieves information about recent sampling results for all sampling rules.</p>
+   *
+   */
+  public getSamplingStatisticSummaries(
+    args: GetSamplingStatisticSummariesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSamplingStatisticSummariesCommandOutput>;
+  public getSamplingStatisticSummaries(
+    args: GetSamplingStatisticSummariesCommandInput,
+    cb: (err: any, data?: GetSamplingStatisticSummariesCommandOutput) => void
+  ): void;
+  public getSamplingStatisticSummaries(
+    args: GetSamplingStatisticSummariesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSamplingStatisticSummariesCommandOutput) => void
+  ): void;
+  public getSamplingStatisticSummaries(
+    args: GetSamplingStatisticSummariesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetSamplingStatisticSummariesCommandOutput) => void),
+    cb?: (err: any, data?: GetSamplingStatisticSummariesCommandOutput) => void
+  ): Promise<GetSamplingStatisticSummariesCommandOutput> | void {
+    const command = new GetSamplingStatisticSummariesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Requests a sampling quota for rules that the service is using to sample requests.
+   *       </p>
+   *
+   */
+  public getSamplingTargets(
+    args: GetSamplingTargetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSamplingTargetsCommandOutput>;
+  public getSamplingTargets(
+    args: GetSamplingTargetsCommandInput,
+    cb: (err: any, data?: GetSamplingTargetsCommandOutput) => void
+  ): void;
+  public getSamplingTargets(
+    args: GetSamplingTargetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSamplingTargetsCommandOutput) => void
+  ): void;
+  public getSamplingTargets(
+    args: GetSamplingTargetsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetSamplingTargetsCommandOutput) => void),
+    cb?: (err: any, data?: GetSamplingTargetsCommandOutput) => void
+  ): Promise<GetSamplingTargetsCommandOutput> | void {
+    const command = new GetSamplingTargetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
    *          <p>Retrieves a document that describes services that process incoming requests, and
    *       downstream services that they call as a result. Root services process incoming requests and
    *       make calls to downstream services. Root services are applications that use the AWS X-Ray SDK.
@@ -324,6 +554,47 @@ export class XRay extends XRayClient {
     cb?: (err: any, data?: GetServiceGraphCommandOutput) => void
   ): Promise<GetServiceGraphCommandOutput> | void {
     const command = new GetServiceGraphCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *         <p>Get an aggregation of service statistics defined by a specific time
+   *             range.</p>
+   *
+   */
+  public getTimeSeriesServiceStatistics(
+    args: GetTimeSeriesServiceStatisticsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTimeSeriesServiceStatisticsCommandOutput>;
+  public getTimeSeriesServiceStatistics(
+    args: GetTimeSeriesServiceStatisticsCommandInput,
+    cb: (err: any, data?: GetTimeSeriesServiceStatisticsCommandOutput) => void
+  ): void;
+  public getTimeSeriesServiceStatistics(
+    args: GetTimeSeriesServiceStatisticsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTimeSeriesServiceStatisticsCommandOutput) => void
+  ): void;
+  public getTimeSeriesServiceStatistics(
+    args: GetTimeSeriesServiceStatisticsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: GetTimeSeriesServiceStatisticsCommandOutput
+        ) => void),
+    cb?: (err: any, data?: GetTimeSeriesServiceStatisticsCommandOutput) => void
+  ): Promise<GetTimeSeriesServiceStatisticsCommandOutput> | void {
+    const command = new GetTimeSeriesServiceStatisticsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -427,30 +698,67 @@ export class XRay extends XRayClient {
 
   /**
    *
-   *         <p>Deletes a group resource.</p>
+   *          <p>Updates the encryption configuration for X-Ray data.</p>
    *
    */
-  public deleteGroup(
-    args: DeleteGroupCommandInput,
+  public putEncryptionConfig(
+    args: PutEncryptionConfigCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteGroupCommandOutput>;
-  public deleteGroup(
-    args: DeleteGroupCommandInput,
-    cb: (err: any, data?: DeleteGroupCommandOutput) => void
+  ): Promise<PutEncryptionConfigCommandOutput>;
+  public putEncryptionConfig(
+    args: PutEncryptionConfigCommandInput,
+    cb: (err: any, data?: PutEncryptionConfigCommandOutput) => void
   ): void;
-  public deleteGroup(
-    args: DeleteGroupCommandInput,
+  public putEncryptionConfig(
+    args: PutEncryptionConfigCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteGroupCommandOutput) => void
+    cb: (err: any, data?: PutEncryptionConfigCommandOutput) => void
   ): void;
-  public deleteGroup(
-    args: DeleteGroupCommandInput,
+  public putEncryptionConfig(
+    args: PutEncryptionConfigCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGroupCommandOutput) => void),
-    cb?: (err: any, data?: DeleteGroupCommandOutput) => void
-  ): Promise<DeleteGroupCommandOutput> | void {
-    const command = new DeleteGroupCommand(args);
+      | ((err: any, data?: PutEncryptionConfigCommandOutput) => void),
+    cb?: (err: any, data?: PutEncryptionConfigCommandOutput) => void
+  ): Promise<PutEncryptionConfigCommandOutput> | void {
+    const command = new PutEncryptionConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Used by the AWS X-Ray daemon to upload telemetry.</p>
+   *
+   */
+  public putTelemetryRecords(
+    args: PutTelemetryRecordsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutTelemetryRecordsCommandOutput>;
+  public putTelemetryRecords(
+    args: PutTelemetryRecordsCommandInput,
+    cb: (err: any, data?: PutTelemetryRecordsCommandOutput) => void
+  ): void;
+  public putTelemetryRecords(
+    args: PutTelemetryRecordsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutTelemetryRecordsCommandOutput) => void
+  ): void;
+  public putTelemetryRecords(
+    args: PutTelemetryRecordsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutTelemetryRecordsCommandOutput) => void),
+    cb?: (err: any, data?: PutTelemetryRecordsCommandOutput) => void
+  ): Promise<PutTelemetryRecordsCommandOutput> | void {
+    const command = new PutTelemetryRecordsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -564,86 +872,6 @@ export class XRay extends XRayClient {
 
   /**
    *
-   *          <p>Creates a rule to control sampling behavior for instrumented applications. Services
-   *          retrieve rules with <a>GetSamplingRules</a>, and evaluate each rule in ascending
-   *          order of <i>priority</i> for each request. If a rule matches, the service
-   *          records a trace, borrowing it from the reservoir size. After 10 seconds, the service
-   *          reports back to X-Ray with <a>GetSamplingTargets</a> to get updated versions of
-   *          each in-use rule. The updated rule contains a trace quota that the service can use instead
-   *          of borrowing from the reservoir.</p>
-   *
-   */
-  public createSamplingRule(
-    args: CreateSamplingRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateSamplingRuleCommandOutput>;
-  public createSamplingRule(
-    args: CreateSamplingRuleCommandInput,
-    cb: (err: any, data?: CreateSamplingRuleCommandOutput) => void
-  ): void;
-  public createSamplingRule(
-    args: CreateSamplingRuleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateSamplingRuleCommandOutput) => void
-  ): void;
-  public createSamplingRule(
-    args: CreateSamplingRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSamplingRuleCommandOutput) => void),
-    cb?: (err: any, data?: CreateSamplingRuleCommandOutput) => void
-  ): Promise<CreateSamplingRuleCommandOutput> | void {
-    const command = new CreateSamplingRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Retrieves the current encryption configuration for X-Ray data.</p>
-   *
-   */
-  public getEncryptionConfig(
-    args: GetEncryptionConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetEncryptionConfigCommandOutput>;
-  public getEncryptionConfig(
-    args: GetEncryptionConfigCommandInput,
-    cb: (err: any, data?: GetEncryptionConfigCommandOutput) => void
-  ): void;
-  public getEncryptionConfig(
-    args: GetEncryptionConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetEncryptionConfigCommandOutput) => void
-  ): void;
-  public getEncryptionConfig(
-    args: GetEncryptionConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetEncryptionConfigCommandOutput) => void),
-    cb?: (err: any, data?: GetEncryptionConfigCommandOutput) => void
-  ): Promise<GetEncryptionConfigCommandOutput> | void {
-    const command = new GetEncryptionConfigCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
    *         <p>Updates a group resource.</p>
    *
    */
@@ -681,258 +909,30 @@ export class XRay extends XRayClient {
 
   /**
    *
-   *          <p>Retrieves a list of traces specified by ID. Each trace is a collection of segment
-   *       documents that originates from a single request. Use <code>GetTraceSummaries</code> to get a
-   *       list of trace IDs.</p>
+   *          <p>Modifies a sampling rule's configuration.</p>
    *
    */
-  public batchGetTraces(
-    args: BatchGetTracesCommandInput,
+  public updateSamplingRule(
+    args: UpdateSamplingRuleCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<BatchGetTracesCommandOutput>;
-  public batchGetTraces(
-    args: BatchGetTracesCommandInput,
-    cb: (err: any, data?: BatchGetTracesCommandOutput) => void
+  ): Promise<UpdateSamplingRuleCommandOutput>;
+  public updateSamplingRule(
+    args: UpdateSamplingRuleCommandInput,
+    cb: (err: any, data?: UpdateSamplingRuleCommandOutput) => void
   ): void;
-  public batchGetTraces(
-    args: BatchGetTracesCommandInput,
+  public updateSamplingRule(
+    args: UpdateSamplingRuleCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: BatchGetTracesCommandOutput) => void
+    cb: (err: any, data?: UpdateSamplingRuleCommandOutput) => void
   ): void;
-  public batchGetTraces(
-    args: BatchGetTracesCommandInput,
+  public updateSamplingRule(
+    args: UpdateSamplingRuleCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetTracesCommandOutput) => void),
-    cb?: (err: any, data?: BatchGetTracesCommandOutput) => void
-  ): Promise<BatchGetTracesCommandOutput> | void {
-    const command = new BatchGetTracesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Updates the encryption configuration for X-Ray data.</p>
-   *
-   */
-  public putEncryptionConfig(
-    args: PutEncryptionConfigCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutEncryptionConfigCommandOutput>;
-  public putEncryptionConfig(
-    args: PutEncryptionConfigCommandInput,
-    cb: (err: any, data?: PutEncryptionConfigCommandOutput) => void
-  ): void;
-  public putEncryptionConfig(
-    args: PutEncryptionConfigCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutEncryptionConfigCommandOutput) => void
-  ): void;
-  public putEncryptionConfig(
-    args: PutEncryptionConfigCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutEncryptionConfigCommandOutput) => void),
-    cb?: (err: any, data?: PutEncryptionConfigCommandOutput) => void
-  ): Promise<PutEncryptionConfigCommandOutput> | void {
-    const command = new PutEncryptionConfigCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>Get an aggregation of service statistics defined by a specific time
-   *             range.</p>
-   *
-   */
-  public getTimeSeriesServiceStatistics(
-    args: GetTimeSeriesServiceStatisticsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetTimeSeriesServiceStatisticsCommandOutput>;
-  public getTimeSeriesServiceStatistics(
-    args: GetTimeSeriesServiceStatisticsCommandInput,
-    cb: (err: any, data?: GetTimeSeriesServiceStatisticsCommandOutput) => void
-  ): void;
-  public getTimeSeriesServiceStatistics(
-    args: GetTimeSeriesServiceStatisticsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetTimeSeriesServiceStatisticsCommandOutput) => void
-  ): void;
-  public getTimeSeriesServiceStatistics(
-    args: GetTimeSeriesServiceStatisticsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetTimeSeriesServiceStatisticsCommandOutput
-        ) => void),
-    cb?: (err: any, data?: GetTimeSeriesServiceStatisticsCommandOutput) => void
-  ): Promise<GetTimeSeriesServiceStatisticsCommandOutput> | void {
-    const command = new GetTimeSeriesServiceStatisticsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Deletes a sampling rule.</p>
-   *
-   */
-  public deleteSamplingRule(
-    args: DeleteSamplingRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteSamplingRuleCommandOutput>;
-  public deleteSamplingRule(
-    args: DeleteSamplingRuleCommandInput,
-    cb: (err: any, data?: DeleteSamplingRuleCommandOutput) => void
-  ): void;
-  public deleteSamplingRule(
-    args: DeleteSamplingRuleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteSamplingRuleCommandOutput) => void
-  ): void;
-  public deleteSamplingRule(
-    args: DeleteSamplingRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSamplingRuleCommandOutput) => void),
-    cb?: (err: any, data?: DeleteSamplingRuleCommandOutput) => void
-  ): Promise<DeleteSamplingRuleCommandOutput> | void {
-    const command = new DeleteSamplingRuleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>Retrieves group resource details.</p>
-   *
-   */
-  public getGroup(
-    args: GetGroupCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetGroupCommandOutput>;
-  public getGroup(
-    args: GetGroupCommandInput,
-    cb: (err: any, data?: GetGroupCommandOutput) => void
-  ): void;
-  public getGroup(
-    args: GetGroupCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetGroupCommandOutput) => void
-  ): void;
-  public getGroup(
-    args: GetGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGroupCommandOutput) => void),
-    cb?: (err: any, data?: GetGroupCommandOutput) => void
-  ): Promise<GetGroupCommandOutput> | void {
-    const command = new GetGroupCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>Retrieves all active group details.</p>
-   *
-   */
-  public getGroups(
-    args: GetGroupsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetGroupsCommandOutput>;
-  public getGroups(
-    args: GetGroupsCommandInput,
-    cb: (err: any, data?: GetGroupsCommandOutput) => void
-  ): void;
-  public getGroups(
-    args: GetGroupsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetGroupsCommandOutput) => void
-  ): void;
-  public getGroups(
-    args: GetGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGroupsCommandOutput) => void),
-    cb?: (err: any, data?: GetGroupsCommandOutput) => void
-  ): Promise<GetGroupsCommandOutput> | void {
-    const command = new GetGroupsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Used by the AWS X-Ray daemon to upload telemetry.</p>
-   *
-   */
-  public putTelemetryRecords(
-    args: PutTelemetryRecordsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutTelemetryRecordsCommandOutput>;
-  public putTelemetryRecords(
-    args: PutTelemetryRecordsCommandInput,
-    cb: (err: any, data?: PutTelemetryRecordsCommandOutput) => void
-  ): void;
-  public putTelemetryRecords(
-    args: PutTelemetryRecordsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutTelemetryRecordsCommandOutput) => void
-  ): void;
-  public putTelemetryRecords(
-    args: PutTelemetryRecordsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutTelemetryRecordsCommandOutput) => void),
-    cb?: (err: any, data?: PutTelemetryRecordsCommandOutput) => void
-  ): Promise<PutTelemetryRecordsCommandOutput> | void {
-    const command = new PutTelemetryRecordsCommand(args);
+      | ((err: any, data?: UpdateSamplingRuleCommandOutput) => void),
+    cb?: (err: any, data?: UpdateSamplingRuleCommandOutput) => void
+  ): Promise<UpdateSamplingRuleCommandOutput> | void {
+    const command = new UpdateSamplingRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
