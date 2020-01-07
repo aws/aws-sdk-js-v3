@@ -22,7 +22,6 @@
   "dependencies": {
     "@aws-sdk/types": "^0.1.0-preview.7",
     "@aws-sdk/signature-v4": "^0.1.0-preview.7",
-    "@aws-sdk/protocol-http": "^0.1.0-preview.1",
     "tslib": "^1.8.0"
   }
 }
