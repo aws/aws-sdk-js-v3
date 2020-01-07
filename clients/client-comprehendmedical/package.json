@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-comprehendmedical",
   "description": "@aws-sdk/client-comprehendmedical client",
-  "version": "1.0.0",
+  "version": "0.1.0-preview.1",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-dist && npm run remove-js && npm run remove-maps",
     "build-documentation": "npm run clean && typedoc ./",
