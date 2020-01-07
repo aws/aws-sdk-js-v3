@@ -1,0 +1,14 @@
+import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "../commands/CreateConnectionCommand";
+import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "../commands/DeleteConnectionCommand";
+import { GetConnectionCommandInput, GetConnectionCommandOutput } from "../commands/GetConnectionCommand";
+import { ListConnectionsCommandInput, ListConnectionsCommandOutput } from "../commands/ListConnectionsCommand";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import { SerdeContext as __SerdeContext } from "@aws-sdk/types";
+export declare function serializeAws_json1_0CreateConnectionCommand(input: CreateConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest>;
+export declare function serializeAws_json1_0DeleteConnectionCommand(input: DeleteConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest>;
+export declare function serializeAws_json1_0GetConnectionCommand(input: GetConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest>;
+export declare function serializeAws_json1_0ListConnectionsCommand(input: ListConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest>;
+export declare function deserializeAws_json1_0CreateConnectionCommand(output: __HttpResponse, context: __SerdeContext): Promise<CreateConnectionCommandOutput>;
+export declare function deserializeAws_json1_0DeleteConnectionCommand(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConnectionCommandOutput>;
+export declare function deserializeAws_json1_0GetConnectionCommand(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectionCommandOutput>;
+export declare function deserializeAws_json1_0ListConnectionsCommand(output: __HttpResponse, context: __SerdeContext): Promise<ListConnectionsCommandOutput>;

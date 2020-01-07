@@ -1,0 +1,14 @@
+import { BatchMeterUsageCommandInput, BatchMeterUsageCommandOutput } from "../commands/BatchMeterUsageCommand";
+import { MeterUsageCommandInput, MeterUsageCommandOutput } from "../commands/MeterUsageCommand";
+import { RegisterUsageCommandInput, RegisterUsageCommandOutput } from "../commands/RegisterUsageCommand";
+import { ResolveCustomerCommandInput, ResolveCustomerCommandOutput } from "../commands/ResolveCustomerCommand";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import { SerdeContext as __SerdeContext } from "@aws-sdk/types";
+export declare function serializeAws_json1_1BatchMeterUsageCommand(input: BatchMeterUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest>;
+export declare function serializeAws_json1_1MeterUsageCommand(input: MeterUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest>;
+export declare function serializeAws_json1_1RegisterUsageCommand(input: RegisterUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest>;
+export declare function serializeAws_json1_1ResolveCustomerCommand(input: ResolveCustomerCommandInput, context: __SerdeContext): Promise<__HttpRequest>;
+export declare function deserializeAws_json1_1BatchMeterUsageCommand(output: __HttpResponse, context: __SerdeContext): Promise<BatchMeterUsageCommandOutput>;
+export declare function deserializeAws_json1_1MeterUsageCommand(output: __HttpResponse, context: __SerdeContext): Promise<MeterUsageCommandOutput>;
+export declare function deserializeAws_json1_1RegisterUsageCommand(output: __HttpResponse, context: __SerdeContext): Promise<RegisterUsageCommandOutput>;
+export declare function deserializeAws_json1_1ResolveCustomerCommand(output: __HttpResponse, context: __SerdeContext): Promise<ResolveCustomerCommandOutput>;

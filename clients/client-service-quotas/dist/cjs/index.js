@@ -1,0 +1,23 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
+tslib_1.__exportStar(require("./ServiceQuotasClient"), exports);
+tslib_1.__exportStar(require("./ServiceQuotas"), exports);
+tslib_1.__exportStar(require("./commands/AssociateServiceQuotaTemplateCommand"), exports);
+tslib_1.__exportStar(require("./commands/DeleteServiceQuotaIncreaseRequestFromTemplateCommand"), exports);
+tslib_1.__exportStar(require("./commands/DisassociateServiceQuotaTemplateCommand"), exports);
+tslib_1.__exportStar(require("./commands/GetAWSDefaultServiceQuotaCommand"), exports);
+tslib_1.__exportStar(require("./commands/GetAssociationForServiceQuotaTemplateCommand"), exports);
+tslib_1.__exportStar(require("./commands/GetRequestedServiceQuotaChangeCommand"), exports);
+tslib_1.__exportStar(require("./commands/GetServiceQuotaCommand"), exports);
+tslib_1.__exportStar(require("./commands/GetServiceQuotaIncreaseRequestFromTemplateCommand"), exports);
+tslib_1.__exportStar(require("./commands/ListAWSDefaultServiceQuotasCommand"), exports);
+tslib_1.__exportStar(require("./commands/ListRequestedServiceQuotaChangeHistoryCommand"), exports);
+tslib_1.__exportStar(require("./commands/ListRequestedServiceQuotaChangeHistoryByQuotaCommand"), exports);
+tslib_1.__exportStar(require("./commands/ListServiceQuotaIncreaseRequestsInTemplateCommand"), exports);
+tslib_1.__exportStar(require("./commands/ListServiceQuotasCommand"), exports);
+tslib_1.__exportStar(require("./commands/ListServicesCommand"), exports);
+tslib_1.__exportStar(require("./commands/PutServiceQuotaIncreaseRequestIntoTemplateCommand"), exports);
+tslib_1.__exportStar(require("./commands/RequestServiceQuotaIncreaseCommand"), exports);
+tslib_1.__exportStar(require("./models/index"), exports);
+//# sourceMappingURL=index.js.map

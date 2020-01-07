@@ -1,0 +1,27 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
+tslib_1.__exportStar(require("./SQSClient"), exports);
+tslib_1.__exportStar(require("./SQS"), exports);
+tslib_1.__exportStar(require("./commands/AddPermissionCommand"), exports);
+tslib_1.__exportStar(require("./commands/ChangeMessageVisibilityCommand"), exports);
+tslib_1.__exportStar(require("./commands/ChangeMessageVisibilityBatchCommand"), exports);
+tslib_1.__exportStar(require("./commands/CreateQueueCommand"), exports);
+tslib_1.__exportStar(require("./commands/DeleteMessageCommand"), exports);
+tslib_1.__exportStar(require("./commands/DeleteMessageBatchCommand"), exports);
+tslib_1.__exportStar(require("./commands/DeleteQueueCommand"), exports);
+tslib_1.__exportStar(require("./commands/GetQueueAttributesCommand"), exports);
+tslib_1.__exportStar(require("./commands/GetQueueUrlCommand"), exports);
+tslib_1.__exportStar(require("./commands/ListDeadLetterSourceQueuesCommand"), exports);
+tslib_1.__exportStar(require("./commands/ListQueueTagsCommand"), exports);
+tslib_1.__exportStar(require("./commands/ListQueuesCommand"), exports);
+tslib_1.__exportStar(require("./commands/PurgeQueueCommand"), exports);
+tslib_1.__exportStar(require("./commands/ReceiveMessageCommand"), exports);
+tslib_1.__exportStar(require("./commands/RemovePermissionCommand"), exports);
+tslib_1.__exportStar(require("./commands/SendMessageCommand"), exports);
+tslib_1.__exportStar(require("./commands/SendMessageBatchCommand"), exports);
+tslib_1.__exportStar(require("./commands/SetQueueAttributesCommand"), exports);
+tslib_1.__exportStar(require("./commands/TagQueueCommand"), exports);
+tslib_1.__exportStar(require("./commands/UntagQueueCommand"), exports);
+tslib_1.__exportStar(require("./models/index"), exports);
+//# sourceMappingURL=index.js.map

@@ -1,0 +1,11 @@
+import { DescribeServicesCommandInput, DescribeServicesCommandOutput } from "../commands/DescribeServicesCommand";
+import { GetAttributeValuesCommandInput, GetAttributeValuesCommandOutput } from "../commands/GetAttributeValuesCommand";
+import { GetProductsCommandInput, GetProductsCommandOutput } from "../commands/GetProductsCommand";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import { SerdeContext as __SerdeContext } from "@aws-sdk/types";
+export declare function serializeAws_json1_1DescribeServicesCommand(input: DescribeServicesCommandInput, context: __SerdeContext): Promise<__HttpRequest>;
+export declare function serializeAws_json1_1GetAttributeValuesCommand(input: GetAttributeValuesCommandInput, context: __SerdeContext): Promise<__HttpRequest>;
+export declare function serializeAws_json1_1GetProductsCommand(input: GetProductsCommandInput, context: __SerdeContext): Promise<__HttpRequest>;
+export declare function deserializeAws_json1_1DescribeServicesCommand(output: __HttpResponse, context: __SerdeContext): Promise<DescribeServicesCommandOutput>;
+export declare function deserializeAws_json1_1GetAttributeValuesCommand(output: __HttpResponse, context: __SerdeContext): Promise<GetAttributeValuesCommandOutput>;
+export declare function deserializeAws_json1_1GetProductsCommand(output: __HttpResponse, context: __SerdeContext): Promise<GetProductsCommandOutput>;

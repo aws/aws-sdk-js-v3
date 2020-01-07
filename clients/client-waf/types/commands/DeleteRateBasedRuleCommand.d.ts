@@ -1,0 +1,13 @@
+import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
+import { DeleteRateBasedRuleRequest, DeleteRateBasedRuleResponse } from "../models/index";
+import { Command as $Command } from "@aws-sdk/smithy-client";
+import { Handler, MiddlewareStack, HttpHandlerOptions as __HttpHandlerOptions, MetadataBearer as __MetadataBearer } from "@aws-sdk/types";
+export declare type DeleteRateBasedRuleCommandInput = DeleteRateBasedRuleRequest;
+export declare type DeleteRateBasedRuleCommandOutput = DeleteRateBasedRuleResponse & __MetadataBearer;
+export declare class DeleteRateBasedRuleCommand extends $Command<DeleteRateBasedRuleCommandInput, DeleteRateBasedRuleCommandOutput, WAFClientResolvedConfig> {
+    readonly input: DeleteRateBasedRuleCommandInput;
+    constructor(input: DeleteRateBasedRuleCommandInput);
+    resolveMiddleware(clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>, configuration: WAFClientResolvedConfig, options?: __HttpHandlerOptions): Handler<DeleteRateBasedRuleCommandInput, DeleteRateBasedRuleCommandOutput>;
+    private serialize;
+    private deserialize;
+}

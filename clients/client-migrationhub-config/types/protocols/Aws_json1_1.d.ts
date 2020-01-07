@@ -1,0 +1,11 @@
+import { CreateHomeRegionControlCommandInput, CreateHomeRegionControlCommandOutput } from "../commands/CreateHomeRegionControlCommand";
+import { DescribeHomeRegionControlsCommandInput, DescribeHomeRegionControlsCommandOutput } from "../commands/DescribeHomeRegionControlsCommand";
+import { GetHomeRegionCommandInput, GetHomeRegionCommandOutput } from "../commands/GetHomeRegionCommand";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import { SerdeContext as __SerdeContext } from "@aws-sdk/types";
+export declare function serializeAws_json1_1CreateHomeRegionControlCommand(input: CreateHomeRegionControlCommandInput, context: __SerdeContext): Promise<__HttpRequest>;
+export declare function serializeAws_json1_1DescribeHomeRegionControlsCommand(input: DescribeHomeRegionControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest>;
+export declare function serializeAws_json1_1GetHomeRegionCommand(input: GetHomeRegionCommandInput, context: __SerdeContext): Promise<__HttpRequest>;
+export declare function deserializeAws_json1_1CreateHomeRegionControlCommand(output: __HttpResponse, context: __SerdeContext): Promise<CreateHomeRegionControlCommandOutput>;
+export declare function deserializeAws_json1_1DescribeHomeRegionControlsCommand(output: __HttpResponse, context: __SerdeContext): Promise<DescribeHomeRegionControlsCommandOutput>;
+export declare function deserializeAws_json1_1GetHomeRegionCommand(output: __HttpResponse, context: __SerdeContext): Promise<GetHomeRegionCommandOutput>;

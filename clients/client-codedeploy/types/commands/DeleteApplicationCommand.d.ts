@@ -1,0 +1,13 @@
+import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
+import { DeleteApplicationInput } from "../models/index";
+import { Command as $Command } from "@aws-sdk/smithy-client";
+import { Handler, MiddlewareStack, HttpHandlerOptions as __HttpHandlerOptions, MetadataBearer as __MetadataBearer } from "@aws-sdk/types";
+export declare type DeleteApplicationCommandInput = DeleteApplicationInput;
+export declare type DeleteApplicationCommandOutput = __MetadataBearer;
+export declare class DeleteApplicationCommand extends $Command<DeleteApplicationCommandInput, DeleteApplicationCommandOutput, CodeDeployClientResolvedConfig> {
+    readonly input: DeleteApplicationCommandInput;
+    constructor(input: DeleteApplicationCommandInput);
+    resolveMiddleware(clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>, configuration: CodeDeployClientResolvedConfig, options?: __HttpHandlerOptions): Handler<DeleteApplicationCommandInput, DeleteApplicationCommandOutput>;
+    private serialize;
+    private deserialize;
+}

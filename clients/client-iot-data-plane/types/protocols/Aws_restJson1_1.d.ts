@@ -1,0 +1,14 @@
+import { DeleteThingShadowCommandInput, DeleteThingShadowCommandOutput } from "../commands/DeleteThingShadowCommand";
+import { GetThingShadowCommandInput, GetThingShadowCommandOutput } from "../commands/GetThingShadowCommand";
+import { PublishCommandInput, PublishCommandOutput } from "../commands/PublishCommand";
+import { UpdateThingShadowCommandInput, UpdateThingShadowCommandOutput } from "../commands/UpdateThingShadowCommand";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import { SerdeContext as __SerdeContext } from "@aws-sdk/types";
+export declare function serializeAws_restJson1_1DeleteThingShadowCommand(input: DeleteThingShadowCommandInput, context: __SerdeContext): Promise<__HttpRequest>;
+export declare function serializeAws_restJson1_1GetThingShadowCommand(input: GetThingShadowCommandInput, context: __SerdeContext): Promise<__HttpRequest>;
+export declare function serializeAws_restJson1_1PublishCommand(input: PublishCommandInput, context: __SerdeContext): Promise<__HttpRequest>;
+export declare function serializeAws_restJson1_1UpdateThingShadowCommand(input: UpdateThingShadowCommandInput, context: __SerdeContext): Promise<__HttpRequest>;
+export declare function deserializeAws_restJson1_1DeleteThingShadowCommand(output: __HttpResponse, context: __SerdeContext): Promise<DeleteThingShadowCommandOutput>;
+export declare function deserializeAws_restJson1_1GetThingShadowCommand(output: __HttpResponse, context: __SerdeContext): Promise<GetThingShadowCommandOutput>;
+export declare function deserializeAws_restJson1_1PublishCommand(output: __HttpResponse, context: __SerdeContext): Promise<PublishCommandOutput>;
+export declare function deserializeAws_restJson1_1UpdateThingShadowCommand(output: __HttpResponse, context: __SerdeContext): Promise<UpdateThingShadowCommandOutput>;

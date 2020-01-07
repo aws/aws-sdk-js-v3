@@ -1,0 +1,14 @@
+import { DescribeStreamCommandInput, DescribeStreamCommandOutput } from "../commands/DescribeStreamCommand";
+import { GetRecordsCommandInput, GetRecordsCommandOutput } from "../commands/GetRecordsCommand";
+import { GetShardIteratorCommandInput, GetShardIteratorCommandOutput } from "../commands/GetShardIteratorCommand";
+import { ListStreamsCommandInput, ListStreamsCommandOutput } from "../commands/ListStreamsCommand";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import { SerdeContext as __SerdeContext } from "@aws-sdk/types";
+export declare function serializeAws_json1_0DescribeStreamCommand(input: DescribeStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest>;
+export declare function serializeAws_json1_0GetRecordsCommand(input: GetRecordsCommandInput, context: __SerdeContext): Promise<__HttpRequest>;
+export declare function serializeAws_json1_0GetShardIteratorCommand(input: GetShardIteratorCommandInput, context: __SerdeContext): Promise<__HttpRequest>;
+export declare function serializeAws_json1_0ListStreamsCommand(input: ListStreamsCommandInput, context: __SerdeContext): Promise<__HttpRequest>;
+export declare function deserializeAws_json1_0DescribeStreamCommand(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStreamCommandOutput>;
+export declare function deserializeAws_json1_0GetRecordsCommand(output: __HttpResponse, context: __SerdeContext): Promise<GetRecordsCommandOutput>;
+export declare function deserializeAws_json1_0GetShardIteratorCommand(output: __HttpResponse, context: __SerdeContext): Promise<GetShardIteratorCommandOutput>;
+export declare function deserializeAws_json1_0ListStreamsCommand(output: __HttpResponse, context: __SerdeContext): Promise<ListStreamsCommandOutput>;

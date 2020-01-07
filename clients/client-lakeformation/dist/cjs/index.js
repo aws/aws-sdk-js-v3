@@ -1,0 +1,20 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
+tslib_1.__exportStar(require("./LakeFormationClient"), exports);
+tslib_1.__exportStar(require("./LakeFormation"), exports);
+tslib_1.__exportStar(require("./commands/BatchGrantPermissionsCommand"), exports);
+tslib_1.__exportStar(require("./commands/BatchRevokePermissionsCommand"), exports);
+tslib_1.__exportStar(require("./commands/DeregisterResourceCommand"), exports);
+tslib_1.__exportStar(require("./commands/DescribeResourceCommand"), exports);
+tslib_1.__exportStar(require("./commands/GetDataLakeSettingsCommand"), exports);
+tslib_1.__exportStar(require("./commands/GetEffectivePermissionsForPathCommand"), exports);
+tslib_1.__exportStar(require("./commands/GrantPermissionsCommand"), exports);
+tslib_1.__exportStar(require("./commands/ListPermissionsCommand"), exports);
+tslib_1.__exportStar(require("./commands/ListResourcesCommand"), exports);
+tslib_1.__exportStar(require("./commands/PutDataLakeSettingsCommand"), exports);
+tslib_1.__exportStar(require("./commands/RegisterResourceCommand"), exports);
+tslib_1.__exportStar(require("./commands/RevokePermissionsCommand"), exports);
+tslib_1.__exportStar(require("./commands/UpdateResourceCommand"), exports);
+tslib_1.__exportStar(require("./models/index"), exports);
+//# sourceMappingURL=index.js.map

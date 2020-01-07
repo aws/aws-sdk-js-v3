@@ -1,0 +1,23 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
+tslib_1.__exportStar(require("./LicenseManagerClient"), exports);
+tslib_1.__exportStar(require("./LicenseManager"), exports);
+tslib_1.__exportStar(require("./commands/CreateLicenseConfigurationCommand"), exports);
+tslib_1.__exportStar(require("./commands/DeleteLicenseConfigurationCommand"), exports);
+tslib_1.__exportStar(require("./commands/GetLicenseConfigurationCommand"), exports);
+tslib_1.__exportStar(require("./commands/GetServiceSettingsCommand"), exports);
+tslib_1.__exportStar(require("./commands/ListAssociationsForLicenseConfigurationCommand"), exports);
+tslib_1.__exportStar(require("./commands/ListFailuresForLicenseConfigurationOperationsCommand"), exports);
+tslib_1.__exportStar(require("./commands/ListLicenseConfigurationsCommand"), exports);
+tslib_1.__exportStar(require("./commands/ListLicenseSpecificationsForResourceCommand"), exports);
+tslib_1.__exportStar(require("./commands/ListResourceInventoryCommand"), exports);
+tslib_1.__exportStar(require("./commands/ListTagsForResourceCommand"), exports);
+tslib_1.__exportStar(require("./commands/ListUsageForLicenseConfigurationCommand"), exports);
+tslib_1.__exportStar(require("./commands/TagResourceCommand"), exports);
+tslib_1.__exportStar(require("./commands/UntagResourceCommand"), exports);
+tslib_1.__exportStar(require("./commands/UpdateLicenseConfigurationCommand"), exports);
+tslib_1.__exportStar(require("./commands/UpdateLicenseSpecificationsForResourceCommand"), exports);
+tslib_1.__exportStar(require("./commands/UpdateServiceSettingsCommand"), exports);
+tslib_1.__exportStar(require("./models/index"), exports);
+//# sourceMappingURL=index.js.map

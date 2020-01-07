@@ -1,0 +1,27 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
+tslib_1.__exportStar(require("./kendraClient"), exports);
+tslib_1.__exportStar(require("./kendra"), exports);
+tslib_1.__exportStar(require("./commands/BatchDeleteDocumentCommand"), exports);
+tslib_1.__exportStar(require("./commands/BatchPutDocumentCommand"), exports);
+tslib_1.__exportStar(require("./commands/CreateDataSourceCommand"), exports);
+tslib_1.__exportStar(require("./commands/CreateFaqCommand"), exports);
+tslib_1.__exportStar(require("./commands/CreateIndexCommand"), exports);
+tslib_1.__exportStar(require("./commands/DeleteFaqCommand"), exports);
+tslib_1.__exportStar(require("./commands/DeleteIndexCommand"), exports);
+tslib_1.__exportStar(require("./commands/DescribeDataSourceCommand"), exports);
+tslib_1.__exportStar(require("./commands/DescribeFaqCommand"), exports);
+tslib_1.__exportStar(require("./commands/DescribeIndexCommand"), exports);
+tslib_1.__exportStar(require("./commands/ListDataSourceSyncJobsCommand"), exports);
+tslib_1.__exportStar(require("./commands/ListDataSourcesCommand"), exports);
+tslib_1.__exportStar(require("./commands/ListFaqsCommand"), exports);
+tslib_1.__exportStar(require("./commands/ListIndicesCommand"), exports);
+tslib_1.__exportStar(require("./commands/QueryCommand"), exports);
+tslib_1.__exportStar(require("./commands/StartDataSourceSyncJobCommand"), exports);
+tslib_1.__exportStar(require("./commands/StopDataSourceSyncJobCommand"), exports);
+tslib_1.__exportStar(require("./commands/SubmitFeedbackCommand"), exports);
+tslib_1.__exportStar(require("./commands/UpdateDataSourceCommand"), exports);
+tslib_1.__exportStar(require("./commands/UpdateIndexCommand"), exports);
+tslib_1.__exportStar(require("./models/index"), exports);
+//# sourceMappingURL=index.js.map

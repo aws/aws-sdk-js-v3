@@ -1,0 +1,14 @@
+import { DeleteReportDefinitionCommandInput, DeleteReportDefinitionCommandOutput } from "../commands/DeleteReportDefinitionCommand";
+import { DescribeReportDefinitionsCommandInput, DescribeReportDefinitionsCommandOutput } from "../commands/DescribeReportDefinitionsCommand";
+import { ModifyReportDefinitionCommandInput, ModifyReportDefinitionCommandOutput } from "../commands/ModifyReportDefinitionCommand";
+import { PutReportDefinitionCommandInput, PutReportDefinitionCommandOutput } from "../commands/PutReportDefinitionCommand";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import { SerdeContext as __SerdeContext } from "@aws-sdk/types";
+export declare function serializeAws_json1_1DeleteReportDefinitionCommand(input: DeleteReportDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest>;
+export declare function serializeAws_json1_1DescribeReportDefinitionsCommand(input: DescribeReportDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest>;
+export declare function serializeAws_json1_1ModifyReportDefinitionCommand(input: ModifyReportDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest>;
+export declare function serializeAws_json1_1PutReportDefinitionCommand(input: PutReportDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest>;
+export declare function deserializeAws_json1_1DeleteReportDefinitionCommand(output: __HttpResponse, context: __SerdeContext): Promise<DeleteReportDefinitionCommandOutput>;
+export declare function deserializeAws_json1_1DescribeReportDefinitionsCommand(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReportDefinitionsCommandOutput>;
+export declare function deserializeAws_json1_1ModifyReportDefinitionCommand(output: __HttpResponse, context: __SerdeContext): Promise<ModifyReportDefinitionCommandOutput>;
+export declare function deserializeAws_json1_1PutReportDefinitionCommand(output: __HttpResponse, context: __SerdeContext): Promise<PutReportDefinitionCommandOutput>;
