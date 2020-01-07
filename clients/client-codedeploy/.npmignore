@@ -1,0 +1,4 @@
+/coverage/
+/docs/
+tsconfig.test.json
+*.tsbuildinfo
