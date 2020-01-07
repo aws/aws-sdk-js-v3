@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/signature-v4-universal",
   "description": "A standalone AWS Signature V4 request signer targeting all JS environments",
-  "version": "0.1.0-preview.10",
+  "version": "1.0.0-alpha.0",
   "scripts": {
     "build:cjs": "tsc -p ./tsconfig.test.json",
     "build:es": "tsc -p ./tsconfig.es.json",
@@ -20,7 +20,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-crypto/sha256-universal": "^0.1.0-preview.1",
-    "@aws-sdk/signature-v4": "^0.1.0-preview.10",
+    "@aws-sdk/signature-v4": "^1.0.0-alpha.0",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
