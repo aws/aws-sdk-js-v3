@@ -92,6 +92,44 @@ export class ConnectParticipant extends ConnectParticipantClient {
 
   /**
    *
+   *         <p>Disconnects a participant. Note that ConnectionToken is used for invoking this API
+   *             instead of ParticipantToken.</p>
+   *
+   */
+  public disconnectParticipant(
+    args: DisconnectParticipantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisconnectParticipantCommandOutput>;
+  public disconnectParticipant(
+    args: DisconnectParticipantCommandInput,
+    cb: (err: any, data?: DisconnectParticipantCommandOutput) => void
+  ): void;
+  public disconnectParticipant(
+    args: DisconnectParticipantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisconnectParticipantCommandOutput) => void
+  ): void;
+  public disconnectParticipant(
+    args: DisconnectParticipantCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisconnectParticipantCommandOutput) => void),
+    cb?: (err: any, data?: DisconnectParticipantCommandOutput) => void
+  ): Promise<DisconnectParticipantCommandOutput> | void {
+    const command = new DisconnectParticipantCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
    *         <p>Retrieves a transcript of the session. Note that ConnectionToken is used for invoking
    *             this API instead of ParticipantToken.</p>
    *
@@ -117,44 +155,6 @@ export class ConnectParticipant extends ConnectParticipantClient {
     cb?: (err: any, data?: GetTranscriptCommandOutput) => void
   ): Promise<GetTranscriptCommandOutput> | void {
     const command = new GetTranscriptCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *         <p>Sends a message. Note that ConnectionToken is used for invoking this API instead of
-   *             ParticipantToken.</p>
-   *
-   */
-  public sendMessage(
-    args: SendMessageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<SendMessageCommandOutput>;
-  public sendMessage(
-    args: SendMessageCommandInput,
-    cb: (err: any, data?: SendMessageCommandOutput) => void
-  ): void;
-  public sendMessage(
-    args: SendMessageCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: SendMessageCommandOutput) => void
-  ): void;
-  public sendMessage(
-    args: SendMessageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendMessageCommandOutput) => void),
-    cb?: (err: any, data?: SendMessageCommandOutput) => void
-  ): Promise<SendMessageCommandOutput> | void {
-    const command = new SendMessageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -206,31 +206,31 @@ export class ConnectParticipant extends ConnectParticipantClient {
 
   /**
    *
-   *         <p>Disconnects a participant. Note that ConnectionToken is used for invoking this API
-   *             instead of ParticipantToken.</p>
+   *         <p>Sends a message. Note that ConnectionToken is used for invoking this API instead of
+   *             ParticipantToken.</p>
    *
    */
-  public disconnectParticipant(
-    args: DisconnectParticipantCommandInput,
+  public sendMessage(
+    args: SendMessageCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DisconnectParticipantCommandOutput>;
-  public disconnectParticipant(
-    args: DisconnectParticipantCommandInput,
-    cb: (err: any, data?: DisconnectParticipantCommandOutput) => void
+  ): Promise<SendMessageCommandOutput>;
+  public sendMessage(
+    args: SendMessageCommandInput,
+    cb: (err: any, data?: SendMessageCommandOutput) => void
   ): void;
-  public disconnectParticipant(
-    args: DisconnectParticipantCommandInput,
+  public sendMessage(
+    args: SendMessageCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DisconnectParticipantCommandOutput) => void
+    cb: (err: any, data?: SendMessageCommandOutput) => void
   ): void;
-  public disconnectParticipant(
-    args: DisconnectParticipantCommandInput,
+  public sendMessage(
+    args: SendMessageCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DisconnectParticipantCommandOutput) => void),
-    cb?: (err: any, data?: DisconnectParticipantCommandOutput) => void
-  ): Promise<DisconnectParticipantCommandOutput> | void {
-    const command = new DisconnectParticipantCommand(args);
+      | ((err: any, data?: SendMessageCommandOutput) => void),
+    cb?: (err: any, data?: SendMessageCommandOutput) => void
+  ): Promise<SendMessageCommandOutput> | void {
+    const command = new SendMessageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
