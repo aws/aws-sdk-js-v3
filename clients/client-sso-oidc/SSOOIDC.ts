@@ -41,6 +41,45 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class SSOOIDC extends SSOOIDCClient {
   /**
    *
+   *          <p>Creates and returns an access token for the authorized client. The access token issued
+   *       will be used to fetch short-term credentials for the assigned roles in the AWS
+   *       account.</p>
+   *
+   */
+  public createToken(
+    args: CreateTokenCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTokenCommandOutput>;
+  public createToken(
+    args: CreateTokenCommandInput,
+    cb: (err: any, data?: CreateTokenCommandOutput) => void
+  ): void;
+  public createToken(
+    args: CreateTokenCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTokenCommandOutput) => void
+  ): void;
+  public createToken(
+    args: CreateTokenCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateTokenCommandOutput) => void),
+    cb?: (err: any, data?: CreateTokenCommandOutput) => void
+  ): Promise<CreateTokenCommandOutput> | void {
+    const command = new CreateTokenCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
    *          <p>Registers a client with AWS SSO. This allows clients to initiate device authorization.
    *       The output should be persisted for reuse through many authentication requests.</p>
    *
@@ -103,45 +142,6 @@ export class SSOOIDC extends SSOOIDCClient {
     cb?: (err: any, data?: StartDeviceAuthorizationCommandOutput) => void
   ): Promise<StartDeviceAuthorizationCommandOutput> | void {
     const command = new StartDeviceAuthorizationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Creates and returns an access token for the authorized client. The access token issued
-   *       will be used to fetch short-term credentials for the assigned roles in the AWS
-   *       account.</p>
-   *
-   */
-  public createToken(
-    args: CreateTokenCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateTokenCommandOutput>;
-  public createToken(
-    args: CreateTokenCommandInput,
-    cb: (err: any, data?: CreateTokenCommandOutput) => void
-  ): void;
-  public createToken(
-    args: CreateTokenCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateTokenCommandOutput) => void
-  ): void;
-  public createToken(
-    args: CreateTokenCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTokenCommandOutput) => void),
-    cb?: (err: any, data?: CreateTokenCommandOutput) => void
-  ): Promise<CreateTokenCommandOutput> | void {
-    const command = new CreateTokenCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -129,191 +129,6 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class RAM extends RAMClient {
   /**
    *
-   *          <p>Associates the specified resource share with the specified principals and resources.</p>
-   *
-   */
-  public associateResourceShare(
-    args: AssociateResourceShareCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AssociateResourceShareCommandOutput>;
-  public associateResourceShare(
-    args: AssociateResourceShareCommandInput,
-    cb: (err: any, data?: AssociateResourceShareCommandOutput) => void
-  ): void;
-  public associateResourceShare(
-    args: AssociateResourceShareCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AssociateResourceShareCommandOutput) => void
-  ): void;
-  public associateResourceShare(
-    args: AssociateResourceShareCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateResourceShareCommandOutput) => void),
-    cb?: (err: any, data?: AssociateResourceShareCommandOutput) => void
-  ): Promise<AssociateResourceShareCommandOutput> | void {
-    const command = new AssociateResourceShareCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Creates a resource share.</p>
-   *
-   */
-  public createResourceShare(
-    args: CreateResourceShareCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateResourceShareCommandOutput>;
-  public createResourceShare(
-    args: CreateResourceShareCommandInput,
-    cb: (err: any, data?: CreateResourceShareCommandOutput) => void
-  ): void;
-  public createResourceShare(
-    args: CreateResourceShareCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateResourceShareCommandOutput) => void
-  ): void;
-  public createResourceShare(
-    args: CreateResourceShareCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateResourceShareCommandOutput) => void),
-    cb?: (err: any, data?: CreateResourceShareCommandOutput) => void
-  ): Promise<CreateResourceShareCommandOutput> | void {
-    const command = new CreateResourceShareCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Lists the resources that you added to a resource shares or the resources that are shared with you.</p>
-   *
-   */
-  public listResources(
-    args: ListResourcesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListResourcesCommandOutput>;
-  public listResources(
-    args: ListResourcesCommandInput,
-    cb: (err: any, data?: ListResourcesCommandOutput) => void
-  ): void;
-  public listResources(
-    args: ListResourcesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListResourcesCommandOutput) => void
-  ): void;
-  public listResources(
-    args: ListResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListResourcesCommandOutput) => void),
-    cb?: (err: any, data?: ListResourcesCommandOutput) => void
-  ): Promise<ListResourcesCommandOutput> | void {
-    const command = new ListResourcesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Gets the policies for the specified resources that you own and have shared.</p>
-   *
-   */
-  public getResourcePolicies(
-    args: GetResourcePoliciesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetResourcePoliciesCommandOutput>;
-  public getResourcePolicies(
-    args: GetResourcePoliciesCommandInput,
-    cb: (err: any, data?: GetResourcePoliciesCommandOutput) => void
-  ): void;
-  public getResourcePolicies(
-    args: GetResourcePoliciesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetResourcePoliciesCommandOutput) => void
-  ): void;
-  public getResourcePolicies(
-    args: GetResourcePoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetResourcePoliciesCommandOutput) => void),
-    cb?: (err: any, data?: GetResourcePoliciesCommandOutput) => void
-  ): Promise<GetResourcePoliciesCommandOutput> | void {
-    const command = new GetResourcePoliciesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Updates the specified resource share that you own.</p>
-   *
-   */
-  public updateResourceShare(
-    args: UpdateResourceShareCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateResourceShareCommandOutput>;
-  public updateResourceShare(
-    args: UpdateResourceShareCommandInput,
-    cb: (err: any, data?: UpdateResourceShareCommandOutput) => void
-  ): void;
-  public updateResourceShare(
-    args: UpdateResourceShareCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateResourceShareCommandOutput) => void
-  ): void;
-  public updateResourceShare(
-    args: UpdateResourceShareCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateResourceShareCommandOutput) => void),
-    cb?: (err: any, data?: UpdateResourceShareCommandOutput) => void
-  ): Promise<UpdateResourceShareCommandOutput> | void {
-    const command = new UpdateResourceShareCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
    *          <p>Accepts an invitation to a resource share from another AWS account.</p>
    *
    */
@@ -351,216 +166,30 @@ export class RAM extends RAMClient {
 
   /**
    *
-   *          <p>Lists the principals that you have shared resources with or that have shared resources
-   * 			with you.</p>
+   *          <p>Associates the specified resource share with the specified principals and resources.</p>
    *
    */
-  public listPrincipals(
-    args: ListPrincipalsCommandInput,
+  public associateResourceShare(
+    args: AssociateResourceShareCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListPrincipalsCommandOutput>;
-  public listPrincipals(
-    args: ListPrincipalsCommandInput,
-    cb: (err: any, data?: ListPrincipalsCommandOutput) => void
+  ): Promise<AssociateResourceShareCommandOutput>;
+  public associateResourceShare(
+    args: AssociateResourceShareCommandInput,
+    cb: (err: any, data?: AssociateResourceShareCommandOutput) => void
   ): void;
-  public listPrincipals(
-    args: ListPrincipalsCommandInput,
+  public associateResourceShare(
+    args: AssociateResourceShareCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListPrincipalsCommandOutput) => void
+    cb: (err: any, data?: AssociateResourceShareCommandOutput) => void
   ): void;
-  public listPrincipals(
-    args: ListPrincipalsCommandInput,
+  public associateResourceShare(
+    args: AssociateResourceShareCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListPrincipalsCommandOutput) => void),
-    cb?: (err: any, data?: ListPrincipalsCommandOutput) => void
-  ): Promise<ListPrincipalsCommandOutput> | void {
-    const command = new ListPrincipalsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 	        <p>Gets the contents of an AWS RAM permission in JSON format.</p>
-   *
-   */
-  public getPermission(
-    args: GetPermissionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetPermissionCommandOutput>;
-  public getPermission(
-    args: GetPermissionCommandInput,
-    cb: (err: any, data?: GetPermissionCommandOutput) => void
-  ): void;
-  public getPermission(
-    args: GetPermissionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetPermissionCommandOutput) => void
-  ): void;
-  public getPermission(
-    args: GetPermissionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPermissionCommandOutput) => void),
-    cb?: (err: any, data?: GetPermissionCommandOutput) => void
-  ): Promise<GetPermissionCommandOutput> | void {
-    const command = new GetPermissionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Gets the resources or principals for the resource shares that you own.</p>
-   *
-   */
-  public getResourceShareAssociations(
-    args: GetResourceShareAssociationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetResourceShareAssociationsCommandOutput>;
-  public getResourceShareAssociations(
-    args: GetResourceShareAssociationsCommandInput,
-    cb: (err: any, data?: GetResourceShareAssociationsCommandOutput) => void
-  ): void;
-  public getResourceShareAssociations(
-    args: GetResourceShareAssociationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetResourceShareAssociationsCommandOutput) => void
-  ): void;
-  public getResourceShareAssociations(
-    args: GetResourceShareAssociationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetResourceShareAssociationsCommandOutput) => void),
-    cb?: (err: any, data?: GetResourceShareAssociationsCommandOutput) => void
-  ): Promise<GetResourceShareAssociationsCommandOutput> | void {
-    const command = new GetResourceShareAssociationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Removes the specified tags from the specified resource share that you own.</p>
-   *
-   */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Gets the resource shares that you own or the resource shares that are shared with you.</p>
-   *
-   */
-  public getResourceShares(
-    args: GetResourceSharesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetResourceSharesCommandOutput>;
-  public getResourceShares(
-    args: GetResourceSharesCommandInput,
-    cb: (err: any, data?: GetResourceSharesCommandOutput) => void
-  ): void;
-  public getResourceShares(
-    args: GetResourceSharesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetResourceSharesCommandOutput) => void
-  ): void;
-  public getResourceShares(
-    args: GetResourceSharesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetResourceSharesCommandOutput) => void),
-    cb?: (err: any, data?: GetResourceSharesCommandOutput) => void
-  ): Promise<GetResourceSharesCommandOutput> | void {
-    const command = new GetResourceSharesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Rejects an invitation to a resource share from another AWS account.</p>
-   *
-   */
-  public rejectResourceShareInvitation(
-    args: RejectResourceShareInvitationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RejectResourceShareInvitationCommandOutput>;
-  public rejectResourceShareInvitation(
-    args: RejectResourceShareInvitationCommandInput,
-    cb: (err: any, data?: RejectResourceShareInvitationCommandOutput) => void
-  ): void;
-  public rejectResourceShareInvitation(
-    args: RejectResourceShareInvitationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RejectResourceShareInvitationCommandOutput) => void
-  ): void;
-  public rejectResourceShareInvitation(
-    args: RejectResourceShareInvitationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RejectResourceShareInvitationCommandOutput) => void),
-    cb?: (err: any, data?: RejectResourceShareInvitationCommandOutput) => void
-  ): Promise<RejectResourceShareInvitationCommandOutput> | void {
-    const command = new RejectResourceShareInvitationCommand(args);
+      | ((err: any, data?: AssociateResourceShareCommandOutput) => void),
+    cb?: (err: any, data?: AssociateResourceShareCommandOutput) => void
+  ): Promise<AssociateResourceShareCommandOutput> | void {
+    const command = new AssociateResourceShareCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -617,54 +246,30 @@ export class RAM extends RAMClient {
 
   /**
    *
-   *     	    <p>Resource shares that were created by attaching a policy to a resource are visible only to
-   * 			the resource share owner, and the resource share cannot be modified in AWS RAM.</p>
-   *
-   *     	    <p>Use this API action to promote the resource share. When you promote the resource share,
-   * 			it becomes:</p>
-   *     	    <ul>
-   *             <li>
-   *     			        <p>Visible to all principals that it is shared with.</p>
-   *     		      </li>
-   *             <li>
-   *     			        <p>Modifiable in AWS RAM.</p>
-   *     		      </li>
-   *          </ul>
+   *          <p>Creates a resource share.</p>
    *
    */
-  public promoteResourceShareCreatedFromPolicy(
-    args: PromoteResourceShareCreatedFromPolicyCommandInput,
+  public createResourceShare(
+    args: CreateResourceShareCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<PromoteResourceShareCreatedFromPolicyCommandOutput>;
-  public promoteResourceShareCreatedFromPolicy(
-    args: PromoteResourceShareCreatedFromPolicyCommandInput,
-    cb: (
-      err: any,
-      data?: PromoteResourceShareCreatedFromPolicyCommandOutput
-    ) => void
+  ): Promise<CreateResourceShareCommandOutput>;
+  public createResourceShare(
+    args: CreateResourceShareCommandInput,
+    cb: (err: any, data?: CreateResourceShareCommandOutput) => void
   ): void;
-  public promoteResourceShareCreatedFromPolicy(
-    args: PromoteResourceShareCreatedFromPolicyCommandInput,
+  public createResourceShare(
+    args: CreateResourceShareCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PromoteResourceShareCreatedFromPolicyCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateResourceShareCommandOutput) => void
   ): void;
-  public promoteResourceShareCreatedFromPolicy(
-    args: PromoteResourceShareCreatedFromPolicyCommandInput,
+  public createResourceShare(
+    args: CreateResourceShareCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PromoteResourceShareCreatedFromPolicyCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PromoteResourceShareCreatedFromPolicyCommandOutput
-    ) => void
-  ): Promise<PromoteResourceShareCreatedFromPolicyCommandOutput> | void {
-    const command = new PromoteResourceShareCreatedFromPolicyCommand(args);
+      | ((err: any, data?: CreateResourceShareCommandOutput) => void),
+    cb?: (err: any, data?: CreateResourceShareCommandOutput) => void
+  ): Promise<CreateResourceShareCommandOutput> | void {
+    const command = new CreateResourceShareCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -715,74 +320,30 @@ export class RAM extends RAMClient {
 
   /**
    *
-   * 	        <p>Lists the AWS RAM permissions that are associated with a resource share.</p>
+   *          <p>Disassociates the specified principals or resources from the specified resource share.</p>
    *
    */
-  public listResourceSharePermissions(
-    args: ListResourceSharePermissionsCommandInput,
+  public disassociateResourceShare(
+    args: DisassociateResourceShareCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListResourceSharePermissionsCommandOutput>;
-  public listResourceSharePermissions(
-    args: ListResourceSharePermissionsCommandInput,
-    cb: (err: any, data?: ListResourceSharePermissionsCommandOutput) => void
+  ): Promise<DisassociateResourceShareCommandOutput>;
+  public disassociateResourceShare(
+    args: DisassociateResourceShareCommandInput,
+    cb: (err: any, data?: DisassociateResourceShareCommandOutput) => void
   ): void;
-  public listResourceSharePermissions(
-    args: ListResourceSharePermissionsCommandInput,
+  public disassociateResourceShare(
+    args: DisassociateResourceShareCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListResourceSharePermissionsCommandOutput) => void
+    cb: (err: any, data?: DisassociateResourceShareCommandOutput) => void
   ): void;
-  public listResourceSharePermissions(
-    args: ListResourceSharePermissionsCommandInput,
+  public disassociateResourceShare(
+    args: DisassociateResourceShareCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListResourceSharePermissionsCommandOutput) => void),
-    cb?: (err: any, data?: ListResourceSharePermissionsCommandOutput) => void
-  ): Promise<ListResourceSharePermissionsCommandOutput> | void {
-    const command = new ListResourceSharePermissionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Enables resource sharing within your AWS Organization.</p>
-   *          <p>The caller must be the master account for the AWS Organization.</p>
-   *
-   */
-  public enableSharingWithAwsOrganization(
-    args: EnableSharingWithAwsOrganizationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<EnableSharingWithAwsOrganizationCommandOutput>;
-  public enableSharingWithAwsOrganization(
-    args: EnableSharingWithAwsOrganizationCommandInput,
-    cb: (err: any, data?: EnableSharingWithAwsOrganizationCommandOutput) => void
-  ): void;
-  public enableSharingWithAwsOrganization(
-    args: EnableSharingWithAwsOrganizationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: EnableSharingWithAwsOrganizationCommandOutput) => void
-  ): void;
-  public enableSharingWithAwsOrganization(
-    args: EnableSharingWithAwsOrganizationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: EnableSharingWithAwsOrganizationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: EnableSharingWithAwsOrganizationCommandOutput
-    ) => void
-  ): Promise<EnableSharingWithAwsOrganizationCommandOutput> | void {
-    const command = new EnableSharingWithAwsOrganizationCommand(args);
+      | ((err: any, data?: DisassociateResourceShareCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateResourceShareCommandOutput) => void
+  ): Promise<DisassociateResourceShareCommandOutput> | void {
+    const command = new DisassociateResourceShareCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -845,6 +406,161 @@ export class RAM extends RAMClient {
 
   /**
    *
+   *          <p>Enables resource sharing within your AWS Organization.</p>
+   *          <p>The caller must be the master account for the AWS Organization.</p>
+   *
+   */
+  public enableSharingWithAwsOrganization(
+    args: EnableSharingWithAwsOrganizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableSharingWithAwsOrganizationCommandOutput>;
+  public enableSharingWithAwsOrganization(
+    args: EnableSharingWithAwsOrganizationCommandInput,
+    cb: (err: any, data?: EnableSharingWithAwsOrganizationCommandOutput) => void
+  ): void;
+  public enableSharingWithAwsOrganization(
+    args: EnableSharingWithAwsOrganizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableSharingWithAwsOrganizationCommandOutput) => void
+  ): void;
+  public enableSharingWithAwsOrganization(
+    args: EnableSharingWithAwsOrganizationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: EnableSharingWithAwsOrganizationCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: EnableSharingWithAwsOrganizationCommandOutput
+    ) => void
+  ): Promise<EnableSharingWithAwsOrganizationCommandOutput> | void {
+    const command = new EnableSharingWithAwsOrganizationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 	        <p>Gets the contents of an AWS RAM permission in JSON format.</p>
+   *
+   */
+  public getPermission(
+    args: GetPermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPermissionCommandOutput>;
+  public getPermission(
+    args: GetPermissionCommandInput,
+    cb: (err: any, data?: GetPermissionCommandOutput) => void
+  ): void;
+  public getPermission(
+    args: GetPermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPermissionCommandOutput) => void
+  ): void;
+  public getPermission(
+    args: GetPermissionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetPermissionCommandOutput) => void),
+    cb?: (err: any, data?: GetPermissionCommandOutput) => void
+  ): Promise<GetPermissionCommandOutput> | void {
+    const command = new GetPermissionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Gets the policies for the specified resources that you own and have shared.</p>
+   *
+   */
+  public getResourcePolicies(
+    args: GetResourcePoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePoliciesCommandOutput>;
+  public getResourcePolicies(
+    args: GetResourcePoliciesCommandInput,
+    cb: (err: any, data?: GetResourcePoliciesCommandOutput) => void
+  ): void;
+  public getResourcePolicies(
+    args: GetResourcePoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePoliciesCommandOutput) => void
+  ): void;
+  public getResourcePolicies(
+    args: GetResourcePoliciesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetResourcePoliciesCommandOutput) => void),
+    cb?: (err: any, data?: GetResourcePoliciesCommandOutput) => void
+  ): Promise<GetResourcePoliciesCommandOutput> | void {
+    const command = new GetResourcePoliciesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Gets the resources or principals for the resource shares that you own.</p>
+   *
+   */
+  public getResourceShareAssociations(
+    args: GetResourceShareAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourceShareAssociationsCommandOutput>;
+  public getResourceShareAssociations(
+    args: GetResourceShareAssociationsCommandInput,
+    cb: (err: any, data?: GetResourceShareAssociationsCommandOutput) => void
+  ): void;
+  public getResourceShareAssociations(
+    args: GetResourceShareAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourceShareAssociationsCommandOutput) => void
+  ): void;
+  public getResourceShareAssociations(
+    args: GetResourceShareAssociationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetResourceShareAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: GetResourceShareAssociationsCommandOutput) => void
+  ): Promise<GetResourceShareAssociationsCommandOutput> | void {
+    const command = new GetResourceShareAssociationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
    *          <p>Gets the invitations for resource sharing that you've received.</p>
    *
    */
@@ -882,30 +598,30 @@ export class RAM extends RAMClient {
 
   /**
    *
-   *          <p>Adds the specified tags to the specified resource share that you own.</p>
+   *          <p>Gets the resource shares that you own or the resource shares that are shared with you.</p>
    *
    */
-  public tagResource(
-    args: TagResourceCommandInput,
+  public getResourceShares(
+    args: GetResourceSharesCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<GetResourceSharesCommandOutput>;
+  public getResourceShares(
+    args: GetResourceSharesCommandInput,
+    cb: (err: any, data?: GetResourceSharesCommandOutput) => void
   ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
+  public getResourceShares(
+    args: GetResourceSharesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
+    cb: (err: any, data?: GetResourceSharesCommandOutput) => void
   ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
+  public getResourceShares(
+    args: GetResourceSharesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
+      | ((err: any, data?: GetResourceSharesCommandOutput) => void),
+    cb?: (err: any, data?: GetResourceSharesCommandOutput) => void
+  ): Promise<GetResourceSharesCommandOutput> | void {
+    const command = new GetResourceSharesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -996,30 +712,314 @@ export class RAM extends RAMClient {
 
   /**
    *
-   *          <p>Disassociates the specified principals or resources from the specified resource share.</p>
+   *          <p>Lists the principals that you have shared resources with or that have shared resources
+   * 			with you.</p>
    *
    */
-  public disassociateResourceShare(
-    args: DisassociateResourceShareCommandInput,
+  public listPrincipals(
+    args: ListPrincipalsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DisassociateResourceShareCommandOutput>;
-  public disassociateResourceShare(
-    args: DisassociateResourceShareCommandInput,
-    cb: (err: any, data?: DisassociateResourceShareCommandOutput) => void
+  ): Promise<ListPrincipalsCommandOutput>;
+  public listPrincipals(
+    args: ListPrincipalsCommandInput,
+    cb: (err: any, data?: ListPrincipalsCommandOutput) => void
   ): void;
-  public disassociateResourceShare(
-    args: DisassociateResourceShareCommandInput,
+  public listPrincipals(
+    args: ListPrincipalsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DisassociateResourceShareCommandOutput) => void
+    cb: (err: any, data?: ListPrincipalsCommandOutput) => void
   ): void;
-  public disassociateResourceShare(
-    args: DisassociateResourceShareCommandInput,
+  public listPrincipals(
+    args: ListPrincipalsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateResourceShareCommandOutput) => void),
-    cb?: (err: any, data?: DisassociateResourceShareCommandOutput) => void
-  ): Promise<DisassociateResourceShareCommandOutput> | void {
-    const command = new DisassociateResourceShareCommand(args);
+      | ((err: any, data?: ListPrincipalsCommandOutput) => void),
+    cb?: (err: any, data?: ListPrincipalsCommandOutput) => void
+  ): Promise<ListPrincipalsCommandOutput> | void {
+    const command = new ListPrincipalsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 	        <p>Lists the AWS RAM permissions that are associated with a resource share.</p>
+   *
+   */
+  public listResourceSharePermissions(
+    args: ListResourceSharePermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourceSharePermissionsCommandOutput>;
+  public listResourceSharePermissions(
+    args: ListResourceSharePermissionsCommandInput,
+    cb: (err: any, data?: ListResourceSharePermissionsCommandOutput) => void
+  ): void;
+  public listResourceSharePermissions(
+    args: ListResourceSharePermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResourceSharePermissionsCommandOutput) => void
+  ): void;
+  public listResourceSharePermissions(
+    args: ListResourceSharePermissionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListResourceSharePermissionsCommandOutput) => void),
+    cb?: (err: any, data?: ListResourceSharePermissionsCommandOutput) => void
+  ): Promise<ListResourceSharePermissionsCommandOutput> | void {
+    const command = new ListResourceSharePermissionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Lists the resources that you added to a resource shares or the resources that are shared with you.</p>
+   *
+   */
+  public listResources(
+    args: ListResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourcesCommandOutput>;
+  public listResources(
+    args: ListResourcesCommandInput,
+    cb: (err: any, data?: ListResourcesCommandOutput) => void
+  ): void;
+  public listResources(
+    args: ListResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResourcesCommandOutput) => void
+  ): void;
+  public listResources(
+    args: ListResourcesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListResourcesCommandOutput) => void),
+    cb?: (err: any, data?: ListResourcesCommandOutput) => void
+  ): Promise<ListResourcesCommandOutput> | void {
+    const command = new ListResourcesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *     	    <p>Resource shares that were created by attaching a policy to a resource are visible only to
+   * 			the resource share owner, and the resource share cannot be modified in AWS RAM.</p>
+   *
+   *     	    <p>Use this API action to promote the resource share. When you promote the resource share,
+   * 			it becomes:</p>
+   *     	    <ul>
+   *             <li>
+   *     			        <p>Visible to all principals that it is shared with.</p>
+   *     		      </li>
+   *             <li>
+   *     			        <p>Modifiable in AWS RAM.</p>
+   *     		      </li>
+   *          </ul>
+   *
+   */
+  public promoteResourceShareCreatedFromPolicy(
+    args: PromoteResourceShareCreatedFromPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PromoteResourceShareCreatedFromPolicyCommandOutput>;
+  public promoteResourceShareCreatedFromPolicy(
+    args: PromoteResourceShareCreatedFromPolicyCommandInput,
+    cb: (
+      err: any,
+      data?: PromoteResourceShareCreatedFromPolicyCommandOutput
+    ) => void
+  ): void;
+  public promoteResourceShareCreatedFromPolicy(
+    args: PromoteResourceShareCreatedFromPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (
+      err: any,
+      data?: PromoteResourceShareCreatedFromPolicyCommandOutput
+    ) => void
+  ): void;
+  public promoteResourceShareCreatedFromPolicy(
+    args: PromoteResourceShareCreatedFromPolicyCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: PromoteResourceShareCreatedFromPolicyCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: PromoteResourceShareCreatedFromPolicyCommandOutput
+    ) => void
+  ): Promise<PromoteResourceShareCreatedFromPolicyCommandOutput> | void {
+    const command = new PromoteResourceShareCreatedFromPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Rejects an invitation to a resource share from another AWS account.</p>
+   *
+   */
+  public rejectResourceShareInvitation(
+    args: RejectResourceShareInvitationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RejectResourceShareInvitationCommandOutput>;
+  public rejectResourceShareInvitation(
+    args: RejectResourceShareInvitationCommandInput,
+    cb: (err: any, data?: RejectResourceShareInvitationCommandOutput) => void
+  ): void;
+  public rejectResourceShareInvitation(
+    args: RejectResourceShareInvitationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RejectResourceShareInvitationCommandOutput) => void
+  ): void;
+  public rejectResourceShareInvitation(
+    args: RejectResourceShareInvitationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RejectResourceShareInvitationCommandOutput) => void),
+    cb?: (err: any, data?: RejectResourceShareInvitationCommandOutput) => void
+  ): Promise<RejectResourceShareInvitationCommandOutput> | void {
+    const command = new RejectResourceShareInvitationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Adds the specified tags to the specified resource share that you own.</p>
+   *
+   */
+  public tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  public tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Removes the specified tags from the specified resource share that you own.</p>
+   *
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Updates the specified resource share that you own.</p>
+   *
+   */
+  public updateResourceShare(
+    args: UpdateResourceShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateResourceShareCommandOutput>;
+  public updateResourceShare(
+    args: UpdateResourceShareCommandInput,
+    cb: (err: any, data?: UpdateResourceShareCommandOutput) => void
+  ): void;
+  public updateResourceShare(
+    args: UpdateResourceShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateResourceShareCommandOutput) => void
+  ): void;
+  public updateResourceShare(
+    args: UpdateResourceShareCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateResourceShareCommandOutput) => void),
+    cb?: (err: any, data?: UpdateResourceShareCommandOutput) => void
+  ): Promise<UpdateResourceShareCommandOutput> | void {
+    const command = new UpdateResourceShareCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

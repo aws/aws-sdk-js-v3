@@ -52,178 +52,42 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class savingsplans extends savingsplansClient {
   /**
    *
-   *          <p>Lists the tags for the specified resource.</p>
+   *          <p>Describes the specified Savings Plans offering rates.</p>
    *
    */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
+  public describeSavingsPlansOfferingRates(
+    args: DescribeSavingsPlansOfferingRatesCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<DescribeSavingsPlansOfferingRatesCommandOutput>;
+  public describeSavingsPlansOfferingRates(
+    args: DescribeSavingsPlansOfferingRatesCommandInput,
+    cb: (
+      err: any,
+      data?: DescribeSavingsPlansOfferingRatesCommandOutput
+    ) => void
   ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
+  public describeSavingsPlansOfferingRates(
+    args: DescribeSavingsPlansOfferingRatesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+    cb: (
+      err: any,
+      data?: DescribeSavingsPlansOfferingRatesCommandOutput
+    ) => void
   ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
+  public describeSavingsPlansOfferingRates(
+    args: DescribeSavingsPlansOfferingRatesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Describes the specified Savings Plans.</p>
-   *
-   */
-  public describeSavingsPlans(
-    args: DescribeSavingsPlansCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeSavingsPlansCommandOutput>;
-  public describeSavingsPlans(
-    args: DescribeSavingsPlansCommandInput,
-    cb: (err: any, data?: DescribeSavingsPlansCommandOutput) => void
-  ): void;
-  public describeSavingsPlans(
-    args: DescribeSavingsPlansCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeSavingsPlansCommandOutput) => void
-  ): void;
-  public describeSavingsPlans(
-    args: DescribeSavingsPlansCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSavingsPlansCommandOutput) => void),
-    cb?: (err: any, data?: DescribeSavingsPlansCommandOutput) => void
-  ): Promise<DescribeSavingsPlansCommandOutput> | void {
-    const command = new DescribeSavingsPlansCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Describes the specified Savings Plans rates.</p>
-   *
-   */
-  public describeSavingsPlanRates(
-    args: DescribeSavingsPlanRatesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeSavingsPlanRatesCommandOutput>;
-  public describeSavingsPlanRates(
-    args: DescribeSavingsPlanRatesCommandInput,
-    cb: (err: any, data?: DescribeSavingsPlanRatesCommandOutput) => void
-  ): void;
-  public describeSavingsPlanRates(
-    args: DescribeSavingsPlanRatesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeSavingsPlanRatesCommandOutput) => void
-  ): void;
-  public describeSavingsPlanRates(
-    args: DescribeSavingsPlanRatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSavingsPlanRatesCommandOutput) => void),
-    cb?: (err: any, data?: DescribeSavingsPlanRatesCommandOutput) => void
-  ): Promise<DescribeSavingsPlanRatesCommandOutput> | void {
-    const command = new DescribeSavingsPlanRatesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Adds the specified tags to the specified resource.</p>
-   *
-   */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Creates a Savings Plan.</p>
-   *
-   */
-  public createSavingsPlan(
-    args: CreateSavingsPlanCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateSavingsPlanCommandOutput>;
-  public createSavingsPlan(
-    args: CreateSavingsPlanCommandInput,
-    cb: (err: any, data?: CreateSavingsPlanCommandOutput) => void
-  ): void;
-  public createSavingsPlan(
-    args: CreateSavingsPlanCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateSavingsPlanCommandOutput) => void
-  ): void;
-  public createSavingsPlan(
-    args: CreateSavingsPlanCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSavingsPlanCommandOutput) => void),
-    cb?: (err: any, data?: CreateSavingsPlanCommandOutput) => void
-  ): Promise<CreateSavingsPlanCommandOutput> | void {
-    const command = new CreateSavingsPlanCommand(args);
+      | ((
+          err: any,
+          data?: DescribeSavingsPlansOfferingRatesCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: DescribeSavingsPlansOfferingRatesCommandOutput
+    ) => void
+  ): Promise<DescribeSavingsPlansOfferingRatesCommandOutput> | void {
+    const command = new DescribeSavingsPlansOfferingRatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -274,6 +138,191 @@ export class savingsplans extends savingsplansClient {
 
   /**
    *
+   *          <p>Creates a Savings Plan.</p>
+   *
+   */
+  public createSavingsPlan(
+    args: CreateSavingsPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSavingsPlanCommandOutput>;
+  public createSavingsPlan(
+    args: CreateSavingsPlanCommandInput,
+    cb: (err: any, data?: CreateSavingsPlanCommandOutput) => void
+  ): void;
+  public createSavingsPlan(
+    args: CreateSavingsPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSavingsPlanCommandOutput) => void
+  ): void;
+  public createSavingsPlan(
+    args: CreateSavingsPlanCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateSavingsPlanCommandOutput) => void),
+    cb?: (err: any, data?: CreateSavingsPlanCommandOutput) => void
+  ): Promise<CreateSavingsPlanCommandOutput> | void {
+    const command = new CreateSavingsPlanCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Describes the specified Savings Plans rates.</p>
+   *
+   */
+  public describeSavingsPlanRates(
+    args: DescribeSavingsPlanRatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSavingsPlanRatesCommandOutput>;
+  public describeSavingsPlanRates(
+    args: DescribeSavingsPlanRatesCommandInput,
+    cb: (err: any, data?: DescribeSavingsPlanRatesCommandOutput) => void
+  ): void;
+  public describeSavingsPlanRates(
+    args: DescribeSavingsPlanRatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSavingsPlanRatesCommandOutput) => void
+  ): void;
+  public describeSavingsPlanRates(
+    args: DescribeSavingsPlanRatesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeSavingsPlanRatesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeSavingsPlanRatesCommandOutput) => void
+  ): Promise<DescribeSavingsPlanRatesCommandOutput> | void {
+    const command = new DescribeSavingsPlanRatesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Describes the specified Savings Plans.</p>
+   *
+   */
+  public describeSavingsPlans(
+    args: DescribeSavingsPlansCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSavingsPlansCommandOutput>;
+  public describeSavingsPlans(
+    args: DescribeSavingsPlansCommandInput,
+    cb: (err: any, data?: DescribeSavingsPlansCommandOutput) => void
+  ): void;
+  public describeSavingsPlans(
+    args: DescribeSavingsPlansCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSavingsPlansCommandOutput) => void
+  ): void;
+  public describeSavingsPlans(
+    args: DescribeSavingsPlansCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeSavingsPlansCommandOutput) => void),
+    cb?: (err: any, data?: DescribeSavingsPlansCommandOutput) => void
+  ): Promise<DescribeSavingsPlansCommandOutput> | void {
+    const command = new DescribeSavingsPlansCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Lists the tags for the specified resource.</p>
+   *
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Adds the specified tags to the specified resource.</p>
+   *
+   */
+  public tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  public tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
    *          <p>Removes the specified tags from the specified resource.</p>
    *
    */
@@ -298,55 +347,6 @@ export class savingsplans extends savingsplansClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Describes the specified Savings Plans offering rates.</p>
-   *
-   */
-  public describeSavingsPlansOfferingRates(
-    args: DescribeSavingsPlansOfferingRatesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeSavingsPlansOfferingRatesCommandOutput>;
-  public describeSavingsPlansOfferingRates(
-    args: DescribeSavingsPlansOfferingRatesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeSavingsPlansOfferingRatesCommandOutput
-    ) => void
-  ): void;
-  public describeSavingsPlansOfferingRates(
-    args: DescribeSavingsPlansOfferingRatesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeSavingsPlansOfferingRatesCommandOutput
-    ) => void
-  ): void;
-  public describeSavingsPlansOfferingRates(
-    args: DescribeSavingsPlansOfferingRatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeSavingsPlansOfferingRatesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeSavingsPlansOfferingRatesCommandOutput
-    ) => void
-  ): Promise<DescribeSavingsPlansOfferingRatesCommandOutput> | void {
-    const command = new DescribeSavingsPlansOfferingRatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -41,29 +41,29 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class MediaTailor extends MediaTailorClient {
   /**
-   * <p>Returns a list of the playback configurations defined in AWS Elemental MediaTailor. You can specify a maximum number of configurations to return at a time. The default maximum is 50. Results are returned in pagefuls. If MediaTailor has more configurations than the specified maximum, it provides parameters in the response that you can use to retrieve the next pageful. </p>
+   * <p>Deletes the playback configuration for the specified name. </p>
    */
-  public listPlaybackConfigurations(
-    args: ListPlaybackConfigurationsCommandInput,
+  public deletePlaybackConfiguration(
+    args: DeletePlaybackConfigurationCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListPlaybackConfigurationsCommandOutput>;
-  public listPlaybackConfigurations(
-    args: ListPlaybackConfigurationsCommandInput,
-    cb: (err: any, data?: ListPlaybackConfigurationsCommandOutput) => void
+  ): Promise<DeletePlaybackConfigurationCommandOutput>;
+  public deletePlaybackConfiguration(
+    args: DeletePlaybackConfigurationCommandInput,
+    cb: (err: any, data?: DeletePlaybackConfigurationCommandOutput) => void
   ): void;
-  public listPlaybackConfigurations(
-    args: ListPlaybackConfigurationsCommandInput,
+  public deletePlaybackConfiguration(
+    args: DeletePlaybackConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListPlaybackConfigurationsCommandOutput) => void
+    cb: (err: any, data?: DeletePlaybackConfigurationCommandOutput) => void
   ): void;
-  public listPlaybackConfigurations(
-    args: ListPlaybackConfigurationsCommandInput,
+  public deletePlaybackConfiguration(
+    args: DeletePlaybackConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListPlaybackConfigurationsCommandOutput) => void),
-    cb?: (err: any, data?: ListPlaybackConfigurationsCommandOutput) => void
-  ): Promise<ListPlaybackConfigurationsCommandOutput> | void {
-    const command = new ListPlaybackConfigurationsCommand(args);
+      | ((err: any, data?: DeletePlaybackConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeletePlaybackConfigurationCommandOutput) => void
+  ): Promise<DeletePlaybackConfigurationCommandOutput> | void {
+    const command = new DeletePlaybackConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -111,6 +111,76 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * <p>Returns a list of the playback configurations defined in AWS Elemental MediaTailor. You can specify a maximum number of configurations to return at a time. The default maximum is 50. Results are returned in pagefuls. If MediaTailor has more configurations than the specified maximum, it provides parameters in the response that you can use to retrieve the next pageful. </p>
+   */
+  public listPlaybackConfigurations(
+    args: ListPlaybackConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPlaybackConfigurationsCommandOutput>;
+  public listPlaybackConfigurations(
+    args: ListPlaybackConfigurationsCommandInput,
+    cb: (err: any, data?: ListPlaybackConfigurationsCommandOutput) => void
+  ): void;
+  public listPlaybackConfigurations(
+    args: ListPlaybackConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPlaybackConfigurationsCommandOutput) => void
+  ): void;
+  public listPlaybackConfigurations(
+    args: ListPlaybackConfigurationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListPlaybackConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: ListPlaybackConfigurationsCommandOutput) => void
+  ): Promise<ListPlaybackConfigurationsCommandOutput> | void {
+    const command = new ListPlaybackConfigurationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of the tags assigned to the specified playback configuration resource. </p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Adds a new playback configuration to AWS Elemental MediaTailor. </p>
    */
   public putPlaybackConfiguration(
@@ -134,76 +204,6 @@ export class MediaTailor extends MediaTailorClient {
     cb?: (err: any, data?: PutPlaybackConfigurationCommandOutput) => void
   ): Promise<PutPlaybackConfigurationCommandOutput> | void {
     const command = new PutPlaybackConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Removes tags from the specified playback configuration resource. You can specify one or more tags to remove. </p>
-   */
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UntagResourceCommandOutput>;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UntagResourceCommandOutput) => void
-  ): void;
-  public untagResource(
-    args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
-    cb?: (err: any, data?: UntagResourceCommandOutput) => void
-  ): Promise<UntagResourceCommandOutput> | void {
-    const command = new UntagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Deletes the playback configuration for the specified name. </p>
-   */
-  public deletePlaybackConfiguration(
-    args: DeletePlaybackConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeletePlaybackConfigurationCommandOutput>;
-  public deletePlaybackConfiguration(
-    args: DeletePlaybackConfigurationCommandInput,
-    cb: (err: any, data?: DeletePlaybackConfigurationCommandOutput) => void
-  ): void;
-  public deletePlaybackConfiguration(
-    args: DeletePlaybackConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeletePlaybackConfigurationCommandOutput) => void
-  ): void;
-  public deletePlaybackConfiguration(
-    args: DeletePlaybackConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePlaybackConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: DeletePlaybackConfigurationCommandOutput) => void
-  ): Promise<DeletePlaybackConfigurationCommandOutput> | void {
-    const command = new DeletePlaybackConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -251,29 +251,29 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
-   * <p>Returns a list of the tags assigned to the specified playback configuration resource. </p>
+   * <p>Removes tags from the specified playback configuration resource. You can specify one or more tags to remove. </p>
    */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
+  public untagResource(
+    args: UntagResourceCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
+  public untagResource(
+    args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
+  public untagResource(
+    args: UntagResourceCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

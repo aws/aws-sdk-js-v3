@@ -130,33 +130,31 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class ElasticsearchService extends ElasticsearchServiceClient {
   /**
    *
-   *       <p>Modifies the cluster configuration of the specified Elasticsearch domain, setting as setting the instance type and the number of instances. </p>
+   *        <p>Attaches tags to an existing Elasticsearch domain. Tags are a set of case-sensitive key value pairs. An Elasticsearch domain may have up to 10 tags.  See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging" target="_blank">
+   *           Tagging Amazon Elasticsearch Service Domains for more information.</a></p>
    *
    */
-  public updateElasticsearchDomainConfig(
-    args: UpdateElasticsearchDomainConfigCommandInput,
+  public addTags(
+    args: AddTagsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UpdateElasticsearchDomainConfigCommandOutput>;
-  public updateElasticsearchDomainConfig(
-    args: UpdateElasticsearchDomainConfigCommandInput,
-    cb: (err: any, data?: UpdateElasticsearchDomainConfigCommandOutput) => void
+  ): Promise<AddTagsCommandOutput>;
+  public addTags(
+    args: AddTagsCommandInput,
+    cb: (err: any, data?: AddTagsCommandOutput) => void
   ): void;
-  public updateElasticsearchDomainConfig(
-    args: UpdateElasticsearchDomainConfigCommandInput,
+  public addTags(
+    args: AddTagsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateElasticsearchDomainConfigCommandOutput) => void
+    cb: (err: any, data?: AddTagsCommandOutput) => void
   ): void;
-  public updateElasticsearchDomainConfig(
-    args: UpdateElasticsearchDomainConfigCommandInput,
+  public addTags(
+    args: AddTagsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateElasticsearchDomainConfigCommandOutput
-        ) => void),
-    cb?: (err: any, data?: UpdateElasticsearchDomainConfigCommandOutput) => void
-  ): Promise<UpdateElasticsearchDomainConfigCommandOutput> | void {
-    const command = new UpdateElasticsearchDomainConfigCommand(args);
+      | ((err: any, data?: AddTagsCommandOutput) => void),
+    cb?: (err: any, data?: AddTagsCommandOutput) => void
+  ): Promise<AddTagsCommandOutput> | void {
+    const command = new AddTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -170,30 +168,80 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
 
   /**
    *
-   * 		<p>Allows you to either upgrade your domain or perform an Upgrade eligibility check to a compatible Elasticsearch version.</p>
+   *     <p>Cancels a scheduled service software update for an Amazon ES domain. You can only perform this operation before the <code>AutomatedUpdateDate</code> and when the <code>UpdateStatus</code> is in the <code>PENDING_UPDATE</code> state.</p>
    *
    */
-  public upgradeElasticsearchDomain(
-    args: UpgradeElasticsearchDomainCommandInput,
+  public cancelElasticsearchServiceSoftwareUpdate(
+    args: CancelElasticsearchServiceSoftwareUpdateCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UpgradeElasticsearchDomainCommandOutput>;
-  public upgradeElasticsearchDomain(
-    args: UpgradeElasticsearchDomainCommandInput,
-    cb: (err: any, data?: UpgradeElasticsearchDomainCommandOutput) => void
+  ): Promise<CancelElasticsearchServiceSoftwareUpdateCommandOutput>;
+  public cancelElasticsearchServiceSoftwareUpdate(
+    args: CancelElasticsearchServiceSoftwareUpdateCommandInput,
+    cb: (
+      err: any,
+      data?: CancelElasticsearchServiceSoftwareUpdateCommandOutput
+    ) => void
   ): void;
-  public upgradeElasticsearchDomain(
-    args: UpgradeElasticsearchDomainCommandInput,
+  public cancelElasticsearchServiceSoftwareUpdate(
+    args: CancelElasticsearchServiceSoftwareUpdateCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpgradeElasticsearchDomainCommandOutput) => void
+    cb: (
+      err: any,
+      data?: CancelElasticsearchServiceSoftwareUpdateCommandOutput
+    ) => void
   ): void;
-  public upgradeElasticsearchDomain(
-    args: UpgradeElasticsearchDomainCommandInput,
+  public cancelElasticsearchServiceSoftwareUpdate(
+    args: CancelElasticsearchServiceSoftwareUpdateCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: UpgradeElasticsearchDomainCommandOutput) => void),
-    cb?: (err: any, data?: UpgradeElasticsearchDomainCommandOutput) => void
-  ): Promise<UpgradeElasticsearchDomainCommandOutput> | void {
-    const command = new UpgradeElasticsearchDomainCommand(args);
+      | ((
+          err: any,
+          data?: CancelElasticsearchServiceSoftwareUpdateCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: CancelElasticsearchServiceSoftwareUpdateCommandOutput
+    ) => void
+  ): Promise<CancelElasticsearchServiceSoftwareUpdateCommandOutput> | void {
+    const command = new CancelElasticsearchServiceSoftwareUpdateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *       <p>Creates a new Elasticsearch domain. For more information,
+   *           see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains" target="_blank">Creating Elasticsearch Domains</a> in the <i>Amazon Elasticsearch Service Developer Guide</i>.</p>
+   *
+   */
+  public createElasticsearchDomain(
+    args: CreateElasticsearchDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateElasticsearchDomainCommandOutput>;
+  public createElasticsearchDomain(
+    args: CreateElasticsearchDomainCommandInput,
+    cb: (err: any, data?: CreateElasticsearchDomainCommandOutput) => void
+  ): void;
+  public createElasticsearchDomain(
+    args: CreateElasticsearchDomainCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateElasticsearchDomainCommandOutput) => void
+  ): void;
+  public createElasticsearchDomain(
+    args: CreateElasticsearchDomainCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateElasticsearchDomainCommandOutput) => void),
+    cb?: (err: any, data?: CreateElasticsearchDomainCommandOutput) => void
+  ): Promise<CreateElasticsearchDomainCommandOutput> | void {
+    const command = new CreateElasticsearchDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -244,107 +292,70 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
 
   /**
    *
-   *       <p>Returns all tags for the given Elasticsearch domain.</p>
+   *        <p>Deletes the service-linked role that Elasticsearch Service uses to manage and maintain VPC domains. Role deletion will fail if any existing VPC domains use the role. You must delete any such Elasticsearch domains before deleting the role. See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-enabling-slr" target="_blank">Deleting Elasticsearch Service Role</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i>.</p>
    *
    */
-  public listTags(
-    args: ListTagsCommandInput,
+  public deleteElasticsearchServiceRole(
+    args: DeleteElasticsearchServiceRoleCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListTagsCommandOutput>;
-  public listTags(
-    args: ListTagsCommandInput,
-    cb: (err: any, data?: ListTagsCommandOutput) => void
+  ): Promise<DeleteElasticsearchServiceRoleCommandOutput>;
+  public deleteElasticsearchServiceRole(
+    args: DeleteElasticsearchServiceRoleCommandInput,
+    cb: (err: any, data?: DeleteElasticsearchServiceRoleCommandOutput) => void
   ): void;
-  public listTags(
-    args: ListTagsCommandInput,
+  public deleteElasticsearchServiceRole(
+    args: DeleteElasticsearchServiceRoleCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsCommandOutput) => void
+    cb: (err: any, data?: DeleteElasticsearchServiceRoleCommandOutput) => void
   ): void;
-  public listTags(
-    args: ListTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsCommandOutput) => void
-  ): Promise<ListTagsCommandOutput> | void {
-    const command = new ListTagsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *       <p>List all supported Elasticsearch versions</p>
-   *
-   */
-  public listElasticsearchVersions(
-    args: ListElasticsearchVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListElasticsearchVersionsCommandOutput>;
-  public listElasticsearchVersions(
-    args: ListElasticsearchVersionsCommandInput,
-    cb: (err: any, data?: ListElasticsearchVersionsCommandOutput) => void
-  ): void;
-  public listElasticsearchVersions(
-    args: ListElasticsearchVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListElasticsearchVersionsCommandOutput) => void
-  ): void;
-  public listElasticsearchVersions(
-    args: ListElasticsearchVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListElasticsearchVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListElasticsearchVersionsCommandOutput) => void
-  ): Promise<ListElasticsearchVersionsCommandOutput> | void {
-    const command = new ListElasticsearchVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *       <p>List all Elasticsearch instance types that are supported for given ElasticsearchVersion</p>
-   *
-   */
-  public listElasticsearchInstanceTypes(
-    args: ListElasticsearchInstanceTypesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListElasticsearchInstanceTypesCommandOutput>;
-  public listElasticsearchInstanceTypes(
-    args: ListElasticsearchInstanceTypesCommandInput,
-    cb: (err: any, data?: ListElasticsearchInstanceTypesCommandOutput) => void
-  ): void;
-  public listElasticsearchInstanceTypes(
-    args: ListElasticsearchInstanceTypesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListElasticsearchInstanceTypesCommandOutput) => void
-  ): void;
-  public listElasticsearchInstanceTypes(
-    args: ListElasticsearchInstanceTypesCommandInput,
+  public deleteElasticsearchServiceRole(
+    args: DeleteElasticsearchServiceRoleCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
       | ((
           err: any,
-          data?: ListElasticsearchInstanceTypesCommandOutput
+          data?: DeleteElasticsearchServiceRoleCommandOutput
         ) => void),
-    cb?: (err: any, data?: ListElasticsearchInstanceTypesCommandOutput) => void
-  ): Promise<ListElasticsearchInstanceTypesCommandOutput> | void {
-    const command = new ListElasticsearchInstanceTypesCommand(args);
+    cb?: (err: any, data?: DeleteElasticsearchServiceRoleCommandOutput) => void
+  ): Promise<DeleteElasticsearchServiceRoleCommandOutput> | void {
+    const command = new DeleteElasticsearchServiceRoleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *       <p>Returns domain configuration information about the specified Elasticsearch domain, including the domain ID, domain endpoint, and domain ARN.</p>
+   *
+   */
+  public describeElasticsearchDomain(
+    args: DescribeElasticsearchDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeElasticsearchDomainCommandOutput>;
+  public describeElasticsearchDomain(
+    args: DescribeElasticsearchDomainCommandInput,
+    cb: (err: any, data?: DescribeElasticsearchDomainCommandOutput) => void
+  ): void;
+  public describeElasticsearchDomain(
+    args: DescribeElasticsearchDomainCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeElasticsearchDomainCommandOutput) => void
+  ): void;
+  public describeElasticsearchDomain(
+    args: DescribeElasticsearchDomainCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeElasticsearchDomainCommandOutput) => void),
+    cb?: (err: any, data?: DescribeElasticsearchDomainCommandOutput) => void
+  ): Promise<DescribeElasticsearchDomainCommandOutput> | void {
+    const command = new DescribeElasticsearchDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -407,424 +418,30 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
 
   /**
    *
-   *       <p>Returns domain configuration information about the specified Elasticsearch domain, including the domain ID, domain endpoint, and domain ARN.</p>
+   *        <p>Returns domain configuration information about the specified Elasticsearch domains, including the domain ID, domain endpoint, and domain ARN.</p>
    *
    */
-  public describeElasticsearchDomain(
-    args: DescribeElasticsearchDomainCommandInput,
+  public describeElasticsearchDomains(
+    args: DescribeElasticsearchDomainsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DescribeElasticsearchDomainCommandOutput>;
-  public describeElasticsearchDomain(
-    args: DescribeElasticsearchDomainCommandInput,
-    cb: (err: any, data?: DescribeElasticsearchDomainCommandOutput) => void
+  ): Promise<DescribeElasticsearchDomainsCommandOutput>;
+  public describeElasticsearchDomains(
+    args: DescribeElasticsearchDomainsCommandInput,
+    cb: (err: any, data?: DescribeElasticsearchDomainsCommandOutput) => void
   ): void;
-  public describeElasticsearchDomain(
-    args: DescribeElasticsearchDomainCommandInput,
+  public describeElasticsearchDomains(
+    args: DescribeElasticsearchDomainsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeElasticsearchDomainCommandOutput) => void
+    cb: (err: any, data?: DescribeElasticsearchDomainsCommandOutput) => void
   ): void;
-  public describeElasticsearchDomain(
-    args: DescribeElasticsearchDomainCommandInput,
+  public describeElasticsearchDomains(
+    args: DescribeElasticsearchDomainsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DescribeElasticsearchDomainCommandOutput) => void),
-    cb?: (err: any, data?: DescribeElasticsearchDomainCommandOutput) => void
-  ): Promise<DescribeElasticsearchDomainCommandOutput> | void {
-    const command = new DescribeElasticsearchDomainCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *        <p>Deletes the service-linked role that Elasticsearch Service uses to manage and maintain VPC domains. Role deletion will fail if any existing VPC domains use the role. You must delete any such Elasticsearch domains before deleting the role. See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-enabling-slr" target="_blank">Deleting Elasticsearch Service Role</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i>.</p>
-   *
-   */
-  public deleteElasticsearchServiceRole(
-    args: DeleteElasticsearchServiceRoleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteElasticsearchServiceRoleCommandOutput>;
-  public deleteElasticsearchServiceRole(
-    args: DeleteElasticsearchServiceRoleCommandInput,
-    cb: (err: any, data?: DeleteElasticsearchServiceRoleCommandOutput) => void
-  ): void;
-  public deleteElasticsearchServiceRole(
-    args: DeleteElasticsearchServiceRoleCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteElasticsearchServiceRoleCommandOutput) => void
-  ): void;
-  public deleteElasticsearchServiceRole(
-    args: DeleteElasticsearchServiceRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteElasticsearchServiceRoleCommandOutput
-        ) => void),
-    cb?: (err: any, data?: DeleteElasticsearchServiceRoleCommandOutput) => void
-  ): Promise<DeleteElasticsearchServiceRoleCommandOutput> | void {
-    const command = new DeleteElasticsearchServiceRoleCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		<p>Retrieves the latest status of the last upgrade or upgrade eligibility check that was performed on the domain.</p>
-   *
-   */
-  public getUpgradeStatus(
-    args: GetUpgradeStatusCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetUpgradeStatusCommandOutput>;
-  public getUpgradeStatus(
-    args: GetUpgradeStatusCommandInput,
-    cb: (err: any, data?: GetUpgradeStatusCommandOutput) => void
-  ): void;
-  public getUpgradeStatus(
-    args: GetUpgradeStatusCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetUpgradeStatusCommandOutput) => void
-  ): void;
-  public getUpgradeStatus(
-    args: GetUpgradeStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetUpgradeStatusCommandOutput) => void),
-    cb?: (err: any, data?: GetUpgradeStatusCommandOutput) => void
-  ): Promise<GetUpgradeStatusCommandOutput> | void {
-    const command = new GetUpgradeStatusCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		<p>Allows you to purchase reserved Elasticsearch instances.</p>
-   *
-   */
-  public purchaseReservedElasticsearchInstanceOffering(
-    args: PurchaseReservedElasticsearchInstanceOfferingCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PurchaseReservedElasticsearchInstanceOfferingCommandOutput>;
-  public purchaseReservedElasticsearchInstanceOffering(
-    args: PurchaseReservedElasticsearchInstanceOfferingCommandInput,
-    cb: (
-      err: any,
-      data?: PurchaseReservedElasticsearchInstanceOfferingCommandOutput
-    ) => void
-  ): void;
-  public purchaseReservedElasticsearchInstanceOffering(
-    args: PurchaseReservedElasticsearchInstanceOfferingCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: PurchaseReservedElasticsearchInstanceOfferingCommandOutput
-    ) => void
-  ): void;
-  public purchaseReservedElasticsearchInstanceOffering(
-    args: PurchaseReservedElasticsearchInstanceOfferingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PurchaseReservedElasticsearchInstanceOfferingCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: PurchaseReservedElasticsearchInstanceOfferingCommandOutput
-    ) => void
-  ): Promise<
-    PurchaseReservedElasticsearchInstanceOfferingCommandOutput
-  > | void {
-    const command = new PurchaseReservedElasticsearchInstanceOfferingCommand(
-      args
-    );
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *        <p>Attaches tags to an existing Elasticsearch domain. Tags are a set of case-sensitive key value pairs. An Elasticsearch domain may have up to 10 tags.  See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging" target="_blank">
-   *           Tagging Amazon Elasticsearch Service Domains for more information.</a></p>
-   *
-   */
-  public addTags(
-    args: AddTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AddTagsCommandOutput>;
-  public addTags(
-    args: AddTagsCommandInput,
-    cb: (err: any, data?: AddTagsCommandOutput) => void
-  ): void;
-  public addTags(
-    args: AddTagsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AddTagsCommandOutput) => void
-  ): void;
-  public addTags(
-    args: AddTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddTagsCommandOutput) => void),
-    cb?: (err: any, data?: AddTagsCommandOutput) => void
-  ): Promise<AddTagsCommandOutput> | void {
-    const command = new AddTagsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *       <p>Creates a new Elasticsearch domain. For more information,
-   *           see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains" target="_blank">Creating Elasticsearch Domains</a> in the <i>Amazon Elasticsearch Service Developer Guide</i>.</p>
-   *
-   */
-  public createElasticsearchDomain(
-    args: CreateElasticsearchDomainCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateElasticsearchDomainCommandOutput>;
-  public createElasticsearchDomain(
-    args: CreateElasticsearchDomainCommandInput,
-    cb: (err: any, data?: CreateElasticsearchDomainCommandOutput) => void
-  ): void;
-  public createElasticsearchDomain(
-    args: CreateElasticsearchDomainCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateElasticsearchDomainCommandOutput) => void
-  ): void;
-  public createElasticsearchDomain(
-    args: CreateElasticsearchDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateElasticsearchDomainCommandOutput) => void),
-    cb?: (err: any, data?: CreateElasticsearchDomainCommandOutput) => void
-  ): Promise<CreateElasticsearchDomainCommandOutput> | void {
-    const command = new CreateElasticsearchDomainCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *     <p>Schedules a service software update for an Amazon ES domain.</p>
-   *
-   */
-  public startElasticsearchServiceSoftwareUpdate(
-    args: StartElasticsearchServiceSoftwareUpdateCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartElasticsearchServiceSoftwareUpdateCommandOutput>;
-  public startElasticsearchServiceSoftwareUpdate(
-    args: StartElasticsearchServiceSoftwareUpdateCommandInput,
-    cb: (
-      err: any,
-      data?: StartElasticsearchServiceSoftwareUpdateCommandOutput
-    ) => void
-  ): void;
-  public startElasticsearchServiceSoftwareUpdate(
-    args: StartElasticsearchServiceSoftwareUpdateCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: StartElasticsearchServiceSoftwareUpdateCommandOutput
-    ) => void
-  ): void;
-  public startElasticsearchServiceSoftwareUpdate(
-    args: StartElasticsearchServiceSoftwareUpdateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: StartElasticsearchServiceSoftwareUpdateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: StartElasticsearchServiceSoftwareUpdateCommandOutput
-    ) => void
-  ): Promise<StartElasticsearchServiceSoftwareUpdateCommandOutput> | void {
-    const command = new StartElasticsearchServiceSoftwareUpdateCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		<p>Returns information about reserved Elasticsearch instances for this account.</p>
-   *
-   */
-  public describeReservedElasticsearchInstances(
-    args: DescribeReservedElasticsearchInstancesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeReservedElasticsearchInstancesCommandOutput>;
-  public describeReservedElasticsearchInstances(
-    args: DescribeReservedElasticsearchInstancesCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeReservedElasticsearchInstancesCommandOutput
-    ) => void
-  ): void;
-  public describeReservedElasticsearchInstances(
-    args: DescribeReservedElasticsearchInstancesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeReservedElasticsearchInstancesCommandOutput
-    ) => void
-  ): void;
-  public describeReservedElasticsearchInstances(
-    args: DescribeReservedElasticsearchInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeReservedElasticsearchInstancesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeReservedElasticsearchInstancesCommandOutput
-    ) => void
-  ): Promise<DescribeReservedElasticsearchInstancesCommandOutput> | void {
-    const command = new DescribeReservedElasticsearchInstancesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *       <p>Returns the name of all Elasticsearch domains owned by the current user's account. </p>
-   *
-   */
-  public listDomainNames(
-    args: ListDomainNamesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDomainNamesCommandOutput>;
-  public listDomainNames(
-    args: ListDomainNamesCommandInput,
-    cb: (err: any, data?: ListDomainNamesCommandOutput) => void
-  ): void;
-  public listDomainNames(
-    args: ListDomainNamesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDomainNamesCommandOutput) => void
-  ): void;
-  public listDomainNames(
-    args: ListDomainNamesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDomainNamesCommandOutput) => void),
-    cb?: (err: any, data?: ListDomainNamesCommandOutput) => void
-  ): Promise<ListDomainNamesCommandOutput> | void {
-    const command = new ListDomainNamesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   * 		<p>Lists available reserved Elasticsearch instance offerings.</p>
-   *
-   */
-  public describeReservedElasticsearchInstanceOfferings(
-    args: DescribeReservedElasticsearchInstanceOfferingsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeReservedElasticsearchInstanceOfferingsCommandOutput>;
-  public describeReservedElasticsearchInstanceOfferings(
-    args: DescribeReservedElasticsearchInstanceOfferingsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeReservedElasticsearchInstanceOfferingsCommandOutput
-    ) => void
-  ): void;
-  public describeReservedElasticsearchInstanceOfferings(
-    args: DescribeReservedElasticsearchInstanceOfferingsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeReservedElasticsearchInstanceOfferingsCommandOutput
-    ) => void
-  ): void;
-  public describeReservedElasticsearchInstanceOfferings(
-    args: DescribeReservedElasticsearchInstanceOfferingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeReservedElasticsearchInstanceOfferingsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeReservedElasticsearchInstanceOfferingsCommandOutput
-    ) => void
-  ): Promise<
-    DescribeReservedElasticsearchInstanceOfferingsCommandOutput
-  > | void {
-    const command = new DescribeReservedElasticsearchInstanceOfferingsCommand(
-      args
-    );
+      | ((err: any, data?: DescribeElasticsearchDomainsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeElasticsearchDomainsCommandOutput) => void
+  ): Promise<DescribeElasticsearchDomainsCommandOutput> | void {
+    const command = new DescribeElasticsearchDomainsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -894,30 +511,46 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
 
   /**
    *
-   * 		<p>Retrieves the complete history of the last 10 upgrades that were performed on the domain.</p>
+   * 		<p>Lists available reserved Elasticsearch instance offerings.</p>
    *
    */
-  public getUpgradeHistory(
-    args: GetUpgradeHistoryCommandInput,
+  public describeReservedElasticsearchInstanceOfferings(
+    args: DescribeReservedElasticsearchInstanceOfferingsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<GetUpgradeHistoryCommandOutput>;
-  public getUpgradeHistory(
-    args: GetUpgradeHistoryCommandInput,
-    cb: (err: any, data?: GetUpgradeHistoryCommandOutput) => void
+  ): Promise<DescribeReservedElasticsearchInstanceOfferingsCommandOutput>;
+  public describeReservedElasticsearchInstanceOfferings(
+    args: DescribeReservedElasticsearchInstanceOfferingsCommandInput,
+    cb: (
+      err: any,
+      data?: DescribeReservedElasticsearchInstanceOfferingsCommandOutput
+    ) => void
   ): void;
-  public getUpgradeHistory(
-    args: GetUpgradeHistoryCommandInput,
+  public describeReservedElasticsearchInstanceOfferings(
+    args: DescribeReservedElasticsearchInstanceOfferingsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetUpgradeHistoryCommandOutput) => void
+    cb: (
+      err: any,
+      data?: DescribeReservedElasticsearchInstanceOfferingsCommandOutput
+    ) => void
   ): void;
-  public getUpgradeHistory(
-    args: GetUpgradeHistoryCommandInput,
+  public describeReservedElasticsearchInstanceOfferings(
+    args: DescribeReservedElasticsearchInstanceOfferingsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: GetUpgradeHistoryCommandOutput) => void),
-    cb?: (err: any, data?: GetUpgradeHistoryCommandOutput) => void
-  ): Promise<GetUpgradeHistoryCommandOutput> | void {
-    const command = new GetUpgradeHistoryCommand(args);
+      | ((
+          err: any,
+          data?: DescribeReservedElasticsearchInstanceOfferingsCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: DescribeReservedElasticsearchInstanceOfferingsCommandOutput
+    ) => void
+  ): Promise<
+    DescribeReservedElasticsearchInstanceOfferingsCommandOutput
+  > | void {
+    const command = new DescribeReservedElasticsearchInstanceOfferingsCommand(
+      args
+    );
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -931,67 +564,42 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
 
   /**
    *
-   *        <p>Returns domain configuration information about the specified Elasticsearch domains, including the domain ID, domain endpoint, and domain ARN.</p>
+   * 		<p>Returns information about reserved Elasticsearch instances for this account.</p>
    *
    */
-  public describeElasticsearchDomains(
-    args: DescribeElasticsearchDomainsCommandInput,
+  public describeReservedElasticsearchInstances(
+    args: DescribeReservedElasticsearchInstancesCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DescribeElasticsearchDomainsCommandOutput>;
-  public describeElasticsearchDomains(
-    args: DescribeElasticsearchDomainsCommandInput,
-    cb: (err: any, data?: DescribeElasticsearchDomainsCommandOutput) => void
+  ): Promise<DescribeReservedElasticsearchInstancesCommandOutput>;
+  public describeReservedElasticsearchInstances(
+    args: DescribeReservedElasticsearchInstancesCommandInput,
+    cb: (
+      err: any,
+      data?: DescribeReservedElasticsearchInstancesCommandOutput
+    ) => void
   ): void;
-  public describeElasticsearchDomains(
-    args: DescribeElasticsearchDomainsCommandInput,
+  public describeReservedElasticsearchInstances(
+    args: DescribeReservedElasticsearchInstancesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeElasticsearchDomainsCommandOutput) => void
+    cb: (
+      err: any,
+      data?: DescribeReservedElasticsearchInstancesCommandOutput
+    ) => void
   ): void;
-  public describeElasticsearchDomains(
-    args: DescribeElasticsearchDomainsCommandInput,
+  public describeReservedElasticsearchInstances(
+    args: DescribeReservedElasticsearchInstancesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DescribeElasticsearchDomainsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeElasticsearchDomainsCommandOutput) => void
-  ): Promise<DescribeElasticsearchDomainsCommandOutput> | void {
-    const command = new DescribeElasticsearchDomainsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *       <p>Removes the specified set of tags from the specified Elasticsearch domain.</p>
-   *
-   */
-  public removeTags(
-    args: RemoveTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RemoveTagsCommandOutput>;
-  public removeTags(
-    args: RemoveTagsCommandInput,
-    cb: (err: any, data?: RemoveTagsCommandOutput) => void
-  ): void;
-  public removeTags(
-    args: RemoveTagsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RemoveTagsCommandOutput) => void
-  ): void;
-  public removeTags(
-    args: RemoveTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveTagsCommandOutput) => void),
-    cb?: (err: any, data?: RemoveTagsCommandOutput) => void
-  ): Promise<RemoveTagsCommandOutput> | void {
-    const command = new RemoveTagsCommand(args);
+      | ((
+          err: any,
+          data?: DescribeReservedElasticsearchInstancesCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: DescribeReservedElasticsearchInstancesCommandOutput
+    ) => void
+  ): Promise<DescribeReservedElasticsearchInstancesCommandOutput> | void {
+    const command = new DescribeReservedElasticsearchInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1061,42 +669,434 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
 
   /**
    *
-   *     <p>Cancels a scheduled service software update for an Amazon ES domain. You can only perform this operation before the <code>AutomatedUpdateDate</code> and when the <code>UpdateStatus</code> is in the <code>PENDING_UPDATE</code> state.</p>
+   * 		<p>Retrieves the complete history of the last 10 upgrades that were performed on the domain.</p>
    *
    */
-  public cancelElasticsearchServiceSoftwareUpdate(
-    args: CancelElasticsearchServiceSoftwareUpdateCommandInput,
+  public getUpgradeHistory(
+    args: GetUpgradeHistoryCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CancelElasticsearchServiceSoftwareUpdateCommandOutput>;
-  public cancelElasticsearchServiceSoftwareUpdate(
-    args: CancelElasticsearchServiceSoftwareUpdateCommandInput,
-    cb: (
-      err: any,
-      data?: CancelElasticsearchServiceSoftwareUpdateCommandOutput
-    ) => void
+  ): Promise<GetUpgradeHistoryCommandOutput>;
+  public getUpgradeHistory(
+    args: GetUpgradeHistoryCommandInput,
+    cb: (err: any, data?: GetUpgradeHistoryCommandOutput) => void
   ): void;
-  public cancelElasticsearchServiceSoftwareUpdate(
-    args: CancelElasticsearchServiceSoftwareUpdateCommandInput,
+  public getUpgradeHistory(
+    args: GetUpgradeHistoryCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CancelElasticsearchServiceSoftwareUpdateCommandOutput
-    ) => void
+    cb: (err: any, data?: GetUpgradeHistoryCommandOutput) => void
   ): void;
-  public cancelElasticsearchServiceSoftwareUpdate(
-    args: CancelElasticsearchServiceSoftwareUpdateCommandInput,
+  public getUpgradeHistory(
+    args: GetUpgradeHistoryCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetUpgradeHistoryCommandOutput) => void),
+    cb?: (err: any, data?: GetUpgradeHistoryCommandOutput) => void
+  ): Promise<GetUpgradeHistoryCommandOutput> | void {
+    const command = new GetUpgradeHistoryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		<p>Retrieves the latest status of the last upgrade or upgrade eligibility check that was performed on the domain.</p>
+   *
+   */
+  public getUpgradeStatus(
+    args: GetUpgradeStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetUpgradeStatusCommandOutput>;
+  public getUpgradeStatus(
+    args: GetUpgradeStatusCommandInput,
+    cb: (err: any, data?: GetUpgradeStatusCommandOutput) => void
+  ): void;
+  public getUpgradeStatus(
+    args: GetUpgradeStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetUpgradeStatusCommandOutput) => void
+  ): void;
+  public getUpgradeStatus(
+    args: GetUpgradeStatusCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetUpgradeStatusCommandOutput) => void),
+    cb?: (err: any, data?: GetUpgradeStatusCommandOutput) => void
+  ): Promise<GetUpgradeStatusCommandOutput> | void {
+    const command = new GetUpgradeStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *       <p>Returns the name of all Elasticsearch domains owned by the current user's account. </p>
+   *
+   */
+  public listDomainNames(
+    args: ListDomainNamesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDomainNamesCommandOutput>;
+  public listDomainNames(
+    args: ListDomainNamesCommandInput,
+    cb: (err: any, data?: ListDomainNamesCommandOutput) => void
+  ): void;
+  public listDomainNames(
+    args: ListDomainNamesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDomainNamesCommandOutput) => void
+  ): void;
+  public listDomainNames(
+    args: ListDomainNamesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDomainNamesCommandOutput) => void),
+    cb?: (err: any, data?: ListDomainNamesCommandOutput) => void
+  ): Promise<ListDomainNamesCommandOutput> | void {
+    const command = new ListDomainNamesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *       <p>List all Elasticsearch instance types that are supported for given ElasticsearchVersion</p>
+   *
+   */
+  public listElasticsearchInstanceTypes(
+    args: ListElasticsearchInstanceTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListElasticsearchInstanceTypesCommandOutput>;
+  public listElasticsearchInstanceTypes(
+    args: ListElasticsearchInstanceTypesCommandInput,
+    cb: (err: any, data?: ListElasticsearchInstanceTypesCommandOutput) => void
+  ): void;
+  public listElasticsearchInstanceTypes(
+    args: ListElasticsearchInstanceTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListElasticsearchInstanceTypesCommandOutput) => void
+  ): void;
+  public listElasticsearchInstanceTypes(
+    args: ListElasticsearchInstanceTypesCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
       | ((
           err: any,
-          data?: CancelElasticsearchServiceSoftwareUpdateCommandOutput
+          data?: ListElasticsearchInstanceTypesCommandOutput
+        ) => void),
+    cb?: (err: any, data?: ListElasticsearchInstanceTypesCommandOutput) => void
+  ): Promise<ListElasticsearchInstanceTypesCommandOutput> | void {
+    const command = new ListElasticsearchInstanceTypesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *       <p>List all supported Elasticsearch versions</p>
+   *
+   */
+  public listElasticsearchVersions(
+    args: ListElasticsearchVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListElasticsearchVersionsCommandOutput>;
+  public listElasticsearchVersions(
+    args: ListElasticsearchVersionsCommandInput,
+    cb: (err: any, data?: ListElasticsearchVersionsCommandOutput) => void
+  ): void;
+  public listElasticsearchVersions(
+    args: ListElasticsearchVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListElasticsearchVersionsCommandOutput) => void
+  ): void;
+  public listElasticsearchVersions(
+    args: ListElasticsearchVersionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListElasticsearchVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListElasticsearchVersionsCommandOutput) => void
+  ): Promise<ListElasticsearchVersionsCommandOutput> | void {
+    const command = new ListElasticsearchVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *       <p>Returns all tags for the given Elasticsearch domain.</p>
+   *
+   */
+  public listTags(
+    args: ListTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsCommandOutput>;
+  public listTags(
+    args: ListTagsCommandInput,
+    cb: (err: any, data?: ListTagsCommandOutput) => void
+  ): void;
+  public listTags(
+    args: ListTagsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsCommandOutput) => void
+  ): void;
+  public listTags(
+    args: ListTagsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsCommandOutput) => void
+  ): Promise<ListTagsCommandOutput> | void {
+    const command = new ListTagsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		<p>Allows you to purchase reserved Elasticsearch instances.</p>
+   *
+   */
+  public purchaseReservedElasticsearchInstanceOffering(
+    args: PurchaseReservedElasticsearchInstanceOfferingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PurchaseReservedElasticsearchInstanceOfferingCommandOutput>;
+  public purchaseReservedElasticsearchInstanceOffering(
+    args: PurchaseReservedElasticsearchInstanceOfferingCommandInput,
+    cb: (
+      err: any,
+      data?: PurchaseReservedElasticsearchInstanceOfferingCommandOutput
+    ) => void
+  ): void;
+  public purchaseReservedElasticsearchInstanceOffering(
+    args: PurchaseReservedElasticsearchInstanceOfferingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (
+      err: any,
+      data?: PurchaseReservedElasticsearchInstanceOfferingCommandOutput
+    ) => void
+  ): void;
+  public purchaseReservedElasticsearchInstanceOffering(
+    args: PurchaseReservedElasticsearchInstanceOfferingCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: PurchaseReservedElasticsearchInstanceOfferingCommandOutput
         ) => void),
     cb?: (
       err: any,
-      data?: CancelElasticsearchServiceSoftwareUpdateCommandOutput
+      data?: PurchaseReservedElasticsearchInstanceOfferingCommandOutput
     ) => void
-  ): Promise<CancelElasticsearchServiceSoftwareUpdateCommandOutput> | void {
-    const command = new CancelElasticsearchServiceSoftwareUpdateCommand(args);
+  ): Promise<
+    PurchaseReservedElasticsearchInstanceOfferingCommandOutput
+  > | void {
+    const command = new PurchaseReservedElasticsearchInstanceOfferingCommand(
+      args
+    );
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *       <p>Removes the specified set of tags from the specified Elasticsearch domain.</p>
+   *
+   */
+  public removeTags(
+    args: RemoveTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveTagsCommandOutput>;
+  public removeTags(
+    args: RemoveTagsCommandInput,
+    cb: (err: any, data?: RemoveTagsCommandOutput) => void
+  ): void;
+  public removeTags(
+    args: RemoveTagsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveTagsCommandOutput) => void
+  ): void;
+  public removeTags(
+    args: RemoveTagsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RemoveTagsCommandOutput) => void),
+    cb?: (err: any, data?: RemoveTagsCommandOutput) => void
+  ): Promise<RemoveTagsCommandOutput> | void {
+    const command = new RemoveTagsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *     <p>Schedules a service software update for an Amazon ES domain.</p>
+   *
+   */
+  public startElasticsearchServiceSoftwareUpdate(
+    args: StartElasticsearchServiceSoftwareUpdateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartElasticsearchServiceSoftwareUpdateCommandOutput>;
+  public startElasticsearchServiceSoftwareUpdate(
+    args: StartElasticsearchServiceSoftwareUpdateCommandInput,
+    cb: (
+      err: any,
+      data?: StartElasticsearchServiceSoftwareUpdateCommandOutput
+    ) => void
+  ): void;
+  public startElasticsearchServiceSoftwareUpdate(
+    args: StartElasticsearchServiceSoftwareUpdateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (
+      err: any,
+      data?: StartElasticsearchServiceSoftwareUpdateCommandOutput
+    ) => void
+  ): void;
+  public startElasticsearchServiceSoftwareUpdate(
+    args: StartElasticsearchServiceSoftwareUpdateCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: StartElasticsearchServiceSoftwareUpdateCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: StartElasticsearchServiceSoftwareUpdateCommandOutput
+    ) => void
+  ): Promise<StartElasticsearchServiceSoftwareUpdateCommandOutput> | void {
+    const command = new StartElasticsearchServiceSoftwareUpdateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *       <p>Modifies the cluster configuration of the specified Elasticsearch domain, setting as setting the instance type and the number of instances. </p>
+   *
+   */
+  public updateElasticsearchDomainConfig(
+    args: UpdateElasticsearchDomainConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateElasticsearchDomainConfigCommandOutput>;
+  public updateElasticsearchDomainConfig(
+    args: UpdateElasticsearchDomainConfigCommandInput,
+    cb: (err: any, data?: UpdateElasticsearchDomainConfigCommandOutput) => void
+  ): void;
+  public updateElasticsearchDomainConfig(
+    args: UpdateElasticsearchDomainConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateElasticsearchDomainConfigCommandOutput) => void
+  ): void;
+  public updateElasticsearchDomainConfig(
+    args: UpdateElasticsearchDomainConfigCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: UpdateElasticsearchDomainConfigCommandOutput
+        ) => void),
+    cb?: (err: any, data?: UpdateElasticsearchDomainConfigCommandOutput) => void
+  ): Promise<UpdateElasticsearchDomainConfigCommandOutput> | void {
+    const command = new UpdateElasticsearchDomainConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   * 		<p>Allows you to either upgrade your domain or perform an Upgrade eligibility check to a compatible Elasticsearch version.</p>
+   *
+   */
+  public upgradeElasticsearchDomain(
+    args: UpgradeElasticsearchDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpgradeElasticsearchDomainCommandOutput>;
+  public upgradeElasticsearchDomain(
+    args: UpgradeElasticsearchDomainCommandInput,
+    cb: (err: any, data?: UpgradeElasticsearchDomainCommandOutput) => void
+  ): void;
+  public upgradeElasticsearchDomain(
+    args: UpgradeElasticsearchDomainCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpgradeElasticsearchDomainCommandOutput) => void
+  ): void;
+  public upgradeElasticsearchDomain(
+    args: UpgradeElasticsearchDomainCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpgradeElasticsearchDomainCommandOutput) => void),
+    cb?: (err: any, data?: UpgradeElasticsearchDomainCommandOutput) => void
+  ): Promise<UpgradeElasticsearchDomainCommandOutput> | void {
+    const command = new UpgradeElasticsearchDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
