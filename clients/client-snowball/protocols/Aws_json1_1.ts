@@ -1,0 +1,3646 @@
+import {
+  CancelClusterCommandInput,
+  CancelClusterCommandOutput
+} from "../commands/CancelClusterCommand";
+import {
+  CancelJobCommandInput,
+  CancelJobCommandOutput
+} from "../commands/CancelJobCommand";
+import {
+  CreateAddressCommandInput,
+  CreateAddressCommandOutput
+} from "../commands/CreateAddressCommand";
+import {
+  CreateClusterCommandInput,
+  CreateClusterCommandOutput
+} from "../commands/CreateClusterCommand";
+import {
+  CreateJobCommandInput,
+  CreateJobCommandOutput
+} from "../commands/CreateJobCommand";
+import {
+  DescribeAddressCommandInput,
+  DescribeAddressCommandOutput
+} from "../commands/DescribeAddressCommand";
+import {
+  DescribeAddressesCommandInput,
+  DescribeAddressesCommandOutput
+} from "../commands/DescribeAddressesCommand";
+import {
+  DescribeClusterCommandInput,
+  DescribeClusterCommandOutput
+} from "../commands/DescribeClusterCommand";
+import {
+  DescribeJobCommandInput,
+  DescribeJobCommandOutput
+} from "../commands/DescribeJobCommand";
+import {
+  GetJobManifestCommandInput,
+  GetJobManifestCommandOutput
+} from "../commands/GetJobManifestCommand";
+import {
+  GetJobUnlockCodeCommandInput,
+  GetJobUnlockCodeCommandOutput
+} from "../commands/GetJobUnlockCodeCommand";
+import {
+  GetSnowballUsageCommandInput,
+  GetSnowballUsageCommandOutput
+} from "../commands/GetSnowballUsageCommand";
+import {
+  GetSoftwareUpdatesCommandInput,
+  GetSoftwareUpdatesCommandOutput
+} from "../commands/GetSoftwareUpdatesCommand";
+import {
+  ListClusterJobsCommandInput,
+  ListClusterJobsCommandOutput
+} from "../commands/ListClusterJobsCommand";
+import {
+  ListClustersCommandInput,
+  ListClustersCommandOutput
+} from "../commands/ListClustersCommand";
+import {
+  ListCompatibleImagesCommandInput,
+  ListCompatibleImagesCommandOutput
+} from "../commands/ListCompatibleImagesCommand";
+import {
+  ListJobsCommandInput,
+  ListJobsCommandOutput
+} from "../commands/ListJobsCommand";
+import {
+  UpdateClusterCommandInput,
+  UpdateClusterCommandOutput
+} from "../commands/UpdateClusterCommand";
+import {
+  UpdateJobCommandInput,
+  UpdateJobCommandOutput
+} from "../commands/UpdateJobCommand";
+import {
+  Address,
+  CancelClusterRequest,
+  CancelClusterResult,
+  CancelJobRequest,
+  CancelJobResult,
+  ClusterLimitExceededException,
+  ClusterListEntry,
+  ClusterMetadata,
+  CompatibleImage,
+  CreateAddressRequest,
+  CreateAddressResult,
+  CreateClusterRequest,
+  CreateClusterResult,
+  CreateJobRequest,
+  CreateJobResult,
+  DataTransfer,
+  DescribeAddressRequest,
+  DescribeAddressResult,
+  DescribeAddressesRequest,
+  DescribeAddressesResult,
+  DescribeClusterRequest,
+  DescribeClusterResult,
+  DescribeJobRequest,
+  DescribeJobResult,
+  Ec2AmiResource,
+  Ec2RequestFailedException,
+  EventTriggerDefinition,
+  GetJobManifestRequest,
+  GetJobManifestResult,
+  GetJobUnlockCodeRequest,
+  GetJobUnlockCodeResult,
+  GetSnowballUsageRequest,
+  GetSnowballUsageResult,
+  GetSoftwareUpdatesRequest,
+  GetSoftwareUpdatesResult,
+  InvalidAddressException,
+  InvalidInputCombinationException,
+  InvalidJobStateException,
+  InvalidNextTokenException,
+  InvalidResourceException,
+  JobListEntry,
+  JobLogs,
+  JobMetadata,
+  JobResource,
+  JobState,
+  KMSRequestFailedException,
+  KeyRange,
+  LambdaResource,
+  ListClusterJobsRequest,
+  ListClusterJobsResult,
+  ListClustersRequest,
+  ListClustersResult,
+  ListCompatibleImagesRequest,
+  ListCompatibleImagesResult,
+  ListJobsRequest,
+  ListJobsResult,
+  Notification,
+  S3Resource,
+  Shipment,
+  ShippingDetails,
+  UnsupportedAddressException,
+  UpdateClusterRequest,
+  UpdateClusterResult,
+  UpdateJobRequest,
+  UpdateJobResult
+} from "../models/index";
+import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse
+} from "@aws-sdk/protocol-http";
+import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext
+} from "@aws-sdk/types";
+
+export async function serializeAws_json1_1CancelClusterCommand(
+  input: CancelClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.CancelCluster";
+  let body: any = {};
+  const wrappedBody: any = {
+    CancelClusterRequest: serializeAws_json1_1CancelClusterRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/CancelCluster",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1CancelJobCommand(
+  input: CancelJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.CancelJob";
+  let body: any = {};
+  const wrappedBody: any = {
+    CancelJobRequest: serializeAws_json1_1CancelJobRequest(input, context)
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/CancelJob",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1CreateAddressCommand(
+  input: CreateAddressCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.CreateAddress";
+  let body: any = {};
+  const wrappedBody: any = {
+    CreateAddressRequest: serializeAws_json1_1CreateAddressRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/CreateAddress",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1CreateClusterCommand(
+  input: CreateClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.CreateCluster";
+  let body: any = {};
+  const wrappedBody: any = {
+    CreateClusterRequest: serializeAws_json1_1CreateClusterRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/CreateCluster",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1CreateJobCommand(
+  input: CreateJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.CreateJob";
+  let body: any = {};
+  const wrappedBody: any = {
+    CreateJobRequest: serializeAws_json1_1CreateJobRequest(input, context)
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/CreateJob",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribeAddressCommand(
+  input: DescribeAddressCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.DescribeAddress";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribeAddressRequest: serializeAws_json1_1DescribeAddressRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeAddress",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribeAddressesCommand(
+  input: DescribeAddressesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "AWSIESnowballJobManagementService.DescribeAddresses";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribeAddressesRequest: serializeAws_json1_1DescribeAddressesRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeAddresses",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribeClusterCommand(
+  input: DescribeClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.DescribeCluster";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribeClusterRequest: serializeAws_json1_1DescribeClusterRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeCluster",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribeJobCommand(
+  input: DescribeJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.DescribeJob";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribeJobRequest: serializeAws_json1_1DescribeJobRequest(input, context)
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeJob",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1GetJobManifestCommand(
+  input: GetJobManifestCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.GetJobManifest";
+  let body: any = {};
+  const wrappedBody: any = {
+    GetJobManifestRequest: serializeAws_json1_1GetJobManifestRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/GetJobManifest",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1GetJobUnlockCodeCommand(
+  input: GetJobUnlockCodeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "AWSIESnowballJobManagementService.GetJobUnlockCode";
+  let body: any = {};
+  const wrappedBody: any = {
+    GetJobUnlockCodeRequest: serializeAws_json1_1GetJobUnlockCodeRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/GetJobUnlockCode",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1GetSnowballUsageCommand(
+  input: GetSnowballUsageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "AWSIESnowballJobManagementService.GetSnowballUsage";
+  let body: any = {};
+  const wrappedBody: any = {
+    GetSnowballUsageRequest: serializeAws_json1_1GetSnowballUsageRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/GetSnowballUsage",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1GetSoftwareUpdatesCommand(
+  input: GetSoftwareUpdatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "AWSIESnowballJobManagementService.GetSoftwareUpdates";
+  let body: any = {};
+  const wrappedBody: any = {
+    GetSoftwareUpdatesRequest: serializeAws_json1_1GetSoftwareUpdatesRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/GetSoftwareUpdates",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1ListClusterJobsCommand(
+  input: ListClusterJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.ListClusterJobs";
+  let body: any = {};
+  const wrappedBody: any = {
+    ListClusterJobsRequest: serializeAws_json1_1ListClusterJobsRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/ListClusterJobs",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1ListClustersCommand(
+  input: ListClustersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.ListClusters";
+  let body: any = {};
+  const wrappedBody: any = {
+    ListClustersRequest: serializeAws_json1_1ListClustersRequest(input, context)
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/ListClusters",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1ListCompatibleImagesCommand(
+  input: ListCompatibleImagesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "AWSIESnowballJobManagementService.ListCompatibleImages";
+  let body: any = {};
+  const wrappedBody: any = {
+    ListCompatibleImagesRequest: serializeAws_json1_1ListCompatibleImagesRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/ListCompatibleImages",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1ListJobsCommand(
+  input: ListJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.ListJobs";
+  let body: any = {};
+  const wrappedBody: any = {
+    ListJobsRequest: serializeAws_json1_1ListJobsRequest(input, context)
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/ListJobs",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1UpdateClusterCommand(
+  input: UpdateClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.UpdateCluster";
+  let body: any = {};
+  const wrappedBody: any = {
+    UpdateClusterRequest: serializeAws_json1_1UpdateClusterRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/UpdateCluster",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1UpdateJobCommand(
+  input: UpdateJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSIESnowballJobManagementService.UpdateJob";
+  let body: any = {};
+  const wrappedBody: any = {
+    UpdateJobRequest: serializeAws_json1_1UpdateJobRequest(input, context)
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/UpdateJob",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function deserializeAws_json1_1CancelClusterCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelClusterCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1CancelClusterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CancelClusterResult(
+    data.CancelClusterResult,
+    context
+  );
+  const response: CancelClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CancelClusterResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1CancelClusterCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelClusterCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidJobStateException":
+    case "com.amazonaws.snowball#InvalidJobStateException":
+      response = await deserializeAws_json1_1InvalidJobStateExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidResourceException":
+    case "com.amazonaws.snowball#InvalidResourceException":
+      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "KMSRequestFailedException":
+    case "com.amazonaws.snowball#KMSRequestFailedException":
+      response = await deserializeAws_json1_1KMSRequestFailedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.snowball#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1CancelJobCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelJobCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1CancelJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CancelJobResult(
+    data.CancelJobResult,
+    context
+  );
+  const response: CancelJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CancelJobResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1CancelJobCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelJobCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidJobStateException":
+    case "com.amazonaws.snowball#InvalidJobStateException":
+      response = await deserializeAws_json1_1InvalidJobStateExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidResourceException":
+    case "com.amazonaws.snowball#InvalidResourceException":
+      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "KMSRequestFailedException":
+    case "com.amazonaws.snowball#KMSRequestFailedException":
+      response = await deserializeAws_json1_1KMSRequestFailedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.snowball#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1CreateAddressCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAddressCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1CreateAddressCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateAddressResult(
+    data.CreateAddressResult,
+    context
+  );
+  const response: CreateAddressCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreateAddressResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1CreateAddressCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAddressCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidAddressException":
+    case "com.amazonaws.snowball#InvalidAddressException":
+      response = await deserializeAws_json1_1InvalidAddressExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "UnsupportedAddressException":
+    case "com.amazonaws.snowball#UnsupportedAddressException":
+      response = await deserializeAws_json1_1UnsupportedAddressExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.snowball#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1CreateClusterCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateClusterCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1CreateClusterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateClusterResult(
+    data.CreateClusterResult,
+    context
+  );
+  const response: CreateClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreateClusterResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1CreateClusterCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateClusterCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "Ec2RequestFailedException":
+    case "com.amazonaws.snowball#Ec2RequestFailedException":
+      response = await deserializeAws_json1_1Ec2RequestFailedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidInputCombinationException":
+    case "com.amazonaws.snowball#InvalidInputCombinationException":
+      response = await deserializeAws_json1_1InvalidInputCombinationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidResourceException":
+    case "com.amazonaws.snowball#InvalidResourceException":
+      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "KMSRequestFailedException":
+    case "com.amazonaws.snowball#KMSRequestFailedException":
+      response = await deserializeAws_json1_1KMSRequestFailedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.snowball#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1CreateJobCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateJobCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1CreateJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateJobResult(
+    data.CreateJobResult,
+    context
+  );
+  const response: CreateJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "CreateJobResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1CreateJobCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateJobCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ClusterLimitExceededException":
+    case "com.amazonaws.snowball#ClusterLimitExceededException":
+      response = await deserializeAws_json1_1ClusterLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "Ec2RequestFailedException":
+    case "com.amazonaws.snowball#Ec2RequestFailedException":
+      response = await deserializeAws_json1_1Ec2RequestFailedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidInputCombinationException":
+    case "com.amazonaws.snowball#InvalidInputCombinationException":
+      response = await deserializeAws_json1_1InvalidInputCombinationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidResourceException":
+    case "com.amazonaws.snowball#InvalidResourceException":
+      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "KMSRequestFailedException":
+    case "com.amazonaws.snowball#KMSRequestFailedException":
+      response = await deserializeAws_json1_1KMSRequestFailedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.snowball#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribeAddressCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAddressCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeAddressCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeAddressResult(
+    data.DescribeAddressResult,
+    context
+  );
+  const response: DescribeAddressCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeAddressResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeAddressCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAddressCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidResourceException":
+    case "com.amazonaws.snowball#InvalidResourceException":
+      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.snowball#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribeAddressesCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAddressesCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeAddressesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeAddressesResult(
+    data.DescribeAddressesResult,
+    context
+  );
+  const response: DescribeAddressesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeAddressesResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeAddressesCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAddressesCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.snowball#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidResourceException":
+    case "com.amazonaws.snowball#InvalidResourceException":
+      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.snowball#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribeClusterCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeClusterCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeClusterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeClusterResult(
+    data.DescribeClusterResult,
+    context
+  );
+  const response: DescribeClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeClusterResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeClusterCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeClusterCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidResourceException":
+    case "com.amazonaws.snowball#InvalidResourceException":
+      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.snowball#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribeJobCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeJobCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeJobResult(
+    data.DescribeJobResult,
+    context
+  );
+  const response: DescribeJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeJobResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeJobCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeJobCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidResourceException":
+    case "com.amazonaws.snowball#InvalidResourceException":
+      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.snowball#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1GetJobManifestCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetJobManifestCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetJobManifestCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetJobManifestResult(
+    data.GetJobManifestResult,
+    context
+  );
+  const response: GetJobManifestCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetJobManifestResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1GetJobManifestCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetJobManifestCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidJobStateException":
+    case "com.amazonaws.snowball#InvalidJobStateException":
+      response = await deserializeAws_json1_1InvalidJobStateExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidResourceException":
+    case "com.amazonaws.snowball#InvalidResourceException":
+      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.snowball#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1GetJobUnlockCodeCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetJobUnlockCodeCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetJobUnlockCodeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetJobUnlockCodeResult(
+    data.GetJobUnlockCodeResult,
+    context
+  );
+  const response: GetJobUnlockCodeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetJobUnlockCodeResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1GetJobUnlockCodeCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetJobUnlockCodeCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidJobStateException":
+    case "com.amazonaws.snowball#InvalidJobStateException":
+      response = await deserializeAws_json1_1InvalidJobStateExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidResourceException":
+    case "com.amazonaws.snowball#InvalidResourceException":
+      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.snowball#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1GetSnowballUsageCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSnowballUsageCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetSnowballUsageCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetSnowballUsageResult(
+    data.GetSnowballUsageResult,
+    context
+  );
+  const response: GetSnowballUsageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetSnowballUsageResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1GetSnowballUsageCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSnowballUsageCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.snowball#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1GetSoftwareUpdatesCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSoftwareUpdatesCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetSoftwareUpdatesCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetSoftwareUpdatesResult(
+    data.GetSoftwareUpdatesResult,
+    context
+  );
+  const response: GetSoftwareUpdatesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetSoftwareUpdatesResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1GetSoftwareUpdatesCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSoftwareUpdatesCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidJobStateException":
+    case "com.amazonaws.snowball#InvalidJobStateException":
+      response = await deserializeAws_json1_1InvalidJobStateExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidResourceException":
+    case "com.amazonaws.snowball#InvalidResourceException":
+      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.snowball#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1ListClusterJobsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListClusterJobsCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListClusterJobsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListClusterJobsResult(
+    data.ListClusterJobsResult,
+    context
+  );
+  const response: ListClusterJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListClusterJobsResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1ListClusterJobsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListClusterJobsCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.snowball#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidResourceException":
+    case "com.amazonaws.snowball#InvalidResourceException":
+      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.snowball#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1ListClustersCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListClustersCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListClustersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListClustersResult(
+    data.ListClustersResult,
+    context
+  );
+  const response: ListClustersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListClustersResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1ListClustersCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListClustersCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.snowball#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.snowball#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1ListCompatibleImagesCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCompatibleImagesCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListCompatibleImagesCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListCompatibleImagesResult(
+    data.ListCompatibleImagesResult,
+    context
+  );
+  const response: ListCompatibleImagesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListCompatibleImagesResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1ListCompatibleImagesCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCompatibleImagesCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "Ec2RequestFailedException":
+    case "com.amazonaws.snowball#Ec2RequestFailedException":
+      response = await deserializeAws_json1_1Ec2RequestFailedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.snowball#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.snowball#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1ListJobsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListJobsCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListJobsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListJobsResult(data.ListJobsResult, context);
+  const response: ListJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListJobsResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1ListJobsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListJobsCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.snowball#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.snowball#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1UpdateClusterCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateClusterCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1UpdateClusterCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateClusterResult(
+    data.UpdateClusterResult,
+    context
+  );
+  const response: UpdateClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateClusterResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1UpdateClusterCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateClusterCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "Ec2RequestFailedException":
+    case "com.amazonaws.snowball#Ec2RequestFailedException":
+      response = await deserializeAws_json1_1Ec2RequestFailedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidInputCombinationException":
+    case "com.amazonaws.snowball#InvalidInputCombinationException":
+      response = await deserializeAws_json1_1InvalidInputCombinationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidJobStateException":
+    case "com.amazonaws.snowball#InvalidJobStateException":
+      response = await deserializeAws_json1_1InvalidJobStateExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidResourceException":
+    case "com.amazonaws.snowball#InvalidResourceException":
+      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "KMSRequestFailedException":
+    case "com.amazonaws.snowball#KMSRequestFailedException":
+      response = await deserializeAws_json1_1KMSRequestFailedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.snowball#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1UpdateJobCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateJobCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1UpdateJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateJobResult(
+    data.UpdateJobResult,
+    context
+  );
+  const response: UpdateJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "UpdateJobResult",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1UpdateJobCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateJobCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ClusterLimitExceededException":
+    case "com.amazonaws.snowball#ClusterLimitExceededException":
+      response = await deserializeAws_json1_1ClusterLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "Ec2RequestFailedException":
+    case "com.amazonaws.snowball#Ec2RequestFailedException":
+      response = await deserializeAws_json1_1Ec2RequestFailedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidInputCombinationException":
+    case "com.amazonaws.snowball#InvalidInputCombinationException":
+      response = await deserializeAws_json1_1InvalidInputCombinationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidJobStateException":
+    case "com.amazonaws.snowball#InvalidJobStateException":
+      response = await deserializeAws_json1_1InvalidJobStateExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidResourceException":
+    case "com.amazonaws.snowball#InvalidResourceException":
+      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "KMSRequestFailedException":
+    case "com.amazonaws.snowball#KMSRequestFailedException":
+      response = await deserializeAws_json1_1KMSRequestFailedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.snowball#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+const deserializeAws_json1_1ClusterLimitExceededExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<ClusterLimitExceededException> => {
+  const deserialized: any = deserializeAws_json1_1ClusterLimitExceededException(
+    output.body,
+    context
+  );
+  const contents: ClusterLimitExceededException = {
+    __type: "ClusterLimitExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1Ec2RequestFailedExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<Ec2RequestFailedException> => {
+  const deserialized: any = deserializeAws_json1_1Ec2RequestFailedException(
+    output.body,
+    context
+  );
+  const contents: Ec2RequestFailedException = {
+    __type: "Ec2RequestFailedException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidAddressExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InvalidAddressException> => {
+  const deserialized: any = deserializeAws_json1_1InvalidAddressException(
+    output.body,
+    context
+  );
+  const contents: InvalidAddressException = {
+    __type: "InvalidAddressException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidInputCombinationExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InvalidInputCombinationException> => {
+  const deserialized: any = deserializeAws_json1_1InvalidInputCombinationException(
+    output.body,
+    context
+  );
+  const contents: InvalidInputCombinationException = {
+    __type: "InvalidInputCombinationException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidJobStateExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InvalidJobStateException> => {
+  const deserialized: any = deserializeAws_json1_1InvalidJobStateException(
+    output.body,
+    context
+  );
+  const contents: InvalidJobStateException = {
+    __type: "InvalidJobStateException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InvalidNextTokenException> => {
+  const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(
+    output.body,
+    context
+  );
+  const contents: InvalidNextTokenException = {
+    __type: "InvalidNextTokenException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidResourceExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InvalidResourceException> => {
+  const deserialized: any = deserializeAws_json1_1InvalidResourceException(
+    output.body,
+    context
+  );
+  const contents: InvalidResourceException = {
+    __type: "InvalidResourceException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1KMSRequestFailedExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<KMSRequestFailedException> => {
+  const deserialized: any = deserializeAws_json1_1KMSRequestFailedException(
+    output.body,
+    context
+  );
+  const contents: KMSRequestFailedException = {
+    __type: "KMSRequestFailedException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1UnsupportedAddressExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<UnsupportedAddressException> => {
+  const deserialized: any = deserializeAws_json1_1UnsupportedAddressException(
+    output.body,
+    context
+  );
+  const contents: UnsupportedAddressException = {
+    __type: "UnsupportedAddressException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const serializeAws_json1_1Address = (
+  input: Address,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.AddressId !== undefined) {
+    bodyParams["AddressId"] = input.AddressId;
+  }
+  if (input.City !== undefined) {
+    bodyParams["City"] = input.City;
+  }
+  if (input.Company !== undefined) {
+    bodyParams["Company"] = input.Company;
+  }
+  if (input.Country !== undefined) {
+    bodyParams["Country"] = input.Country;
+  }
+  if (input.IsRestricted !== undefined) {
+    bodyParams["IsRestricted"] = input.IsRestricted;
+  }
+  if (input.Landmark !== undefined) {
+    bodyParams["Landmark"] = input.Landmark;
+  }
+  if (input.Name !== undefined) {
+    bodyParams["Name"] = input.Name;
+  }
+  if (input.PhoneNumber !== undefined) {
+    bodyParams["PhoneNumber"] = input.PhoneNumber;
+  }
+  if (input.PostalCode !== undefined) {
+    bodyParams["PostalCode"] = input.PostalCode;
+  }
+  if (input.PrefectureOrDistrict !== undefined) {
+    bodyParams["PrefectureOrDistrict"] = input.PrefectureOrDistrict;
+  }
+  if (input.StateOrProvince !== undefined) {
+    bodyParams["StateOrProvince"] = input.StateOrProvince;
+  }
+  if (input.Street1 !== undefined) {
+    bodyParams["Street1"] = input.Street1;
+  }
+  if (input.Street2 !== undefined) {
+    bodyParams["Street2"] = input.Street2;
+  }
+  if (input.Street3 !== undefined) {
+    bodyParams["Street3"] = input.Street3;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1CancelClusterRequest = (
+  input: CancelClusterRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ClusterId !== undefined) {
+    bodyParams["ClusterId"] = input.ClusterId;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1CancelJobRequest = (
+  input: CancelJobRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.JobId !== undefined) {
+    bodyParams["JobId"] = input.JobId;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1CreateAddressRequest = (
+  input: CreateAddressRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Address !== undefined) {
+    bodyParams["Address"] = serializeAws_json1_1Address(input.Address, context);
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1CreateClusterRequest = (
+  input: CreateClusterRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.AddressId !== undefined) {
+    bodyParams["AddressId"] = input.AddressId;
+  }
+  if (input.Description !== undefined) {
+    bodyParams["Description"] = input.Description;
+  }
+  if (input.ForwardingAddressId !== undefined) {
+    bodyParams["ForwardingAddressId"] = input.ForwardingAddressId;
+  }
+  if (input.JobType !== undefined) {
+    bodyParams["JobType"] = input.JobType;
+  }
+  if (input.KmsKeyARN !== undefined) {
+    bodyParams["KmsKeyARN"] = input.KmsKeyARN;
+  }
+  if (input.Notification !== undefined) {
+    bodyParams["Notification"] = serializeAws_json1_1Notification(
+      input.Notification,
+      context
+    );
+  }
+  if (input.Resources !== undefined) {
+    bodyParams["Resources"] = serializeAws_json1_1JobResource(
+      input.Resources,
+      context
+    );
+  }
+  if (input.RoleARN !== undefined) {
+    bodyParams["RoleARN"] = input.RoleARN;
+  }
+  if (input.ShippingOption !== undefined) {
+    bodyParams["ShippingOption"] = input.ShippingOption;
+  }
+  if (input.SnowballType !== undefined) {
+    bodyParams["SnowballType"] = input.SnowballType;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1CreateJobRequest = (
+  input: CreateJobRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.AddressId !== undefined) {
+    bodyParams["AddressId"] = input.AddressId;
+  }
+  if (input.ClusterId !== undefined) {
+    bodyParams["ClusterId"] = input.ClusterId;
+  }
+  if (input.Description !== undefined) {
+    bodyParams["Description"] = input.Description;
+  }
+  if (input.ForwardingAddressId !== undefined) {
+    bodyParams["ForwardingAddressId"] = input.ForwardingAddressId;
+  }
+  if (input.JobType !== undefined) {
+    bodyParams["JobType"] = input.JobType;
+  }
+  if (input.KmsKeyARN !== undefined) {
+    bodyParams["KmsKeyARN"] = input.KmsKeyARN;
+  }
+  if (input.Notification !== undefined) {
+    bodyParams["Notification"] = serializeAws_json1_1Notification(
+      input.Notification,
+      context
+    );
+  }
+  if (input.Resources !== undefined) {
+    bodyParams["Resources"] = serializeAws_json1_1JobResource(
+      input.Resources,
+      context
+    );
+  }
+  if (input.RoleARN !== undefined) {
+    bodyParams["RoleARN"] = input.RoleARN;
+  }
+  if (input.ShippingOption !== undefined) {
+    bodyParams["ShippingOption"] = input.ShippingOption;
+  }
+  if (input.SnowballCapacityPreference !== undefined) {
+    bodyParams["SnowballCapacityPreference"] = input.SnowballCapacityPreference;
+  }
+  if (input.SnowballType !== undefined) {
+    bodyParams["SnowballType"] = input.SnowballType;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeAddressRequest = (
+  input: DescribeAddressRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.AddressId !== undefined) {
+    bodyParams["AddressId"] = input.AddressId;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeAddressesRequest = (
+  input: DescribeAddressesRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.MaxResults !== undefined) {
+    bodyParams["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeClusterRequest = (
+  input: DescribeClusterRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ClusterId !== undefined) {
+    bodyParams["ClusterId"] = input.ClusterId;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeJobRequest = (
+  input: DescribeJobRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.JobId !== undefined) {
+    bodyParams["JobId"] = input.JobId;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1Ec2AmiResource = (
+  input: Ec2AmiResource,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.AmiId !== undefined) {
+    bodyParams["AmiId"] = input.AmiId;
+  }
+  if (input.SnowballAmiId !== undefined) {
+    bodyParams["SnowballAmiId"] = input.SnowballAmiId;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1Ec2AmiResourceList = (
+  input: Array<Ec2AmiResource>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry =>
+    serializeAws_json1_1Ec2AmiResource(entry, context)
+  );
+};
+
+const serializeAws_json1_1EventTriggerDefinition = (
+  input: EventTriggerDefinition,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.EventResourceARN !== undefined) {
+    bodyParams["EventResourceARN"] = input.EventResourceARN;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1EventTriggerDefinitionList = (
+  input: Array<EventTriggerDefinition>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry =>
+    serializeAws_json1_1EventTriggerDefinition(entry, context)
+  );
+};
+
+const serializeAws_json1_1GetJobManifestRequest = (
+  input: GetJobManifestRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.JobId !== undefined) {
+    bodyParams["JobId"] = input.JobId;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1GetJobUnlockCodeRequest = (
+  input: GetJobUnlockCodeRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.JobId !== undefined) {
+    bodyParams["JobId"] = input.JobId;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1GetSnowballUsageRequest = (
+  input: GetSnowballUsageRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  return bodyParams;
+};
+
+const serializeAws_json1_1GetSoftwareUpdatesRequest = (
+  input: GetSoftwareUpdatesRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.JobId !== undefined) {
+    bodyParams["JobId"] = input.JobId;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1JobResource = (
+  input: JobResource,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Ec2AmiResources !== undefined) {
+    bodyParams["Ec2AmiResources"] = serializeAws_json1_1Ec2AmiResourceList(
+      input.Ec2AmiResources,
+      context
+    );
+  }
+  if (input.LambdaResources !== undefined) {
+    bodyParams["LambdaResources"] = serializeAws_json1_1LambdaResourceList(
+      input.LambdaResources,
+      context
+    );
+  }
+  if (input.S3Resources !== undefined) {
+    bodyParams["S3Resources"] = serializeAws_json1_1S3ResourceList(
+      input.S3Resources,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1JobStateList = (
+  input: Array<JobState | string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1KeyRange = (
+  input: KeyRange,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.BeginMarker !== undefined) {
+    bodyParams["BeginMarker"] = input.BeginMarker;
+  }
+  if (input.EndMarker !== undefined) {
+    bodyParams["EndMarker"] = input.EndMarker;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1LambdaResource = (
+  input: LambdaResource,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.EventTriggers !== undefined) {
+    bodyParams[
+      "EventTriggers"
+    ] = serializeAws_json1_1EventTriggerDefinitionList(
+      input.EventTriggers,
+      context
+    );
+  }
+  if (input.LambdaArn !== undefined) {
+    bodyParams["LambdaArn"] = input.LambdaArn;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1LambdaResourceList = (
+  input: Array<LambdaResource>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry =>
+    serializeAws_json1_1LambdaResource(entry, context)
+  );
+};
+
+const serializeAws_json1_1ListClusterJobsRequest = (
+  input: ListClusterJobsRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ClusterId !== undefined) {
+    bodyParams["ClusterId"] = input.ClusterId;
+  }
+  if (input.MaxResults !== undefined) {
+    bodyParams["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1ListClustersRequest = (
+  input: ListClustersRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.MaxResults !== undefined) {
+    bodyParams["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1ListCompatibleImagesRequest = (
+  input: ListCompatibleImagesRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.MaxResults !== undefined) {
+    bodyParams["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1ListJobsRequest = (
+  input: ListJobsRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.MaxResults !== undefined) {
+    bodyParams["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1Notification = (
+  input: Notification,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.JobStatesToNotify !== undefined) {
+    bodyParams["JobStatesToNotify"] = serializeAws_json1_1JobStateList(
+      input.JobStatesToNotify,
+      context
+    );
+  }
+  if (input.NotifyAll !== undefined) {
+    bodyParams["NotifyAll"] = input.NotifyAll;
+  }
+  if (input.SnsTopicARN !== undefined) {
+    bodyParams["SnsTopicARN"] = input.SnsTopicARN;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1S3Resource = (
+  input: S3Resource,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.BucketArn !== undefined) {
+    bodyParams["BucketArn"] = input.BucketArn;
+  }
+  if (input.KeyRange !== undefined) {
+    bodyParams["KeyRange"] = serializeAws_json1_1KeyRange(
+      input.KeyRange,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1S3ResourceList = (
+  input: Array<S3Resource>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry =>
+    serializeAws_json1_1S3Resource(entry, context)
+  );
+};
+
+const serializeAws_json1_1UpdateClusterRequest = (
+  input: UpdateClusterRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.AddressId !== undefined) {
+    bodyParams["AddressId"] = input.AddressId;
+  }
+  if (input.ClusterId !== undefined) {
+    bodyParams["ClusterId"] = input.ClusterId;
+  }
+  if (input.Description !== undefined) {
+    bodyParams["Description"] = input.Description;
+  }
+  if (input.ForwardingAddressId !== undefined) {
+    bodyParams["ForwardingAddressId"] = input.ForwardingAddressId;
+  }
+  if (input.Notification !== undefined) {
+    bodyParams["Notification"] = serializeAws_json1_1Notification(
+      input.Notification,
+      context
+    );
+  }
+  if (input.Resources !== undefined) {
+    bodyParams["Resources"] = serializeAws_json1_1JobResource(
+      input.Resources,
+      context
+    );
+  }
+  if (input.RoleARN !== undefined) {
+    bodyParams["RoleARN"] = input.RoleARN;
+  }
+  if (input.ShippingOption !== undefined) {
+    bodyParams["ShippingOption"] = input.ShippingOption;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1UpdateJobRequest = (
+  input: UpdateJobRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.AddressId !== undefined) {
+    bodyParams["AddressId"] = input.AddressId;
+  }
+  if (input.Description !== undefined) {
+    bodyParams["Description"] = input.Description;
+  }
+  if (input.ForwardingAddressId !== undefined) {
+    bodyParams["ForwardingAddressId"] = input.ForwardingAddressId;
+  }
+  if (input.JobId !== undefined) {
+    bodyParams["JobId"] = input.JobId;
+  }
+  if (input.Notification !== undefined) {
+    bodyParams["Notification"] = serializeAws_json1_1Notification(
+      input.Notification,
+      context
+    );
+  }
+  if (input.Resources !== undefined) {
+    bodyParams["Resources"] = serializeAws_json1_1JobResource(
+      input.Resources,
+      context
+    );
+  }
+  if (input.RoleARN !== undefined) {
+    bodyParams["RoleARN"] = input.RoleARN;
+  }
+  if (input.ShippingOption !== undefined) {
+    bodyParams["ShippingOption"] = input.ShippingOption;
+  }
+  if (input.SnowballCapacityPreference !== undefined) {
+    bodyParams["SnowballCapacityPreference"] = input.SnowballCapacityPreference;
+  }
+  return bodyParams;
+};
+
+const deserializeAws_json1_1Address = (
+  output: any,
+  context: __SerdeContext
+): Address => {
+  let contents: any = {
+    __type: "Address",
+    AddressId: undefined,
+    City: undefined,
+    Company: undefined,
+    Country: undefined,
+    IsRestricted: undefined,
+    Landmark: undefined,
+    Name: undefined,
+    PhoneNumber: undefined,
+    PostalCode: undefined,
+    PrefectureOrDistrict: undefined,
+    StateOrProvince: undefined,
+    Street1: undefined,
+    Street2: undefined,
+    Street3: undefined
+  };
+  if (output.AddressId !== undefined) {
+    contents.AddressId = output.AddressId;
+  }
+  if (output.City !== undefined) {
+    contents.City = output.City;
+  }
+  if (output.Company !== undefined) {
+    contents.Company = output.Company;
+  }
+  if (output.Country !== undefined) {
+    contents.Country = output.Country;
+  }
+  if (output.IsRestricted !== undefined) {
+    contents.IsRestricted = output.IsRestricted;
+  }
+  if (output.Landmark !== undefined) {
+    contents.Landmark = output.Landmark;
+  }
+  if (output.Name !== undefined) {
+    contents.Name = output.Name;
+  }
+  if (output.PhoneNumber !== undefined) {
+    contents.PhoneNumber = output.PhoneNumber;
+  }
+  if (output.PostalCode !== undefined) {
+    contents.PostalCode = output.PostalCode;
+  }
+  if (output.PrefectureOrDistrict !== undefined) {
+    contents.PrefectureOrDistrict = output.PrefectureOrDistrict;
+  }
+  if (output.StateOrProvince !== undefined) {
+    contents.StateOrProvince = output.StateOrProvince;
+  }
+  if (output.Street1 !== undefined) {
+    contents.Street1 = output.Street1;
+  }
+  if (output.Street2 !== undefined) {
+    contents.Street2 = output.Street2;
+  }
+  if (output.Street3 !== undefined) {
+    contents.Street3 = output.Street3;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1AddressList = (
+  output: any,
+  context: __SerdeContext
+): Array<Address> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1Address(entry, context)
+  );
+};
+
+const deserializeAws_json1_1CancelClusterResult = (
+  output: any,
+  context: __SerdeContext
+): CancelClusterResult => {
+  let contents: any = {
+    __type: "CancelClusterResult"
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1CancelJobResult = (
+  output: any,
+  context: __SerdeContext
+): CancelJobResult => {
+  let contents: any = {
+    __type: "CancelJobResult"
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1ClusterLimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): ClusterLimitExceededException => {
+  let contents: any = {
+    __type: "ClusterLimitExceededException",
+    Message: undefined
+  };
+  if (output.Message !== undefined) {
+    contents.Message = output.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ClusterListEntry = (
+  output: any,
+  context: __SerdeContext
+): ClusterListEntry => {
+  let contents: any = {
+    __type: "ClusterListEntry",
+    ClusterId: undefined,
+    ClusterState: undefined,
+    CreationDate: undefined,
+    Description: undefined
+  };
+  if (output.ClusterId !== undefined) {
+    contents.ClusterId = output.ClusterId;
+  }
+  if (output.ClusterState !== undefined) {
+    contents.ClusterState = output.ClusterState;
+  }
+  if (output.CreationDate !== undefined) {
+    contents.CreationDate = new Date(
+      output.CreationDate % 1 != 0
+        ? Math.round(output.CreationDate * 1000)
+        : output.CreationDate
+    );
+  }
+  if (output.Description !== undefined) {
+    contents.Description = output.Description;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ClusterListEntryList = (
+  output: any,
+  context: __SerdeContext
+): Array<ClusterListEntry> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ClusterListEntry(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ClusterMetadata = (
+  output: any,
+  context: __SerdeContext
+): ClusterMetadata => {
+  let contents: any = {
+    __type: "ClusterMetadata",
+    AddressId: undefined,
+    ClusterId: undefined,
+    ClusterState: undefined,
+    CreationDate: undefined,
+    Description: undefined,
+    ForwardingAddressId: undefined,
+    JobType: undefined,
+    KmsKeyARN: undefined,
+    Notification: undefined,
+    Resources: undefined,
+    RoleARN: undefined,
+    ShippingOption: undefined,
+    SnowballType: undefined
+  };
+  if (output.AddressId !== undefined) {
+    contents.AddressId = output.AddressId;
+  }
+  if (output.ClusterId !== undefined) {
+    contents.ClusterId = output.ClusterId;
+  }
+  if (output.ClusterState !== undefined) {
+    contents.ClusterState = output.ClusterState;
+  }
+  if (output.CreationDate !== undefined) {
+    contents.CreationDate = new Date(
+      output.CreationDate % 1 != 0
+        ? Math.round(output.CreationDate * 1000)
+        : output.CreationDate
+    );
+  }
+  if (output.Description !== undefined) {
+    contents.Description = output.Description;
+  }
+  if (output.ForwardingAddressId !== undefined) {
+    contents.ForwardingAddressId = output.ForwardingAddressId;
+  }
+  if (output.JobType !== undefined) {
+    contents.JobType = output.JobType;
+  }
+  if (output.KmsKeyARN !== undefined) {
+    contents.KmsKeyARN = output.KmsKeyARN;
+  }
+  if (output.Notification !== undefined) {
+    contents.Notification = deserializeAws_json1_1Notification(
+      output.Notification,
+      context
+    );
+  }
+  if (output.Resources !== undefined) {
+    contents.Resources = deserializeAws_json1_1JobResource(
+      output.Resources,
+      context
+    );
+  }
+  if (output.RoleARN !== undefined) {
+    contents.RoleARN = output.RoleARN;
+  }
+  if (output.ShippingOption !== undefined) {
+    contents.ShippingOption = output.ShippingOption;
+  }
+  if (output.SnowballType !== undefined) {
+    contents.SnowballType = output.SnowballType;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1CompatibleImage = (
+  output: any,
+  context: __SerdeContext
+): CompatibleImage => {
+  let contents: any = {
+    __type: "CompatibleImage",
+    AmiId: undefined,
+    Name: undefined
+  };
+  if (output.AmiId !== undefined) {
+    contents.AmiId = output.AmiId;
+  }
+  if (output.Name !== undefined) {
+    contents.Name = output.Name;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1CompatibleImageList = (
+  output: any,
+  context: __SerdeContext
+): Array<CompatibleImage> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1CompatibleImage(entry, context)
+  );
+};
+
+const deserializeAws_json1_1CreateAddressResult = (
+  output: any,
+  context: __SerdeContext
+): CreateAddressResult => {
+  let contents: any = {
+    __type: "CreateAddressResult",
+    AddressId: undefined
+  };
+  if (output.AddressId !== undefined) {
+    contents.AddressId = output.AddressId;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1CreateClusterResult = (
+  output: any,
+  context: __SerdeContext
+): CreateClusterResult => {
+  let contents: any = {
+    __type: "CreateClusterResult",
+    ClusterId: undefined
+  };
+  if (output.ClusterId !== undefined) {
+    contents.ClusterId = output.ClusterId;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1CreateJobResult = (
+  output: any,
+  context: __SerdeContext
+): CreateJobResult => {
+  let contents: any = {
+    __type: "CreateJobResult",
+    JobId: undefined
+  };
+  if (output.JobId !== undefined) {
+    contents.JobId = output.JobId;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DataTransfer = (
+  output: any,
+  context: __SerdeContext
+): DataTransfer => {
+  let contents: any = {
+    __type: "DataTransfer",
+    BytesTransferred: undefined,
+    ObjectsTransferred: undefined,
+    TotalBytes: undefined,
+    TotalObjects: undefined
+  };
+  if (output.BytesTransferred !== undefined) {
+    contents.BytesTransferred = output.BytesTransferred;
+  }
+  if (output.ObjectsTransferred !== undefined) {
+    contents.ObjectsTransferred = output.ObjectsTransferred;
+  }
+  if (output.TotalBytes !== undefined) {
+    contents.TotalBytes = output.TotalBytes;
+  }
+  if (output.TotalObjects !== undefined) {
+    contents.TotalObjects = output.TotalObjects;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeAddressResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeAddressResult => {
+  let contents: any = {
+    __type: "DescribeAddressResult",
+    Address: undefined
+  };
+  if (output.Address !== undefined) {
+    contents.Address = deserializeAws_json1_1Address(output.Address, context);
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeAddressesResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeAddressesResult => {
+  let contents: any = {
+    __type: "DescribeAddressesResult",
+    Addresses: undefined,
+    NextToken: undefined
+  };
+  if (output.Addresses !== undefined) {
+    contents.Addresses = deserializeAws_json1_1AddressList(
+      output.Addresses,
+      context
+    );
+  }
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeClusterResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeClusterResult => {
+  let contents: any = {
+    __type: "DescribeClusterResult",
+    ClusterMetadata: undefined
+  };
+  if (output.ClusterMetadata !== undefined) {
+    contents.ClusterMetadata = deserializeAws_json1_1ClusterMetadata(
+      output.ClusterMetadata,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeJobResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeJobResult => {
+  let contents: any = {
+    __type: "DescribeJobResult",
+    JobMetadata: undefined,
+    SubJobMetadata: undefined
+  };
+  if (output.JobMetadata !== undefined) {
+    contents.JobMetadata = deserializeAws_json1_1JobMetadata(
+      output.JobMetadata,
+      context
+    );
+  }
+  if (output.SubJobMetadata !== undefined) {
+    contents.SubJobMetadata = deserializeAws_json1_1JobMetadataList(
+      output.SubJobMetadata,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1Ec2AmiResource = (
+  output: any,
+  context: __SerdeContext
+): Ec2AmiResource => {
+  let contents: any = {
+    __type: "Ec2AmiResource",
+    AmiId: undefined,
+    SnowballAmiId: undefined
+  };
+  if (output.AmiId !== undefined) {
+    contents.AmiId = output.AmiId;
+  }
+  if (output.SnowballAmiId !== undefined) {
+    contents.SnowballAmiId = output.SnowballAmiId;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1Ec2AmiResourceList = (
+  output: any,
+  context: __SerdeContext
+): Array<Ec2AmiResource> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1Ec2AmiResource(entry, context)
+  );
+};
+
+const deserializeAws_json1_1Ec2RequestFailedException = (
+  output: any,
+  context: __SerdeContext
+): Ec2RequestFailedException => {
+  let contents: any = {
+    __type: "Ec2RequestFailedException",
+    Message: undefined
+  };
+  if (output.Message !== undefined) {
+    contents.Message = output.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1EventTriggerDefinition = (
+  output: any,
+  context: __SerdeContext
+): EventTriggerDefinition => {
+  let contents: any = {
+    __type: "EventTriggerDefinition",
+    EventResourceARN: undefined
+  };
+  if (output.EventResourceARN !== undefined) {
+    contents.EventResourceARN = output.EventResourceARN;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1EventTriggerDefinitionList = (
+  output: any,
+  context: __SerdeContext
+): Array<EventTriggerDefinition> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1EventTriggerDefinition(entry, context)
+  );
+};
+
+const deserializeAws_json1_1GetJobManifestResult = (
+  output: any,
+  context: __SerdeContext
+): GetJobManifestResult => {
+  let contents: any = {
+    __type: "GetJobManifestResult",
+    ManifestURI: undefined
+  };
+  if (output.ManifestURI !== undefined) {
+    contents.ManifestURI = output.ManifestURI;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1GetJobUnlockCodeResult = (
+  output: any,
+  context: __SerdeContext
+): GetJobUnlockCodeResult => {
+  let contents: any = {
+    __type: "GetJobUnlockCodeResult",
+    UnlockCode: undefined
+  };
+  if (output.UnlockCode !== undefined) {
+    contents.UnlockCode = output.UnlockCode;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1GetSnowballUsageResult = (
+  output: any,
+  context: __SerdeContext
+): GetSnowballUsageResult => {
+  let contents: any = {
+    __type: "GetSnowballUsageResult",
+    SnowballLimit: undefined,
+    SnowballsInUse: undefined
+  };
+  if (output.SnowballLimit !== undefined) {
+    contents.SnowballLimit = output.SnowballLimit;
+  }
+  if (output.SnowballsInUse !== undefined) {
+    contents.SnowballsInUse = output.SnowballsInUse;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1GetSoftwareUpdatesResult = (
+  output: any,
+  context: __SerdeContext
+): GetSoftwareUpdatesResult => {
+  let contents: any = {
+    __type: "GetSoftwareUpdatesResult",
+    UpdatesURI: undefined
+  };
+  if (output.UpdatesURI !== undefined) {
+    contents.UpdatesURI = output.UpdatesURI;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidAddressException = (
+  output: any,
+  context: __SerdeContext
+): InvalidAddressException => {
+  let contents: any = {
+    __type: "InvalidAddressException",
+    Message: undefined
+  };
+  if (output.Message !== undefined) {
+    contents.Message = output.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidInputCombinationException = (
+  output: any,
+  context: __SerdeContext
+): InvalidInputCombinationException => {
+  let contents: any = {
+    __type: "InvalidInputCombinationException",
+    Message: undefined
+  };
+  if (output.Message !== undefined) {
+    contents.Message = output.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidJobStateException = (
+  output: any,
+  context: __SerdeContext
+): InvalidJobStateException => {
+  let contents: any = {
+    __type: "InvalidJobStateException",
+    Message: undefined
+  };
+  if (output.Message !== undefined) {
+    contents.Message = output.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidNextTokenException = (
+  output: any,
+  context: __SerdeContext
+): InvalidNextTokenException => {
+  let contents: any = {
+    __type: "InvalidNextTokenException",
+    Message: undefined
+  };
+  if (output.Message !== undefined) {
+    contents.Message = output.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidResourceException = (
+  output: any,
+  context: __SerdeContext
+): InvalidResourceException => {
+  let contents: any = {
+    __type: "InvalidResourceException",
+    Message: undefined,
+    ResourceType: undefined
+  };
+  if (output.Message !== undefined) {
+    contents.Message = output.Message;
+  }
+  if (output.ResourceType !== undefined) {
+    contents.ResourceType = output.ResourceType;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1JobListEntry = (
+  output: any,
+  context: __SerdeContext
+): JobListEntry => {
+  let contents: any = {
+    __type: "JobListEntry",
+    CreationDate: undefined,
+    Description: undefined,
+    IsMaster: undefined,
+    JobId: undefined,
+    JobState: undefined,
+    JobType: undefined,
+    SnowballType: undefined
+  };
+  if (output.CreationDate !== undefined) {
+    contents.CreationDate = new Date(
+      output.CreationDate % 1 != 0
+        ? Math.round(output.CreationDate * 1000)
+        : output.CreationDate
+    );
+  }
+  if (output.Description !== undefined) {
+    contents.Description = output.Description;
+  }
+  if (output.IsMaster !== undefined) {
+    contents.IsMaster = output.IsMaster;
+  }
+  if (output.JobId !== undefined) {
+    contents.JobId = output.JobId;
+  }
+  if (output.JobState !== undefined) {
+    contents.JobState = output.JobState;
+  }
+  if (output.JobType !== undefined) {
+    contents.JobType = output.JobType;
+  }
+  if (output.SnowballType !== undefined) {
+    contents.SnowballType = output.SnowballType;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1JobListEntryList = (
+  output: any,
+  context: __SerdeContext
+): Array<JobListEntry> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1JobListEntry(entry, context)
+  );
+};
+
+const deserializeAws_json1_1JobLogs = (
+  output: any,
+  context: __SerdeContext
+): JobLogs => {
+  let contents: any = {
+    __type: "JobLogs",
+    JobCompletionReportURI: undefined,
+    JobFailureLogURI: undefined,
+    JobSuccessLogURI: undefined
+  };
+  if (output.JobCompletionReportURI !== undefined) {
+    contents.JobCompletionReportURI = output.JobCompletionReportURI;
+  }
+  if (output.JobFailureLogURI !== undefined) {
+    contents.JobFailureLogURI = output.JobFailureLogURI;
+  }
+  if (output.JobSuccessLogURI !== undefined) {
+    contents.JobSuccessLogURI = output.JobSuccessLogURI;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1JobMetadata = (
+  output: any,
+  context: __SerdeContext
+): JobMetadata => {
+  let contents: any = {
+    __type: "JobMetadata",
+    AddressId: undefined,
+    ClusterId: undefined,
+    CreationDate: undefined,
+    DataTransferProgress: undefined,
+    Description: undefined,
+    ForwardingAddressId: undefined,
+    JobId: undefined,
+    JobLogInfo: undefined,
+    JobState: undefined,
+    JobType: undefined,
+    KmsKeyARN: undefined,
+    Notification: undefined,
+    Resources: undefined,
+    RoleARN: undefined,
+    ShippingDetails: undefined,
+    SnowballCapacityPreference: undefined,
+    SnowballType: undefined
+  };
+  if (output.AddressId !== undefined) {
+    contents.AddressId = output.AddressId;
+  }
+  if (output.ClusterId !== undefined) {
+    contents.ClusterId = output.ClusterId;
+  }
+  if (output.CreationDate !== undefined) {
+    contents.CreationDate = new Date(
+      output.CreationDate % 1 != 0
+        ? Math.round(output.CreationDate * 1000)
+        : output.CreationDate
+    );
+  }
+  if (output.DataTransferProgress !== undefined) {
+    contents.DataTransferProgress = deserializeAws_json1_1DataTransfer(
+      output.DataTransferProgress,
+      context
+    );
+  }
+  if (output.Description !== undefined) {
+    contents.Description = output.Description;
+  }
+  if (output.ForwardingAddressId !== undefined) {
+    contents.ForwardingAddressId = output.ForwardingAddressId;
+  }
+  if (output.JobId !== undefined) {
+    contents.JobId = output.JobId;
+  }
+  if (output.JobLogInfo !== undefined) {
+    contents.JobLogInfo = deserializeAws_json1_1JobLogs(
+      output.JobLogInfo,
+      context
+    );
+  }
+  if (output.JobState !== undefined) {
+    contents.JobState = output.JobState;
+  }
+  if (output.JobType !== undefined) {
+    contents.JobType = output.JobType;
+  }
+  if (output.KmsKeyARN !== undefined) {
+    contents.KmsKeyARN = output.KmsKeyARN;
+  }
+  if (output.Notification !== undefined) {
+    contents.Notification = deserializeAws_json1_1Notification(
+      output.Notification,
+      context
+    );
+  }
+  if (output.Resources !== undefined) {
+    contents.Resources = deserializeAws_json1_1JobResource(
+      output.Resources,
+      context
+    );
+  }
+  if (output.RoleARN !== undefined) {
+    contents.RoleARN = output.RoleARN;
+  }
+  if (output.ShippingDetails !== undefined) {
+    contents.ShippingDetails = deserializeAws_json1_1ShippingDetails(
+      output.ShippingDetails,
+      context
+    );
+  }
+  if (output.SnowballCapacityPreference !== undefined) {
+    contents.SnowballCapacityPreference = output.SnowballCapacityPreference;
+  }
+  if (output.SnowballType !== undefined) {
+    contents.SnowballType = output.SnowballType;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1JobMetadataList = (
+  output: any,
+  context: __SerdeContext
+): Array<JobMetadata> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1JobMetadata(entry, context)
+  );
+};
+
+const deserializeAws_json1_1JobResource = (
+  output: any,
+  context: __SerdeContext
+): JobResource => {
+  let contents: any = {
+    __type: "JobResource",
+    Ec2AmiResources: undefined,
+    LambdaResources: undefined,
+    S3Resources: undefined
+  };
+  if (output.Ec2AmiResources !== undefined) {
+    contents.Ec2AmiResources = deserializeAws_json1_1Ec2AmiResourceList(
+      output.Ec2AmiResources,
+      context
+    );
+  }
+  if (output.LambdaResources !== undefined) {
+    contents.LambdaResources = deserializeAws_json1_1LambdaResourceList(
+      output.LambdaResources,
+      context
+    );
+  }
+  if (output.S3Resources !== undefined) {
+    contents.S3Resources = deserializeAws_json1_1S3ResourceList(
+      output.S3Resources,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1JobStateList = (
+  output: any,
+  context: __SerdeContext
+): Array<JobState | string> => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1KMSRequestFailedException = (
+  output: any,
+  context: __SerdeContext
+): KMSRequestFailedException => {
+  let contents: any = {
+    __type: "KMSRequestFailedException",
+    Message: undefined
+  };
+  if (output.Message !== undefined) {
+    contents.Message = output.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1KeyRange = (
+  output: any,
+  context: __SerdeContext
+): KeyRange => {
+  let contents: any = {
+    __type: "KeyRange",
+    BeginMarker: undefined,
+    EndMarker: undefined
+  };
+  if (output.BeginMarker !== undefined) {
+    contents.BeginMarker = output.BeginMarker;
+  }
+  if (output.EndMarker !== undefined) {
+    contents.EndMarker = output.EndMarker;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1LambdaResource = (
+  output: any,
+  context: __SerdeContext
+): LambdaResource => {
+  let contents: any = {
+    __type: "LambdaResource",
+    EventTriggers: undefined,
+    LambdaArn: undefined
+  };
+  if (output.EventTriggers !== undefined) {
+    contents.EventTriggers = deserializeAws_json1_1EventTriggerDefinitionList(
+      output.EventTriggers,
+      context
+    );
+  }
+  if (output.LambdaArn !== undefined) {
+    contents.LambdaArn = output.LambdaArn;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1LambdaResourceList = (
+  output: any,
+  context: __SerdeContext
+): Array<LambdaResource> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1LambdaResource(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ListClusterJobsResult = (
+  output: any,
+  context: __SerdeContext
+): ListClusterJobsResult => {
+  let contents: any = {
+    __type: "ListClusterJobsResult",
+    JobListEntries: undefined,
+    NextToken: undefined
+  };
+  if (output.JobListEntries !== undefined) {
+    contents.JobListEntries = deserializeAws_json1_1JobListEntryList(
+      output.JobListEntries,
+      context
+    );
+  }
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ListClustersResult = (
+  output: any,
+  context: __SerdeContext
+): ListClustersResult => {
+  let contents: any = {
+    __type: "ListClustersResult",
+    ClusterListEntries: undefined,
+    NextToken: undefined
+  };
+  if (output.ClusterListEntries !== undefined) {
+    contents.ClusterListEntries = deserializeAws_json1_1ClusterListEntryList(
+      output.ClusterListEntries,
+      context
+    );
+  }
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ListCompatibleImagesResult = (
+  output: any,
+  context: __SerdeContext
+): ListCompatibleImagesResult => {
+  let contents: any = {
+    __type: "ListCompatibleImagesResult",
+    CompatibleImages: undefined,
+    NextToken: undefined
+  };
+  if (output.CompatibleImages !== undefined) {
+    contents.CompatibleImages = deserializeAws_json1_1CompatibleImageList(
+      output.CompatibleImages,
+      context
+    );
+  }
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ListJobsResult = (
+  output: any,
+  context: __SerdeContext
+): ListJobsResult => {
+  let contents: any = {
+    __type: "ListJobsResult",
+    JobListEntries: undefined,
+    NextToken: undefined
+  };
+  if (output.JobListEntries !== undefined) {
+    contents.JobListEntries = deserializeAws_json1_1JobListEntryList(
+      output.JobListEntries,
+      context
+    );
+  }
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1Notification = (
+  output: any,
+  context: __SerdeContext
+): Notification => {
+  let contents: any = {
+    __type: "Notification",
+    JobStatesToNotify: undefined,
+    NotifyAll: undefined,
+    SnsTopicARN: undefined
+  };
+  if (output.JobStatesToNotify !== undefined) {
+    contents.JobStatesToNotify = deserializeAws_json1_1JobStateList(
+      output.JobStatesToNotify,
+      context
+    );
+  }
+  if (output.NotifyAll !== undefined) {
+    contents.NotifyAll = output.NotifyAll;
+  }
+  if (output.SnsTopicARN !== undefined) {
+    contents.SnsTopicARN = output.SnsTopicARN;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1S3Resource = (
+  output: any,
+  context: __SerdeContext
+): S3Resource => {
+  let contents: any = {
+    __type: "S3Resource",
+    BucketArn: undefined,
+    KeyRange: undefined
+  };
+  if (output.BucketArn !== undefined) {
+    contents.BucketArn = output.BucketArn;
+  }
+  if (output.KeyRange !== undefined) {
+    contents.KeyRange = deserializeAws_json1_1KeyRange(
+      output.KeyRange,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1S3ResourceList = (
+  output: any,
+  context: __SerdeContext
+): Array<S3Resource> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1S3Resource(entry, context)
+  );
+};
+
+const deserializeAws_json1_1Shipment = (
+  output: any,
+  context: __SerdeContext
+): Shipment => {
+  let contents: any = {
+    __type: "Shipment",
+    Status: undefined,
+    TrackingNumber: undefined
+  };
+  if (output.Status !== undefined) {
+    contents.Status = output.Status;
+  }
+  if (output.TrackingNumber !== undefined) {
+    contents.TrackingNumber = output.TrackingNumber;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ShippingDetails = (
+  output: any,
+  context: __SerdeContext
+): ShippingDetails => {
+  let contents: any = {
+    __type: "ShippingDetails",
+    InboundShipment: undefined,
+    OutboundShipment: undefined,
+    ShippingOption: undefined
+  };
+  if (output.InboundShipment !== undefined) {
+    contents.InboundShipment = deserializeAws_json1_1Shipment(
+      output.InboundShipment,
+      context
+    );
+  }
+  if (output.OutboundShipment !== undefined) {
+    contents.OutboundShipment = deserializeAws_json1_1Shipment(
+      output.OutboundShipment,
+      context
+    );
+  }
+  if (output.ShippingOption !== undefined) {
+    contents.ShippingOption = output.ShippingOption;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1UnsupportedAddressException = (
+  output: any,
+  context: __SerdeContext
+): UnsupportedAddressException => {
+  let contents: any = {
+    __type: "UnsupportedAddressException",
+    Message: undefined
+  };
+  if (output.Message !== undefined) {
+    contents.Message = output.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1UpdateClusterResult = (
+  output: any,
+  context: __SerdeContext
+): UpdateClusterResult => {
+  let contents: any = {
+    __type: "UpdateClusterResult"
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1UpdateJobResult = (
+  output: any,
+  context: __SerdeContext
+): UpdateJobResult => {
+  let contents: any = {
+    __type: "UpdateJobResult"
+  };
+  return contents;
+};
+
+const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
+  httpStatusCode: output.statusCode,
+  httpHeaders: output.headers,
+  requestId: output.headers["x-amzn-requestid"]
+});
+
+const parseBody = (streamBody: any, context: __SerdeContext): any => {
+  return context.streamCollector(streamBody).then((body: any) => {
+    const encoded = context.utf8Encoder(body);
+    if (encoded.length) {
+      return JSON.parse(encoded);
+    }
+    return {};
+  });
+};
