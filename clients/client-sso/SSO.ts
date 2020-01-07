@@ -82,43 +82,6 @@ export class SSO extends SSOClient {
 
   /**
    *
-   *          <p>Removes the client- and server-side session that is associated with the user.</p>
-   *
-   */
-  public logout(
-    args: LogoutCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<LogoutCommandOutput>;
-  public logout(
-    args: LogoutCommandInput,
-    cb: (err: any, data?: LogoutCommandOutput) => void
-  ): void;
-  public logout(
-    args: LogoutCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: LogoutCommandOutput) => void
-  ): void;
-  public logout(
-    args: LogoutCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: LogoutCommandOutput) => void),
-    cb?: (err: any, data?: LogoutCommandOutput) => void
-  ): Promise<LogoutCommandOutput> | void {
-    const command = new LogoutCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
    *          <p>Lists all roles that are assigned to the user for a given AWS account.</p>
    *
    */
@@ -182,6 +145,43 @@ export class SSO extends SSOClient {
     cb?: (err: any, data?: ListAccountsCommandOutput) => void
   ): Promise<ListAccountsCommandOutput> | void {
     const command = new ListAccountsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Removes the client- and server-side session that is associated with the user.</p>
+   *
+   */
+  public logout(
+    args: LogoutCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<LogoutCommandOutput>;
+  public logout(
+    args: LogoutCommandInput,
+    cb: (err: any, data?: LogoutCommandOutput) => void
+  ): void;
+  public logout(
+    args: LogoutCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: LogoutCommandOutput) => void
+  ): void;
+  public logout(
+    args: LogoutCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: LogoutCommandOutput) => void),
+    cb?: (err: any, data?: LogoutCommandOutput) => void
+  ): Promise<LogoutCommandOutput> | void {
+    const command = new LogoutCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

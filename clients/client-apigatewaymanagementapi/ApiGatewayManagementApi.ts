@@ -56,41 +56,6 @@ export class ApiGatewayManagementApi extends ApiGatewayManagementApiClient {
   }
 
   /**
-   * <p>Sends the provided data to the specified connection.</p>
-   */
-  public postToConnection(
-    args: PostToConnectionCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PostToConnectionCommandOutput>;
-  public postToConnection(
-    args: PostToConnectionCommandInput,
-    cb: (err: any, data?: PostToConnectionCommandOutput) => void
-  ): void;
-  public postToConnection(
-    args: PostToConnectionCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PostToConnectionCommandOutput) => void
-  ): void;
-  public postToConnection(
-    args: PostToConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PostToConnectionCommandOutput) => void),
-    cb?: (err: any, data?: PostToConnectionCommandOutput) => void
-  ): Promise<PostToConnectionCommandOutput> | void {
-    const command = new PostToConnectionCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Get information about the connection with the provided id.</p>
    */
   public getConnection(
@@ -114,6 +79,41 @@ export class ApiGatewayManagementApi extends ApiGatewayManagementApiClient {
     cb?: (err: any, data?: GetConnectionCommandOutput) => void
   ): Promise<GetConnectionCommandOutput> | void {
     const command = new GetConnectionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Sends the provided data to the specified connection.</p>
+   */
+  public postToConnection(
+    args: PostToConnectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PostToConnectionCommandOutput>;
+  public postToConnection(
+    args: PostToConnectionCommandInput,
+    cb: (err: any, data?: PostToConnectionCommandOutput) => void
+  ): void;
+  public postToConnection(
+    args: PostToConnectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PostToConnectionCommandOutput) => void
+  ): void;
+  public postToConnection(
+    args: PostToConnectionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PostToConnectionCommandOutput) => void),
+    cb?: (err: any, data?: PostToConnectionCommandOutput) => void
+  ): Promise<PostToConnectionCommandOutput> | void {
+    const command = new PostToConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
