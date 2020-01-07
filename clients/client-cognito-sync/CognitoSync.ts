@@ -100,31 +100,31 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class CognitoSync extends CognitoSyncClient {
   /**
    *
-   *          <p>Sets the AWS Lambda function for a given event type for an identity pool. This request only updates the key/value pair specified. Other key/values pairs are not updated. To remove a key value pair, pass a empty value for the particular key.</p>
+   *          <p>Initiates a bulk publish of all existing datasets for an Identity Pool to the configured stream. Customers are limited to one successful bulk publish per 24 hours. Bulk publish is an asynchronous request, customers can see the status of the request via the GetBulkPublishDetails operation.</p>
    *          <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
    *
    */
-  public setCognitoEvents(
-    args: SetCognitoEventsCommandInput,
+  public bulkPublish(
+    args: BulkPublishCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<SetCognitoEventsCommandOutput>;
-  public setCognitoEvents(
-    args: SetCognitoEventsCommandInput,
-    cb: (err: any, data?: SetCognitoEventsCommandOutput) => void
+  ): Promise<BulkPublishCommandOutput>;
+  public bulkPublish(
+    args: BulkPublishCommandInput,
+    cb: (err: any, data?: BulkPublishCommandOutput) => void
   ): void;
-  public setCognitoEvents(
-    args: SetCognitoEventsCommandInput,
+  public bulkPublish(
+    args: BulkPublishCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: SetCognitoEventsCommandOutput) => void
+    cb: (err: any, data?: BulkPublishCommandOutput) => void
   ): void;
-  public setCognitoEvents(
-    args: SetCognitoEventsCommandInput,
+  public bulkPublish(
+    args: BulkPublishCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: SetCognitoEventsCommandOutput) => void),
-    cb?: (err: any, data?: SetCognitoEventsCommandOutput) => void
-  ): Promise<SetCognitoEventsCommandOutput> | void {
-    const command = new SetCognitoEventsCommand(args);
+      | ((err: any, data?: BulkPublishCommandOutput) => void),
+    cb?: (err: any, data?: BulkPublishCommandOutput) => void
+  ): Promise<BulkPublishCommandOutput> | void {
+    const command = new BulkPublishCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -138,32 +138,69 @@ export class CognitoSync extends CognitoSyncClient {
 
   /**
    *
-   *          <p>Lists datasets for an identity. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p>
-   *          <p>ListDatasets can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use the Cognito Identity credentials to make this API call.</p>
-   *
+   *          <p>Deletes the specific dataset. The dataset will be deleted permanently, and the action can't be undone. Datasets that this dataset was merged with will no longer report the merge. Any subsequent operation on this dataset will result in a ResourceNotFoundException.</p>
+   *           <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>
    *
    */
-  public listDatasets(
-    args: ListDatasetsCommandInput,
+  public deleteDataset(
+    args: DeleteDatasetCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListDatasetsCommandOutput>;
-  public listDatasets(
-    args: ListDatasetsCommandInput,
-    cb: (err: any, data?: ListDatasetsCommandOutput) => void
+  ): Promise<DeleteDatasetCommandOutput>;
+  public deleteDataset(
+    args: DeleteDatasetCommandInput,
+    cb: (err: any, data?: DeleteDatasetCommandOutput) => void
   ): void;
-  public listDatasets(
-    args: ListDatasetsCommandInput,
+  public deleteDataset(
+    args: DeleteDatasetCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDatasetsCommandOutput) => void
+    cb: (err: any, data?: DeleteDatasetCommandOutput) => void
   ): void;
-  public listDatasets(
-    args: ListDatasetsCommandInput,
+  public deleteDataset(
+    args: DeleteDatasetCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListDatasetsCommandOutput) => void),
-    cb?: (err: any, data?: ListDatasetsCommandOutput) => void
-  ): Promise<ListDatasetsCommandOutput> | void {
-    const command = new ListDatasetsCommand(args);
+      | ((err: any, data?: DeleteDatasetCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDatasetCommandOutput) => void
+  ): Promise<DeleteDatasetCommandOutput> | void {
+    const command = new DeleteDatasetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Gets meta data about a dataset by identity and dataset name. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p>
+   *          <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use Cognito Identity credentials to make this API call.</p>
+   *
+   */
+  public describeDataset(
+    args: DescribeDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDatasetCommandOutput>;
+  public describeDataset(
+    args: DescribeDatasetCommandInput,
+    cb: (err: any, data?: DescribeDatasetCommandOutput) => void
+  ): void;
+  public describeDataset(
+    args: DescribeDatasetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDatasetCommandOutput) => void
+  ): void;
+  public describeDataset(
+    args: DescribeDatasetCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeDatasetCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDatasetCommandOutput) => void
+  ): Promise<DescribeDatasetCommandOutput> | void {
+    const command = new DescribeDatasetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -217,45 +254,6 @@ export class CognitoSync extends CognitoSyncClient {
 
   /**
    *
-   *          <p>Registers a device to receive push sync notifications.</p>
-   *          <p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>
-   *
-   *
-   */
-  public registerDevice(
-    args: RegisterDeviceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RegisterDeviceCommandOutput>;
-  public registerDevice(
-    args: RegisterDeviceCommandInput,
-    cb: (err: any, data?: RegisterDeviceCommandOutput) => void
-  ): void;
-  public registerDevice(
-    args: RegisterDeviceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RegisterDeviceCommandOutput) => void
-  ): void;
-  public registerDevice(
-    args: RegisterDeviceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterDeviceCommandOutput) => void),
-    cb?: (err: any, data?: RegisterDeviceCommandOutput) => void
-  ): Promise<RegisterDeviceCommandOutput> | void {
-    const command = new RegisterDeviceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
    *          <p>Gets usage information for an identity, including number of datasets and data usage.</p>
    *          <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>
    *
@@ -282,45 +280,6 @@ export class CognitoSync extends CognitoSyncClient {
     cb?: (err: any, data?: DescribeIdentityUsageCommandOutput) => void
   ): Promise<DescribeIdentityUsageCommandOutput> | void {
     const command = new DescribeIdentityUsageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Gets the configuration settings of an identity pool.</p>
-   *          <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
-   *
-   *
-   */
-  public getIdentityPoolConfiguration(
-    args: GetIdentityPoolConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetIdentityPoolConfigurationCommandOutput>;
-  public getIdentityPoolConfiguration(
-    args: GetIdentityPoolConfigurationCommandInput,
-    cb: (err: any, data?: GetIdentityPoolConfigurationCommandOutput) => void
-  ): void;
-  public getIdentityPoolConfiguration(
-    args: GetIdentityPoolConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetIdentityPoolConfigurationCommandOutput) => void
-  ): void;
-  public getIdentityPoolConfiguration(
-    args: GetIdentityPoolConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetIdentityPoolConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: GetIdentityPoolConfigurationCommandOutput) => void
-  ): Promise<GetIdentityPoolConfigurationCommandOutput> | void {
-    const command = new GetIdentityPoolConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -410,33 +369,32 @@ export class CognitoSync extends CognitoSyncClient {
 
   /**
    *
-   *          <p>Posts updates to records and adds and deletes records for a dataset and user.</p>
-   *          <p>The sync count in the record patch is your last known sync count for that record. The server will reject an UpdateRecords request with a ResourceConflictException if you try to patch a record with a new value but a stale sync count.</p>
-   *          <p>For example, if the sync count on the server is 5 for a key called highScore and you try and submit a new highScore with sync count of 4, the request will be rejected. To obtain the current sync count for a record, call ListRecords. On a successful update of the record, the response returns the new sync count for that record. You should present that sync count the next time you try to update that same record. When the record does not exist, specify the sync count as 0.</p>
-   *          <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>
+   *          <p>Gets the configuration settings of an identity pool.</p>
+   *          <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+   *
    *
    */
-  public updateRecords(
-    args: UpdateRecordsCommandInput,
+  public getIdentityPoolConfiguration(
+    args: GetIdentityPoolConfigurationCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UpdateRecordsCommandOutput>;
-  public updateRecords(
-    args: UpdateRecordsCommandInput,
-    cb: (err: any, data?: UpdateRecordsCommandOutput) => void
+  ): Promise<GetIdentityPoolConfigurationCommandOutput>;
+  public getIdentityPoolConfiguration(
+    args: GetIdentityPoolConfigurationCommandInput,
+    cb: (err: any, data?: GetIdentityPoolConfigurationCommandOutput) => void
   ): void;
-  public updateRecords(
-    args: UpdateRecordsCommandInput,
+  public getIdentityPoolConfiguration(
+    args: GetIdentityPoolConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateRecordsCommandOutput) => void
+    cb: (err: any, data?: GetIdentityPoolConfigurationCommandOutput) => void
   ): void;
-  public updateRecords(
-    args: UpdateRecordsCommandInput,
+  public getIdentityPoolConfiguration(
+    args: GetIdentityPoolConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRecordsCommandOutput) => void),
-    cb?: (err: any, data?: UpdateRecordsCommandOutput) => void
-  ): Promise<UpdateRecordsCommandOutput> | void {
-    const command = new UpdateRecordsCommand(args);
+      | ((err: any, data?: GetIdentityPoolConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetIdentityPoolConfigurationCommandOutput) => void
+  ): Promise<GetIdentityPoolConfigurationCommandOutput> | void {
+    const command = new GetIdentityPoolConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -450,32 +408,32 @@ export class CognitoSync extends CognitoSyncClient {
 
   /**
    *
-   *          <p>Unsubscribes from receiving notifications when a dataset is modified by another device.</p>
-   *          <p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>
+   *          <p>Lists datasets for an identity. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p>
+   *          <p>ListDatasets can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use the Cognito Identity credentials to make this API call.</p>
    *
    *
    */
-  public unsubscribeFromDataset(
-    args: UnsubscribeFromDatasetCommandInput,
+  public listDatasets(
+    args: ListDatasetsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<UnsubscribeFromDatasetCommandOutput>;
-  public unsubscribeFromDataset(
-    args: UnsubscribeFromDatasetCommandInput,
-    cb: (err: any, data?: UnsubscribeFromDatasetCommandOutput) => void
+  ): Promise<ListDatasetsCommandOutput>;
+  public listDatasets(
+    args: ListDatasetsCommandInput,
+    cb: (err: any, data?: ListDatasetsCommandOutput) => void
   ): void;
-  public unsubscribeFromDataset(
-    args: UnsubscribeFromDatasetCommandInput,
+  public listDatasets(
+    args: ListDatasetsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UnsubscribeFromDatasetCommandOutput) => void
+    cb: (err: any, data?: ListDatasetsCommandOutput) => void
   ): void;
-  public unsubscribeFromDataset(
-    args: UnsubscribeFromDatasetCommandInput,
+  public listDatasets(
+    args: ListDatasetsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: UnsubscribeFromDatasetCommandOutput) => void),
-    cb?: (err: any, data?: UnsubscribeFromDatasetCommandOutput) => void
-  ): Promise<UnsubscribeFromDatasetCommandOutput> | void {
-    const command = new UnsubscribeFromDatasetCommand(args);
+      | ((err: any, data?: ListDatasetsCommandOutput) => void),
+    cb?: (err: any, data?: ListDatasetsCommandOutput) => void
+  ): Promise<ListDatasetsCommandOutput> | void {
+    const command = new ListDatasetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -528,31 +486,109 @@ export class CognitoSync extends CognitoSyncClient {
 
   /**
    *
-   *          <p>Deletes the specific dataset. The dataset will be deleted permanently, and the action can't be undone. Datasets that this dataset was merged with will no longer report the merge. Any subsequent operation on this dataset will result in a ResourceNotFoundException.</p>
-   *           <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>
+   *          <p>Gets paginated records, optionally changed after a particular sync count for a dataset and identity. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p>
+   *          <p>ListRecords can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use Cognito Identity credentials to make this API call.</p>
+   *
    *
    */
-  public deleteDataset(
-    args: DeleteDatasetCommandInput,
+  public listRecords(
+    args: ListRecordsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteDatasetCommandOutput>;
-  public deleteDataset(
-    args: DeleteDatasetCommandInput,
-    cb: (err: any, data?: DeleteDatasetCommandOutput) => void
+  ): Promise<ListRecordsCommandOutput>;
+  public listRecords(
+    args: ListRecordsCommandInput,
+    cb: (err: any, data?: ListRecordsCommandOutput) => void
   ): void;
-  public deleteDataset(
-    args: DeleteDatasetCommandInput,
+  public listRecords(
+    args: ListRecordsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteDatasetCommandOutput) => void
+    cb: (err: any, data?: ListRecordsCommandOutput) => void
   ): void;
-  public deleteDataset(
-    args: DeleteDatasetCommandInput,
+  public listRecords(
+    args: ListRecordsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDatasetCommandOutput) => void),
-    cb?: (err: any, data?: DeleteDatasetCommandOutput) => void
-  ): Promise<DeleteDatasetCommandOutput> | void {
-    const command = new DeleteDatasetCommand(args);
+      | ((err: any, data?: ListRecordsCommandOutput) => void),
+    cb?: (err: any, data?: ListRecordsCommandOutput) => void
+  ): Promise<ListRecordsCommandOutput> | void {
+    const command = new ListRecordsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Registers a device to receive push sync notifications.</p>
+   *          <p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>
+   *
+   *
+   */
+  public registerDevice(
+    args: RegisterDeviceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterDeviceCommandOutput>;
+  public registerDevice(
+    args: RegisterDeviceCommandInput,
+    cb: (err: any, data?: RegisterDeviceCommandOutput) => void
+  ): void;
+  public registerDevice(
+    args: RegisterDeviceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterDeviceCommandOutput) => void
+  ): void;
+  public registerDevice(
+    args: RegisterDeviceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RegisterDeviceCommandOutput) => void),
+    cb?: (err: any, data?: RegisterDeviceCommandOutput) => void
+  ): Promise<RegisterDeviceCommandOutput> | void {
+    const command = new RegisterDeviceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Sets the AWS Lambda function for a given event type for an identity pool. This request only updates the key/value pair specified. Other key/values pairs are not updated. To remove a key value pair, pass a empty value for the particular key.</p>
+   *          <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+   *
+   */
+  public setCognitoEvents(
+    args: SetCognitoEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SetCognitoEventsCommandOutput>;
+  public setCognitoEvents(
+    args: SetCognitoEventsCommandInput,
+    cb: (err: any, data?: SetCognitoEventsCommandOutput) => void
+  ): void;
+  public setCognitoEvents(
+    args: SetCognitoEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SetCognitoEventsCommandOutput) => void
+  ): void;
+  public setCognitoEvents(
+    args: SetCognitoEventsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: SetCognitoEventsCommandOutput) => void),
+    cb?: (err: any, data?: SetCognitoEventsCommandOutput) => void
+  ): Promise<SetCognitoEventsCommandOutput> | void {
+    const command = new SetCognitoEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -605,83 +641,6 @@ export class CognitoSync extends CognitoSyncClient {
 
   /**
    *
-   *          <p>Initiates a bulk publish of all existing datasets for an Identity Pool to the configured stream. Customers are limited to one successful bulk publish per 24 hours. Bulk publish is an asynchronous request, customers can see the status of the request via the GetBulkPublishDetails operation.</p>
-   *          <p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
-   *
-   */
-  public bulkPublish(
-    args: BulkPublishCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<BulkPublishCommandOutput>;
-  public bulkPublish(
-    args: BulkPublishCommandInput,
-    cb: (err: any, data?: BulkPublishCommandOutput) => void
-  ): void;
-  public bulkPublish(
-    args: BulkPublishCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: BulkPublishCommandOutput) => void
-  ): void;
-  public bulkPublish(
-    args: BulkPublishCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BulkPublishCommandOutput) => void),
-    cb?: (err: any, data?: BulkPublishCommandOutput) => void
-  ): Promise<BulkPublishCommandOutput> | void {
-    const command = new BulkPublishCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Gets paginated records, optionally changed after a particular sync count for a dataset and identity. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p>
-   *          <p>ListRecords can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use Cognito Identity credentials to make this API call.</p>
-   *
-   *
-   */
-  public listRecords(
-    args: ListRecordsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListRecordsCommandOutput>;
-  public listRecords(
-    args: ListRecordsCommandInput,
-    cb: (err: any, data?: ListRecordsCommandOutput) => void
-  ): void;
-  public listRecords(
-    args: ListRecordsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListRecordsCommandOutput) => void
-  ): void;
-  public listRecords(
-    args: ListRecordsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRecordsCommandOutput) => void),
-    cb?: (err: any, data?: ListRecordsCommandOutput) => void
-  ): Promise<ListRecordsCommandOutput> | void {
-    const command = new ListRecordsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
    *          <p>Subscribes to receive notifications when a dataset is modified by another device.</p>
    *          <p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>
    *
@@ -721,31 +680,72 @@ export class CognitoSync extends CognitoSyncClient {
 
   /**
    *
-   *          <p>Gets meta data about a dataset by identity and dataset name. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p>
-   *          <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use Cognito Identity credentials to make this API call.</p>
+   *          <p>Unsubscribes from receiving notifications when a dataset is modified by another device.</p>
+   *          <p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>
+   *
    *
    */
-  public describeDataset(
-    args: DescribeDatasetCommandInput,
+  public unsubscribeFromDataset(
+    args: UnsubscribeFromDatasetCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DescribeDatasetCommandOutput>;
-  public describeDataset(
-    args: DescribeDatasetCommandInput,
-    cb: (err: any, data?: DescribeDatasetCommandOutput) => void
+  ): Promise<UnsubscribeFromDatasetCommandOutput>;
+  public unsubscribeFromDataset(
+    args: UnsubscribeFromDatasetCommandInput,
+    cb: (err: any, data?: UnsubscribeFromDatasetCommandOutput) => void
   ): void;
-  public describeDataset(
-    args: DescribeDatasetCommandInput,
+  public unsubscribeFromDataset(
+    args: UnsubscribeFromDatasetCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeDatasetCommandOutput) => void
+    cb: (err: any, data?: UnsubscribeFromDatasetCommandOutput) => void
   ): void;
-  public describeDataset(
-    args: DescribeDatasetCommandInput,
+  public unsubscribeFromDataset(
+    args: UnsubscribeFromDatasetCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDatasetCommandOutput) => void),
-    cb?: (err: any, data?: DescribeDatasetCommandOutput) => void
-  ): Promise<DescribeDatasetCommandOutput> | void {
-    const command = new DescribeDatasetCommand(args);
+      | ((err: any, data?: UnsubscribeFromDatasetCommandOutput) => void),
+    cb?: (err: any, data?: UnsubscribeFromDatasetCommandOutput) => void
+  ): Promise<UnsubscribeFromDatasetCommandOutput> | void {
+    const command = new UnsubscribeFromDatasetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Posts updates to records and adds and deletes records for a dataset and user.</p>
+   *          <p>The sync count in the record patch is your last known sync count for that record. The server will reject an UpdateRecords request with a ResourceConflictException if you try to patch a record with a new value but a stale sync count.</p>
+   *          <p>For example, if the sync count on the server is 5 for a key called highScore and you try and submit a new highScore with sync count of 4, the request will be rejected. To obtain the current sync count for a record, call ListRecords. On a successful update of the record, the response returns the new sync count for that record. You should present that sync count the next time you try to update that same record. When the record does not exist, specify the sync count as 0.</p>
+   *          <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>
+   *
+   */
+  public updateRecords(
+    args: UpdateRecordsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRecordsCommandOutput>;
+  public updateRecords(
+    args: UpdateRecordsCommandInput,
+    cb: (err: any, data?: UpdateRecordsCommandOutput) => void
+  ): void;
+  public updateRecords(
+    args: UpdateRecordsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRecordsCommandOutput) => void
+  ): void;
+  public updateRecords(
+    args: UpdateRecordsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateRecordsCommandOutput) => void),
+    cb?: (err: any, data?: UpdateRecordsCommandOutput) => void
+  ): Promise<UpdateRecordsCommandOutput> | void {
+    const command = new UpdateRecordsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

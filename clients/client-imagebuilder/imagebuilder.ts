@@ -224,32 +224,31 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class imagebuilder extends imagebuilderClient {
   /**
    *
-   *          <p>
-   *       Manually triggers a pipeline to create an image.
-   *     </p>
+   *          <p>CancelImageCreation cancels the creation of Image. This operation may only be used on images in a non-terminal state.</p>
+   *
    *
    */
-  public startImagePipelineExecution(
-    args: StartImagePipelineExecutionCommandInput,
+  public cancelImageCreation(
+    args: CancelImageCreationCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<StartImagePipelineExecutionCommandOutput>;
-  public startImagePipelineExecution(
-    args: StartImagePipelineExecutionCommandInput,
-    cb: (err: any, data?: StartImagePipelineExecutionCommandOutput) => void
+  ): Promise<CancelImageCreationCommandOutput>;
+  public cancelImageCreation(
+    args: CancelImageCreationCommandInput,
+    cb: (err: any, data?: CancelImageCreationCommandOutput) => void
   ): void;
-  public startImagePipelineExecution(
-    args: StartImagePipelineExecutionCommandInput,
+  public cancelImageCreation(
+    args: CancelImageCreationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartImagePipelineExecutionCommandOutput) => void
+    cb: (err: any, data?: CancelImageCreationCommandOutput) => void
   ): void;
-  public startImagePipelineExecution(
-    args: StartImagePipelineExecutionCommandInput,
+  public cancelImageCreation(
+    args: CancelImageCreationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: StartImagePipelineExecutionCommandOutput) => void),
-    cb?: (err: any, data?: StartImagePipelineExecutionCommandOutput) => void
-  ): Promise<StartImagePipelineExecutionCommandOutput> | void {
-    const command = new StartImagePipelineExecutionCommand(args);
+      | ((err: any, data?: CancelImageCreationCommandOutput) => void),
+    cb?: (err: any, data?: CancelImageCreationCommandOutput) => void
+  ): Promise<CancelImageCreationCommandOutput> | void {
+    const command = new CancelImageCreationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -263,33 +262,31 @@ export class imagebuilder extends imagebuilderClient {
 
   /**
    *
-   *          <p>
+   *          <p>Creates a new component that can be used to build, validate, test and assess your image.</p>
    *
-   *       Gets an image recipe policy.
-   *     </p>
    *
    */
-  public getImageRecipePolicy(
-    args: GetImageRecipePolicyCommandInput,
+  public createComponent(
+    args: CreateComponentCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<GetImageRecipePolicyCommandOutput>;
-  public getImageRecipePolicy(
-    args: GetImageRecipePolicyCommandInput,
-    cb: (err: any, data?: GetImageRecipePolicyCommandOutput) => void
+  ): Promise<CreateComponentCommandOutput>;
+  public createComponent(
+    args: CreateComponentCommandInput,
+    cb: (err: any, data?: CreateComponentCommandOutput) => void
   ): void;
-  public getImageRecipePolicy(
-    args: GetImageRecipePolicyCommandInput,
+  public createComponent(
+    args: CreateComponentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetImageRecipePolicyCommandOutput) => void
+    cb: (err: any, data?: CreateComponentCommandOutput) => void
   ): void;
-  public getImageRecipePolicy(
-    args: GetImageRecipePolicyCommandInput,
+  public createComponent(
+    args: CreateComponentCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: GetImageRecipePolicyCommandOutput) => void),
-    cb?: (err: any, data?: GetImageRecipePolicyCommandOutput) => void
-  ): Promise<GetImageRecipePolicyCommandOutput> | void {
-    const command = new GetImageRecipePolicyCommand(args);
+      | ((err: any, data?: CreateComponentCommandOutput) => void),
+    cb?: (err: any, data?: CreateComponentCommandOutput) => void
+  ): Promise<CreateComponentCommandOutput> | void {
+    const command = new CreateComponentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -348,126 +345,6 @@ export class imagebuilder extends imagebuilderClient {
    *
    *          <p>
    *
-   *       Gets an image policy.
-   *     </p>
-   *
-   */
-  public getImagePolicy(
-    args: GetImagePolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetImagePolicyCommandOutput>;
-  public getImagePolicy(
-    args: GetImagePolicyCommandInput,
-    cb: (err: any, data?: GetImagePolicyCommandOutput) => void
-  ): void;
-  public getImagePolicy(
-    args: GetImagePolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetImagePolicyCommandOutput) => void
-  ): void;
-  public getImagePolicy(
-    args: GetImagePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetImagePolicyCommandOutput) => void),
-    cb?: (err: any, data?: GetImagePolicyCommandOutput) => void
-  ): Promise<GetImagePolicyCommandOutput> | void {
-    const command = new GetImagePolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>
-   *       Updates a new distribution configuration. Distribution configurations define and configure the outputs of your pipeline.
-   *     </p>
-   *
-   */
-  public updateDistributionConfiguration(
-    args: UpdateDistributionConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateDistributionConfigurationCommandOutput>;
-  public updateDistributionConfiguration(
-    args: UpdateDistributionConfigurationCommandInput,
-    cb: (err: any, data?: UpdateDistributionConfigurationCommandOutput) => void
-  ): void;
-  public updateDistributionConfiguration(
-    args: UpdateDistributionConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateDistributionConfigurationCommandOutput) => void
-  ): void;
-  public updateDistributionConfiguration(
-    args: UpdateDistributionConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateDistributionConfigurationCommandOutput
-        ) => void),
-    cb?: (err: any, data?: UpdateDistributionConfigurationCommandOutput) => void
-  ): Promise<UpdateDistributionConfigurationCommandOutput> | void {
-    const command = new UpdateDistributionConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>CancelImageCreation cancels the creation of Image. This operation may only be used on images in a non-terminal state.</p>
-   *
-   *
-   */
-  public cancelImageCreation(
-    args: CancelImageCreationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CancelImageCreationCommandOutput>;
-  public cancelImageCreation(
-    args: CancelImageCreationCommandInput,
-    cb: (err: any, data?: CancelImageCreationCommandOutput) => void
-  ): void;
-  public cancelImageCreation(
-    args: CancelImageCreationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CancelImageCreationCommandOutput) => void
-  ): void;
-  public cancelImageCreation(
-    args: CancelImageCreationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelImageCreationCommandOutput) => void),
-    cb?: (err: any, data?: CancelImageCreationCommandOutput) => void
-  ): Promise<CancelImageCreationCommandOutput> | void {
-    const command = new CancelImageCreationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>
-   *
    *     Creates a new image. This request will create a new image along with all of the configured output resources defined in the distribution configuration.
    *   </p>
    *
@@ -493,6 +370,46 @@ export class imagebuilder extends imagebuilderClient {
     cb?: (err: any, data?: CreateImageCommandOutput) => void
   ): Promise<CreateImageCommandOutput> | void {
     const command = new CreateImageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>
+   *
+   *     Creates a new image pipeline. Image pipelines enable you to automate the creation and distribution of images.
+   *   </p>
+   *
+   */
+  public createImagePipeline(
+    args: CreateImagePipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateImagePipelineCommandOutput>;
+  public createImagePipeline(
+    args: CreateImagePipelineCommandInput,
+    cb: (err: any, data?: CreateImagePipelineCommandOutput) => void
+  ): void;
+  public createImagePipeline(
+    args: CreateImagePipelineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateImagePipelineCommandOutput) => void
+  ): void;
+  public createImagePipeline(
+    args: CreateImagePipelineCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateImagePipelineCommandOutput) => void),
+    cb?: (err: any, data?: CreateImagePipelineCommandOutput) => void
+  ): Promise<CreateImagePipelineCommandOutput> | void {
+    const command = new CreateImagePipelineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -547,154 +464,44 @@ export class imagebuilder extends imagebuilderClient {
   /**
    *
    *          <p>
-   *       Applies a policy to a component.
-   *     </p>
+   *
+   *     Creates a new infrastructure configuration. An infrastructure configuration defines the environment in which your image will be built and tested.
+   *   </p>
    *
    */
-  public putComponentPolicy(
-    args: PutComponentPolicyCommandInput,
+  public createInfrastructureConfiguration(
+    args: CreateInfrastructureConfigurationCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<PutComponentPolicyCommandOutput>;
-  public putComponentPolicy(
-    args: PutComponentPolicyCommandInput,
-    cb: (err: any, data?: PutComponentPolicyCommandOutput) => void
+  ): Promise<CreateInfrastructureConfigurationCommandOutput>;
+  public createInfrastructureConfiguration(
+    args: CreateInfrastructureConfigurationCommandInput,
+    cb: (
+      err: any,
+      data?: CreateInfrastructureConfigurationCommandOutput
+    ) => void
   ): void;
-  public putComponentPolicy(
-    args: PutComponentPolicyCommandInput,
+  public createInfrastructureConfiguration(
+    args: CreateInfrastructureConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutComponentPolicyCommandOutput) => void
+    cb: (
+      err: any,
+      data?: CreateInfrastructureConfigurationCommandOutput
+    ) => void
   ): void;
-  public putComponentPolicy(
-    args: PutComponentPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutComponentPolicyCommandOutput) => void),
-    cb?: (err: any, data?: PutComponentPolicyCommandOutput) => void
-  ): Promise<PutComponentPolicyCommandOutput> | void {
-    const command = new PutComponentPolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>
-   *       Returns a list of image recipes.
-   *     </p>
-   *
-   */
-  public listImageRecipes(
-    args: ListImageRecipesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListImageRecipesCommandOutput>;
-  public listImageRecipes(
-    args: ListImageRecipesCommandInput,
-    cb: (err: any, data?: ListImageRecipesCommandOutput) => void
-  ): void;
-  public listImageRecipes(
-    args: ListImageRecipesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListImageRecipesCommandOutput) => void
-  ): void;
-  public listImageRecipes(
-    args: ListImageRecipesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListImageRecipesCommandOutput) => void),
-    cb?: (err: any, data?: ListImageRecipesCommandOutput) => void
-  ): Promise<ListImageRecipesCommandOutput> | void {
-    const command = new ListImageRecipesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>
-   *       Returns a list of images created by the specified pipeline.
-   *     </p>
-   *
-   */
-  public listImagePipelineImages(
-    args: ListImagePipelineImagesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListImagePipelineImagesCommandOutput>;
-  public listImagePipelineImages(
-    args: ListImagePipelineImagesCommandInput,
-    cb: (err: any, data?: ListImagePipelineImagesCommandOutput) => void
-  ): void;
-  public listImagePipelineImages(
-    args: ListImagePipelineImagesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListImagePipelineImagesCommandOutput) => void
-  ): void;
-  public listImagePipelineImages(
-    args: ListImagePipelineImagesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListImagePipelineImagesCommandOutput) => void),
-    cb?: (err: any, data?: ListImagePipelineImagesCommandOutput) => void
-  ): Promise<ListImagePipelineImagesCommandOutput> | void {
-    const command = new ListImagePipelineImagesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>
-   *       Returns a list of infrastructure configurations.
-   *     </p>
-   *
-   */
-  public listInfrastructureConfigurations(
-    args: ListInfrastructureConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListInfrastructureConfigurationsCommandOutput>;
-  public listInfrastructureConfigurations(
-    args: ListInfrastructureConfigurationsCommandInput,
-    cb: (err: any, data?: ListInfrastructureConfigurationsCommandOutput) => void
-  ): void;
-  public listInfrastructureConfigurations(
-    args: ListInfrastructureConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListInfrastructureConfigurationsCommandOutput) => void
-  ): void;
-  public listInfrastructureConfigurations(
-    args: ListInfrastructureConfigurationsCommandInput,
+  public createInfrastructureConfiguration(
+    args: CreateInfrastructureConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
       | ((
           err: any,
-          data?: ListInfrastructureConfigurationsCommandOutput
+          data?: CreateInfrastructureConfigurationCommandOutput
         ) => void),
     cb?: (
       err: any,
-      data?: ListInfrastructureConfigurationsCommandOutput
+      data?: CreateInfrastructureConfigurationCommandOutput
     ) => void
-  ): Promise<ListInfrastructureConfigurationsCommandOutput> | void {
-    const command = new ListInfrastructureConfigurationsCommand(args);
+  ): Promise<CreateInfrastructureConfigurationCommandOutput> | void {
+    const command = new CreateInfrastructureConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -710,70 +517,31 @@ export class imagebuilder extends imagebuilderClient {
    *
    *          <p>
    *
-   *       Gets a component policy.
+   *       Deletes a component build version.
    *     </p>
    *
    */
-  public getComponentPolicy(
-    args: GetComponentPolicyCommandInput,
+  public deleteComponent(
+    args: DeleteComponentCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<GetComponentPolicyCommandOutput>;
-  public getComponentPolicy(
-    args: GetComponentPolicyCommandInput,
-    cb: (err: any, data?: GetComponentPolicyCommandOutput) => void
+  ): Promise<DeleteComponentCommandOutput>;
+  public deleteComponent(
+    args: DeleteComponentCommandInput,
+    cb: (err: any, data?: DeleteComponentCommandOutput) => void
   ): void;
-  public getComponentPolicy(
-    args: GetComponentPolicyCommandInput,
+  public deleteComponent(
+    args: DeleteComponentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetComponentPolicyCommandOutput) => void
+    cb: (err: any, data?: DeleteComponentCommandOutput) => void
   ): void;
-  public getComponentPolicy(
-    args: GetComponentPolicyCommandInput,
+  public deleteComponent(
+    args: DeleteComponentCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: GetComponentPolicyCommandOutput) => void),
-    cb?: (err: any, data?: GetComponentPolicyCommandOutput) => void
-  ): Promise<GetComponentPolicyCommandOutput> | void {
-    const command = new GetComponentPolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>
-   *       Applies a policy to an image.
-   *     </p>
-   *
-   */
-  public putImagePolicy(
-    args: PutImagePolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutImagePolicyCommandOutput>;
-  public putImagePolicy(
-    args: PutImagePolicyCommandInput,
-    cb: (err: any, data?: PutImagePolicyCommandOutput) => void
-  ): void;
-  public putImagePolicy(
-    args: PutImagePolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutImagePolicyCommandOutput) => void
-  ): void;
-  public putImagePolicy(
-    args: PutImagePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutImagePolicyCommandOutput) => void),
-    cb?: (err: any, data?: PutImagePolicyCommandOutput) => void
-  ): Promise<PutImagePolicyCommandOutput> | void {
-    const command = new PutImagePolicyCommand(args);
+      | ((err: any, data?: DeleteComponentCommandOutput) => void),
+    cb?: (err: any, data?: DeleteComponentCommandOutput) => void
+  ): Promise<DeleteComponentCommandOutput> | void {
+    const command = new DeleteComponentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -832,590 +600,31 @@ export class imagebuilder extends imagebuilderClient {
    *
    *          <p>
    *
-   *       Deletes a component build version.
+   *       Deletes an image.
    *     </p>
    *
    */
-  public deleteComponent(
-    args: DeleteComponentCommandInput,
+  public deleteImage(
+    args: DeleteImageCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteComponentCommandOutput>;
-  public deleteComponent(
-    args: DeleteComponentCommandInput,
-    cb: (err: any, data?: DeleteComponentCommandOutput) => void
+  ): Promise<DeleteImageCommandOutput>;
+  public deleteImage(
+    args: DeleteImageCommandInput,
+    cb: (err: any, data?: DeleteImageCommandOutput) => void
   ): void;
-  public deleteComponent(
-    args: DeleteComponentCommandInput,
+  public deleteImage(
+    args: DeleteImageCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteComponentCommandOutput) => void
+    cb: (err: any, data?: DeleteImageCommandOutput) => void
   ): void;
-  public deleteComponent(
-    args: DeleteComponentCommandInput,
+  public deleteImage(
+    args: DeleteImageCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DeleteComponentCommandOutput) => void),
-    cb?: (err: any, data?: DeleteComponentCommandOutput) => void
-  ): Promise<DeleteComponentCommandOutput> | void {
-    const command = new DeleteComponentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>
-   *
-   *       Gets an image pipeline.
-   *     </p>
-   *
-   */
-  public getImagePipeline(
-    args: GetImagePipelineCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetImagePipelineCommandOutput>;
-  public getImagePipeline(
-    args: GetImagePipelineCommandInput,
-    cb: (err: any, data?: GetImagePipelineCommandOutput) => void
-  ): void;
-  public getImagePipeline(
-    args: GetImagePipelineCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetImagePipelineCommandOutput) => void
-  ): void;
-  public getImagePipeline(
-    args: GetImagePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetImagePipelineCommandOutput) => void),
-    cb?: (err: any, data?: GetImagePipelineCommandOutput) => void
-  ): Promise<GetImagePipelineCommandOutput> | void {
-    const command = new GetImagePipelineCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>
-   *
-   *       Gets an image.
-   *     </p>
-   *
-   */
-  public getImage(
-    args: GetImageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetImageCommandOutput>;
-  public getImage(
-    args: GetImageCommandInput,
-    cb: (err: any, data?: GetImageCommandOutput) => void
-  ): void;
-  public getImage(
-    args: GetImageCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetImageCommandOutput) => void
-  ): void;
-  public getImage(
-    args: GetImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetImageCommandOutput) => void),
-    cb?: (err: any, data?: GetImageCommandOutput) => void
-  ): Promise<GetImageCommandOutput> | void {
-    const command = new GetImageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>
-   *
-   *       Gets a infrastructure configuration.
-   *     </p>
-   *
-   */
-  public getInfrastructureConfiguration(
-    args: GetInfrastructureConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetInfrastructureConfigurationCommandOutput>;
-  public getInfrastructureConfiguration(
-    args: GetInfrastructureConfigurationCommandInput,
-    cb: (err: any, data?: GetInfrastructureConfigurationCommandOutput) => void
-  ): void;
-  public getInfrastructureConfiguration(
-    args: GetInfrastructureConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetInfrastructureConfigurationCommandOutput) => void
-  ): void;
-  public getInfrastructureConfiguration(
-    args: GetInfrastructureConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetInfrastructureConfigurationCommandOutput
-        ) => void),
-    cb?: (err: any, data?: GetInfrastructureConfigurationCommandOutput) => void
-  ): Promise<GetInfrastructureConfigurationCommandOutput> | void {
-    const command = new GetInfrastructureConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>
-   *
-   *       Deletes an image recipe.
-   *     </p>
-   *
-   */
-  public deleteImageRecipe(
-    args: DeleteImageRecipeCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteImageRecipeCommandOutput>;
-  public deleteImageRecipe(
-    args: DeleteImageRecipeCommandInput,
-    cb: (err: any, data?: DeleteImageRecipeCommandOutput) => void
-  ): void;
-  public deleteImageRecipe(
-    args: DeleteImageRecipeCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteImageRecipeCommandOutput) => void
-  ): void;
-  public deleteImageRecipe(
-    args: DeleteImageRecipeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteImageRecipeCommandOutput) => void),
-    cb?: (err: any, data?: DeleteImageRecipeCommandOutput) => void
-  ): Promise<DeleteImageRecipeCommandOutput> | void {
-    const command = new DeleteImageRecipeCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>
-   *
-   *     Creates a new image pipeline. Image pipelines enable you to automate the creation and distribution of images.
-   *   </p>
-   *
-   */
-  public createImagePipeline(
-    args: CreateImagePipelineCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateImagePipelineCommandOutput>;
-  public createImagePipeline(
-    args: CreateImagePipelineCommandInput,
-    cb: (err: any, data?: CreateImagePipelineCommandOutput) => void
-  ): void;
-  public createImagePipeline(
-    args: CreateImagePipelineCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateImagePipelineCommandOutput) => void
-  ): void;
-  public createImagePipeline(
-    args: CreateImagePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateImagePipelineCommandOutput) => void),
-    cb?: (err: any, data?: CreateImagePipelineCommandOutput) => void
-  ): Promise<CreateImagePipelineCommandOutput> | void {
-    const command = new CreateImagePipelineCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>
-   *       Applies a policy to an image recipe.
-   *     </p>
-   *
-   */
-  public putImageRecipePolicy(
-    args: PutImageRecipePolicyCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutImageRecipePolicyCommandOutput>;
-  public putImageRecipePolicy(
-    args: PutImageRecipePolicyCommandInput,
-    cb: (err: any, data?: PutImageRecipePolicyCommandOutput) => void
-  ): void;
-  public putImageRecipePolicy(
-    args: PutImageRecipePolicyCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutImageRecipePolicyCommandOutput) => void
-  ): void;
-  public putImageRecipePolicy(
-    args: PutImageRecipePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutImageRecipePolicyCommandOutput) => void),
-    cb?: (err: any, data?: PutImageRecipePolicyCommandOutput) => void
-  ): Promise<PutImageRecipePolicyCommandOutput> | void {
-    const command = new PutImageRecipePolicyCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>
-   *       Returns a list of distribution configurations.
-   *     </p>
-   *
-   */
-  public listImageBuildVersions(
-    args: ListImageBuildVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListImageBuildVersionsCommandOutput>;
-  public listImageBuildVersions(
-    args: ListImageBuildVersionsCommandInput,
-    cb: (err: any, data?: ListImageBuildVersionsCommandOutput) => void
-  ): void;
-  public listImageBuildVersions(
-    args: ListImageBuildVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListImageBuildVersionsCommandOutput) => void
-  ): void;
-  public listImageBuildVersions(
-    args: ListImageBuildVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListImageBuildVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListImageBuildVersionsCommandOutput) => void
-  ): Promise<ListImageBuildVersionsCommandOutput> | void {
-    const command = new ListImageBuildVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>
-   *       Returns the list of tags for the specified resource.
-   *     </p>
-   *
-   */
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTagsForResourceCommandOutput>;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): void;
-  public listTagsForResource(
-    args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
-    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
-  ): Promise<ListTagsForResourceCommandOutput> | void {
-    const command = new ListTagsForResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>
-   *       Returns a list of distribution configurations.
-   *     </p>
-   *
-   */
-  public listDistributionConfigurations(
-    args: ListDistributionConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDistributionConfigurationsCommandOutput>;
-  public listDistributionConfigurations(
-    args: ListDistributionConfigurationsCommandInput,
-    cb: (err: any, data?: ListDistributionConfigurationsCommandOutput) => void
-  ): void;
-  public listDistributionConfigurations(
-    args: ListDistributionConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDistributionConfigurationsCommandOutput) => void
-  ): void;
-  public listDistributionConfigurations(
-    args: ListDistributionConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListDistributionConfigurationsCommandOutput
-        ) => void),
-    cb?: (err: any, data?: ListDistributionConfigurationsCommandOutput) => void
-  ): Promise<ListDistributionConfigurationsCommandOutput> | void {
-    const command = new ListDistributionConfigurationsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>
-   *       Updates a new image pipeline. Image pipelines enable you to automate the creation and distribution of images.
-   *     </p>
-   *
-   */
-  public updateImagePipeline(
-    args: UpdateImagePipelineCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateImagePipelineCommandOutput>;
-  public updateImagePipeline(
-    args: UpdateImagePipelineCommandInput,
-    cb: (err: any, data?: UpdateImagePipelineCommandOutput) => void
-  ): void;
-  public updateImagePipeline(
-    args: UpdateImagePipelineCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateImagePipelineCommandOutput) => void
-  ): void;
-  public updateImagePipeline(
-    args: UpdateImagePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateImagePipelineCommandOutput) => void),
-    cb?: (err: any, data?: UpdateImagePipelineCommandOutput) => void
-  ): Promise<UpdateImagePipelineCommandOutput> | void {
-    const command = new UpdateImagePipelineCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Creates a new component that can be used to build, validate, test and assess your image.</p>
-   *
-   *
-   */
-  public createComponent(
-    args: CreateComponentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateComponentCommandOutput>;
-  public createComponent(
-    args: CreateComponentCommandInput,
-    cb: (err: any, data?: CreateComponentCommandOutput) => void
-  ): void;
-  public createComponent(
-    args: CreateComponentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateComponentCommandOutput) => void
-  ): void;
-  public createComponent(
-    args: CreateComponentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateComponentCommandOutput) => void),
-    cb?: (err: any, data?: CreateComponentCommandOutput) => void
-  ): Promise<CreateComponentCommandOutput> | void {
-    const command = new CreateComponentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>
-   *
-   *       Imports a component and transforms its data into a component document.
-   *     </p>
-   *
-   */
-  public importComponent(
-    args: ImportComponentCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ImportComponentCommandOutput>;
-  public importComponent(
-    args: ImportComponentCommandInput,
-    cb: (err: any, data?: ImportComponentCommandOutput) => void
-  ): void;
-  public importComponent(
-    args: ImportComponentCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ImportComponentCommandOutput) => void
-  ): void;
-  public importComponent(
-    args: ImportComponentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportComponentCommandOutput) => void),
-    cb?: (err: any, data?: ImportComponentCommandOutput) => void
-  ): Promise<ImportComponentCommandOutput> | void {
-    const command = new ImportComponentCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>
-   *
-   *       Gets a distribution configuration.
-   *     </p>
-   *
-   */
-  public getDistributionConfiguration(
-    args: GetDistributionConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetDistributionConfigurationCommandOutput>;
-  public getDistributionConfiguration(
-    args: GetDistributionConfigurationCommandInput,
-    cb: (err: any, data?: GetDistributionConfigurationCommandOutput) => void
-  ): void;
-  public getDistributionConfiguration(
-    args: GetDistributionConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetDistributionConfigurationCommandOutput) => void
-  ): void;
-  public getDistributionConfiguration(
-    args: GetDistributionConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDistributionConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: GetDistributionConfigurationCommandOutput) => void
-  ): Promise<GetDistributionConfigurationCommandOutput> | void {
-    const command = new GetDistributionConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>
-   *
-   *       Returns the list of component build versions for the specified semantic version.
-   *     </p>
-   *
-   */
-  public listComponents(
-    args: ListComponentsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListComponentsCommandOutput>;
-  public listComponents(
-    args: ListComponentsCommandInput,
-    cb: (err: any, data?: ListComponentsCommandOutput) => void
-  ): void;
-  public listComponents(
-    args: ListComponentsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListComponentsCommandOutput) => void
-  ): void;
-  public listComponents(
-    args: ListComponentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListComponentsCommandOutput) => void),
-    cb?: (err: any, data?: ListComponentsCommandOutput) => void
-  ): Promise<ListComponentsCommandOutput> | void {
-    const command = new ListComponentsCommand(args);
+      | ((err: any, data?: DeleteImageCommandOutput) => void),
+    cb?: (err: any, data?: DeleteImageCommandOutput) => void
+  ): Promise<DeleteImageCommandOutput> | void {
+    const command = new DeleteImageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1470,122 +679,32 @@ export class imagebuilder extends imagebuilderClient {
   /**
    *
    *          <p>
-   *       Adds a tag to a resource.
+   *
+   *       Deletes an image recipe.
    *     </p>
    *
    */
-  public tagResource(
-    args: TagResourceCommandInput,
+  public deleteImageRecipe(
+    args: DeleteImageRecipeCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<DeleteImageRecipeCommandOutput>;
+  public deleteImageRecipe(
+    args: DeleteImageRecipeCommandInput,
+    cb: (err: any, data?: DeleteImageRecipeCommandOutput) => void
   ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
+  public deleteImageRecipe(
+    args: DeleteImageRecipeCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
+    cb: (err: any, data?: DeleteImageRecipeCommandOutput) => void
   ): void;
-  public tagResource(
-    args: TagResourceCommandInput,
+  public deleteImageRecipe(
+    args: DeleteImageRecipeCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
-    cb?: (err: any, data?: TagResourceCommandOutput) => void
-  ): Promise<TagResourceCommandOutput> | void {
-    const command = new TagResourceCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>
-   *
-   *       Deletes an image.
-   *     </p>
-   *
-   */
-  public deleteImage(
-    args: DeleteImageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteImageCommandOutput>;
-  public deleteImage(
-    args: DeleteImageCommandInput,
-    cb: (err: any, data?: DeleteImageCommandOutput) => void
-  ): void;
-  public deleteImage(
-    args: DeleteImageCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteImageCommandOutput) => void
-  ): void;
-  public deleteImage(
-    args: DeleteImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteImageCommandOutput) => void),
-    cb?: (err: any, data?: DeleteImageCommandOutput) => void
-  ): Promise<DeleteImageCommandOutput> | void {
-    const command = new DeleteImageCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>
-   *       Updates a new infrastructure configuration. An infrastructure configuration defines the environment in which your image will be built and tested.
-   *     </p>
-   *
-   */
-  public updateInfrastructureConfiguration(
-    args: UpdateInfrastructureConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateInfrastructureConfigurationCommandOutput>;
-  public updateInfrastructureConfiguration(
-    args: UpdateInfrastructureConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateInfrastructureConfigurationCommandOutput
-    ) => void
-  ): void;
-  public updateInfrastructureConfiguration(
-    args: UpdateInfrastructureConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateInfrastructureConfigurationCommandOutput
-    ) => void
-  ): void;
-  public updateInfrastructureConfiguration(
-    args: UpdateInfrastructureConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateInfrastructureConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateInfrastructureConfigurationCommandOutput
-    ) => void
-  ): Promise<UpdateInfrastructureConfigurationCommandOutput> | void {
-    const command = new UpdateInfrastructureConfigurationCommand(args);
+      | ((err: any, data?: DeleteImageRecipeCommandOutput) => void),
+    cb?: (err: any, data?: DeleteImageRecipeCommandOutput) => void
+  ): Promise<DeleteImageRecipeCommandOutput> | void {
+    const command = new DeleteImageRecipeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1653,46 +772,6 @@ export class imagebuilder extends imagebuilderClient {
    *
    *          <p>
    *
-   *       Returns the list of component build versions for the specified semantic version.
-   *     </p>
-   *
-   */
-  public listComponentBuildVersions(
-    args: ListComponentBuildVersionsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListComponentBuildVersionsCommandOutput>;
-  public listComponentBuildVersions(
-    args: ListComponentBuildVersionsCommandInput,
-    cb: (err: any, data?: ListComponentBuildVersionsCommandOutput) => void
-  ): void;
-  public listComponentBuildVersions(
-    args: ListComponentBuildVersionsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListComponentBuildVersionsCommandOutput) => void
-  ): void;
-  public listComponentBuildVersions(
-    args: ListComponentBuildVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListComponentBuildVersionsCommandOutput) => void),
-    cb?: (err: any, data?: ListComponentBuildVersionsCommandOutput) => void
-  ): Promise<ListComponentBuildVersionsCommandOutput> | void {
-    const command = new ListComponentBuildVersionsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>
-   *
    *       Gets a component object.
    *     </p>
    *
@@ -1718,6 +797,206 @@ export class imagebuilder extends imagebuilderClient {
     cb?: (err: any, data?: GetComponentCommandOutput) => void
   ): Promise<GetComponentCommandOutput> | void {
     const command = new GetComponentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>
+   *
+   *       Gets a component policy.
+   *     </p>
+   *
+   */
+  public getComponentPolicy(
+    args: GetComponentPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetComponentPolicyCommandOutput>;
+  public getComponentPolicy(
+    args: GetComponentPolicyCommandInput,
+    cb: (err: any, data?: GetComponentPolicyCommandOutput) => void
+  ): void;
+  public getComponentPolicy(
+    args: GetComponentPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetComponentPolicyCommandOutput) => void
+  ): void;
+  public getComponentPolicy(
+    args: GetComponentPolicyCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetComponentPolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetComponentPolicyCommandOutput) => void
+  ): Promise<GetComponentPolicyCommandOutput> | void {
+    const command = new GetComponentPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>
+   *
+   *       Gets a distribution configuration.
+   *     </p>
+   *
+   */
+  public getDistributionConfiguration(
+    args: GetDistributionConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDistributionConfigurationCommandOutput>;
+  public getDistributionConfiguration(
+    args: GetDistributionConfigurationCommandInput,
+    cb: (err: any, data?: GetDistributionConfigurationCommandOutput) => void
+  ): void;
+  public getDistributionConfiguration(
+    args: GetDistributionConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDistributionConfigurationCommandOutput) => void
+  ): void;
+  public getDistributionConfiguration(
+    args: GetDistributionConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetDistributionConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetDistributionConfigurationCommandOutput) => void
+  ): Promise<GetDistributionConfigurationCommandOutput> | void {
+    const command = new GetDistributionConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>
+   *
+   *       Gets an image.
+   *     </p>
+   *
+   */
+  public getImage(
+    args: GetImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetImageCommandOutput>;
+  public getImage(
+    args: GetImageCommandInput,
+    cb: (err: any, data?: GetImageCommandOutput) => void
+  ): void;
+  public getImage(
+    args: GetImageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetImageCommandOutput) => void
+  ): void;
+  public getImage(
+    args: GetImageCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetImageCommandOutput) => void),
+    cb?: (err: any, data?: GetImageCommandOutput) => void
+  ): Promise<GetImageCommandOutput> | void {
+    const command = new GetImageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>
+   *
+   *       Gets an image pipeline.
+   *     </p>
+   *
+   */
+  public getImagePipeline(
+    args: GetImagePipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetImagePipelineCommandOutput>;
+  public getImagePipeline(
+    args: GetImagePipelineCommandInput,
+    cb: (err: any, data?: GetImagePipelineCommandOutput) => void
+  ): void;
+  public getImagePipeline(
+    args: GetImagePipelineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetImagePipelineCommandOutput) => void
+  ): void;
+  public getImagePipeline(
+    args: GetImagePipelineCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetImagePipelineCommandOutput) => void),
+    cb?: (err: any, data?: GetImagePipelineCommandOutput) => void
+  ): Promise<GetImagePipelineCommandOutput> | void {
+    const command = new GetImagePipelineCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>
+   *
+   *       Gets an image policy.
+   *     </p>
+   *
+   */
+  public getImagePolicy(
+    args: GetImagePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetImagePolicyCommandOutput>;
+  public getImagePolicy(
+    args: GetImagePolicyCommandInput,
+    cb: (err: any, data?: GetImagePolicyCommandOutput) => void
+  ): void;
+  public getImagePolicy(
+    args: GetImagePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetImagePolicyCommandOutput) => void
+  ): void;
+  public getImagePolicy(
+    args: GetImagePolicyCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetImagePolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetImagePolicyCommandOutput) => void
+  ): Promise<GetImagePolicyCommandOutput> | void {
+    const command = new GetImagePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1773,43 +1052,314 @@ export class imagebuilder extends imagebuilderClient {
    *
    *          <p>
    *
-   *     Creates a new infrastructure configuration. An infrastructure configuration defines the environment in which your image will be built and tested.
-   *   </p>
+   *       Gets an image recipe policy.
+   *     </p>
    *
    */
-  public createInfrastructureConfiguration(
-    args: CreateInfrastructureConfigurationCommandInput,
+  public getImageRecipePolicy(
+    args: GetImageRecipePolicyCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<CreateInfrastructureConfigurationCommandOutput>;
-  public createInfrastructureConfiguration(
-    args: CreateInfrastructureConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: CreateInfrastructureConfigurationCommandOutput
-    ) => void
+  ): Promise<GetImageRecipePolicyCommandOutput>;
+  public getImageRecipePolicy(
+    args: GetImageRecipePolicyCommandInput,
+    cb: (err: any, data?: GetImageRecipePolicyCommandOutput) => void
   ): void;
-  public createInfrastructureConfiguration(
-    args: CreateInfrastructureConfigurationCommandInput,
+  public getImageRecipePolicy(
+    args: GetImageRecipePolicyCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateInfrastructureConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: GetImageRecipePolicyCommandOutput) => void
   ): void;
-  public createInfrastructureConfiguration(
-    args: CreateInfrastructureConfigurationCommandInput,
+  public getImageRecipePolicy(
+    args: GetImageRecipePolicyCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetImageRecipePolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetImageRecipePolicyCommandOutput) => void
+  ): Promise<GetImageRecipePolicyCommandOutput> | void {
+    const command = new GetImageRecipePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>
+   *
+   *       Gets a infrastructure configuration.
+   *     </p>
+   *
+   */
+  public getInfrastructureConfiguration(
+    args: GetInfrastructureConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInfrastructureConfigurationCommandOutput>;
+  public getInfrastructureConfiguration(
+    args: GetInfrastructureConfigurationCommandInput,
+    cb: (err: any, data?: GetInfrastructureConfigurationCommandOutput) => void
+  ): void;
+  public getInfrastructureConfiguration(
+    args: GetInfrastructureConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInfrastructureConfigurationCommandOutput) => void
+  ): void;
+  public getInfrastructureConfiguration(
+    args: GetInfrastructureConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
       | ((
           err: any,
-          data?: CreateInfrastructureConfigurationCommandOutput
+          data?: GetInfrastructureConfigurationCommandOutput
         ) => void),
-    cb?: (
-      err: any,
-      data?: CreateInfrastructureConfigurationCommandOutput
-    ) => void
-  ): Promise<CreateInfrastructureConfigurationCommandOutput> | void {
-    const command = new CreateInfrastructureConfigurationCommand(args);
+    cb?: (err: any, data?: GetInfrastructureConfigurationCommandOutput) => void
+  ): Promise<GetInfrastructureConfigurationCommandOutput> | void {
+    const command = new GetInfrastructureConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>
+   *
+   *       Imports a component and transforms its data into a component document.
+   *     </p>
+   *
+   */
+  public importComponent(
+    args: ImportComponentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportComponentCommandOutput>;
+  public importComponent(
+    args: ImportComponentCommandInput,
+    cb: (err: any, data?: ImportComponentCommandOutput) => void
+  ): void;
+  public importComponent(
+    args: ImportComponentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportComponentCommandOutput) => void
+  ): void;
+  public importComponent(
+    args: ImportComponentCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ImportComponentCommandOutput) => void),
+    cb?: (err: any, data?: ImportComponentCommandOutput) => void
+  ): Promise<ImportComponentCommandOutput> | void {
+    const command = new ImportComponentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>
+   *
+   *       Returns the list of component build versions for the specified semantic version.
+   *     </p>
+   *
+   */
+  public listComponentBuildVersions(
+    args: ListComponentBuildVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListComponentBuildVersionsCommandOutput>;
+  public listComponentBuildVersions(
+    args: ListComponentBuildVersionsCommandInput,
+    cb: (err: any, data?: ListComponentBuildVersionsCommandOutput) => void
+  ): void;
+  public listComponentBuildVersions(
+    args: ListComponentBuildVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListComponentBuildVersionsCommandOutput) => void
+  ): void;
+  public listComponentBuildVersions(
+    args: ListComponentBuildVersionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListComponentBuildVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListComponentBuildVersionsCommandOutput) => void
+  ): Promise<ListComponentBuildVersionsCommandOutput> | void {
+    const command = new ListComponentBuildVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>
+   *
+   *       Returns the list of component build versions for the specified semantic version.
+   *     </p>
+   *
+   */
+  public listComponents(
+    args: ListComponentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListComponentsCommandOutput>;
+  public listComponents(
+    args: ListComponentsCommandInput,
+    cb: (err: any, data?: ListComponentsCommandOutput) => void
+  ): void;
+  public listComponents(
+    args: ListComponentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListComponentsCommandOutput) => void
+  ): void;
+  public listComponents(
+    args: ListComponentsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListComponentsCommandOutput) => void),
+    cb?: (err: any, data?: ListComponentsCommandOutput) => void
+  ): Promise<ListComponentsCommandOutput> | void {
+    const command = new ListComponentsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>
+   *       Returns a list of distribution configurations.
+   *     </p>
+   *
+   */
+  public listDistributionConfigurations(
+    args: ListDistributionConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDistributionConfigurationsCommandOutput>;
+  public listDistributionConfigurations(
+    args: ListDistributionConfigurationsCommandInput,
+    cb: (err: any, data?: ListDistributionConfigurationsCommandOutput) => void
+  ): void;
+  public listDistributionConfigurations(
+    args: ListDistributionConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDistributionConfigurationsCommandOutput) => void
+  ): void;
+  public listDistributionConfigurations(
+    args: ListDistributionConfigurationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: ListDistributionConfigurationsCommandOutput
+        ) => void),
+    cb?: (err: any, data?: ListDistributionConfigurationsCommandOutput) => void
+  ): Promise<ListDistributionConfigurationsCommandOutput> | void {
+    const command = new ListDistributionConfigurationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>
+   *       Returns a list of distribution configurations.
+   *     </p>
+   *
+   */
+  public listImageBuildVersions(
+    args: ListImageBuildVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListImageBuildVersionsCommandOutput>;
+  public listImageBuildVersions(
+    args: ListImageBuildVersionsCommandInput,
+    cb: (err: any, data?: ListImageBuildVersionsCommandOutput) => void
+  ): void;
+  public listImageBuildVersions(
+    args: ListImageBuildVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImageBuildVersionsCommandOutput) => void
+  ): void;
+  public listImageBuildVersions(
+    args: ListImageBuildVersionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListImageBuildVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListImageBuildVersionsCommandOutput) => void
+  ): Promise<ListImageBuildVersionsCommandOutput> | void {
+    const command = new ListImageBuildVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>
+   *       Returns a list of images created by the specified pipeline.
+   *     </p>
+   *
+   */
+  public listImagePipelineImages(
+    args: ListImagePipelineImagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListImagePipelineImagesCommandOutput>;
+  public listImagePipelineImages(
+    args: ListImagePipelineImagesCommandInput,
+    cb: (err: any, data?: ListImagePipelineImagesCommandOutput) => void
+  ): void;
+  public listImagePipelineImages(
+    args: ListImagePipelineImagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImagePipelineImagesCommandOutput) => void
+  ): void;
+  public listImagePipelineImages(
+    args: ListImagePipelineImagesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListImagePipelineImagesCommandOutput) => void),
+    cb?: (err: any, data?: ListImagePipelineImagesCommandOutput) => void
+  ): Promise<ListImagePipelineImagesCommandOutput> | void {
+    const command = new ListImagePipelineImagesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1848,6 +1398,363 @@ export class imagebuilder extends imagebuilderClient {
     cb?: (err: any, data?: ListImagePipelinesCommandOutput) => void
   ): Promise<ListImagePipelinesCommandOutput> | void {
     const command = new ListImagePipelinesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>
+   *       Returns a list of image recipes.
+   *     </p>
+   *
+   */
+  public listImageRecipes(
+    args: ListImageRecipesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListImageRecipesCommandOutput>;
+  public listImageRecipes(
+    args: ListImageRecipesCommandInput,
+    cb: (err: any, data?: ListImageRecipesCommandOutput) => void
+  ): void;
+  public listImageRecipes(
+    args: ListImageRecipesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImageRecipesCommandOutput) => void
+  ): void;
+  public listImageRecipes(
+    args: ListImageRecipesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListImageRecipesCommandOutput) => void),
+    cb?: (err: any, data?: ListImageRecipesCommandOutput) => void
+  ): Promise<ListImageRecipesCommandOutput> | void {
+    const command = new ListImageRecipesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>
+   *       Returns the list of image build versions for the specified semantic version.
+   *     </p>
+   *
+   */
+  public listImages(
+    args: ListImagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListImagesCommandOutput>;
+  public listImages(
+    args: ListImagesCommandInput,
+    cb: (err: any, data?: ListImagesCommandOutput) => void
+  ): void;
+  public listImages(
+    args: ListImagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImagesCommandOutput) => void
+  ): void;
+  public listImages(
+    args: ListImagesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListImagesCommandOutput) => void),
+    cb?: (err: any, data?: ListImagesCommandOutput) => void
+  ): Promise<ListImagesCommandOutput> | void {
+    const command = new ListImagesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>
+   *       Returns a list of infrastructure configurations.
+   *     </p>
+   *
+   */
+  public listInfrastructureConfigurations(
+    args: ListInfrastructureConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInfrastructureConfigurationsCommandOutput>;
+  public listInfrastructureConfigurations(
+    args: ListInfrastructureConfigurationsCommandInput,
+    cb: (err: any, data?: ListInfrastructureConfigurationsCommandOutput) => void
+  ): void;
+  public listInfrastructureConfigurations(
+    args: ListInfrastructureConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInfrastructureConfigurationsCommandOutput) => void
+  ): void;
+  public listInfrastructureConfigurations(
+    args: ListInfrastructureConfigurationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: ListInfrastructureConfigurationsCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: ListInfrastructureConfigurationsCommandOutput
+    ) => void
+  ): Promise<ListInfrastructureConfigurationsCommandOutput> | void {
+    const command = new ListInfrastructureConfigurationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>
+   *       Returns the list of tags for the specified resource.
+   *     </p>
+   *
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>
+   *       Applies a policy to a component.
+   *     </p>
+   *
+   */
+  public putComponentPolicy(
+    args: PutComponentPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutComponentPolicyCommandOutput>;
+  public putComponentPolicy(
+    args: PutComponentPolicyCommandInput,
+    cb: (err: any, data?: PutComponentPolicyCommandOutput) => void
+  ): void;
+  public putComponentPolicy(
+    args: PutComponentPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutComponentPolicyCommandOutput) => void
+  ): void;
+  public putComponentPolicy(
+    args: PutComponentPolicyCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutComponentPolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutComponentPolicyCommandOutput) => void
+  ): Promise<PutComponentPolicyCommandOutput> | void {
+    const command = new PutComponentPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>
+   *       Applies a policy to an image.
+   *     </p>
+   *
+   */
+  public putImagePolicy(
+    args: PutImagePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutImagePolicyCommandOutput>;
+  public putImagePolicy(
+    args: PutImagePolicyCommandInput,
+    cb: (err: any, data?: PutImagePolicyCommandOutput) => void
+  ): void;
+  public putImagePolicy(
+    args: PutImagePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutImagePolicyCommandOutput) => void
+  ): void;
+  public putImagePolicy(
+    args: PutImagePolicyCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutImagePolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutImagePolicyCommandOutput) => void
+  ): Promise<PutImagePolicyCommandOutput> | void {
+    const command = new PutImagePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>
+   *       Applies a policy to an image recipe.
+   *     </p>
+   *
+   */
+  public putImageRecipePolicy(
+    args: PutImageRecipePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutImageRecipePolicyCommandOutput>;
+  public putImageRecipePolicy(
+    args: PutImageRecipePolicyCommandInput,
+    cb: (err: any, data?: PutImageRecipePolicyCommandOutput) => void
+  ): void;
+  public putImageRecipePolicy(
+    args: PutImageRecipePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutImageRecipePolicyCommandOutput) => void
+  ): void;
+  public putImageRecipePolicy(
+    args: PutImageRecipePolicyCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutImageRecipePolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutImageRecipePolicyCommandOutput) => void
+  ): Promise<PutImageRecipePolicyCommandOutput> | void {
+    const command = new PutImageRecipePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>
+   *       Manually triggers a pipeline to create an image.
+   *     </p>
+   *
+   */
+  public startImagePipelineExecution(
+    args: StartImagePipelineExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartImagePipelineExecutionCommandOutput>;
+  public startImagePipelineExecution(
+    args: StartImagePipelineExecutionCommandInput,
+    cb: (err: any, data?: StartImagePipelineExecutionCommandOutput) => void
+  ): void;
+  public startImagePipelineExecution(
+    args: StartImagePipelineExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartImagePipelineExecutionCommandOutput) => void
+  ): void;
+  public startImagePipelineExecution(
+    args: StartImagePipelineExecutionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartImagePipelineExecutionCommandOutput) => void),
+    cb?: (err: any, data?: StartImagePipelineExecutionCommandOutput) => void
+  ): Promise<StartImagePipelineExecutionCommandOutput> | void {
+    const command = new StartImagePipelineExecutionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>
+   *       Adds a tag to a resource.
+   *     </p>
+   *
+   */
+  public tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  public tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1901,31 +1808,124 @@ export class imagebuilder extends imagebuilderClient {
   /**
    *
    *          <p>
-   *       Returns the list of image build versions for the specified semantic version.
+   *       Updates a new distribution configuration. Distribution configurations define and configure the outputs of your pipeline.
    *     </p>
    *
    */
-  public listImages(
-    args: ListImagesCommandInput,
+  public updateDistributionConfiguration(
+    args: UpdateDistributionConfigurationCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ListImagesCommandOutput>;
-  public listImages(
-    args: ListImagesCommandInput,
-    cb: (err: any, data?: ListImagesCommandOutput) => void
+  ): Promise<UpdateDistributionConfigurationCommandOutput>;
+  public updateDistributionConfiguration(
+    args: UpdateDistributionConfigurationCommandInput,
+    cb: (err: any, data?: UpdateDistributionConfigurationCommandOutput) => void
   ): void;
-  public listImages(
-    args: ListImagesCommandInput,
+  public updateDistributionConfiguration(
+    args: UpdateDistributionConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListImagesCommandOutput) => void
+    cb: (err: any, data?: UpdateDistributionConfigurationCommandOutput) => void
   ): void;
-  public listImages(
-    args: ListImagesCommandInput,
+  public updateDistributionConfiguration(
+    args: UpdateDistributionConfigurationCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: ListImagesCommandOutput) => void),
-    cb?: (err: any, data?: ListImagesCommandOutput) => void
-  ): Promise<ListImagesCommandOutput> | void {
-    const command = new ListImagesCommand(args);
+      | ((
+          err: any,
+          data?: UpdateDistributionConfigurationCommandOutput
+        ) => void),
+    cb?: (err: any, data?: UpdateDistributionConfigurationCommandOutput) => void
+  ): Promise<UpdateDistributionConfigurationCommandOutput> | void {
+    const command = new UpdateDistributionConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>
+   *       Updates a new image pipeline. Image pipelines enable you to automate the creation and distribution of images.
+   *     </p>
+   *
+   */
+  public updateImagePipeline(
+    args: UpdateImagePipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateImagePipelineCommandOutput>;
+  public updateImagePipeline(
+    args: UpdateImagePipelineCommandInput,
+    cb: (err: any, data?: UpdateImagePipelineCommandOutput) => void
+  ): void;
+  public updateImagePipeline(
+    args: UpdateImagePipelineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateImagePipelineCommandOutput) => void
+  ): void;
+  public updateImagePipeline(
+    args: UpdateImagePipelineCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateImagePipelineCommandOutput) => void),
+    cb?: (err: any, data?: UpdateImagePipelineCommandOutput) => void
+  ): Promise<UpdateImagePipelineCommandOutput> | void {
+    const command = new UpdateImagePipelineCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>
+   *       Updates a new infrastructure configuration. An infrastructure configuration defines the environment in which your image will be built and tested.
+   *     </p>
+   *
+   */
+  public updateInfrastructureConfiguration(
+    args: UpdateInfrastructureConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateInfrastructureConfigurationCommandOutput>;
+  public updateInfrastructureConfiguration(
+    args: UpdateInfrastructureConfigurationCommandInput,
+    cb: (
+      err: any,
+      data?: UpdateInfrastructureConfigurationCommandOutput
+    ) => void
+  ): void;
+  public updateInfrastructureConfiguration(
+    args: UpdateInfrastructureConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (
+      err: any,
+      data?: UpdateInfrastructureConfigurationCommandOutput
+    ) => void
+  ): void;
+  public updateInfrastructureConfiguration(
+    args: UpdateInfrastructureConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: UpdateInfrastructureConfigurationCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: UpdateInfrastructureConfigurationCommandOutput
+    ) => void
+  ): Promise<UpdateInfrastructureConfigurationCommandOutput> | void {
+    const command = new UpdateInfrastructureConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

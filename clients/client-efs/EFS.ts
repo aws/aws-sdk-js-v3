@@ -83,291 +83,6 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class EFS extends EFSClient {
   /**
    *
-   *          <p>Returns the descriptions of all the current mount targets, or a specific mount target,
-   *       for a file system. When requesting all of the current mount targets, the order of mount
-   *       targets returned in the response is unspecified.</p>
-   *
-   *          <p>This operation requires permissions for the
-   *         <code>elasticfilesystem:DescribeMountTargets</code> action, on either the file system ID
-   *       that you specify in <code>FileSystemId</code>, or on the file system of the mount target that
-   *       you specify in <code>MountTargetId</code>.</p>
-   *
-   *
-   */
-  public describeMountTargets(
-    args: DescribeMountTargetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeMountTargetsCommandOutput>;
-  public describeMountTargets(
-    args: DescribeMountTargetsCommandInput,
-    cb: (err: any, data?: DescribeMountTargetsCommandOutput) => void
-  ): void;
-  public describeMountTargets(
-    args: DescribeMountTargetsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeMountTargetsCommandOutput) => void
-  ): void;
-  public describeMountTargets(
-    args: DescribeMountTargetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeMountTargetsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeMountTargetsCommandOutput) => void
-  ): Promise<DescribeMountTargetsCommandOutput> | void {
-    const command = new DescribeMountTargetsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Deletes the specified tags from a file system. If the <code>DeleteTags</code> request
-   *       includes a tag key that doesn't exist, Amazon EFS ignores it and doesn't cause an
-   *       error. For more information about tags and related restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Tag Restrictions</a> in the
-   *         <i>AWS Billing and Cost Management User Guide</i>.</p>
-   *
-   *          <p>This operation requires permissions for the <code>elasticfilesystem:DeleteTags</code>
-   *       action.</p>
-   *
-   *
-   *
-   */
-  public deleteTags(
-    args: DeleteTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteTagsCommandOutput>;
-  public deleteTags(
-    args: DeleteTagsCommandInput,
-    cb: (err: any, data?: DeleteTagsCommandOutput) => void
-  ): void;
-  public deleteTags(
-    args: DeleteTagsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteTagsCommandOutput) => void
-  ): void;
-  public deleteTags(
-    args: DeleteTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTagsCommandOutput) => void),
-    cb?: (err: any, data?: DeleteTagsCommandOutput) => void
-  ): Promise<DeleteTagsCommandOutput> | void {
-    const command = new DeleteTagsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Creates or overwrites tags associated with a file system. Each tag is a key-value pair. If
-   *       a tag key specified in the request already exists on the file system, this operation
-   *       overwrites its value with the value provided in the request. If you add the <code>Name</code>
-   *       tag to your file system, Amazon EFS returns it in the response to the <a>DescribeFileSystems</a> operation. </p>
-   *          <p>This operation requires permission for the <code>elasticfilesystem:CreateTags</code>
-   *       action.</p>
-   *
-   *
-   */
-  public createTags(
-    args: CreateTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateTagsCommandOutput>;
-  public createTags(
-    args: CreateTagsCommandInput,
-    cb: (err: any, data?: CreateTagsCommandOutput) => void
-  ): void;
-  public createTags(
-    args: CreateTagsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateTagsCommandOutput) => void
-  ): void;
-  public createTags(
-    args: CreateTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTagsCommandOutput) => void),
-    cb?: (err: any, data?: CreateTagsCommandOutput) => void
-  ): Promise<CreateTagsCommandOutput> | void {
-    const command = new CreateTagsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Returns the current <code>LifecycleConfiguration</code> object for the specified Amazon
-   *       EFS file system. EFS lifecycle management uses the <code>LifecycleConfiguration</code> object
-   *       to identify which files to move to the EFS Infrequent Access (IA) storage class. For a file system
-   *       without a <code>LifecycleConfiguration</code> object, the call returns an empty array in the
-   *       response.</p>
-   *          <p>This operation requires permissions for the
-   *         <code>elasticfilesystem:DescribeLifecycleConfiguration</code> operation.</p>
-   *
-   *
-   *
-   */
-  public describeLifecycleConfiguration(
-    args: DescribeLifecycleConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeLifecycleConfigurationCommandOutput>;
-  public describeLifecycleConfiguration(
-    args: DescribeLifecycleConfigurationCommandInput,
-    cb: (err: any, data?: DescribeLifecycleConfigurationCommandOutput) => void
-  ): void;
-  public describeLifecycleConfiguration(
-    args: DescribeLifecycleConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeLifecycleConfigurationCommandOutput) => void
-  ): void;
-  public describeLifecycleConfiguration(
-    args: DescribeLifecycleConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeLifecycleConfigurationCommandOutput
-        ) => void),
-    cb?: (err: any, data?: DescribeLifecycleConfigurationCommandOutput) => void
-  ): Promise<DescribeLifecycleConfigurationCommandOutput> | void {
-    const command = new DescribeLifecycleConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Enables lifecycle management by creating a new <code>LifecycleConfiguration</code>
-   *       object. A <code>LifecycleConfiguration</code> object defines when files in an Amazon EFS file
-   *       system are automatically transitioned to the lower-cost EFS Infrequent Access (IA) storage class.
-   *       A <code>LifecycleConfiguration</code> applies to all files in a file system.</p>
-   *          <p>Each Amazon EFS file system supports one lifecycle configuration, which applies to all files in the file system. If a
-   *         <code>LifecycleConfiguration</code> object already exists for the specified file system, a
-   *         <code>PutLifecycleConfiguration</code> call modifies the existing configuration. A
-   *         <code>PutLifecycleConfiguration</code> call with an empty <code>LifecyclePolicies</code>
-   *       array in the request body deletes any existing <code>LifecycleConfiguration</code> and
-   *       disables lifecycle management.</p>
-   *
-   *
-   *          <p>In the request, specify the following: </p>
-   *          <ul>
-   *             <li>
-   *                <p>The ID for the file system for which you are enabling, disabling, or modifying lifecycle management.</p>
-   *             </li>
-   *             <li>
-   *                <p>A <code>LifecyclePolicies</code> array of <code>LifecyclePolicy</code> objects that
-   *           define when files are moved to the IA storage class. The array can contain only one
-   *             <code>LifecyclePolicy</code> item.</p>
-   *             </li>
-   *          </ul>
-   *
-   *          <p>This operation requires permissions for the
-   *         <code>elasticfilesystem:PutLifecycleConfiguration</code> operation.</p>
-   *          <p>To apply a <code>LifecycleConfiguration</code> object to an encrypted file system, you
-   *       need the same AWS Key Management Service (AWS KMS) permissions as when you created the encrypted
-   *       file system. </p>
-   *
-   *
-   */
-  public putLifecycleConfiguration(
-    args: PutLifecycleConfigurationCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<PutLifecycleConfigurationCommandOutput>;
-  public putLifecycleConfiguration(
-    args: PutLifecycleConfigurationCommandInput,
-    cb: (err: any, data?: PutLifecycleConfigurationCommandOutput) => void
-  ): void;
-  public putLifecycleConfiguration(
-    args: PutLifecycleConfigurationCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutLifecycleConfigurationCommandOutput) => void
-  ): void;
-  public putLifecycleConfiguration(
-    args: PutLifecycleConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutLifecycleConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: PutLifecycleConfigurationCommandOutput) => void
-  ): Promise<PutLifecycleConfigurationCommandOutput> | void {
-    const command = new PutLifecycleConfigurationCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Updates the throughput mode or the amount of provisioned throughput of an existing file
-   *       system.</p>
-   *
-   */
-  public updateFileSystem(
-    args: UpdateFileSystemCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateFileSystemCommandOutput>;
-  public updateFileSystem(
-    args: UpdateFileSystemCommandInput,
-    cb: (err: any, data?: UpdateFileSystemCommandOutput) => void
-  ): void;
-  public updateFileSystem(
-    args: UpdateFileSystemCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateFileSystemCommandOutput) => void
-  ): void;
-  public updateFileSystem(
-    args: UpdateFileSystemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateFileSystemCommandOutput) => void),
-    cb?: (err: any, data?: UpdateFileSystemCommandOutput) => void
-  ): Promise<UpdateFileSystemCommandOutput> | void {
-    const command = new UpdateFileSystemCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
    *
    *          <p>Creates a new, empty file system. The operation requires a creation token in the
    *       request that Amazon EFS uses to ensure idempotent creation (calling the operation with same
@@ -620,55 +335,36 @@ export class EFS extends EFSClient {
 
   /**
    *
-   *          <p>Modifies the set of security groups in effect for a mount target.</p>
-   *          <p>When you create a mount target, Amazon EFS also creates a new network interface. For
-   *       more information, see <a>CreateMountTarget</a>. This operation replaces the security groups in effect for the
-   *       network interface associated with a mount target, with the <code>SecurityGroups</code>
-   *       provided in the request. This operation requires that the network interface of the mount
-   *       target has been created and the lifecycle state of the mount target is not
-   *         <code>deleted</code>. </p>
-   *          <p>The operation requires permissions for the following actions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>elasticfilesystem:ModifyMountTargetSecurityGroups</code> action on the mount
-   *           target's file system. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ec2:ModifyNetworkInterfaceAttribute</code> action on the mount target's network
-   *           interface. </p>
-   *             </li>
-   *          </ul>
-   *
-   *
+   *          <p>Creates or overwrites tags associated with a file system. Each tag is a key-value pair. If
+   *       a tag key specified in the request already exists on the file system, this operation
+   *       overwrites its value with the value provided in the request. If you add the <code>Name</code>
+   *       tag to your file system, Amazon EFS returns it in the response to the <a>DescribeFileSystems</a> operation. </p>
+   *          <p>This operation requires permission for the <code>elasticfilesystem:CreateTags</code>
+   *       action.</p>
    *
    *
    */
-  public modifyMountTargetSecurityGroups(
-    args: ModifyMountTargetSecurityGroupsCommandInput,
+  public createTags(
+    args: CreateTagsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<ModifyMountTargetSecurityGroupsCommandOutput>;
-  public modifyMountTargetSecurityGroups(
-    args: ModifyMountTargetSecurityGroupsCommandInput,
-    cb: (err: any, data?: ModifyMountTargetSecurityGroupsCommandOutput) => void
+  ): Promise<CreateTagsCommandOutput>;
+  public createTags(
+    args: CreateTagsCommandInput,
+    cb: (err: any, data?: CreateTagsCommandOutput) => void
   ): void;
-  public modifyMountTargetSecurityGroups(
-    args: ModifyMountTargetSecurityGroupsCommandInput,
+  public createTags(
+    args: CreateTagsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ModifyMountTargetSecurityGroupsCommandOutput) => void
+    cb: (err: any, data?: CreateTagsCommandOutput) => void
   ): void;
-  public modifyMountTargetSecurityGroups(
-    args: ModifyMountTargetSecurityGroupsCommandInput,
+  public createTags(
+    args: CreateTagsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyMountTargetSecurityGroupsCommandOutput
-        ) => void),
-    cb?: (err: any, data?: ModifyMountTargetSecurityGroupsCommandOutput) => void
-  ): Promise<ModifyMountTargetSecurityGroupsCommandOutput> | void {
-    const command = new ModifyMountTargetSecurityGroupsCommand(args);
+      | ((err: any, data?: CreateTagsCommandOutput) => void),
+    cb?: (err: any, data?: CreateTagsCommandOutput) => void
+  ): Promise<CreateTagsCommandOutput> | void {
+    const command = new CreateTagsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -682,161 +378,47 @@ export class EFS extends EFSClient {
 
   /**
    *
-   *          <p>Returns the security groups currently in effect for a mount target. This operation
-   *       requires that the network interface of the mount target has been created and the lifecycle
-   *       state of the mount target is not <code>deleted</code>.</p>
-   *          <p>This operation requires permissions for the following actions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>elasticfilesystem:DescribeMountTargetSecurityGroups</code> action on the mount
-   *           target's file system. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ec2:DescribeNetworkInterfaceAttribute</code> action on the mount target's
-   *           network interface. </p>
-   *             </li>
-   *          </ul>
+   *
+   *          <p>Deletes a file system, permanently severing access to its contents. Upon return, the
+   *       file system no longer exists and you can't access any contents of the deleted file
+   *       system.</p>
+   *          <p> You can't delete a file system that is in use. That is, if the file system has
+   *       any mount targets, you must first delete them. For more information, see <a>DescribeMountTargets</a> and <a>DeleteMountTarget</a>. </p>
+   *
+   *          <note>
+   *             <p>The <code>DeleteFileSystem</code> call returns while the file system state is still
+   *           <code>deleting</code>. You can check the file system deletion status by calling the <a>DescribeFileSystems</a> operation, which returns a list of file systems in your
+   *         account. If you pass file system ID or creation token for the deleted file system, the <a>DescribeFileSystems</a> returns a <code>404 FileSystemNotFound</code>
+   *         error.</p>
+   *          </note>
+   *
+   *          <p>This operation requires permissions for the
+   *         <code>elasticfilesystem:DeleteFileSystem</code> action.</p>
    *
    *
    *
    */
-  public describeMountTargetSecurityGroups(
-    args: DescribeMountTargetSecurityGroupsCommandInput,
+  public deleteFileSystem(
+    args: DeleteFileSystemCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DescribeMountTargetSecurityGroupsCommandOutput>;
-  public describeMountTargetSecurityGroups(
-    args: DescribeMountTargetSecurityGroupsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeMountTargetSecurityGroupsCommandOutput
-    ) => void
+  ): Promise<DeleteFileSystemCommandOutput>;
+  public deleteFileSystem(
+    args: DeleteFileSystemCommandInput,
+    cb: (err: any, data?: DeleteFileSystemCommandOutput) => void
   ): void;
-  public describeMountTargetSecurityGroups(
-    args: DescribeMountTargetSecurityGroupsCommandInput,
+  public deleteFileSystem(
+    args: DeleteFileSystemCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeMountTargetSecurityGroupsCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteFileSystemCommandOutput) => void
   ): void;
-  public describeMountTargetSecurityGroups(
-    args: DescribeMountTargetSecurityGroupsCommandInput,
+  public deleteFileSystem(
+    args: DeleteFileSystemCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeMountTargetSecurityGroupsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeMountTargetSecurityGroupsCommandOutput
-    ) => void
-  ): Promise<DescribeMountTargetSecurityGroupsCommandOutput> | void {
-    const command = new DescribeMountTargetSecurityGroupsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Returns the description of a specific Amazon EFS file system if either the file system
-   *         <code>CreationToken</code> or the <code>FileSystemId</code> is provided. Otherwise, it
-   *       returns descriptions of all file systems owned by the caller's AWS account in the AWS
-   *       Region of the endpoint that you're calling.</p>
-   *
-   *          <p>When retrieving all file system descriptions, you can optionally specify the
-   *         <code>MaxItems</code> parameter to limit the number of descriptions in a response.
-   *       Currently, this number is automatically set to 10. If more file system descriptions remain,
-   *       Amazon EFS returns a <code>NextMarker</code>, an opaque token, in the response. In this case,
-   *       you should send a subsequent request with the <code>Marker</code> request parameter set to the
-   *       value of <code>NextMarker</code>. </p>
-   *
-   *          <p>To retrieve a list of your file system descriptions, this operation is used in an
-   *       iterative process, where <code>DescribeFileSystems</code> is called first without the
-   *         <code>Marker</code> and then the operation continues to call it with the <code>Marker</code>
-   *       parameter set to the value of the <code>NextMarker</code> from the previous response until the
-   *       response has no <code>NextMarker</code>. </p>
-   *
-   *          <p> The order of file systems returned in the response of one
-   *         <code>DescribeFileSystems</code> call and the order of file systems returned across the
-   *       responses of a multi-call iteration is unspecified. </p>
-   *          <p> This operation requires permissions for the
-   *         <code>elasticfilesystem:DescribeFileSystems</code> action. </p>
-   *
-   *
-   */
-  public describeFileSystems(
-    args: DescribeFileSystemsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeFileSystemsCommandOutput>;
-  public describeFileSystems(
-    args: DescribeFileSystemsCommandInput,
-    cb: (err: any, data?: DescribeFileSystemsCommandOutput) => void
-  ): void;
-  public describeFileSystems(
-    args: DescribeFileSystemsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeFileSystemsCommandOutput) => void
-  ): void;
-  public describeFileSystems(
-    args: DescribeFileSystemsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFileSystemsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeFileSystemsCommandOutput) => void
-  ): Promise<DescribeFileSystemsCommandOutput> | void {
-    const command = new DescribeFileSystemsCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   *
-   *          <p>Returns the tags associated with a file system. The order of tags returned in the
-   *       response of one <code>DescribeTags</code> call and the order of tags returned across the
-   *       responses of a multiple-call iteration (when using pagination) is unspecified. </p>
-   *          <p> This operation requires permissions for the
-   *         <code>elasticfilesystem:DescribeTags</code> action. </p>
-   *
-   *
-   */
-  public describeTags(
-    args: DescribeTagsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeTagsCommandOutput>;
-  public describeTags(
-    args: DescribeTagsCommandInput,
-    cb: (err: any, data?: DescribeTagsCommandOutput) => void
-  ): void;
-  public describeTags(
-    args: DescribeTagsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeTagsCommandOutput) => void
-  ): void;
-  public describeTags(
-    args: DescribeTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTagsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeTagsCommandOutput) => void
-  ): Promise<DescribeTagsCommandOutput> | void {
-    const command = new DescribeTagsCommand(args);
+      | ((err: any, data?: DeleteFileSystemCommandOutput) => void),
+    cb?: (err: any, data?: DeleteFileSystemCommandOutput) => void
+  ): Promise<DeleteFileSystemCommandOutput> | void {
+    const command = new DeleteFileSystemCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -921,47 +503,465 @@ export class EFS extends EFSClient {
 
   /**
    *
+   *          <p>Deletes the specified tags from a file system. If the <code>DeleteTags</code> request
+   *       includes a tag key that doesn't exist, Amazon EFS ignores it and doesn't cause an
+   *       error. For more information about tags and related restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Tag Restrictions</a> in the
+   *         <i>AWS Billing and Cost Management User Guide</i>.</p>
    *
-   *          <p>Deletes a file system, permanently severing access to its contents. Upon return, the
-   *       file system no longer exists and you can't access any contents of the deleted file
-   *       system.</p>
-   *          <p> You can't delete a file system that is in use. That is, if the file system has
-   *       any mount targets, you must first delete them. For more information, see <a>DescribeMountTargets</a> and <a>DeleteMountTarget</a>. </p>
-   *
-   *          <note>
-   *             <p>The <code>DeleteFileSystem</code> call returns while the file system state is still
-   *           <code>deleting</code>. You can check the file system deletion status by calling the <a>DescribeFileSystems</a> operation, which returns a list of file systems in your
-   *         account. If you pass file system ID or creation token for the deleted file system, the <a>DescribeFileSystems</a> returns a <code>404 FileSystemNotFound</code>
-   *         error.</p>
-   *          </note>
-   *
-   *          <p>This operation requires permissions for the
-   *         <code>elasticfilesystem:DeleteFileSystem</code> action.</p>
+   *          <p>This operation requires permissions for the <code>elasticfilesystem:DeleteTags</code>
+   *       action.</p>
    *
    *
    *
    */
-  public deleteFileSystem(
-    args: DeleteFileSystemCommandInput,
+  public deleteTags(
+    args: DeleteTagsCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<DeleteFileSystemCommandOutput>;
-  public deleteFileSystem(
-    args: DeleteFileSystemCommandInput,
-    cb: (err: any, data?: DeleteFileSystemCommandOutput) => void
+  ): Promise<DeleteTagsCommandOutput>;
+  public deleteTags(
+    args: DeleteTagsCommandInput,
+    cb: (err: any, data?: DeleteTagsCommandOutput) => void
   ): void;
-  public deleteFileSystem(
-    args: DeleteFileSystemCommandInput,
+  public deleteTags(
+    args: DeleteTagsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteFileSystemCommandOutput) => void
+    cb: (err: any, data?: DeleteTagsCommandOutput) => void
   ): void;
-  public deleteFileSystem(
-    args: DeleteFileSystemCommandInput,
+  public deleteTags(
+    args: DeleteTagsCommandInput,
     optionsOrCb?:
       | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFileSystemCommandOutput) => void),
-    cb?: (err: any, data?: DeleteFileSystemCommandOutput) => void
-  ): Promise<DeleteFileSystemCommandOutput> | void {
-    const command = new DeleteFileSystemCommand(args);
+      | ((err: any, data?: DeleteTagsCommandOutput) => void),
+    cb?: (err: any, data?: DeleteTagsCommandOutput) => void
+  ): Promise<DeleteTagsCommandOutput> | void {
+    const command = new DeleteTagsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Returns the description of a specific Amazon EFS file system if either the file system
+   *         <code>CreationToken</code> or the <code>FileSystemId</code> is provided. Otherwise, it
+   *       returns descriptions of all file systems owned by the caller's AWS account in the AWS
+   *       Region of the endpoint that you're calling.</p>
+   *
+   *          <p>When retrieving all file system descriptions, you can optionally specify the
+   *         <code>MaxItems</code> parameter to limit the number of descriptions in a response.
+   *       Currently, this number is automatically set to 10. If more file system descriptions remain,
+   *       Amazon EFS returns a <code>NextMarker</code>, an opaque token, in the response. In this case,
+   *       you should send a subsequent request with the <code>Marker</code> request parameter set to the
+   *       value of <code>NextMarker</code>. </p>
+   *
+   *          <p>To retrieve a list of your file system descriptions, this operation is used in an
+   *       iterative process, where <code>DescribeFileSystems</code> is called first without the
+   *         <code>Marker</code> and then the operation continues to call it with the <code>Marker</code>
+   *       parameter set to the value of the <code>NextMarker</code> from the previous response until the
+   *       response has no <code>NextMarker</code>. </p>
+   *
+   *          <p> The order of file systems returned in the response of one
+   *         <code>DescribeFileSystems</code> call and the order of file systems returned across the
+   *       responses of a multi-call iteration is unspecified. </p>
+   *          <p> This operation requires permissions for the
+   *         <code>elasticfilesystem:DescribeFileSystems</code> action. </p>
+   *
+   *
+   */
+  public describeFileSystems(
+    args: DescribeFileSystemsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFileSystemsCommandOutput>;
+  public describeFileSystems(
+    args: DescribeFileSystemsCommandInput,
+    cb: (err: any, data?: DescribeFileSystemsCommandOutput) => void
+  ): void;
+  public describeFileSystems(
+    args: DescribeFileSystemsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFileSystemsCommandOutput) => void
+  ): void;
+  public describeFileSystems(
+    args: DescribeFileSystemsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeFileSystemsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeFileSystemsCommandOutput) => void
+  ): Promise<DescribeFileSystemsCommandOutput> | void {
+    const command = new DescribeFileSystemsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Returns the current <code>LifecycleConfiguration</code> object for the specified Amazon
+   *       EFS file system. EFS lifecycle management uses the <code>LifecycleConfiguration</code> object
+   *       to identify which files to move to the EFS Infrequent Access (IA) storage class. For a file system
+   *       without a <code>LifecycleConfiguration</code> object, the call returns an empty array in the
+   *       response.</p>
+   *          <p>This operation requires permissions for the
+   *         <code>elasticfilesystem:DescribeLifecycleConfiguration</code> operation.</p>
+   *
+   *
+   *
+   */
+  public describeLifecycleConfiguration(
+    args: DescribeLifecycleConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLifecycleConfigurationCommandOutput>;
+  public describeLifecycleConfiguration(
+    args: DescribeLifecycleConfigurationCommandInput,
+    cb: (err: any, data?: DescribeLifecycleConfigurationCommandOutput) => void
+  ): void;
+  public describeLifecycleConfiguration(
+    args: DescribeLifecycleConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLifecycleConfigurationCommandOutput) => void
+  ): void;
+  public describeLifecycleConfiguration(
+    args: DescribeLifecycleConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: DescribeLifecycleConfigurationCommandOutput
+        ) => void),
+    cb?: (err: any, data?: DescribeLifecycleConfigurationCommandOutput) => void
+  ): Promise<DescribeLifecycleConfigurationCommandOutput> | void {
+    const command = new DescribeLifecycleConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Returns the security groups currently in effect for a mount target. This operation
+   *       requires that the network interface of the mount target has been created and the lifecycle
+   *       state of the mount target is not <code>deleted</code>.</p>
+   *          <p>This operation requires permissions for the following actions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>elasticfilesystem:DescribeMountTargetSecurityGroups</code> action on the mount
+   *           target's file system. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ec2:DescribeNetworkInterfaceAttribute</code> action on the mount target's
+   *           network interface. </p>
+   *             </li>
+   *          </ul>
+   *
+   *
+   *
+   */
+  public describeMountTargetSecurityGroups(
+    args: DescribeMountTargetSecurityGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMountTargetSecurityGroupsCommandOutput>;
+  public describeMountTargetSecurityGroups(
+    args: DescribeMountTargetSecurityGroupsCommandInput,
+    cb: (
+      err: any,
+      data?: DescribeMountTargetSecurityGroupsCommandOutput
+    ) => void
+  ): void;
+  public describeMountTargetSecurityGroups(
+    args: DescribeMountTargetSecurityGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (
+      err: any,
+      data?: DescribeMountTargetSecurityGroupsCommandOutput
+    ) => void
+  ): void;
+  public describeMountTargetSecurityGroups(
+    args: DescribeMountTargetSecurityGroupsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: DescribeMountTargetSecurityGroupsCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: DescribeMountTargetSecurityGroupsCommandOutput
+    ) => void
+  ): Promise<DescribeMountTargetSecurityGroupsCommandOutput> | void {
+    const command = new DescribeMountTargetSecurityGroupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Returns the descriptions of all the current mount targets, or a specific mount target,
+   *       for a file system. When requesting all of the current mount targets, the order of mount
+   *       targets returned in the response is unspecified.</p>
+   *
+   *          <p>This operation requires permissions for the
+   *         <code>elasticfilesystem:DescribeMountTargets</code> action, on either the file system ID
+   *       that you specify in <code>FileSystemId</code>, or on the file system of the mount target that
+   *       you specify in <code>MountTargetId</code>.</p>
+   *
+   *
+   */
+  public describeMountTargets(
+    args: DescribeMountTargetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMountTargetsCommandOutput>;
+  public describeMountTargets(
+    args: DescribeMountTargetsCommandInput,
+    cb: (err: any, data?: DescribeMountTargetsCommandOutput) => void
+  ): void;
+  public describeMountTargets(
+    args: DescribeMountTargetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMountTargetsCommandOutput) => void
+  ): void;
+  public describeMountTargets(
+    args: DescribeMountTargetsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeMountTargetsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMountTargetsCommandOutput) => void
+  ): Promise<DescribeMountTargetsCommandOutput> | void {
+    const command = new DescribeMountTargetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Returns the tags associated with a file system. The order of tags returned in the
+   *       response of one <code>DescribeTags</code> call and the order of tags returned across the
+   *       responses of a multiple-call iteration (when using pagination) is unspecified. </p>
+   *          <p> This operation requires permissions for the
+   *         <code>elasticfilesystem:DescribeTags</code> action. </p>
+   *
+   *
+   */
+  public describeTags(
+    args: DescribeTagsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTagsCommandOutput>;
+  public describeTags(
+    args: DescribeTagsCommandInput,
+    cb: (err: any, data?: DescribeTagsCommandOutput) => void
+  ): void;
+  public describeTags(
+    args: DescribeTagsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTagsCommandOutput) => void
+  ): void;
+  public describeTags(
+    args: DescribeTagsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeTagsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTagsCommandOutput) => void
+  ): Promise<DescribeTagsCommandOutput> | void {
+    const command = new DescribeTagsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Modifies the set of security groups in effect for a mount target.</p>
+   *          <p>When you create a mount target, Amazon EFS also creates a new network interface. For
+   *       more information, see <a>CreateMountTarget</a>. This operation replaces the security groups in effect for the
+   *       network interface associated with a mount target, with the <code>SecurityGroups</code>
+   *       provided in the request. This operation requires that the network interface of the mount
+   *       target has been created and the lifecycle state of the mount target is not
+   *         <code>deleted</code>. </p>
+   *          <p>The operation requires permissions for the following actions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>elasticfilesystem:ModifyMountTargetSecurityGroups</code> action on the mount
+   *           target's file system. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ec2:ModifyNetworkInterfaceAttribute</code> action on the mount target's network
+   *           interface. </p>
+   *             </li>
+   *          </ul>
+   *
+   *
+   *
+   *
+   */
+  public modifyMountTargetSecurityGroups(
+    args: ModifyMountTargetSecurityGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyMountTargetSecurityGroupsCommandOutput>;
+  public modifyMountTargetSecurityGroups(
+    args: ModifyMountTargetSecurityGroupsCommandInput,
+    cb: (err: any, data?: ModifyMountTargetSecurityGroupsCommandOutput) => void
+  ): void;
+  public modifyMountTargetSecurityGroups(
+    args: ModifyMountTargetSecurityGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyMountTargetSecurityGroupsCommandOutput) => void
+  ): void;
+  public modifyMountTargetSecurityGroups(
+    args: ModifyMountTargetSecurityGroupsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: ModifyMountTargetSecurityGroupsCommandOutput
+        ) => void),
+    cb?: (err: any, data?: ModifyMountTargetSecurityGroupsCommandOutput) => void
+  ): Promise<ModifyMountTargetSecurityGroupsCommandOutput> | void {
+    const command = new ModifyMountTargetSecurityGroupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Enables lifecycle management by creating a new <code>LifecycleConfiguration</code>
+   *       object. A <code>LifecycleConfiguration</code> object defines when files in an Amazon EFS file
+   *       system are automatically transitioned to the lower-cost EFS Infrequent Access (IA) storage class.
+   *       A <code>LifecycleConfiguration</code> applies to all files in a file system.</p>
+   *          <p>Each Amazon EFS file system supports one lifecycle configuration, which applies to all files in the file system. If a
+   *         <code>LifecycleConfiguration</code> object already exists for the specified file system, a
+   *         <code>PutLifecycleConfiguration</code> call modifies the existing configuration. A
+   *         <code>PutLifecycleConfiguration</code> call with an empty <code>LifecyclePolicies</code>
+   *       array in the request body deletes any existing <code>LifecycleConfiguration</code> and
+   *       disables lifecycle management.</p>
+   *
+   *
+   *          <p>In the request, specify the following: </p>
+   *          <ul>
+   *             <li>
+   *                <p>The ID for the file system for which you are enabling, disabling, or modifying lifecycle management.</p>
+   *             </li>
+   *             <li>
+   *                <p>A <code>LifecyclePolicies</code> array of <code>LifecyclePolicy</code> objects that
+   *           define when files are moved to the IA storage class. The array can contain only one
+   *             <code>LifecyclePolicy</code> item.</p>
+   *             </li>
+   *          </ul>
+   *
+   *          <p>This operation requires permissions for the
+   *         <code>elasticfilesystem:PutLifecycleConfiguration</code> operation.</p>
+   *          <p>To apply a <code>LifecycleConfiguration</code> object to an encrypted file system, you
+   *       need the same AWS Key Management Service (AWS KMS) permissions as when you created the encrypted
+   *       file system. </p>
+   *
+   *
+   */
+  public putLifecycleConfiguration(
+    args: PutLifecycleConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutLifecycleConfigurationCommandOutput>;
+  public putLifecycleConfiguration(
+    args: PutLifecycleConfigurationCommandInput,
+    cb: (err: any, data?: PutLifecycleConfigurationCommandOutput) => void
+  ): void;
+  public putLifecycleConfiguration(
+    args: PutLifecycleConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutLifecycleConfigurationCommandOutput) => void
+  ): void;
+  public putLifecycleConfiguration(
+    args: PutLifecycleConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutLifecycleConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: PutLifecycleConfigurationCommandOutput) => void
+  ): Promise<PutLifecycleConfigurationCommandOutput> | void {
+    const command = new PutLifecycleConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object")
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   *
+   *          <p>Updates the throughput mode or the amount of provisioned throughput of an existing file
+   *       system.</p>
+   *
+   */
+  public updateFileSystem(
+    args: UpdateFileSystemCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFileSystemCommandOutput>;
+  public updateFileSystem(
+    args: UpdateFileSystemCommandInput,
+    cb: (err: any, data?: UpdateFileSystemCommandOutput) => void
+  ): void;
+  public updateFileSystem(
+    args: UpdateFileSystemCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFileSystemCommandOutput) => void
+  ): void;
+  public updateFileSystem(
+    args: UpdateFileSystemCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateFileSystemCommandOutput) => void),
+    cb?: (err: any, data?: UpdateFileSystemCommandOutput) => void
+  ): Promise<UpdateFileSystemCommandOutput> | void {
+    const command = new UpdateFileSystemCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
