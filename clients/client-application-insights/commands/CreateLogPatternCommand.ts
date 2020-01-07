@@ -1,0 +1,84 @@
+import {
+  ApplicationInsightsClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes
+} from "../ApplicationInsightsClient";
+import {
+  CreateLogPatternRequest,
+  CreateLogPatternResponse
+} from "../models/index";
+import {
+  deserializeAws_json1_1CreateLogPatternCommand,
+  serializeAws_json1_1CreateLogPatternCommand
+} from "../protocols/Aws_json1_1";
+import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse
+} from "@aws-sdk/protocol-http";
+import { Command as $Command } from "@aws-sdk/smithy-client";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  MiddlewareStack,
+  SerdeContext,
+  HttpHandlerOptions as __HttpHandlerOptions
+} from "@aws-sdk/types";
+
+export type CreateLogPatternCommandInput = CreateLogPatternRequest;
+export type CreateLogPatternCommandOutput = CreateLogPatternResponse;
+
+export class CreateLogPatternCommand extends $Command<
+  CreateLogPatternCommandInput,
+  CreateLogPatternCommandOutput,
+  ApplicationInsightsClientResolvedConfig
+> {
+  // Start section: command_properties
+  // End section: command_properties
+
+  constructor(readonly input: CreateLogPatternCommandInput) {
+    // Start section: command_constructor
+    super();
+    // End section: command_constructor
+  }
+
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: ApplicationInsightsClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<CreateLogPatternCommandInput, CreateLogPatternCommandOutput> {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger: {} as any
+    };
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  private serialize(
+    input: CreateLogPatternCommandInput,
+    context: SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_json1_1CreateLogPatternCommand(input, context);
+  }
+
+  private deserialize(
+    output: __HttpResponse,
+    context: SerdeContext
+  ): Promise<CreateLogPatternCommandOutput> {
+    return deserializeAws_json1_1CreateLogPatternCommand(output, context);
+  }
+
+  // Start section: command_body_extra
+  // End section: command_body_extra
+}
