@@ -1,0 +1,15956 @@
+import {
+  BatchGetAggregateResourceConfigCommandInput,
+  BatchGetAggregateResourceConfigCommandOutput
+} from "../commands/BatchGetAggregateResourceConfigCommand";
+import {
+  BatchGetResourceConfigCommandInput,
+  BatchGetResourceConfigCommandOutput
+} from "../commands/BatchGetResourceConfigCommand";
+import {
+  DeleteAggregationAuthorizationCommandInput,
+  DeleteAggregationAuthorizationCommandOutput
+} from "../commands/DeleteAggregationAuthorizationCommand";
+import {
+  DeleteConfigRuleCommandInput,
+  DeleteConfigRuleCommandOutput
+} from "../commands/DeleteConfigRuleCommand";
+import {
+  DeleteConfigurationAggregatorCommandInput,
+  DeleteConfigurationAggregatorCommandOutput
+} from "../commands/DeleteConfigurationAggregatorCommand";
+import {
+  DeleteConfigurationRecorderCommandInput,
+  DeleteConfigurationRecorderCommandOutput
+} from "../commands/DeleteConfigurationRecorderCommand";
+import {
+  DeleteConformancePackCommandInput,
+  DeleteConformancePackCommandOutput
+} from "../commands/DeleteConformancePackCommand";
+import {
+  DeleteDeliveryChannelCommandInput,
+  DeleteDeliveryChannelCommandOutput
+} from "../commands/DeleteDeliveryChannelCommand";
+import {
+  DeleteEvaluationResultsCommandInput,
+  DeleteEvaluationResultsCommandOutput
+} from "../commands/DeleteEvaluationResultsCommand";
+import {
+  DeleteOrganizationConfigRuleCommandInput,
+  DeleteOrganizationConfigRuleCommandOutput
+} from "../commands/DeleteOrganizationConfigRuleCommand";
+import {
+  DeleteOrganizationConformancePackCommandInput,
+  DeleteOrganizationConformancePackCommandOutput
+} from "../commands/DeleteOrganizationConformancePackCommand";
+import {
+  DeletePendingAggregationRequestCommandInput,
+  DeletePendingAggregationRequestCommandOutput
+} from "../commands/DeletePendingAggregationRequestCommand";
+import {
+  DeleteRemediationConfigurationCommandInput,
+  DeleteRemediationConfigurationCommandOutput
+} from "../commands/DeleteRemediationConfigurationCommand";
+import {
+  DeleteRemediationExceptionsCommandInput,
+  DeleteRemediationExceptionsCommandOutput
+} from "../commands/DeleteRemediationExceptionsCommand";
+import {
+  DeleteResourceConfigCommandInput,
+  DeleteResourceConfigCommandOutput
+} from "../commands/DeleteResourceConfigCommand";
+import {
+  DeleteRetentionConfigurationCommandInput,
+  DeleteRetentionConfigurationCommandOutput
+} from "../commands/DeleteRetentionConfigurationCommand";
+import {
+  DeliverConfigSnapshotCommandInput,
+  DeliverConfigSnapshotCommandOutput
+} from "../commands/DeliverConfigSnapshotCommand";
+import {
+  DescribeAggregateComplianceByConfigRulesCommandInput,
+  DescribeAggregateComplianceByConfigRulesCommandOutput
+} from "../commands/DescribeAggregateComplianceByConfigRulesCommand";
+import {
+  DescribeAggregationAuthorizationsCommandInput,
+  DescribeAggregationAuthorizationsCommandOutput
+} from "../commands/DescribeAggregationAuthorizationsCommand";
+import {
+  DescribeComplianceByConfigRuleCommandInput,
+  DescribeComplianceByConfigRuleCommandOutput
+} from "../commands/DescribeComplianceByConfigRuleCommand";
+import {
+  DescribeComplianceByResourceCommandInput,
+  DescribeComplianceByResourceCommandOutput
+} from "../commands/DescribeComplianceByResourceCommand";
+import {
+  DescribeConfigRuleEvaluationStatusCommandInput,
+  DescribeConfigRuleEvaluationStatusCommandOutput
+} from "../commands/DescribeConfigRuleEvaluationStatusCommand";
+import {
+  DescribeConfigRulesCommandInput,
+  DescribeConfigRulesCommandOutput
+} from "../commands/DescribeConfigRulesCommand";
+import {
+  DescribeConfigurationAggregatorSourcesStatusCommandInput,
+  DescribeConfigurationAggregatorSourcesStatusCommandOutput
+} from "../commands/DescribeConfigurationAggregatorSourcesStatusCommand";
+import {
+  DescribeConfigurationAggregatorsCommandInput,
+  DescribeConfigurationAggregatorsCommandOutput
+} from "../commands/DescribeConfigurationAggregatorsCommand";
+import {
+  DescribeConfigurationRecorderStatusCommandInput,
+  DescribeConfigurationRecorderStatusCommandOutput
+} from "../commands/DescribeConfigurationRecorderStatusCommand";
+import {
+  DescribeConfigurationRecordersCommandInput,
+  DescribeConfigurationRecordersCommandOutput
+} from "../commands/DescribeConfigurationRecordersCommand";
+import {
+  DescribeConformancePackComplianceCommandInput,
+  DescribeConformancePackComplianceCommandOutput
+} from "../commands/DescribeConformancePackComplianceCommand";
+import {
+  DescribeConformancePackStatusCommandInput,
+  DescribeConformancePackStatusCommandOutput
+} from "../commands/DescribeConformancePackStatusCommand";
+import {
+  DescribeConformancePacksCommandInput,
+  DescribeConformancePacksCommandOutput
+} from "../commands/DescribeConformancePacksCommand";
+import {
+  DescribeDeliveryChannelStatusCommandInput,
+  DescribeDeliveryChannelStatusCommandOutput
+} from "../commands/DescribeDeliveryChannelStatusCommand";
+import {
+  DescribeDeliveryChannelsCommandInput,
+  DescribeDeliveryChannelsCommandOutput
+} from "../commands/DescribeDeliveryChannelsCommand";
+import {
+  DescribeOrganizationConfigRuleStatusesCommandInput,
+  DescribeOrganizationConfigRuleStatusesCommandOutput
+} from "../commands/DescribeOrganizationConfigRuleStatusesCommand";
+import {
+  DescribeOrganizationConfigRulesCommandInput,
+  DescribeOrganizationConfigRulesCommandOutput
+} from "../commands/DescribeOrganizationConfigRulesCommand";
+import {
+  DescribeOrganizationConformancePackStatusesCommandInput,
+  DescribeOrganizationConformancePackStatusesCommandOutput
+} from "../commands/DescribeOrganizationConformancePackStatusesCommand";
+import {
+  DescribeOrganizationConformancePacksCommandInput,
+  DescribeOrganizationConformancePacksCommandOutput
+} from "../commands/DescribeOrganizationConformancePacksCommand";
+import {
+  DescribePendingAggregationRequestsCommandInput,
+  DescribePendingAggregationRequestsCommandOutput
+} from "../commands/DescribePendingAggregationRequestsCommand";
+import {
+  DescribeRemediationConfigurationsCommandInput,
+  DescribeRemediationConfigurationsCommandOutput
+} from "../commands/DescribeRemediationConfigurationsCommand";
+import {
+  DescribeRemediationExceptionsCommandInput,
+  DescribeRemediationExceptionsCommandOutput
+} from "../commands/DescribeRemediationExceptionsCommand";
+import {
+  DescribeRemediationExecutionStatusCommandInput,
+  DescribeRemediationExecutionStatusCommandOutput
+} from "../commands/DescribeRemediationExecutionStatusCommand";
+import {
+  DescribeRetentionConfigurationsCommandInput,
+  DescribeRetentionConfigurationsCommandOutput
+} from "../commands/DescribeRetentionConfigurationsCommand";
+import {
+  GetAggregateComplianceDetailsByConfigRuleCommandInput,
+  GetAggregateComplianceDetailsByConfigRuleCommandOutput
+} from "../commands/GetAggregateComplianceDetailsByConfigRuleCommand";
+import {
+  GetAggregateConfigRuleComplianceSummaryCommandInput,
+  GetAggregateConfigRuleComplianceSummaryCommandOutput
+} from "../commands/GetAggregateConfigRuleComplianceSummaryCommand";
+import {
+  GetAggregateDiscoveredResourceCountsCommandInput,
+  GetAggregateDiscoveredResourceCountsCommandOutput
+} from "../commands/GetAggregateDiscoveredResourceCountsCommand";
+import {
+  GetAggregateResourceConfigCommandInput,
+  GetAggregateResourceConfigCommandOutput
+} from "../commands/GetAggregateResourceConfigCommand";
+import {
+  GetComplianceDetailsByConfigRuleCommandInput,
+  GetComplianceDetailsByConfigRuleCommandOutput
+} from "../commands/GetComplianceDetailsByConfigRuleCommand";
+import {
+  GetComplianceDetailsByResourceCommandInput,
+  GetComplianceDetailsByResourceCommandOutput
+} from "../commands/GetComplianceDetailsByResourceCommand";
+import {
+  GetComplianceSummaryByConfigRuleCommandInput,
+  GetComplianceSummaryByConfigRuleCommandOutput
+} from "../commands/GetComplianceSummaryByConfigRuleCommand";
+import {
+  GetComplianceSummaryByResourceTypeCommandInput,
+  GetComplianceSummaryByResourceTypeCommandOutput
+} from "../commands/GetComplianceSummaryByResourceTypeCommand";
+import {
+  GetConformancePackComplianceDetailsCommandInput,
+  GetConformancePackComplianceDetailsCommandOutput
+} from "../commands/GetConformancePackComplianceDetailsCommand";
+import {
+  GetConformancePackComplianceSummaryCommandInput,
+  GetConformancePackComplianceSummaryCommandOutput
+} from "../commands/GetConformancePackComplianceSummaryCommand";
+import {
+  GetDiscoveredResourceCountsCommandInput,
+  GetDiscoveredResourceCountsCommandOutput
+} from "../commands/GetDiscoveredResourceCountsCommand";
+import {
+  GetOrganizationConfigRuleDetailedStatusCommandInput,
+  GetOrganizationConfigRuleDetailedStatusCommandOutput
+} from "../commands/GetOrganizationConfigRuleDetailedStatusCommand";
+import {
+  GetOrganizationConformancePackDetailedStatusCommandInput,
+  GetOrganizationConformancePackDetailedStatusCommandOutput
+} from "../commands/GetOrganizationConformancePackDetailedStatusCommand";
+import {
+  GetResourceConfigHistoryCommandInput,
+  GetResourceConfigHistoryCommandOutput
+} from "../commands/GetResourceConfigHistoryCommand";
+import {
+  ListAggregateDiscoveredResourcesCommandInput,
+  ListAggregateDiscoveredResourcesCommandOutput
+} from "../commands/ListAggregateDiscoveredResourcesCommand";
+import {
+  ListDiscoveredResourcesCommandInput,
+  ListDiscoveredResourcesCommandOutput
+} from "../commands/ListDiscoveredResourcesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "../commands/ListTagsForResourceCommand";
+import {
+  PutAggregationAuthorizationCommandInput,
+  PutAggregationAuthorizationCommandOutput
+} from "../commands/PutAggregationAuthorizationCommand";
+import {
+  PutConfigRuleCommandInput,
+  PutConfigRuleCommandOutput
+} from "../commands/PutConfigRuleCommand";
+import {
+  PutConfigurationAggregatorCommandInput,
+  PutConfigurationAggregatorCommandOutput
+} from "../commands/PutConfigurationAggregatorCommand";
+import {
+  PutConfigurationRecorderCommandInput,
+  PutConfigurationRecorderCommandOutput
+} from "../commands/PutConfigurationRecorderCommand";
+import {
+  PutConformancePackCommandInput,
+  PutConformancePackCommandOutput
+} from "../commands/PutConformancePackCommand";
+import {
+  PutDeliveryChannelCommandInput,
+  PutDeliveryChannelCommandOutput
+} from "../commands/PutDeliveryChannelCommand";
+import {
+  PutEvaluationsCommandInput,
+  PutEvaluationsCommandOutput
+} from "../commands/PutEvaluationsCommand";
+import {
+  PutOrganizationConfigRuleCommandInput,
+  PutOrganizationConfigRuleCommandOutput
+} from "../commands/PutOrganizationConfigRuleCommand";
+import {
+  PutOrganizationConformancePackCommandInput,
+  PutOrganizationConformancePackCommandOutput
+} from "../commands/PutOrganizationConformancePackCommand";
+import {
+  PutRemediationConfigurationsCommandInput,
+  PutRemediationConfigurationsCommandOutput
+} from "../commands/PutRemediationConfigurationsCommand";
+import {
+  PutRemediationExceptionsCommandInput,
+  PutRemediationExceptionsCommandOutput
+} from "../commands/PutRemediationExceptionsCommand";
+import {
+  PutResourceConfigCommandInput,
+  PutResourceConfigCommandOutput
+} from "../commands/PutResourceConfigCommand";
+import {
+  PutRetentionConfigurationCommandInput,
+  PutRetentionConfigurationCommandOutput
+} from "../commands/PutRetentionConfigurationCommand";
+import {
+  SelectResourceConfigCommandInput,
+  SelectResourceConfigCommandOutput
+} from "../commands/SelectResourceConfigCommand";
+import {
+  StartConfigRulesEvaluationCommandInput,
+  StartConfigRulesEvaluationCommandOutput
+} from "../commands/StartConfigRulesEvaluationCommand";
+import {
+  StartConfigurationRecorderCommandInput,
+  StartConfigurationRecorderCommandOutput
+} from "../commands/StartConfigurationRecorderCommand";
+import {
+  StartRemediationExecutionCommandInput,
+  StartRemediationExecutionCommandOutput
+} from "../commands/StartRemediationExecutionCommand";
+import {
+  StopConfigurationRecorderCommandInput,
+  StopConfigurationRecorderCommandOutput
+} from "../commands/StopConfigurationRecorderCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "../commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "../commands/UntagResourceCommand";
+import {
+  AccountAggregationSource,
+  AggregateComplianceByConfigRule,
+  AggregateComplianceCount,
+  AggregateEvaluationResult,
+  AggregateResourceIdentifier,
+  AggregatedSourceStatus,
+  AggregatedSourceStatusType,
+  AggregationAuthorization,
+  BaseConfigurationItem,
+  BatchGetAggregateResourceConfigRequest,
+  BatchGetAggregateResourceConfigResponse,
+  BatchGetResourceConfigRequest,
+  BatchGetResourceConfigResponse,
+  Compliance,
+  ComplianceByConfigRule,
+  ComplianceByResource,
+  ComplianceContributorCount,
+  ComplianceSummary,
+  ComplianceSummaryByResourceType,
+  ComplianceType,
+  ConfigExportDeliveryInfo,
+  ConfigRule,
+  ConfigRuleComplianceFilters,
+  ConfigRuleComplianceSummaryFilters,
+  ConfigRuleEvaluationStatus,
+  ConfigSnapshotDeliveryProperties,
+  ConfigStreamDeliveryInfo,
+  ConfigurationAggregator,
+  ConfigurationItem,
+  ConfigurationRecorder,
+  ConfigurationRecorderStatus,
+  ConformancePackComplianceFilters,
+  ConformancePackComplianceSummary,
+  ConformancePackDetail,
+  ConformancePackEvaluationFilters,
+  ConformancePackEvaluationResult,
+  ConformancePackInputParameter,
+  ConformancePackRuleCompliance,
+  ConformancePackStatusDetail,
+  ConformancePackTemplateValidationException,
+  DeleteAggregationAuthorizationRequest,
+  DeleteConfigRuleRequest,
+  DeleteConfigurationAggregatorRequest,
+  DeleteConfigurationRecorderRequest,
+  DeleteConformancePackRequest,
+  DeleteDeliveryChannelRequest,
+  DeleteEvaluationResultsRequest,
+  DeleteEvaluationResultsResponse,
+  DeleteOrganizationConfigRuleRequest,
+  DeleteOrganizationConformancePackRequest,
+  DeletePendingAggregationRequestRequest,
+  DeleteRemediationConfigurationRequest,
+  DeleteRemediationConfigurationResponse,
+  DeleteRemediationExceptionsRequest,
+  DeleteRemediationExceptionsResponse,
+  DeleteResourceConfigRequest,
+  DeleteRetentionConfigurationRequest,
+  DeliverConfigSnapshotRequest,
+  DeliverConfigSnapshotResponse,
+  DeliveryChannel,
+  DeliveryChannelStatus,
+  DescribeAggregateComplianceByConfigRulesRequest,
+  DescribeAggregateComplianceByConfigRulesResponse,
+  DescribeAggregationAuthorizationsRequest,
+  DescribeAggregationAuthorizationsResponse,
+  DescribeComplianceByConfigRuleRequest,
+  DescribeComplianceByConfigRuleResponse,
+  DescribeComplianceByResourceRequest,
+  DescribeComplianceByResourceResponse,
+  DescribeConfigRuleEvaluationStatusRequest,
+  DescribeConfigRuleEvaluationStatusResponse,
+  DescribeConfigRulesRequest,
+  DescribeConfigRulesResponse,
+  DescribeConfigurationAggregatorSourcesStatusRequest,
+  DescribeConfigurationAggregatorSourcesStatusResponse,
+  DescribeConfigurationAggregatorsRequest,
+  DescribeConfigurationAggregatorsResponse,
+  DescribeConfigurationRecorderStatusRequest,
+  DescribeConfigurationRecorderStatusResponse,
+  DescribeConfigurationRecordersRequest,
+  DescribeConfigurationRecordersResponse,
+  DescribeConformancePackComplianceRequest,
+  DescribeConformancePackComplianceResponse,
+  DescribeConformancePackStatusRequest,
+  DescribeConformancePackStatusResponse,
+  DescribeConformancePacksRequest,
+  DescribeConformancePacksResponse,
+  DescribeDeliveryChannelStatusRequest,
+  DescribeDeliveryChannelStatusResponse,
+  DescribeDeliveryChannelsRequest,
+  DescribeDeliveryChannelsResponse,
+  DescribeOrganizationConfigRuleStatusesRequest,
+  DescribeOrganizationConfigRuleStatusesResponse,
+  DescribeOrganizationConfigRulesRequest,
+  DescribeOrganizationConfigRulesResponse,
+  DescribeOrganizationConformancePackStatusesRequest,
+  DescribeOrganizationConformancePackStatusesResponse,
+  DescribeOrganizationConformancePacksRequest,
+  DescribeOrganizationConformancePacksResponse,
+  DescribePendingAggregationRequestsRequest,
+  DescribePendingAggregationRequestsResponse,
+  DescribeRemediationConfigurationsRequest,
+  DescribeRemediationConfigurationsResponse,
+  DescribeRemediationExceptionsRequest,
+  DescribeRemediationExceptionsResponse,
+  DescribeRemediationExecutionStatusRequest,
+  DescribeRemediationExecutionStatusResponse,
+  DescribeRetentionConfigurationsRequest,
+  DescribeRetentionConfigurationsResponse,
+  Evaluation,
+  EvaluationResult,
+  EvaluationResultIdentifier,
+  EvaluationResultQualifier,
+  ExecutionControls,
+  FailedDeleteRemediationExceptionsBatch,
+  FailedRemediationBatch,
+  FailedRemediationExceptionBatch,
+  FieldInfo,
+  GetAggregateComplianceDetailsByConfigRuleRequest,
+  GetAggregateComplianceDetailsByConfigRuleResponse,
+  GetAggregateConfigRuleComplianceSummaryRequest,
+  GetAggregateConfigRuleComplianceSummaryResponse,
+  GetAggregateDiscoveredResourceCountsRequest,
+  GetAggregateDiscoveredResourceCountsResponse,
+  GetAggregateResourceConfigRequest,
+  GetAggregateResourceConfigResponse,
+  GetComplianceDetailsByConfigRuleRequest,
+  GetComplianceDetailsByConfigRuleResponse,
+  GetComplianceDetailsByResourceRequest,
+  GetComplianceDetailsByResourceResponse,
+  GetComplianceSummaryByConfigRuleResponse,
+  GetComplianceSummaryByResourceTypeRequest,
+  GetComplianceSummaryByResourceTypeResponse,
+  GetConformancePackComplianceDetailsRequest,
+  GetConformancePackComplianceDetailsResponse,
+  GetConformancePackComplianceSummaryRequest,
+  GetConformancePackComplianceSummaryResponse,
+  GetDiscoveredResourceCountsRequest,
+  GetDiscoveredResourceCountsResponse,
+  GetOrganizationConfigRuleDetailedStatusRequest,
+  GetOrganizationConfigRuleDetailedStatusResponse,
+  GetOrganizationConformancePackDetailedStatusRequest,
+  GetOrganizationConformancePackDetailedStatusResponse,
+  GetResourceConfigHistoryRequest,
+  GetResourceConfigHistoryResponse,
+  GroupedResourceCount,
+  InsufficientDeliveryPolicyException,
+  InsufficientPermissionsException,
+  InvalidConfigurationRecorderNameException,
+  InvalidDeliveryChannelNameException,
+  InvalidExpressionException,
+  InvalidLimitException,
+  InvalidNextTokenException,
+  InvalidParameterValueException,
+  InvalidRecordingGroupException,
+  InvalidResultTokenException,
+  InvalidRoleException,
+  InvalidS3KeyPrefixException,
+  InvalidSNSTopicARNException,
+  InvalidTimeRangeException,
+  LastDeliveryChannelDeleteFailedException,
+  LimitExceededException,
+  ListAggregateDiscoveredResourcesRequest,
+  ListAggregateDiscoveredResourcesResponse,
+  ListDiscoveredResourcesRequest,
+  ListDiscoveredResourcesResponse,
+  ListTagsForResourceRequest,
+  ListTagsForResourceResponse,
+  MaxActiveResourcesExceededException,
+  MaxNumberOfConfigRulesExceededException,
+  MaxNumberOfConfigurationRecordersExceededException,
+  MaxNumberOfConformancePacksExceededException,
+  MaxNumberOfDeliveryChannelsExceededException,
+  MaxNumberOfOrganizationConfigRulesExceededException,
+  MaxNumberOfOrganizationConformancePacksExceededException,
+  MaxNumberOfRetentionConfigurationsExceededException,
+  MemberAccountStatus,
+  NoAvailableConfigurationRecorderException,
+  NoAvailableDeliveryChannelException,
+  NoAvailableOrganizationException,
+  NoRunningConfigurationRecorderException,
+  NoSuchBucketException,
+  NoSuchConfigRuleException,
+  NoSuchConfigRuleInConformancePackException,
+  NoSuchConfigurationAggregatorException,
+  NoSuchConfigurationRecorderException,
+  NoSuchConformancePackException,
+  NoSuchDeliveryChannelException,
+  NoSuchOrganizationConfigRuleException,
+  NoSuchOrganizationConformancePackException,
+  NoSuchRemediationConfigurationException,
+  NoSuchRemediationExceptionException,
+  NoSuchRetentionConfigurationException,
+  OrganizationAccessDeniedException,
+  OrganizationAggregationSource,
+  OrganizationAllFeaturesNotEnabledException,
+  OrganizationConfigRule,
+  OrganizationConfigRuleStatus,
+  OrganizationConfigRuleTriggerType,
+  OrganizationConformancePack,
+  OrganizationConformancePackDetailedStatus,
+  OrganizationConformancePackStatus,
+  OrganizationConformancePackTemplateValidationException,
+  OrganizationCustomRuleMetadata,
+  OrganizationManagedRuleMetadata,
+  OrganizationResourceDetailedStatusFilters,
+  OversizedConfigurationItemException,
+  PendingAggregationRequest,
+  PutAggregationAuthorizationRequest,
+  PutAggregationAuthorizationResponse,
+  PutConfigRuleRequest,
+  PutConfigurationAggregatorRequest,
+  PutConfigurationAggregatorResponse,
+  PutConfigurationRecorderRequest,
+  PutConformancePackRequest,
+  PutConformancePackResponse,
+  PutDeliveryChannelRequest,
+  PutEvaluationsRequest,
+  PutEvaluationsResponse,
+  PutOrganizationConfigRuleRequest,
+  PutOrganizationConfigRuleResponse,
+  PutOrganizationConformancePackRequest,
+  PutOrganizationConformancePackResponse,
+  PutRemediationConfigurationsRequest,
+  PutRemediationConfigurationsResponse,
+  PutRemediationExceptionsRequest,
+  PutRemediationExceptionsResponse,
+  PutResourceConfigRequest,
+  PutRetentionConfigurationRequest,
+  PutRetentionConfigurationResponse,
+  QueryInfo,
+  RecordingGroup,
+  Relationship,
+  RemediationConfiguration,
+  RemediationException,
+  RemediationExceptionResourceKey,
+  RemediationExecutionStatus,
+  RemediationExecutionStep,
+  RemediationInProgressException,
+  RemediationParameterValue,
+  ResourceCount,
+  ResourceCountFilters,
+  ResourceFilters,
+  ResourceIdentifier,
+  ResourceInUseException,
+  ResourceKey,
+  ResourceNotDiscoveredException,
+  ResourceNotFoundException,
+  ResourceType,
+  ResourceValue,
+  RetentionConfiguration,
+  Scope,
+  SelectResourceConfigRequest,
+  SelectResourceConfigResponse,
+  Source,
+  SourceDetail,
+  SsmControls,
+  StartConfigRulesEvaluationRequest,
+  StartConfigRulesEvaluationResponse,
+  StartConfigurationRecorderRequest,
+  StartRemediationExecutionRequest,
+  StartRemediationExecutionResponse,
+  StaticValue,
+  StatusDetailFilters,
+  StopConfigurationRecorderRequest,
+  Tag,
+  TagResourceRequest,
+  TooManyTagsException,
+  UntagResourceRequest,
+  ValidationException
+} from "../models/index";
+import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse
+} from "@aws-sdk/protocol-http";
+import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext
+} from "@aws-sdk/types";
+
+export async function serializeAws_json1_1BatchGetAggregateResourceConfigCommand(
+  input: BatchGetAggregateResourceConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.BatchGetAggregateResourceConfig";
+  let body: any = {};
+  const wrappedBody: any = {
+    BatchGetAggregateResourceConfigRequest: serializeAws_json1_1BatchGetAggregateResourceConfigRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/BatchGetAggregateResourceConfig",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1BatchGetResourceConfigCommand(
+  input: BatchGetResourceConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.BatchGetResourceConfig";
+  let body: any = {};
+  const wrappedBody: any = {
+    BatchGetResourceConfigRequest: serializeAws_json1_1BatchGetResourceConfigRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/BatchGetResourceConfig",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DeleteAggregationAuthorizationCommand(
+  input: DeleteAggregationAuthorizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.DeleteAggregationAuthorization";
+  let body: any = {};
+  const wrappedBody: any = {
+    DeleteAggregationAuthorizationRequest: serializeAws_json1_1DeleteAggregationAuthorizationRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DeleteAggregationAuthorization",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DeleteConfigRuleCommand(
+  input: DeleteConfigRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.DeleteConfigRule";
+  let body: any = {};
+  const wrappedBody: any = {
+    DeleteConfigRuleRequest: serializeAws_json1_1DeleteConfigRuleRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DeleteConfigRule",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DeleteConfigurationAggregatorCommand(
+  input: DeleteConfigurationAggregatorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.DeleteConfigurationAggregator";
+  let body: any = {};
+  const wrappedBody: any = {
+    DeleteConfigurationAggregatorRequest: serializeAws_json1_1DeleteConfigurationAggregatorRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DeleteConfigurationAggregator",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DeleteConfigurationRecorderCommand(
+  input: DeleteConfigurationRecorderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.DeleteConfigurationRecorder";
+  let body: any = {};
+  const wrappedBody: any = {
+    DeleteConfigurationRecorderRequest: serializeAws_json1_1DeleteConfigurationRecorderRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DeleteConfigurationRecorder",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DeleteConformancePackCommand(
+  input: DeleteConformancePackCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.DeleteConformancePack";
+  let body: any = {};
+  const wrappedBody: any = {
+    DeleteConformancePackRequest: serializeAws_json1_1DeleteConformancePackRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DeleteConformancePack",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DeleteDeliveryChannelCommand(
+  input: DeleteDeliveryChannelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.DeleteDeliveryChannel";
+  let body: any = {};
+  const wrappedBody: any = {
+    DeleteDeliveryChannelRequest: serializeAws_json1_1DeleteDeliveryChannelRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DeleteDeliveryChannel",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DeleteEvaluationResultsCommand(
+  input: DeleteEvaluationResultsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.DeleteEvaluationResults";
+  let body: any = {};
+  const wrappedBody: any = {
+    DeleteEvaluationResultsRequest: serializeAws_json1_1DeleteEvaluationResultsRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DeleteEvaluationResults",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DeleteOrganizationConfigRuleCommand(
+  input: DeleteOrganizationConfigRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.DeleteOrganizationConfigRule";
+  let body: any = {};
+  const wrappedBody: any = {
+    DeleteOrganizationConfigRuleRequest: serializeAws_json1_1DeleteOrganizationConfigRuleRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DeleteOrganizationConfigRule",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DeleteOrganizationConformancePackCommand(
+  input: DeleteOrganizationConformancePackCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.DeleteOrganizationConformancePack";
+  let body: any = {};
+  const wrappedBody: any = {
+    DeleteOrganizationConformancePackRequest: serializeAws_json1_1DeleteOrganizationConformancePackRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DeleteOrganizationConformancePack",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DeletePendingAggregationRequestCommand(
+  input: DeletePendingAggregationRequestCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.DeletePendingAggregationRequest";
+  let body: any = {};
+  const wrappedBody: any = {
+    DeletePendingAggregationRequestRequest: serializeAws_json1_1DeletePendingAggregationRequestRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DeletePendingAggregationRequest",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DeleteRemediationConfigurationCommand(
+  input: DeleteRemediationConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.DeleteRemediationConfiguration";
+  let body: any = {};
+  const wrappedBody: any = {
+    DeleteRemediationConfigurationRequest: serializeAws_json1_1DeleteRemediationConfigurationRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DeleteRemediationConfiguration",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DeleteRemediationExceptionsCommand(
+  input: DeleteRemediationExceptionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.DeleteRemediationExceptions";
+  let body: any = {};
+  const wrappedBody: any = {
+    DeleteRemediationExceptionsRequest: serializeAws_json1_1DeleteRemediationExceptionsRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DeleteRemediationExceptions",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DeleteResourceConfigCommand(
+  input: DeleteResourceConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.DeleteResourceConfig";
+  let body: any = {};
+  const wrappedBody: any = {
+    DeleteResourceConfigRequest: serializeAws_json1_1DeleteResourceConfigRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DeleteResourceConfig",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DeleteRetentionConfigurationCommand(
+  input: DeleteRetentionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.DeleteRetentionConfiguration";
+  let body: any = {};
+  const wrappedBody: any = {
+    DeleteRetentionConfigurationRequest: serializeAws_json1_1DeleteRetentionConfigurationRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DeleteRetentionConfiguration",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DeliverConfigSnapshotCommand(
+  input: DeliverConfigSnapshotCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.DeliverConfigSnapshot";
+  let body: any = {};
+  const wrappedBody: any = {
+    DeliverConfigSnapshotRequest: serializeAws_json1_1DeliverConfigSnapshotRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DeliverConfigSnapshot",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommand(
+  input: DescribeAggregateComplianceByConfigRulesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.DescribeAggregateComplianceByConfigRules";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribeAggregateComplianceByConfigRulesRequest: serializeAws_json1_1DescribeAggregateComplianceByConfigRulesRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeAggregateComplianceByConfigRules",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribeAggregationAuthorizationsCommand(
+  input: DescribeAggregationAuthorizationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.DescribeAggregationAuthorizations";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribeAggregationAuthorizationsRequest: serializeAws_json1_1DescribeAggregationAuthorizationsRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeAggregationAuthorizations",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribeComplianceByConfigRuleCommand(
+  input: DescribeComplianceByConfigRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.DescribeComplianceByConfigRule";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribeComplianceByConfigRuleRequest: serializeAws_json1_1DescribeComplianceByConfigRuleRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeComplianceByConfigRule",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribeComplianceByResourceCommand(
+  input: DescribeComplianceByResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.DescribeComplianceByResource";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribeComplianceByResourceRequest: serializeAws_json1_1DescribeComplianceByResourceRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeComplianceByResource",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribeConfigRuleEvaluationStatusCommand(
+  input: DescribeConfigRuleEvaluationStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.DescribeConfigRuleEvaluationStatus";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribeConfigRuleEvaluationStatusRequest: serializeAws_json1_1DescribeConfigRuleEvaluationStatusRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeConfigRuleEvaluationStatus",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribeConfigRulesCommand(
+  input: DescribeConfigRulesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.DescribeConfigRules";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribeConfigRulesRequest: serializeAws_json1_1DescribeConfigRulesRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeConfigRules",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusCommand(
+  input: DescribeConfigurationAggregatorSourcesStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.DescribeConfigurationAggregatorSourcesStatus";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribeConfigurationAggregatorSourcesStatusRequest: serializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeConfigurationAggregatorSourcesStatus",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribeConfigurationAggregatorsCommand(
+  input: DescribeConfigurationAggregatorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.DescribeConfigurationAggregators";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribeConfigurationAggregatorsRequest: serializeAws_json1_1DescribeConfigurationAggregatorsRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeConfigurationAggregators",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribeConfigurationRecorderStatusCommand(
+  input: DescribeConfigurationRecorderStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.DescribeConfigurationRecorderStatus";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribeConfigurationRecorderStatusRequest: serializeAws_json1_1DescribeConfigurationRecorderStatusRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeConfigurationRecorderStatus",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribeConfigurationRecordersCommand(
+  input: DescribeConfigurationRecordersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.DescribeConfigurationRecorders";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribeConfigurationRecordersRequest: serializeAws_json1_1DescribeConfigurationRecordersRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeConfigurationRecorders",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribeConformancePackComplianceCommand(
+  input: DescribeConformancePackComplianceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.DescribeConformancePackCompliance";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribeConformancePackComplianceRequest: serializeAws_json1_1DescribeConformancePackComplianceRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeConformancePackCompliance",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribeConformancePackStatusCommand(
+  input: DescribeConformancePackStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.DescribeConformancePackStatus";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribeConformancePackStatusRequest: serializeAws_json1_1DescribeConformancePackStatusRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeConformancePackStatus",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribeConformancePacksCommand(
+  input: DescribeConformancePacksCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.DescribeConformancePacks";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribeConformancePacksRequest: serializeAws_json1_1DescribeConformancePacksRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeConformancePacks",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribeDeliveryChannelStatusCommand(
+  input: DescribeDeliveryChannelStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.DescribeDeliveryChannelStatus";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribeDeliveryChannelStatusRequest: serializeAws_json1_1DescribeDeliveryChannelStatusRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeDeliveryChannelStatus",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribeDeliveryChannelsCommand(
+  input: DescribeDeliveryChannelsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.DescribeDeliveryChannels";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribeDeliveryChannelsRequest: serializeAws_json1_1DescribeDeliveryChannelsRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeDeliveryChannels",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommand(
+  input: DescribeOrganizationConfigRuleStatusesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.DescribeOrganizationConfigRuleStatuses";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribeOrganizationConfigRuleStatusesRequest: serializeAws_json1_1DescribeOrganizationConfigRuleStatusesRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeOrganizationConfigRuleStatuses",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribeOrganizationConfigRulesCommand(
+  input: DescribeOrganizationConfigRulesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.DescribeOrganizationConfigRules";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribeOrganizationConfigRulesRequest: serializeAws_json1_1DescribeOrganizationConfigRulesRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeOrganizationConfigRules",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribeOrganizationConformancePackStatusesCommand(
+  input: DescribeOrganizationConformancePackStatusesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.DescribeOrganizationConformancePackStatuses";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribeOrganizationConformancePackStatusesRequest: serializeAws_json1_1DescribeOrganizationConformancePackStatusesRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeOrganizationConformancePackStatuses",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribeOrganizationConformancePacksCommand(
+  input: DescribeOrganizationConformancePacksCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.DescribeOrganizationConformancePacks";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribeOrganizationConformancePacksRequest: serializeAws_json1_1DescribeOrganizationConformancePacksRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeOrganizationConformancePacks",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribePendingAggregationRequestsCommand(
+  input: DescribePendingAggregationRequestsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.DescribePendingAggregationRequests";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribePendingAggregationRequestsRequest: serializeAws_json1_1DescribePendingAggregationRequestsRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribePendingAggregationRequests",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribeRemediationConfigurationsCommand(
+  input: DescribeRemediationConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.DescribeRemediationConfigurations";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribeRemediationConfigurationsRequest: serializeAws_json1_1DescribeRemediationConfigurationsRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeRemediationConfigurations",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribeRemediationExceptionsCommand(
+  input: DescribeRemediationExceptionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.DescribeRemediationExceptions";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribeRemediationExceptionsRequest: serializeAws_json1_1DescribeRemediationExceptionsRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeRemediationExceptions",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribeRemediationExecutionStatusCommand(
+  input: DescribeRemediationExecutionStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.DescribeRemediationExecutionStatus";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribeRemediationExecutionStatusRequest: serializeAws_json1_1DescribeRemediationExecutionStatusRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeRemediationExecutionStatus",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1DescribeRetentionConfigurationsCommand(
+  input: DescribeRetentionConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.DescribeRetentionConfigurations";
+  let body: any = {};
+  const wrappedBody: any = {
+    DescribeRetentionConfigurationsRequest: serializeAws_json1_1DescribeRetentionConfigurationsRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/DescribeRetentionConfigurations",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommand(
+  input: GetAggregateComplianceDetailsByConfigRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.GetAggregateComplianceDetailsByConfigRule";
+  let body: any = {};
+  const wrappedBody: any = {
+    GetAggregateComplianceDetailsByConfigRuleRequest: serializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/GetAggregateComplianceDetailsByConfigRule",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommand(
+  input: GetAggregateConfigRuleComplianceSummaryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.GetAggregateConfigRuleComplianceSummary";
+  let body: any = {};
+  const wrappedBody: any = {
+    GetAggregateConfigRuleComplianceSummaryRequest: serializeAws_json1_1GetAggregateConfigRuleComplianceSummaryRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/GetAggregateConfigRuleComplianceSummary",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1GetAggregateDiscoveredResourceCountsCommand(
+  input: GetAggregateDiscoveredResourceCountsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.GetAggregateDiscoveredResourceCounts";
+  let body: any = {};
+  const wrappedBody: any = {
+    GetAggregateDiscoveredResourceCountsRequest: serializeAws_json1_1GetAggregateDiscoveredResourceCountsRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/GetAggregateDiscoveredResourceCounts",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1GetAggregateResourceConfigCommand(
+  input: GetAggregateResourceConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.GetAggregateResourceConfig";
+  let body: any = {};
+  const wrappedBody: any = {
+    GetAggregateResourceConfigRequest: serializeAws_json1_1GetAggregateResourceConfigRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/GetAggregateResourceConfig",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1GetComplianceDetailsByConfigRuleCommand(
+  input: GetComplianceDetailsByConfigRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.GetComplianceDetailsByConfigRule";
+  let body: any = {};
+  const wrappedBody: any = {
+    GetComplianceDetailsByConfigRuleRequest: serializeAws_json1_1GetComplianceDetailsByConfigRuleRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/GetComplianceDetailsByConfigRule",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1GetComplianceDetailsByResourceCommand(
+  input: GetComplianceDetailsByResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.GetComplianceDetailsByResource";
+  let body: any = {};
+  const wrappedBody: any = {
+    GetComplianceDetailsByResourceRequest: serializeAws_json1_1GetComplianceDetailsByResourceRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/GetComplianceDetailsByResource",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1GetComplianceSummaryByConfigRuleCommand(
+  input: GetComplianceSummaryByConfigRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.GetComplianceSummaryByConfigRule";
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/GetComplianceSummaryByConfigRule",
+    headers: headers
+  });
+}
+
+export async function serializeAws_json1_1GetComplianceSummaryByResourceTypeCommand(
+  input: GetComplianceSummaryByResourceTypeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.GetComplianceSummaryByResourceType";
+  let body: any = {};
+  const wrappedBody: any = {
+    GetComplianceSummaryByResourceTypeRequest: serializeAws_json1_1GetComplianceSummaryByResourceTypeRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/GetComplianceSummaryByResourceType",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1GetConformancePackComplianceDetailsCommand(
+  input: GetConformancePackComplianceDetailsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.GetConformancePackComplianceDetails";
+  let body: any = {};
+  const wrappedBody: any = {
+    GetConformancePackComplianceDetailsRequest: serializeAws_json1_1GetConformancePackComplianceDetailsRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/GetConformancePackComplianceDetails",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1GetConformancePackComplianceSummaryCommand(
+  input: GetConformancePackComplianceSummaryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.GetConformancePackComplianceSummary";
+  let body: any = {};
+  const wrappedBody: any = {
+    GetConformancePackComplianceSummaryRequest: serializeAws_json1_1GetConformancePackComplianceSummaryRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/GetConformancePackComplianceSummary",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1GetDiscoveredResourceCountsCommand(
+  input: GetDiscoveredResourceCountsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.GetDiscoveredResourceCounts";
+  let body: any = {};
+  const wrappedBody: any = {
+    GetDiscoveredResourceCountsRequest: serializeAws_json1_1GetDiscoveredResourceCountsRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/GetDiscoveredResourceCounts",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommand(
+  input: GetOrganizationConfigRuleDetailedStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.GetOrganizationConfigRuleDetailedStatus";
+  let body: any = {};
+  const wrappedBody: any = {
+    GetOrganizationConfigRuleDetailedStatusRequest: serializeAws_json1_1GetOrganizationConfigRuleDetailedStatusRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/GetOrganizationConfigRuleDetailedStatus",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommand(
+  input: GetOrganizationConformancePackDetailedStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.GetOrganizationConformancePackDetailedStatus";
+  let body: any = {};
+  const wrappedBody: any = {
+    GetOrganizationConformancePackDetailedStatusRequest: serializeAws_json1_1GetOrganizationConformancePackDetailedStatusRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/GetOrganizationConformancePackDetailedStatus",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1GetResourceConfigHistoryCommand(
+  input: GetResourceConfigHistoryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.GetResourceConfigHistory";
+  let body: any = {};
+  const wrappedBody: any = {
+    GetResourceConfigHistoryRequest: serializeAws_json1_1GetResourceConfigHistoryRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/GetResourceConfigHistory",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1ListAggregateDiscoveredResourcesCommand(
+  input: ListAggregateDiscoveredResourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.ListAggregateDiscoveredResources";
+  let body: any = {};
+  const wrappedBody: any = {
+    ListAggregateDiscoveredResourcesRequest: serializeAws_json1_1ListAggregateDiscoveredResourcesRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/ListAggregateDiscoveredResources",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1ListDiscoveredResourcesCommand(
+  input: ListDiscoveredResourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.ListDiscoveredResources";
+  let body: any = {};
+  const wrappedBody: any = {
+    ListDiscoveredResourcesRequest: serializeAws_json1_1ListDiscoveredResourcesRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/ListDiscoveredResources",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1ListTagsForResourceCommand(
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.ListTagsForResource";
+  let body: any = {};
+  const wrappedBody: any = {
+    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/ListTagsForResource",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1PutAggregationAuthorizationCommand(
+  input: PutAggregationAuthorizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.PutAggregationAuthorization";
+  let body: any = {};
+  const wrappedBody: any = {
+    PutAggregationAuthorizationRequest: serializeAws_json1_1PutAggregationAuthorizationRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/PutAggregationAuthorization",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1PutConfigRuleCommand(
+  input: PutConfigRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.PutConfigRule";
+  let body: any = {};
+  const wrappedBody: any = {
+    PutConfigRuleRequest: serializeAws_json1_1PutConfigRuleRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/PutConfigRule",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1PutConfigurationAggregatorCommand(
+  input: PutConfigurationAggregatorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.PutConfigurationAggregator";
+  let body: any = {};
+  const wrappedBody: any = {
+    PutConfigurationAggregatorRequest: serializeAws_json1_1PutConfigurationAggregatorRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/PutConfigurationAggregator",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1PutConfigurationRecorderCommand(
+  input: PutConfigurationRecorderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.PutConfigurationRecorder";
+  let body: any = {};
+  const wrappedBody: any = {
+    PutConfigurationRecorderRequest: serializeAws_json1_1PutConfigurationRecorderRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/PutConfigurationRecorder",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1PutConformancePackCommand(
+  input: PutConformancePackCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.PutConformancePack";
+  let body: any = {};
+  const wrappedBody: any = {
+    PutConformancePackRequest: serializeAws_json1_1PutConformancePackRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/PutConformancePack",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1PutDeliveryChannelCommand(
+  input: PutDeliveryChannelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.PutDeliveryChannel";
+  let body: any = {};
+  const wrappedBody: any = {
+    PutDeliveryChannelRequest: serializeAws_json1_1PutDeliveryChannelRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/PutDeliveryChannel",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1PutEvaluationsCommand(
+  input: PutEvaluationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.PutEvaluations";
+  let body: any = {};
+  const wrappedBody: any = {
+    PutEvaluationsRequest: serializeAws_json1_1PutEvaluationsRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/PutEvaluations",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1PutOrganizationConfigRuleCommand(
+  input: PutOrganizationConfigRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.PutOrganizationConfigRule";
+  let body: any = {};
+  const wrappedBody: any = {
+    PutOrganizationConfigRuleRequest: serializeAws_json1_1PutOrganizationConfigRuleRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/PutOrganizationConfigRule",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1PutOrganizationConformancePackCommand(
+  input: PutOrganizationConformancePackCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "StarlingDoveService.PutOrganizationConformancePack";
+  let body: any = {};
+  const wrappedBody: any = {
+    PutOrganizationConformancePackRequest: serializeAws_json1_1PutOrganizationConformancePackRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/PutOrganizationConformancePack",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1PutRemediationConfigurationsCommand(
+  input: PutRemediationConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.PutRemediationConfigurations";
+  let body: any = {};
+  const wrappedBody: any = {
+    PutRemediationConfigurationsRequest: serializeAws_json1_1PutRemediationConfigurationsRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/PutRemediationConfigurations",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1PutRemediationExceptionsCommand(
+  input: PutRemediationExceptionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.PutRemediationExceptions";
+  let body: any = {};
+  const wrappedBody: any = {
+    PutRemediationExceptionsRequest: serializeAws_json1_1PutRemediationExceptionsRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/PutRemediationExceptions",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1PutResourceConfigCommand(
+  input: PutResourceConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.PutResourceConfig";
+  let body: any = {};
+  const wrappedBody: any = {
+    PutResourceConfigRequest: serializeAws_json1_1PutResourceConfigRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/PutResourceConfig",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1PutRetentionConfigurationCommand(
+  input: PutRetentionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.PutRetentionConfiguration";
+  let body: any = {};
+  const wrappedBody: any = {
+    PutRetentionConfigurationRequest: serializeAws_json1_1PutRetentionConfigurationRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/PutRetentionConfiguration",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1SelectResourceConfigCommand(
+  input: SelectResourceConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.SelectResourceConfig";
+  let body: any = {};
+  const wrappedBody: any = {
+    SelectResourceConfigRequest: serializeAws_json1_1SelectResourceConfigRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/SelectResourceConfig",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1StartConfigRulesEvaluationCommand(
+  input: StartConfigRulesEvaluationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.StartConfigRulesEvaluation";
+  let body: any = {};
+  const wrappedBody: any = {
+    StartConfigRulesEvaluationRequest: serializeAws_json1_1StartConfigRulesEvaluationRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/StartConfigRulesEvaluation",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1StartConfigurationRecorderCommand(
+  input: StartConfigurationRecorderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.StartConfigurationRecorder";
+  let body: any = {};
+  const wrappedBody: any = {
+    StartConfigurationRecorderRequest: serializeAws_json1_1StartConfigurationRecorderRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/StartConfigurationRecorder",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1StartRemediationExecutionCommand(
+  input: StartRemediationExecutionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.StartRemediationExecution";
+  let body: any = {};
+  const wrappedBody: any = {
+    StartRemediationExecutionRequest: serializeAws_json1_1StartRemediationExecutionRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/StartRemediationExecution",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1StopConfigurationRecorderCommand(
+  input: StopConfigurationRecorderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.StopConfigurationRecorder";
+  let body: any = {};
+  const wrappedBody: any = {
+    StopConfigurationRecorderRequest: serializeAws_json1_1StopConfigurationRecorderRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/StopConfigurationRecorder",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1TagResourceCommand(
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.TagResource";
+  let body: any = {};
+  const wrappedBody: any = {
+    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/TagResource",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function serializeAws_json1_1UntagResourceCommand(
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> {
+  const headers: any = {};
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "StarlingDoveService.UntagResource";
+  let body: any = {};
+  const wrappedBody: any = {
+    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
+      input,
+      context
+    )
+  };
+  body = JSON.stringify(wrappedBody);
+  return new __HttpRequest({
+    ...context.endpoint,
+    protocol: "https",
+    method: "POST",
+    path: "/UntagResource",
+    headers: headers,
+    body: body
+  });
+}
+
+export async function deserializeAws_json1_1BatchGetAggregateResourceConfigCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetAggregateResourceConfigCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1BatchGetAggregateResourceConfigCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1BatchGetAggregateResourceConfigResponse(
+    data.BatchGetAggregateResourceConfigResponse,
+    context
+  );
+  const response: BatchGetAggregateResourceConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "BatchGetAggregateResourceConfigResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1BatchGetAggregateResourceConfigCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetAggregateResourceConfigCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "NoSuchConfigurationAggregatorException":
+    case "com.amazonaws.starling.dove#NoSuchConfigurationAggregatorException":
+      response = await deserializeAws_json1_1NoSuchConfigurationAggregatorExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ValidationException":
+    case "com.amazonaws.starling.dove#ValidationException":
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1BatchGetResourceConfigCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetResourceConfigCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1BatchGetResourceConfigCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1BatchGetResourceConfigResponse(
+    data.BatchGetResourceConfigResponse,
+    context
+  );
+  const response: BatchGetResourceConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "BatchGetResourceConfigResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1BatchGetResourceConfigCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetResourceConfigCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "NoAvailableConfigurationRecorderException":
+    case "com.amazonaws.starling.dove#NoAvailableConfigurationRecorderException":
+      response = await deserializeAws_json1_1NoAvailableConfigurationRecorderExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ValidationException":
+    case "com.amazonaws.starling.dove#ValidationException":
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DeleteAggregationAuthorizationCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAggregationAuthorizationCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteAggregationAuthorizationCommandError(
+      output,
+      context
+    );
+  }
+  const response: DeleteAggregationAuthorizationCommandOutput = {
+    $metadata: deserializeMetadata(output)
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DeleteAggregationAuthorizationCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAggregationAuthorizationCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DeleteConfigRuleCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConfigRuleCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteConfigRuleCommandError(output, context);
+  }
+  const response: DeleteConfigRuleCommandOutput = {
+    $metadata: deserializeMetadata(output)
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DeleteConfigRuleCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConfigRuleCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "NoSuchConfigRuleException":
+    case "com.amazonaws.starling.dove#NoSuchConfigRuleException":
+      response = await deserializeAws_json1_1NoSuchConfigRuleExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.starling.dove#ResourceInUseException":
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DeleteConfigurationAggregatorCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConfigurationAggregatorCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteConfigurationAggregatorCommandError(
+      output,
+      context
+    );
+  }
+  const response: DeleteConfigurationAggregatorCommandOutput = {
+    $metadata: deserializeMetadata(output)
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DeleteConfigurationAggregatorCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConfigurationAggregatorCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "NoSuchConfigurationAggregatorException":
+    case "com.amazonaws.starling.dove#NoSuchConfigurationAggregatorException":
+      response = await deserializeAws_json1_1NoSuchConfigurationAggregatorExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DeleteConfigurationRecorderCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConfigurationRecorderCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteConfigurationRecorderCommandError(
+      output,
+      context
+    );
+  }
+  const response: DeleteConfigurationRecorderCommandOutput = {
+    $metadata: deserializeMetadata(output)
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DeleteConfigurationRecorderCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConfigurationRecorderCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "NoSuchConfigurationRecorderException":
+    case "com.amazonaws.starling.dove#NoSuchConfigurationRecorderException":
+      response = await deserializeAws_json1_1NoSuchConfigurationRecorderExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DeleteConformancePackCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConformancePackCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteConformancePackCommandError(
+      output,
+      context
+    );
+  }
+  const response: DeleteConformancePackCommandOutput = {
+    $metadata: deserializeMetadata(output)
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DeleteConformancePackCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConformancePackCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "NoSuchConformancePackException":
+    case "com.amazonaws.starling.dove#NoSuchConformancePackException":
+      response = await deserializeAws_json1_1NoSuchConformancePackExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.starling.dove#ResourceInUseException":
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DeleteDeliveryChannelCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDeliveryChannelCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteDeliveryChannelCommandError(
+      output,
+      context
+    );
+  }
+  const response: DeleteDeliveryChannelCommandOutput = {
+    $metadata: deserializeMetadata(output)
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DeleteDeliveryChannelCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDeliveryChannelCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "LastDeliveryChannelDeleteFailedException":
+    case "com.amazonaws.starling.dove#LastDeliveryChannelDeleteFailedException":
+      response = await deserializeAws_json1_1LastDeliveryChannelDeleteFailedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchDeliveryChannelException":
+    case "com.amazonaws.starling.dove#NoSuchDeliveryChannelException":
+      response = await deserializeAws_json1_1NoSuchDeliveryChannelExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DeleteEvaluationResultsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEvaluationResultsCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteEvaluationResultsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteEvaluationResultsResponse(
+    data.DeleteEvaluationResultsResponse,
+    context
+  );
+  const response: DeleteEvaluationResultsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeleteEvaluationResultsResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DeleteEvaluationResultsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEvaluationResultsCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "NoSuchConfigRuleException":
+    case "com.amazonaws.starling.dove#NoSuchConfigRuleException":
+      response = await deserializeAws_json1_1NoSuchConfigRuleExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.starling.dove#ResourceInUseException":
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DeleteOrganizationConfigRuleCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteOrganizationConfigRuleCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteOrganizationConfigRuleCommandError(
+      output,
+      context
+    );
+  }
+  const response: DeleteOrganizationConfigRuleCommandOutput = {
+    $metadata: deserializeMetadata(output)
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DeleteOrganizationConfigRuleCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteOrganizationConfigRuleCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "NoSuchOrganizationConfigRuleException":
+    case "com.amazonaws.starling.dove#NoSuchOrganizationConfigRuleException":
+      response = await deserializeAws_json1_1NoSuchOrganizationConfigRuleExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "OrganizationAccessDeniedException":
+    case "com.amazonaws.starling.dove#OrganizationAccessDeniedException":
+      response = await deserializeAws_json1_1OrganizationAccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.starling.dove#ResourceInUseException":
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DeleteOrganizationConformancePackCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteOrganizationConformancePackCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteOrganizationConformancePackCommandError(
+      output,
+      context
+    );
+  }
+  const response: DeleteOrganizationConformancePackCommandOutput = {
+    $metadata: deserializeMetadata(output)
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DeleteOrganizationConformancePackCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteOrganizationConformancePackCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "NoSuchOrganizationConformancePackException":
+    case "com.amazonaws.starling.dove#NoSuchOrganizationConformancePackException":
+      response = await deserializeAws_json1_1NoSuchOrganizationConformancePackExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "OrganizationAccessDeniedException":
+    case "com.amazonaws.starling.dove#OrganizationAccessDeniedException":
+      response = await deserializeAws_json1_1OrganizationAccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.starling.dove#ResourceInUseException":
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DeletePendingAggregationRequestCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePendingAggregationRequestCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeletePendingAggregationRequestCommandError(
+      output,
+      context
+    );
+  }
+  const response: DeletePendingAggregationRequestCommandOutput = {
+    $metadata: deserializeMetadata(output)
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DeletePendingAggregationRequestCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePendingAggregationRequestCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DeleteRemediationConfigurationCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRemediationConfigurationCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteRemediationConfigurationCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteRemediationConfigurationResponse(
+    data.DeleteRemediationConfigurationResponse,
+    context
+  );
+  const response: DeleteRemediationConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeleteRemediationConfigurationResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DeleteRemediationConfigurationCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRemediationConfigurationCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "NoSuchRemediationConfigurationException":
+    case "com.amazonaws.starling.dove#NoSuchRemediationConfigurationException":
+      response = await deserializeAws_json1_1NoSuchRemediationConfigurationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "RemediationInProgressException":
+    case "com.amazonaws.starling.dove#RemediationInProgressException":
+      response = await deserializeAws_json1_1RemediationInProgressExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DeleteRemediationExceptionsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRemediationExceptionsCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteRemediationExceptionsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteRemediationExceptionsResponse(
+    data.DeleteRemediationExceptionsResponse,
+    context
+  );
+  const response: DeleteRemediationExceptionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeleteRemediationExceptionsResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DeleteRemediationExceptionsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRemediationExceptionsCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "NoSuchRemediationExceptionException":
+    case "com.amazonaws.starling.dove#NoSuchRemediationExceptionException":
+      response = await deserializeAws_json1_1NoSuchRemediationExceptionExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DeleteResourceConfigCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourceConfigCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteResourceConfigCommandError(
+      output,
+      context
+    );
+  }
+  const response: DeleteResourceConfigCommandOutput = {
+    $metadata: deserializeMetadata(output)
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DeleteResourceConfigCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourceConfigCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "NoRunningConfigurationRecorderException":
+    case "com.amazonaws.starling.dove#NoRunningConfigurationRecorderException":
+      response = await deserializeAws_json1_1NoRunningConfigurationRecorderExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ValidationException":
+    case "com.amazonaws.starling.dove#ValidationException":
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DeleteRetentionConfigurationCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRetentionConfigurationCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeleteRetentionConfigurationCommandError(
+      output,
+      context
+    );
+  }
+  const response: DeleteRetentionConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output)
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DeleteRetentionConfigurationCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRetentionConfigurationCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchRetentionConfigurationException":
+    case "com.amazonaws.starling.dove#NoSuchRetentionConfigurationException":
+      response = await deserializeAws_json1_1NoSuchRetentionConfigurationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DeliverConfigSnapshotCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeliverConfigSnapshotCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DeliverConfigSnapshotCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeliverConfigSnapshotResponse(
+    data.DeliverConfigSnapshotResponse,
+    context
+  );
+  const response: DeliverConfigSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DeliverConfigSnapshotResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DeliverConfigSnapshotCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeliverConfigSnapshotCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "NoAvailableConfigurationRecorderException":
+    case "com.amazonaws.starling.dove#NoAvailableConfigurationRecorderException":
+      response = await deserializeAws_json1_1NoAvailableConfigurationRecorderExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoRunningConfigurationRecorderException":
+    case "com.amazonaws.starling.dove#NoRunningConfigurationRecorderException":
+      response = await deserializeAws_json1_1NoRunningConfigurationRecorderExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchDeliveryChannelException":
+    case "com.amazonaws.starling.dove#NoSuchDeliveryChannelException":
+      response = await deserializeAws_json1_1NoSuchDeliveryChannelExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAggregateComplianceByConfigRulesCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesResponse(
+    data.DescribeAggregateComplianceByConfigRulesResponse,
+    context
+  );
+  const response: DescribeAggregateComplianceByConfigRulesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeAggregateComplianceByConfigRulesResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAggregateComplianceByConfigRulesCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidLimitException":
+    case "com.amazonaws.starling.dove#InvalidLimitException":
+      response = await deserializeAws_json1_1InvalidLimitExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchConfigurationAggregatorException":
+    case "com.amazonaws.starling.dove#NoSuchConfigurationAggregatorException":
+      response = await deserializeAws_json1_1NoSuchConfigurationAggregatorExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ValidationException":
+    case "com.amazonaws.starling.dove#ValidationException":
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribeAggregationAuthorizationsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAggregationAuthorizationsCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeAggregationAuthorizationsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeAggregationAuthorizationsResponse(
+    data.DescribeAggregationAuthorizationsResponse,
+    context
+  );
+  const response: DescribeAggregationAuthorizationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeAggregationAuthorizationsResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeAggregationAuthorizationsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAggregationAuthorizationsCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidLimitException":
+    case "com.amazonaws.starling.dove#InvalidLimitException":
+      response = await deserializeAws_json1_1InvalidLimitExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribeComplianceByConfigRuleCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeComplianceByConfigRuleCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeComplianceByConfigRuleCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeComplianceByConfigRuleResponse(
+    data.DescribeComplianceByConfigRuleResponse,
+    context
+  );
+  const response: DescribeComplianceByConfigRuleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeComplianceByConfigRuleResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeComplianceByConfigRuleCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeComplianceByConfigRuleCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchConfigRuleException":
+    case "com.amazonaws.starling.dove#NoSuchConfigRuleException":
+      response = await deserializeAws_json1_1NoSuchConfigRuleExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribeComplianceByResourceCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeComplianceByResourceCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeComplianceByResourceCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeComplianceByResourceResponse(
+    data.DescribeComplianceByResourceResponse,
+    context
+  );
+  const response: DescribeComplianceByResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeComplianceByResourceResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeComplianceByResourceCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeComplianceByResourceCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribeConfigRuleEvaluationStatusCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConfigRuleEvaluationStatusCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeConfigRuleEvaluationStatusCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeConfigRuleEvaluationStatusResponse(
+    data.DescribeConfigRuleEvaluationStatusResponse,
+    context
+  );
+  const response: DescribeConfigRuleEvaluationStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeConfigRuleEvaluationStatusResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeConfigRuleEvaluationStatusCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConfigRuleEvaluationStatusCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchConfigRuleException":
+    case "com.amazonaws.starling.dove#NoSuchConfigRuleException":
+      response = await deserializeAws_json1_1NoSuchConfigRuleExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribeConfigRulesCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConfigRulesCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeConfigRulesCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeConfigRulesResponse(
+    data.DescribeConfigRulesResponse,
+    context
+  );
+  const response: DescribeConfigRulesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeConfigRulesResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeConfigRulesCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConfigRulesCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchConfigRuleException":
+    case "com.amazonaws.starling.dove#NoSuchConfigRuleException":
+      response = await deserializeAws_json1_1NoSuchConfigRuleExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConfigurationAggregatorSourcesStatusCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusResponse(
+    data.DescribeConfigurationAggregatorSourcesStatusResponse,
+    context
+  );
+  const response: DescribeConfigurationAggregatorSourcesStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeConfigurationAggregatorSourcesStatusResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConfigurationAggregatorSourcesStatusCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidLimitException":
+    case "com.amazonaws.starling.dove#InvalidLimitException":
+      response = await deserializeAws_json1_1InvalidLimitExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchConfigurationAggregatorException":
+    case "com.amazonaws.starling.dove#NoSuchConfigurationAggregatorException":
+      response = await deserializeAws_json1_1NoSuchConfigurationAggregatorExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribeConfigurationAggregatorsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConfigurationAggregatorsCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeConfigurationAggregatorsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeConfigurationAggregatorsResponse(
+    data.DescribeConfigurationAggregatorsResponse,
+    context
+  );
+  const response: DescribeConfigurationAggregatorsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeConfigurationAggregatorsResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeConfigurationAggregatorsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConfigurationAggregatorsCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidLimitException":
+    case "com.amazonaws.starling.dove#InvalidLimitException":
+      response = await deserializeAws_json1_1InvalidLimitExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchConfigurationAggregatorException":
+    case "com.amazonaws.starling.dove#NoSuchConfigurationAggregatorException":
+      response = await deserializeAws_json1_1NoSuchConfigurationAggregatorExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribeConfigurationRecorderStatusCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConfigurationRecorderStatusCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeConfigurationRecorderStatusCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeConfigurationRecorderStatusResponse(
+    data.DescribeConfigurationRecorderStatusResponse,
+    context
+  );
+  const response: DescribeConfigurationRecorderStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeConfigurationRecorderStatusResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeConfigurationRecorderStatusCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConfigurationRecorderStatusCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "NoSuchConfigurationRecorderException":
+    case "com.amazonaws.starling.dove#NoSuchConfigurationRecorderException":
+      response = await deserializeAws_json1_1NoSuchConfigurationRecorderExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribeConfigurationRecordersCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConfigurationRecordersCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeConfigurationRecordersCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeConfigurationRecordersResponse(
+    data.DescribeConfigurationRecordersResponse,
+    context
+  );
+  const response: DescribeConfigurationRecordersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeConfigurationRecordersResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeConfigurationRecordersCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConfigurationRecordersCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "NoSuchConfigurationRecorderException":
+    case "com.amazonaws.starling.dove#NoSuchConfigurationRecorderException":
+      response = await deserializeAws_json1_1NoSuchConfigurationRecorderExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribeConformancePackComplianceCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConformancePackComplianceCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeConformancePackComplianceCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeConformancePackComplianceResponse(
+    data.DescribeConformancePackComplianceResponse,
+    context
+  );
+  const response: DescribeConformancePackComplianceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeConformancePackComplianceResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeConformancePackComplianceCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConformancePackComplianceCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidLimitException":
+    case "com.amazonaws.starling.dove#InvalidLimitException":
+      response = await deserializeAws_json1_1InvalidLimitExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchConfigRuleInConformancePackException":
+    case "com.amazonaws.starling.dove#NoSuchConfigRuleInConformancePackException":
+      response = await deserializeAws_json1_1NoSuchConfigRuleInConformancePackExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchConformancePackException":
+    case "com.amazonaws.starling.dove#NoSuchConformancePackException":
+      response = await deserializeAws_json1_1NoSuchConformancePackExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribeConformancePackStatusCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConformancePackStatusCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeConformancePackStatusCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeConformancePackStatusResponse(
+    data.DescribeConformancePackStatusResponse,
+    context
+  );
+  const response: DescribeConformancePackStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeConformancePackStatusResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeConformancePackStatusCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConformancePackStatusCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidLimitException":
+    case "com.amazonaws.starling.dove#InvalidLimitException":
+      response = await deserializeAws_json1_1InvalidLimitExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribeConformancePacksCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConformancePacksCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeConformancePacksCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeConformancePacksResponse(
+    data.DescribeConformancePacksResponse,
+    context
+  );
+  const response: DescribeConformancePacksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeConformancePacksResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeConformancePacksCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConformancePacksCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidLimitException":
+    case "com.amazonaws.starling.dove#InvalidLimitException":
+      response = await deserializeAws_json1_1InvalidLimitExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchConformancePackException":
+    case "com.amazonaws.starling.dove#NoSuchConformancePackException":
+      response = await deserializeAws_json1_1NoSuchConformancePackExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribeDeliveryChannelStatusCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDeliveryChannelStatusCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeDeliveryChannelStatusCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeDeliveryChannelStatusResponse(
+    data.DescribeDeliveryChannelStatusResponse,
+    context
+  );
+  const response: DescribeDeliveryChannelStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeDeliveryChannelStatusResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeDeliveryChannelStatusCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDeliveryChannelStatusCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "NoSuchDeliveryChannelException":
+    case "com.amazonaws.starling.dove#NoSuchDeliveryChannelException":
+      response = await deserializeAws_json1_1NoSuchDeliveryChannelExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribeDeliveryChannelsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDeliveryChannelsCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeDeliveryChannelsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeDeliveryChannelsResponse(
+    data.DescribeDeliveryChannelsResponse,
+    context
+  );
+  const response: DescribeDeliveryChannelsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeDeliveryChannelsResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeDeliveryChannelsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDeliveryChannelsCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "NoSuchDeliveryChannelException":
+    case "com.amazonaws.starling.dove#NoSuchDeliveryChannelException":
+      response = await deserializeAws_json1_1NoSuchDeliveryChannelExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOrganizationConfigRuleStatusesCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesResponse(
+    data.DescribeOrganizationConfigRuleStatusesResponse,
+    context
+  );
+  const response: DescribeOrganizationConfigRuleStatusesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeOrganizationConfigRuleStatusesResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOrganizationConfigRuleStatusesCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidLimitException":
+    case "com.amazonaws.starling.dove#InvalidLimitException":
+      response = await deserializeAws_json1_1InvalidLimitExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchOrganizationConfigRuleException":
+    case "com.amazonaws.starling.dove#NoSuchOrganizationConfigRuleException":
+      response = await deserializeAws_json1_1NoSuchOrganizationConfigRuleExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "OrganizationAccessDeniedException":
+    case "com.amazonaws.starling.dove#OrganizationAccessDeniedException":
+      response = await deserializeAws_json1_1OrganizationAccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribeOrganizationConfigRulesCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOrganizationConfigRulesCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeOrganizationConfigRulesCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeOrganizationConfigRulesResponse(
+    data.DescribeOrganizationConfigRulesResponse,
+    context
+  );
+  const response: DescribeOrganizationConfigRulesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeOrganizationConfigRulesResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeOrganizationConfigRulesCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOrganizationConfigRulesCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidLimitException":
+    case "com.amazonaws.starling.dove#InvalidLimitException":
+      response = await deserializeAws_json1_1InvalidLimitExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchOrganizationConfigRuleException":
+    case "com.amazonaws.starling.dove#NoSuchOrganizationConfigRuleException":
+      response = await deserializeAws_json1_1NoSuchOrganizationConfigRuleExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "OrganizationAccessDeniedException":
+    case "com.amazonaws.starling.dove#OrganizationAccessDeniedException":
+      response = await deserializeAws_json1_1OrganizationAccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribeOrganizationConformancePackStatusesCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOrganizationConformancePackStatusesCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeOrganizationConformancePackStatusesCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeOrganizationConformancePackStatusesResponse(
+    data.DescribeOrganizationConformancePackStatusesResponse,
+    context
+  );
+  const response: DescribeOrganizationConformancePackStatusesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeOrganizationConformancePackStatusesResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeOrganizationConformancePackStatusesCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOrganizationConformancePackStatusesCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidLimitException":
+    case "com.amazonaws.starling.dove#InvalidLimitException":
+      response = await deserializeAws_json1_1InvalidLimitExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchOrganizationConformancePackException":
+    case "com.amazonaws.starling.dove#NoSuchOrganizationConformancePackException":
+      response = await deserializeAws_json1_1NoSuchOrganizationConformancePackExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "OrganizationAccessDeniedException":
+    case "com.amazonaws.starling.dove#OrganizationAccessDeniedException":
+      response = await deserializeAws_json1_1OrganizationAccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribeOrganizationConformancePacksCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOrganizationConformancePacksCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeOrganizationConformancePacksCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeOrganizationConformancePacksResponse(
+    data.DescribeOrganizationConformancePacksResponse,
+    context
+  );
+  const response: DescribeOrganizationConformancePacksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeOrganizationConformancePacksResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeOrganizationConformancePacksCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOrganizationConformancePacksCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidLimitException":
+    case "com.amazonaws.starling.dove#InvalidLimitException":
+      response = await deserializeAws_json1_1InvalidLimitExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchOrganizationConformancePackException":
+    case "com.amazonaws.starling.dove#NoSuchOrganizationConformancePackException":
+      response = await deserializeAws_json1_1NoSuchOrganizationConformancePackExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "OrganizationAccessDeniedException":
+    case "com.amazonaws.starling.dove#OrganizationAccessDeniedException":
+      response = await deserializeAws_json1_1OrganizationAccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribePendingAggregationRequestsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePendingAggregationRequestsCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribePendingAggregationRequestsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribePendingAggregationRequestsResponse(
+    data.DescribePendingAggregationRequestsResponse,
+    context
+  );
+  const response: DescribePendingAggregationRequestsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribePendingAggregationRequestsResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribePendingAggregationRequestsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePendingAggregationRequestsCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidLimitException":
+    case "com.amazonaws.starling.dove#InvalidLimitException":
+      response = await deserializeAws_json1_1InvalidLimitExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribeRemediationConfigurationsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRemediationConfigurationsCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeRemediationConfigurationsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeRemediationConfigurationsResponse(
+    data.DescribeRemediationConfigurationsResponse,
+    context
+  );
+  const response: DescribeRemediationConfigurationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeRemediationConfigurationsResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeRemediationConfigurationsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRemediationConfigurationsCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribeRemediationExceptionsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRemediationExceptionsCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeRemediationExceptionsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeRemediationExceptionsResponse(
+    data.DescribeRemediationExceptionsResponse,
+    context
+  );
+  const response: DescribeRemediationExceptionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeRemediationExceptionsResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeRemediationExceptionsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRemediationExceptionsCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribeRemediationExecutionStatusCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRemediationExecutionStatusCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeRemediationExecutionStatusCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeRemediationExecutionStatusResponse(
+    data.DescribeRemediationExecutionStatusResponse,
+    context
+  );
+  const response: DescribeRemediationExecutionStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeRemediationExecutionStatusResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeRemediationExecutionStatusCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRemediationExecutionStatusCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchRemediationConfigurationException":
+    case "com.amazonaws.starling.dove#NoSuchRemediationConfigurationException":
+      response = await deserializeAws_json1_1NoSuchRemediationConfigurationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1DescribeRetentionConfigurationsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRetentionConfigurationsCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1DescribeRetentionConfigurationsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeRetentionConfigurationsResponse(
+    data.DescribeRetentionConfigurationsResponse,
+    context
+  );
+  const response: DescribeRetentionConfigurationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "DescribeRetentionConfigurationsResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1DescribeRetentionConfigurationsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRetentionConfigurationsCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchRetentionConfigurationException":
+    case "com.amazonaws.starling.dove#NoSuchRetentionConfigurationException":
+      response = await deserializeAws_json1_1NoSuchRetentionConfigurationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAggregateComplianceDetailsByConfigRuleCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleResponse(
+    data.GetAggregateComplianceDetailsByConfigRuleResponse,
+    context
+  );
+  const response: GetAggregateComplianceDetailsByConfigRuleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetAggregateComplianceDetailsByConfigRuleResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAggregateComplianceDetailsByConfigRuleCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidLimitException":
+    case "com.amazonaws.starling.dove#InvalidLimitException":
+      response = await deserializeAws_json1_1InvalidLimitExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchConfigurationAggregatorException":
+    case "com.amazonaws.starling.dove#NoSuchConfigurationAggregatorException":
+      response = await deserializeAws_json1_1NoSuchConfigurationAggregatorExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ValidationException":
+    case "com.amazonaws.starling.dove#ValidationException":
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAggregateConfigRuleComplianceSummaryCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryResponse(
+    data.GetAggregateConfigRuleComplianceSummaryResponse,
+    context
+  );
+  const response: GetAggregateConfigRuleComplianceSummaryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetAggregateConfigRuleComplianceSummaryResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAggregateConfigRuleComplianceSummaryCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidLimitException":
+    case "com.amazonaws.starling.dove#InvalidLimitException":
+      response = await deserializeAws_json1_1InvalidLimitExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchConfigurationAggregatorException":
+    case "com.amazonaws.starling.dove#NoSuchConfigurationAggregatorException":
+      response = await deserializeAws_json1_1NoSuchConfigurationAggregatorExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ValidationException":
+    case "com.amazonaws.starling.dove#ValidationException":
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1GetAggregateDiscoveredResourceCountsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAggregateDiscoveredResourceCountsCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetAggregateDiscoveredResourceCountsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetAggregateDiscoveredResourceCountsResponse(
+    data.GetAggregateDiscoveredResourceCountsResponse,
+    context
+  );
+  const response: GetAggregateDiscoveredResourceCountsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetAggregateDiscoveredResourceCountsResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1GetAggregateDiscoveredResourceCountsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAggregateDiscoveredResourceCountsCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidLimitException":
+    case "com.amazonaws.starling.dove#InvalidLimitException":
+      response = await deserializeAws_json1_1InvalidLimitExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchConfigurationAggregatorException":
+    case "com.amazonaws.starling.dove#NoSuchConfigurationAggregatorException":
+      response = await deserializeAws_json1_1NoSuchConfigurationAggregatorExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ValidationException":
+    case "com.amazonaws.starling.dove#ValidationException":
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1GetAggregateResourceConfigCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAggregateResourceConfigCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetAggregateResourceConfigCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetAggregateResourceConfigResponse(
+    data.GetAggregateResourceConfigResponse,
+    context
+  );
+  const response: GetAggregateResourceConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetAggregateResourceConfigResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1GetAggregateResourceConfigCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAggregateResourceConfigCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "NoSuchConfigurationAggregatorException":
+    case "com.amazonaws.starling.dove#NoSuchConfigurationAggregatorException":
+      response = await deserializeAws_json1_1NoSuchConfigurationAggregatorExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "OversizedConfigurationItemException":
+    case "com.amazonaws.starling.dove#OversizedConfigurationItemException":
+      response = await deserializeAws_json1_1OversizedConfigurationItemExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ResourceNotDiscoveredException":
+    case "com.amazonaws.starling.dove#ResourceNotDiscoveredException":
+      response = await deserializeAws_json1_1ResourceNotDiscoveredExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ValidationException":
+    case "com.amazonaws.starling.dove#ValidationException":
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1GetComplianceDetailsByConfigRuleCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetComplianceDetailsByConfigRuleCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetComplianceDetailsByConfigRuleCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetComplianceDetailsByConfigRuleResponse(
+    data.GetComplianceDetailsByConfigRuleResponse,
+    context
+  );
+  const response: GetComplianceDetailsByConfigRuleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetComplianceDetailsByConfigRuleResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1GetComplianceDetailsByConfigRuleCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetComplianceDetailsByConfigRuleCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchConfigRuleException":
+    case "com.amazonaws.starling.dove#NoSuchConfigRuleException":
+      response = await deserializeAws_json1_1NoSuchConfigRuleExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1GetComplianceDetailsByResourceCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetComplianceDetailsByResourceCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetComplianceDetailsByResourceCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetComplianceDetailsByResourceResponse(
+    data.GetComplianceDetailsByResourceResponse,
+    context
+  );
+  const response: GetComplianceDetailsByResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetComplianceDetailsByResourceResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1GetComplianceDetailsByResourceCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetComplianceDetailsByResourceCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1GetComplianceSummaryByConfigRuleCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetComplianceSummaryByConfigRuleCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetComplianceSummaryByConfigRuleCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetComplianceSummaryByConfigRuleResponse(
+    data.GetComplianceSummaryByConfigRuleResponse,
+    context
+  );
+  const response: GetComplianceSummaryByConfigRuleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetComplianceSummaryByConfigRuleResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1GetComplianceSummaryByConfigRuleCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetComplianceSummaryByConfigRuleCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1GetComplianceSummaryByResourceTypeCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetComplianceSummaryByResourceTypeCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetComplianceSummaryByResourceTypeCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetComplianceSummaryByResourceTypeResponse(
+    data.GetComplianceSummaryByResourceTypeResponse,
+    context
+  );
+  const response: GetComplianceSummaryByResourceTypeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetComplianceSummaryByResourceTypeResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1GetComplianceSummaryByResourceTypeCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetComplianceSummaryByResourceTypeCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1GetConformancePackComplianceDetailsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConformancePackComplianceDetailsCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetConformancePackComplianceDetailsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetConformancePackComplianceDetailsResponse(
+    data.GetConformancePackComplianceDetailsResponse,
+    context
+  );
+  const response: GetConformancePackComplianceDetailsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetConformancePackComplianceDetailsResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1GetConformancePackComplianceDetailsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConformancePackComplianceDetailsCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidLimitException":
+    case "com.amazonaws.starling.dove#InvalidLimitException":
+      response = await deserializeAws_json1_1InvalidLimitExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchConfigRuleInConformancePackException":
+    case "com.amazonaws.starling.dove#NoSuchConfigRuleInConformancePackException":
+      response = await deserializeAws_json1_1NoSuchConfigRuleInConformancePackExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchConformancePackException":
+    case "com.amazonaws.starling.dove#NoSuchConformancePackException":
+      response = await deserializeAws_json1_1NoSuchConformancePackExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1GetConformancePackComplianceSummaryCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConformancePackComplianceSummaryCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetConformancePackComplianceSummaryCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetConformancePackComplianceSummaryResponse(
+    data.GetConformancePackComplianceSummaryResponse,
+    context
+  );
+  const response: GetConformancePackComplianceSummaryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetConformancePackComplianceSummaryResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1GetConformancePackComplianceSummaryCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConformancePackComplianceSummaryCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidLimitException":
+    case "com.amazonaws.starling.dove#InvalidLimitException":
+      response = await deserializeAws_json1_1InvalidLimitExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchConformancePackException":
+    case "com.amazonaws.starling.dove#NoSuchConformancePackException":
+      response = await deserializeAws_json1_1NoSuchConformancePackExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1GetDiscoveredResourceCountsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDiscoveredResourceCountsCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetDiscoveredResourceCountsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetDiscoveredResourceCountsResponse(
+    data.GetDiscoveredResourceCountsResponse,
+    context
+  );
+  const response: GetDiscoveredResourceCountsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetDiscoveredResourceCountsResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1GetDiscoveredResourceCountsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDiscoveredResourceCountsCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidLimitException":
+    case "com.amazonaws.starling.dove#InvalidLimitException":
+      response = await deserializeAws_json1_1InvalidLimitExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ValidationException":
+    case "com.amazonaws.starling.dove#ValidationException":
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetOrganizationConfigRuleDetailedStatusCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusResponse(
+    data.GetOrganizationConfigRuleDetailedStatusResponse,
+    context
+  );
+  const response: GetOrganizationConfigRuleDetailedStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetOrganizationConfigRuleDetailedStatusResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetOrganizationConfigRuleDetailedStatusCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidLimitException":
+    case "com.amazonaws.starling.dove#InvalidLimitException":
+      response = await deserializeAws_json1_1InvalidLimitExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchOrganizationConfigRuleException":
+    case "com.amazonaws.starling.dove#NoSuchOrganizationConfigRuleException":
+      response = await deserializeAws_json1_1NoSuchOrganizationConfigRuleExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "OrganizationAccessDeniedException":
+    case "com.amazonaws.starling.dove#OrganizationAccessDeniedException":
+      response = await deserializeAws_json1_1OrganizationAccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetOrganizationConformancePackDetailedStatusCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusResponse(
+    data.GetOrganizationConformancePackDetailedStatusResponse,
+    context
+  );
+  const response: GetOrganizationConformancePackDetailedStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetOrganizationConformancePackDetailedStatusResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetOrganizationConformancePackDetailedStatusCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidLimitException":
+    case "com.amazonaws.starling.dove#InvalidLimitException":
+      response = await deserializeAws_json1_1InvalidLimitExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchOrganizationConformancePackException":
+    case "com.amazonaws.starling.dove#NoSuchOrganizationConformancePackException":
+      response = await deserializeAws_json1_1NoSuchOrganizationConformancePackExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "OrganizationAccessDeniedException":
+    case "com.amazonaws.starling.dove#OrganizationAccessDeniedException":
+      response = await deserializeAws_json1_1OrganizationAccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1GetResourceConfigHistoryCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourceConfigHistoryCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1GetResourceConfigHistoryCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetResourceConfigHistoryResponse(
+    data.GetResourceConfigHistoryResponse,
+    context
+  );
+  const response: GetResourceConfigHistoryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "GetResourceConfigHistoryResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1GetResourceConfigHistoryCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourceConfigHistoryCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidLimitException":
+    case "com.amazonaws.starling.dove#InvalidLimitException":
+      response = await deserializeAws_json1_1InvalidLimitExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidTimeRangeException":
+    case "com.amazonaws.starling.dove#InvalidTimeRangeException":
+      response = await deserializeAws_json1_1InvalidTimeRangeExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoAvailableConfigurationRecorderException":
+    case "com.amazonaws.starling.dove#NoAvailableConfigurationRecorderException":
+      response = await deserializeAws_json1_1NoAvailableConfigurationRecorderExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ResourceNotDiscoveredException":
+    case "com.amazonaws.starling.dove#ResourceNotDiscoveredException":
+      response = await deserializeAws_json1_1ResourceNotDiscoveredExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ValidationException":
+    case "com.amazonaws.starling.dove#ValidationException":
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1ListAggregateDiscoveredResourcesCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAggregateDiscoveredResourcesCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListAggregateDiscoveredResourcesCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListAggregateDiscoveredResourcesResponse(
+    data.ListAggregateDiscoveredResourcesResponse,
+    context
+  );
+  const response: ListAggregateDiscoveredResourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListAggregateDiscoveredResourcesResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1ListAggregateDiscoveredResourcesCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAggregateDiscoveredResourcesCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidLimitException":
+    case "com.amazonaws.starling.dove#InvalidLimitException":
+      response = await deserializeAws_json1_1InvalidLimitExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchConfigurationAggregatorException":
+    case "com.amazonaws.starling.dove#NoSuchConfigurationAggregatorException":
+      response = await deserializeAws_json1_1NoSuchConfigurationAggregatorExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ValidationException":
+    case "com.amazonaws.starling.dove#ValidationException":
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1ListDiscoveredResourcesCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDiscoveredResourcesCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListDiscoveredResourcesCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListDiscoveredResourcesResponse(
+    data.ListDiscoveredResourcesResponse,
+    context
+  );
+  const response: ListDiscoveredResourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListDiscoveredResourcesResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1ListDiscoveredResourcesCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDiscoveredResourcesCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidLimitException":
+    case "com.amazonaws.starling.dove#InvalidLimitException":
+      response = await deserializeAws_json1_1InvalidLimitExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoAvailableConfigurationRecorderException":
+    case "com.amazonaws.starling.dove#NoAvailableConfigurationRecorderException":
+      response = await deserializeAws_json1_1NoAvailableConfigurationRecorderExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ValidationException":
+    case "com.amazonaws.starling.dove#ValidationException":
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1ListTagsForResourceCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1ListTagsForResourceCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(
+    data.ListTagsForResourceResponse,
+    context
+  );
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "ListTagsForResourceResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1ListTagsForResourceCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidLimitException":
+    case "com.amazonaws.starling.dove#InvalidLimitException":
+      response = await deserializeAws_json1_1InvalidLimitExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.starling.dove#ResourceNotFoundException":
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ValidationException":
+    case "com.amazonaws.starling.dove#ValidationException":
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1PutAggregationAuthorizationCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAggregationAuthorizationCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1PutAggregationAuthorizationCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutAggregationAuthorizationResponse(
+    data.PutAggregationAuthorizationResponse,
+    context
+  );
+  const response: PutAggregationAuthorizationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "PutAggregationAuthorizationResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1PutAggregationAuthorizationCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAggregationAuthorizationCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1PutConfigRuleCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutConfigRuleCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1PutConfigRuleCommandError(output, context);
+  }
+  const response: PutConfigRuleCommandOutput = {
+    $metadata: deserializeMetadata(output)
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1PutConfigRuleCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutConfigRuleCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InsufficientPermissionsException":
+    case "com.amazonaws.starling.dove#InsufficientPermissionsException":
+      response = await deserializeAws_json1_1InsufficientPermissionsExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "MaxNumberOfConfigRulesExceededException":
+    case "com.amazonaws.starling.dove#MaxNumberOfConfigRulesExceededException":
+      response = await deserializeAws_json1_1MaxNumberOfConfigRulesExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoAvailableConfigurationRecorderException":
+    case "com.amazonaws.starling.dove#NoAvailableConfigurationRecorderException":
+      response = await deserializeAws_json1_1NoAvailableConfigurationRecorderExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.starling.dove#ResourceInUseException":
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1PutConfigurationAggregatorCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutConfigurationAggregatorCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1PutConfigurationAggregatorCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutConfigurationAggregatorResponse(
+    data.PutConfigurationAggregatorResponse,
+    context
+  );
+  const response: PutConfigurationAggregatorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "PutConfigurationAggregatorResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1PutConfigurationAggregatorCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutConfigurationAggregatorCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidRoleException":
+    case "com.amazonaws.starling.dove#InvalidRoleException":
+      response = await deserializeAws_json1_1InvalidRoleExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.starling.dove#LimitExceededException":
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoAvailableOrganizationException":
+    case "com.amazonaws.starling.dove#NoAvailableOrganizationException":
+      response = await deserializeAws_json1_1NoAvailableOrganizationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "OrganizationAccessDeniedException":
+    case "com.amazonaws.starling.dove#OrganizationAccessDeniedException":
+      response = await deserializeAws_json1_1OrganizationAccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "OrganizationAllFeaturesNotEnabledException":
+    case "com.amazonaws.starling.dove#OrganizationAllFeaturesNotEnabledException":
+      response = await deserializeAws_json1_1OrganizationAllFeaturesNotEnabledExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1PutConfigurationRecorderCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutConfigurationRecorderCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1PutConfigurationRecorderCommandError(
+      output,
+      context
+    );
+  }
+  const response: PutConfigurationRecorderCommandOutput = {
+    $metadata: deserializeMetadata(output)
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1PutConfigurationRecorderCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutConfigurationRecorderCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidConfigurationRecorderNameException":
+    case "com.amazonaws.starling.dove#InvalidConfigurationRecorderNameException":
+      response = await deserializeAws_json1_1InvalidConfigurationRecorderNameExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidRecordingGroupException":
+    case "com.amazonaws.starling.dove#InvalidRecordingGroupException":
+      response = await deserializeAws_json1_1InvalidRecordingGroupExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidRoleException":
+    case "com.amazonaws.starling.dove#InvalidRoleException":
+      response = await deserializeAws_json1_1InvalidRoleExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "MaxNumberOfConfigurationRecordersExceededException":
+    case "com.amazonaws.starling.dove#MaxNumberOfConfigurationRecordersExceededException":
+      response = await deserializeAws_json1_1MaxNumberOfConfigurationRecordersExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1PutConformancePackCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutConformancePackCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1PutConformancePackCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutConformancePackResponse(
+    data.PutConformancePackResponse,
+    context
+  );
+  const response: PutConformancePackCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "PutConformancePackResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1PutConformancePackCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutConformancePackCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ConformancePackTemplateValidationException":
+    case "com.amazonaws.starling.dove#ConformancePackTemplateValidationException":
+      response = await deserializeAws_json1_1ConformancePackTemplateValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InsufficientPermissionsException":
+    case "com.amazonaws.starling.dove#InsufficientPermissionsException":
+      response = await deserializeAws_json1_1InsufficientPermissionsExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "MaxNumberOfConformancePacksExceededException":
+    case "com.amazonaws.starling.dove#MaxNumberOfConformancePacksExceededException":
+      response = await deserializeAws_json1_1MaxNumberOfConformancePacksExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.starling.dove#ResourceInUseException":
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1PutDeliveryChannelCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutDeliveryChannelCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1PutDeliveryChannelCommandError(
+      output,
+      context
+    );
+  }
+  const response: PutDeliveryChannelCommandOutput = {
+    $metadata: deserializeMetadata(output)
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1PutDeliveryChannelCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutDeliveryChannelCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InsufficientDeliveryPolicyException":
+    case "com.amazonaws.starling.dove#InsufficientDeliveryPolicyException":
+      response = await deserializeAws_json1_1InsufficientDeliveryPolicyExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidDeliveryChannelNameException":
+    case "com.amazonaws.starling.dove#InvalidDeliveryChannelNameException":
+      response = await deserializeAws_json1_1InvalidDeliveryChannelNameExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidS3KeyPrefixException":
+    case "com.amazonaws.starling.dove#InvalidS3KeyPrefixException":
+      response = await deserializeAws_json1_1InvalidS3KeyPrefixExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidSNSTopicARNException":
+    case "com.amazonaws.starling.dove#InvalidSNSTopicARNException":
+      response = await deserializeAws_json1_1InvalidSNSTopicARNExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "MaxNumberOfDeliveryChannelsExceededException":
+    case "com.amazonaws.starling.dove#MaxNumberOfDeliveryChannelsExceededException":
+      response = await deserializeAws_json1_1MaxNumberOfDeliveryChannelsExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoAvailableConfigurationRecorderException":
+    case "com.amazonaws.starling.dove#NoAvailableConfigurationRecorderException":
+      response = await deserializeAws_json1_1NoAvailableConfigurationRecorderExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchBucketException":
+    case "com.amazonaws.starling.dove#NoSuchBucketException":
+      response = await deserializeAws_json1_1NoSuchBucketExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1PutEvaluationsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutEvaluationsCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1PutEvaluationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutEvaluationsResponse(
+    data.PutEvaluationsResponse,
+    context
+  );
+  const response: PutEvaluationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "PutEvaluationsResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1PutEvaluationsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutEvaluationsCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidResultTokenException":
+    case "com.amazonaws.starling.dove#InvalidResultTokenException":
+      response = await deserializeAws_json1_1InvalidResultTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchConfigRuleException":
+    case "com.amazonaws.starling.dove#NoSuchConfigRuleException":
+      response = await deserializeAws_json1_1NoSuchConfigRuleExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1PutOrganizationConfigRuleCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutOrganizationConfigRuleCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1PutOrganizationConfigRuleCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutOrganizationConfigRuleResponse(
+    data.PutOrganizationConfigRuleResponse,
+    context
+  );
+  const response: PutOrganizationConfigRuleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "PutOrganizationConfigRuleResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1PutOrganizationConfigRuleCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutOrganizationConfigRuleCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InsufficientPermissionsException":
+    case "com.amazonaws.starling.dove#InsufficientPermissionsException":
+      response = await deserializeAws_json1_1InsufficientPermissionsExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "MaxNumberOfOrganizationConfigRulesExceededException":
+    case "com.amazonaws.starling.dove#MaxNumberOfOrganizationConfigRulesExceededException":
+      response = await deserializeAws_json1_1MaxNumberOfOrganizationConfigRulesExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoAvailableOrganizationException":
+    case "com.amazonaws.starling.dove#NoAvailableOrganizationException":
+      response = await deserializeAws_json1_1NoAvailableOrganizationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "OrganizationAccessDeniedException":
+    case "com.amazonaws.starling.dove#OrganizationAccessDeniedException":
+      response = await deserializeAws_json1_1OrganizationAccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "OrganizationAllFeaturesNotEnabledException":
+    case "com.amazonaws.starling.dove#OrganizationAllFeaturesNotEnabledException":
+      response = await deserializeAws_json1_1OrganizationAllFeaturesNotEnabledExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.starling.dove#ResourceInUseException":
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ValidationException":
+    case "com.amazonaws.starling.dove#ValidationException":
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1PutOrganizationConformancePackCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutOrganizationConformancePackCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1PutOrganizationConformancePackCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutOrganizationConformancePackResponse(
+    data.PutOrganizationConformancePackResponse,
+    context
+  );
+  const response: PutOrganizationConformancePackCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "PutOrganizationConformancePackResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1PutOrganizationConformancePackCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutOrganizationConformancePackCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InsufficientPermissionsException":
+    case "com.amazonaws.starling.dove#InsufficientPermissionsException":
+      response = await deserializeAws_json1_1InsufficientPermissionsExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "MaxNumberOfOrganizationConformancePacksExceededException":
+    case "com.amazonaws.starling.dove#MaxNumberOfOrganizationConformancePacksExceededException":
+      response = await deserializeAws_json1_1MaxNumberOfOrganizationConformancePacksExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoAvailableOrganizationException":
+    case "com.amazonaws.starling.dove#NoAvailableOrganizationException":
+      response = await deserializeAws_json1_1NoAvailableOrganizationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "OrganizationAccessDeniedException":
+    case "com.amazonaws.starling.dove#OrganizationAccessDeniedException":
+      response = await deserializeAws_json1_1OrganizationAccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "OrganizationAllFeaturesNotEnabledException":
+    case "com.amazonaws.starling.dove#OrganizationAllFeaturesNotEnabledException":
+      response = await deserializeAws_json1_1OrganizationAllFeaturesNotEnabledExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "OrganizationConformancePackTemplateValidationException":
+    case "com.amazonaws.starling.dove#OrganizationConformancePackTemplateValidationException":
+      response = await deserializeAws_json1_1OrganizationConformancePackTemplateValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.starling.dove#ResourceInUseException":
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ValidationException":
+    case "com.amazonaws.starling.dove#ValidationException":
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1PutRemediationConfigurationsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutRemediationConfigurationsCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1PutRemediationConfigurationsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutRemediationConfigurationsResponse(
+    data.PutRemediationConfigurationsResponse,
+    context
+  );
+  const response: PutRemediationConfigurationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "PutRemediationConfigurationsResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1PutRemediationConfigurationsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutRemediationConfigurationsCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InsufficientPermissionsException":
+    case "com.amazonaws.starling.dove#InsufficientPermissionsException":
+      response = await deserializeAws_json1_1InsufficientPermissionsExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1PutRemediationExceptionsCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutRemediationExceptionsCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1PutRemediationExceptionsCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutRemediationExceptionsResponse(
+    data.PutRemediationExceptionsResponse,
+    context
+  );
+  const response: PutRemediationExceptionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "PutRemediationExceptionsResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1PutRemediationExceptionsCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutRemediationExceptionsCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1PutResourceConfigCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourceConfigCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1PutResourceConfigCommandError(output, context);
+  }
+  const response: PutResourceConfigCommandOutput = {
+    $metadata: deserializeMetadata(output)
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1PutResourceConfigCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourceConfigCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InsufficientPermissionsException":
+    case "com.amazonaws.starling.dove#InsufficientPermissionsException":
+      response = await deserializeAws_json1_1InsufficientPermissionsExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "MaxActiveResourcesExceededException":
+    case "com.amazonaws.starling.dove#MaxActiveResourcesExceededException":
+      response = await deserializeAws_json1_1MaxActiveResourcesExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoRunningConfigurationRecorderException":
+    case "com.amazonaws.starling.dove#NoRunningConfigurationRecorderException":
+      response = await deserializeAws_json1_1NoRunningConfigurationRecorderExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ValidationException":
+    case "com.amazonaws.starling.dove#ValidationException":
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1PutRetentionConfigurationCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutRetentionConfigurationCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1PutRetentionConfigurationCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutRetentionConfigurationResponse(
+    data.PutRetentionConfigurationResponse,
+    context
+  );
+  const response: PutRetentionConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "PutRetentionConfigurationResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1PutRetentionConfigurationCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutRetentionConfigurationCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "MaxNumberOfRetentionConfigurationsExceededException":
+    case "com.amazonaws.starling.dove#MaxNumberOfRetentionConfigurationsExceededException":
+      response = await deserializeAws_json1_1MaxNumberOfRetentionConfigurationsExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1SelectResourceConfigCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SelectResourceConfigCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1SelectResourceConfigCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1SelectResourceConfigResponse(
+    data.SelectResourceConfigResponse,
+    context
+  );
+  const response: SelectResourceConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "SelectResourceConfigResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1SelectResourceConfigCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SelectResourceConfigCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidExpressionException":
+    case "com.amazonaws.starling.dove#InvalidExpressionException":
+      response = await deserializeAws_json1_1InvalidExpressionExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidLimitException":
+    case "com.amazonaws.starling.dove#InvalidLimitException":
+      response = await deserializeAws_json1_1InvalidLimitExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.starling.dove#InvalidNextTokenException":
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1StartConfigRulesEvaluationCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartConfigRulesEvaluationCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1StartConfigRulesEvaluationCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StartConfigRulesEvaluationResponse(
+    data.StartConfigRulesEvaluationResponse,
+    context
+  );
+  const response: StartConfigRulesEvaluationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "StartConfigRulesEvaluationResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1StartConfigRulesEvaluationCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartConfigRulesEvaluationCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.starling.dove#LimitExceededException":
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchConfigRuleException":
+    case "com.amazonaws.starling.dove#NoSuchConfigRuleException":
+      response = await deserializeAws_json1_1NoSuchConfigRuleExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.starling.dove#ResourceInUseException":
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1StartConfigurationRecorderCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartConfigurationRecorderCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1StartConfigurationRecorderCommandError(
+      output,
+      context
+    );
+  }
+  const response: StartConfigurationRecorderCommandOutput = {
+    $metadata: deserializeMetadata(output)
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1StartConfigurationRecorderCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartConfigurationRecorderCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "NoAvailableDeliveryChannelException":
+    case "com.amazonaws.starling.dove#NoAvailableDeliveryChannelException":
+      response = await deserializeAws_json1_1NoAvailableDeliveryChannelExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchConfigurationRecorderException":
+    case "com.amazonaws.starling.dove#NoSuchConfigurationRecorderException":
+      response = await deserializeAws_json1_1NoSuchConfigurationRecorderExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1StartRemediationExecutionCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartRemediationExecutionCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1StartRemediationExecutionCommandError(
+      output,
+      context
+    );
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StartRemediationExecutionResponse(
+    data.StartRemediationExecutionResponse,
+    context
+  );
+  const response: StartRemediationExecutionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    __type: "StartRemediationExecutionResponse",
+    ...contents
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1StartRemediationExecutionCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartRemediationExecutionCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InsufficientPermissionsException":
+    case "com.amazonaws.starling.dove#InsufficientPermissionsException":
+      response = await deserializeAws_json1_1InsufficientPermissionsExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.starling.dove#InvalidParameterValueException":
+      response = await deserializeAws_json1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "NoSuchRemediationConfigurationException":
+    case "com.amazonaws.starling.dove#NoSuchRemediationConfigurationException":
+      response = await deserializeAws_json1_1NoSuchRemediationConfigurationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1StopConfigurationRecorderCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopConfigurationRecorderCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1StopConfigurationRecorderCommandError(
+      output,
+      context
+    );
+  }
+  const response: StopConfigurationRecorderCommandOutput = {
+    $metadata: deserializeMetadata(output)
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1StopConfigurationRecorderCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopConfigurationRecorderCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "NoSuchConfigurationRecorderException":
+    case "com.amazonaws.starling.dove#NoSuchConfigurationRecorderException":
+      response = await deserializeAws_json1_1NoSuchConfigurationRecorderExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1TagResourceCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1TagResourceCommandError(output, context);
+  }
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output)
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1TagResourceCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.starling.dove#ResourceNotFoundException":
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "TooManyTagsException":
+    case "com.amazonaws.starling.dove#TooManyTagsException":
+      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ValidationException":
+    case "com.amazonaws.starling.dove#ValidationException":
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+export async function deserializeAws_json1_1UntagResourceCommand(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> {
+  if (output.statusCode >= 400) {
+    return deserializeAws_json1_1UntagResourceCommandError(output, context);
+  }
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output)
+  };
+  return Promise.resolve(response);
+}
+
+async function deserializeAws_json1_1UntagResourceCommandError(
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> {
+  const data: any = await parseBody(output.body, context);
+  const parsedOutput: any = {
+    ...output,
+    body: data
+  };
+  let response: __SmithyException & __MetadataBearer;
+  let errorCode: String;
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.starling.dove#ResourceNotFoundException":
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    case "ValidationException":
+    case "com.amazonaws.starling.dove#ValidationException":
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
+      break;
+    default:
+      errorCode = errorCode || "UnknownError";
+      response = {
+        __type: `com.amazonaws.starling.dove#${errorCode}`,
+        $fault: "client",
+        $metadata: deserializeMetadata(output)
+      };
+  }
+  return Promise.reject(Object.assign(new Error(response.__type), response));
+}
+
+const deserializeAws_json1_1ConformancePackTemplateValidationExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<ConformancePackTemplateValidationException> => {
+  const deserialized: any = deserializeAws_json1_1ConformancePackTemplateValidationException(
+    output.body,
+    context
+  );
+  const contents: ConformancePackTemplateValidationException = {
+    __type: "ConformancePackTemplateValidationException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InsufficientDeliveryPolicyExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InsufficientDeliveryPolicyException> => {
+  const deserialized: any = deserializeAws_json1_1InsufficientDeliveryPolicyException(
+    output.body,
+    context
+  );
+  const contents: InsufficientDeliveryPolicyException = {
+    __type: "InsufficientDeliveryPolicyException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InsufficientPermissionsExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InsufficientPermissionsException> => {
+  const deserialized: any = deserializeAws_json1_1InsufficientPermissionsException(
+    output.body,
+    context
+  );
+  const contents: InsufficientPermissionsException = {
+    __type: "InsufficientPermissionsException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidConfigurationRecorderNameExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InvalidConfigurationRecorderNameException> => {
+  const deserialized: any = deserializeAws_json1_1InvalidConfigurationRecorderNameException(
+    output.body,
+    context
+  );
+  const contents: InvalidConfigurationRecorderNameException = {
+    __type: "InvalidConfigurationRecorderNameException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidDeliveryChannelNameExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InvalidDeliveryChannelNameException> => {
+  const deserialized: any = deserializeAws_json1_1InvalidDeliveryChannelNameException(
+    output.body,
+    context
+  );
+  const contents: InvalidDeliveryChannelNameException = {
+    __type: "InvalidDeliveryChannelNameException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidExpressionExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InvalidExpressionException> => {
+  const deserialized: any = deserializeAws_json1_1InvalidExpressionException(
+    output.body,
+    context
+  );
+  const contents: InvalidExpressionException = {
+    __type: "InvalidExpressionException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidLimitExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InvalidLimitException> => {
+  const deserialized: any = deserializeAws_json1_1InvalidLimitException(
+    output.body,
+    context
+  );
+  const contents: InvalidLimitException = {
+    __type: "InvalidLimitException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InvalidNextTokenException> => {
+  const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(
+    output.body,
+    context
+  );
+  const contents: InvalidNextTokenException = {
+    __type: "InvalidNextTokenException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidParameterValueExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InvalidParameterValueException> => {
+  const deserialized: any = deserializeAws_json1_1InvalidParameterValueException(
+    output.body,
+    context
+  );
+  const contents: InvalidParameterValueException = {
+    __type: "InvalidParameterValueException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidRecordingGroupExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InvalidRecordingGroupException> => {
+  const deserialized: any = deserializeAws_json1_1InvalidRecordingGroupException(
+    output.body,
+    context
+  );
+  const contents: InvalidRecordingGroupException = {
+    __type: "InvalidRecordingGroupException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidResultTokenExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InvalidResultTokenException> => {
+  const deserialized: any = deserializeAws_json1_1InvalidResultTokenException(
+    output.body,
+    context
+  );
+  const contents: InvalidResultTokenException = {
+    __type: "InvalidResultTokenException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidRoleExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InvalidRoleException> => {
+  const deserialized: any = deserializeAws_json1_1InvalidRoleException(
+    output.body,
+    context
+  );
+  const contents: InvalidRoleException = {
+    __type: "InvalidRoleException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidS3KeyPrefixExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InvalidS3KeyPrefixException> => {
+  const deserialized: any = deserializeAws_json1_1InvalidS3KeyPrefixException(
+    output.body,
+    context
+  );
+  const contents: InvalidS3KeyPrefixException = {
+    __type: "InvalidS3KeyPrefixException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidSNSTopicARNExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InvalidSNSTopicARNException> => {
+  const deserialized: any = deserializeAws_json1_1InvalidSNSTopicARNException(
+    output.body,
+    context
+  );
+  const contents: InvalidSNSTopicARNException = {
+    __type: "InvalidSNSTopicARNException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidTimeRangeExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InvalidTimeRangeException> => {
+  const deserialized: any = deserializeAws_json1_1InvalidTimeRangeException(
+    output.body,
+    context
+  );
+  const contents: InvalidTimeRangeException = {
+    __type: "InvalidTimeRangeException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1LastDeliveryChannelDeleteFailedExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<LastDeliveryChannelDeleteFailedException> => {
+  const deserialized: any = deserializeAws_json1_1LastDeliveryChannelDeleteFailedException(
+    output.body,
+    context
+  );
+  const contents: LastDeliveryChannelDeleteFailedException = {
+    __type: "LastDeliveryChannelDeleteFailedException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1LimitExceededExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<LimitExceededException> => {
+  const deserialized: any = deserializeAws_json1_1LimitExceededException(
+    output.body,
+    context
+  );
+  const contents: LimitExceededException = {
+    __type: "LimitExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1MaxActiveResourcesExceededExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<MaxActiveResourcesExceededException> => {
+  const deserialized: any = deserializeAws_json1_1MaxActiveResourcesExceededException(
+    output.body,
+    context
+  );
+  const contents: MaxActiveResourcesExceededException = {
+    __type: "MaxActiveResourcesExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1MaxNumberOfConfigRulesExceededExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<MaxNumberOfConfigRulesExceededException> => {
+  const deserialized: any = deserializeAws_json1_1MaxNumberOfConfigRulesExceededException(
+    output.body,
+    context
+  );
+  const contents: MaxNumberOfConfigRulesExceededException = {
+    __type: "MaxNumberOfConfigRulesExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1MaxNumberOfConfigurationRecordersExceededExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<MaxNumberOfConfigurationRecordersExceededException> => {
+  const deserialized: any = deserializeAws_json1_1MaxNumberOfConfigurationRecordersExceededException(
+    output.body,
+    context
+  );
+  const contents: MaxNumberOfConfigurationRecordersExceededException = {
+    __type: "MaxNumberOfConfigurationRecordersExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1MaxNumberOfConformancePacksExceededExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<MaxNumberOfConformancePacksExceededException> => {
+  const deserialized: any = deserializeAws_json1_1MaxNumberOfConformancePacksExceededException(
+    output.body,
+    context
+  );
+  const contents: MaxNumberOfConformancePacksExceededException = {
+    __type: "MaxNumberOfConformancePacksExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1MaxNumberOfDeliveryChannelsExceededExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<MaxNumberOfDeliveryChannelsExceededException> => {
+  const deserialized: any = deserializeAws_json1_1MaxNumberOfDeliveryChannelsExceededException(
+    output.body,
+    context
+  );
+  const contents: MaxNumberOfDeliveryChannelsExceededException = {
+    __type: "MaxNumberOfDeliveryChannelsExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1MaxNumberOfOrganizationConfigRulesExceededExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<MaxNumberOfOrganizationConfigRulesExceededException> => {
+  const deserialized: any = deserializeAws_json1_1MaxNumberOfOrganizationConfigRulesExceededException(
+    output.body,
+    context
+  );
+  const contents: MaxNumberOfOrganizationConfigRulesExceededException = {
+    __type: "MaxNumberOfOrganizationConfigRulesExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1MaxNumberOfOrganizationConformancePacksExceededExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<MaxNumberOfOrganizationConformancePacksExceededException> => {
+  const deserialized: any = deserializeAws_json1_1MaxNumberOfOrganizationConformancePacksExceededException(
+    output.body,
+    context
+  );
+  const contents: MaxNumberOfOrganizationConformancePacksExceededException = {
+    __type: "MaxNumberOfOrganizationConformancePacksExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1MaxNumberOfRetentionConfigurationsExceededExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<MaxNumberOfRetentionConfigurationsExceededException> => {
+  const deserialized: any = deserializeAws_json1_1MaxNumberOfRetentionConfigurationsExceededException(
+    output.body,
+    context
+  );
+  const contents: MaxNumberOfRetentionConfigurationsExceededException = {
+    __type: "MaxNumberOfRetentionConfigurationsExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1NoAvailableConfigurationRecorderExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<NoAvailableConfigurationRecorderException> => {
+  const deserialized: any = deserializeAws_json1_1NoAvailableConfigurationRecorderException(
+    output.body,
+    context
+  );
+  const contents: NoAvailableConfigurationRecorderException = {
+    __type: "NoAvailableConfigurationRecorderException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1NoAvailableDeliveryChannelExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<NoAvailableDeliveryChannelException> => {
+  const deserialized: any = deserializeAws_json1_1NoAvailableDeliveryChannelException(
+    output.body,
+    context
+  );
+  const contents: NoAvailableDeliveryChannelException = {
+    __type: "NoAvailableDeliveryChannelException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1NoAvailableOrganizationExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<NoAvailableOrganizationException> => {
+  const deserialized: any = deserializeAws_json1_1NoAvailableOrganizationException(
+    output.body,
+    context
+  );
+  const contents: NoAvailableOrganizationException = {
+    __type: "NoAvailableOrganizationException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1NoRunningConfigurationRecorderExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<NoRunningConfigurationRecorderException> => {
+  const deserialized: any = deserializeAws_json1_1NoRunningConfigurationRecorderException(
+    output.body,
+    context
+  );
+  const contents: NoRunningConfigurationRecorderException = {
+    __type: "NoRunningConfigurationRecorderException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1NoSuchBucketExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<NoSuchBucketException> => {
+  const deserialized: any = deserializeAws_json1_1NoSuchBucketException(
+    output.body,
+    context
+  );
+  const contents: NoSuchBucketException = {
+    __type: "NoSuchBucketException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1NoSuchConfigRuleExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<NoSuchConfigRuleException> => {
+  const deserialized: any = deserializeAws_json1_1NoSuchConfigRuleException(
+    output.body,
+    context
+  );
+  const contents: NoSuchConfigRuleException = {
+    __type: "NoSuchConfigRuleException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1NoSuchConfigRuleInConformancePackExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<NoSuchConfigRuleInConformancePackException> => {
+  const deserialized: any = deserializeAws_json1_1NoSuchConfigRuleInConformancePackException(
+    output.body,
+    context
+  );
+  const contents: NoSuchConfigRuleInConformancePackException = {
+    __type: "NoSuchConfigRuleInConformancePackException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1NoSuchConfigurationAggregatorExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<NoSuchConfigurationAggregatorException> => {
+  const deserialized: any = deserializeAws_json1_1NoSuchConfigurationAggregatorException(
+    output.body,
+    context
+  );
+  const contents: NoSuchConfigurationAggregatorException = {
+    __type: "NoSuchConfigurationAggregatorException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1NoSuchConfigurationRecorderExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<NoSuchConfigurationRecorderException> => {
+  const deserialized: any = deserializeAws_json1_1NoSuchConfigurationRecorderException(
+    output.body,
+    context
+  );
+  const contents: NoSuchConfigurationRecorderException = {
+    __type: "NoSuchConfigurationRecorderException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1NoSuchConformancePackExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<NoSuchConformancePackException> => {
+  const deserialized: any = deserializeAws_json1_1NoSuchConformancePackException(
+    output.body,
+    context
+  );
+  const contents: NoSuchConformancePackException = {
+    __type: "NoSuchConformancePackException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1NoSuchDeliveryChannelExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<NoSuchDeliveryChannelException> => {
+  const deserialized: any = deserializeAws_json1_1NoSuchDeliveryChannelException(
+    output.body,
+    context
+  );
+  const contents: NoSuchDeliveryChannelException = {
+    __type: "NoSuchDeliveryChannelException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1NoSuchOrganizationConfigRuleExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<NoSuchOrganizationConfigRuleException> => {
+  const deserialized: any = deserializeAws_json1_1NoSuchOrganizationConfigRuleException(
+    output.body,
+    context
+  );
+  const contents: NoSuchOrganizationConfigRuleException = {
+    __type: "NoSuchOrganizationConfigRuleException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1NoSuchOrganizationConformancePackExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<NoSuchOrganizationConformancePackException> => {
+  const deserialized: any = deserializeAws_json1_1NoSuchOrganizationConformancePackException(
+    output.body,
+    context
+  );
+  const contents: NoSuchOrganizationConformancePackException = {
+    __type: "NoSuchOrganizationConformancePackException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1NoSuchRemediationConfigurationExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<NoSuchRemediationConfigurationException> => {
+  const deserialized: any = deserializeAws_json1_1NoSuchRemediationConfigurationException(
+    output.body,
+    context
+  );
+  const contents: NoSuchRemediationConfigurationException = {
+    __type: "NoSuchRemediationConfigurationException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1NoSuchRemediationExceptionExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<NoSuchRemediationExceptionException> => {
+  const deserialized: any = deserializeAws_json1_1NoSuchRemediationExceptionException(
+    output.body,
+    context
+  );
+  const contents: NoSuchRemediationExceptionException = {
+    __type: "NoSuchRemediationExceptionException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1NoSuchRetentionConfigurationExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<NoSuchRetentionConfigurationException> => {
+  const deserialized: any = deserializeAws_json1_1NoSuchRetentionConfigurationException(
+    output.body,
+    context
+  );
+  const contents: NoSuchRetentionConfigurationException = {
+    __type: "NoSuchRetentionConfigurationException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1OrganizationAccessDeniedExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<OrganizationAccessDeniedException> => {
+  const deserialized: any = deserializeAws_json1_1OrganizationAccessDeniedException(
+    output.body,
+    context
+  );
+  const contents: OrganizationAccessDeniedException = {
+    __type: "OrganizationAccessDeniedException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1OrganizationAllFeaturesNotEnabledExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<OrganizationAllFeaturesNotEnabledException> => {
+  const deserialized: any = deserializeAws_json1_1OrganizationAllFeaturesNotEnabledException(
+    output.body,
+    context
+  );
+  const contents: OrganizationAllFeaturesNotEnabledException = {
+    __type: "OrganizationAllFeaturesNotEnabledException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1OrganizationConformancePackTemplateValidationExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<OrganizationConformancePackTemplateValidationException> => {
+  const deserialized: any = deserializeAws_json1_1OrganizationConformancePackTemplateValidationException(
+    output.body,
+    context
+  );
+  const contents: OrganizationConformancePackTemplateValidationException = {
+    __type: "OrganizationConformancePackTemplateValidationException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1OversizedConfigurationItemExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<OversizedConfigurationItemException> => {
+  const deserialized: any = deserializeAws_json1_1OversizedConfigurationItemException(
+    output.body,
+    context
+  );
+  const contents: OversizedConfigurationItemException = {
+    __type: "OversizedConfigurationItemException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1RemediationInProgressExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<RemediationInProgressException> => {
+  const deserialized: any = deserializeAws_json1_1RemediationInProgressException(
+    output.body,
+    context
+  );
+  const contents: RemediationInProgressException = {
+    __type: "RemediationInProgressException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<ResourceInUseException> => {
+  const deserialized: any = deserializeAws_json1_1ResourceInUseException(
+    output.body,
+    context
+  );
+  const contents: ResourceInUseException = {
+    __type: "ResourceInUseException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1ResourceNotDiscoveredExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<ResourceNotDiscoveredException> => {
+  const deserialized: any = deserializeAws_json1_1ResourceNotDiscoveredException(
+    output.body,
+    context
+  );
+  const contents: ResourceNotDiscoveredException = {
+    __type: "ResourceNotDiscoveredException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<ResourceNotFoundException> => {
+  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(
+    output.body,
+    context
+  );
+  const contents: ResourceNotFoundException = {
+    __type: "ResourceNotFoundException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<TooManyTagsException> => {
+  const deserialized: any = deserializeAws_json1_1TooManyTagsException(
+    output.body,
+    context
+  );
+  const contents: TooManyTagsException = {
+    __type: "TooManyTagsException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1ValidationExceptionResponse = async (
+  output: any,
+  context: __SerdeContext
+): Promise<ValidationException> => {
+  const deserialized: any = deserializeAws_json1_1ValidationException(
+    output.body,
+    context
+  );
+  const contents: ValidationException = {
+    __type: "ValidationException",
+    $fault: "client",
+    $metadata: deserializeMetadata(output),
+    ...deserialized
+  };
+  return contents;
+};
+
+const serializeAws_json1_1AccountAggregationSource = (
+  input: AccountAggregationSource,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.AccountIds !== undefined) {
+    bodyParams[
+      "AccountIds"
+    ] = serializeAws_json1_1AccountAggregationSourceAccountList(
+      input.AccountIds,
+      context
+    );
+  }
+  if (input.AllAwsRegions !== undefined) {
+    bodyParams["AllAwsRegions"] = input.AllAwsRegions;
+  }
+  if (input.AwsRegions !== undefined) {
+    bodyParams["AwsRegions"] = serializeAws_json1_1AggregatorRegionList(
+      input.AwsRegions,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1AccountAggregationSourceAccountList = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1AccountAggregationSourceList = (
+  input: Array<AccountAggregationSource>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry =>
+    serializeAws_json1_1AccountAggregationSource(entry, context)
+  );
+};
+
+const serializeAws_json1_1AggregateResourceIdentifier = (
+  input: AggregateResourceIdentifier,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ResourceId !== undefined) {
+    bodyParams["ResourceId"] = input.ResourceId;
+  }
+  if (input.ResourceName !== undefined) {
+    bodyParams["ResourceName"] = input.ResourceName;
+  }
+  if (input.ResourceType !== undefined) {
+    bodyParams["ResourceType"] = input.ResourceType;
+  }
+  if (input.SourceAccountId !== undefined) {
+    bodyParams["SourceAccountId"] = input.SourceAccountId;
+  }
+  if (input.SourceRegion !== undefined) {
+    bodyParams["SourceRegion"] = input.SourceRegion;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1AggregatedSourceStatusTypeList = (
+  input: Array<AggregatedSourceStatusType | string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1AggregatorRegionList = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1BatchGetAggregateResourceConfigRequest = (
+  input: BatchGetAggregateResourceConfigRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigurationAggregatorName !== undefined) {
+    bodyParams["ConfigurationAggregatorName"] =
+      input.ConfigurationAggregatorName;
+  }
+  if (input.ResourceIdentifiers !== undefined) {
+    bodyParams[
+      "ResourceIdentifiers"
+    ] = serializeAws_json1_1ResourceIdentifiersList(
+      input.ResourceIdentifiers,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1BatchGetResourceConfigRequest = (
+  input: BatchGetResourceConfigRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.resourceKeys !== undefined) {
+    bodyParams["resourceKeys"] = serializeAws_json1_1ResourceKeys(
+      input.resourceKeys,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1ComplianceResourceTypes = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1ComplianceTypes = (
+  input: Array<ComplianceType | string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1ConfigRule = (
+  input: ConfigRule,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigRuleArn !== undefined) {
+    bodyParams["ConfigRuleArn"] = input.ConfigRuleArn;
+  }
+  if (input.ConfigRuleId !== undefined) {
+    bodyParams["ConfigRuleId"] = input.ConfigRuleId;
+  }
+  if (input.ConfigRuleName !== undefined) {
+    bodyParams["ConfigRuleName"] = input.ConfigRuleName;
+  }
+  if (input.ConfigRuleState !== undefined) {
+    bodyParams["ConfigRuleState"] = input.ConfigRuleState;
+  }
+  if (input.CreatedBy !== undefined) {
+    bodyParams["CreatedBy"] = input.CreatedBy;
+  }
+  if (input.Description !== undefined) {
+    bodyParams["Description"] = input.Description;
+  }
+  if (input.InputParameters !== undefined) {
+    bodyParams["InputParameters"] = input.InputParameters;
+  }
+  if (input.MaximumExecutionFrequency !== undefined) {
+    bodyParams["MaximumExecutionFrequency"] = input.MaximumExecutionFrequency;
+  }
+  if (input.Scope !== undefined) {
+    bodyParams["Scope"] = serializeAws_json1_1Scope(input.Scope, context);
+  }
+  if (input.Source !== undefined) {
+    bodyParams["Source"] = serializeAws_json1_1Source(input.Source, context);
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1ConfigRuleComplianceFilters = (
+  input: ConfigRuleComplianceFilters,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.AccountId !== undefined) {
+    bodyParams["AccountId"] = input.AccountId;
+  }
+  if (input.AwsRegion !== undefined) {
+    bodyParams["AwsRegion"] = input.AwsRegion;
+  }
+  if (input.ComplianceType !== undefined) {
+    bodyParams["ComplianceType"] = input.ComplianceType;
+  }
+  if (input.ConfigRuleName !== undefined) {
+    bodyParams["ConfigRuleName"] = input.ConfigRuleName;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1ConfigRuleComplianceSummaryFilters = (
+  input: ConfigRuleComplianceSummaryFilters,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.AccountId !== undefined) {
+    bodyParams["AccountId"] = input.AccountId;
+  }
+  if (input.AwsRegion !== undefined) {
+    bodyParams["AwsRegion"] = input.AwsRegion;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1ConfigRuleNames = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1ConfigSnapshotDeliveryProperties = (
+  input: ConfigSnapshotDeliveryProperties,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.deliveryFrequency !== undefined) {
+    bodyParams["deliveryFrequency"] = input.deliveryFrequency;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1ConfigurationAggregatorNameList = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1ConfigurationRecorder = (
+  input: ConfigurationRecorder,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.name !== undefined) {
+    bodyParams["name"] = input.name;
+  }
+  if (input.recordingGroup !== undefined) {
+    bodyParams["recordingGroup"] = serializeAws_json1_1RecordingGroup(
+      input.recordingGroup,
+      context
+    );
+  }
+  if (input.roleARN !== undefined) {
+    bodyParams["roleARN"] = input.roleARN;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1ConfigurationRecorderNameList = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1ConformancePackComplianceFilters = (
+  input: ConformancePackComplianceFilters,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ComplianceType !== undefined) {
+    bodyParams["ComplianceType"] = input.ComplianceType;
+  }
+  if (input.ConfigRuleNames !== undefined) {
+    bodyParams[
+      "ConfigRuleNames"
+    ] = serializeAws_json1_1ConformancePackConfigRuleNames(
+      input.ConfigRuleNames,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1ConformancePackComplianceResourceIds = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1ConformancePackConfigRuleNames = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1ConformancePackEvaluationFilters = (
+  input: ConformancePackEvaluationFilters,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ComplianceType !== undefined) {
+    bodyParams["ComplianceType"] = input.ComplianceType;
+  }
+  if (input.ConfigRuleNames !== undefined) {
+    bodyParams[
+      "ConfigRuleNames"
+    ] = serializeAws_json1_1ConformancePackConfigRuleNames(
+      input.ConfigRuleNames,
+      context
+    );
+  }
+  if (input.ResourceIds !== undefined) {
+    bodyParams[
+      "ResourceIds"
+    ] = serializeAws_json1_1ConformancePackComplianceResourceIds(
+      input.ResourceIds,
+      context
+    );
+  }
+  if (input.ResourceType !== undefined) {
+    bodyParams["ResourceType"] = input.ResourceType;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1ConformancePackInputParameter = (
+  input: ConformancePackInputParameter,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ParameterName !== undefined) {
+    bodyParams["ParameterName"] = input.ParameterName;
+  }
+  if (input.ParameterValue !== undefined) {
+    bodyParams["ParameterValue"] = input.ParameterValue;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1ConformancePackInputParameters = (
+  input: Array<ConformancePackInputParameter>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry =>
+    serializeAws_json1_1ConformancePackInputParameter(entry, context)
+  );
+};
+
+const serializeAws_json1_1ConformancePackNamesList = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1ConformancePackNamesToSummarizeList = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1DeleteAggregationAuthorizationRequest = (
+  input: DeleteAggregationAuthorizationRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.AuthorizedAccountId !== undefined) {
+    bodyParams["AuthorizedAccountId"] = input.AuthorizedAccountId;
+  }
+  if (input.AuthorizedAwsRegion !== undefined) {
+    bodyParams["AuthorizedAwsRegion"] = input.AuthorizedAwsRegion;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DeleteConfigRuleRequest = (
+  input: DeleteConfigRuleRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigRuleName !== undefined) {
+    bodyParams["ConfigRuleName"] = input.ConfigRuleName;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DeleteConfigurationAggregatorRequest = (
+  input: DeleteConfigurationAggregatorRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigurationAggregatorName !== undefined) {
+    bodyParams["ConfigurationAggregatorName"] =
+      input.ConfigurationAggregatorName;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DeleteConfigurationRecorderRequest = (
+  input: DeleteConfigurationRecorderRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigurationRecorderName !== undefined) {
+    bodyParams["ConfigurationRecorderName"] = input.ConfigurationRecorderName;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DeleteConformancePackRequest = (
+  input: DeleteConformancePackRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConformancePackName !== undefined) {
+    bodyParams["ConformancePackName"] = input.ConformancePackName;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DeleteDeliveryChannelRequest = (
+  input: DeleteDeliveryChannelRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.DeliveryChannelName !== undefined) {
+    bodyParams["DeliveryChannelName"] = input.DeliveryChannelName;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DeleteEvaluationResultsRequest = (
+  input: DeleteEvaluationResultsRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigRuleName !== undefined) {
+    bodyParams["ConfigRuleName"] = input.ConfigRuleName;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DeleteOrganizationConfigRuleRequest = (
+  input: DeleteOrganizationConfigRuleRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.OrganizationConfigRuleName !== undefined) {
+    bodyParams["OrganizationConfigRuleName"] = input.OrganizationConfigRuleName;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DeleteOrganizationConformancePackRequest = (
+  input: DeleteOrganizationConformancePackRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.OrganizationConformancePackName !== undefined) {
+    bodyParams["OrganizationConformancePackName"] =
+      input.OrganizationConformancePackName;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DeletePendingAggregationRequestRequest = (
+  input: DeletePendingAggregationRequestRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.RequesterAccountId !== undefined) {
+    bodyParams["RequesterAccountId"] = input.RequesterAccountId;
+  }
+  if (input.RequesterAwsRegion !== undefined) {
+    bodyParams["RequesterAwsRegion"] = input.RequesterAwsRegion;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DeleteRemediationConfigurationRequest = (
+  input: DeleteRemediationConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigRuleName !== undefined) {
+    bodyParams["ConfigRuleName"] = input.ConfigRuleName;
+  }
+  if (input.ResourceType !== undefined) {
+    bodyParams["ResourceType"] = input.ResourceType;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DeleteRemediationExceptionsRequest = (
+  input: DeleteRemediationExceptionsRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigRuleName !== undefined) {
+    bodyParams["ConfigRuleName"] = input.ConfigRuleName;
+  }
+  if (input.ResourceKeys !== undefined) {
+    bodyParams[
+      "ResourceKeys"
+    ] = serializeAws_json1_1RemediationExceptionResourceKeys(
+      input.ResourceKeys,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DeleteResourceConfigRequest = (
+  input: DeleteResourceConfigRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ResourceId !== undefined) {
+    bodyParams["ResourceId"] = input.ResourceId;
+  }
+  if (input.ResourceType !== undefined) {
+    bodyParams["ResourceType"] = input.ResourceType;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DeleteRetentionConfigurationRequest = (
+  input: DeleteRetentionConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.RetentionConfigurationName !== undefined) {
+    bodyParams["RetentionConfigurationName"] = input.RetentionConfigurationName;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DeliverConfigSnapshotRequest = (
+  input: DeliverConfigSnapshotRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.deliveryChannelName !== undefined) {
+    bodyParams["deliveryChannelName"] = input.deliveryChannelName;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DeliveryChannel = (
+  input: DeliveryChannel,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.configSnapshotDeliveryProperties !== undefined) {
+    bodyParams[
+      "configSnapshotDeliveryProperties"
+    ] = serializeAws_json1_1ConfigSnapshotDeliveryProperties(
+      input.configSnapshotDeliveryProperties,
+      context
+    );
+  }
+  if (input.name !== undefined) {
+    bodyParams["name"] = input.name;
+  }
+  if (input.s3BucketName !== undefined) {
+    bodyParams["s3BucketName"] = input.s3BucketName;
+  }
+  if (input.s3KeyPrefix !== undefined) {
+    bodyParams["s3KeyPrefix"] = input.s3KeyPrefix;
+  }
+  if (input.snsTopicARN !== undefined) {
+    bodyParams["snsTopicARN"] = input.snsTopicARN;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DeliveryChannelNameList = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1DescribeAggregateComplianceByConfigRulesRequest = (
+  input: DescribeAggregateComplianceByConfigRulesRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigurationAggregatorName !== undefined) {
+    bodyParams["ConfigurationAggregatorName"] =
+      input.ConfigurationAggregatorName;
+  }
+  if (input.Filters !== undefined) {
+    bodyParams["Filters"] = serializeAws_json1_1ConfigRuleComplianceFilters(
+      input.Filters,
+      context
+    );
+  }
+  if (input.Limit !== undefined) {
+    bodyParams["Limit"] = input.Limit;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeAggregationAuthorizationsRequest = (
+  input: DescribeAggregationAuthorizationsRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Limit !== undefined) {
+    bodyParams["Limit"] = input.Limit;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeComplianceByConfigRuleRequest = (
+  input: DescribeComplianceByConfigRuleRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ComplianceTypes !== undefined) {
+    bodyParams["ComplianceTypes"] = serializeAws_json1_1ComplianceTypes(
+      input.ComplianceTypes,
+      context
+    );
+  }
+  if (input.ConfigRuleNames !== undefined) {
+    bodyParams["ConfigRuleNames"] = serializeAws_json1_1ConfigRuleNames(
+      input.ConfigRuleNames,
+      context
+    );
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeComplianceByResourceRequest = (
+  input: DescribeComplianceByResourceRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ComplianceTypes !== undefined) {
+    bodyParams["ComplianceTypes"] = serializeAws_json1_1ComplianceTypes(
+      input.ComplianceTypes,
+      context
+    );
+  }
+  if (input.Limit !== undefined) {
+    bodyParams["Limit"] = input.Limit;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  if (input.ResourceId !== undefined) {
+    bodyParams["ResourceId"] = input.ResourceId;
+  }
+  if (input.ResourceType !== undefined) {
+    bodyParams["ResourceType"] = input.ResourceType;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeConfigRuleEvaluationStatusRequest = (
+  input: DescribeConfigRuleEvaluationStatusRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigRuleNames !== undefined) {
+    bodyParams["ConfigRuleNames"] = serializeAws_json1_1ConfigRuleNames(
+      input.ConfigRuleNames,
+      context
+    );
+  }
+  if (input.Limit !== undefined) {
+    bodyParams["Limit"] = input.Limit;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeConfigRulesRequest = (
+  input: DescribeConfigRulesRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigRuleNames !== undefined) {
+    bodyParams["ConfigRuleNames"] = serializeAws_json1_1ConfigRuleNames(
+      input.ConfigRuleNames,
+      context
+    );
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusRequest = (
+  input: DescribeConfigurationAggregatorSourcesStatusRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigurationAggregatorName !== undefined) {
+    bodyParams["ConfigurationAggregatorName"] =
+      input.ConfigurationAggregatorName;
+  }
+  if (input.Limit !== undefined) {
+    bodyParams["Limit"] = input.Limit;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  if (input.UpdateStatus !== undefined) {
+    bodyParams[
+      "UpdateStatus"
+    ] = serializeAws_json1_1AggregatedSourceStatusTypeList(
+      input.UpdateStatus,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeConfigurationAggregatorsRequest = (
+  input: DescribeConfigurationAggregatorsRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigurationAggregatorNames !== undefined) {
+    bodyParams[
+      "ConfigurationAggregatorNames"
+    ] = serializeAws_json1_1ConfigurationAggregatorNameList(
+      input.ConfigurationAggregatorNames,
+      context
+    );
+  }
+  if (input.Limit !== undefined) {
+    bodyParams["Limit"] = input.Limit;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeConfigurationRecorderStatusRequest = (
+  input: DescribeConfigurationRecorderStatusRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigurationRecorderNames !== undefined) {
+    bodyParams[
+      "ConfigurationRecorderNames"
+    ] = serializeAws_json1_1ConfigurationRecorderNameList(
+      input.ConfigurationRecorderNames,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeConfigurationRecordersRequest = (
+  input: DescribeConfigurationRecordersRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigurationRecorderNames !== undefined) {
+    bodyParams[
+      "ConfigurationRecorderNames"
+    ] = serializeAws_json1_1ConfigurationRecorderNameList(
+      input.ConfigurationRecorderNames,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeConformancePackComplianceRequest = (
+  input: DescribeConformancePackComplianceRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConformancePackName !== undefined) {
+    bodyParams["ConformancePackName"] = input.ConformancePackName;
+  }
+  if (input.Filters !== undefined) {
+    bodyParams[
+      "Filters"
+    ] = serializeAws_json1_1ConformancePackComplianceFilters(
+      input.Filters,
+      context
+    );
+  }
+  if (input.Limit !== undefined) {
+    bodyParams["Limit"] = input.Limit;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeConformancePackStatusRequest = (
+  input: DescribeConformancePackStatusRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConformancePackNames !== undefined) {
+    bodyParams[
+      "ConformancePackNames"
+    ] = serializeAws_json1_1ConformancePackNamesList(
+      input.ConformancePackNames,
+      context
+    );
+  }
+  if (input.Limit !== undefined) {
+    bodyParams["Limit"] = input.Limit;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeConformancePacksRequest = (
+  input: DescribeConformancePacksRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConformancePackNames !== undefined) {
+    bodyParams[
+      "ConformancePackNames"
+    ] = serializeAws_json1_1ConformancePackNamesList(
+      input.ConformancePackNames,
+      context
+    );
+  }
+  if (input.Limit !== undefined) {
+    bodyParams["Limit"] = input.Limit;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeDeliveryChannelStatusRequest = (
+  input: DescribeDeliveryChannelStatusRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.DeliveryChannelNames !== undefined) {
+    bodyParams[
+      "DeliveryChannelNames"
+    ] = serializeAws_json1_1DeliveryChannelNameList(
+      input.DeliveryChannelNames,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeDeliveryChannelsRequest = (
+  input: DescribeDeliveryChannelsRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.DeliveryChannelNames !== undefined) {
+    bodyParams[
+      "DeliveryChannelNames"
+    ] = serializeAws_json1_1DeliveryChannelNameList(
+      input.DeliveryChannelNames,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeOrganizationConfigRuleStatusesRequest = (
+  input: DescribeOrganizationConfigRuleStatusesRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Limit !== undefined) {
+    bodyParams["Limit"] = input.Limit;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  if (input.OrganizationConfigRuleNames !== undefined) {
+    bodyParams[
+      "OrganizationConfigRuleNames"
+    ] = serializeAws_json1_1OrganizationConfigRuleNames(
+      input.OrganizationConfigRuleNames,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeOrganizationConfigRulesRequest = (
+  input: DescribeOrganizationConfigRulesRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Limit !== undefined) {
+    bodyParams["Limit"] = input.Limit;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  if (input.OrganizationConfigRuleNames !== undefined) {
+    bodyParams[
+      "OrganizationConfigRuleNames"
+    ] = serializeAws_json1_1OrganizationConfigRuleNames(
+      input.OrganizationConfigRuleNames,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeOrganizationConformancePackStatusesRequest = (
+  input: DescribeOrganizationConformancePackStatusesRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Limit !== undefined) {
+    bodyParams["Limit"] = input.Limit;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  if (input.OrganizationConformancePackNames !== undefined) {
+    bodyParams[
+      "OrganizationConformancePackNames"
+    ] = serializeAws_json1_1OrganizationConformancePackNames(
+      input.OrganizationConformancePackNames,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeOrganizationConformancePacksRequest = (
+  input: DescribeOrganizationConformancePacksRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Limit !== undefined) {
+    bodyParams["Limit"] = input.Limit;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  if (input.OrganizationConformancePackNames !== undefined) {
+    bodyParams[
+      "OrganizationConformancePackNames"
+    ] = serializeAws_json1_1OrganizationConformancePackNames(
+      input.OrganizationConformancePackNames,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribePendingAggregationRequestsRequest = (
+  input: DescribePendingAggregationRequestsRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Limit !== undefined) {
+    bodyParams["Limit"] = input.Limit;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeRemediationConfigurationsRequest = (
+  input: DescribeRemediationConfigurationsRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigRuleNames !== undefined) {
+    bodyParams["ConfigRuleNames"] = serializeAws_json1_1ConfigRuleNames(
+      input.ConfigRuleNames,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeRemediationExceptionsRequest = (
+  input: DescribeRemediationExceptionsRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigRuleName !== undefined) {
+    bodyParams["ConfigRuleName"] = input.ConfigRuleName;
+  }
+  if (input.Limit !== undefined) {
+    bodyParams["Limit"] = input.Limit;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  if (input.ResourceKeys !== undefined) {
+    bodyParams[
+      "ResourceKeys"
+    ] = serializeAws_json1_1RemediationExceptionResourceKeys(
+      input.ResourceKeys,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeRemediationExecutionStatusRequest = (
+  input: DescribeRemediationExecutionStatusRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigRuleName !== undefined) {
+    bodyParams["ConfigRuleName"] = input.ConfigRuleName;
+  }
+  if (input.Limit !== undefined) {
+    bodyParams["Limit"] = input.Limit;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  if (input.ResourceKeys !== undefined) {
+    bodyParams["ResourceKeys"] = serializeAws_json1_1ResourceKeys(
+      input.ResourceKeys,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1DescribeRetentionConfigurationsRequest = (
+  input: DescribeRetentionConfigurationsRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  if (input.RetentionConfigurationNames !== undefined) {
+    bodyParams[
+      "RetentionConfigurationNames"
+    ] = serializeAws_json1_1RetentionConfigurationNameList(
+      input.RetentionConfigurationNames,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1Evaluation = (
+  input: Evaluation,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Annotation !== undefined) {
+    bodyParams["Annotation"] = input.Annotation;
+  }
+  if (input.ComplianceResourceId !== undefined) {
+    bodyParams["ComplianceResourceId"] = input.ComplianceResourceId;
+  }
+  if (input.ComplianceResourceType !== undefined) {
+    bodyParams["ComplianceResourceType"] = input.ComplianceResourceType;
+  }
+  if (input.ComplianceType !== undefined) {
+    bodyParams["ComplianceType"] = input.ComplianceType;
+  }
+  if (input.OrderingTimestamp !== undefined) {
+    bodyParams["OrderingTimestamp"] = Math.round(
+      input.OrderingTimestamp.getTime() / 1000
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1Evaluations = (
+  input: Array<Evaluation>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry =>
+    serializeAws_json1_1Evaluation(entry, context)
+  );
+};
+
+const serializeAws_json1_1ExcludedAccounts = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1ExecutionControls = (
+  input: ExecutionControls,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.SsmControls !== undefined) {
+    bodyParams["SsmControls"] = serializeAws_json1_1SsmControls(
+      input.SsmControls,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleRequest = (
+  input: GetAggregateComplianceDetailsByConfigRuleRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.AccountId !== undefined) {
+    bodyParams["AccountId"] = input.AccountId;
+  }
+  if (input.AwsRegion !== undefined) {
+    bodyParams["AwsRegion"] = input.AwsRegion;
+  }
+  if (input.ComplianceType !== undefined) {
+    bodyParams["ComplianceType"] = input.ComplianceType;
+  }
+  if (input.ConfigRuleName !== undefined) {
+    bodyParams["ConfigRuleName"] = input.ConfigRuleName;
+  }
+  if (input.ConfigurationAggregatorName !== undefined) {
+    bodyParams["ConfigurationAggregatorName"] =
+      input.ConfigurationAggregatorName;
+  }
+  if (input.Limit !== undefined) {
+    bodyParams["Limit"] = input.Limit;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1GetAggregateConfigRuleComplianceSummaryRequest = (
+  input: GetAggregateConfigRuleComplianceSummaryRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigurationAggregatorName !== undefined) {
+    bodyParams["ConfigurationAggregatorName"] =
+      input.ConfigurationAggregatorName;
+  }
+  if (input.Filters !== undefined) {
+    bodyParams[
+      "Filters"
+    ] = serializeAws_json1_1ConfigRuleComplianceSummaryFilters(
+      input.Filters,
+      context
+    );
+  }
+  if (input.GroupByKey !== undefined) {
+    bodyParams["GroupByKey"] = input.GroupByKey;
+  }
+  if (input.Limit !== undefined) {
+    bodyParams["Limit"] = input.Limit;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1GetAggregateDiscoveredResourceCountsRequest = (
+  input: GetAggregateDiscoveredResourceCountsRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigurationAggregatorName !== undefined) {
+    bodyParams["ConfigurationAggregatorName"] =
+      input.ConfigurationAggregatorName;
+  }
+  if (input.Filters !== undefined) {
+    bodyParams["Filters"] = serializeAws_json1_1ResourceCountFilters(
+      input.Filters,
+      context
+    );
+  }
+  if (input.GroupByKey !== undefined) {
+    bodyParams["GroupByKey"] = input.GroupByKey;
+  }
+  if (input.Limit !== undefined) {
+    bodyParams["Limit"] = input.Limit;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1GetAggregateResourceConfigRequest = (
+  input: GetAggregateResourceConfigRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigurationAggregatorName !== undefined) {
+    bodyParams["ConfigurationAggregatorName"] =
+      input.ConfigurationAggregatorName;
+  }
+  if (input.ResourceIdentifier !== undefined) {
+    bodyParams[
+      "ResourceIdentifier"
+    ] = serializeAws_json1_1AggregateResourceIdentifier(
+      input.ResourceIdentifier,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1GetComplianceDetailsByConfigRuleRequest = (
+  input: GetComplianceDetailsByConfigRuleRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ComplianceTypes !== undefined) {
+    bodyParams["ComplianceTypes"] = serializeAws_json1_1ComplianceTypes(
+      input.ComplianceTypes,
+      context
+    );
+  }
+  if (input.ConfigRuleName !== undefined) {
+    bodyParams["ConfigRuleName"] = input.ConfigRuleName;
+  }
+  if (input.Limit !== undefined) {
+    bodyParams["Limit"] = input.Limit;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1GetComplianceDetailsByResourceRequest = (
+  input: GetComplianceDetailsByResourceRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ComplianceTypes !== undefined) {
+    bodyParams["ComplianceTypes"] = serializeAws_json1_1ComplianceTypes(
+      input.ComplianceTypes,
+      context
+    );
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  if (input.ResourceId !== undefined) {
+    bodyParams["ResourceId"] = input.ResourceId;
+  }
+  if (input.ResourceType !== undefined) {
+    bodyParams["ResourceType"] = input.ResourceType;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1GetComplianceSummaryByResourceTypeRequest = (
+  input: GetComplianceSummaryByResourceTypeRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ResourceTypes !== undefined) {
+    bodyParams["ResourceTypes"] = serializeAws_json1_1ResourceTypes(
+      input.ResourceTypes,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1GetConformancePackComplianceDetailsRequest = (
+  input: GetConformancePackComplianceDetailsRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConformancePackName !== undefined) {
+    bodyParams["ConformancePackName"] = input.ConformancePackName;
+  }
+  if (input.Filters !== undefined) {
+    bodyParams[
+      "Filters"
+    ] = serializeAws_json1_1ConformancePackEvaluationFilters(
+      input.Filters,
+      context
+    );
+  }
+  if (input.Limit !== undefined) {
+    bodyParams["Limit"] = input.Limit;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1GetConformancePackComplianceSummaryRequest = (
+  input: GetConformancePackComplianceSummaryRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConformancePackNames !== undefined) {
+    bodyParams[
+      "ConformancePackNames"
+    ] = serializeAws_json1_1ConformancePackNamesToSummarizeList(
+      input.ConformancePackNames,
+      context
+    );
+  }
+  if (input.Limit !== undefined) {
+    bodyParams["Limit"] = input.Limit;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1GetDiscoveredResourceCountsRequest = (
+  input: GetDiscoveredResourceCountsRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.limit !== undefined) {
+    bodyParams["limit"] = input.limit;
+  }
+  if (input.nextToken !== undefined) {
+    bodyParams["nextToken"] = input.nextToken;
+  }
+  if (input.resourceTypes !== undefined) {
+    bodyParams["resourceTypes"] = serializeAws_json1_1ResourceTypes(
+      input.resourceTypes,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1GetOrganizationConfigRuleDetailedStatusRequest = (
+  input: GetOrganizationConfigRuleDetailedStatusRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Filters !== undefined) {
+    bodyParams["Filters"] = serializeAws_json1_1StatusDetailFilters(
+      input.Filters,
+      context
+    );
+  }
+  if (input.Limit !== undefined) {
+    bodyParams["Limit"] = input.Limit;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  if (input.OrganizationConfigRuleName !== undefined) {
+    bodyParams["OrganizationConfigRuleName"] = input.OrganizationConfigRuleName;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1GetOrganizationConformancePackDetailedStatusRequest = (
+  input: GetOrganizationConformancePackDetailedStatusRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Filters !== undefined) {
+    bodyParams[
+      "Filters"
+    ] = serializeAws_json1_1OrganizationResourceDetailedStatusFilters(
+      input.Filters,
+      context
+    );
+  }
+  if (input.Limit !== undefined) {
+    bodyParams["Limit"] = input.Limit;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  if (input.OrganizationConformancePackName !== undefined) {
+    bodyParams["OrganizationConformancePackName"] =
+      input.OrganizationConformancePackName;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1GetResourceConfigHistoryRequest = (
+  input: GetResourceConfigHistoryRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.chronologicalOrder !== undefined) {
+    bodyParams["chronologicalOrder"] = input.chronologicalOrder;
+  }
+  if (input.earlierTime !== undefined) {
+    bodyParams["earlierTime"] = Math.round(input.earlierTime.getTime() / 1000);
+  }
+  if (input.laterTime !== undefined) {
+    bodyParams["laterTime"] = Math.round(input.laterTime.getTime() / 1000);
+  }
+  if (input.limit !== undefined) {
+    bodyParams["limit"] = input.limit;
+  }
+  if (input.nextToken !== undefined) {
+    bodyParams["nextToken"] = input.nextToken;
+  }
+  if (input.resourceId !== undefined) {
+    bodyParams["resourceId"] = input.resourceId;
+  }
+  if (input.resourceType !== undefined) {
+    bodyParams["resourceType"] = input.resourceType;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1ListAggregateDiscoveredResourcesRequest = (
+  input: ListAggregateDiscoveredResourcesRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigurationAggregatorName !== undefined) {
+    bodyParams["ConfigurationAggregatorName"] =
+      input.ConfigurationAggregatorName;
+  }
+  if (input.Filters !== undefined) {
+    bodyParams["Filters"] = serializeAws_json1_1ResourceFilters(
+      input.Filters,
+      context
+    );
+  }
+  if (input.Limit !== undefined) {
+    bodyParams["Limit"] = input.Limit;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  if (input.ResourceType !== undefined) {
+    bodyParams["ResourceType"] = input.ResourceType;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1ListDiscoveredResourcesRequest = (
+  input: ListDiscoveredResourcesRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.includeDeletedResources !== undefined) {
+    bodyParams["includeDeletedResources"] = input.includeDeletedResources;
+  }
+  if (input.limit !== undefined) {
+    bodyParams["limit"] = input.limit;
+  }
+  if (input.nextToken !== undefined) {
+    bodyParams["nextToken"] = input.nextToken;
+  }
+  if (input.resourceIds !== undefined) {
+    bodyParams["resourceIds"] = serializeAws_json1_1ResourceIdList(
+      input.resourceIds,
+      context
+    );
+  }
+  if (input.resourceName !== undefined) {
+    bodyParams["resourceName"] = input.resourceName;
+  }
+  if (input.resourceType !== undefined) {
+    bodyParams["resourceType"] = input.resourceType;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1ListTagsForResourceRequest = (
+  input: ListTagsForResourceRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Limit !== undefined) {
+    bodyParams["Limit"] = input.Limit;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  if (input.ResourceArn !== undefined) {
+    bodyParams["ResourceArn"] = input.ResourceArn;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1OrganizationAggregationSource = (
+  input: OrganizationAggregationSource,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.AllAwsRegions !== undefined) {
+    bodyParams["AllAwsRegions"] = input.AllAwsRegions;
+  }
+  if (input.AwsRegions !== undefined) {
+    bodyParams["AwsRegions"] = serializeAws_json1_1AggregatorRegionList(
+      input.AwsRegions,
+      context
+    );
+  }
+  if (input.RoleArn !== undefined) {
+    bodyParams["RoleArn"] = input.RoleArn;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1OrganizationConfigRuleNames = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1OrganizationConfigRuleTriggerTypes = (
+  input: Array<OrganizationConfigRuleTriggerType | string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1OrganizationConformancePackNames = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1OrganizationCustomRuleMetadata = (
+  input: OrganizationCustomRuleMetadata,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Description !== undefined) {
+    bodyParams["Description"] = input.Description;
+  }
+  if (input.InputParameters !== undefined) {
+    bodyParams["InputParameters"] = input.InputParameters;
+  }
+  if (input.LambdaFunctionArn !== undefined) {
+    bodyParams["LambdaFunctionArn"] = input.LambdaFunctionArn;
+  }
+  if (input.MaximumExecutionFrequency !== undefined) {
+    bodyParams["MaximumExecutionFrequency"] = input.MaximumExecutionFrequency;
+  }
+  if (input.OrganizationConfigRuleTriggerTypes !== undefined) {
+    bodyParams[
+      "OrganizationConfigRuleTriggerTypes"
+    ] = serializeAws_json1_1OrganizationConfigRuleTriggerTypes(
+      input.OrganizationConfigRuleTriggerTypes,
+      context
+    );
+  }
+  if (input.ResourceIdScope !== undefined) {
+    bodyParams["ResourceIdScope"] = input.ResourceIdScope;
+  }
+  if (input.ResourceTypesScope !== undefined) {
+    bodyParams["ResourceTypesScope"] = serializeAws_json1_1ResourceTypesScope(
+      input.ResourceTypesScope,
+      context
+    );
+  }
+  if (input.TagKeyScope !== undefined) {
+    bodyParams["TagKeyScope"] = input.TagKeyScope;
+  }
+  if (input.TagValueScope !== undefined) {
+    bodyParams["TagValueScope"] = input.TagValueScope;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1OrganizationManagedRuleMetadata = (
+  input: OrganizationManagedRuleMetadata,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Description !== undefined) {
+    bodyParams["Description"] = input.Description;
+  }
+  if (input.InputParameters !== undefined) {
+    bodyParams["InputParameters"] = input.InputParameters;
+  }
+  if (input.MaximumExecutionFrequency !== undefined) {
+    bodyParams["MaximumExecutionFrequency"] = input.MaximumExecutionFrequency;
+  }
+  if (input.ResourceIdScope !== undefined) {
+    bodyParams["ResourceIdScope"] = input.ResourceIdScope;
+  }
+  if (input.ResourceTypesScope !== undefined) {
+    bodyParams["ResourceTypesScope"] = serializeAws_json1_1ResourceTypesScope(
+      input.ResourceTypesScope,
+      context
+    );
+  }
+  if (input.RuleIdentifier !== undefined) {
+    bodyParams["RuleIdentifier"] = input.RuleIdentifier;
+  }
+  if (input.TagKeyScope !== undefined) {
+    bodyParams["TagKeyScope"] = input.TagKeyScope;
+  }
+  if (input.TagValueScope !== undefined) {
+    bodyParams["TagValueScope"] = input.TagValueScope;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1OrganizationResourceDetailedStatusFilters = (
+  input: OrganizationResourceDetailedStatusFilters,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.AccountId !== undefined) {
+    bodyParams["AccountId"] = input.AccountId;
+  }
+  if (input.Status !== undefined) {
+    bodyParams["Status"] = input.Status;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1PutAggregationAuthorizationRequest = (
+  input: PutAggregationAuthorizationRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.AuthorizedAccountId !== undefined) {
+    bodyParams["AuthorizedAccountId"] = input.AuthorizedAccountId;
+  }
+  if (input.AuthorizedAwsRegion !== undefined) {
+    bodyParams["AuthorizedAwsRegion"] = input.AuthorizedAwsRegion;
+  }
+  if (input.Tags !== undefined) {
+    bodyParams["Tags"] = serializeAws_json1_1TagsList(input.Tags, context);
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1PutConfigRuleRequest = (
+  input: PutConfigRuleRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigRule !== undefined) {
+    bodyParams["ConfigRule"] = serializeAws_json1_1ConfigRule(
+      input.ConfigRule,
+      context
+    );
+  }
+  if (input.Tags !== undefined) {
+    bodyParams["Tags"] = serializeAws_json1_1TagsList(input.Tags, context);
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1PutConfigurationAggregatorRequest = (
+  input: PutConfigurationAggregatorRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.AccountAggregationSources !== undefined) {
+    bodyParams[
+      "AccountAggregationSources"
+    ] = serializeAws_json1_1AccountAggregationSourceList(
+      input.AccountAggregationSources,
+      context
+    );
+  }
+  if (input.ConfigurationAggregatorName !== undefined) {
+    bodyParams["ConfigurationAggregatorName"] =
+      input.ConfigurationAggregatorName;
+  }
+  if (input.OrganizationAggregationSource !== undefined) {
+    bodyParams[
+      "OrganizationAggregationSource"
+    ] = serializeAws_json1_1OrganizationAggregationSource(
+      input.OrganizationAggregationSource,
+      context
+    );
+  }
+  if (input.Tags !== undefined) {
+    bodyParams["Tags"] = serializeAws_json1_1TagsList(input.Tags, context);
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1PutConfigurationRecorderRequest = (
+  input: PutConfigurationRecorderRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigurationRecorder !== undefined) {
+    bodyParams[
+      "ConfigurationRecorder"
+    ] = serializeAws_json1_1ConfigurationRecorder(
+      input.ConfigurationRecorder,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1PutConformancePackRequest = (
+  input: PutConformancePackRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConformancePackInputParameters !== undefined) {
+    bodyParams[
+      "ConformancePackInputParameters"
+    ] = serializeAws_json1_1ConformancePackInputParameters(
+      input.ConformancePackInputParameters,
+      context
+    );
+  }
+  if (input.ConformancePackName !== undefined) {
+    bodyParams["ConformancePackName"] = input.ConformancePackName;
+  }
+  if (input.DeliveryS3Bucket !== undefined) {
+    bodyParams["DeliveryS3Bucket"] = input.DeliveryS3Bucket;
+  }
+  if (input.DeliveryS3KeyPrefix !== undefined) {
+    bodyParams["DeliveryS3KeyPrefix"] = input.DeliveryS3KeyPrefix;
+  }
+  if (input.TemplateBody !== undefined) {
+    bodyParams["TemplateBody"] = input.TemplateBody;
+  }
+  if (input.TemplateS3Uri !== undefined) {
+    bodyParams["TemplateS3Uri"] = input.TemplateS3Uri;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1PutDeliveryChannelRequest = (
+  input: PutDeliveryChannelRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.DeliveryChannel !== undefined) {
+    bodyParams["DeliveryChannel"] = serializeAws_json1_1DeliveryChannel(
+      input.DeliveryChannel,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1PutEvaluationsRequest = (
+  input: PutEvaluationsRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Evaluations !== undefined) {
+    bodyParams["Evaluations"] = serializeAws_json1_1Evaluations(
+      input.Evaluations,
+      context
+    );
+  }
+  if (input.ResultToken !== undefined) {
+    bodyParams["ResultToken"] = input.ResultToken;
+  }
+  if (input.TestMode !== undefined) {
+    bodyParams["TestMode"] = input.TestMode;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1PutOrganizationConfigRuleRequest = (
+  input: PutOrganizationConfigRuleRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ExcludedAccounts !== undefined) {
+    bodyParams["ExcludedAccounts"] = serializeAws_json1_1ExcludedAccounts(
+      input.ExcludedAccounts,
+      context
+    );
+  }
+  if (input.OrganizationConfigRuleName !== undefined) {
+    bodyParams["OrganizationConfigRuleName"] = input.OrganizationConfigRuleName;
+  }
+  if (input.OrganizationCustomRuleMetadata !== undefined) {
+    bodyParams[
+      "OrganizationCustomRuleMetadata"
+    ] = serializeAws_json1_1OrganizationCustomRuleMetadata(
+      input.OrganizationCustomRuleMetadata,
+      context
+    );
+  }
+  if (input.OrganizationManagedRuleMetadata !== undefined) {
+    bodyParams[
+      "OrganizationManagedRuleMetadata"
+    ] = serializeAws_json1_1OrganizationManagedRuleMetadata(
+      input.OrganizationManagedRuleMetadata,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1PutOrganizationConformancePackRequest = (
+  input: PutOrganizationConformancePackRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConformancePackInputParameters !== undefined) {
+    bodyParams[
+      "ConformancePackInputParameters"
+    ] = serializeAws_json1_1ConformancePackInputParameters(
+      input.ConformancePackInputParameters,
+      context
+    );
+  }
+  if (input.DeliveryS3Bucket !== undefined) {
+    bodyParams["DeliveryS3Bucket"] = input.DeliveryS3Bucket;
+  }
+  if (input.DeliveryS3KeyPrefix !== undefined) {
+    bodyParams["DeliveryS3KeyPrefix"] = input.DeliveryS3KeyPrefix;
+  }
+  if (input.ExcludedAccounts !== undefined) {
+    bodyParams["ExcludedAccounts"] = serializeAws_json1_1ExcludedAccounts(
+      input.ExcludedAccounts,
+      context
+    );
+  }
+  if (input.OrganizationConformancePackName !== undefined) {
+    bodyParams["OrganizationConformancePackName"] =
+      input.OrganizationConformancePackName;
+  }
+  if (input.TemplateBody !== undefined) {
+    bodyParams["TemplateBody"] = input.TemplateBody;
+  }
+  if (input.TemplateS3Uri !== undefined) {
+    bodyParams["TemplateS3Uri"] = input.TemplateS3Uri;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1PutRemediationConfigurationsRequest = (
+  input: PutRemediationConfigurationsRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.RemediationConfigurations !== undefined) {
+    bodyParams[
+      "RemediationConfigurations"
+    ] = serializeAws_json1_1RemediationConfigurations(
+      input.RemediationConfigurations,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1PutRemediationExceptionsRequest = (
+  input: PutRemediationExceptionsRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigRuleName !== undefined) {
+    bodyParams["ConfigRuleName"] = input.ConfigRuleName;
+  }
+  if (input.ExpirationTime !== undefined) {
+    bodyParams["ExpirationTime"] = Math.round(
+      input.ExpirationTime.getTime() / 1000
+    );
+  }
+  if (input.Message !== undefined) {
+    bodyParams["Message"] = input.Message;
+  }
+  if (input.ResourceKeys !== undefined) {
+    bodyParams[
+      "ResourceKeys"
+    ] = serializeAws_json1_1RemediationExceptionResourceKeys(
+      input.ResourceKeys,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1PutResourceConfigRequest = (
+  input: PutResourceConfigRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Configuration !== undefined) {
+    bodyParams["Configuration"] = input.Configuration;
+  }
+  if (input.ResourceId !== undefined) {
+    bodyParams["ResourceId"] = input.ResourceId;
+  }
+  if (input.ResourceName !== undefined) {
+    bodyParams["ResourceName"] = input.ResourceName;
+  }
+  if (input.ResourceType !== undefined) {
+    bodyParams["ResourceType"] = input.ResourceType;
+  }
+  if (input.SchemaVersionId !== undefined) {
+    bodyParams["SchemaVersionId"] = input.SchemaVersionId;
+  }
+  if (input.Tags !== undefined) {
+    bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1PutRetentionConfigurationRequest = (
+  input: PutRetentionConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.RetentionPeriodInDays !== undefined) {
+    bodyParams["RetentionPeriodInDays"] = input.RetentionPeriodInDays;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1RecordingGroup = (
+  input: RecordingGroup,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.allSupported !== undefined) {
+    bodyParams["allSupported"] = input.allSupported;
+  }
+  if (input.includeGlobalResourceTypes !== undefined) {
+    bodyParams["includeGlobalResourceTypes"] = input.includeGlobalResourceTypes;
+  }
+  if (input.resourceTypes !== undefined) {
+    bodyParams["resourceTypes"] = serializeAws_json1_1ResourceTypeList(
+      input.resourceTypes,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1ReevaluateConfigRuleNames = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1RemediationConfiguration = (
+  input: RemediationConfiguration,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Arn !== undefined) {
+    bodyParams["Arn"] = input.Arn;
+  }
+  if (input.Automatic !== undefined) {
+    bodyParams["Automatic"] = input.Automatic;
+  }
+  if (input.ConfigRuleName !== undefined) {
+    bodyParams["ConfigRuleName"] = input.ConfigRuleName;
+  }
+  if (input.CreatedByService !== undefined) {
+    bodyParams["CreatedByService"] = input.CreatedByService;
+  }
+  if (input.ExecutionControls !== undefined) {
+    bodyParams["ExecutionControls"] = serializeAws_json1_1ExecutionControls(
+      input.ExecutionControls,
+      context
+    );
+  }
+  if (input.MaximumAutomaticAttempts !== undefined) {
+    bodyParams["MaximumAutomaticAttempts"] = input.MaximumAutomaticAttempts;
+  }
+  if (input.Parameters !== undefined) {
+    bodyParams["Parameters"] = serializeAws_json1_1RemediationParameters(
+      input.Parameters,
+      context
+    );
+  }
+  if (input.ResourceType !== undefined) {
+    bodyParams["ResourceType"] = input.ResourceType;
+  }
+  if (input.RetryAttemptSeconds !== undefined) {
+    bodyParams["RetryAttemptSeconds"] = input.RetryAttemptSeconds;
+  }
+  if (input.TargetId !== undefined) {
+    bodyParams["TargetId"] = input.TargetId;
+  }
+  if (input.TargetType !== undefined) {
+    bodyParams["TargetType"] = input.TargetType;
+  }
+  if (input.TargetVersion !== undefined) {
+    bodyParams["TargetVersion"] = input.TargetVersion;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1RemediationConfigurations = (
+  input: Array<RemediationConfiguration>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry =>
+    serializeAws_json1_1RemediationConfiguration(entry, context)
+  );
+};
+
+const serializeAws_json1_1RemediationExceptionResourceKey = (
+  input: RemediationExceptionResourceKey,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ResourceId !== undefined) {
+    bodyParams["ResourceId"] = input.ResourceId;
+  }
+  if (input.ResourceType !== undefined) {
+    bodyParams["ResourceType"] = input.ResourceType;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1RemediationExceptionResourceKeys = (
+  input: Array<RemediationExceptionResourceKey>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry =>
+    serializeAws_json1_1RemediationExceptionResourceKey(entry, context)
+  );
+};
+
+const serializeAws_json1_1RemediationParameterValue = (
+  input: RemediationParameterValue,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ResourceValue !== undefined) {
+    bodyParams["ResourceValue"] = serializeAws_json1_1ResourceValue(
+      input.ResourceValue,
+      context
+    );
+  }
+  if (input.StaticValue !== undefined) {
+    bodyParams["StaticValue"] = serializeAws_json1_1StaticValue(
+      input.StaticValue,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1RemediationParameters = (
+  input: { [key: string]: RemediationParameterValue },
+  context: __SerdeContext
+): any => {
+  let mapParams: any = {};
+  Object.keys(input).forEach(key => {
+    mapParams[key] = serializeAws_json1_1RemediationParameterValue(
+      input[key],
+      context
+    );
+  });
+  return mapParams;
+};
+
+const serializeAws_json1_1ResourceCountFilters = (
+  input: ResourceCountFilters,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.AccountId !== undefined) {
+    bodyParams["AccountId"] = input.AccountId;
+  }
+  if (input.Region !== undefined) {
+    bodyParams["Region"] = input.Region;
+  }
+  if (input.ResourceType !== undefined) {
+    bodyParams["ResourceType"] = input.ResourceType;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1ResourceFilters = (
+  input: ResourceFilters,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.AccountId !== undefined) {
+    bodyParams["AccountId"] = input.AccountId;
+  }
+  if (input.Region !== undefined) {
+    bodyParams["Region"] = input.Region;
+  }
+  if (input.ResourceId !== undefined) {
+    bodyParams["ResourceId"] = input.ResourceId;
+  }
+  if (input.ResourceName !== undefined) {
+    bodyParams["ResourceName"] = input.ResourceName;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1ResourceIdList = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1ResourceIdentifiersList = (
+  input: Array<AggregateResourceIdentifier>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry =>
+    serializeAws_json1_1AggregateResourceIdentifier(entry, context)
+  );
+};
+
+const serializeAws_json1_1ResourceKey = (
+  input: ResourceKey,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.resourceId !== undefined) {
+    bodyParams["resourceId"] = input.resourceId;
+  }
+  if (input.resourceType !== undefined) {
+    bodyParams["resourceType"] = input.resourceType;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1ResourceKeys = (
+  input: Array<ResourceKey>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry =>
+    serializeAws_json1_1ResourceKey(entry, context)
+  );
+};
+
+const serializeAws_json1_1ResourceTypeList = (
+  input: Array<ResourceType | string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1ResourceTypes = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1ResourceTypesScope = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1ResourceValue = (
+  input: ResourceValue,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Value !== undefined) {
+    bodyParams["Value"] = input.Value;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1RetentionConfigurationNameList = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1Scope = (
+  input: Scope,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ComplianceResourceId !== undefined) {
+    bodyParams["ComplianceResourceId"] = input.ComplianceResourceId;
+  }
+  if (input.ComplianceResourceTypes !== undefined) {
+    bodyParams[
+      "ComplianceResourceTypes"
+    ] = serializeAws_json1_1ComplianceResourceTypes(
+      input.ComplianceResourceTypes,
+      context
+    );
+  }
+  if (input.TagKey !== undefined) {
+    bodyParams["TagKey"] = input.TagKey;
+  }
+  if (input.TagValue !== undefined) {
+    bodyParams["TagValue"] = input.TagValue;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1SelectResourceConfigRequest = (
+  input: SelectResourceConfigRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Expression !== undefined) {
+    bodyParams["Expression"] = input.Expression;
+  }
+  if (input.Limit !== undefined) {
+    bodyParams["Limit"] = input.Limit;
+  }
+  if (input.NextToken !== undefined) {
+    bodyParams["NextToken"] = input.NextToken;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1Source = (
+  input: Source,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Owner !== undefined) {
+    bodyParams["Owner"] = input.Owner;
+  }
+  if (input.SourceDetails !== undefined) {
+    bodyParams["SourceDetails"] = serializeAws_json1_1SourceDetails(
+      input.SourceDetails,
+      context
+    );
+  }
+  if (input.SourceIdentifier !== undefined) {
+    bodyParams["SourceIdentifier"] = input.SourceIdentifier;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1SourceDetail = (
+  input: SourceDetail,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.EventSource !== undefined) {
+    bodyParams["EventSource"] = input.EventSource;
+  }
+  if (input.MaximumExecutionFrequency !== undefined) {
+    bodyParams["MaximumExecutionFrequency"] = input.MaximumExecutionFrequency;
+  }
+  if (input.MessageType !== undefined) {
+    bodyParams["MessageType"] = input.MessageType;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1SourceDetails = (
+  input: Array<SourceDetail>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry =>
+    serializeAws_json1_1SourceDetail(entry, context)
+  );
+};
+
+const serializeAws_json1_1SsmControls = (
+  input: SsmControls,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConcurrentExecutionRatePercentage !== undefined) {
+    bodyParams["ConcurrentExecutionRatePercentage"] =
+      input.ConcurrentExecutionRatePercentage;
+  }
+  if (input.ErrorPercentage !== undefined) {
+    bodyParams["ErrorPercentage"] = input.ErrorPercentage;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1StartConfigRulesEvaluationRequest = (
+  input: StartConfigRulesEvaluationRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigRuleNames !== undefined) {
+    bodyParams[
+      "ConfigRuleNames"
+    ] = serializeAws_json1_1ReevaluateConfigRuleNames(
+      input.ConfigRuleNames,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1StartConfigurationRecorderRequest = (
+  input: StartConfigurationRecorderRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigurationRecorderName !== undefined) {
+    bodyParams["ConfigurationRecorderName"] = input.ConfigurationRecorderName;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1StartRemediationExecutionRequest = (
+  input: StartRemediationExecutionRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigRuleName !== undefined) {
+    bodyParams["ConfigRuleName"] = input.ConfigRuleName;
+  }
+  if (input.ResourceKeys !== undefined) {
+    bodyParams["ResourceKeys"] = serializeAws_json1_1ResourceKeys(
+      input.ResourceKeys,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1StaticParameterValues = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1StaticValue = (
+  input: StaticValue,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.Values !== undefined) {
+    bodyParams["Values"] = serializeAws_json1_1StaticParameterValues(
+      input.Values,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1StatusDetailFilters = (
+  input: StatusDetailFilters,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.AccountId !== undefined) {
+    bodyParams["AccountId"] = input.AccountId;
+  }
+  if (input.MemberAccountRuleStatus !== undefined) {
+    bodyParams["MemberAccountRuleStatus"] = input.MemberAccountRuleStatus;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1StopConfigurationRecorderRequest = (
+  input: StopConfigurationRecorderRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ConfigurationRecorderName !== undefined) {
+    bodyParams["ConfigurationRecorderName"] = input.ConfigurationRecorderName;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+  let bodyParams: any = {};
+  if (input.Key !== undefined) {
+    bodyParams["Key"] = input.Key;
+  }
+  if (input.Value !== undefined) {
+    bodyParams["Value"] = input.Value;
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1TagKeyList = (
+  input: Array<string>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => entry);
+};
+
+const serializeAws_json1_1TagList = (
+  input: Array<Tag>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => serializeAws_json1_1Tag(entry, context));
+};
+
+const serializeAws_json1_1TagResourceRequest = (
+  input: TagResourceRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ResourceArn !== undefined) {
+    bodyParams["ResourceArn"] = input.ResourceArn;
+  }
+  if (input.Tags !== undefined) {
+    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
+  }
+  return bodyParams;
+};
+
+const serializeAws_json1_1Tags = (
+  input: { [key: string]: string },
+  context: __SerdeContext
+): any => {
+  let mapParams: any = {};
+  Object.keys(input).forEach(key => {
+    mapParams[key] = input[key];
+  });
+  return mapParams;
+};
+
+const serializeAws_json1_1TagsList = (
+  input: Array<Tag>,
+  context: __SerdeContext
+): any => {
+  return (input || []).map(entry => serializeAws_json1_1Tag(entry, context));
+};
+
+const serializeAws_json1_1UntagResourceRequest = (
+  input: UntagResourceRequest,
+  context: __SerdeContext
+): any => {
+  let bodyParams: any = {};
+  if (input.ResourceArn !== undefined) {
+    bodyParams["ResourceArn"] = input.ResourceArn;
+  }
+  if (input.TagKeys !== undefined) {
+    bodyParams["TagKeys"] = serializeAws_json1_1TagKeyList(
+      input.TagKeys,
+      context
+    );
+  }
+  return bodyParams;
+};
+
+const deserializeAws_json1_1AccountAggregationSource = (
+  output: any,
+  context: __SerdeContext
+): AccountAggregationSource => {
+  let contents: any = {
+    __type: "AccountAggregationSource",
+    AccountIds: undefined,
+    AllAwsRegions: undefined,
+    AwsRegions: undefined
+  };
+  if (output.AccountIds !== undefined) {
+    contents.AccountIds = deserializeAws_json1_1AccountAggregationSourceAccountList(
+      output.AccountIds,
+      context
+    );
+  }
+  if (output.AllAwsRegions !== undefined) {
+    contents.AllAwsRegions = output.AllAwsRegions;
+  }
+  if (output.AwsRegions !== undefined) {
+    contents.AwsRegions = deserializeAws_json1_1AggregatorRegionList(
+      output.AwsRegions,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1AccountAggregationSourceAccountList = (
+  output: any,
+  context: __SerdeContext
+): Array<string> => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1AccountAggregationSourceList = (
+  output: any,
+  context: __SerdeContext
+): Array<AccountAggregationSource> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1AccountAggregationSource(entry, context)
+  );
+};
+
+const deserializeAws_json1_1AggregateComplianceByConfigRule = (
+  output: any,
+  context: __SerdeContext
+): AggregateComplianceByConfigRule => {
+  let contents: any = {
+    __type: "AggregateComplianceByConfigRule",
+    AccountId: undefined,
+    AwsRegion: undefined,
+    Compliance: undefined,
+    ConfigRuleName: undefined
+  };
+  if (output.AccountId !== undefined) {
+    contents.AccountId = output.AccountId;
+  }
+  if (output.AwsRegion !== undefined) {
+    contents.AwsRegion = output.AwsRegion;
+  }
+  if (output.Compliance !== undefined) {
+    contents.Compliance = deserializeAws_json1_1Compliance(
+      output.Compliance,
+      context
+    );
+  }
+  if (output.ConfigRuleName !== undefined) {
+    contents.ConfigRuleName = output.ConfigRuleName;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1AggregateComplianceByConfigRuleList = (
+  output: any,
+  context: __SerdeContext
+): Array<AggregateComplianceByConfigRule> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1AggregateComplianceByConfigRule(entry, context)
+  );
+};
+
+const deserializeAws_json1_1AggregateComplianceCount = (
+  output: any,
+  context: __SerdeContext
+): AggregateComplianceCount => {
+  let contents: any = {
+    __type: "AggregateComplianceCount",
+    ComplianceSummary: undefined,
+    GroupName: undefined
+  };
+  if (output.ComplianceSummary !== undefined) {
+    contents.ComplianceSummary = deserializeAws_json1_1ComplianceSummary(
+      output.ComplianceSummary,
+      context
+    );
+  }
+  if (output.GroupName !== undefined) {
+    contents.GroupName = output.GroupName;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1AggregateComplianceCountList = (
+  output: any,
+  context: __SerdeContext
+): Array<AggregateComplianceCount> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1AggregateComplianceCount(entry, context)
+  );
+};
+
+const deserializeAws_json1_1AggregateEvaluationResult = (
+  output: any,
+  context: __SerdeContext
+): AggregateEvaluationResult => {
+  let contents: any = {
+    __type: "AggregateEvaluationResult",
+    AccountId: undefined,
+    Annotation: undefined,
+    AwsRegion: undefined,
+    ComplianceType: undefined,
+    ConfigRuleInvokedTime: undefined,
+    EvaluationResultIdentifier: undefined,
+    ResultRecordedTime: undefined
+  };
+  if (output.AccountId !== undefined) {
+    contents.AccountId = output.AccountId;
+  }
+  if (output.Annotation !== undefined) {
+    contents.Annotation = output.Annotation;
+  }
+  if (output.AwsRegion !== undefined) {
+    contents.AwsRegion = output.AwsRegion;
+  }
+  if (output.ComplianceType !== undefined) {
+    contents.ComplianceType = output.ComplianceType;
+  }
+  if (output.ConfigRuleInvokedTime !== undefined) {
+    contents.ConfigRuleInvokedTime = new Date(
+      output.ConfigRuleInvokedTime % 1 != 0
+        ? Math.round(output.ConfigRuleInvokedTime * 1000)
+        : output.ConfigRuleInvokedTime
+    );
+  }
+  if (output.EvaluationResultIdentifier !== undefined) {
+    contents.EvaluationResultIdentifier = deserializeAws_json1_1EvaluationResultIdentifier(
+      output.EvaluationResultIdentifier,
+      context
+    );
+  }
+  if (output.ResultRecordedTime !== undefined) {
+    contents.ResultRecordedTime = new Date(
+      output.ResultRecordedTime % 1 != 0
+        ? Math.round(output.ResultRecordedTime * 1000)
+        : output.ResultRecordedTime
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1AggregateEvaluationResultList = (
+  output: any,
+  context: __SerdeContext
+): Array<AggregateEvaluationResult> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1AggregateEvaluationResult(entry, context)
+  );
+};
+
+const deserializeAws_json1_1AggregateResourceIdentifier = (
+  output: any,
+  context: __SerdeContext
+): AggregateResourceIdentifier => {
+  let contents: any = {
+    __type: "AggregateResourceIdentifier",
+    ResourceId: undefined,
+    ResourceName: undefined,
+    ResourceType: undefined,
+    SourceAccountId: undefined,
+    SourceRegion: undefined
+  };
+  if (output.ResourceId !== undefined) {
+    contents.ResourceId = output.ResourceId;
+  }
+  if (output.ResourceName !== undefined) {
+    contents.ResourceName = output.ResourceName;
+  }
+  if (output.ResourceType !== undefined) {
+    contents.ResourceType = output.ResourceType;
+  }
+  if (output.SourceAccountId !== undefined) {
+    contents.SourceAccountId = output.SourceAccountId;
+  }
+  if (output.SourceRegion !== undefined) {
+    contents.SourceRegion = output.SourceRegion;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1AggregatedSourceStatus = (
+  output: any,
+  context: __SerdeContext
+): AggregatedSourceStatus => {
+  let contents: any = {
+    __type: "AggregatedSourceStatus",
+    AwsRegion: undefined,
+    LastErrorCode: undefined,
+    LastErrorMessage: undefined,
+    LastUpdateStatus: undefined,
+    LastUpdateTime: undefined,
+    SourceId: undefined,
+    SourceType: undefined
+  };
+  if (output.AwsRegion !== undefined) {
+    contents.AwsRegion = output.AwsRegion;
+  }
+  if (output.LastErrorCode !== undefined) {
+    contents.LastErrorCode = output.LastErrorCode;
+  }
+  if (output.LastErrorMessage !== undefined) {
+    contents.LastErrorMessage = output.LastErrorMessage;
+  }
+  if (output.LastUpdateStatus !== undefined) {
+    contents.LastUpdateStatus = output.LastUpdateStatus;
+  }
+  if (output.LastUpdateTime !== undefined) {
+    contents.LastUpdateTime = new Date(
+      output.LastUpdateTime % 1 != 0
+        ? Math.round(output.LastUpdateTime * 1000)
+        : output.LastUpdateTime
+    );
+  }
+  if (output.SourceId !== undefined) {
+    contents.SourceId = output.SourceId;
+  }
+  if (output.SourceType !== undefined) {
+    contents.SourceType = output.SourceType;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1AggregatedSourceStatusList = (
+  output: any,
+  context: __SerdeContext
+): Array<AggregatedSourceStatus> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1AggregatedSourceStatus(entry, context)
+  );
+};
+
+const deserializeAws_json1_1AggregationAuthorization = (
+  output: any,
+  context: __SerdeContext
+): AggregationAuthorization => {
+  let contents: any = {
+    __type: "AggregationAuthorization",
+    AggregationAuthorizationArn: undefined,
+    AuthorizedAccountId: undefined,
+    AuthorizedAwsRegion: undefined,
+    CreationTime: undefined
+  };
+  if (output.AggregationAuthorizationArn !== undefined) {
+    contents.AggregationAuthorizationArn = output.AggregationAuthorizationArn;
+  }
+  if (output.AuthorizedAccountId !== undefined) {
+    contents.AuthorizedAccountId = output.AuthorizedAccountId;
+  }
+  if (output.AuthorizedAwsRegion !== undefined) {
+    contents.AuthorizedAwsRegion = output.AuthorizedAwsRegion;
+  }
+  if (output.CreationTime !== undefined) {
+    contents.CreationTime = new Date(
+      output.CreationTime % 1 != 0
+        ? Math.round(output.CreationTime * 1000)
+        : output.CreationTime
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1AggregationAuthorizationList = (
+  output: any,
+  context: __SerdeContext
+): Array<AggregationAuthorization> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1AggregationAuthorization(entry, context)
+  );
+};
+
+const deserializeAws_json1_1AggregatorRegionList = (
+  output: any,
+  context: __SerdeContext
+): Array<string> => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1BaseConfigurationItem = (
+  output: any,
+  context: __SerdeContext
+): BaseConfigurationItem => {
+  let contents: any = {
+    __type: "BaseConfigurationItem",
+    accountId: undefined,
+    arn: undefined,
+    availabilityZone: undefined,
+    awsRegion: undefined,
+    configuration: undefined,
+    configurationItemCaptureTime: undefined,
+    configurationItemStatus: undefined,
+    configurationStateId: undefined,
+    resourceCreationTime: undefined,
+    resourceId: undefined,
+    resourceName: undefined,
+    resourceType: undefined,
+    supplementaryConfiguration: undefined,
+    version: undefined
+  };
+  if (output.accountId !== undefined) {
+    contents.accountId = output.accountId;
+  }
+  if (output.arn !== undefined) {
+    contents.arn = output.arn;
+  }
+  if (output.availabilityZone !== undefined) {
+    contents.availabilityZone = output.availabilityZone;
+  }
+  if (output.awsRegion !== undefined) {
+    contents.awsRegion = output.awsRegion;
+  }
+  if (output.configuration !== undefined) {
+    contents.configuration = output.configuration;
+  }
+  if (output.configurationItemCaptureTime !== undefined) {
+    contents.configurationItemCaptureTime = new Date(
+      output.configurationItemCaptureTime % 1 != 0
+        ? Math.round(output.configurationItemCaptureTime * 1000)
+        : output.configurationItemCaptureTime
+    );
+  }
+  if (output.configurationItemStatus !== undefined) {
+    contents.configurationItemStatus = output.configurationItemStatus;
+  }
+  if (output.configurationStateId !== undefined) {
+    contents.configurationStateId = output.configurationStateId;
+  }
+  if (output.resourceCreationTime !== undefined) {
+    contents.resourceCreationTime = new Date(
+      output.resourceCreationTime % 1 != 0
+        ? Math.round(output.resourceCreationTime * 1000)
+        : output.resourceCreationTime
+    );
+  }
+  if (output.resourceId !== undefined) {
+    contents.resourceId = output.resourceId;
+  }
+  if (output.resourceName !== undefined) {
+    contents.resourceName = output.resourceName;
+  }
+  if (output.resourceType !== undefined) {
+    contents.resourceType = output.resourceType;
+  }
+  if (output.supplementaryConfiguration !== undefined) {
+    contents.supplementaryConfiguration = deserializeAws_json1_1SupplementaryConfiguration(
+      output.supplementaryConfiguration,
+      context
+    );
+  }
+  if (output.version !== undefined) {
+    contents.version = output.version;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1BaseConfigurationItems = (
+  output: any,
+  context: __SerdeContext
+): Array<BaseConfigurationItem> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1BaseConfigurationItem(entry, context)
+  );
+};
+
+const deserializeAws_json1_1BatchGetAggregateResourceConfigResponse = (
+  output: any,
+  context: __SerdeContext
+): BatchGetAggregateResourceConfigResponse => {
+  let contents: any = {
+    __type: "BatchGetAggregateResourceConfigResponse",
+    BaseConfigurationItems: undefined,
+    UnprocessedResourceIdentifiers: undefined
+  };
+  if (output.BaseConfigurationItems !== undefined) {
+    contents.BaseConfigurationItems = deserializeAws_json1_1BaseConfigurationItems(
+      output.BaseConfigurationItems,
+      context
+    );
+  }
+  if (output.UnprocessedResourceIdentifiers !== undefined) {
+    contents.UnprocessedResourceIdentifiers = deserializeAws_json1_1UnprocessedResourceIdentifierList(
+      output.UnprocessedResourceIdentifiers,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1BatchGetResourceConfigResponse = (
+  output: any,
+  context: __SerdeContext
+): BatchGetResourceConfigResponse => {
+  let contents: any = {
+    __type: "BatchGetResourceConfigResponse",
+    baseConfigurationItems: undefined,
+    unprocessedResourceKeys: undefined
+  };
+  if (output.baseConfigurationItems !== undefined) {
+    contents.baseConfigurationItems = deserializeAws_json1_1BaseConfigurationItems(
+      output.baseConfigurationItems,
+      context
+    );
+  }
+  if (output.unprocessedResourceKeys !== undefined) {
+    contents.unprocessedResourceKeys = deserializeAws_json1_1ResourceKeys(
+      output.unprocessedResourceKeys,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1Compliance = (
+  output: any,
+  context: __SerdeContext
+): Compliance => {
+  let contents: any = {
+    __type: "Compliance",
+    ComplianceContributorCount: undefined,
+    ComplianceType: undefined
+  };
+  if (output.ComplianceContributorCount !== undefined) {
+    contents.ComplianceContributorCount = deserializeAws_json1_1ComplianceContributorCount(
+      output.ComplianceContributorCount,
+      context
+    );
+  }
+  if (output.ComplianceType !== undefined) {
+    contents.ComplianceType = output.ComplianceType;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ComplianceByConfigRule = (
+  output: any,
+  context: __SerdeContext
+): ComplianceByConfigRule => {
+  let contents: any = {
+    __type: "ComplianceByConfigRule",
+    Compliance: undefined,
+    ConfigRuleName: undefined
+  };
+  if (output.Compliance !== undefined) {
+    contents.Compliance = deserializeAws_json1_1Compliance(
+      output.Compliance,
+      context
+    );
+  }
+  if (output.ConfigRuleName !== undefined) {
+    contents.ConfigRuleName = output.ConfigRuleName;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ComplianceByConfigRules = (
+  output: any,
+  context: __SerdeContext
+): Array<ComplianceByConfigRule> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ComplianceByConfigRule(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ComplianceByResource = (
+  output: any,
+  context: __SerdeContext
+): ComplianceByResource => {
+  let contents: any = {
+    __type: "ComplianceByResource",
+    Compliance: undefined,
+    ResourceId: undefined,
+    ResourceType: undefined
+  };
+  if (output.Compliance !== undefined) {
+    contents.Compliance = deserializeAws_json1_1Compliance(
+      output.Compliance,
+      context
+    );
+  }
+  if (output.ResourceId !== undefined) {
+    contents.ResourceId = output.ResourceId;
+  }
+  if (output.ResourceType !== undefined) {
+    contents.ResourceType = output.ResourceType;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ComplianceByResources = (
+  output: any,
+  context: __SerdeContext
+): Array<ComplianceByResource> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ComplianceByResource(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ComplianceContributorCount = (
+  output: any,
+  context: __SerdeContext
+): ComplianceContributorCount => {
+  let contents: any = {
+    __type: "ComplianceContributorCount",
+    CapExceeded: undefined,
+    CappedCount: undefined
+  };
+  if (output.CapExceeded !== undefined) {
+    contents.CapExceeded = output.CapExceeded;
+  }
+  if (output.CappedCount !== undefined) {
+    contents.CappedCount = output.CappedCount;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ComplianceResourceTypes = (
+  output: any,
+  context: __SerdeContext
+): Array<string> => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1ComplianceSummariesByResourceType = (
+  output: any,
+  context: __SerdeContext
+): Array<ComplianceSummaryByResourceType> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ComplianceSummaryByResourceType(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ComplianceSummary = (
+  output: any,
+  context: __SerdeContext
+): ComplianceSummary => {
+  let contents: any = {
+    __type: "ComplianceSummary",
+    ComplianceSummaryTimestamp: undefined,
+    CompliantResourceCount: undefined,
+    NonCompliantResourceCount: undefined
+  };
+  if (output.ComplianceSummaryTimestamp !== undefined) {
+    contents.ComplianceSummaryTimestamp = new Date(
+      output.ComplianceSummaryTimestamp % 1 != 0
+        ? Math.round(output.ComplianceSummaryTimestamp * 1000)
+        : output.ComplianceSummaryTimestamp
+    );
+  }
+  if (output.CompliantResourceCount !== undefined) {
+    contents.CompliantResourceCount = deserializeAws_json1_1ComplianceContributorCount(
+      output.CompliantResourceCount,
+      context
+    );
+  }
+  if (output.NonCompliantResourceCount !== undefined) {
+    contents.NonCompliantResourceCount = deserializeAws_json1_1ComplianceContributorCount(
+      output.NonCompliantResourceCount,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ComplianceSummaryByResourceType = (
+  output: any,
+  context: __SerdeContext
+): ComplianceSummaryByResourceType => {
+  let contents: any = {
+    __type: "ComplianceSummaryByResourceType",
+    ComplianceSummary: undefined,
+    ResourceType: undefined
+  };
+  if (output.ComplianceSummary !== undefined) {
+    contents.ComplianceSummary = deserializeAws_json1_1ComplianceSummary(
+      output.ComplianceSummary,
+      context
+    );
+  }
+  if (output.ResourceType !== undefined) {
+    contents.ResourceType = output.ResourceType;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ConfigExportDeliveryInfo = (
+  output: any,
+  context: __SerdeContext
+): ConfigExportDeliveryInfo => {
+  let contents: any = {
+    __type: "ConfigExportDeliveryInfo",
+    lastAttemptTime: undefined,
+    lastErrorCode: undefined,
+    lastErrorMessage: undefined,
+    lastStatus: undefined,
+    lastSuccessfulTime: undefined,
+    nextDeliveryTime: undefined
+  };
+  if (output.lastAttemptTime !== undefined) {
+    contents.lastAttemptTime = new Date(
+      output.lastAttemptTime % 1 != 0
+        ? Math.round(output.lastAttemptTime * 1000)
+        : output.lastAttemptTime
+    );
+  }
+  if (output.lastErrorCode !== undefined) {
+    contents.lastErrorCode = output.lastErrorCode;
+  }
+  if (output.lastErrorMessage !== undefined) {
+    contents.lastErrorMessage = output.lastErrorMessage;
+  }
+  if (output.lastStatus !== undefined) {
+    contents.lastStatus = output.lastStatus;
+  }
+  if (output.lastSuccessfulTime !== undefined) {
+    contents.lastSuccessfulTime = new Date(
+      output.lastSuccessfulTime % 1 != 0
+        ? Math.round(output.lastSuccessfulTime * 1000)
+        : output.lastSuccessfulTime
+    );
+  }
+  if (output.nextDeliveryTime !== undefined) {
+    contents.nextDeliveryTime = new Date(
+      output.nextDeliveryTime % 1 != 0
+        ? Math.round(output.nextDeliveryTime * 1000)
+        : output.nextDeliveryTime
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ConfigRule = (
+  output: any,
+  context: __SerdeContext
+): ConfigRule => {
+  let contents: any = {
+    __type: "ConfigRule",
+    ConfigRuleArn: undefined,
+    ConfigRuleId: undefined,
+    ConfigRuleName: undefined,
+    ConfigRuleState: undefined,
+    CreatedBy: undefined,
+    Description: undefined,
+    InputParameters: undefined,
+    MaximumExecutionFrequency: undefined,
+    Scope: undefined,
+    Source: undefined
+  };
+  if (output.ConfigRuleArn !== undefined) {
+    contents.ConfigRuleArn = output.ConfigRuleArn;
+  }
+  if (output.ConfigRuleId !== undefined) {
+    contents.ConfigRuleId = output.ConfigRuleId;
+  }
+  if (output.ConfigRuleName !== undefined) {
+    contents.ConfigRuleName = output.ConfigRuleName;
+  }
+  if (output.ConfigRuleState !== undefined) {
+    contents.ConfigRuleState = output.ConfigRuleState;
+  }
+  if (output.CreatedBy !== undefined) {
+    contents.CreatedBy = output.CreatedBy;
+  }
+  if (output.Description !== undefined) {
+    contents.Description = output.Description;
+  }
+  if (output.InputParameters !== undefined) {
+    contents.InputParameters = output.InputParameters;
+  }
+  if (output.MaximumExecutionFrequency !== undefined) {
+    contents.MaximumExecutionFrequency = output.MaximumExecutionFrequency;
+  }
+  if (output.Scope !== undefined) {
+    contents.Scope = deserializeAws_json1_1Scope(output.Scope, context);
+  }
+  if (output.Source !== undefined) {
+    contents.Source = deserializeAws_json1_1Source(output.Source, context);
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ConfigRuleEvaluationStatus = (
+  output: any,
+  context: __SerdeContext
+): ConfigRuleEvaluationStatus => {
+  let contents: any = {
+    __type: "ConfigRuleEvaluationStatus",
+    ConfigRuleArn: undefined,
+    ConfigRuleId: undefined,
+    ConfigRuleName: undefined,
+    FirstActivatedTime: undefined,
+    FirstEvaluationStarted: undefined,
+    LastErrorCode: undefined,
+    LastErrorMessage: undefined,
+    LastFailedEvaluationTime: undefined,
+    LastFailedInvocationTime: undefined,
+    LastSuccessfulEvaluationTime: undefined,
+    LastSuccessfulInvocationTime: undefined
+  };
+  if (output.ConfigRuleArn !== undefined) {
+    contents.ConfigRuleArn = output.ConfigRuleArn;
+  }
+  if (output.ConfigRuleId !== undefined) {
+    contents.ConfigRuleId = output.ConfigRuleId;
+  }
+  if (output.ConfigRuleName !== undefined) {
+    contents.ConfigRuleName = output.ConfigRuleName;
+  }
+  if (output.FirstActivatedTime !== undefined) {
+    contents.FirstActivatedTime = new Date(
+      output.FirstActivatedTime % 1 != 0
+        ? Math.round(output.FirstActivatedTime * 1000)
+        : output.FirstActivatedTime
+    );
+  }
+  if (output.FirstEvaluationStarted !== undefined) {
+    contents.FirstEvaluationStarted = output.FirstEvaluationStarted;
+  }
+  if (output.LastErrorCode !== undefined) {
+    contents.LastErrorCode = output.LastErrorCode;
+  }
+  if (output.LastErrorMessage !== undefined) {
+    contents.LastErrorMessage = output.LastErrorMessage;
+  }
+  if (output.LastFailedEvaluationTime !== undefined) {
+    contents.LastFailedEvaluationTime = new Date(
+      output.LastFailedEvaluationTime % 1 != 0
+        ? Math.round(output.LastFailedEvaluationTime * 1000)
+        : output.LastFailedEvaluationTime
+    );
+  }
+  if (output.LastFailedInvocationTime !== undefined) {
+    contents.LastFailedInvocationTime = new Date(
+      output.LastFailedInvocationTime % 1 != 0
+        ? Math.round(output.LastFailedInvocationTime * 1000)
+        : output.LastFailedInvocationTime
+    );
+  }
+  if (output.LastSuccessfulEvaluationTime !== undefined) {
+    contents.LastSuccessfulEvaluationTime = new Date(
+      output.LastSuccessfulEvaluationTime % 1 != 0
+        ? Math.round(output.LastSuccessfulEvaluationTime * 1000)
+        : output.LastSuccessfulEvaluationTime
+    );
+  }
+  if (output.LastSuccessfulInvocationTime !== undefined) {
+    contents.LastSuccessfulInvocationTime = new Date(
+      output.LastSuccessfulInvocationTime % 1 != 0
+        ? Math.round(output.LastSuccessfulInvocationTime * 1000)
+        : output.LastSuccessfulInvocationTime
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ConfigRuleEvaluationStatusList = (
+  output: any,
+  context: __SerdeContext
+): Array<ConfigRuleEvaluationStatus> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ConfigRuleEvaluationStatus(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ConfigRules = (
+  output: any,
+  context: __SerdeContext
+): Array<ConfigRule> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ConfigRule(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ConfigSnapshotDeliveryProperties = (
+  output: any,
+  context: __SerdeContext
+): ConfigSnapshotDeliveryProperties => {
+  let contents: any = {
+    __type: "ConfigSnapshotDeliveryProperties",
+    deliveryFrequency: undefined
+  };
+  if (output.deliveryFrequency !== undefined) {
+    contents.deliveryFrequency = output.deliveryFrequency;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ConfigStreamDeliveryInfo = (
+  output: any,
+  context: __SerdeContext
+): ConfigStreamDeliveryInfo => {
+  let contents: any = {
+    __type: "ConfigStreamDeliveryInfo",
+    lastErrorCode: undefined,
+    lastErrorMessage: undefined,
+    lastStatus: undefined,
+    lastStatusChangeTime: undefined
+  };
+  if (output.lastErrorCode !== undefined) {
+    contents.lastErrorCode = output.lastErrorCode;
+  }
+  if (output.lastErrorMessage !== undefined) {
+    contents.lastErrorMessage = output.lastErrorMessage;
+  }
+  if (output.lastStatus !== undefined) {
+    contents.lastStatus = output.lastStatus;
+  }
+  if (output.lastStatusChangeTime !== undefined) {
+    contents.lastStatusChangeTime = new Date(
+      output.lastStatusChangeTime % 1 != 0
+        ? Math.round(output.lastStatusChangeTime * 1000)
+        : output.lastStatusChangeTime
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ConfigurationAggregator = (
+  output: any,
+  context: __SerdeContext
+): ConfigurationAggregator => {
+  let contents: any = {
+    __type: "ConfigurationAggregator",
+    AccountAggregationSources: undefined,
+    ConfigurationAggregatorArn: undefined,
+    ConfigurationAggregatorName: undefined,
+    CreationTime: undefined,
+    LastUpdatedTime: undefined,
+    OrganizationAggregationSource: undefined
+  };
+  if (output.AccountAggregationSources !== undefined) {
+    contents.AccountAggregationSources = deserializeAws_json1_1AccountAggregationSourceList(
+      output.AccountAggregationSources,
+      context
+    );
+  }
+  if (output.ConfigurationAggregatorArn !== undefined) {
+    contents.ConfigurationAggregatorArn = output.ConfigurationAggregatorArn;
+  }
+  if (output.ConfigurationAggregatorName !== undefined) {
+    contents.ConfigurationAggregatorName = output.ConfigurationAggregatorName;
+  }
+  if (output.CreationTime !== undefined) {
+    contents.CreationTime = new Date(
+      output.CreationTime % 1 != 0
+        ? Math.round(output.CreationTime * 1000)
+        : output.CreationTime
+    );
+  }
+  if (output.LastUpdatedTime !== undefined) {
+    contents.LastUpdatedTime = new Date(
+      output.LastUpdatedTime % 1 != 0
+        ? Math.round(output.LastUpdatedTime * 1000)
+        : output.LastUpdatedTime
+    );
+  }
+  if (output.OrganizationAggregationSource !== undefined) {
+    contents.OrganizationAggregationSource = deserializeAws_json1_1OrganizationAggregationSource(
+      output.OrganizationAggregationSource,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ConfigurationAggregatorList = (
+  output: any,
+  context: __SerdeContext
+): Array<ConfigurationAggregator> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ConfigurationAggregator(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ConfigurationItem = (
+  output: any,
+  context: __SerdeContext
+): ConfigurationItem => {
+  let contents: any = {
+    __type: "ConfigurationItem",
+    accountId: undefined,
+    arn: undefined,
+    availabilityZone: undefined,
+    awsRegion: undefined,
+    configuration: undefined,
+    configurationItemCaptureTime: undefined,
+    configurationItemMD5Hash: undefined,
+    configurationItemStatus: undefined,
+    configurationStateId: undefined,
+    relatedEvents: undefined,
+    relationships: undefined,
+    resourceCreationTime: undefined,
+    resourceId: undefined,
+    resourceName: undefined,
+    resourceType: undefined,
+    supplementaryConfiguration: undefined,
+    tags: undefined,
+    version: undefined
+  };
+  if (output.accountId !== undefined) {
+    contents.accountId = output.accountId;
+  }
+  if (output.arn !== undefined) {
+    contents.arn = output.arn;
+  }
+  if (output.availabilityZone !== undefined) {
+    contents.availabilityZone = output.availabilityZone;
+  }
+  if (output.awsRegion !== undefined) {
+    contents.awsRegion = output.awsRegion;
+  }
+  if (output.configuration !== undefined) {
+    contents.configuration = output.configuration;
+  }
+  if (output.configurationItemCaptureTime !== undefined) {
+    contents.configurationItemCaptureTime = new Date(
+      output.configurationItemCaptureTime % 1 != 0
+        ? Math.round(output.configurationItemCaptureTime * 1000)
+        : output.configurationItemCaptureTime
+    );
+  }
+  if (output.configurationItemMD5Hash !== undefined) {
+    contents.configurationItemMD5Hash = output.configurationItemMD5Hash;
+  }
+  if (output.configurationItemStatus !== undefined) {
+    contents.configurationItemStatus = output.configurationItemStatus;
+  }
+  if (output.configurationStateId !== undefined) {
+    contents.configurationStateId = output.configurationStateId;
+  }
+  if (output.relatedEvents !== undefined) {
+    contents.relatedEvents = deserializeAws_json1_1RelatedEventList(
+      output.relatedEvents,
+      context
+    );
+  }
+  if (output.relationships !== undefined) {
+    contents.relationships = deserializeAws_json1_1RelationshipList(
+      output.relationships,
+      context
+    );
+  }
+  if (output.resourceCreationTime !== undefined) {
+    contents.resourceCreationTime = new Date(
+      output.resourceCreationTime % 1 != 0
+        ? Math.round(output.resourceCreationTime * 1000)
+        : output.resourceCreationTime
+    );
+  }
+  if (output.resourceId !== undefined) {
+    contents.resourceId = output.resourceId;
+  }
+  if (output.resourceName !== undefined) {
+    contents.resourceName = output.resourceName;
+  }
+  if (output.resourceType !== undefined) {
+    contents.resourceType = output.resourceType;
+  }
+  if (output.supplementaryConfiguration !== undefined) {
+    contents.supplementaryConfiguration = deserializeAws_json1_1SupplementaryConfiguration(
+      output.supplementaryConfiguration,
+      context
+    );
+  }
+  if (output.tags !== undefined) {
+    contents.tags = deserializeAws_json1_1Tags(output.tags, context);
+  }
+  if (output.version !== undefined) {
+    contents.version = output.version;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ConfigurationItemList = (
+  output: any,
+  context: __SerdeContext
+): Array<ConfigurationItem> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ConfigurationItem(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ConfigurationRecorder = (
+  output: any,
+  context: __SerdeContext
+): ConfigurationRecorder => {
+  let contents: any = {
+    __type: "ConfigurationRecorder",
+    name: undefined,
+    recordingGroup: undefined,
+    roleARN: undefined
+  };
+  if (output.name !== undefined) {
+    contents.name = output.name;
+  }
+  if (output.recordingGroup !== undefined) {
+    contents.recordingGroup = deserializeAws_json1_1RecordingGroup(
+      output.recordingGroup,
+      context
+    );
+  }
+  if (output.roleARN !== undefined) {
+    contents.roleARN = output.roleARN;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ConfigurationRecorderList = (
+  output: any,
+  context: __SerdeContext
+): Array<ConfigurationRecorder> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ConfigurationRecorder(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ConfigurationRecorderStatus = (
+  output: any,
+  context: __SerdeContext
+): ConfigurationRecorderStatus => {
+  let contents: any = {
+    __type: "ConfigurationRecorderStatus",
+    lastErrorCode: undefined,
+    lastErrorMessage: undefined,
+    lastStartTime: undefined,
+    lastStatus: undefined,
+    lastStatusChangeTime: undefined,
+    lastStopTime: undefined,
+    name: undefined,
+    recording: undefined
+  };
+  if (output.lastErrorCode !== undefined) {
+    contents.lastErrorCode = output.lastErrorCode;
+  }
+  if (output.lastErrorMessage !== undefined) {
+    contents.lastErrorMessage = output.lastErrorMessage;
+  }
+  if (output.lastStartTime !== undefined) {
+    contents.lastStartTime = new Date(
+      output.lastStartTime % 1 != 0
+        ? Math.round(output.lastStartTime * 1000)
+        : output.lastStartTime
+    );
+  }
+  if (output.lastStatus !== undefined) {
+    contents.lastStatus = output.lastStatus;
+  }
+  if (output.lastStatusChangeTime !== undefined) {
+    contents.lastStatusChangeTime = new Date(
+      output.lastStatusChangeTime % 1 != 0
+        ? Math.round(output.lastStatusChangeTime * 1000)
+        : output.lastStatusChangeTime
+    );
+  }
+  if (output.lastStopTime !== undefined) {
+    contents.lastStopTime = new Date(
+      output.lastStopTime % 1 != 0
+        ? Math.round(output.lastStopTime * 1000)
+        : output.lastStopTime
+    );
+  }
+  if (output.name !== undefined) {
+    contents.name = output.name;
+  }
+  if (output.recording !== undefined) {
+    contents.recording = output.recording;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ConfigurationRecorderStatusList = (
+  output: any,
+  context: __SerdeContext
+): Array<ConfigurationRecorderStatus> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ConfigurationRecorderStatus(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ConformancePackComplianceSummary = (
+  output: any,
+  context: __SerdeContext
+): ConformancePackComplianceSummary => {
+  let contents: any = {
+    __type: "ConformancePackComplianceSummary",
+    ConformancePackComplianceStatus: undefined,
+    ConformancePackName: undefined
+  };
+  if (output.ConformancePackComplianceStatus !== undefined) {
+    contents.ConformancePackComplianceStatus =
+      output.ConformancePackComplianceStatus;
+  }
+  if (output.ConformancePackName !== undefined) {
+    contents.ConformancePackName = output.ConformancePackName;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ConformancePackComplianceSummaryList = (
+  output: any,
+  context: __SerdeContext
+): Array<ConformancePackComplianceSummary> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ConformancePackComplianceSummary(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ConformancePackDetail = (
+  output: any,
+  context: __SerdeContext
+): ConformancePackDetail => {
+  let contents: any = {
+    __type: "ConformancePackDetail",
+    ConformancePackArn: undefined,
+    ConformancePackId: undefined,
+    ConformancePackInputParameters: undefined,
+    ConformancePackName: undefined,
+    CreatedBy: undefined,
+    DeliveryS3Bucket: undefined,
+    DeliveryS3KeyPrefix: undefined,
+    LastUpdateRequestedTime: undefined
+  };
+  if (output.ConformancePackArn !== undefined) {
+    contents.ConformancePackArn = output.ConformancePackArn;
+  }
+  if (output.ConformancePackId !== undefined) {
+    contents.ConformancePackId = output.ConformancePackId;
+  }
+  if (output.ConformancePackInputParameters !== undefined) {
+    contents.ConformancePackInputParameters = deserializeAws_json1_1ConformancePackInputParameters(
+      output.ConformancePackInputParameters,
+      context
+    );
+  }
+  if (output.ConformancePackName !== undefined) {
+    contents.ConformancePackName = output.ConformancePackName;
+  }
+  if (output.CreatedBy !== undefined) {
+    contents.CreatedBy = output.CreatedBy;
+  }
+  if (output.DeliveryS3Bucket !== undefined) {
+    contents.DeliveryS3Bucket = output.DeliveryS3Bucket;
+  }
+  if (output.DeliveryS3KeyPrefix !== undefined) {
+    contents.DeliveryS3KeyPrefix = output.DeliveryS3KeyPrefix;
+  }
+  if (output.LastUpdateRequestedTime !== undefined) {
+    contents.LastUpdateRequestedTime = new Date(
+      output.LastUpdateRequestedTime % 1 != 0
+        ? Math.round(output.LastUpdateRequestedTime * 1000)
+        : output.LastUpdateRequestedTime
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ConformancePackDetailList = (
+  output: any,
+  context: __SerdeContext
+): Array<ConformancePackDetail> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ConformancePackDetail(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ConformancePackEvaluationResult = (
+  output: any,
+  context: __SerdeContext
+): ConformancePackEvaluationResult => {
+  let contents: any = {
+    __type: "ConformancePackEvaluationResult",
+    Annotation: undefined,
+    ComplianceType: undefined,
+    ConfigRuleInvokedTime: undefined,
+    EvaluationResultIdentifier: undefined,
+    ResultRecordedTime: undefined
+  };
+  if (output.Annotation !== undefined) {
+    contents.Annotation = output.Annotation;
+  }
+  if (output.ComplianceType !== undefined) {
+    contents.ComplianceType = output.ComplianceType;
+  }
+  if (output.ConfigRuleInvokedTime !== undefined) {
+    contents.ConfigRuleInvokedTime = new Date(
+      output.ConfigRuleInvokedTime % 1 != 0
+        ? Math.round(output.ConfigRuleInvokedTime * 1000)
+        : output.ConfigRuleInvokedTime
+    );
+  }
+  if (output.EvaluationResultIdentifier !== undefined) {
+    contents.EvaluationResultIdentifier = deserializeAws_json1_1EvaluationResultIdentifier(
+      output.EvaluationResultIdentifier,
+      context
+    );
+  }
+  if (output.ResultRecordedTime !== undefined) {
+    contents.ResultRecordedTime = new Date(
+      output.ResultRecordedTime % 1 != 0
+        ? Math.round(output.ResultRecordedTime * 1000)
+        : output.ResultRecordedTime
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ConformancePackInputParameter = (
+  output: any,
+  context: __SerdeContext
+): ConformancePackInputParameter => {
+  let contents: any = {
+    __type: "ConformancePackInputParameter",
+    ParameterName: undefined,
+    ParameterValue: undefined
+  };
+  if (output.ParameterName !== undefined) {
+    contents.ParameterName = output.ParameterName;
+  }
+  if (output.ParameterValue !== undefined) {
+    contents.ParameterValue = output.ParameterValue;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ConformancePackInputParameters = (
+  output: any,
+  context: __SerdeContext
+): Array<ConformancePackInputParameter> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ConformancePackInputParameter(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ConformancePackRuleCompliance = (
+  output: any,
+  context: __SerdeContext
+): ConformancePackRuleCompliance => {
+  let contents: any = {
+    __type: "ConformancePackRuleCompliance",
+    ComplianceType: undefined,
+    ConfigRuleName: undefined
+  };
+  if (output.ComplianceType !== undefined) {
+    contents.ComplianceType = output.ComplianceType;
+  }
+  if (output.ConfigRuleName !== undefined) {
+    contents.ConfigRuleName = output.ConfigRuleName;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ConformancePackRuleComplianceList = (
+  output: any,
+  context: __SerdeContext
+): Array<ConformancePackRuleCompliance> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ConformancePackRuleCompliance(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ConformancePackRuleEvaluationResultsList = (
+  output: any,
+  context: __SerdeContext
+): Array<ConformancePackEvaluationResult> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ConformancePackEvaluationResult(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ConformancePackStatusDetail = (
+  output: any,
+  context: __SerdeContext
+): ConformancePackStatusDetail => {
+  let contents: any = {
+    __type: "ConformancePackStatusDetail",
+    ConformancePackArn: undefined,
+    ConformancePackId: undefined,
+    ConformancePackName: undefined,
+    ConformancePackState: undefined,
+    ConformancePackStatusReason: undefined,
+    LastUpdateCompletedTime: undefined,
+    LastUpdateRequestedTime: undefined,
+    StackArn: undefined
+  };
+  if (output.ConformancePackArn !== undefined) {
+    contents.ConformancePackArn = output.ConformancePackArn;
+  }
+  if (output.ConformancePackId !== undefined) {
+    contents.ConformancePackId = output.ConformancePackId;
+  }
+  if (output.ConformancePackName !== undefined) {
+    contents.ConformancePackName = output.ConformancePackName;
+  }
+  if (output.ConformancePackState !== undefined) {
+    contents.ConformancePackState = output.ConformancePackState;
+  }
+  if (output.ConformancePackStatusReason !== undefined) {
+    contents.ConformancePackStatusReason = output.ConformancePackStatusReason;
+  }
+  if (output.LastUpdateCompletedTime !== undefined) {
+    contents.LastUpdateCompletedTime = new Date(
+      output.LastUpdateCompletedTime % 1 != 0
+        ? Math.round(output.LastUpdateCompletedTime * 1000)
+        : output.LastUpdateCompletedTime
+    );
+  }
+  if (output.LastUpdateRequestedTime !== undefined) {
+    contents.LastUpdateRequestedTime = new Date(
+      output.LastUpdateRequestedTime % 1 != 0
+        ? Math.round(output.LastUpdateRequestedTime * 1000)
+        : output.LastUpdateRequestedTime
+    );
+  }
+  if (output.StackArn !== undefined) {
+    contents.StackArn = output.StackArn;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ConformancePackStatusDetailsList = (
+  output: any,
+  context: __SerdeContext
+): Array<ConformancePackStatusDetail> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ConformancePackStatusDetail(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ConformancePackTemplateValidationException = (
+  output: any,
+  context: __SerdeContext
+): ConformancePackTemplateValidationException => {
+  let contents: any = {
+    __type: "ConformancePackTemplateValidationException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DeleteEvaluationResultsResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteEvaluationResultsResponse => {
+  let contents: any = {
+    __type: "DeleteEvaluationResultsResponse"
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1DeleteRemediationConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteRemediationConfigurationResponse => {
+  let contents: any = {
+    __type: "DeleteRemediationConfigurationResponse"
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1DeleteRemediationExceptionsResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteRemediationExceptionsResponse => {
+  let contents: any = {
+    __type: "DeleteRemediationExceptionsResponse",
+    FailedBatches: undefined
+  };
+  if (output.FailedBatches !== undefined) {
+    contents.FailedBatches = deserializeAws_json1_1FailedDeleteRemediationExceptionsBatches(
+      output.FailedBatches,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DeliverConfigSnapshotResponse = (
+  output: any,
+  context: __SerdeContext
+): DeliverConfigSnapshotResponse => {
+  let contents: any = {
+    __type: "DeliverConfigSnapshotResponse",
+    configSnapshotId: undefined
+  };
+  if (output.configSnapshotId !== undefined) {
+    contents.configSnapshotId = output.configSnapshotId;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DeliveryChannel = (
+  output: any,
+  context: __SerdeContext
+): DeliveryChannel => {
+  let contents: any = {
+    __type: "DeliveryChannel",
+    configSnapshotDeliveryProperties: undefined,
+    name: undefined,
+    s3BucketName: undefined,
+    s3KeyPrefix: undefined,
+    snsTopicARN: undefined
+  };
+  if (output.configSnapshotDeliveryProperties !== undefined) {
+    contents.configSnapshotDeliveryProperties = deserializeAws_json1_1ConfigSnapshotDeliveryProperties(
+      output.configSnapshotDeliveryProperties,
+      context
+    );
+  }
+  if (output.name !== undefined) {
+    contents.name = output.name;
+  }
+  if (output.s3BucketName !== undefined) {
+    contents.s3BucketName = output.s3BucketName;
+  }
+  if (output.s3KeyPrefix !== undefined) {
+    contents.s3KeyPrefix = output.s3KeyPrefix;
+  }
+  if (output.snsTopicARN !== undefined) {
+    contents.snsTopicARN = output.snsTopicARN;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DeliveryChannelList = (
+  output: any,
+  context: __SerdeContext
+): Array<DeliveryChannel> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1DeliveryChannel(entry, context)
+  );
+};
+
+const deserializeAws_json1_1DeliveryChannelStatus = (
+  output: any,
+  context: __SerdeContext
+): DeliveryChannelStatus => {
+  let contents: any = {
+    __type: "DeliveryChannelStatus",
+    configHistoryDeliveryInfo: undefined,
+    configSnapshotDeliveryInfo: undefined,
+    configStreamDeliveryInfo: undefined,
+    name: undefined
+  };
+  if (output.configHistoryDeliveryInfo !== undefined) {
+    contents.configHistoryDeliveryInfo = deserializeAws_json1_1ConfigExportDeliveryInfo(
+      output.configHistoryDeliveryInfo,
+      context
+    );
+  }
+  if (output.configSnapshotDeliveryInfo !== undefined) {
+    contents.configSnapshotDeliveryInfo = deserializeAws_json1_1ConfigExportDeliveryInfo(
+      output.configSnapshotDeliveryInfo,
+      context
+    );
+  }
+  if (output.configStreamDeliveryInfo !== undefined) {
+    contents.configStreamDeliveryInfo = deserializeAws_json1_1ConfigStreamDeliveryInfo(
+      output.configStreamDeliveryInfo,
+      context
+    );
+  }
+  if (output.name !== undefined) {
+    contents.name = output.name;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DeliveryChannelStatusList = (
+  output: any,
+  context: __SerdeContext
+): Array<DeliveryChannelStatus> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1DeliveryChannelStatus(entry, context)
+  );
+};
+
+const deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeAggregateComplianceByConfigRulesResponse => {
+  let contents: any = {
+    __type: "DescribeAggregateComplianceByConfigRulesResponse",
+    AggregateComplianceByConfigRules: undefined,
+    NextToken: undefined
+  };
+  if (output.AggregateComplianceByConfigRules !== undefined) {
+    contents.AggregateComplianceByConfigRules = deserializeAws_json1_1AggregateComplianceByConfigRuleList(
+      output.AggregateComplianceByConfigRules,
+      context
+    );
+  }
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeAggregationAuthorizationsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeAggregationAuthorizationsResponse => {
+  let contents: any = {
+    __type: "DescribeAggregationAuthorizationsResponse",
+    AggregationAuthorizations: undefined,
+    NextToken: undefined
+  };
+  if (output.AggregationAuthorizations !== undefined) {
+    contents.AggregationAuthorizations = deserializeAws_json1_1AggregationAuthorizationList(
+      output.AggregationAuthorizations,
+      context
+    );
+  }
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeComplianceByConfigRuleResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeComplianceByConfigRuleResponse => {
+  let contents: any = {
+    __type: "DescribeComplianceByConfigRuleResponse",
+    ComplianceByConfigRules: undefined,
+    NextToken: undefined
+  };
+  if (output.ComplianceByConfigRules !== undefined) {
+    contents.ComplianceByConfigRules = deserializeAws_json1_1ComplianceByConfigRules(
+      output.ComplianceByConfigRules,
+      context
+    );
+  }
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeComplianceByResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeComplianceByResourceResponse => {
+  let contents: any = {
+    __type: "DescribeComplianceByResourceResponse",
+    ComplianceByResources: undefined,
+    NextToken: undefined
+  };
+  if (output.ComplianceByResources !== undefined) {
+    contents.ComplianceByResources = deserializeAws_json1_1ComplianceByResources(
+      output.ComplianceByResources,
+      context
+    );
+  }
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeConfigRuleEvaluationStatusResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeConfigRuleEvaluationStatusResponse => {
+  let contents: any = {
+    __type: "DescribeConfigRuleEvaluationStatusResponse",
+    ConfigRulesEvaluationStatus: undefined,
+    NextToken: undefined
+  };
+  if (output.ConfigRulesEvaluationStatus !== undefined) {
+    contents.ConfigRulesEvaluationStatus = deserializeAws_json1_1ConfigRuleEvaluationStatusList(
+      output.ConfigRulesEvaluationStatus,
+      context
+    );
+  }
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeConfigRulesResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeConfigRulesResponse => {
+  let contents: any = {
+    __type: "DescribeConfigRulesResponse",
+    ConfigRules: undefined,
+    NextToken: undefined
+  };
+  if (output.ConfigRules !== undefined) {
+    contents.ConfigRules = deserializeAws_json1_1ConfigRules(
+      output.ConfigRules,
+      context
+    );
+  }
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeConfigurationAggregatorSourcesStatusResponse => {
+  let contents: any = {
+    __type: "DescribeConfigurationAggregatorSourcesStatusResponse",
+    AggregatedSourceStatusList: undefined,
+    NextToken: undefined
+  };
+  if (output.AggregatedSourceStatusList !== undefined) {
+    contents.AggregatedSourceStatusList = deserializeAws_json1_1AggregatedSourceStatusList(
+      output.AggregatedSourceStatusList,
+      context
+    );
+  }
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeConfigurationAggregatorsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeConfigurationAggregatorsResponse => {
+  let contents: any = {
+    __type: "DescribeConfigurationAggregatorsResponse",
+    ConfigurationAggregators: undefined,
+    NextToken: undefined
+  };
+  if (output.ConfigurationAggregators !== undefined) {
+    contents.ConfigurationAggregators = deserializeAws_json1_1ConfigurationAggregatorList(
+      output.ConfigurationAggregators,
+      context
+    );
+  }
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeConfigurationRecorderStatusResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeConfigurationRecorderStatusResponse => {
+  let contents: any = {
+    __type: "DescribeConfigurationRecorderStatusResponse",
+    ConfigurationRecordersStatus: undefined
+  };
+  if (output.ConfigurationRecordersStatus !== undefined) {
+    contents.ConfigurationRecordersStatus = deserializeAws_json1_1ConfigurationRecorderStatusList(
+      output.ConfigurationRecordersStatus,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeConfigurationRecordersResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeConfigurationRecordersResponse => {
+  let contents: any = {
+    __type: "DescribeConfigurationRecordersResponse",
+    ConfigurationRecorders: undefined
+  };
+  if (output.ConfigurationRecorders !== undefined) {
+    contents.ConfigurationRecorders = deserializeAws_json1_1ConfigurationRecorderList(
+      output.ConfigurationRecorders,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeConformancePackComplianceResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeConformancePackComplianceResponse => {
+  let contents: any = {
+    __type: "DescribeConformancePackComplianceResponse",
+    ConformancePackName: undefined,
+    ConformancePackRuleComplianceList: undefined,
+    NextToken: undefined
+  };
+  if (output.ConformancePackName !== undefined) {
+    contents.ConformancePackName = output.ConformancePackName;
+  }
+  if (output.ConformancePackRuleComplianceList !== undefined) {
+    contents.ConformancePackRuleComplianceList = deserializeAws_json1_1ConformancePackRuleComplianceList(
+      output.ConformancePackRuleComplianceList,
+      context
+    );
+  }
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeConformancePackStatusResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeConformancePackStatusResponse => {
+  let contents: any = {
+    __type: "DescribeConformancePackStatusResponse",
+    ConformancePackStatusDetails: undefined,
+    NextToken: undefined
+  };
+  if (output.ConformancePackStatusDetails !== undefined) {
+    contents.ConformancePackStatusDetails = deserializeAws_json1_1ConformancePackStatusDetailsList(
+      output.ConformancePackStatusDetails,
+      context
+    );
+  }
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeConformancePacksResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeConformancePacksResponse => {
+  let contents: any = {
+    __type: "DescribeConformancePacksResponse",
+    ConformancePackDetails: undefined,
+    NextToken: undefined
+  };
+  if (output.ConformancePackDetails !== undefined) {
+    contents.ConformancePackDetails = deserializeAws_json1_1ConformancePackDetailList(
+      output.ConformancePackDetails,
+      context
+    );
+  }
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeDeliveryChannelStatusResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeDeliveryChannelStatusResponse => {
+  let contents: any = {
+    __type: "DescribeDeliveryChannelStatusResponse",
+    DeliveryChannelsStatus: undefined
+  };
+  if (output.DeliveryChannelsStatus !== undefined) {
+    contents.DeliveryChannelsStatus = deserializeAws_json1_1DeliveryChannelStatusList(
+      output.DeliveryChannelsStatus,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeDeliveryChannelsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeDeliveryChannelsResponse => {
+  let contents: any = {
+    __type: "DescribeDeliveryChannelsResponse",
+    DeliveryChannels: undefined
+  };
+  if (output.DeliveryChannels !== undefined) {
+    contents.DeliveryChannels = deserializeAws_json1_1DeliveryChannelList(
+      output.DeliveryChannels,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeOrganizationConfigRuleStatusesResponse => {
+  let contents: any = {
+    __type: "DescribeOrganizationConfigRuleStatusesResponse",
+    NextToken: undefined,
+    OrganizationConfigRuleStatuses: undefined
+  };
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  if (output.OrganizationConfigRuleStatuses !== undefined) {
+    contents.OrganizationConfigRuleStatuses = deserializeAws_json1_1OrganizationConfigRuleStatuses(
+      output.OrganizationConfigRuleStatuses,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeOrganizationConfigRulesResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeOrganizationConfigRulesResponse => {
+  let contents: any = {
+    __type: "DescribeOrganizationConfigRulesResponse",
+    NextToken: undefined,
+    OrganizationConfigRules: undefined
+  };
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  if (output.OrganizationConfigRules !== undefined) {
+    contents.OrganizationConfigRules = deserializeAws_json1_1OrganizationConfigRules(
+      output.OrganizationConfigRules,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeOrganizationConformancePackStatusesResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeOrganizationConformancePackStatusesResponse => {
+  let contents: any = {
+    __type: "DescribeOrganizationConformancePackStatusesResponse",
+    NextToken: undefined,
+    OrganizationConformancePackStatuses: undefined
+  };
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  if (output.OrganizationConformancePackStatuses !== undefined) {
+    contents.OrganizationConformancePackStatuses = deserializeAws_json1_1OrganizationConformancePackStatuses(
+      output.OrganizationConformancePackStatuses,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeOrganizationConformancePacksResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeOrganizationConformancePacksResponse => {
+  let contents: any = {
+    __type: "DescribeOrganizationConformancePacksResponse",
+    NextToken: undefined,
+    OrganizationConformancePacks: undefined
+  };
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  if (output.OrganizationConformancePacks !== undefined) {
+    contents.OrganizationConformancePacks = deserializeAws_json1_1OrganizationConformancePacks(
+      output.OrganizationConformancePacks,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribePendingAggregationRequestsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribePendingAggregationRequestsResponse => {
+  let contents: any = {
+    __type: "DescribePendingAggregationRequestsResponse",
+    NextToken: undefined,
+    PendingAggregationRequests: undefined
+  };
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  if (output.PendingAggregationRequests !== undefined) {
+    contents.PendingAggregationRequests = deserializeAws_json1_1PendingAggregationRequestList(
+      output.PendingAggregationRequests,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeRemediationConfigurationsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeRemediationConfigurationsResponse => {
+  let contents: any = {
+    __type: "DescribeRemediationConfigurationsResponse",
+    RemediationConfigurations: undefined
+  };
+  if (output.RemediationConfigurations !== undefined) {
+    contents.RemediationConfigurations = deserializeAws_json1_1RemediationConfigurations(
+      output.RemediationConfigurations,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeRemediationExceptionsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeRemediationExceptionsResponse => {
+  let contents: any = {
+    __type: "DescribeRemediationExceptionsResponse",
+    NextToken: undefined,
+    RemediationExceptions: undefined
+  };
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  if (output.RemediationExceptions !== undefined) {
+    contents.RemediationExceptions = deserializeAws_json1_1RemediationExceptions(
+      output.RemediationExceptions,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeRemediationExecutionStatusResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeRemediationExecutionStatusResponse => {
+  let contents: any = {
+    __type: "DescribeRemediationExecutionStatusResponse",
+    NextToken: undefined,
+    RemediationExecutionStatuses: undefined
+  };
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  if (output.RemediationExecutionStatuses !== undefined) {
+    contents.RemediationExecutionStatuses = deserializeAws_json1_1RemediationExecutionStatuses(
+      output.RemediationExecutionStatuses,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DescribeRetentionConfigurationsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeRetentionConfigurationsResponse => {
+  let contents: any = {
+    __type: "DescribeRetentionConfigurationsResponse",
+    NextToken: undefined,
+    RetentionConfigurations: undefined
+  };
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  if (output.RetentionConfigurations !== undefined) {
+    contents.RetentionConfigurations = deserializeAws_json1_1RetentionConfigurationList(
+      output.RetentionConfigurations,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1DiscoveredResourceIdentifierList = (
+  output: any,
+  context: __SerdeContext
+): Array<AggregateResourceIdentifier> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1AggregateResourceIdentifier(entry, context)
+  );
+};
+
+const deserializeAws_json1_1Evaluation = (
+  output: any,
+  context: __SerdeContext
+): Evaluation => {
+  let contents: any = {
+    __type: "Evaluation",
+    Annotation: undefined,
+    ComplianceResourceId: undefined,
+    ComplianceResourceType: undefined,
+    ComplianceType: undefined,
+    OrderingTimestamp: undefined
+  };
+  if (output.Annotation !== undefined) {
+    contents.Annotation = output.Annotation;
+  }
+  if (output.ComplianceResourceId !== undefined) {
+    contents.ComplianceResourceId = output.ComplianceResourceId;
+  }
+  if (output.ComplianceResourceType !== undefined) {
+    contents.ComplianceResourceType = output.ComplianceResourceType;
+  }
+  if (output.ComplianceType !== undefined) {
+    contents.ComplianceType = output.ComplianceType;
+  }
+  if (output.OrderingTimestamp !== undefined) {
+    contents.OrderingTimestamp = new Date(
+      output.OrderingTimestamp % 1 != 0
+        ? Math.round(output.OrderingTimestamp * 1000)
+        : output.OrderingTimestamp
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1EvaluationResult = (
+  output: any,
+  context: __SerdeContext
+): EvaluationResult => {
+  let contents: any = {
+    __type: "EvaluationResult",
+    Annotation: undefined,
+    ComplianceType: undefined,
+    ConfigRuleInvokedTime: undefined,
+    EvaluationResultIdentifier: undefined,
+    ResultRecordedTime: undefined,
+    ResultToken: undefined
+  };
+  if (output.Annotation !== undefined) {
+    contents.Annotation = output.Annotation;
+  }
+  if (output.ComplianceType !== undefined) {
+    contents.ComplianceType = output.ComplianceType;
+  }
+  if (output.ConfigRuleInvokedTime !== undefined) {
+    contents.ConfigRuleInvokedTime = new Date(
+      output.ConfigRuleInvokedTime % 1 != 0
+        ? Math.round(output.ConfigRuleInvokedTime * 1000)
+        : output.ConfigRuleInvokedTime
+    );
+  }
+  if (output.EvaluationResultIdentifier !== undefined) {
+    contents.EvaluationResultIdentifier = deserializeAws_json1_1EvaluationResultIdentifier(
+      output.EvaluationResultIdentifier,
+      context
+    );
+  }
+  if (output.ResultRecordedTime !== undefined) {
+    contents.ResultRecordedTime = new Date(
+      output.ResultRecordedTime % 1 != 0
+        ? Math.round(output.ResultRecordedTime * 1000)
+        : output.ResultRecordedTime
+    );
+  }
+  if (output.ResultToken !== undefined) {
+    contents.ResultToken = output.ResultToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1EvaluationResultIdentifier = (
+  output: any,
+  context: __SerdeContext
+): EvaluationResultIdentifier => {
+  let contents: any = {
+    __type: "EvaluationResultIdentifier",
+    EvaluationResultQualifier: undefined,
+    OrderingTimestamp: undefined
+  };
+  if (output.EvaluationResultQualifier !== undefined) {
+    contents.EvaluationResultQualifier = deserializeAws_json1_1EvaluationResultQualifier(
+      output.EvaluationResultQualifier,
+      context
+    );
+  }
+  if (output.OrderingTimestamp !== undefined) {
+    contents.OrderingTimestamp = new Date(
+      output.OrderingTimestamp % 1 != 0
+        ? Math.round(output.OrderingTimestamp * 1000)
+        : output.OrderingTimestamp
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1EvaluationResultQualifier = (
+  output: any,
+  context: __SerdeContext
+): EvaluationResultQualifier => {
+  let contents: any = {
+    __type: "EvaluationResultQualifier",
+    ConfigRuleName: undefined,
+    ResourceId: undefined,
+    ResourceType: undefined
+  };
+  if (output.ConfigRuleName !== undefined) {
+    contents.ConfigRuleName = output.ConfigRuleName;
+  }
+  if (output.ResourceId !== undefined) {
+    contents.ResourceId = output.ResourceId;
+  }
+  if (output.ResourceType !== undefined) {
+    contents.ResourceType = output.ResourceType;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1EvaluationResults = (
+  output: any,
+  context: __SerdeContext
+): Array<EvaluationResult> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1EvaluationResult(entry, context)
+  );
+};
+
+const deserializeAws_json1_1Evaluations = (
+  output: any,
+  context: __SerdeContext
+): Array<Evaluation> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1Evaluation(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ExcludedAccounts = (
+  output: any,
+  context: __SerdeContext
+): Array<string> => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1ExecutionControls = (
+  output: any,
+  context: __SerdeContext
+): ExecutionControls => {
+  let contents: any = {
+    __type: "ExecutionControls",
+    SsmControls: undefined
+  };
+  if (output.SsmControls !== undefined) {
+    contents.SsmControls = deserializeAws_json1_1SsmControls(
+      output.SsmControls,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1FailedDeleteRemediationExceptionsBatch = (
+  output: any,
+  context: __SerdeContext
+): FailedDeleteRemediationExceptionsBatch => {
+  let contents: any = {
+    __type: "FailedDeleteRemediationExceptionsBatch",
+    FailedItems: undefined,
+    FailureMessage: undefined
+  };
+  if (output.FailedItems !== undefined) {
+    contents.FailedItems = deserializeAws_json1_1RemediationExceptionResourceKeys(
+      output.FailedItems,
+      context
+    );
+  }
+  if (output.FailureMessage !== undefined) {
+    contents.FailureMessage = output.FailureMessage;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1FailedDeleteRemediationExceptionsBatches = (
+  output: any,
+  context: __SerdeContext
+): Array<FailedDeleteRemediationExceptionsBatch> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1FailedDeleteRemediationExceptionsBatch(entry, context)
+  );
+};
+
+const deserializeAws_json1_1FailedRemediationBatch = (
+  output: any,
+  context: __SerdeContext
+): FailedRemediationBatch => {
+  let contents: any = {
+    __type: "FailedRemediationBatch",
+    FailedItems: undefined,
+    FailureMessage: undefined
+  };
+  if (output.FailedItems !== undefined) {
+    contents.FailedItems = deserializeAws_json1_1RemediationConfigurations(
+      output.FailedItems,
+      context
+    );
+  }
+  if (output.FailureMessage !== undefined) {
+    contents.FailureMessage = output.FailureMessage;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1FailedRemediationBatches = (
+  output: any,
+  context: __SerdeContext
+): Array<FailedRemediationBatch> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1FailedRemediationBatch(entry, context)
+  );
+};
+
+const deserializeAws_json1_1FailedRemediationExceptionBatch = (
+  output: any,
+  context: __SerdeContext
+): FailedRemediationExceptionBatch => {
+  let contents: any = {
+    __type: "FailedRemediationExceptionBatch",
+    FailedItems: undefined,
+    FailureMessage: undefined
+  };
+  if (output.FailedItems !== undefined) {
+    contents.FailedItems = deserializeAws_json1_1RemediationExceptions(
+      output.FailedItems,
+      context
+    );
+  }
+  if (output.FailureMessage !== undefined) {
+    contents.FailureMessage = output.FailureMessage;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1FailedRemediationExceptionBatches = (
+  output: any,
+  context: __SerdeContext
+): Array<FailedRemediationExceptionBatch> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1FailedRemediationExceptionBatch(entry, context)
+  );
+};
+
+const deserializeAws_json1_1FieldInfo = (
+  output: any,
+  context: __SerdeContext
+): FieldInfo => {
+  let contents: any = {
+    __type: "FieldInfo",
+    Name: undefined
+  };
+  if (output.Name !== undefined) {
+    contents.Name = output.Name;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1FieldInfoList = (
+  output: any,
+  context: __SerdeContext
+): Array<FieldInfo> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1FieldInfo(entry, context)
+  );
+};
+
+const deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleResponse = (
+  output: any,
+  context: __SerdeContext
+): GetAggregateComplianceDetailsByConfigRuleResponse => {
+  let contents: any = {
+    __type: "GetAggregateComplianceDetailsByConfigRuleResponse",
+    AggregateEvaluationResults: undefined,
+    NextToken: undefined
+  };
+  if (output.AggregateEvaluationResults !== undefined) {
+    contents.AggregateEvaluationResults = deserializeAws_json1_1AggregateEvaluationResultList(
+      output.AggregateEvaluationResults,
+      context
+    );
+  }
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryResponse = (
+  output: any,
+  context: __SerdeContext
+): GetAggregateConfigRuleComplianceSummaryResponse => {
+  let contents: any = {
+    __type: "GetAggregateConfigRuleComplianceSummaryResponse",
+    AggregateComplianceCounts: undefined,
+    GroupByKey: undefined,
+    NextToken: undefined
+  };
+  if (output.AggregateComplianceCounts !== undefined) {
+    contents.AggregateComplianceCounts = deserializeAws_json1_1AggregateComplianceCountList(
+      output.AggregateComplianceCounts,
+      context
+    );
+  }
+  if (output.GroupByKey !== undefined) {
+    contents.GroupByKey = output.GroupByKey;
+  }
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1GetAggregateDiscoveredResourceCountsResponse = (
+  output: any,
+  context: __SerdeContext
+): GetAggregateDiscoveredResourceCountsResponse => {
+  let contents: any = {
+    __type: "GetAggregateDiscoveredResourceCountsResponse",
+    GroupByKey: undefined,
+    GroupedResourceCounts: undefined,
+    NextToken: undefined,
+    TotalDiscoveredResources: undefined
+  };
+  if (output.GroupByKey !== undefined) {
+    contents.GroupByKey = output.GroupByKey;
+  }
+  if (output.GroupedResourceCounts !== undefined) {
+    contents.GroupedResourceCounts = deserializeAws_json1_1GroupedResourceCountList(
+      output.GroupedResourceCounts,
+      context
+    );
+  }
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  if (output.TotalDiscoveredResources !== undefined) {
+    contents.TotalDiscoveredResources = output.TotalDiscoveredResources;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1GetAggregateResourceConfigResponse = (
+  output: any,
+  context: __SerdeContext
+): GetAggregateResourceConfigResponse => {
+  let contents: any = {
+    __type: "GetAggregateResourceConfigResponse",
+    ConfigurationItem: undefined
+  };
+  if (output.ConfigurationItem !== undefined) {
+    contents.ConfigurationItem = deserializeAws_json1_1ConfigurationItem(
+      output.ConfigurationItem,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1GetComplianceDetailsByConfigRuleResponse = (
+  output: any,
+  context: __SerdeContext
+): GetComplianceDetailsByConfigRuleResponse => {
+  let contents: any = {
+    __type: "GetComplianceDetailsByConfigRuleResponse",
+    EvaluationResults: undefined,
+    NextToken: undefined
+  };
+  if (output.EvaluationResults !== undefined) {
+    contents.EvaluationResults = deserializeAws_json1_1EvaluationResults(
+      output.EvaluationResults,
+      context
+    );
+  }
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1GetComplianceDetailsByResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): GetComplianceDetailsByResourceResponse => {
+  let contents: any = {
+    __type: "GetComplianceDetailsByResourceResponse",
+    EvaluationResults: undefined,
+    NextToken: undefined
+  };
+  if (output.EvaluationResults !== undefined) {
+    contents.EvaluationResults = deserializeAws_json1_1EvaluationResults(
+      output.EvaluationResults,
+      context
+    );
+  }
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1GetComplianceSummaryByConfigRuleResponse = (
+  output: any,
+  context: __SerdeContext
+): GetComplianceSummaryByConfigRuleResponse => {
+  let contents: any = {
+    __type: "GetComplianceSummaryByConfigRuleResponse",
+    ComplianceSummary: undefined
+  };
+  if (output.ComplianceSummary !== undefined) {
+    contents.ComplianceSummary = deserializeAws_json1_1ComplianceSummary(
+      output.ComplianceSummary,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1GetComplianceSummaryByResourceTypeResponse = (
+  output: any,
+  context: __SerdeContext
+): GetComplianceSummaryByResourceTypeResponse => {
+  let contents: any = {
+    __type: "GetComplianceSummaryByResourceTypeResponse",
+    ComplianceSummariesByResourceType: undefined
+  };
+  if (output.ComplianceSummariesByResourceType !== undefined) {
+    contents.ComplianceSummariesByResourceType = deserializeAws_json1_1ComplianceSummariesByResourceType(
+      output.ComplianceSummariesByResourceType,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1GetConformancePackComplianceDetailsResponse = (
+  output: any,
+  context: __SerdeContext
+): GetConformancePackComplianceDetailsResponse => {
+  let contents: any = {
+    __type: "GetConformancePackComplianceDetailsResponse",
+    ConformancePackName: undefined,
+    ConformancePackRuleEvaluationResults: undefined,
+    NextToken: undefined
+  };
+  if (output.ConformancePackName !== undefined) {
+    contents.ConformancePackName = output.ConformancePackName;
+  }
+  if (output.ConformancePackRuleEvaluationResults !== undefined) {
+    contents.ConformancePackRuleEvaluationResults = deserializeAws_json1_1ConformancePackRuleEvaluationResultsList(
+      output.ConformancePackRuleEvaluationResults,
+      context
+    );
+  }
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1GetConformancePackComplianceSummaryResponse = (
+  output: any,
+  context: __SerdeContext
+): GetConformancePackComplianceSummaryResponse => {
+  let contents: any = {
+    __type: "GetConformancePackComplianceSummaryResponse",
+    ConformancePackComplianceSummaryList: undefined,
+    NextToken: undefined
+  };
+  if (output.ConformancePackComplianceSummaryList !== undefined) {
+    contents.ConformancePackComplianceSummaryList = deserializeAws_json1_1ConformancePackComplianceSummaryList(
+      output.ConformancePackComplianceSummaryList,
+      context
+    );
+  }
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1GetDiscoveredResourceCountsResponse = (
+  output: any,
+  context: __SerdeContext
+): GetDiscoveredResourceCountsResponse => {
+  let contents: any = {
+    __type: "GetDiscoveredResourceCountsResponse",
+    nextToken: undefined,
+    resourceCounts: undefined,
+    totalDiscoveredResources: undefined
+  };
+  if (output.nextToken !== undefined) {
+    contents.nextToken = output.nextToken;
+  }
+  if (output.resourceCounts !== undefined) {
+    contents.resourceCounts = deserializeAws_json1_1ResourceCounts(
+      output.resourceCounts,
+      context
+    );
+  }
+  if (output.totalDiscoveredResources !== undefined) {
+    contents.totalDiscoveredResources = output.totalDiscoveredResources;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusResponse = (
+  output: any,
+  context: __SerdeContext
+): GetOrganizationConfigRuleDetailedStatusResponse => {
+  let contents: any = {
+    __type: "GetOrganizationConfigRuleDetailedStatusResponse",
+    NextToken: undefined,
+    OrganizationConfigRuleDetailedStatus: undefined
+  };
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  if (output.OrganizationConfigRuleDetailedStatus !== undefined) {
+    contents.OrganizationConfigRuleDetailedStatus = deserializeAws_json1_1OrganizationConfigRuleDetailedStatus(
+      output.OrganizationConfigRuleDetailedStatus,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusResponse = (
+  output: any,
+  context: __SerdeContext
+): GetOrganizationConformancePackDetailedStatusResponse => {
+  let contents: any = {
+    __type: "GetOrganizationConformancePackDetailedStatusResponse",
+    NextToken: undefined,
+    OrganizationConformancePackDetailedStatuses: undefined
+  };
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  if (output.OrganizationConformancePackDetailedStatuses !== undefined) {
+    contents.OrganizationConformancePackDetailedStatuses = deserializeAws_json1_1OrganizationConformancePackDetailedStatuses(
+      output.OrganizationConformancePackDetailedStatuses,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1GetResourceConfigHistoryResponse = (
+  output: any,
+  context: __SerdeContext
+): GetResourceConfigHistoryResponse => {
+  let contents: any = {
+    __type: "GetResourceConfigHistoryResponse",
+    configurationItems: undefined,
+    nextToken: undefined
+  };
+  if (output.configurationItems !== undefined) {
+    contents.configurationItems = deserializeAws_json1_1ConfigurationItemList(
+      output.configurationItems,
+      context
+    );
+  }
+  if (output.nextToken !== undefined) {
+    contents.nextToken = output.nextToken;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1GroupedResourceCount = (
+  output: any,
+  context: __SerdeContext
+): GroupedResourceCount => {
+  let contents: any = {
+    __type: "GroupedResourceCount",
+    GroupName: undefined,
+    ResourceCount: undefined
+  };
+  if (output.GroupName !== undefined) {
+    contents.GroupName = output.GroupName;
+  }
+  if (output.ResourceCount !== undefined) {
+    contents.ResourceCount = output.ResourceCount;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1GroupedResourceCountList = (
+  output: any,
+  context: __SerdeContext
+): Array<GroupedResourceCount> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1GroupedResourceCount(entry, context)
+  );
+};
+
+const deserializeAws_json1_1InsufficientDeliveryPolicyException = (
+  output: any,
+  context: __SerdeContext
+): InsufficientDeliveryPolicyException => {
+  let contents: any = {
+    __type: "InsufficientDeliveryPolicyException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1InsufficientPermissionsException = (
+  output: any,
+  context: __SerdeContext
+): InsufficientPermissionsException => {
+  let contents: any = {
+    __type: "InsufficientPermissionsException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidConfigurationRecorderNameException = (
+  output: any,
+  context: __SerdeContext
+): InvalidConfigurationRecorderNameException => {
+  let contents: any = {
+    __type: "InvalidConfigurationRecorderNameException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidDeliveryChannelNameException = (
+  output: any,
+  context: __SerdeContext
+): InvalidDeliveryChannelNameException => {
+  let contents: any = {
+    __type: "InvalidDeliveryChannelNameException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidExpressionException = (
+  output: any,
+  context: __SerdeContext
+): InvalidExpressionException => {
+  let contents: any = {
+    __type: "InvalidExpressionException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidLimitException = (
+  output: any,
+  context: __SerdeContext
+): InvalidLimitException => {
+  let contents: any = {
+    __type: "InvalidLimitException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidNextTokenException = (
+  output: any,
+  context: __SerdeContext
+): InvalidNextTokenException => {
+  let contents: any = {
+    __type: "InvalidNextTokenException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidParameterValueException = (
+  output: any,
+  context: __SerdeContext
+): InvalidParameterValueException => {
+  let contents: any = {
+    __type: "InvalidParameterValueException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidRecordingGroupException = (
+  output: any,
+  context: __SerdeContext
+): InvalidRecordingGroupException => {
+  let contents: any = {
+    __type: "InvalidRecordingGroupException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidResultTokenException = (
+  output: any,
+  context: __SerdeContext
+): InvalidResultTokenException => {
+  let contents: any = {
+    __type: "InvalidResultTokenException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidRoleException = (
+  output: any,
+  context: __SerdeContext
+): InvalidRoleException => {
+  let contents: any = {
+    __type: "InvalidRoleException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidS3KeyPrefixException = (
+  output: any,
+  context: __SerdeContext
+): InvalidS3KeyPrefixException => {
+  let contents: any = {
+    __type: "InvalidS3KeyPrefixException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidSNSTopicARNException = (
+  output: any,
+  context: __SerdeContext
+): InvalidSNSTopicARNException => {
+  let contents: any = {
+    __type: "InvalidSNSTopicARNException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidTimeRangeException = (
+  output: any,
+  context: __SerdeContext
+): InvalidTimeRangeException => {
+  let contents: any = {
+    __type: "InvalidTimeRangeException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1LastDeliveryChannelDeleteFailedException = (
+  output: any,
+  context: __SerdeContext
+): LastDeliveryChannelDeleteFailedException => {
+  let contents: any = {
+    __type: "LastDeliveryChannelDeleteFailedException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1LimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): LimitExceededException => {
+  let contents: any = {
+    __type: "LimitExceededException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ListAggregateDiscoveredResourcesResponse = (
+  output: any,
+  context: __SerdeContext
+): ListAggregateDiscoveredResourcesResponse => {
+  let contents: any = {
+    __type: "ListAggregateDiscoveredResourcesResponse",
+    NextToken: undefined,
+    ResourceIdentifiers: undefined
+  };
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  if (output.ResourceIdentifiers !== undefined) {
+    contents.ResourceIdentifiers = deserializeAws_json1_1DiscoveredResourceIdentifierList(
+      output.ResourceIdentifiers,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ListDiscoveredResourcesResponse = (
+  output: any,
+  context: __SerdeContext
+): ListDiscoveredResourcesResponse => {
+  let contents: any = {
+    __type: "ListDiscoveredResourcesResponse",
+    nextToken: undefined,
+    resourceIdentifiers: undefined
+  };
+  if (output.nextToken !== undefined) {
+    contents.nextToken = output.nextToken;
+  }
+  if (output.resourceIdentifiers !== undefined) {
+    contents.resourceIdentifiers = deserializeAws_json1_1ResourceIdentifierList(
+      output.resourceIdentifiers,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ListTagsForResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): ListTagsForResourceResponse => {
+  let contents: any = {
+    __type: "ListTagsForResourceResponse",
+    NextToken: undefined,
+    Tags: undefined
+  };
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  if (output.Tags !== undefined) {
+    contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1MaxActiveResourcesExceededException = (
+  output: any,
+  context: __SerdeContext
+): MaxActiveResourcesExceededException => {
+  let contents: any = {
+    __type: "MaxActiveResourcesExceededException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1MaxNumberOfConfigRulesExceededException = (
+  output: any,
+  context: __SerdeContext
+): MaxNumberOfConfigRulesExceededException => {
+  let contents: any = {
+    __type: "MaxNumberOfConfigRulesExceededException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1MaxNumberOfConfigurationRecordersExceededException = (
+  output: any,
+  context: __SerdeContext
+): MaxNumberOfConfigurationRecordersExceededException => {
+  let contents: any = {
+    __type: "MaxNumberOfConfigurationRecordersExceededException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1MaxNumberOfConformancePacksExceededException = (
+  output: any,
+  context: __SerdeContext
+): MaxNumberOfConformancePacksExceededException => {
+  let contents: any = {
+    __type: "MaxNumberOfConformancePacksExceededException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1MaxNumberOfDeliveryChannelsExceededException = (
+  output: any,
+  context: __SerdeContext
+): MaxNumberOfDeliveryChannelsExceededException => {
+  let contents: any = {
+    __type: "MaxNumberOfDeliveryChannelsExceededException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1MaxNumberOfOrganizationConfigRulesExceededException = (
+  output: any,
+  context: __SerdeContext
+): MaxNumberOfOrganizationConfigRulesExceededException => {
+  let contents: any = {
+    __type: "MaxNumberOfOrganizationConfigRulesExceededException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1MaxNumberOfOrganizationConformancePacksExceededException = (
+  output: any,
+  context: __SerdeContext
+): MaxNumberOfOrganizationConformancePacksExceededException => {
+  let contents: any = {
+    __type: "MaxNumberOfOrganizationConformancePacksExceededException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1MaxNumberOfRetentionConfigurationsExceededException = (
+  output: any,
+  context: __SerdeContext
+): MaxNumberOfRetentionConfigurationsExceededException => {
+  let contents: any = {
+    __type: "MaxNumberOfRetentionConfigurationsExceededException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1MemberAccountStatus = (
+  output: any,
+  context: __SerdeContext
+): MemberAccountStatus => {
+  let contents: any = {
+    __type: "MemberAccountStatus",
+    AccountId: undefined,
+    ConfigRuleName: undefined,
+    ErrorCode: undefined,
+    ErrorMessage: undefined,
+    LastUpdateTime: undefined,
+    MemberAccountRuleStatus: undefined
+  };
+  if (output.AccountId !== undefined) {
+    contents.AccountId = output.AccountId;
+  }
+  if (output.ConfigRuleName !== undefined) {
+    contents.ConfigRuleName = output.ConfigRuleName;
+  }
+  if (output.ErrorCode !== undefined) {
+    contents.ErrorCode = output.ErrorCode;
+  }
+  if (output.ErrorMessage !== undefined) {
+    contents.ErrorMessage = output.ErrorMessage;
+  }
+  if (output.LastUpdateTime !== undefined) {
+    contents.LastUpdateTime = new Date(
+      output.LastUpdateTime % 1 != 0
+        ? Math.round(output.LastUpdateTime * 1000)
+        : output.LastUpdateTime
+    );
+  }
+  if (output.MemberAccountRuleStatus !== undefined) {
+    contents.MemberAccountRuleStatus = output.MemberAccountRuleStatus;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1NoAvailableConfigurationRecorderException = (
+  output: any,
+  context: __SerdeContext
+): NoAvailableConfigurationRecorderException => {
+  let contents: any = {
+    __type: "NoAvailableConfigurationRecorderException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1NoAvailableDeliveryChannelException = (
+  output: any,
+  context: __SerdeContext
+): NoAvailableDeliveryChannelException => {
+  let contents: any = {
+    __type: "NoAvailableDeliveryChannelException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1NoAvailableOrganizationException = (
+  output: any,
+  context: __SerdeContext
+): NoAvailableOrganizationException => {
+  let contents: any = {
+    __type: "NoAvailableOrganizationException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1NoRunningConfigurationRecorderException = (
+  output: any,
+  context: __SerdeContext
+): NoRunningConfigurationRecorderException => {
+  let contents: any = {
+    __type: "NoRunningConfigurationRecorderException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1NoSuchBucketException = (
+  output: any,
+  context: __SerdeContext
+): NoSuchBucketException => {
+  let contents: any = {
+    __type: "NoSuchBucketException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1NoSuchConfigRuleException = (
+  output: any,
+  context: __SerdeContext
+): NoSuchConfigRuleException => {
+  let contents: any = {
+    __type: "NoSuchConfigRuleException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1NoSuchConfigRuleInConformancePackException = (
+  output: any,
+  context: __SerdeContext
+): NoSuchConfigRuleInConformancePackException => {
+  let contents: any = {
+    __type: "NoSuchConfigRuleInConformancePackException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1NoSuchConfigurationAggregatorException = (
+  output: any,
+  context: __SerdeContext
+): NoSuchConfigurationAggregatorException => {
+  let contents: any = {
+    __type: "NoSuchConfigurationAggregatorException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1NoSuchConfigurationRecorderException = (
+  output: any,
+  context: __SerdeContext
+): NoSuchConfigurationRecorderException => {
+  let contents: any = {
+    __type: "NoSuchConfigurationRecorderException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1NoSuchConformancePackException = (
+  output: any,
+  context: __SerdeContext
+): NoSuchConformancePackException => {
+  let contents: any = {
+    __type: "NoSuchConformancePackException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1NoSuchDeliveryChannelException = (
+  output: any,
+  context: __SerdeContext
+): NoSuchDeliveryChannelException => {
+  let contents: any = {
+    __type: "NoSuchDeliveryChannelException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1NoSuchOrganizationConfigRuleException = (
+  output: any,
+  context: __SerdeContext
+): NoSuchOrganizationConfigRuleException => {
+  let contents: any = {
+    __type: "NoSuchOrganizationConfigRuleException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1NoSuchOrganizationConformancePackException = (
+  output: any,
+  context: __SerdeContext
+): NoSuchOrganizationConformancePackException => {
+  let contents: any = {
+    __type: "NoSuchOrganizationConformancePackException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1NoSuchRemediationConfigurationException = (
+  output: any,
+  context: __SerdeContext
+): NoSuchRemediationConfigurationException => {
+  let contents: any = {
+    __type: "NoSuchRemediationConfigurationException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1NoSuchRemediationExceptionException = (
+  output: any,
+  context: __SerdeContext
+): NoSuchRemediationExceptionException => {
+  let contents: any = {
+    __type: "NoSuchRemediationExceptionException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1NoSuchRetentionConfigurationException = (
+  output: any,
+  context: __SerdeContext
+): NoSuchRetentionConfigurationException => {
+  let contents: any = {
+    __type: "NoSuchRetentionConfigurationException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1OrganizationAccessDeniedException = (
+  output: any,
+  context: __SerdeContext
+): OrganizationAccessDeniedException => {
+  let contents: any = {
+    __type: "OrganizationAccessDeniedException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1OrganizationAggregationSource = (
+  output: any,
+  context: __SerdeContext
+): OrganizationAggregationSource => {
+  let contents: any = {
+    __type: "OrganizationAggregationSource",
+    AllAwsRegions: undefined,
+    AwsRegions: undefined,
+    RoleArn: undefined
+  };
+  if (output.AllAwsRegions !== undefined) {
+    contents.AllAwsRegions = output.AllAwsRegions;
+  }
+  if (output.AwsRegions !== undefined) {
+    contents.AwsRegions = deserializeAws_json1_1AggregatorRegionList(
+      output.AwsRegions,
+      context
+    );
+  }
+  if (output.RoleArn !== undefined) {
+    contents.RoleArn = output.RoleArn;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1OrganizationAllFeaturesNotEnabledException = (
+  output: any,
+  context: __SerdeContext
+): OrganizationAllFeaturesNotEnabledException => {
+  let contents: any = {
+    __type: "OrganizationAllFeaturesNotEnabledException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1OrganizationConfigRule = (
+  output: any,
+  context: __SerdeContext
+): OrganizationConfigRule => {
+  let contents: any = {
+    __type: "OrganizationConfigRule",
+    ExcludedAccounts: undefined,
+    LastUpdateTime: undefined,
+    OrganizationConfigRuleArn: undefined,
+    OrganizationConfigRuleName: undefined,
+    OrganizationCustomRuleMetadata: undefined,
+    OrganizationManagedRuleMetadata: undefined
+  };
+  if (output.ExcludedAccounts !== undefined) {
+    contents.ExcludedAccounts = deserializeAws_json1_1ExcludedAccounts(
+      output.ExcludedAccounts,
+      context
+    );
+  }
+  if (output.LastUpdateTime !== undefined) {
+    contents.LastUpdateTime = new Date(
+      output.LastUpdateTime % 1 != 0
+        ? Math.round(output.LastUpdateTime * 1000)
+        : output.LastUpdateTime
+    );
+  }
+  if (output.OrganizationConfigRuleArn !== undefined) {
+    contents.OrganizationConfigRuleArn = output.OrganizationConfigRuleArn;
+  }
+  if (output.OrganizationConfigRuleName !== undefined) {
+    contents.OrganizationConfigRuleName = output.OrganizationConfigRuleName;
+  }
+  if (output.OrganizationCustomRuleMetadata !== undefined) {
+    contents.OrganizationCustomRuleMetadata = deserializeAws_json1_1OrganizationCustomRuleMetadata(
+      output.OrganizationCustomRuleMetadata,
+      context
+    );
+  }
+  if (output.OrganizationManagedRuleMetadata !== undefined) {
+    contents.OrganizationManagedRuleMetadata = deserializeAws_json1_1OrganizationManagedRuleMetadata(
+      output.OrganizationManagedRuleMetadata,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1OrganizationConfigRuleDetailedStatus = (
+  output: any,
+  context: __SerdeContext
+): Array<MemberAccountStatus> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1MemberAccountStatus(entry, context)
+  );
+};
+
+const deserializeAws_json1_1OrganizationConfigRuleStatus = (
+  output: any,
+  context: __SerdeContext
+): OrganizationConfigRuleStatus => {
+  let contents: any = {
+    __type: "OrganizationConfigRuleStatus",
+    ErrorCode: undefined,
+    ErrorMessage: undefined,
+    LastUpdateTime: undefined,
+    OrganizationConfigRuleName: undefined,
+    OrganizationRuleStatus: undefined
+  };
+  if (output.ErrorCode !== undefined) {
+    contents.ErrorCode = output.ErrorCode;
+  }
+  if (output.ErrorMessage !== undefined) {
+    contents.ErrorMessage = output.ErrorMessage;
+  }
+  if (output.LastUpdateTime !== undefined) {
+    contents.LastUpdateTime = new Date(
+      output.LastUpdateTime % 1 != 0
+        ? Math.round(output.LastUpdateTime * 1000)
+        : output.LastUpdateTime
+    );
+  }
+  if (output.OrganizationConfigRuleName !== undefined) {
+    contents.OrganizationConfigRuleName = output.OrganizationConfigRuleName;
+  }
+  if (output.OrganizationRuleStatus !== undefined) {
+    contents.OrganizationRuleStatus = output.OrganizationRuleStatus;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1OrganizationConfigRuleStatuses = (
+  output: any,
+  context: __SerdeContext
+): Array<OrganizationConfigRuleStatus> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1OrganizationConfigRuleStatus(entry, context)
+  );
+};
+
+const deserializeAws_json1_1OrganizationConfigRuleTriggerTypes = (
+  output: any,
+  context: __SerdeContext
+): Array<OrganizationConfigRuleTriggerType | string> => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1OrganizationConfigRules = (
+  output: any,
+  context: __SerdeContext
+): Array<OrganizationConfigRule> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1OrganizationConfigRule(entry, context)
+  );
+};
+
+const deserializeAws_json1_1OrganizationConformancePack = (
+  output: any,
+  context: __SerdeContext
+): OrganizationConformancePack => {
+  let contents: any = {
+    __type: "OrganizationConformancePack",
+    ConformancePackInputParameters: undefined,
+    DeliveryS3Bucket: undefined,
+    DeliveryS3KeyPrefix: undefined,
+    ExcludedAccounts: undefined,
+    LastUpdateTime: undefined,
+    OrganizationConformancePackArn: undefined,
+    OrganizationConformancePackName: undefined
+  };
+  if (output.ConformancePackInputParameters !== undefined) {
+    contents.ConformancePackInputParameters = deserializeAws_json1_1ConformancePackInputParameters(
+      output.ConformancePackInputParameters,
+      context
+    );
+  }
+  if (output.DeliveryS3Bucket !== undefined) {
+    contents.DeliveryS3Bucket = output.DeliveryS3Bucket;
+  }
+  if (output.DeliveryS3KeyPrefix !== undefined) {
+    contents.DeliveryS3KeyPrefix = output.DeliveryS3KeyPrefix;
+  }
+  if (output.ExcludedAccounts !== undefined) {
+    contents.ExcludedAccounts = deserializeAws_json1_1ExcludedAccounts(
+      output.ExcludedAccounts,
+      context
+    );
+  }
+  if (output.LastUpdateTime !== undefined) {
+    contents.LastUpdateTime = new Date(
+      output.LastUpdateTime % 1 != 0
+        ? Math.round(output.LastUpdateTime * 1000)
+        : output.LastUpdateTime
+    );
+  }
+  if (output.OrganizationConformancePackArn !== undefined) {
+    contents.OrganizationConformancePackArn =
+      output.OrganizationConformancePackArn;
+  }
+  if (output.OrganizationConformancePackName !== undefined) {
+    contents.OrganizationConformancePackName =
+      output.OrganizationConformancePackName;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1OrganizationConformancePackDetailedStatus = (
+  output: any,
+  context: __SerdeContext
+): OrganizationConformancePackDetailedStatus => {
+  let contents: any = {
+    __type: "OrganizationConformancePackDetailedStatus",
+    AccountId: undefined,
+    ConformancePackName: undefined,
+    ErrorCode: undefined,
+    ErrorMessage: undefined,
+    LastUpdateTime: undefined,
+    Status: undefined
+  };
+  if (output.AccountId !== undefined) {
+    contents.AccountId = output.AccountId;
+  }
+  if (output.ConformancePackName !== undefined) {
+    contents.ConformancePackName = output.ConformancePackName;
+  }
+  if (output.ErrorCode !== undefined) {
+    contents.ErrorCode = output.ErrorCode;
+  }
+  if (output.ErrorMessage !== undefined) {
+    contents.ErrorMessage = output.ErrorMessage;
+  }
+  if (output.LastUpdateTime !== undefined) {
+    contents.LastUpdateTime = new Date(
+      output.LastUpdateTime % 1 != 0
+        ? Math.round(output.LastUpdateTime * 1000)
+        : output.LastUpdateTime
+    );
+  }
+  if (output.Status !== undefined) {
+    contents.Status = output.Status;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1OrganizationConformancePackDetailedStatuses = (
+  output: any,
+  context: __SerdeContext
+): Array<OrganizationConformancePackDetailedStatus> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1OrganizationConformancePackDetailedStatus(
+      entry,
+      context
+    )
+  );
+};
+
+const deserializeAws_json1_1OrganizationConformancePackStatus = (
+  output: any,
+  context: __SerdeContext
+): OrganizationConformancePackStatus => {
+  let contents: any = {
+    __type: "OrganizationConformancePackStatus",
+    ErrorCode: undefined,
+    ErrorMessage: undefined,
+    LastUpdateTime: undefined,
+    OrganizationConformancePackName: undefined,
+    Status: undefined
+  };
+  if (output.ErrorCode !== undefined) {
+    contents.ErrorCode = output.ErrorCode;
+  }
+  if (output.ErrorMessage !== undefined) {
+    contents.ErrorMessage = output.ErrorMessage;
+  }
+  if (output.LastUpdateTime !== undefined) {
+    contents.LastUpdateTime = new Date(
+      output.LastUpdateTime % 1 != 0
+        ? Math.round(output.LastUpdateTime * 1000)
+        : output.LastUpdateTime
+    );
+  }
+  if (output.OrganizationConformancePackName !== undefined) {
+    contents.OrganizationConformancePackName =
+      output.OrganizationConformancePackName;
+  }
+  if (output.Status !== undefined) {
+    contents.Status = output.Status;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1OrganizationConformancePackStatuses = (
+  output: any,
+  context: __SerdeContext
+): Array<OrganizationConformancePackStatus> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1OrganizationConformancePackStatus(entry, context)
+  );
+};
+
+const deserializeAws_json1_1OrganizationConformancePackTemplateValidationException = (
+  output: any,
+  context: __SerdeContext
+): OrganizationConformancePackTemplateValidationException => {
+  let contents: any = {
+    __type: "OrganizationConformancePackTemplateValidationException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1OrganizationConformancePacks = (
+  output: any,
+  context: __SerdeContext
+): Array<OrganizationConformancePack> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1OrganizationConformancePack(entry, context)
+  );
+};
+
+const deserializeAws_json1_1OrganizationCustomRuleMetadata = (
+  output: any,
+  context: __SerdeContext
+): OrganizationCustomRuleMetadata => {
+  let contents: any = {
+    __type: "OrganizationCustomRuleMetadata",
+    Description: undefined,
+    InputParameters: undefined,
+    LambdaFunctionArn: undefined,
+    MaximumExecutionFrequency: undefined,
+    OrganizationConfigRuleTriggerTypes: undefined,
+    ResourceIdScope: undefined,
+    ResourceTypesScope: undefined,
+    TagKeyScope: undefined,
+    TagValueScope: undefined
+  };
+  if (output.Description !== undefined) {
+    contents.Description = output.Description;
+  }
+  if (output.InputParameters !== undefined) {
+    contents.InputParameters = output.InputParameters;
+  }
+  if (output.LambdaFunctionArn !== undefined) {
+    contents.LambdaFunctionArn = output.LambdaFunctionArn;
+  }
+  if (output.MaximumExecutionFrequency !== undefined) {
+    contents.MaximumExecutionFrequency = output.MaximumExecutionFrequency;
+  }
+  if (output.OrganizationConfigRuleTriggerTypes !== undefined) {
+    contents.OrganizationConfigRuleTriggerTypes = deserializeAws_json1_1OrganizationConfigRuleTriggerTypes(
+      output.OrganizationConfigRuleTriggerTypes,
+      context
+    );
+  }
+  if (output.ResourceIdScope !== undefined) {
+    contents.ResourceIdScope = output.ResourceIdScope;
+  }
+  if (output.ResourceTypesScope !== undefined) {
+    contents.ResourceTypesScope = deserializeAws_json1_1ResourceTypesScope(
+      output.ResourceTypesScope,
+      context
+    );
+  }
+  if (output.TagKeyScope !== undefined) {
+    contents.TagKeyScope = output.TagKeyScope;
+  }
+  if (output.TagValueScope !== undefined) {
+    contents.TagValueScope = output.TagValueScope;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1OrganizationManagedRuleMetadata = (
+  output: any,
+  context: __SerdeContext
+): OrganizationManagedRuleMetadata => {
+  let contents: any = {
+    __type: "OrganizationManagedRuleMetadata",
+    Description: undefined,
+    InputParameters: undefined,
+    MaximumExecutionFrequency: undefined,
+    ResourceIdScope: undefined,
+    ResourceTypesScope: undefined,
+    RuleIdentifier: undefined,
+    TagKeyScope: undefined,
+    TagValueScope: undefined
+  };
+  if (output.Description !== undefined) {
+    contents.Description = output.Description;
+  }
+  if (output.InputParameters !== undefined) {
+    contents.InputParameters = output.InputParameters;
+  }
+  if (output.MaximumExecutionFrequency !== undefined) {
+    contents.MaximumExecutionFrequency = output.MaximumExecutionFrequency;
+  }
+  if (output.ResourceIdScope !== undefined) {
+    contents.ResourceIdScope = output.ResourceIdScope;
+  }
+  if (output.ResourceTypesScope !== undefined) {
+    contents.ResourceTypesScope = deserializeAws_json1_1ResourceTypesScope(
+      output.ResourceTypesScope,
+      context
+    );
+  }
+  if (output.RuleIdentifier !== undefined) {
+    contents.RuleIdentifier = output.RuleIdentifier;
+  }
+  if (output.TagKeyScope !== undefined) {
+    contents.TagKeyScope = output.TagKeyScope;
+  }
+  if (output.TagValueScope !== undefined) {
+    contents.TagValueScope = output.TagValueScope;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1OversizedConfigurationItemException = (
+  output: any,
+  context: __SerdeContext
+): OversizedConfigurationItemException => {
+  let contents: any = {
+    __type: "OversizedConfigurationItemException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1PendingAggregationRequest = (
+  output: any,
+  context: __SerdeContext
+): PendingAggregationRequest => {
+  let contents: any = {
+    __type: "PendingAggregationRequest",
+    RequesterAccountId: undefined,
+    RequesterAwsRegion: undefined
+  };
+  if (output.RequesterAccountId !== undefined) {
+    contents.RequesterAccountId = output.RequesterAccountId;
+  }
+  if (output.RequesterAwsRegion !== undefined) {
+    contents.RequesterAwsRegion = output.RequesterAwsRegion;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1PendingAggregationRequestList = (
+  output: any,
+  context: __SerdeContext
+): Array<PendingAggregationRequest> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1PendingAggregationRequest(entry, context)
+  );
+};
+
+const deserializeAws_json1_1PutAggregationAuthorizationResponse = (
+  output: any,
+  context: __SerdeContext
+): PutAggregationAuthorizationResponse => {
+  let contents: any = {
+    __type: "PutAggregationAuthorizationResponse",
+    AggregationAuthorization: undefined
+  };
+  if (output.AggregationAuthorization !== undefined) {
+    contents.AggregationAuthorization = deserializeAws_json1_1AggregationAuthorization(
+      output.AggregationAuthorization,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1PutConfigurationAggregatorResponse = (
+  output: any,
+  context: __SerdeContext
+): PutConfigurationAggregatorResponse => {
+  let contents: any = {
+    __type: "PutConfigurationAggregatorResponse",
+    ConfigurationAggregator: undefined
+  };
+  if (output.ConfigurationAggregator !== undefined) {
+    contents.ConfigurationAggregator = deserializeAws_json1_1ConfigurationAggregator(
+      output.ConfigurationAggregator,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1PutConformancePackResponse = (
+  output: any,
+  context: __SerdeContext
+): PutConformancePackResponse => {
+  let contents: any = {
+    __type: "PutConformancePackResponse",
+    ConformancePackArn: undefined
+  };
+  if (output.ConformancePackArn !== undefined) {
+    contents.ConformancePackArn = output.ConformancePackArn;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1PutEvaluationsResponse = (
+  output: any,
+  context: __SerdeContext
+): PutEvaluationsResponse => {
+  let contents: any = {
+    __type: "PutEvaluationsResponse",
+    FailedEvaluations: undefined
+  };
+  if (output.FailedEvaluations !== undefined) {
+    contents.FailedEvaluations = deserializeAws_json1_1Evaluations(
+      output.FailedEvaluations,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1PutOrganizationConfigRuleResponse = (
+  output: any,
+  context: __SerdeContext
+): PutOrganizationConfigRuleResponse => {
+  let contents: any = {
+    __type: "PutOrganizationConfigRuleResponse",
+    OrganizationConfigRuleArn: undefined
+  };
+  if (output.OrganizationConfigRuleArn !== undefined) {
+    contents.OrganizationConfigRuleArn = output.OrganizationConfigRuleArn;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1PutOrganizationConformancePackResponse = (
+  output: any,
+  context: __SerdeContext
+): PutOrganizationConformancePackResponse => {
+  let contents: any = {
+    __type: "PutOrganizationConformancePackResponse",
+    OrganizationConformancePackArn: undefined
+  };
+  if (output.OrganizationConformancePackArn !== undefined) {
+    contents.OrganizationConformancePackArn =
+      output.OrganizationConformancePackArn;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1PutRemediationConfigurationsResponse = (
+  output: any,
+  context: __SerdeContext
+): PutRemediationConfigurationsResponse => {
+  let contents: any = {
+    __type: "PutRemediationConfigurationsResponse",
+    FailedBatches: undefined
+  };
+  if (output.FailedBatches !== undefined) {
+    contents.FailedBatches = deserializeAws_json1_1FailedRemediationBatches(
+      output.FailedBatches,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1PutRemediationExceptionsResponse = (
+  output: any,
+  context: __SerdeContext
+): PutRemediationExceptionsResponse => {
+  let contents: any = {
+    __type: "PutRemediationExceptionsResponse",
+    FailedBatches: undefined
+  };
+  if (output.FailedBatches !== undefined) {
+    contents.FailedBatches = deserializeAws_json1_1FailedRemediationExceptionBatches(
+      output.FailedBatches,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1PutRetentionConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): PutRetentionConfigurationResponse => {
+  let contents: any = {
+    __type: "PutRetentionConfigurationResponse",
+    RetentionConfiguration: undefined
+  };
+  if (output.RetentionConfiguration !== undefined) {
+    contents.RetentionConfiguration = deserializeAws_json1_1RetentionConfiguration(
+      output.RetentionConfiguration,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1QueryInfo = (
+  output: any,
+  context: __SerdeContext
+): QueryInfo => {
+  let contents: any = {
+    __type: "QueryInfo",
+    SelectFields: undefined
+  };
+  if (output.SelectFields !== undefined) {
+    contents.SelectFields = deserializeAws_json1_1FieldInfoList(
+      output.SelectFields,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1RecordingGroup = (
+  output: any,
+  context: __SerdeContext
+): RecordingGroup => {
+  let contents: any = {
+    __type: "RecordingGroup",
+    allSupported: undefined,
+    includeGlobalResourceTypes: undefined,
+    resourceTypes: undefined
+  };
+  if (output.allSupported !== undefined) {
+    contents.allSupported = output.allSupported;
+  }
+  if (output.includeGlobalResourceTypes !== undefined) {
+    contents.includeGlobalResourceTypes = output.includeGlobalResourceTypes;
+  }
+  if (output.resourceTypes !== undefined) {
+    contents.resourceTypes = deserializeAws_json1_1ResourceTypeList(
+      output.resourceTypes,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1RelatedEventList = (
+  output: any,
+  context: __SerdeContext
+): Array<string> => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1Relationship = (
+  output: any,
+  context: __SerdeContext
+): Relationship => {
+  let contents: any = {
+    __type: "Relationship",
+    relationshipName: undefined,
+    resourceId: undefined,
+    resourceName: undefined,
+    resourceType: undefined
+  };
+  if (output.relationshipName !== undefined) {
+    contents.relationshipName = output.relationshipName;
+  }
+  if (output.resourceId !== undefined) {
+    contents.resourceId = output.resourceId;
+  }
+  if (output.resourceName !== undefined) {
+    contents.resourceName = output.resourceName;
+  }
+  if (output.resourceType !== undefined) {
+    contents.resourceType = output.resourceType;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1RelationshipList = (
+  output: any,
+  context: __SerdeContext
+): Array<Relationship> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1Relationship(entry, context)
+  );
+};
+
+const deserializeAws_json1_1RemediationConfiguration = (
+  output: any,
+  context: __SerdeContext
+): RemediationConfiguration => {
+  let contents: any = {
+    __type: "RemediationConfiguration",
+    Arn: undefined,
+    Automatic: undefined,
+    ConfigRuleName: undefined,
+    CreatedByService: undefined,
+    ExecutionControls: undefined,
+    MaximumAutomaticAttempts: undefined,
+    Parameters: undefined,
+    ResourceType: undefined,
+    RetryAttemptSeconds: undefined,
+    TargetId: undefined,
+    TargetType: undefined,
+    TargetVersion: undefined
+  };
+  if (output.Arn !== undefined) {
+    contents.Arn = output.Arn;
+  }
+  if (output.Automatic !== undefined) {
+    contents.Automatic = output.Automatic;
+  }
+  if (output.ConfigRuleName !== undefined) {
+    contents.ConfigRuleName = output.ConfigRuleName;
+  }
+  if (output.CreatedByService !== undefined) {
+    contents.CreatedByService = output.CreatedByService;
+  }
+  if (output.ExecutionControls !== undefined) {
+    contents.ExecutionControls = deserializeAws_json1_1ExecutionControls(
+      output.ExecutionControls,
+      context
+    );
+  }
+  if (output.MaximumAutomaticAttempts !== undefined) {
+    contents.MaximumAutomaticAttempts = output.MaximumAutomaticAttempts;
+  }
+  if (output.Parameters !== undefined) {
+    contents.Parameters = deserializeAws_json1_1RemediationParameters(
+      output.Parameters,
+      context
+    );
+  }
+  if (output.ResourceType !== undefined) {
+    contents.ResourceType = output.ResourceType;
+  }
+  if (output.RetryAttemptSeconds !== undefined) {
+    contents.RetryAttemptSeconds = output.RetryAttemptSeconds;
+  }
+  if (output.TargetId !== undefined) {
+    contents.TargetId = output.TargetId;
+  }
+  if (output.TargetType !== undefined) {
+    contents.TargetType = output.TargetType;
+  }
+  if (output.TargetVersion !== undefined) {
+    contents.TargetVersion = output.TargetVersion;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1RemediationConfigurations = (
+  output: any,
+  context: __SerdeContext
+): Array<RemediationConfiguration> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1RemediationConfiguration(entry, context)
+  );
+};
+
+const deserializeAws_json1_1RemediationException = (
+  output: any,
+  context: __SerdeContext
+): RemediationException => {
+  let contents: any = {
+    __type: "RemediationException",
+    ConfigRuleName: undefined,
+    ExpirationTime: undefined,
+    Message: undefined,
+    ResourceId: undefined,
+    ResourceType: undefined
+  };
+  if (output.ConfigRuleName !== undefined) {
+    contents.ConfigRuleName = output.ConfigRuleName;
+  }
+  if (output.ExpirationTime !== undefined) {
+    contents.ExpirationTime = new Date(
+      output.ExpirationTime % 1 != 0
+        ? Math.round(output.ExpirationTime * 1000)
+        : output.ExpirationTime
+    );
+  }
+  if (output.Message !== undefined) {
+    contents.Message = output.Message;
+  }
+  if (output.ResourceId !== undefined) {
+    contents.ResourceId = output.ResourceId;
+  }
+  if (output.ResourceType !== undefined) {
+    contents.ResourceType = output.ResourceType;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1RemediationExceptionResourceKey = (
+  output: any,
+  context: __SerdeContext
+): RemediationExceptionResourceKey => {
+  let contents: any = {
+    __type: "RemediationExceptionResourceKey",
+    ResourceId: undefined,
+    ResourceType: undefined
+  };
+  if (output.ResourceId !== undefined) {
+    contents.ResourceId = output.ResourceId;
+  }
+  if (output.ResourceType !== undefined) {
+    contents.ResourceType = output.ResourceType;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1RemediationExceptionResourceKeys = (
+  output: any,
+  context: __SerdeContext
+): Array<RemediationExceptionResourceKey> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1RemediationExceptionResourceKey(entry, context)
+  );
+};
+
+const deserializeAws_json1_1RemediationExceptions = (
+  output: any,
+  context: __SerdeContext
+): Array<RemediationException> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1RemediationException(entry, context)
+  );
+};
+
+const deserializeAws_json1_1RemediationExecutionStatus = (
+  output: any,
+  context: __SerdeContext
+): RemediationExecutionStatus => {
+  let contents: any = {
+    __type: "RemediationExecutionStatus",
+    InvocationTime: undefined,
+    LastUpdatedTime: undefined,
+    ResourceKey: undefined,
+    State: undefined,
+    StepDetails: undefined
+  };
+  if (output.InvocationTime !== undefined) {
+    contents.InvocationTime = new Date(
+      output.InvocationTime % 1 != 0
+        ? Math.round(output.InvocationTime * 1000)
+        : output.InvocationTime
+    );
+  }
+  if (output.LastUpdatedTime !== undefined) {
+    contents.LastUpdatedTime = new Date(
+      output.LastUpdatedTime % 1 != 0
+        ? Math.round(output.LastUpdatedTime * 1000)
+        : output.LastUpdatedTime
+    );
+  }
+  if (output.ResourceKey !== undefined) {
+    contents.ResourceKey = deserializeAws_json1_1ResourceKey(
+      output.ResourceKey,
+      context
+    );
+  }
+  if (output.State !== undefined) {
+    contents.State = output.State;
+  }
+  if (output.StepDetails !== undefined) {
+    contents.StepDetails = deserializeAws_json1_1RemediationExecutionSteps(
+      output.StepDetails,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1RemediationExecutionStatuses = (
+  output: any,
+  context: __SerdeContext
+): Array<RemediationExecutionStatus> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1RemediationExecutionStatus(entry, context)
+  );
+};
+
+const deserializeAws_json1_1RemediationExecutionStep = (
+  output: any,
+  context: __SerdeContext
+): RemediationExecutionStep => {
+  let contents: any = {
+    __type: "RemediationExecutionStep",
+    ErrorMessage: undefined,
+    Name: undefined,
+    StartTime: undefined,
+    State: undefined,
+    StopTime: undefined
+  };
+  if (output.ErrorMessage !== undefined) {
+    contents.ErrorMessage = output.ErrorMessage;
+  }
+  if (output.Name !== undefined) {
+    contents.Name = output.Name;
+  }
+  if (output.StartTime !== undefined) {
+    contents.StartTime = new Date(
+      output.StartTime % 1 != 0
+        ? Math.round(output.StartTime * 1000)
+        : output.StartTime
+    );
+  }
+  if (output.State !== undefined) {
+    contents.State = output.State;
+  }
+  if (output.StopTime !== undefined) {
+    contents.StopTime = new Date(
+      output.StopTime % 1 != 0
+        ? Math.round(output.StopTime * 1000)
+        : output.StopTime
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1RemediationExecutionSteps = (
+  output: any,
+  context: __SerdeContext
+): Array<RemediationExecutionStep> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1RemediationExecutionStep(entry, context)
+  );
+};
+
+const deserializeAws_json1_1RemediationInProgressException = (
+  output: any,
+  context: __SerdeContext
+): RemediationInProgressException => {
+  let contents: any = {
+    __type: "RemediationInProgressException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1RemediationParameterValue = (
+  output: any,
+  context: __SerdeContext
+): RemediationParameterValue => {
+  let contents: any = {
+    __type: "RemediationParameterValue",
+    ResourceValue: undefined,
+    StaticValue: undefined
+  };
+  if (output.ResourceValue !== undefined) {
+    contents.ResourceValue = deserializeAws_json1_1ResourceValue(
+      output.ResourceValue,
+      context
+    );
+  }
+  if (output.StaticValue !== undefined) {
+    contents.StaticValue = deserializeAws_json1_1StaticValue(
+      output.StaticValue,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1RemediationParameters = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: RemediationParameterValue } => {
+  let mapParams: any = {};
+  Object.keys(output).forEach(key => {
+    mapParams[key] = deserializeAws_json1_1RemediationParameterValue(
+      output[key],
+      context
+    );
+  });
+  return mapParams;
+};
+
+const deserializeAws_json1_1ResourceCount = (
+  output: any,
+  context: __SerdeContext
+): ResourceCount => {
+  let contents: any = {
+    __type: "ResourceCount",
+    count: undefined,
+    resourceType: undefined
+  };
+  if (output.count !== undefined) {
+    contents.count = output.count;
+  }
+  if (output.resourceType !== undefined) {
+    contents.resourceType = output.resourceType;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ResourceCounts = (
+  output: any,
+  context: __SerdeContext
+): Array<ResourceCount> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ResourceCount(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ResourceIdentifier = (
+  output: any,
+  context: __SerdeContext
+): ResourceIdentifier => {
+  let contents: any = {
+    __type: "ResourceIdentifier",
+    resourceDeletionTime: undefined,
+    resourceId: undefined,
+    resourceName: undefined,
+    resourceType: undefined
+  };
+  if (output.resourceDeletionTime !== undefined) {
+    contents.resourceDeletionTime = new Date(
+      output.resourceDeletionTime % 1 != 0
+        ? Math.round(output.resourceDeletionTime * 1000)
+        : output.resourceDeletionTime
+    );
+  }
+  if (output.resourceId !== undefined) {
+    contents.resourceId = output.resourceId;
+  }
+  if (output.resourceName !== undefined) {
+    contents.resourceName = output.resourceName;
+  }
+  if (output.resourceType !== undefined) {
+    contents.resourceType = output.resourceType;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ResourceIdentifierList = (
+  output: any,
+  context: __SerdeContext
+): Array<ResourceIdentifier> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ResourceIdentifier(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ResourceInUseException = (
+  output: any,
+  context: __SerdeContext
+): ResourceInUseException => {
+  let contents: any = {
+    __type: "ResourceInUseException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ResourceKey = (
+  output: any,
+  context: __SerdeContext
+): ResourceKey => {
+  let contents: any = {
+    __type: "ResourceKey",
+    resourceId: undefined,
+    resourceType: undefined
+  };
+  if (output.resourceId !== undefined) {
+    contents.resourceId = output.resourceId;
+  }
+  if (output.resourceType !== undefined) {
+    contents.resourceType = output.resourceType;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ResourceKeys = (
+  output: any,
+  context: __SerdeContext
+): Array<ResourceKey> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ResourceKey(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ResourceNotDiscoveredException = (
+  output: any,
+  context: __SerdeContext
+): ResourceNotDiscoveredException => {
+  let contents: any = {
+    __type: "ResourceNotDiscoveredException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ResourceNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): ResourceNotFoundException => {
+  let contents: any = {
+    __type: "ResourceNotFoundException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1ResourceTypeList = (
+  output: any,
+  context: __SerdeContext
+): Array<ResourceType | string> => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1ResourceTypesScope = (
+  output: any,
+  context: __SerdeContext
+): Array<string> => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1ResourceValue = (
+  output: any,
+  context: __SerdeContext
+): ResourceValue => {
+  let contents: any = {
+    __type: "ResourceValue",
+    Value: undefined
+  };
+  if (output.Value !== undefined) {
+    contents.Value = output.Value;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1Results = (
+  output: any,
+  context: __SerdeContext
+): Array<string> => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1RetentionConfiguration = (
+  output: any,
+  context: __SerdeContext
+): RetentionConfiguration => {
+  let contents: any = {
+    __type: "RetentionConfiguration",
+    Name: undefined,
+    RetentionPeriodInDays: undefined
+  };
+  if (output.Name !== undefined) {
+    contents.Name = output.Name;
+  }
+  if (output.RetentionPeriodInDays !== undefined) {
+    contents.RetentionPeriodInDays = output.RetentionPeriodInDays;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1RetentionConfigurationList = (
+  output: any,
+  context: __SerdeContext
+): Array<RetentionConfiguration> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1RetentionConfiguration(entry, context)
+  );
+};
+
+const deserializeAws_json1_1Scope = (
+  output: any,
+  context: __SerdeContext
+): Scope => {
+  let contents: any = {
+    __type: "Scope",
+    ComplianceResourceId: undefined,
+    ComplianceResourceTypes: undefined,
+    TagKey: undefined,
+    TagValue: undefined
+  };
+  if (output.ComplianceResourceId !== undefined) {
+    contents.ComplianceResourceId = output.ComplianceResourceId;
+  }
+  if (output.ComplianceResourceTypes !== undefined) {
+    contents.ComplianceResourceTypes = deserializeAws_json1_1ComplianceResourceTypes(
+      output.ComplianceResourceTypes,
+      context
+    );
+  }
+  if (output.TagKey !== undefined) {
+    contents.TagKey = output.TagKey;
+  }
+  if (output.TagValue !== undefined) {
+    contents.TagValue = output.TagValue;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1SelectResourceConfigResponse = (
+  output: any,
+  context: __SerdeContext
+): SelectResourceConfigResponse => {
+  let contents: any = {
+    __type: "SelectResourceConfigResponse",
+    NextToken: undefined,
+    QueryInfo: undefined,
+    Results: undefined
+  };
+  if (output.NextToken !== undefined) {
+    contents.NextToken = output.NextToken;
+  }
+  if (output.QueryInfo !== undefined) {
+    contents.QueryInfo = deserializeAws_json1_1QueryInfo(
+      output.QueryInfo,
+      context
+    );
+  }
+  if (output.Results !== undefined) {
+    contents.Results = deserializeAws_json1_1Results(output.Results, context);
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1Source = (
+  output: any,
+  context: __SerdeContext
+): Source => {
+  let contents: any = {
+    __type: "Source",
+    Owner: undefined,
+    SourceDetails: undefined,
+    SourceIdentifier: undefined
+  };
+  if (output.Owner !== undefined) {
+    contents.Owner = output.Owner;
+  }
+  if (output.SourceDetails !== undefined) {
+    contents.SourceDetails = deserializeAws_json1_1SourceDetails(
+      output.SourceDetails,
+      context
+    );
+  }
+  if (output.SourceIdentifier !== undefined) {
+    contents.SourceIdentifier = output.SourceIdentifier;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1SourceDetail = (
+  output: any,
+  context: __SerdeContext
+): SourceDetail => {
+  let contents: any = {
+    __type: "SourceDetail",
+    EventSource: undefined,
+    MaximumExecutionFrequency: undefined,
+    MessageType: undefined
+  };
+  if (output.EventSource !== undefined) {
+    contents.EventSource = output.EventSource;
+  }
+  if (output.MaximumExecutionFrequency !== undefined) {
+    contents.MaximumExecutionFrequency = output.MaximumExecutionFrequency;
+  }
+  if (output.MessageType !== undefined) {
+    contents.MessageType = output.MessageType;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1SourceDetails = (
+  output: any,
+  context: __SerdeContext
+): Array<SourceDetail> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1SourceDetail(entry, context)
+  );
+};
+
+const deserializeAws_json1_1SsmControls = (
+  output: any,
+  context: __SerdeContext
+): SsmControls => {
+  let contents: any = {
+    __type: "SsmControls",
+    ConcurrentExecutionRatePercentage: undefined,
+    ErrorPercentage: undefined
+  };
+  if (output.ConcurrentExecutionRatePercentage !== undefined) {
+    contents.ConcurrentExecutionRatePercentage =
+      output.ConcurrentExecutionRatePercentage;
+  }
+  if (output.ErrorPercentage !== undefined) {
+    contents.ErrorPercentage = output.ErrorPercentage;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1StartConfigRulesEvaluationResponse = (
+  output: any,
+  context: __SerdeContext
+): StartConfigRulesEvaluationResponse => {
+  let contents: any = {
+    __type: "StartConfigRulesEvaluationResponse"
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1StartRemediationExecutionResponse = (
+  output: any,
+  context: __SerdeContext
+): StartRemediationExecutionResponse => {
+  let contents: any = {
+    __type: "StartRemediationExecutionResponse",
+    FailedItems: undefined,
+    FailureMessage: undefined
+  };
+  if (output.FailedItems !== undefined) {
+    contents.FailedItems = deserializeAws_json1_1ResourceKeys(
+      output.FailedItems,
+      context
+    );
+  }
+  if (output.FailureMessage !== undefined) {
+    contents.FailureMessage = output.FailureMessage;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1StaticParameterValues = (
+  output: any,
+  context: __SerdeContext
+): Array<string> => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1StaticValue = (
+  output: any,
+  context: __SerdeContext
+): StaticValue => {
+  let contents: any = {
+    __type: "StaticValue",
+    Values: undefined
+  };
+  if (output.Values !== undefined) {
+    contents.Values = deserializeAws_json1_1StaticParameterValues(
+      output.Values,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1SupplementaryConfiguration = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: string } => {
+  let mapParams: any = {};
+  Object.keys(output).forEach(key => {
+    mapParams[key] = output[key];
+  });
+  return mapParams;
+};
+
+const deserializeAws_json1_1Tag = (
+  output: any,
+  context: __SerdeContext
+): Tag => {
+  let contents: any = {
+    __type: "Tag",
+    Key: undefined,
+    Value: undefined
+  };
+  if (output.Key !== undefined) {
+    contents.Key = output.Key;
+  }
+  if (output.Value !== undefined) {
+    contents.Value = output.Value;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1TagList = (
+  output: any,
+  context: __SerdeContext
+): Array<Tag> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1Tag(entry, context)
+  );
+};
+
+const deserializeAws_json1_1Tags = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: string } => {
+  let mapParams: any = {};
+  Object.keys(output).forEach(key => {
+    mapParams[key] = output[key];
+  });
+  return mapParams;
+};
+
+const deserializeAws_json1_1TooManyTagsException = (
+  output: any,
+  context: __SerdeContext
+): TooManyTagsException => {
+  let contents: any = {
+    __type: "TooManyTagsException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeAws_json1_1UnprocessedResourceIdentifierList = (
+  output: any,
+  context: __SerdeContext
+): Array<AggregateResourceIdentifier> => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1AggregateResourceIdentifier(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ValidationException = (
+  output: any,
+  context: __SerdeContext
+): ValidationException => {
+  let contents: any = {
+    __type: "ValidationException",
+    message: undefined
+  };
+  if (output.message !== undefined) {
+    contents.message = output.message;
+  }
+  return contents;
+};
+
+const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
+  httpStatusCode: output.statusCode,
+  httpHeaders: output.headers,
+  requestId: output.headers["x-amzn-requestid"]
+});
+
+const parseBody = (streamBody: any, context: __SerdeContext): any => {
+  return context.streamCollector(streamBody).then((body: any) => {
+    const encoded = context.utf8Encoder(body);
+    if (encoded.length) {
+      return JSON.parse(encoded);
+    }
+    return {};
+  });
+};
