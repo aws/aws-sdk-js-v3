@@ -1,0 +1,87 @@
+import {
+  FirehoseClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes
+} from "../FirehoseClient";
+import {
+  UntagDeliveryStreamInput,
+  UntagDeliveryStreamOutput
+} from "../models/index";
+import {
+  deserializeAws_json1_1UntagDeliveryStreamCommand,
+  serializeAws_json1_1UntagDeliveryStreamCommand
+} from "../protocols/Aws_json1_1";
+import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse
+} from "@aws-sdk/protocol-http";
+import { Command as $Command } from "@aws-sdk/smithy-client";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  MiddlewareStack,
+  SerdeContext,
+  HttpHandlerOptions as __HttpHandlerOptions
+} from "@aws-sdk/types";
+
+export type UntagDeliveryStreamCommandInput = UntagDeliveryStreamInput;
+export type UntagDeliveryStreamCommandOutput = UntagDeliveryStreamOutput;
+
+export class UntagDeliveryStreamCommand extends $Command<
+  UntagDeliveryStreamCommandInput,
+  UntagDeliveryStreamCommandOutput,
+  FirehoseClientResolvedConfig
+> {
+  // Start section: command_properties
+  // End section: command_properties
+
+  constructor(readonly input: UntagDeliveryStreamCommandInput) {
+    // Start section: command_constructor
+    super();
+    // End section: command_constructor
+  }
+
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: FirehoseClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<
+    UntagDeliveryStreamCommandInput,
+    UntagDeliveryStreamCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger: {} as any
+    };
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  private serialize(
+    input: UntagDeliveryStreamCommandInput,
+    context: SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_json1_1UntagDeliveryStreamCommand(input, context);
+  }
+
+  private deserialize(
+    output: __HttpResponse,
+    context: SerdeContext
+  ): Promise<UntagDeliveryStreamCommandOutput> {
+    return deserializeAws_json1_1UntagDeliveryStreamCommand(output, context);
+  }
+
+  // Start section: command_body_extra
+  // End section: command_body_extra
+}
