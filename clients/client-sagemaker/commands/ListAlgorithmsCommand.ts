@@ -1,0 +1,81 @@
+import {
+  SageMakerClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes
+} from "../SageMakerClient";
+import { ListAlgorithmsInput, ListAlgorithmsOutput } from "../models/index";
+import {
+  deserializeAws_json1_1ListAlgorithmsCommand,
+  serializeAws_json1_1ListAlgorithmsCommand
+} from "../protocols/Aws_json1_1";
+import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse
+} from "@aws-sdk/protocol-http";
+import { Command as $Command } from "@aws-sdk/smithy-client";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  MiddlewareStack,
+  SerdeContext,
+  HttpHandlerOptions as __HttpHandlerOptions
+} from "@aws-sdk/types";
+
+export type ListAlgorithmsCommandInput = ListAlgorithmsInput;
+export type ListAlgorithmsCommandOutput = ListAlgorithmsOutput;
+
+export class ListAlgorithmsCommand extends $Command<
+  ListAlgorithmsCommandInput,
+  ListAlgorithmsCommandOutput,
+  SageMakerClientResolvedConfig
+> {
+  // Start section: command_properties
+  // End section: command_properties
+
+  constructor(readonly input: ListAlgorithmsCommandInput) {
+    // Start section: command_constructor
+    super();
+    // End section: command_constructor
+  }
+
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: SageMakerClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<ListAlgorithmsCommandInput, ListAlgorithmsCommandOutput> {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger: {} as any
+    };
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  private serialize(
+    input: ListAlgorithmsCommandInput,
+    context: SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_json1_1ListAlgorithmsCommand(input, context);
+  }
+
+  private deserialize(
+    output: __HttpResponse,
+    context: SerdeContext
+  ): Promise<ListAlgorithmsCommandOutput> {
+    return deserializeAws_json1_1ListAlgorithmsCommand(output, context);
+  }
+
+  // Start section: command_body_extra
+  // End section: command_body_extra
+}
