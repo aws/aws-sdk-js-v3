@@ -1,8 +1,8 @@
 import { extractMetadata } from "./";
-import { HttpResponse } from "@aws-sdk/types";
+import { HttpResponse } from "@aws-sdk/protocol-http";
 
 describe("extractMetadata", () => {
-  const response: HttpResponse<string> = {
+  const response = new HttpResponse({
     statusCode: 200,
     headers: {
       Foo: "bar",
@@ -10,7 +10,7 @@ describe("extractMetadata", () => {
       Snap: "crackle, pop"
     },
     body: "this is body"
-  };
+  });
 
   it("should extract the status code from responses", () => {
     expect(extractMetadata(response).httpStatusCode).toBe(response.statusCode);
