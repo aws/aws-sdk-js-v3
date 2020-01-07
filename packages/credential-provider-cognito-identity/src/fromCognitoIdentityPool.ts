@@ -4,7 +4,7 @@ import { localStorage } from "./localStorage";
 import { resolveLogins } from "./resolveLogins";
 import { Storage } from "./Storage";
 import { ProviderError } from "@aws-sdk/property-provider";
-import { GetIdCommand } from "@aws-sdk/client-cognito-identity-browser/commands/GetIdCommand";
+import { GetIdCommand } from "@aws-sdk/client-cognito-identity";
 import { CredentialProvider } from "@aws-sdk/types";
 
 /**

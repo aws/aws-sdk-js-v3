@@ -2,7 +2,7 @@ import { CognitoProviderParameters } from "./CognitoProviderParameters";
 import { resolveLogins } from "./resolveLogins";
 import { ProviderError } from "@aws-sdk/property-provider";
 import { epoch } from "@aws-sdk/protocol-timestamp";
-import { GetCredentialsForIdentityCommand } from "@aws-sdk/client-cognito-identity-browser/commands/GetCredentialsForIdentityCommand";
+import { GetCredentialsForIdentityCommand } from "@aws-sdk/client-cognito-identity";
 import { Credentials, CredentialProvider } from "@aws-sdk/types";
 
 /**
