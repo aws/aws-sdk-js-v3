@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-process",
-  "version": "0.1.0-preview.5",
+  "version": "1.0.0-alpha.0",
   "description": "AWS credential provider that sources credential_process from ~/.aws/credentials and ~/.aws/config",
   "main": "./build/index.js",
   "scripts": {
@@ -18,10 +18,10 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/credential-provider-ini": "^0.1.0-preview.7",
-    "@aws-sdk/property-provider": "^0.1.0-preview.7",
-    "@aws-sdk/shared-ini-file-loader": "^0.1.0-preview.3",
-    "@aws-sdk/types": "^0.1.0-preview.7",
+    "@aws-sdk/credential-provider-ini": "^1.0.0-alpha.0",
+    "@aws-sdk/property-provider": "^1.0.0-alpha.0",
+    "@aws-sdk/shared-ini-file-loader": "^1.0.0-alpha.0",
+    "@aws-sdk/types": "^1.0.0-alpha.0",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
