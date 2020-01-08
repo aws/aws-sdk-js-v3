@@ -1,4 +1,4 @@
-var { ElasticsearchService } = require('../../../clients/node/client-elasticsearch-service-node');
+var { ElasticsearchService } = require('../../../clients/client-elasticsearch-service');
 
 module.exports = function() {
   this.Before("@es", function (callback) {

@@ -1,4 +1,4 @@
-var { ElasticLoadBalancing } = require('../../../clients/node/client-elastic-load-balancing-node');
+var { ElasticLoadBalancing } = require('../../../clients/client-elastic-load-balancing');
 
 module.exports = function() {
   this.Before("@elb", function (callback) {
