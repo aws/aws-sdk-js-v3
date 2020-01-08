@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/invalid-dependency",
-  "version": "0.1.0-preview.1",
+  "version": "1.0.0-alpha.0",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
