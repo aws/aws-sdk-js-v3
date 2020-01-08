@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.0.0-alpha.1 (2020-01-08)
+
+**Note:** Version bump only for package @aws-sdk/middleware-ssec
+
+
+
+
+
 # [0.1.0-preview.8](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/ssec-middleware@0.1.0-preview.2...@aws-sdk/ssec-middleware@0.1.0-preview.8) (2019-11-19)
 
 
