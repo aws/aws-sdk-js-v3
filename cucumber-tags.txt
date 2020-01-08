@@ -1,0 +1,63 @@
+# Do not add cucumber tests, use Jest for integ tests instead
+# Uncomment tags as clients are ready/stable
+@acm
+@apigateway
+# @autoscaling
+# @cloudformation
+@cloudfront
+# @cloudsearch
+@cloudsearchdomain
+@cloudtrail
+# @cloudwatch
+@cloudwatchevents
+@cloudwatchlogs
+@codecommit
+@codedeploy
+@codepipeline
+@cognitoidentity
+@cognitosync
+@configservice
+@datapipeline
+@devicefarm
+@directconnect
+@directoryservice
+@dms
+@dynamodb
+@dynamodbstreams
+# @ec2
+@ecr
+@ecs
+@efs
+# @elasticache
+@elasticbeanstalk
+@elastictranscoder
+# @elb
+# @elbv2
+@emr
+@es
+@gamelift
+@glacier
+# @iam
+@inspector
+@iot
+@kinesis
+@kms
+@lambda
+@machinelearning
+@mobileanalytics
+@opsworks
+# @rds
+# @redshift
+@route53
+@route53domains
+@s3
+# @ses
+# @sns
+# @sqs
+@ssm
+@storagegateway
+# @sts
+@support
+@swf
+@waf
+@workspaces
