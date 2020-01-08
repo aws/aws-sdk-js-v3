@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.0.0-alpha.1 (2020-01-08)
+
+
+### Bug Fixes
+
+* update input and resolved naming ([#444](https://github.com/aws/aws-sdk-js-v3/issues/444)) ([4235b6c](https://github.com/aws/aws-sdk-js-v3/commit/4235b6c))
+
+
+### Features
+
+* remove absolute priority numbers from middleware stack ([#434](https://github.com/aws/aws-sdk-js-v3/issues/434)) ([2ad5796](https://github.com/aws/aws-sdk-js-v3/commit/2ad5796))
+* standardize plugins ([#422](https://github.com/aws/aws-sdk-js-v3/issues/422)) ([09112e5](https://github.com/aws/aws-sdk-js-v3/commit/09112e5))
+
+
+
+
+
 # [0.1.0-preview.7](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/retry-middleware@0.1.0-preview.2...@aws-sdk/retry-middleware@0.1.0-preview.7) (2019-10-30)
 
 
