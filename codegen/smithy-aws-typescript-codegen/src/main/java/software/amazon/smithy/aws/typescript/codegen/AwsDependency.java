@@ -28,23 +28,23 @@ import software.amazon.smithy.codegen.core.SymbolDependencyContainer;
  */
 public enum AwsDependency implements SymbolDependencyContainer {
 
-    MIDDLEWARE_SIGNING(NORMAL_DEPENDENCY, "@aws-sdk/middleware-signing", "^0.1.0-preview.7"),
-    CREDENTIAL_PROVIDER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/credential-provider-node", "^0.1.0-preview.7"),
-    REGION_PROVIDER(NORMAL_DEPENDENCY, "@aws-sdk/region-provider", "^0.1.0-preview.5"),
-    ACCEPTS_HEADER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-api-gateway", "^0.1.0-preview.5"),
-    VALIDATE_BUCKET_NAME(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-s3", "^0.1.0-preview.2"),
-    ADD_EXPECT_CONTINUE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-expect-continue", "^0.1.0-preview.5"),
-    GLACIER_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-glacier", "^0.1.0-preview.7"),
-    MACHINELEARNING_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-machinelearning", "^0.1.0-preview.1"),
-    SSEC_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-ssec", "^0.1.0-preview.5"),
-    LOCATION_CONSTRAINT(NORMAL_DEPENDENCY, "@aws-sdk/middleware-location-constraint", "^0.1.0-preview.5"),
-    MD5_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/md5-js", "^0.1.0-preview.6"),
-    STREAM_HASHER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/hash-stream-node", "^0.1.0-preview.4"),
-    STREAM_HASHER_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/hash-blob-browser", "^0.1.0-preview.4"),
-    ROUTE53_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-route53", "^0.1.0-preview.1"),
-    BUCKET_ENDPOINT_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-bucket-endpoint", "^0.1.0-preview.5"),
-    BODY_CHECKSUM(NORMAL_DEPENDENCY, "@aws-sdk/middleware-apply-body-checksum", "^0.1.0-preview.5"),
-    MIDDLEWARE_HOST_HEADER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-host-header", "^0.1.0-preview.1");
+    MIDDLEWARE_SIGNING(NORMAL_DEPENDENCY, "@aws-sdk/middleware-signing", "^1.0.0-alpha.0"),
+    CREDENTIAL_PROVIDER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/credential-provider-node", "^1.0.0-alpha.0"),
+    REGION_PROVIDER(NORMAL_DEPENDENCY, "@aws-sdk/region-provider", "^1.0.0-alpha.0"),
+    ACCEPTS_HEADER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-api-gateway", "^1.0.0-alpha.0"),
+    VALIDATE_BUCKET_NAME(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-s3", "^1.0.0-alpha.0"),
+    ADD_EXPECT_CONTINUE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-expect-continue", "^1.0.0-alpha.0"),
+    GLACIER_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-glacier", "^1.0.0-alpha.0"),
+    MACHINELEARNING_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-machinelearning", "^1.0.0-alpha.0"),
+    SSEC_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-ssec", "^1.0.0-alpha.0"),
+    LOCATION_CONSTRAINT(NORMAL_DEPENDENCY, "@aws-sdk/middleware-location-constraint", "^1.0.0-alpha.0"),
+    MD5_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/md5-js", "^1.0.0-alpha.0"),
+    STREAM_HASHER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/hash-stream-node", "^1.0.0-alpha.0"),
+    STREAM_HASHER_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/hash-blob-browser", "^1.0.0-alpha.0"),
+    ROUTE53_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-route53", "^1.0.0-alpha.0"),
+    BUCKET_ENDPOINT_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-bucket-endpoint", "^1.0.0-alpha.0"),
+    BODY_CHECKSUM(NORMAL_DEPENDENCY, "@aws-sdk/middleware-apply-body-checksum", "^1.0.0-alpha.0"),
+    MIDDLEWARE_HOST_HEADER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-host-header", "^1.0.0-alpha.0");
 
     public final String packageName;
     public final String version;
