@@ -1,4 +1,5 @@
-var { ElastiCache } = require('../../../clients/client-elasticache');
+// Enable import when client is ready
+// var { ElastiCache } = require('../../../clients/client-elasticache');
 
 module.exports = function() {
   this.Before("@elasticache", function (callback) {

@@ -1,4 +1,5 @@
-var { CloudWatch } = require('../../../clients/client-cloudwatch');
+// Enable import when client is ready
+// var { CloudWatch } = require('../../../clients/client-cloudwatch');
 
 module.exports = function() {
   this.Before("@cloudwatch", function (callback) {

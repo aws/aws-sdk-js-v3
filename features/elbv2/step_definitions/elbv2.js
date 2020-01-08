@@ -1,4 +1,5 @@
-var { ElasticLoadBalancingv2 } = require('../../../clients/client-elastic-load-balancing-v2');
+// Enable import when client is ready
+// var { ElasticLoadBalancingv2 } = require('../../../clients/client-elastic-load-balancing-v2');
 
 module.exports = function() {
   this.Before("@elbv2", function (callback) {

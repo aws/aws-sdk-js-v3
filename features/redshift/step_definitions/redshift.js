@@ -1,4 +1,5 @@
-var { Redshift } = require('../../../clients/client-redshift');
+// Enable import when client is ready
+// var { Redshift } = require('../../../clients/client-redshift');
 
 module.exports = function() {
   this.Before("@redshift", function (callback) {

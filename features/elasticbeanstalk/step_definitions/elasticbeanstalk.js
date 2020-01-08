@@ -1,4 +1,5 @@
-var { ElasticBeanstalk } = require('../../../clients/client-elastic-beanstalk');
+// Enable import when client is ready
+// var { ElasticBeanstalk } = require('../../../clients/client-elastic-beanstalk');
 
 module.exports = function() {
   this.Before("@elasticbeanstalk", function (callback) {

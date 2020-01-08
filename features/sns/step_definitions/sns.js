@@ -1,4 +1,5 @@
-var { SNS } = require('../../../clients/client-sns');
+// Enable import when client is ready
+// var { SNS } = require('../../../clients/client-sns');
 
 module.exports = function() {
   this.Before("@sns", function (callback) {

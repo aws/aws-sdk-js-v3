@@ -1,4 +1,5 @@
-var { CloudSearch } = require('../../../clients/client-cloudsearch');
+// Enable import when client is ready
+// var { CloudSearch } = require('../../../clients/client-cloudsearch');
 
 module.exports = function() {
   this.Before("@cloudsearch", function (callback) {

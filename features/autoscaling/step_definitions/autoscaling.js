@@ -1,4 +1,5 @@
-var { AutoScaling } = require('../../../clients/client-auto-scaling');
+// Enable import when client is ready
+// var { AutoScaling } = require('../../../clients/client-auto-scaling');
 
 module.exports = function() {
   this.Before('@autoscaling', function (callback) {

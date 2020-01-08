@@ -1,4 +1,5 @@
-var { CloudFormation } = require('../../../clients/client-cloudformation');
+// Enable import when client is ready
+// var { CloudFormation } = require('../../../clients/client-cloudformation');
 
 module.exports = function() {
   this.Before("@cloudformation", function (callback) {

@@ -1,5 +1,6 @@
 var jmespath = require('jmespath');
-var { RDS } = require('../../../clients/client-rds');
+// Enable import when client is ready
+// var { RDS } = require('../../../clients/client-rds');
 
 module.exports = function() {
   this.Before("@rds", function (callback) {

@@ -1,4 +1,5 @@
-var { SES } = require('../../../clients/client-ses');
+// Enable import when client is ready
+// var { SES } = require('../../../clients/client-ses');
 
 module.exports = function() {
   this.Before("@ses", function (callback) {

@@ -1,4 +1,5 @@
-var { STS } = require('../../../clients/client-sts');
+// Enable import when client is ready
+// var { STS } = require('../../../clients/client-sts');
 
 module.exports = function() {
   this.Before('@sts', function (callback) {
