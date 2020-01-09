@@ -94,7 +94,10 @@
             ]
           }
         ],
-        "smithy.api#title": "AWS License Manager"
+        "smithy.api#title": "AWS License Manager",
+        "smithy.api#xmlNamespace": {
+          "uri": "https://license-manager.amazonaws.com/doc/2018_08_01"
+        }
       }
     },
     "com.amazonaws.license.manager.V2018_08_01#AccessDeniedException": {
@@ -106,7 +109,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Access to resource denied.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 401
       }
     },
     "com.amazonaws.license.manager.V2018_08_01#AuthorizationException": {
@@ -118,7 +122,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The AWS user account does not have permission to perform the action. Check the IAM\n         policy associated with this account.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazonaws.license.manager.V2018_08_01#AutomatedDiscoveryInformation": {
@@ -337,7 +342,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>A dependency required to run the API is missing.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 424
       }
     },
     "com.amazonaws.license.manager.V2018_08_01#Filter": {
@@ -369,7 +375,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request uses too many filters or too many filter values.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.license.manager.V2018_08_01#FilterName": {
@@ -381,13 +388,19 @@
     "com.amazonaws.license.manager.V2018_08_01#FilterValues": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#FilterValue"
+        "target": "com.amazonaws.license.manager.V2018_08_01#FilterValue",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.license.manager.V2018_08_01#Filters": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.license.manager.V2018_08_01#Filter"
+        "target": "com.amazonaws.license.manager.V2018_08_01#Filter",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.license.manager.V2018_08_01#GetLicenseConfiguration": {
@@ -606,7 +619,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>One or more parameter values are not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.license.manager.V2018_08_01#InvalidResourceStateException": {
@@ -618,7 +632,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>License Manager cannot allocate a license to a resource because of its state. </p>\n         <p>For example, you cannot allocate a license to an instance in the process of shutting\n         down.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.license.manager.V2018_08_01#InventoryFilter": {
@@ -990,7 +1005,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>You do not have enough licenses available to support a new resource launch.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 412
       }
     },
     "com.amazonaws.license.manager.V2018_08_01#ListAssociationsForLicenseConfiguration": {
@@ -1632,7 +1648,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Too many requests have been submitted. Try again after a brief wait.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
       }
     },
     "com.amazonaws.license.manager.V2018_08_01#ResourceInventory": {
@@ -1694,7 +1711,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Your resource limits have been exceeded.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.license.manager.V2018_08_01#ResourceType": {
@@ -1728,7 +1746,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The server experienced an internal error. Try again.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazonaws.license.manager.V2018_08_01#String": {

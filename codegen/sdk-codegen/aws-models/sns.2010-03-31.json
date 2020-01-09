@@ -231,7 +231,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the user has been denied access to the requested resource.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazon.cloudcast.onlines#Binary": {
@@ -301,7 +302,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Can't perform multiple operations on a tag simultaneously. Perform the operations\n            sequentially.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.cloudcast.onlines#ConfirmSubscription": {
@@ -755,7 +757,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Exception error indicating endpoint disabled.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.cloudcast.onlines#FilterPolicyLimitExceededException": {
@@ -767,7 +770,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the number of filter polices in your AWS account exceeds the limit. To\n            add more filter polices, submit an SNS Limit Increase case in the AWS Support\n            Center.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazon.cloudcast.onlines#GetEndpointAttributes": {
@@ -1056,7 +1060,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates an internal service error.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazon.cloudcast.onlines#InvalidParameterException": {
@@ -1068,7 +1073,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that a request parameter does not comply with the associated\n            constraints.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.cloudcast.onlines#InvalidParameterValueException": {
@@ -1083,7 +1089,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that a request parameter does not comply with the associated\n            constraints.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.cloudcast.onlines#InvalidSecurityException": {
@@ -1095,7 +1102,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your\n            request using Signature Version 4.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazon.cloudcast.onlines#KMSAccessDeniedException": {
@@ -1107,7 +1115,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The ciphertext references a key that doesn't exist or that you don't have access\n            to.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.cloudcast.onlines#KMSDisabledException": {
@@ -1119,7 +1128,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request was rejected because the specified customer master key (CMK) isn't\n            enabled.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.cloudcast.onlines#KMSInvalidStateException": {
@@ -1131,7 +1141,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request was rejected because the state of the specified resource isn't valid for\n            this request. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html\">How Key State Affects Use of a\n                Customer Master Key</a> in the <i>AWS Key Management Service Developer\n                Guide</i>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.cloudcast.onlines#KMSNotFoundException": {
@@ -1143,7 +1154,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request was rejected because the specified entity or resource can't be\n            found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.cloudcast.onlines#KMSOptInRequired": {
@@ -1155,7 +1167,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The AWS access key ID needs a subscription for the service.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazon.cloudcast.onlines#KMSThrottlingException": {
@@ -1167,7 +1180,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request was denied due to request throttling. For more information about\n            throttling, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second\">Limits</a> in\n            the <i>AWS Key Management Service Developer Guide.</i>\n         </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.cloudcast.onlines#ListEndpointsByPlatformApplication": {
@@ -1687,7 +1701,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the requested resource does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazon.cloudcast.onlines#OptInPhoneNumber": {
@@ -1779,7 +1794,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Exception error indicating platform application disabled.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.cloudcast.onlines#Publish": {
@@ -1957,7 +1973,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Can't tag resource. Verify that the topic exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazon.cloudcast.onlines#SetEndpointAttributes": {
@@ -2215,7 +2232,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>A tag has been added to a resource with the same ARN as a deleted resource.\n            Wait a short while and then retry the operation.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.cloudcast.onlines#String": {
@@ -2366,7 +2384,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the customer already owns the maximum allowed number of\n            subscriptions.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazon.cloudcast.onlines#SubscriptionsList": {
@@ -2421,7 +2440,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Can't add more than 50 tags to a topic.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.cloudcast.onlines#TagList": {
@@ -2439,7 +2459,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request doesn't comply with the IAM tag policy. Correct your request and then\n            retry it.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.cloudcast.onlines#TagResource": {
@@ -2521,7 +2542,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the rate at which requests have been submitted for this action exceeds\n            the limit for your account.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
       }
     },
     "com.amazon.cloudcast.onlines#Topic": {
@@ -2556,7 +2578,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the customer already owns the maximum allowed number of topics.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazon.cloudcast.onlines#TopicsList": {

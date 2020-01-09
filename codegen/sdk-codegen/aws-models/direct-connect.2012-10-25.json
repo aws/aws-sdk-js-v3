@@ -4113,7 +4113,10 @@
             ]
           }
         ],
-        "smithy.api#title": "AWS Direct Connect"
+        "smithy.api#title": "AWS Direct Connect",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://directconnect.amazonaws.com/doc/2012-10-25/"
+        }
       }
     },
     "com.amazon.awsdx.overture#OwnerAccount": {

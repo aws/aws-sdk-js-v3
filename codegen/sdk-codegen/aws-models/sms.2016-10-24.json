@@ -130,7 +130,10 @@
             ]
           }
         ],
-        "smithy.api#title": "AWS Server Migration Service"
+        "smithy.api#title": "AWS Server Migration Service",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://ec2.amazon.com/servermigration/2016-10-24/"
+        }
       }
     },
     "com.amazonaws.servermigration.V2016_10_24#AmiId": {
@@ -498,7 +501,10 @@
     "com.amazonaws.servermigration.V2016_10_24#ConnectorCapabilityList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#ConnectorCapability"
+        "target": "com.amazonaws.servermigration.V2016_10_24#ConnectorCapability",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.servermigration.V2016_10_24#ConnectorId": {
@@ -507,7 +513,10 @@
     "com.amazonaws.servermigration.V2016_10_24#ConnectorList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#Connector"
+        "target": "com.amazonaws.servermigration.V2016_10_24#Connector",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.servermigration.V2016_10_24#ConnectorStatus": {
@@ -1653,7 +1662,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>An internal error occurred.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazonaws.servermigration.V2016_10_24#InvalidParameterException": {
@@ -1665,7 +1675,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>A specified parameter is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.servermigration.V2016_10_24#IpAddress": {
@@ -1856,7 +1867,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>A required parameter is missing.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.servermigration.V2016_10_24#NextToken": {
@@ -1871,7 +1883,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>There are no connectors available.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 430
       }
     },
     "com.amazonaws.servermigration.V2016_10_24#NumberOfRecentAmisToKeep": {
@@ -1889,7 +1902,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This operation is not allowed.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazonaws.servermigration.V2016_10_24#OutputFormat": {
@@ -2136,7 +2150,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified replication job already exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.servermigration.V2016_10_24#ReplicationJobId": {
@@ -2145,7 +2160,10 @@
     "com.amazonaws.servermigration.V2016_10_24#ReplicationJobList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationJob"
+        "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationJob",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.servermigration.V2016_10_24#ReplicationJobNotFoundException": {
@@ -2157,7 +2175,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified replication job does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.servermigration.V2016_10_24#ReplicationJobState": {
@@ -2286,13 +2305,17 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>You have exceeded the number of on-demand replication runs you can request in a\n            24-hour period.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
       }
     },
     "com.amazonaws.servermigration.V2016_10_24#ReplicationRunList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationRun"
+        "target": "com.amazonaws.servermigration.V2016_10_24#ReplicationRun",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.servermigration.V2016_10_24#ReplicationRunStage": {
@@ -2444,7 +2467,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified server cannot be replicated.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.servermigration.V2016_10_24#ServerCatalogStatus": {
@@ -2639,7 +2663,10 @@
     "com.amazonaws.servermigration.V2016_10_24#ServerList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.servermigration.V2016_10_24#Server"
+        "target": "com.amazonaws.servermigration.V2016_10_24#Server",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.servermigration.V2016_10_24#ServerReplicationConfiguration": {
@@ -2920,7 +2947,8 @@
       "members": { },
       "traits": {
         "smithy.api#documentation": "\n        <p>The service is temporarily unavailable.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 503
       }
     },
     "com.amazonaws.servermigration.V2016_10_24#TerminateApp": {
@@ -2991,7 +3019,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>You lack permissions needed to perform this operation. Check your IAM policies, and\n            ensure that you are using the correct access keys.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazonaws.servermigration.V2016_10_24#UpdateApp": {

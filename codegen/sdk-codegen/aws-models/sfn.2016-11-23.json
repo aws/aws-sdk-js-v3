@@ -112,7 +112,10 @@
             ]
           }
         ],
-        "smithy.api#title": "AWS Step Functions"
+        "smithy.api#title": "AWS Step Functions",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://swf.amazonaws.com/doc/2015-07-20/"
+        }
       }
     },
     "com.amazonaws.swf.service.v2.model#ActivityDoesNotExist": {
@@ -2090,7 +2093,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Could not find the referenced resource. Only state machine and activity ARNs are\n      supported.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.swf.service.v2.model#ReverseOrder": {
@@ -2974,7 +2978,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>You've exceeded the number of tags allowed for a resource. See the <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/limits.html\"> Limits Topic</a> in the\n      AWS Step Functions Developer Guide.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.swf.base.model#UnsignedInteger": {

@@ -370,57 +370,66 @@
         "ClientToken": {
           "target": "com.amazonaws.cloudhsm#ClientToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>A user-defined token to ensure idempotence. Subsequent calls to this operation with the\n      same token will be ignored.</p>\n      "
+            "smithy.api#documentation": "\n         <p>A user-defined token to ensure idempotence. Subsequent calls to this operation with the\n      same token will be ignored.</p>\n      ",
+            "smithy.api#xmlName": "ClientToken"
           }
         },
         "EniIp": {
           "target": "com.amazonaws.cloudhsm#IpAddress",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The IP address to assign to the HSM's ENI.</p>\n         <p>If an IP address is not specified, an IP address will be randomly chosen from the CIDR\n      range of the subnet.</p>\n      "
+            "smithy.api#documentation": "\n         <p>The IP address to assign to the HSM's ENI.</p>\n         <p>If an IP address is not specified, an IP address will be randomly chosen from the CIDR\n      range of the subnet.</p>\n      ",
+            "smithy.api#xmlName": "EniIp"
           }
         },
         "ExternalId": {
           "target": "com.amazonaws.cloudhsm#ExternalId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The external ID from <code>IamRoleArn</code>, if present.</p>\n      "
+            "smithy.api#documentation": "\n         <p>The external ID from <code>IamRoleArn</code>, if present.</p>\n      ",
+            "smithy.api#xmlName": "ExternalId"
           }
         },
         "IamRoleArn": {
           "target": "com.amazonaws.cloudhsm#IamRoleArn",
           "traits": {
             "smithy.api#documentation": "\n         <p>The ARN of an IAM role to enable the AWS CloudHSM service to allocate an ENI on your\n      behalf.</p>\n      ",
-            "smithy.api#required": true
+            "smithy.api#required": true,
+            "smithy.api#xmlName": "IamRoleArn"
           }
         },
         "SshKey": {
           "target": "com.amazonaws.cloudhsm#SshKey",
           "traits": {
             "smithy.api#documentation": "\n         <p>The SSH public key to install on the HSM.</p>\n      ",
-            "smithy.api#required": true
+            "smithy.api#required": true,
+            "smithy.api#xmlName": "SshKey"
           }
         },
         "SubnetId": {
           "target": "com.amazonaws.cloudhsm#SubnetId",
           "traits": {
             "smithy.api#documentation": "\n         <p>The identifier of the subnet in your VPC in which to place the HSM.</p>\n      ",
-            "smithy.api#required": true
+            "smithy.api#required": true,
+            "smithy.api#xmlName": "SubnetId"
           }
         },
         "SubscriptionType": {
           "target": "com.amazonaws.cloudhsm#SubscriptionType",
           "traits": {
-            "smithy.api#required": true
+            "smithy.api#required": true,
+            "smithy.api#xmlName": "SubscriptionType"
           }
         },
         "SyslogIp": {
           "target": "com.amazonaws.cloudhsm#IpAddress",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The IP address for the syslog monitoring server. The AWS CloudHSM service only supports one\n      syslog monitoring server.</p>\n      "
+            "smithy.api#documentation": "\n         <p>The IP address for the syslog monitoring server. The AWS CloudHSM service only supports one\n      syslog monitoring server.</p>\n      ",
+            "smithy.api#xmlName": "SyslogIp"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Contains the inputs for the <code>CreateHsm</code> operation.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Contains the inputs for the <code>CreateHsm</code> operation.</p>\n      ",
+        "smithy.api#xmlName": "CreateHsmRequest"
       }
     },
     "com.amazonaws.cloudhsm#CreateHsmResponse": {
@@ -578,12 +587,14 @@
           "target": "com.amazonaws.cloudhsm#HsmArn",
           "traits": {
             "smithy.api#documentation": "\n         <p>The ARN of the HSM to delete.</p>\n      ",
-            "smithy.api#required": true
+            "smithy.api#required": true,
+            "smithy.api#xmlName": "HsmArn"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Contains the inputs for the <a>DeleteHsm</a> operation.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Contains the inputs for the <a>DeleteHsm</a> operation.</p>\n      ",
+        "smithy.api#xmlName": "DeleteHsmRequest"
       }
     },
     "com.amazonaws.cloudhsm#DeleteHsmResponse": {
@@ -1515,43 +1526,50 @@
         "EniIp": {
           "target": "com.amazonaws.cloudhsm#IpAddress",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The new IP address for the elastic network interface (ENI) attached to the\n      HSM.</p>\n         <p>If the HSM is moved to a different subnet, and an IP address is not specified, an IP\n      address will be randomly chosen from the CIDR range of the new subnet.</p>\n      "
+            "smithy.api#documentation": "\n         <p>The new IP address for the elastic network interface (ENI) attached to the\n      HSM.</p>\n         <p>If the HSM is moved to a different subnet, and an IP address is not specified, an IP\n      address will be randomly chosen from the CIDR range of the new subnet.</p>\n      ",
+            "smithy.api#xmlName": "EniIp"
           }
         },
         "ExternalId": {
           "target": "com.amazonaws.cloudhsm#ExternalId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The new external ID.</p>\n      "
+            "smithy.api#documentation": "\n         <p>The new external ID.</p>\n      ",
+            "smithy.api#xmlName": "ExternalId"
           }
         },
         "HsmArn": {
           "target": "com.amazonaws.cloudhsm#HsmArn",
           "traits": {
             "smithy.api#documentation": "\n         <p>The ARN of the HSM to modify.</p>\n      ",
-            "smithy.api#required": true
+            "smithy.api#required": true,
+            "smithy.api#xmlName": "HsmArn"
           }
         },
         "IamRoleArn": {
           "target": "com.amazonaws.cloudhsm#IamRoleArn",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The new IAM role ARN.</p>\n      "
+            "smithy.api#documentation": "\n         <p>The new IAM role ARN.</p>\n      ",
+            "smithy.api#xmlName": "IamRoleArn"
           }
         },
         "SubnetId": {
           "target": "com.amazonaws.cloudhsm#SubnetId",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The new identifier of the subnet that the HSM is in. The new subnet must be in the same\n      Availability Zone as the current subnet.</p>\n      "
+            "smithy.api#documentation": "\n         <p>The new identifier of the subnet that the HSM is in. The new subnet must be in the same\n      Availability Zone as the current subnet.</p>\n      ",
+            "smithy.api#xmlName": "SubnetId"
           }
         },
         "SyslogIp": {
           "target": "com.amazonaws.cloudhsm#IpAddress",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The new IP address for the syslog monitoring server. The AWS CloudHSM service only supports\n      one syslog monitoring server.</p>\n      "
+            "smithy.api#documentation": "\n         <p>The new IP address for the syslog monitoring server. The AWS CloudHSM service only supports\n      one syslog monitoring server.</p>\n      ",
+            "smithy.api#xmlName": "SyslogIp"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "\n         <p>Contains the inputs for the <a>ModifyHsm</a> operation.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Contains the inputs for the <a>ModifyHsm</a> operation.</p>\n      ",
+        "smithy.api#xmlName": "ModifyHsmRequest"
       }
     },
     "com.amazonaws.cloudhsm#ModifyHsmResponse": {

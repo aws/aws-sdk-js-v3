@@ -197,7 +197,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>You already have an Auto Scaling group or launch configuration with this name.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.fws.csls.version_2011_01_01#AsciiStringMaxLen255": {
@@ -3173,7 +3174,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The <code>NextToken</code> value is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.fws.csls.version_2011_01_01#LaunchConfiguration": {
@@ -3654,7 +3656,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>You have already reached a limit for your Amazon EC2 Auto Scaling resources (for example, Auto Scaling\n            groups, launch configurations, or lifecycle hooks). For more information, see <a>DescribeAccountLimits</a>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.fws.csls.version_2011_01_01#LoadBalancerNames": {
@@ -4502,7 +4505,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,\n            instance, or load balancer).</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazon.fws.csls.version_2011_01_01#ResourceInUseFault": {
@@ -4517,7 +4521,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The operation can't be performed because the resource is in use.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.fws.csls.version_2011_01_01#ResourceName": {
@@ -4559,7 +4564,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The operation can't be performed because there are scaling activities in\n            progress.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.fws.csls.version_2011_01_01#ScalingActivityStatusCode": {
@@ -4890,7 +4896,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The service-linked role is not yet ready for use.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazon.fws.csls.version_2011_01_01#SetDesiredCapacity": {

@@ -590,7 +590,8 @@
         "returnValue": {
           "target": "com.amazonaws.resourcesharing.V2018_01_04#Boolean",
           "traits": {
-            "smithy.api#documentation": "\n         <p>Indicates whether the request succeeded.</p>\n      "
+            "smithy.api#documentation": "\n         <p>Indicates whether the request succeeded.</p>\n      ",
+            "smithy.api#xmlName": "return"
           }
         }
       }
@@ -811,7 +812,8 @@
         "returnValue": {
           "target": "com.amazonaws.resourcesharing.V2018_01_04#Boolean",
           "traits": {
-            "smithy.api#documentation": "\n   \t     <p>Indicates whether the request succeeded.</p>\n      "
+            "smithy.api#documentation": "\n   \t     <p>Indicates whether the request succeeded.</p>\n      ",
+            "smithy.api#xmlName": "return"
           }
         }
       }
@@ -1919,7 +1921,10 @@
     "com.amazonaws.resourcesharing.V2018_01_04#PermissionArnList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#String"
+        "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.resourcesharing.V2018_01_04#Policy": {
@@ -1928,7 +1933,10 @@
     "com.amazonaws.resourcesharing.V2018_01_04#PolicyList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#Policy"
+        "target": "com.amazonaws.resourcesharing.V2018_01_04#Policy",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.resourcesharing.V2018_01_04#Principal": {
@@ -1972,13 +1980,19 @@
     "com.amazonaws.resourcesharing.V2018_01_04#PrincipalArnOrIdList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#String"
+        "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.resourcesharing.V2018_01_04#PrincipalList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#Principal"
+        "target": "com.amazonaws.resourcesharing.V2018_01_04#Principal",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.resourcesharing.V2018_01_04#PromoteResourceShareCreatedFromPolicy": {
@@ -2037,7 +2051,8 @@
         "returnValue": {
           "target": "com.amazonaws.resourcesharing.V2018_01_04#Boolean",
           "traits": {
-            "smithy.api#documentation": "\n\t        <p>Indicates whether the request succeeded.</p>\n      "
+            "smithy.api#documentation": "\n\t        <p>Indicates whether the request succeeded.</p>\n      ",
+            "smithy.api#xmlName": "return"
           }
         }
       }
@@ -2185,7 +2200,10 @@
     "com.amazonaws.resourcesharing.V2018_01_04#ResourceArnList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#String"
+        "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.resourcesharing.V2018_01_04#ResourceArnNotFoundException": {
@@ -2207,7 +2225,10 @@
     "com.amazonaws.resourcesharing.V2018_01_04#ResourceList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#Resource"
+        "target": "com.amazonaws.resourcesharing.V2018_01_04#Resource",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.resourcesharing.V2018_01_04#ResourceOwner": {
@@ -2294,7 +2315,10 @@
     "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareArnList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#String"
+        "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareAssociation": {
@@ -2362,7 +2386,10 @@
     "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareAssociationList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareAssociation"
+        "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareAssociation",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareAssociationStatus": {
@@ -2490,7 +2517,10 @@
     "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationArnList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#String"
+        "target": "com.amazonaws.resourcesharing.V2018_01_04#String",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationArnNotFoundException": {
@@ -2528,7 +2558,10 @@
     "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitation"
+        "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitation",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareInvitationStatus": {
@@ -2561,7 +2594,10 @@
     "com.amazonaws.resourcesharing.V2018_01_04#ResourceShareList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShare"
+        "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceShare",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.resourcesharing.V2018_01_04#ResourceSharePermissionDetail": {
@@ -2623,7 +2659,10 @@
     "com.amazonaws.resourcesharing.V2018_01_04#ResourceSharePermissionList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceSharePermissionSummary"
+        "target": "com.amazonaws.resourcesharing.V2018_01_04#ResourceSharePermissionSummary",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.resourcesharing.V2018_01_04#ResourceSharePermissionSummary": {

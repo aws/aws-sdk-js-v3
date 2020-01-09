@@ -151,7 +151,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The value is invalid or is too long.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.seer.queryservice#InvalidNextTokenException": {
@@ -163,7 +164,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The token is not valid. Tokens expire after 24 hours.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.seer.queryservice#LimitExceededException": {
@@ -175,7 +177,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The limit on the number of requests per second has been exceeded.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazonaws.seer.queryservice#NextToken": {
@@ -282,7 +285,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified resource is in use.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazonaws.seer.queryservice#ResourceNotFoundException": {
@@ -294,7 +298,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>We can't find that resource. Check the information that you've provided and try\n      again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.seer.queryservice#Statistic": {

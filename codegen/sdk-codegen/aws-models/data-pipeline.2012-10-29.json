@@ -287,7 +287,10 @@
             ]
           }
         ],
-        "smithy.api#title": "AWS Data Pipeline"
+        "smithy.api#title": "AWS Data Pipeline",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://datapipeline.amazonaws.com/doc/2012-10-29/"
+        }
       }
     },
     "com.amazon.setl.webservice#DeactivatePipeline": {

@@ -34,7 +34,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The action you attempted is not allowed unless Service Access with Service Quotas is\n      enabled in your organization. To enable, call <a>AssociateServiceQuotaTemplate</a>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazonaws.servicequotas#AccessDeniedException": {
@@ -46,7 +47,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>You do not have sufficient access to perform this action.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazonaws.servicequotas#AssociateServiceQuotaTemplate": {
@@ -191,7 +193,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>You can't perform this action because a dependency does not have access.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazonaws.servicequotas#DisassociateServiceQuotaTemplate": {
@@ -598,7 +601,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Invalid input was provided. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.servicequotas#InvalidPaginationTokenException": {
@@ -610,7 +614,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Invalid input was provided.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.servicequotas#InvalidResourceStateException": {
@@ -622,7 +627,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Invalid input was provided for the . </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 405
       }
     },
     "com.amazonaws.servicequotas#ListAWSDefaultServiceQuotas": {
@@ -1200,7 +1206,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The account making this call is not a member of an organization.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazonaws.servicequotas#NoSuchResourceException": {
@@ -1212,7 +1219,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified resource does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.servicequotas#OrganizationNotInAllFeaturesModeException": {
@@ -1224,7 +1232,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The organization that your account belongs to, is not in All Features mode. To enable all\n      features mode, see <a href=\"https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAllFeatures.html\">EnableAllFeatures</a>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.servicequotas#PeriodUnit": {
@@ -1374,7 +1383,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>You have exceeded your service quota. To perform the requested action, remove some of the\n      relevant resources, or use Service Quotas to request a service quota increase.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazonaws.servicequotas#QuotaMetricName": {
@@ -1639,7 +1649,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified resource already exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.servicequotas#ServiceCode": {
@@ -1661,7 +1672,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Something went wrong. </p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazonaws.servicequotas#ServiceInfo": {
@@ -1863,7 +1875,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The quota request template is not associated with your organization. </p>\n         <p>To use the template, call <a>AssociateServiceQuotaTemplate</a>. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.servicequotas#ServiceQuotasV20190624": {
@@ -1957,7 +1970,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The Service Quotas template is not available in the Region where you are making the\n      request. Please make the request in us-east-1. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.servicequotas#TooManyRequestsException": {
@@ -1969,7 +1983,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request\n      an increase for this quota. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
       }
     }
   }

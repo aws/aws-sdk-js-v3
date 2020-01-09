@@ -133,7 +133,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon EC2 Container Registry"
+        "smithy.api#title": "Amazon EC2 Container Registry",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://ecr.amazonaws.com/doc/2015-09-21/"
+        }
       }
     },
     "com.amazonaws.starport.frontend#Arn": {

@@ -286,7 +286,10 @@
             ]
           }
         ],
-        "smithy.api#title": "AWS WAF Regional"
+        "smithy.api#title": "AWS WAF Regional",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://waf.amazonaws.com/doc/2015-08-24/"
+        }
       }
     },
     "com.amazonaws.gokucustomerapiservice.v20150409#Action": {
