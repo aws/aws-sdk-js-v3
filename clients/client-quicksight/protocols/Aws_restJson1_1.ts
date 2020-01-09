@@ -3618,8 +3618,10 @@ async function deserializeAws_restJson1_1CancelIngestionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -3664,7 +3666,6 @@ async function deserializeAws_restJson1_1CancelIngestionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -3722,8 +3723,10 @@ async function deserializeAws_restJson1_1CreateDashboardCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
@@ -3775,7 +3778,6 @@ async function deserializeAws_restJson1_1CreateDashboardCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -3830,8 +3832,10 @@ async function deserializeAws_restJson1_1CreateDataSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -3897,7 +3901,6 @@ async function deserializeAws_restJson1_1CreateDataSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -3951,8 +3954,10 @@ async function deserializeAws_restJson1_1CreateDataSourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -4011,7 +4016,6 @@ async function deserializeAws_restJson1_1CreateDataSourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -4054,8 +4058,10 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -4121,7 +4127,6 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -4170,8 +4175,10 @@ async function deserializeAws_restJson1_1CreateGroupMembershipCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -4223,7 +4230,6 @@ async function deserializeAws_restJson1_1CreateGroupMembershipCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -4288,8 +4294,10 @@ async function deserializeAws_restJson1_1CreateIAMPolicyAssignmentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConcurrentUpdatingException":
     case "com.amazonaws.services.quicksight#ConcurrentUpdatingException":
@@ -4341,7 +4349,6 @@ async function deserializeAws_restJson1_1CreateIAMPolicyAssignmentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -4395,8 +4402,10 @@ async function deserializeAws_restJson1_1CreateIngestionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -4448,7 +4457,6 @@ async function deserializeAws_restJson1_1CreateIngestionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -4506,8 +4514,10 @@ async function deserializeAws_restJson1_1CreateTemplateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -4566,7 +4576,6 @@ async function deserializeAws_restJson1_1CreateTemplateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -4615,8 +4624,10 @@ async function deserializeAws_restJson1_1CreateTemplateAliasCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
@@ -4668,7 +4679,6 @@ async function deserializeAws_restJson1_1CreateTemplateAliasCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -4718,8 +4728,10 @@ async function deserializeAws_restJson1_1DeleteDashboardCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
@@ -4764,7 +4776,6 @@ async function deserializeAws_restJson1_1DeleteDashboardCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -4811,8 +4822,10 @@ async function deserializeAws_restJson1_1DeleteDataSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -4850,7 +4863,6 @@ async function deserializeAws_restJson1_1DeleteDataSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -4900,8 +4912,10 @@ async function deserializeAws_restJson1_1DeleteDataSourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -4939,7 +4953,6 @@ async function deserializeAws_restJson1_1DeleteDataSourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -4978,8 +4991,10 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -5031,7 +5046,6 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -5073,8 +5087,10 @@ async function deserializeAws_restJson1_1DeleteGroupMembershipCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -5126,7 +5142,6 @@ async function deserializeAws_restJson1_1DeleteGroupMembershipCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -5172,8 +5187,10 @@ async function deserializeAws_restJson1_1DeleteIAMPolicyAssignmentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConcurrentUpdatingException":
     case "com.amazonaws.services.quicksight#ConcurrentUpdatingException":
@@ -5225,7 +5242,6 @@ async function deserializeAws_restJson1_1DeleteIAMPolicyAssignmentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -5275,8 +5291,10 @@ async function deserializeAws_restJson1_1DeleteTemplateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
@@ -5328,7 +5346,6 @@ async function deserializeAws_restJson1_1DeleteTemplateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -5382,8 +5399,10 @@ async function deserializeAws_restJson1_1DeleteTemplateAliasCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
@@ -5414,7 +5433,6 @@ async function deserializeAws_restJson1_1DeleteTemplateAliasCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -5453,8 +5471,10 @@ async function deserializeAws_restJson1_1DeleteUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -5499,7 +5519,6 @@ async function deserializeAws_restJson1_1DeleteUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -5541,8 +5560,10 @@ async function deserializeAws_restJson1_1DeleteUserByPrincipalIdCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -5587,7 +5608,6 @@ async function deserializeAws_restJson1_1DeleteUserByPrincipalIdCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -5636,8 +5656,10 @@ async function deserializeAws_restJson1_1DescribeDashboardCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -5682,7 +5704,6 @@ async function deserializeAws_restJson1_1DescribeDashboardCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -5739,8 +5760,10 @@ async function deserializeAws_restJson1_1DescribeDashboardPermissionsCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
@@ -5778,7 +5801,6 @@ async function deserializeAws_restJson1_1DescribeDashboardPermissionsCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -5824,8 +5846,10 @@ async function deserializeAws_restJson1_1DescribeDataSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -5863,7 +5887,6 @@ async function deserializeAws_restJson1_1DescribeDataSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -5920,8 +5943,10 @@ async function deserializeAws_restJson1_1DescribeDataSetPermissionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -5959,7 +5984,6 @@ async function deserializeAws_restJson1_1DescribeDataSetPermissionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -6008,8 +6032,10 @@ async function deserializeAws_restJson1_1DescribeDataSourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -6047,7 +6073,6 @@ async function deserializeAws_restJson1_1DescribeDataSourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -6104,8 +6129,10 @@ async function deserializeAws_restJson1_1DescribeDataSourcePermissionsCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -6143,7 +6170,6 @@ async function deserializeAws_restJson1_1DescribeDataSourcePermissionsCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -6186,8 +6212,10 @@ async function deserializeAws_restJson1_1DescribeGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -6239,7 +6267,6 @@ async function deserializeAws_restJson1_1DescribeGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -6288,8 +6315,10 @@ async function deserializeAws_restJson1_1DescribeIAMPolicyAssignmentCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -6334,7 +6363,6 @@ async function deserializeAws_restJson1_1DescribeIAMPolicyAssignmentCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -6383,8 +6411,10 @@ async function deserializeAws_restJson1_1DescribeIngestionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -6429,7 +6459,6 @@ async function deserializeAws_restJson1_1DescribeIngestionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -6474,8 +6503,10 @@ async function deserializeAws_restJson1_1DescribeTemplateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -6534,7 +6565,6 @@ async function deserializeAws_restJson1_1DescribeTemplateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -6583,8 +6613,10 @@ async function deserializeAws_restJson1_1DescribeTemplateAliasCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
@@ -6615,7 +6647,6 @@ async function deserializeAws_restJson1_1DescribeTemplateAliasCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -6672,8 +6703,10 @@ async function deserializeAws_restJson1_1DescribeTemplatePermissionsCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
@@ -6718,7 +6751,6 @@ async function deserializeAws_restJson1_1DescribeTemplatePermissionsCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -6761,8 +6793,10 @@ async function deserializeAws_restJson1_1DescribeUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -6807,7 +6841,6 @@ async function deserializeAws_restJson1_1DescribeUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -6853,8 +6886,10 @@ async function deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "DomainNotWhitelistedException":
     case "com.amazonaws.services.quicksight#DomainNotWhitelistedException":
@@ -6934,7 +6969,6 @@ async function deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -6987,8 +7021,10 @@ async function deserializeAws_restJson1_1ListDashboardVersionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
@@ -7033,7 +7069,6 @@ async function deserializeAws_restJson1_1ListDashboardVersionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -7086,8 +7121,10 @@ async function deserializeAws_restJson1_1ListDashboardsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
@@ -7118,7 +7155,6 @@ async function deserializeAws_restJson1_1ListDashboardsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -7168,8 +7204,10 @@ async function deserializeAws_restJson1_1ListDataSetsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -7207,7 +7245,6 @@ async function deserializeAws_restJson1_1ListDataSetsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -7260,8 +7297,10 @@ async function deserializeAws_restJson1_1ListDataSourcesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -7299,7 +7338,6 @@ async function deserializeAws_restJson1_1ListDataSourcesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -7352,8 +7390,10 @@ async function deserializeAws_restJson1_1ListGroupMembershipsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -7412,7 +7452,6 @@ async function deserializeAws_restJson1_1ListGroupMembershipsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -7462,8 +7501,10 @@ async function deserializeAws_restJson1_1ListGroupsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -7522,7 +7563,6 @@ async function deserializeAws_restJson1_1ListGroupsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -7575,8 +7615,10 @@ async function deserializeAws_restJson1_1ListIAMPolicyAssignmentsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -7621,7 +7663,6 @@ async function deserializeAws_restJson1_1ListIAMPolicyAssignmentsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -7674,8 +7715,10 @@ async function deserializeAws_restJson1_1ListIAMPolicyAssignmentsForUserCommandE
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConcurrentUpdatingException":
     case "com.amazonaws.services.quicksight#ConcurrentUpdatingException":
@@ -7727,7 +7770,6 @@ async function deserializeAws_restJson1_1ListIAMPolicyAssignmentsForUserCommandE
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -7780,8 +7822,10 @@ async function deserializeAws_restJson1_1ListIngestionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -7833,7 +7877,6 @@ async function deserializeAws_restJson1_1ListIngestionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -7879,8 +7922,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -7918,7 +7963,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -7971,8 +8015,10 @@ async function deserializeAws_restJson1_1ListTemplateAliasesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
@@ -8003,7 +8049,6 @@ async function deserializeAws_restJson1_1ListTemplateAliasesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -8056,8 +8101,10 @@ async function deserializeAws_restJson1_1ListTemplateVersionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
@@ -8102,7 +8149,6 @@ async function deserializeAws_restJson1_1ListTemplateVersionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -8152,8 +8198,10 @@ async function deserializeAws_restJson1_1ListTemplatesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
@@ -8198,7 +8246,6 @@ async function deserializeAws_restJson1_1ListTemplatesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -8251,8 +8298,10 @@ async function deserializeAws_restJson1_1ListUserGroupsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -8297,7 +8346,6 @@ async function deserializeAws_restJson1_1ListUserGroupsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -8347,8 +8395,10 @@ async function deserializeAws_restJson1_1ListUsersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -8400,7 +8450,6 @@ async function deserializeAws_restJson1_1ListUsersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -8447,8 +8496,10 @@ async function deserializeAws_restJson1_1RegisterUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -8514,7 +8565,6 @@ async function deserializeAws_restJson1_1RegisterUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -8553,8 +8603,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -8599,7 +8651,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -8638,8 +8689,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -8677,7 +8730,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -8739,8 +8791,10 @@ async function deserializeAws_restJson1_1UpdateDashboardCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
@@ -8792,7 +8846,6 @@ async function deserializeAws_restJson1_1UpdateDashboardCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -8849,8 +8902,10 @@ async function deserializeAws_restJson1_1UpdateDashboardPermissionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
@@ -8895,7 +8950,6 @@ async function deserializeAws_restJson1_1UpdateDashboardPermissionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -8945,8 +8999,10 @@ async function deserializeAws_restJson1_1UpdateDashboardPublishedVersionCommandE
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
@@ -8991,7 +9047,6 @@ async function deserializeAws_restJson1_1UpdateDashboardPublishedVersionCommandE
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -9046,8 +9101,10 @@ async function deserializeAws_restJson1_1UpdateDataSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -9106,7 +9163,6 @@ async function deserializeAws_restJson1_1UpdateDataSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -9156,8 +9212,10 @@ async function deserializeAws_restJson1_1UpdateDataSetPermissionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -9202,7 +9260,6 @@ async function deserializeAws_restJson1_1UpdateDataSetPermissionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -9256,8 +9313,10 @@ async function deserializeAws_restJson1_1UpdateDataSourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -9302,7 +9361,6 @@ async function deserializeAws_restJson1_1UpdateDataSourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -9352,8 +9410,10 @@ async function deserializeAws_restJson1_1UpdateDataSourcePermissionsCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -9398,7 +9458,6 @@ async function deserializeAws_restJson1_1UpdateDataSourcePermissionsCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -9441,8 +9500,10 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -9494,7 +9555,6 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -9559,8 +9619,10 @@ async function deserializeAws_restJson1_1UpdateIAMPolicyAssignmentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConcurrentUpdatingException":
     case "com.amazonaws.services.quicksight#ConcurrentUpdatingException":
@@ -9612,7 +9674,6 @@ async function deserializeAws_restJson1_1UpdateIAMPolicyAssignmentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -9670,8 +9731,10 @@ async function deserializeAws_restJson1_1UpdateTemplateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
@@ -9730,7 +9793,6 @@ async function deserializeAws_restJson1_1UpdateTemplateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -9779,8 +9841,10 @@ async function deserializeAws_restJson1_1UpdateTemplateAliasCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
@@ -9818,7 +9882,6 @@ async function deserializeAws_restJson1_1UpdateTemplateAliasCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -9875,8 +9938,10 @@ async function deserializeAws_restJson1_1UpdateTemplatePermissionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
@@ -9921,7 +9986,6 @@ async function deserializeAws_restJson1_1UpdateTemplatePermissionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",
@@ -9964,8 +10028,10 @@ async function deserializeAws_restJson1_1UpdateUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
@@ -10010,7 +10076,6 @@ async function deserializeAws_restJson1_1UpdateUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.quicksight#${errorCode}`,
         $fault: "client",

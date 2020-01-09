@@ -1643,7 +1643,7 @@ export async function deserializeAws_json1_1AcceptDirectConnectGatewayAssociatio
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalResult(
-    data.AcceptDirectConnectGatewayAssociationProposalResult,
+    data,
     context
   );
   const response: AcceptDirectConnectGatewayAssociationProposalCommandOutput = {
@@ -1664,7 +1664,7 @@ async function deserializeAws_json1_1AcceptDirectConnectGatewayAssociationPropos
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1684,7 +1684,6 @@ async function deserializeAws_json1_1AcceptDirectConnectGatewayAssociationPropos
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -1706,7 +1705,7 @@ export async function deserializeAws_json1_1AllocateConnectionOnInterconnectComm
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1Connection(data.Connection, context);
+  contents = deserializeAws_json1_1Connection(data, context);
   const response: AllocateConnectionOnInterconnectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "Connection",
@@ -1725,7 +1724,7 @@ async function deserializeAws_json1_1AllocateConnectionOnInterconnectCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1745,7 +1744,6 @@ async function deserializeAws_json1_1AllocateConnectionOnInterconnectCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -1767,7 +1765,7 @@ export async function deserializeAws_json1_1AllocateHostedConnectionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1Connection(data.Connection, context);
+  contents = deserializeAws_json1_1Connection(data, context);
   const response: AllocateHostedConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "Connection",
@@ -1786,7 +1784,7 @@ async function deserializeAws_json1_1AllocateHostedConnectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1820,7 +1818,6 @@ async function deserializeAws_json1_1AllocateHostedConnectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -1842,10 +1839,7 @@ export async function deserializeAws_json1_1AllocatePrivateVirtualInterfaceComma
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1VirtualInterface(
-    data.VirtualInterface,
-    context
-  );
+  contents = deserializeAws_json1_1VirtualInterface(data, context);
   const response: AllocatePrivateVirtualInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "VirtualInterface",
@@ -1864,7 +1858,7 @@ async function deserializeAws_json1_1AllocatePrivateVirtualInterfaceCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1898,7 +1892,6 @@ async function deserializeAws_json1_1AllocatePrivateVirtualInterfaceCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -1920,10 +1913,7 @@ export async function deserializeAws_json1_1AllocatePublicVirtualInterfaceComman
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1VirtualInterface(
-    data.VirtualInterface,
-    context
-  );
+  contents = deserializeAws_json1_1VirtualInterface(data, context);
   const response: AllocatePublicVirtualInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "VirtualInterface",
@@ -1942,7 +1932,7 @@ async function deserializeAws_json1_1AllocatePublicVirtualInterfaceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1976,7 +1966,6 @@ async function deserializeAws_json1_1AllocatePublicVirtualInterfaceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -1999,7 +1988,7 @@ export async function deserializeAws_json1_1AllocateTransitVirtualInterfaceComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AllocateTransitVirtualInterfaceResult(
-    data.AllocateTransitVirtualInterfaceResult,
+    data,
     context
   );
   const response: AllocateTransitVirtualInterfaceCommandOutput = {
@@ -2020,7 +2009,7 @@ async function deserializeAws_json1_1AllocateTransitVirtualInterfaceCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2054,7 +2043,6 @@ async function deserializeAws_json1_1AllocateTransitVirtualInterfaceCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -2076,7 +2064,7 @@ export async function deserializeAws_json1_1AssociateConnectionWithLagCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1Connection(data.Connection, context);
+  contents = deserializeAws_json1_1Connection(data, context);
   const response: AssociateConnectionWithLagCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "Connection",
@@ -2095,7 +2083,7 @@ async function deserializeAws_json1_1AssociateConnectionWithLagCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2115,7 +2103,6 @@ async function deserializeAws_json1_1AssociateConnectionWithLagCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -2137,7 +2124,7 @@ export async function deserializeAws_json1_1AssociateHostedConnectionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1Connection(data.Connection, context);
+  contents = deserializeAws_json1_1Connection(data, context);
   const response: AssociateHostedConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "Connection",
@@ -2156,7 +2143,7 @@ async function deserializeAws_json1_1AssociateHostedConnectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2176,7 +2163,6 @@ async function deserializeAws_json1_1AssociateHostedConnectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -2198,10 +2184,7 @@ export async function deserializeAws_json1_1AssociateVirtualInterfaceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1VirtualInterface(
-    data.VirtualInterface,
-    context
-  );
+  contents = deserializeAws_json1_1VirtualInterface(data, context);
   const response: AssociateVirtualInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "VirtualInterface",
@@ -2220,7 +2203,7 @@ async function deserializeAws_json1_1AssociateVirtualInterfaceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2240,7 +2223,6 @@ async function deserializeAws_json1_1AssociateVirtualInterfaceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -2259,10 +2241,7 @@ export async function deserializeAws_json1_1ConfirmConnectionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ConfirmConnectionResponse(
-    data.ConfirmConnectionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ConfirmConnectionResponse(data, context);
   const response: ConfirmConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ConfirmConnectionResponse",
@@ -2281,7 +2260,7 @@ async function deserializeAws_json1_1ConfirmConnectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2301,7 +2280,6 @@ async function deserializeAws_json1_1ConfirmConnectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -2324,7 +2302,7 @@ export async function deserializeAws_json1_1ConfirmPrivateVirtualInterfaceComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ConfirmPrivateVirtualInterfaceResponse(
-    data.ConfirmPrivateVirtualInterfaceResponse,
+    data,
     context
   );
   const response: ConfirmPrivateVirtualInterfaceCommandOutput = {
@@ -2345,7 +2323,7 @@ async function deserializeAws_json1_1ConfirmPrivateVirtualInterfaceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2365,7 +2343,6 @@ async function deserializeAws_json1_1ConfirmPrivateVirtualInterfaceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -2388,7 +2365,7 @@ export async function deserializeAws_json1_1ConfirmPublicVirtualInterfaceCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ConfirmPublicVirtualInterfaceResponse(
-    data.ConfirmPublicVirtualInterfaceResponse,
+    data,
     context
   );
   const response: ConfirmPublicVirtualInterfaceCommandOutput = {
@@ -2409,7 +2386,7 @@ async function deserializeAws_json1_1ConfirmPublicVirtualInterfaceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2429,7 +2406,6 @@ async function deserializeAws_json1_1ConfirmPublicVirtualInterfaceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -2452,7 +2428,7 @@ export async function deserializeAws_json1_1ConfirmTransitVirtualInterfaceComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ConfirmTransitVirtualInterfaceResponse(
-    data.ConfirmTransitVirtualInterfaceResponse,
+    data,
     context
   );
   const response: ConfirmTransitVirtualInterfaceCommandOutput = {
@@ -2473,7 +2449,7 @@ async function deserializeAws_json1_1ConfirmTransitVirtualInterfaceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2493,7 +2469,6 @@ async function deserializeAws_json1_1ConfirmTransitVirtualInterfaceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -2512,10 +2487,7 @@ export async function deserializeAws_json1_1CreateBGPPeerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateBGPPeerResponse(
-    data.CreateBGPPeerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateBGPPeerResponse(data, context);
   const response: CreateBGPPeerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateBGPPeerResponse",
@@ -2534,7 +2506,7 @@ async function deserializeAws_json1_1CreateBGPPeerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2554,7 +2526,6 @@ async function deserializeAws_json1_1CreateBGPPeerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -2573,7 +2544,7 @@ export async function deserializeAws_json1_1CreateConnectionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1Connection(data.Connection, context);
+  contents = deserializeAws_json1_1Connection(data, context);
   const response: CreateConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "Connection",
@@ -2592,7 +2563,7 @@ async function deserializeAws_json1_1CreateConnectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2626,7 +2597,6 @@ async function deserializeAws_json1_1CreateConnectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -2649,7 +2619,7 @@ export async function deserializeAws_json1_1CreateDirectConnectGatewayCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateDirectConnectGatewayResult(
-    data.CreateDirectConnectGatewayResult,
+    data,
     context
   );
   const response: CreateDirectConnectGatewayCommandOutput = {
@@ -2670,7 +2640,7 @@ async function deserializeAws_json1_1CreateDirectConnectGatewayCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2690,7 +2660,6 @@ async function deserializeAws_json1_1CreateDirectConnectGatewayCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -2713,7 +2682,7 @@ export async function deserializeAws_json1_1CreateDirectConnectGatewayAssociatio
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateDirectConnectGatewayAssociationResult(
-    data.CreateDirectConnectGatewayAssociationResult,
+    data,
     context
   );
   const response: CreateDirectConnectGatewayAssociationCommandOutput = {
@@ -2734,7 +2703,7 @@ async function deserializeAws_json1_1CreateDirectConnectGatewayAssociationComman
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2754,7 +2723,6 @@ async function deserializeAws_json1_1CreateDirectConnectGatewayAssociationComman
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -2777,7 +2745,7 @@ export async function deserializeAws_json1_1CreateDirectConnectGatewayAssociatio
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateDirectConnectGatewayAssociationProposalResult(
-    data.CreateDirectConnectGatewayAssociationProposalResult,
+    data,
     context
   );
   const response: CreateDirectConnectGatewayAssociationProposalCommandOutput = {
@@ -2798,7 +2766,7 @@ async function deserializeAws_json1_1CreateDirectConnectGatewayAssociationPropos
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2818,7 +2786,6 @@ async function deserializeAws_json1_1CreateDirectConnectGatewayAssociationPropos
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -2840,7 +2807,7 @@ export async function deserializeAws_json1_1CreateInterconnectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1Interconnect(data.Interconnect, context);
+  contents = deserializeAws_json1_1Interconnect(data, context);
   const response: CreateInterconnectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "Interconnect",
@@ -2859,7 +2826,7 @@ async function deserializeAws_json1_1CreateInterconnectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2893,7 +2860,6 @@ async function deserializeAws_json1_1CreateInterconnectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -2912,7 +2878,7 @@ export async function deserializeAws_json1_1CreateLagCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1Lag(data.Lag, context);
+  contents = deserializeAws_json1_1Lag(data, context);
   const response: CreateLagCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "Lag",
@@ -2931,7 +2897,7 @@ async function deserializeAws_json1_1CreateLagCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2965,7 +2931,6 @@ async function deserializeAws_json1_1CreateLagCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -2987,10 +2952,7 @@ export async function deserializeAws_json1_1CreatePrivateVirtualInterfaceCommand
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1VirtualInterface(
-    data.VirtualInterface,
-    context
-  );
+  contents = deserializeAws_json1_1VirtualInterface(data, context);
   const response: CreatePrivateVirtualInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "VirtualInterface",
@@ -3009,7 +2971,7 @@ async function deserializeAws_json1_1CreatePrivateVirtualInterfaceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3043,7 +3005,6 @@ async function deserializeAws_json1_1CreatePrivateVirtualInterfaceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -3065,10 +3026,7 @@ export async function deserializeAws_json1_1CreatePublicVirtualInterfaceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1VirtualInterface(
-    data.VirtualInterface,
-    context
-  );
+  contents = deserializeAws_json1_1VirtualInterface(data, context);
   const response: CreatePublicVirtualInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "VirtualInterface",
@@ -3087,7 +3045,7 @@ async function deserializeAws_json1_1CreatePublicVirtualInterfaceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3121,7 +3079,6 @@ async function deserializeAws_json1_1CreatePublicVirtualInterfaceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -3144,7 +3101,7 @@ export async function deserializeAws_json1_1CreateTransitVirtualInterfaceCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateTransitVirtualInterfaceResult(
-    data.CreateTransitVirtualInterfaceResult,
+    data,
     context
   );
   const response: CreateTransitVirtualInterfaceCommandOutput = {
@@ -3165,7 +3122,7 @@ async function deserializeAws_json1_1CreateTransitVirtualInterfaceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3199,7 +3156,6 @@ async function deserializeAws_json1_1CreateTransitVirtualInterfaceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -3218,10 +3174,7 @@ export async function deserializeAws_json1_1DeleteBGPPeerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteBGPPeerResponse(
-    data.DeleteBGPPeerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteBGPPeerResponse(data, context);
   const response: DeleteBGPPeerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteBGPPeerResponse",
@@ -3240,7 +3193,7 @@ async function deserializeAws_json1_1DeleteBGPPeerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3260,7 +3213,6 @@ async function deserializeAws_json1_1DeleteBGPPeerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -3279,7 +3231,7 @@ export async function deserializeAws_json1_1DeleteConnectionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1Connection(data.Connection, context);
+  contents = deserializeAws_json1_1Connection(data, context);
   const response: DeleteConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "Connection",
@@ -3298,7 +3250,7 @@ async function deserializeAws_json1_1DeleteConnectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3318,7 +3270,6 @@ async function deserializeAws_json1_1DeleteConnectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -3341,7 +3292,7 @@ export async function deserializeAws_json1_1DeleteDirectConnectGatewayCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteDirectConnectGatewayResult(
-    data.DeleteDirectConnectGatewayResult,
+    data,
     context
   );
   const response: DeleteDirectConnectGatewayCommandOutput = {
@@ -3362,7 +3313,7 @@ async function deserializeAws_json1_1DeleteDirectConnectGatewayCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3382,7 +3333,6 @@ async function deserializeAws_json1_1DeleteDirectConnectGatewayCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -3405,7 +3355,7 @@ export async function deserializeAws_json1_1DeleteDirectConnectGatewayAssociatio
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteDirectConnectGatewayAssociationResult(
-    data.DeleteDirectConnectGatewayAssociationResult,
+    data,
     context
   );
   const response: DeleteDirectConnectGatewayAssociationCommandOutput = {
@@ -3426,7 +3376,7 @@ async function deserializeAws_json1_1DeleteDirectConnectGatewayAssociationComman
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3446,7 +3396,6 @@ async function deserializeAws_json1_1DeleteDirectConnectGatewayAssociationComman
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -3469,7 +3418,7 @@ export async function deserializeAws_json1_1DeleteDirectConnectGatewayAssociatio
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalResult(
-    data.DeleteDirectConnectGatewayAssociationProposalResult,
+    data,
     context
   );
   const response: DeleteDirectConnectGatewayAssociationProposalCommandOutput = {
@@ -3490,7 +3439,7 @@ async function deserializeAws_json1_1DeleteDirectConnectGatewayAssociationPropos
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3510,7 +3459,6 @@ async function deserializeAws_json1_1DeleteDirectConnectGatewayAssociationPropos
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -3532,10 +3480,7 @@ export async function deserializeAws_json1_1DeleteInterconnectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteInterconnectResponse(
-    data.DeleteInterconnectResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteInterconnectResponse(data, context);
   const response: DeleteInterconnectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteInterconnectResponse",
@@ -3554,7 +3499,7 @@ async function deserializeAws_json1_1DeleteInterconnectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3574,7 +3519,6 @@ async function deserializeAws_json1_1DeleteInterconnectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -3593,7 +3537,7 @@ export async function deserializeAws_json1_1DeleteLagCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1Lag(data.Lag, context);
+  contents = deserializeAws_json1_1Lag(data, context);
   const response: DeleteLagCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "Lag",
@@ -3612,7 +3556,7 @@ async function deserializeAws_json1_1DeleteLagCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3632,7 +3576,6 @@ async function deserializeAws_json1_1DeleteLagCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -3655,7 +3598,7 @@ export async function deserializeAws_json1_1DeleteVirtualInterfaceCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteVirtualInterfaceResponse(
-    data.DeleteVirtualInterfaceResponse,
+    data,
     context
   );
   const response: DeleteVirtualInterfaceCommandOutput = {
@@ -3676,7 +3619,7 @@ async function deserializeAws_json1_1DeleteVirtualInterfaceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3696,7 +3639,6 @@ async function deserializeAws_json1_1DeleteVirtualInterfaceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -3718,10 +3660,7 @@ export async function deserializeAws_json1_1DescribeConnectionLoaCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeConnectionLoaResponse(
-    data.DescribeConnectionLoaResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeConnectionLoaResponse(data, context);
   const response: DescribeConnectionLoaCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeConnectionLoaResponse",
@@ -3740,7 +3679,7 @@ async function deserializeAws_json1_1DescribeConnectionLoaCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3760,7 +3699,6 @@ async function deserializeAws_json1_1DescribeConnectionLoaCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -3782,7 +3720,7 @@ export async function deserializeAws_json1_1DescribeConnectionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1Connections(data.Connections, context);
+  contents = deserializeAws_json1_1Connections(data, context);
   const response: DescribeConnectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "Connections",
@@ -3801,7 +3739,7 @@ async function deserializeAws_json1_1DescribeConnectionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3821,7 +3759,6 @@ async function deserializeAws_json1_1DescribeConnectionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -3843,7 +3780,7 @@ export async function deserializeAws_json1_1DescribeConnectionsOnInterconnectCom
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1Connections(data.Connections, context);
+  contents = deserializeAws_json1_1Connections(data, context);
   const response: DescribeConnectionsOnInterconnectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "Connections",
@@ -3862,7 +3799,7 @@ async function deserializeAws_json1_1DescribeConnectionsOnInterconnectCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3882,7 +3819,6 @@ async function deserializeAws_json1_1DescribeConnectionsOnInterconnectCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -3905,7 +3841,7 @@ export async function deserializeAws_json1_1DescribeDirectConnectGatewayAssociat
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsResult(
-    data.DescribeDirectConnectGatewayAssociationProposalsResult,
+    data,
     context
   );
   const response: DescribeDirectConnectGatewayAssociationProposalsCommandOutput = {
@@ -3926,7 +3862,7 @@ async function deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProp
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3946,7 +3882,6 @@ async function deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProp
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -3969,7 +3904,7 @@ export async function deserializeAws_json1_1DescribeDirectConnectGatewayAssociat
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsResult(
-    data.DescribeDirectConnectGatewayAssociationsResult,
+    data,
     context
   );
   const response: DescribeDirectConnectGatewayAssociationsCommandOutput = {
@@ -3990,7 +3925,7 @@ async function deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsCom
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4010,7 +3945,6 @@ async function deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsCom
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -4033,7 +3967,7 @@ export async function deserializeAws_json1_1DescribeDirectConnectGatewayAttachme
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsResult(
-    data.DescribeDirectConnectGatewayAttachmentsResult,
+    data,
     context
   );
   const response: DescribeDirectConnectGatewayAttachmentsCommandOutput = {
@@ -4054,7 +3988,7 @@ async function deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsComm
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4074,7 +4008,6 @@ async function deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsComm
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -4097,7 +4030,7 @@ export async function deserializeAws_json1_1DescribeDirectConnectGatewaysCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeDirectConnectGatewaysResult(
-    data.DescribeDirectConnectGatewaysResult,
+    data,
     context
   );
   const response: DescribeDirectConnectGatewaysCommandOutput = {
@@ -4118,7 +4051,7 @@ async function deserializeAws_json1_1DescribeDirectConnectGatewaysCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4138,7 +4071,6 @@ async function deserializeAws_json1_1DescribeDirectConnectGatewaysCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -4160,7 +4092,7 @@ export async function deserializeAws_json1_1DescribeHostedConnectionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1Connections(data.Connections, context);
+  contents = deserializeAws_json1_1Connections(data, context);
   const response: DescribeHostedConnectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "Connections",
@@ -4179,7 +4111,7 @@ async function deserializeAws_json1_1DescribeHostedConnectionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4199,7 +4131,6 @@ async function deserializeAws_json1_1DescribeHostedConnectionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -4222,7 +4153,7 @@ export async function deserializeAws_json1_1DescribeInterconnectLoaCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeInterconnectLoaResponse(
-    data.DescribeInterconnectLoaResponse,
+    data,
     context
   );
   const response: DescribeInterconnectLoaCommandOutput = {
@@ -4243,7 +4174,7 @@ async function deserializeAws_json1_1DescribeInterconnectLoaCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4263,7 +4194,6 @@ async function deserializeAws_json1_1DescribeInterconnectLoaCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -4285,7 +4215,7 @@ export async function deserializeAws_json1_1DescribeInterconnectsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1Interconnects(data.Interconnects, context);
+  contents = deserializeAws_json1_1Interconnects(data, context);
   const response: DescribeInterconnectsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "Interconnects",
@@ -4304,7 +4234,7 @@ async function deserializeAws_json1_1DescribeInterconnectsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4324,7 +4254,6 @@ async function deserializeAws_json1_1DescribeInterconnectsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -4343,7 +4272,7 @@ export async function deserializeAws_json1_1DescribeLagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1Lags(data.Lags, context);
+  contents = deserializeAws_json1_1Lags(data, context);
   const response: DescribeLagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "Lags",
@@ -4362,7 +4291,7 @@ async function deserializeAws_json1_1DescribeLagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4382,7 +4311,6 @@ async function deserializeAws_json1_1DescribeLagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -4401,7 +4329,7 @@ export async function deserializeAws_json1_1DescribeLoaCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1Loa(data.Loa, context);
+  contents = deserializeAws_json1_1Loa(data, context);
   const response: DescribeLoaCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "Loa",
@@ -4420,7 +4348,7 @@ async function deserializeAws_json1_1DescribeLoaCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4440,7 +4368,6 @@ async function deserializeAws_json1_1DescribeLoaCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -4459,7 +4386,7 @@ export async function deserializeAws_json1_1DescribeLocationsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1Locations(data.Locations, context);
+  contents = deserializeAws_json1_1Locations(data, context);
   const response: DescribeLocationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "Locations",
@@ -4478,7 +4405,7 @@ async function deserializeAws_json1_1DescribeLocationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4498,7 +4425,6 @@ async function deserializeAws_json1_1DescribeLocationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -4517,10 +4443,7 @@ export async function deserializeAws_json1_1DescribeTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTagsResponse(
-    data.DescribeTagsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeTagsResponse(data, context);
   const response: DescribeTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTagsResponse",
@@ -4539,7 +4462,7 @@ async function deserializeAws_json1_1DescribeTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4559,7 +4482,6 @@ async function deserializeAws_json1_1DescribeTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -4581,10 +4503,7 @@ export async function deserializeAws_json1_1DescribeVirtualGatewaysCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1VirtualGateways(
-    data.VirtualGateways,
-    context
-  );
+  contents = deserializeAws_json1_1VirtualGateways(data, context);
   const response: DescribeVirtualGatewaysCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "VirtualGateways",
@@ -4603,7 +4522,7 @@ async function deserializeAws_json1_1DescribeVirtualGatewaysCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4623,7 +4542,6 @@ async function deserializeAws_json1_1DescribeVirtualGatewaysCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -4645,10 +4563,7 @@ export async function deserializeAws_json1_1DescribeVirtualInterfacesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1VirtualInterfaces(
-    data.VirtualInterfaces,
-    context
-  );
+  contents = deserializeAws_json1_1VirtualInterfaces(data, context);
   const response: DescribeVirtualInterfacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "VirtualInterfaces",
@@ -4667,7 +4582,7 @@ async function deserializeAws_json1_1DescribeVirtualInterfacesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4687,7 +4602,6 @@ async function deserializeAws_json1_1DescribeVirtualInterfacesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -4709,7 +4623,7 @@ export async function deserializeAws_json1_1DisassociateConnectionFromLagCommand
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1Connection(data.Connection, context);
+  contents = deserializeAws_json1_1Connection(data, context);
   const response: DisassociateConnectionFromLagCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "Connection",
@@ -4728,7 +4642,7 @@ async function deserializeAws_json1_1DisassociateConnectionFromLagCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4748,7 +4662,6 @@ async function deserializeAws_json1_1DisassociateConnectionFromLagCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -4767,10 +4680,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(
-    data.TagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
@@ -4789,7 +4699,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4823,7 +4733,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -4842,10 +4751,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(
-    data.UntagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
@@ -4864,7 +4770,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4884,7 +4790,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -4907,7 +4812,7 @@ export async function deserializeAws_json1_1UpdateDirectConnectGatewayAssociatio
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateDirectConnectGatewayAssociationResult(
-    data.UpdateDirectConnectGatewayAssociationResult,
+    data,
     context
   );
   const response: UpdateDirectConnectGatewayAssociationCommandOutput = {
@@ -4928,7 +4833,7 @@ async function deserializeAws_json1_1UpdateDirectConnectGatewayAssociationComman
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4948,7 +4853,6 @@ async function deserializeAws_json1_1UpdateDirectConnectGatewayAssociationComman
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -4967,7 +4871,7 @@ export async function deserializeAws_json1_1UpdateLagCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1Lag(data.Lag, context);
+  contents = deserializeAws_json1_1Lag(data, context);
   const response: UpdateLagCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "Lag",
@@ -4986,7 +4890,7 @@ async function deserializeAws_json1_1UpdateLagCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5006,7 +4910,6 @@ async function deserializeAws_json1_1UpdateLagCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",
@@ -5028,10 +4931,7 @@ export async function deserializeAws_json1_1UpdateVirtualInterfaceAttributesComm
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1VirtualInterface(
-    data.VirtualInterface,
-    context
-  );
+  contents = deserializeAws_json1_1VirtualInterface(data, context);
   const response: UpdateVirtualInterfaceAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "VirtualInterface",
@@ -5050,7 +4950,7 @@ async function deserializeAws_json1_1UpdateVirtualInterfaceAttributesCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5070,7 +4970,6 @@ async function deserializeAws_json1_1UpdateVirtualInterfaceAttributesCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsdx.overture#${errorCode}`,
         $fault: "client",

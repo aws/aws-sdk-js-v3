@@ -236,7 +236,7 @@ export async function deserializeAws_json1_0GetAutoScalingGroupRecommendationsCo
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0GetAutoScalingGroupRecommendationsResponse(
-    data.GetAutoScalingGroupRecommendationsResponse,
+    data,
     context
   );
   const response: GetAutoScalingGroupRecommendationsCommandOutput = {
@@ -257,7 +257,7 @@ async function deserializeAws_json1_0GetAutoScalingGroupRecommendationsCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -319,7 +319,6 @@ async function deserializeAws_json1_0GetAutoScalingGroupRecommendationsCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.computeoptimizer.version_2019_11_01#${errorCode}`,
         $fault: "client",
@@ -342,7 +341,7 @@ export async function deserializeAws_json1_0GetEC2InstanceRecommendationsCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0GetEC2InstanceRecommendationsResponse(
-    data.GetEC2InstanceRecommendationsResponse,
+    data,
     context
   );
   const response: GetEC2InstanceRecommendationsCommandOutput = {
@@ -363,7 +362,7 @@ async function deserializeAws_json1_0GetEC2InstanceRecommendationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -425,7 +424,6 @@ async function deserializeAws_json1_0GetEC2InstanceRecommendationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.computeoptimizer.version_2019_11_01#${errorCode}`,
         $fault: "client",
@@ -448,7 +446,7 @@ export async function deserializeAws_json1_0GetEC2RecommendationProjectedMetrics
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0GetEC2RecommendationProjectedMetricsResponse(
-    data.GetEC2RecommendationProjectedMetricsResponse,
+    data,
     context
   );
   const response: GetEC2RecommendationProjectedMetricsCommandOutput = {
@@ -469,7 +467,7 @@ async function deserializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -531,7 +529,6 @@ async function deserializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.computeoptimizer.version_2019_11_01#${errorCode}`,
         $fault: "client",
@@ -553,10 +550,7 @@ export async function deserializeAws_json1_0GetEnrollmentStatusCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetEnrollmentStatusResponse(
-    data.GetEnrollmentStatusResponse,
-    context
-  );
+  contents = deserializeAws_json1_0GetEnrollmentStatusResponse(data, context);
   const response: GetEnrollmentStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetEnrollmentStatusResponse",
@@ -575,7 +569,7 @@ async function deserializeAws_json1_0GetEnrollmentStatusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -623,7 +617,6 @@ async function deserializeAws_json1_0GetEnrollmentStatusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.computeoptimizer.version_2019_11_01#${errorCode}`,
         $fault: "client",
@@ -646,7 +639,7 @@ export async function deserializeAws_json1_0GetRecommendationSummariesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0GetRecommendationSummariesResponse(
-    data.GetRecommendationSummariesResponse,
+    data,
     context
   );
   const response: GetRecommendationSummariesCommandOutput = {
@@ -667,7 +660,7 @@ async function deserializeAws_json1_0GetRecommendationSummariesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -722,7 +715,6 @@ async function deserializeAws_json1_0GetRecommendationSummariesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.computeoptimizer.version_2019_11_01#${errorCode}`,
         $fault: "client",
@@ -745,7 +737,7 @@ export async function deserializeAws_json1_0UpdateEnrollmentStatusCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0UpdateEnrollmentStatusResponse(
-    data.UpdateEnrollmentStatusResponse,
+    data,
     context
   );
   const response: UpdateEnrollmentStatusCommandOutput = {
@@ -766,7 +758,7 @@ async function deserializeAws_json1_0UpdateEnrollmentStatusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -814,7 +806,6 @@ async function deserializeAws_json1_0UpdateEnrollmentStatusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.computeoptimizer.version_2019_11_01#${errorCode}`,
         $fault: "client",

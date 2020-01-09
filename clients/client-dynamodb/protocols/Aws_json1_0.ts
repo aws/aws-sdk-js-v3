@@ -1340,10 +1340,7 @@ export async function deserializeAws_json1_0DescribeEndpointsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeEndpointsResponse(
-    data.DescribeEndpointsResponse,
-    context
-  );
+  contents = deserializeAws_json1_0DescribeEndpointsResponse(data, context);
   const response: DescribeEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeEndpointsResponse",
@@ -1358,13 +1355,12 @@ async function deserializeAws_json1_0DescribeEndpointsCommandError(
 ): Promise<DescribeEndpointsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.sdk.endpointdiscovery#${errorCode}`,
         $fault: "client",
@@ -1383,10 +1379,7 @@ export async function deserializeAws_json1_0BatchGetItemCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0BatchGetItemOutput(
-    data.BatchGetItemOutput,
-    context
-  );
+  contents = deserializeAws_json1_0BatchGetItemOutput(data, context);
   const response: BatchGetItemCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetItemOutput",
@@ -1405,7 +1398,7 @@ async function deserializeAws_json1_0BatchGetItemCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1446,7 +1439,6 @@ async function deserializeAws_json1_0BatchGetItemCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -1465,10 +1457,7 @@ export async function deserializeAws_json1_0BatchWriteItemCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0BatchWriteItemOutput(
-    data.BatchWriteItemOutput,
-    context
-  );
+  contents = deserializeAws_json1_0BatchWriteItemOutput(data, context);
   const response: BatchWriteItemCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchWriteItemOutput",
@@ -1487,7 +1476,7 @@ async function deserializeAws_json1_0BatchWriteItemCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1535,7 +1524,6 @@ async function deserializeAws_json1_0BatchWriteItemCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -1554,10 +1542,7 @@ export async function deserializeAws_json1_0CreateBackupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateBackupOutput(
-    data.CreateBackupOutput,
-    context
-  );
+  contents = deserializeAws_json1_0CreateBackupOutput(data, context);
   const response: CreateBackupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateBackupOutput",
@@ -1576,7 +1561,7 @@ async function deserializeAws_json1_0CreateBackupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1631,7 +1616,6 @@ async function deserializeAws_json1_0CreateBackupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -1650,10 +1634,7 @@ export async function deserializeAws_json1_0CreateGlobalTableCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateGlobalTableOutput(
-    data.CreateGlobalTableOutput,
-    context
-  );
+  contents = deserializeAws_json1_0CreateGlobalTableOutput(data, context);
   const response: CreateGlobalTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateGlobalTableOutput",
@@ -1672,7 +1653,7 @@ async function deserializeAws_json1_0CreateGlobalTableCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1713,7 +1694,6 @@ async function deserializeAws_json1_0CreateGlobalTableCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -1732,10 +1712,7 @@ export async function deserializeAws_json1_0CreateTableCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateTableOutput(
-    data.CreateTableOutput,
-    context
-  );
+  contents = deserializeAws_json1_0CreateTableOutput(data, context);
   const response: CreateTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateTableOutput",
@@ -1754,7 +1731,7 @@ async function deserializeAws_json1_0CreateTableCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1788,7 +1765,6 @@ async function deserializeAws_json1_0CreateTableCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -1807,10 +1783,7 @@ export async function deserializeAws_json1_0DeleteBackupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteBackupOutput(
-    data.DeleteBackupOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DeleteBackupOutput(data, context);
   const response: DeleteBackupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteBackupOutput",
@@ -1829,7 +1802,7 @@ async function deserializeAws_json1_0DeleteBackupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1870,7 +1843,6 @@ async function deserializeAws_json1_0DeleteBackupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -1889,10 +1861,7 @@ export async function deserializeAws_json1_0DeleteItemCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteItemOutput(
-    data.DeleteItemOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DeleteItemOutput(data, context);
   const response: DeleteItemCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteItemOutput",
@@ -1911,7 +1880,7 @@ async function deserializeAws_json1_0DeleteItemCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1973,7 +1942,6 @@ async function deserializeAws_json1_0DeleteItemCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -1992,10 +1960,7 @@ export async function deserializeAws_json1_0DeleteTableCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteTableOutput(
-    data.DeleteTableOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DeleteTableOutput(data, context);
   const response: DeleteTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteTableOutput",
@@ -2014,7 +1979,7 @@ async function deserializeAws_json1_0DeleteTableCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2055,7 +2020,6 @@ async function deserializeAws_json1_0DeleteTableCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -2074,10 +2038,7 @@ export async function deserializeAws_json1_0DescribeBackupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeBackupOutput(
-    data.DescribeBackupOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DescribeBackupOutput(data, context);
   const response: DescribeBackupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeBackupOutput",
@@ -2096,7 +2057,7 @@ async function deserializeAws_json1_0DescribeBackupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2123,7 +2084,6 @@ async function deserializeAws_json1_0DescribeBackupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -2146,7 +2106,7 @@ export async function deserializeAws_json1_0DescribeContinuousBackupsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0DescribeContinuousBackupsOutput(
-    data.DescribeContinuousBackupsOutput,
+    data,
     context
   );
   const response: DescribeContinuousBackupsCommandOutput = {
@@ -2167,7 +2127,7 @@ async function deserializeAws_json1_0DescribeContinuousBackupsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2194,7 +2154,6 @@ async function deserializeAws_json1_0DescribeContinuousBackupsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -2217,7 +2176,7 @@ export async function deserializeAws_json1_0DescribeContributorInsightsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0DescribeContributorInsightsOutput(
-    data.DescribeContributorInsightsOutput,
+    data,
     context
   );
   const response: DescribeContributorInsightsCommandOutput = {
@@ -2238,7 +2197,7 @@ async function deserializeAws_json1_0DescribeContributorInsightsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2258,7 +2217,6 @@ async function deserializeAws_json1_0DescribeContributorInsightsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -2280,10 +2238,7 @@ export async function deserializeAws_json1_0DescribeGlobalTableCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeGlobalTableOutput(
-    data.DescribeGlobalTableOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DescribeGlobalTableOutput(data, context);
   const response: DescribeGlobalTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeGlobalTableOutput",
@@ -2302,7 +2257,7 @@ async function deserializeAws_json1_0DescribeGlobalTableCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2329,7 +2284,6 @@ async function deserializeAws_json1_0DescribeGlobalTableCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -2352,7 +2306,7 @@ export async function deserializeAws_json1_0DescribeGlobalTableSettingsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0DescribeGlobalTableSettingsOutput(
-    data.DescribeGlobalTableSettingsOutput,
+    data,
     context
   );
   const response: DescribeGlobalTableSettingsCommandOutput = {
@@ -2373,7 +2327,7 @@ async function deserializeAws_json1_0DescribeGlobalTableSettingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2400,7 +2354,6 @@ async function deserializeAws_json1_0DescribeGlobalTableSettingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -2419,10 +2372,7 @@ export async function deserializeAws_json1_0DescribeLimitsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeLimitsOutput(
-    data.DescribeLimitsOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DescribeLimitsOutput(data, context);
   const response: DescribeLimitsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeLimitsOutput",
@@ -2441,7 +2391,7 @@ async function deserializeAws_json1_0DescribeLimitsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2461,7 +2411,6 @@ async function deserializeAws_json1_0DescribeLimitsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -2480,10 +2429,7 @@ export async function deserializeAws_json1_0DescribeTableCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeTableOutput(
-    data.DescribeTableOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DescribeTableOutput(data, context);
   const response: DescribeTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTableOutput",
@@ -2502,7 +2448,7 @@ async function deserializeAws_json1_0DescribeTableCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2529,7 +2475,6 @@ async function deserializeAws_json1_0DescribeTableCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -2552,7 +2497,7 @@ export async function deserializeAws_json1_0DescribeTableReplicaAutoScalingComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0DescribeTableReplicaAutoScalingOutput(
-    data.DescribeTableReplicaAutoScalingOutput,
+    data,
     context
   );
   const response: DescribeTableReplicaAutoScalingCommandOutput = {
@@ -2573,7 +2518,7 @@ async function deserializeAws_json1_0DescribeTableReplicaAutoScalingCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2593,7 +2538,6 @@ async function deserializeAws_json1_0DescribeTableReplicaAutoScalingCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -2615,10 +2559,7 @@ export async function deserializeAws_json1_0DescribeTimeToLiveCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeTimeToLiveOutput(
-    data.DescribeTimeToLiveOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DescribeTimeToLiveOutput(data, context);
   const response: DescribeTimeToLiveCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTimeToLiveOutput",
@@ -2637,7 +2578,7 @@ async function deserializeAws_json1_0DescribeTimeToLiveCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2664,7 +2605,6 @@ async function deserializeAws_json1_0DescribeTimeToLiveCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -2683,7 +2623,7 @@ export async function deserializeAws_json1_0GetItemCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetItemOutput(data.GetItemOutput, context);
+  contents = deserializeAws_json1_0GetItemOutput(data, context);
   const response: GetItemCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetItemOutput",
@@ -2702,7 +2642,7 @@ async function deserializeAws_json1_0GetItemCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2743,7 +2683,6 @@ async function deserializeAws_json1_0GetItemCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -2762,10 +2701,7 @@ export async function deserializeAws_json1_0ListBackupsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListBackupsOutput(
-    data.ListBackupsOutput,
-    context
-  );
+  contents = deserializeAws_json1_0ListBackupsOutput(data, context);
   const response: ListBackupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListBackupsOutput",
@@ -2784,7 +2720,7 @@ async function deserializeAws_json1_0ListBackupsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2804,7 +2740,6 @@ async function deserializeAws_json1_0ListBackupsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -2826,10 +2761,7 @@ export async function deserializeAws_json1_0ListContributorInsightsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListContributorInsightsOutput(
-    data.ListContributorInsightsOutput,
-    context
-  );
+  contents = deserializeAws_json1_0ListContributorInsightsOutput(data, context);
   const response: ListContributorInsightsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListContributorInsightsOutput",
@@ -2848,7 +2780,7 @@ async function deserializeAws_json1_0ListContributorInsightsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2868,7 +2800,6 @@ async function deserializeAws_json1_0ListContributorInsightsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -2887,10 +2818,7 @@ export async function deserializeAws_json1_0ListGlobalTablesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListGlobalTablesOutput(
-    data.ListGlobalTablesOutput,
-    context
-  );
+  contents = deserializeAws_json1_0ListGlobalTablesOutput(data, context);
   const response: ListGlobalTablesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListGlobalTablesOutput",
@@ -2909,7 +2837,7 @@ async function deserializeAws_json1_0ListGlobalTablesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2929,7 +2857,6 @@ async function deserializeAws_json1_0ListGlobalTablesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -2948,10 +2875,7 @@ export async function deserializeAws_json1_0ListTablesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListTablesOutput(
-    data.ListTablesOutput,
-    context
-  );
+  contents = deserializeAws_json1_0ListTablesOutput(data, context);
   const response: ListTablesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTablesOutput",
@@ -2970,7 +2894,7 @@ async function deserializeAws_json1_0ListTablesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2990,7 +2914,6 @@ async function deserializeAws_json1_0ListTablesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -3012,10 +2935,7 @@ export async function deserializeAws_json1_0ListTagsOfResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListTagsOfResourceOutput(
-    data.ListTagsOfResourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_0ListTagsOfResourceOutput(data, context);
   const response: ListTagsOfResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsOfResourceOutput",
@@ -3034,7 +2954,7 @@ async function deserializeAws_json1_0ListTagsOfResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3061,7 +2981,6 @@ async function deserializeAws_json1_0ListTagsOfResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -3080,7 +2999,7 @@ export async function deserializeAws_json1_0PutItemCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0PutItemOutput(data.PutItemOutput, context);
+  contents = deserializeAws_json1_0PutItemOutput(data, context);
   const response: PutItemCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutItemOutput",
@@ -3099,7 +3018,7 @@ async function deserializeAws_json1_0PutItemCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3161,7 +3080,6 @@ async function deserializeAws_json1_0PutItemCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -3180,7 +3098,7 @@ export async function deserializeAws_json1_0QueryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0QueryOutput(data.QueryOutput, context);
+  contents = deserializeAws_json1_0QueryOutput(data, context);
   const response: QueryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "QueryOutput",
@@ -3199,7 +3117,7 @@ async function deserializeAws_json1_0QueryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3240,7 +3158,6 @@ async function deserializeAws_json1_0QueryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -3262,10 +3179,7 @@ export async function deserializeAws_json1_0RestoreTableFromBackupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0RestoreTableFromBackupOutput(
-    data.RestoreTableFromBackupOutput,
-    context
-  );
+  contents = deserializeAws_json1_0RestoreTableFromBackupOutput(data, context);
   const response: RestoreTableFromBackupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RestoreTableFromBackupOutput",
@@ -3284,7 +3198,7 @@ async function deserializeAws_json1_0RestoreTableFromBackupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3339,7 +3253,6 @@ async function deserializeAws_json1_0RestoreTableFromBackupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -3362,7 +3275,7 @@ export async function deserializeAws_json1_0RestoreTableToPointInTimeCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0RestoreTableToPointInTimeOutput(
-    data.RestoreTableToPointInTimeOutput,
+    data,
     context
   );
   const response: RestoreTableToPointInTimeCommandOutput = {
@@ -3383,7 +3296,7 @@ async function deserializeAws_json1_0RestoreTableToPointInTimeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3445,7 +3358,6 @@ async function deserializeAws_json1_0RestoreTableToPointInTimeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -3464,7 +3376,7 @@ export async function deserializeAws_json1_0ScanCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ScanOutput(data.ScanOutput, context);
+  contents = deserializeAws_json1_0ScanOutput(data, context);
   const response: ScanCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ScanOutput",
@@ -3483,7 +3395,7 @@ async function deserializeAws_json1_0ScanCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3524,7 +3436,6 @@ async function deserializeAws_json1_0ScanCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -3557,7 +3468,7 @@ async function deserializeAws_json1_0TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3598,7 +3509,6 @@ async function deserializeAws_json1_0TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -3617,10 +3527,7 @@ export async function deserializeAws_json1_0TransactGetItemsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0TransactGetItemsOutput(
-    data.TransactGetItemsOutput,
-    context
-  );
+  contents = deserializeAws_json1_0TransactGetItemsOutput(data, context);
   const response: TransactGetItemsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TransactGetItemsOutput",
@@ -3639,7 +3546,7 @@ async function deserializeAws_json1_0TransactGetItemsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3687,7 +3594,6 @@ async function deserializeAws_json1_0TransactGetItemsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -3709,10 +3615,7 @@ export async function deserializeAws_json1_0TransactWriteItemsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0TransactWriteItemsOutput(
-    data.TransactWriteItemsOutput,
-    context
-  );
+  contents = deserializeAws_json1_0TransactWriteItemsOutput(data, context);
   const response: TransactWriteItemsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TransactWriteItemsOutput",
@@ -3731,7 +3634,7 @@ async function deserializeAws_json1_0TransactWriteItemsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3793,7 +3696,6 @@ async function deserializeAws_json1_0TransactWriteItemsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -3826,7 +3728,7 @@ async function deserializeAws_json1_0UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3867,7 +3769,6 @@ async function deserializeAws_json1_0UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -3889,10 +3790,7 @@ export async function deserializeAws_json1_0UpdateContinuousBackupsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateContinuousBackupsOutput(
-    data.UpdateContinuousBackupsOutput,
-    context
-  );
+  contents = deserializeAws_json1_0UpdateContinuousBackupsOutput(data, context);
   const response: UpdateContinuousBackupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateContinuousBackupsOutput",
@@ -3911,7 +3809,7 @@ async function deserializeAws_json1_0UpdateContinuousBackupsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3945,7 +3843,6 @@ async function deserializeAws_json1_0UpdateContinuousBackupsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -3968,7 +3865,7 @@ export async function deserializeAws_json1_0UpdateContributorInsightsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0UpdateContributorInsightsOutput(
-    data.UpdateContributorInsightsOutput,
+    data,
     context
   );
   const response: UpdateContributorInsightsCommandOutput = {
@@ -3989,7 +3886,7 @@ async function deserializeAws_json1_0UpdateContributorInsightsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4009,7 +3906,6 @@ async function deserializeAws_json1_0UpdateContributorInsightsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -4028,10 +3924,7 @@ export async function deserializeAws_json1_0UpdateGlobalTableCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateGlobalTableOutput(
-    data.UpdateGlobalTableOutput,
-    context
-  );
+  contents = deserializeAws_json1_0UpdateGlobalTableOutput(data, context);
   const response: UpdateGlobalTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateGlobalTableOutput",
@@ -4050,7 +3943,7 @@ async function deserializeAws_json1_0UpdateGlobalTableCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4098,7 +3991,6 @@ async function deserializeAws_json1_0UpdateGlobalTableCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -4121,7 +4013,7 @@ export async function deserializeAws_json1_0UpdateGlobalTableSettingsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0UpdateGlobalTableSettingsOutput(
-    data.UpdateGlobalTableSettingsOutput,
+    data,
     context
   );
   const response: UpdateGlobalTableSettingsCommandOutput = {
@@ -4142,7 +4034,7 @@ async function deserializeAws_json1_0UpdateGlobalTableSettingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4197,7 +4089,6 @@ async function deserializeAws_json1_0UpdateGlobalTableSettingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -4216,10 +4107,7 @@ export async function deserializeAws_json1_0UpdateItemCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateItemOutput(
-    data.UpdateItemOutput,
-    context
-  );
+  contents = deserializeAws_json1_0UpdateItemOutput(data, context);
   const response: UpdateItemCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateItemOutput",
@@ -4238,7 +4126,7 @@ async function deserializeAws_json1_0UpdateItemCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4300,7 +4188,6 @@ async function deserializeAws_json1_0UpdateItemCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -4319,10 +4206,7 @@ export async function deserializeAws_json1_0UpdateTableCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateTableOutput(
-    data.UpdateTableOutput,
-    context
-  );
+  contents = deserializeAws_json1_0UpdateTableOutput(data, context);
   const response: UpdateTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateTableOutput",
@@ -4341,7 +4225,7 @@ async function deserializeAws_json1_0UpdateTableCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4382,7 +4266,6 @@ async function deserializeAws_json1_0UpdateTableCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -4405,7 +4288,7 @@ export async function deserializeAws_json1_0UpdateTableReplicaAutoScalingCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0UpdateTableReplicaAutoScalingOutput(
-    data.UpdateTableReplicaAutoScalingOutput,
+    data,
     context
   );
   const response: UpdateTableReplicaAutoScalingCommandOutput = {
@@ -4426,7 +4309,7 @@ async function deserializeAws_json1_0UpdateTableReplicaAutoScalingCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4460,7 +4343,6 @@ async function deserializeAws_json1_0UpdateTableReplicaAutoScalingCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",
@@ -4479,10 +4361,7 @@ export async function deserializeAws_json1_0UpdateTimeToLiveCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateTimeToLiveOutput(
-    data.UpdateTimeToLiveOutput,
-    context
-  );
+  contents = deserializeAws_json1_0UpdateTimeToLiveOutput(data, context);
   const response: UpdateTimeToLiveCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateTimeToLiveOutput",
@@ -4501,7 +4380,7 @@ async function deserializeAws_json1_0UpdateTimeToLiveCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4542,7 +4421,6 @@ async function deserializeAws_json1_0UpdateTimeToLiveCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dynamodb.v20120810#${errorCode}`,
         $fault: "client",

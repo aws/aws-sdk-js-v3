@@ -516,10 +516,7 @@ export async function deserializeAws_json1_1AssociateNodeCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateNodeResponse(
-    data.AssociateNodeResponse,
-    context
-  );
+  contents = deserializeAws_json1_1AssociateNodeResponse(data, context);
   const response: AssociateNodeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AssociateNodeResponse",
@@ -538,7 +535,7 @@ async function deserializeAws_json1_1AssociateNodeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -565,7 +562,6 @@ async function deserializeAws_json1_1AssociateNodeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.opsworkscm#${errorCode}`,
         $fault: "client",
@@ -584,10 +580,7 @@ export async function deserializeAws_json1_1CreateBackupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateBackupResponse(
-    data.CreateBackupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateBackupResponse(data, context);
   const response: CreateBackupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateBackupResponse",
@@ -606,7 +599,7 @@ async function deserializeAws_json1_1CreateBackupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -640,7 +633,6 @@ async function deserializeAws_json1_1CreateBackupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.opsworkscm#${errorCode}`,
         $fault: "client",
@@ -659,10 +651,7 @@ export async function deserializeAws_json1_1CreateServerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateServerResponse(
-    data.CreateServerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateServerResponse(data, context);
   const response: CreateServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateServerResponse",
@@ -681,7 +670,7 @@ async function deserializeAws_json1_1CreateServerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -715,7 +704,6 @@ async function deserializeAws_json1_1CreateServerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.opsworkscm#${errorCode}`,
         $fault: "client",
@@ -734,10 +722,7 @@ export async function deserializeAws_json1_1DeleteBackupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteBackupResponse(
-    data.DeleteBackupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteBackupResponse(data, context);
   const response: DeleteBackupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteBackupResponse",
@@ -756,7 +741,7 @@ async function deserializeAws_json1_1DeleteBackupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -783,7 +768,6 @@ async function deserializeAws_json1_1DeleteBackupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.opsworkscm#${errorCode}`,
         $fault: "client",
@@ -802,10 +786,7 @@ export async function deserializeAws_json1_1DeleteServerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteServerResponse(
-    data.DeleteServerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteServerResponse(data, context);
   const response: DeleteServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteServerResponse",
@@ -824,7 +805,7 @@ async function deserializeAws_json1_1DeleteServerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -851,7 +832,6 @@ async function deserializeAws_json1_1DeleteServerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.opsworkscm#${errorCode}`,
         $fault: "client",
@@ -874,7 +854,7 @@ export async function deserializeAws_json1_1DescribeAccountAttributesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeAccountAttributesResponse(
-    data.DescribeAccountAttributesResponse,
+    data,
     context
   );
   const response: DescribeAccountAttributesCommandOutput = {
@@ -891,13 +871,12 @@ async function deserializeAws_json1_1DescribeAccountAttributesCommandError(
 ): Promise<DescribeAccountAttributesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.opsworkscm#${errorCode}`,
         $fault: "client",
@@ -916,10 +895,7 @@ export async function deserializeAws_json1_1DescribeBackupsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeBackupsResponse(
-    data.DescribeBackupsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeBackupsResponse(data, context);
   const response: DescribeBackupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeBackupsResponse",
@@ -938,7 +914,7 @@ async function deserializeAws_json1_1DescribeBackupsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -965,7 +941,6 @@ async function deserializeAws_json1_1DescribeBackupsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.opsworkscm#${errorCode}`,
         $fault: "client",
@@ -984,10 +959,7 @@ export async function deserializeAws_json1_1DescribeEventsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEventsResponse(
-    data.DescribeEventsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeEventsResponse(data, context);
   const response: DescribeEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeEventsResponse",
@@ -1006,7 +978,7 @@ async function deserializeAws_json1_1DescribeEventsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1033,7 +1005,6 @@ async function deserializeAws_json1_1DescribeEventsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.opsworkscm#${errorCode}`,
         $fault: "client",
@@ -1056,7 +1027,7 @@ export async function deserializeAws_json1_1DescribeNodeAssociationStatusCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeNodeAssociationStatusResponse(
-    data.DescribeNodeAssociationStatusResponse,
+    data,
     context
   );
   const response: DescribeNodeAssociationStatusCommandOutput = {
@@ -1077,7 +1048,7 @@ async function deserializeAws_json1_1DescribeNodeAssociationStatusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1097,7 +1068,6 @@ async function deserializeAws_json1_1DescribeNodeAssociationStatusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.opsworkscm#${errorCode}`,
         $fault: "client",
@@ -1116,10 +1086,7 @@ export async function deserializeAws_json1_1DescribeServersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeServersResponse(
-    data.DescribeServersResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeServersResponse(data, context);
   const response: DescribeServersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeServersResponse",
@@ -1138,7 +1105,7 @@ async function deserializeAws_json1_1DescribeServersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1165,7 +1132,6 @@ async function deserializeAws_json1_1DescribeServersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.opsworkscm#${errorCode}`,
         $fault: "client",
@@ -1184,10 +1150,7 @@ export async function deserializeAws_json1_1DisassociateNodeCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisassociateNodeResponse(
-    data.DisassociateNodeResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DisassociateNodeResponse(data, context);
   const response: DisassociateNodeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DisassociateNodeResponse",
@@ -1206,7 +1169,7 @@ async function deserializeAws_json1_1DisassociateNodeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1233,7 +1196,6 @@ async function deserializeAws_json1_1DisassociateNodeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.opsworkscm#${errorCode}`,
         $fault: "client",
@@ -1256,7 +1218,7 @@ export async function deserializeAws_json1_1ExportServerEngineAttributeCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ExportServerEngineAttributeResponse(
-    data.ExportServerEngineAttributeResponse,
+    data,
     context
   );
   const response: ExportServerEngineAttributeCommandOutput = {
@@ -1277,7 +1239,7 @@ async function deserializeAws_json1_1ExportServerEngineAttributeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1304,7 +1266,6 @@ async function deserializeAws_json1_1ExportServerEngineAttributeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.opsworkscm#${errorCode}`,
         $fault: "client",
@@ -1323,10 +1284,7 @@ export async function deserializeAws_json1_1RestoreServerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RestoreServerResponse(
-    data.RestoreServerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1RestoreServerResponse(data, context);
   const response: RestoreServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RestoreServerResponse",
@@ -1345,7 +1303,7 @@ async function deserializeAws_json1_1RestoreServerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1372,7 +1330,6 @@ async function deserializeAws_json1_1RestoreServerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.opsworkscm#${errorCode}`,
         $fault: "client",
@@ -1391,10 +1348,7 @@ export async function deserializeAws_json1_1StartMaintenanceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartMaintenanceResponse(
-    data.StartMaintenanceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartMaintenanceResponse(data, context);
   const response: StartMaintenanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartMaintenanceResponse",
@@ -1413,7 +1367,7 @@ async function deserializeAws_json1_1StartMaintenanceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1440,7 +1394,6 @@ async function deserializeAws_json1_1StartMaintenanceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.opsworkscm#${errorCode}`,
         $fault: "client",
@@ -1459,10 +1412,7 @@ export async function deserializeAws_json1_1UpdateServerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateServerResponse(
-    data.UpdateServerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateServerResponse(data, context);
   const response: UpdateServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateServerResponse",
@@ -1481,7 +1431,7 @@ async function deserializeAws_json1_1UpdateServerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1508,7 +1458,6 @@ async function deserializeAws_json1_1UpdateServerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.opsworkscm#${errorCode}`,
         $fault: "client",
@@ -1531,7 +1480,7 @@ export async function deserializeAws_json1_1UpdateServerEngineAttributesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateServerEngineAttributesResponse(
-    data.UpdateServerEngineAttributesResponse,
+    data,
     context
   );
   const response: UpdateServerEngineAttributesCommandOutput = {
@@ -1552,7 +1501,7 @@ async function deserializeAws_json1_1UpdateServerEngineAttributesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1579,7 +1528,6 @@ async function deserializeAws_json1_1UpdateServerEngineAttributesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.opsworkscm#${errorCode}`,
         $fault: "client",

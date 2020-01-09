@@ -624,10 +624,7 @@ export async function deserializeAws_json1_1CancelClusterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CancelClusterResult(
-    data.CancelClusterResult,
-    context
-  );
+  contents = deserializeAws_json1_1CancelClusterResult(data, context);
   const response: CancelClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CancelClusterResult",
@@ -646,7 +643,7 @@ async function deserializeAws_json1_1CancelClusterCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -673,7 +670,6 @@ async function deserializeAws_json1_1CancelClusterCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
@@ -692,10 +688,7 @@ export async function deserializeAws_json1_1CancelJobCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CancelJobResult(
-    data.CancelJobResult,
-    context
-  );
+  contents = deserializeAws_json1_1CancelJobResult(data, context);
   const response: CancelJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CancelJobResult",
@@ -714,7 +707,7 @@ async function deserializeAws_json1_1CancelJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -741,7 +734,6 @@ async function deserializeAws_json1_1CancelJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
@@ -760,10 +752,7 @@ export async function deserializeAws_json1_1CreateAddressCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateAddressResult(
-    data.CreateAddressResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateAddressResult(data, context);
   const response: CreateAddressCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateAddressResult",
@@ -782,7 +771,7 @@ async function deserializeAws_json1_1CreateAddressCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -802,7 +791,6 @@ async function deserializeAws_json1_1CreateAddressCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
@@ -821,10 +809,7 @@ export async function deserializeAws_json1_1CreateClusterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateClusterResult(
-    data.CreateClusterResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateClusterResult(data, context);
   const response: CreateClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateClusterResult",
@@ -843,7 +828,7 @@ async function deserializeAws_json1_1CreateClusterCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -877,7 +862,6 @@ async function deserializeAws_json1_1CreateClusterCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
@@ -896,10 +880,7 @@ export async function deserializeAws_json1_1CreateJobCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateJobResult(
-    data.CreateJobResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateJobResult(data, context);
   const response: CreateJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateJobResult",
@@ -918,7 +899,7 @@ async function deserializeAws_json1_1CreateJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -959,7 +940,6 @@ async function deserializeAws_json1_1CreateJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
@@ -978,10 +958,7 @@ export async function deserializeAws_json1_1DescribeAddressCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAddressResult(
-    data.DescribeAddressResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeAddressResult(data, context);
   const response: DescribeAddressCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeAddressResult",
@@ -1000,7 +977,7 @@ async function deserializeAws_json1_1DescribeAddressCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1013,7 +990,6 @@ async function deserializeAws_json1_1DescribeAddressCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
@@ -1032,10 +1008,7 @@ export async function deserializeAws_json1_1DescribeAddressesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAddressesResult(
-    data.DescribeAddressesResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeAddressesResult(data, context);
   const response: DescribeAddressesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeAddressesResult",
@@ -1054,7 +1027,7 @@ async function deserializeAws_json1_1DescribeAddressesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1074,7 +1047,6 @@ async function deserializeAws_json1_1DescribeAddressesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
@@ -1093,10 +1065,7 @@ export async function deserializeAws_json1_1DescribeClusterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeClusterResult(
-    data.DescribeClusterResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeClusterResult(data, context);
   const response: DescribeClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeClusterResult",
@@ -1115,7 +1084,7 @@ async function deserializeAws_json1_1DescribeClusterCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1128,7 +1097,6 @@ async function deserializeAws_json1_1DescribeClusterCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
@@ -1147,10 +1115,7 @@ export async function deserializeAws_json1_1DescribeJobCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeJobResult(
-    data.DescribeJobResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeJobResult(data, context);
   const response: DescribeJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeJobResult",
@@ -1169,7 +1134,7 @@ async function deserializeAws_json1_1DescribeJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1182,7 +1147,6 @@ async function deserializeAws_json1_1DescribeJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
@@ -1201,10 +1165,7 @@ export async function deserializeAws_json1_1GetJobManifestCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetJobManifestResult(
-    data.GetJobManifestResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetJobManifestResult(data, context);
   const response: GetJobManifestCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetJobManifestResult",
@@ -1223,7 +1184,7 @@ async function deserializeAws_json1_1GetJobManifestCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1243,7 +1204,6 @@ async function deserializeAws_json1_1GetJobManifestCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
@@ -1262,10 +1222,7 @@ export async function deserializeAws_json1_1GetJobUnlockCodeCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetJobUnlockCodeResult(
-    data.GetJobUnlockCodeResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetJobUnlockCodeResult(data, context);
   const response: GetJobUnlockCodeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetJobUnlockCodeResult",
@@ -1284,7 +1241,7 @@ async function deserializeAws_json1_1GetJobUnlockCodeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1304,7 +1261,6 @@ async function deserializeAws_json1_1GetJobUnlockCodeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
@@ -1323,10 +1279,7 @@ export async function deserializeAws_json1_1GetSnowballUsageCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetSnowballUsageResult(
-    data.GetSnowballUsageResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetSnowballUsageResult(data, context);
   const response: GetSnowballUsageCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetSnowballUsageResult",
@@ -1341,13 +1294,12 @@ async function deserializeAws_json1_1GetSnowballUsageCommandError(
 ): Promise<GetSnowballUsageCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
@@ -1369,10 +1321,7 @@ export async function deserializeAws_json1_1GetSoftwareUpdatesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetSoftwareUpdatesResult(
-    data.GetSoftwareUpdatesResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetSoftwareUpdatesResult(data, context);
   const response: GetSoftwareUpdatesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetSoftwareUpdatesResult",
@@ -1391,7 +1340,7 @@ async function deserializeAws_json1_1GetSoftwareUpdatesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1411,7 +1360,6 @@ async function deserializeAws_json1_1GetSoftwareUpdatesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
@@ -1430,10 +1378,7 @@ export async function deserializeAws_json1_1ListClusterJobsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListClusterJobsResult(
-    data.ListClusterJobsResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListClusterJobsResult(data, context);
   const response: ListClusterJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListClusterJobsResult",
@@ -1452,7 +1397,7 @@ async function deserializeAws_json1_1ListClusterJobsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1472,7 +1417,6 @@ async function deserializeAws_json1_1ListClusterJobsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
@@ -1491,10 +1435,7 @@ export async function deserializeAws_json1_1ListClustersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListClustersResult(
-    data.ListClustersResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListClustersResult(data, context);
   const response: ListClustersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListClustersResult",
@@ -1513,7 +1454,7 @@ async function deserializeAws_json1_1ListClustersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1526,7 +1467,6 @@ async function deserializeAws_json1_1ListClustersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
@@ -1548,10 +1488,7 @@ export async function deserializeAws_json1_1ListCompatibleImagesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListCompatibleImagesResult(
-    data.ListCompatibleImagesResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListCompatibleImagesResult(data, context);
   const response: ListCompatibleImagesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListCompatibleImagesResult",
@@ -1570,7 +1507,7 @@ async function deserializeAws_json1_1ListCompatibleImagesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1590,7 +1527,6 @@ async function deserializeAws_json1_1ListCompatibleImagesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
@@ -1609,7 +1545,7 @@ export async function deserializeAws_json1_1ListJobsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListJobsResult(data.ListJobsResult, context);
+  contents = deserializeAws_json1_1ListJobsResult(data, context);
   const response: ListJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListJobsResult",
@@ -1628,7 +1564,7 @@ async function deserializeAws_json1_1ListJobsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1641,7 +1577,6 @@ async function deserializeAws_json1_1ListJobsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
@@ -1660,10 +1595,7 @@ export async function deserializeAws_json1_1UpdateClusterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateClusterResult(
-    data.UpdateClusterResult,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateClusterResult(data, context);
   const response: UpdateClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateClusterResult",
@@ -1682,7 +1614,7 @@ async function deserializeAws_json1_1UpdateClusterCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1723,7 +1655,6 @@ async function deserializeAws_json1_1UpdateClusterCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",
@@ -1742,10 +1673,7 @@ export async function deserializeAws_json1_1UpdateJobCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateJobResult(
-    data.UpdateJobResult,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateJobResult(data, context);
   const response: UpdateJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateJobResult",
@@ -1764,7 +1692,7 @@ async function deserializeAws_json1_1UpdateJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1812,7 +1740,6 @@ async function deserializeAws_json1_1UpdateJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.snowball#${errorCode}`,
         $fault: "client",

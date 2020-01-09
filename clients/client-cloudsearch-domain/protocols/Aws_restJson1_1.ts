@@ -201,8 +201,10 @@ async function deserializeAws_restJson1_1SearchCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "SearchException":
     case "com.a9.cloudsearch.service2013#SearchException":
@@ -212,7 +214,6 @@ async function deserializeAws_restJson1_1SearchCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.a9.cloudsearch.service2013#${errorCode}`,
         $fault: "client",
@@ -261,8 +262,10 @@ async function deserializeAws_restJson1_1SuggestCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "SearchException":
     case "com.a9.cloudsearch.service2013#SearchException":
@@ -272,7 +275,6 @@ async function deserializeAws_restJson1_1SuggestCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.a9.cloudsearch.service2013#${errorCode}`,
         $fault: "client",
@@ -329,8 +331,10 @@ async function deserializeAws_restJson1_1UploadDocumentsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "DocumentServiceException":
     case "com.a9.cloudsearch.service2013#DocumentServiceException":
@@ -340,7 +344,6 @@ async function deserializeAws_restJson1_1UploadDocumentsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.a9.cloudsearch.service2013#${errorCode}`,
         $fault: "client",

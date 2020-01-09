@@ -223,8 +223,10 @@ async function deserializeAws_restJson1_1DeleteHumanLoopCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.sagemaker.a2i.runtime#InternalServerException":
@@ -255,7 +257,6 @@ async function deserializeAws_restJson1_1DeleteHumanLoopCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.a2i.runtime#${errorCode}`,
         $fault: "client",
@@ -339,8 +340,10 @@ async function deserializeAws_restJson1_1DescribeHumanLoopCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.sagemaker.a2i.runtime#InternalServerException":
@@ -371,7 +374,6 @@ async function deserializeAws_restJson1_1DescribeHumanLoopCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.a2i.runtime#${errorCode}`,
         $fault: "client",
@@ -420,8 +422,10 @@ async function deserializeAws_restJson1_1ListHumanLoopsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.sagemaker.a2i.runtime#InternalServerException":
@@ -445,7 +449,6 @@ async function deserializeAws_restJson1_1ListHumanLoopsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.a2i.runtime#${errorCode}`,
         $fault: "client",
@@ -494,8 +497,10 @@ async function deserializeAws_restJson1_1StartHumanLoopCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.sagemaker.a2i.runtime#InternalServerException":
@@ -526,7 +531,6 @@ async function deserializeAws_restJson1_1StartHumanLoopCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.a2i.runtime#${errorCode}`,
         $fault: "client",
@@ -560,8 +564,10 @@ async function deserializeAws_restJson1_1StopHumanLoopCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.sagemaker.a2i.runtime#InternalServerException":
@@ -592,7 +598,6 @@ async function deserializeAws_restJson1_1StopHumanLoopCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.a2i.runtime#${errorCode}`,
         $fault: "client",

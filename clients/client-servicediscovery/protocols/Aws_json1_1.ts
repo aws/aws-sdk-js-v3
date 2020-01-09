@@ -665,10 +665,7 @@ export async function deserializeAws_json1_1CreateHttpNamespaceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateHttpNamespaceResponse(
-    data.CreateHttpNamespaceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateHttpNamespaceResponse(data, context);
   const response: CreateHttpNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateHttpNamespaceResponse",
@@ -687,7 +684,7 @@ async function deserializeAws_json1_1CreateHttpNamespaceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -721,7 +718,6 @@ async function deserializeAws_json1_1CreateHttpNamespaceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
@@ -744,7 +740,7 @@ export async function deserializeAws_json1_1CreatePrivateDnsNamespaceCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreatePrivateDnsNamespaceResponse(
-    data.CreatePrivateDnsNamespaceResponse,
+    data,
     context
   );
   const response: CreatePrivateDnsNamespaceCommandOutput = {
@@ -765,7 +761,7 @@ async function deserializeAws_json1_1CreatePrivateDnsNamespaceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -799,7 +795,6 @@ async function deserializeAws_json1_1CreatePrivateDnsNamespaceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
@@ -822,7 +817,7 @@ export async function deserializeAws_json1_1CreatePublicDnsNamespaceCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreatePublicDnsNamespaceResponse(
-    data.CreatePublicDnsNamespaceResponse,
+    data,
     context
   );
   const response: CreatePublicDnsNamespaceCommandOutput = {
@@ -843,7 +838,7 @@ async function deserializeAws_json1_1CreatePublicDnsNamespaceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -877,7 +872,6 @@ async function deserializeAws_json1_1CreatePublicDnsNamespaceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
@@ -896,10 +890,7 @@ export async function deserializeAws_json1_1CreateServiceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateServiceResponse(
-    data.CreateServiceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateServiceResponse(data, context);
   const response: CreateServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateServiceResponse",
@@ -918,7 +909,7 @@ async function deserializeAws_json1_1CreateServiceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -952,7 +943,6 @@ async function deserializeAws_json1_1CreateServiceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
@@ -971,10 +961,7 @@ export async function deserializeAws_json1_1DeleteNamespaceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteNamespaceResponse(
-    data.DeleteNamespaceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteNamespaceResponse(data, context);
   const response: DeleteNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteNamespaceResponse",
@@ -993,7 +980,7 @@ async function deserializeAws_json1_1DeleteNamespaceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1027,7 +1014,6 @@ async function deserializeAws_json1_1DeleteNamespaceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
@@ -1046,10 +1032,7 @@ export async function deserializeAws_json1_1DeleteServiceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteServiceResponse(
-    data.DeleteServiceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteServiceResponse(data, context);
   const response: DeleteServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteServiceResponse",
@@ -1068,7 +1051,7 @@ async function deserializeAws_json1_1DeleteServiceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1095,7 +1078,6 @@ async function deserializeAws_json1_1DeleteServiceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
@@ -1117,10 +1099,7 @@ export async function deserializeAws_json1_1DeregisterInstanceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeregisterInstanceResponse(
-    data.DeregisterInstanceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeregisterInstanceResponse(data, context);
   const response: DeregisterInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeregisterInstanceResponse",
@@ -1139,7 +1118,7 @@ async function deserializeAws_json1_1DeregisterInstanceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1180,7 +1159,6 @@ async function deserializeAws_json1_1DeregisterInstanceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
@@ -1199,10 +1177,7 @@ export async function deserializeAws_json1_1DiscoverInstancesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DiscoverInstancesResponse(
-    data.DiscoverInstancesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DiscoverInstancesResponse(data, context);
   const response: DiscoverInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DiscoverInstancesResponse",
@@ -1221,7 +1196,7 @@ async function deserializeAws_json1_1DiscoverInstancesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1248,7 +1223,6 @@ async function deserializeAws_json1_1DiscoverInstancesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
@@ -1267,10 +1241,7 @@ export async function deserializeAws_json1_1GetInstanceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetInstanceResponse(
-    data.GetInstanceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetInstanceResponse(data, context);
   const response: GetInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetInstanceResponse",
@@ -1289,7 +1260,7 @@ async function deserializeAws_json1_1GetInstanceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1316,7 +1287,6 @@ async function deserializeAws_json1_1GetInstanceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
@@ -1339,7 +1309,7 @@ export async function deserializeAws_json1_1GetInstancesHealthStatusCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetInstancesHealthStatusResponse(
-    data.GetInstancesHealthStatusResponse,
+    data,
     context
   );
   const response: GetInstancesHealthStatusCommandOutput = {
@@ -1360,7 +1330,7 @@ async function deserializeAws_json1_1GetInstancesHealthStatusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1387,7 +1357,6 @@ async function deserializeAws_json1_1GetInstancesHealthStatusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
@@ -1406,10 +1375,7 @@ export async function deserializeAws_json1_1GetNamespaceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetNamespaceResponse(
-    data.GetNamespaceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetNamespaceResponse(data, context);
   const response: GetNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetNamespaceResponse",
@@ -1428,7 +1394,7 @@ async function deserializeAws_json1_1GetNamespaceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1448,7 +1414,6 @@ async function deserializeAws_json1_1GetNamespaceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
@@ -1467,10 +1432,7 @@ export async function deserializeAws_json1_1GetOperationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetOperationResponse(
-    data.GetOperationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetOperationResponse(data, context);
   const response: GetOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetOperationResponse",
@@ -1489,7 +1451,7 @@ async function deserializeAws_json1_1GetOperationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1509,7 +1471,6 @@ async function deserializeAws_json1_1GetOperationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
@@ -1528,10 +1489,7 @@ export async function deserializeAws_json1_1GetServiceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetServiceResponse(
-    data.GetServiceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetServiceResponse(data, context);
   const response: GetServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetServiceResponse",
@@ -1550,7 +1508,7 @@ async function deserializeAws_json1_1GetServiceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1570,7 +1528,6 @@ async function deserializeAws_json1_1GetServiceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
@@ -1589,10 +1546,7 @@ export async function deserializeAws_json1_1ListInstancesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListInstancesResponse(
-    data.ListInstancesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListInstancesResponse(data, context);
   const response: ListInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListInstancesResponse",
@@ -1611,7 +1565,7 @@ async function deserializeAws_json1_1ListInstancesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1631,7 +1585,6 @@ async function deserializeAws_json1_1ListInstancesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
@@ -1650,10 +1603,7 @@ export async function deserializeAws_json1_1ListNamespacesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListNamespacesResponse(
-    data.ListNamespacesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListNamespacesResponse(data, context);
   const response: ListNamespacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListNamespacesResponse",
@@ -1672,7 +1622,7 @@ async function deserializeAws_json1_1ListNamespacesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1685,7 +1635,6 @@ async function deserializeAws_json1_1ListNamespacesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
@@ -1704,10 +1653,7 @@ export async function deserializeAws_json1_1ListOperationsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListOperationsResponse(
-    data.ListOperationsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListOperationsResponse(data, context);
   const response: ListOperationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListOperationsResponse",
@@ -1726,7 +1672,7 @@ async function deserializeAws_json1_1ListOperationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1739,7 +1685,6 @@ async function deserializeAws_json1_1ListOperationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
@@ -1758,10 +1703,7 @@ export async function deserializeAws_json1_1ListServicesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListServicesResponse(
-    data.ListServicesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListServicesResponse(data, context);
   const response: ListServicesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListServicesResponse",
@@ -1780,7 +1722,7 @@ async function deserializeAws_json1_1ListServicesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1793,7 +1735,6 @@ async function deserializeAws_json1_1ListServicesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
@@ -1812,10 +1753,7 @@ export async function deserializeAws_json1_1RegisterInstanceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RegisterInstanceResponse(
-    data.RegisterInstanceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1RegisterInstanceResponse(data, context);
   const response: RegisterInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RegisterInstanceResponse",
@@ -1834,7 +1772,7 @@ async function deserializeAws_json1_1RegisterInstanceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1875,7 +1813,6 @@ async function deserializeAws_json1_1RegisterInstanceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
@@ -1911,7 +1848,7 @@ async function deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1945,7 +1882,6 @@ async function deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
@@ -1964,10 +1900,7 @@ export async function deserializeAws_json1_1UpdateServiceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateServiceResponse(
-    data.UpdateServiceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateServiceResponse(data, context);
   const response: UpdateServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateServiceResponse",
@@ -1986,7 +1919,7 @@ async function deserializeAws_json1_1UpdateServiceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2013,7 +1946,6 @@ async function deserializeAws_json1_1UpdateServiceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",

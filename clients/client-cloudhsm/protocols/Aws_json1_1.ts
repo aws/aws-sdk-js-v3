@@ -612,10 +612,7 @@ export async function deserializeAws_json1_1AddTagsToResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddTagsToResourceResponse(
-    data.AddTagsToResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1AddTagsToResourceResponse(data, context);
   const response: AddTagsToResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddTagsToResourceResponse",
@@ -634,7 +631,7 @@ async function deserializeAws_json1_1AddTagsToResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -661,7 +658,6 @@ async function deserializeAws_json1_1AddTagsToResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
@@ -680,10 +676,7 @@ export async function deserializeAws_json1_1CreateHapgCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateHapgResponse(
-    data.CreateHapgResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateHapgResponse(data, context);
   const response: CreateHapgCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateHapgResponse",
@@ -702,7 +695,7 @@ async function deserializeAws_json1_1CreateHapgCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -729,7 +722,6 @@ async function deserializeAws_json1_1CreateHapgCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
@@ -748,10 +740,7 @@ export async function deserializeAws_json1_1CreateHsmCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateHsmResponse(
-    data.CreateHsmResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateHsmResponse(data, context);
   const response: CreateHsmCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateHsmResponse",
@@ -770,7 +759,7 @@ async function deserializeAws_json1_1CreateHsmCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -797,7 +786,6 @@ async function deserializeAws_json1_1CreateHsmCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
@@ -816,10 +804,7 @@ export async function deserializeAws_json1_1CreateLunaClientCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateLunaClientResponse(
-    data.CreateLunaClientResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateLunaClientResponse(data, context);
   const response: CreateLunaClientCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateLunaClientResponse",
@@ -838,7 +823,7 @@ async function deserializeAws_json1_1CreateLunaClientCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -865,7 +850,6 @@ async function deserializeAws_json1_1CreateLunaClientCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
@@ -884,10 +868,7 @@ export async function deserializeAws_json1_1DeleteHapgCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteHapgResponse(
-    data.DeleteHapgResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteHapgResponse(data, context);
   const response: DeleteHapgCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteHapgResponse",
@@ -906,7 +887,7 @@ async function deserializeAws_json1_1DeleteHapgCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -933,7 +914,6 @@ async function deserializeAws_json1_1DeleteHapgCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
@@ -952,10 +932,7 @@ export async function deserializeAws_json1_1DeleteHsmCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteHsmResponse(
-    data.DeleteHsmResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteHsmResponse(data, context);
   const response: DeleteHsmCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteHsmResponse",
@@ -974,7 +951,7 @@ async function deserializeAws_json1_1DeleteHsmCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1001,7 +978,6 @@ async function deserializeAws_json1_1DeleteHsmCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
@@ -1020,10 +996,7 @@ export async function deserializeAws_json1_1DeleteLunaClientCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteLunaClientResponse(
-    data.DeleteLunaClientResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteLunaClientResponse(data, context);
   const response: DeleteLunaClientCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteLunaClientResponse",
@@ -1042,7 +1015,7 @@ async function deserializeAws_json1_1DeleteLunaClientCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1069,7 +1042,6 @@ async function deserializeAws_json1_1DeleteLunaClientCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
@@ -1088,10 +1060,7 @@ export async function deserializeAws_json1_1DescribeHapgCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeHapgResponse(
-    data.DescribeHapgResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeHapgResponse(data, context);
   const response: DescribeHapgCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeHapgResponse",
@@ -1110,7 +1079,7 @@ async function deserializeAws_json1_1DescribeHapgCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1137,7 +1106,6 @@ async function deserializeAws_json1_1DescribeHapgCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
@@ -1156,10 +1124,7 @@ export async function deserializeAws_json1_1DescribeHsmCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeHsmResponse(
-    data.DescribeHsmResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeHsmResponse(data, context);
   const response: DescribeHsmCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeHsmResponse",
@@ -1178,7 +1143,7 @@ async function deserializeAws_json1_1DescribeHsmCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1205,7 +1170,6 @@ async function deserializeAws_json1_1DescribeHsmCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
@@ -1227,10 +1191,7 @@ export async function deserializeAws_json1_1DescribeLunaClientCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeLunaClientResponse(
-    data.DescribeLunaClientResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeLunaClientResponse(data, context);
   const response: DescribeLunaClientCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeLunaClientResponse",
@@ -1249,7 +1210,7 @@ async function deserializeAws_json1_1DescribeLunaClientCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1276,7 +1237,6 @@ async function deserializeAws_json1_1DescribeLunaClientCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
@@ -1295,10 +1255,7 @@ export async function deserializeAws_json1_1GetConfigCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetConfigResponse(
-    data.GetConfigResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetConfigResponse(data, context);
   const response: GetConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetConfigResponse",
@@ -1317,7 +1274,7 @@ async function deserializeAws_json1_1GetConfigCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1344,7 +1301,6 @@ async function deserializeAws_json1_1GetConfigCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
@@ -1366,10 +1322,7 @@ export async function deserializeAws_json1_1ListAvailableZonesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAvailableZonesResponse(
-    data.ListAvailableZonesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListAvailableZonesResponse(data, context);
   const response: ListAvailableZonesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAvailableZonesResponse",
@@ -1388,7 +1341,7 @@ async function deserializeAws_json1_1ListAvailableZonesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1415,7 +1368,6 @@ async function deserializeAws_json1_1ListAvailableZonesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
@@ -1434,10 +1386,7 @@ export async function deserializeAws_json1_1ListHapgsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListHapgsResponse(
-    data.ListHapgsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListHapgsResponse(data, context);
   const response: ListHapgsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListHapgsResponse",
@@ -1456,7 +1405,7 @@ async function deserializeAws_json1_1ListHapgsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1483,7 +1432,6 @@ async function deserializeAws_json1_1ListHapgsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
@@ -1502,10 +1450,7 @@ export async function deserializeAws_json1_1ListHsmsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListHsmsResponse(
-    data.ListHsmsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListHsmsResponse(data, context);
   const response: ListHsmsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListHsmsResponse",
@@ -1524,7 +1469,7 @@ async function deserializeAws_json1_1ListHsmsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1551,7 +1496,6 @@ async function deserializeAws_json1_1ListHsmsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
@@ -1570,10 +1514,7 @@ export async function deserializeAws_json1_1ListLunaClientsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListLunaClientsResponse(
-    data.ListLunaClientsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListLunaClientsResponse(data, context);
   const response: ListLunaClientsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListLunaClientsResponse",
@@ -1592,7 +1533,7 @@ async function deserializeAws_json1_1ListLunaClientsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1619,7 +1560,6 @@ async function deserializeAws_json1_1ListLunaClientsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
@@ -1641,10 +1581,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(
-    data.ListTagsForResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
@@ -1663,7 +1600,7 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1690,7 +1627,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
@@ -1709,10 +1645,7 @@ export async function deserializeAws_json1_1ModifyHapgCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ModifyHapgResponse(
-    data.ModifyHapgResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ModifyHapgResponse(data, context);
   const response: ModifyHapgCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ModifyHapgResponse",
@@ -1731,7 +1664,7 @@ async function deserializeAws_json1_1ModifyHapgCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1758,7 +1691,6 @@ async function deserializeAws_json1_1ModifyHapgCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
@@ -1777,10 +1709,7 @@ export async function deserializeAws_json1_1ModifyHsmCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ModifyHsmResponse(
-    data.ModifyHsmResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ModifyHsmResponse(data, context);
   const response: ModifyHsmCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ModifyHsmResponse",
@@ -1799,7 +1728,7 @@ async function deserializeAws_json1_1ModifyHsmCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1826,7 +1755,6 @@ async function deserializeAws_json1_1ModifyHsmCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
@@ -1845,10 +1773,7 @@ export async function deserializeAws_json1_1ModifyLunaClientCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ModifyLunaClientResponse(
-    data.ModifyLunaClientResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ModifyLunaClientResponse(data, context);
   const response: ModifyLunaClientCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ModifyLunaClientResponse",
@@ -1867,7 +1792,7 @@ async function deserializeAws_json1_1ModifyLunaClientCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1880,7 +1805,6 @@ async function deserializeAws_json1_1ModifyLunaClientCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
@@ -1903,7 +1827,7 @@ export async function deserializeAws_json1_1RemoveTagsFromResourceCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1RemoveTagsFromResourceResponse(
-    data.RemoveTagsFromResourceResponse,
+    data,
     context
   );
   const response: RemoveTagsFromResourceCommandOutput = {
@@ -1924,7 +1848,7 @@ async function deserializeAws_json1_1RemoveTagsFromResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1951,7 +1875,6 @@ async function deserializeAws_json1_1RemoveTagsFromResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",

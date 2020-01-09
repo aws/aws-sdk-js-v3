@@ -2920,10 +2920,7 @@ export async function deserializeAws_json1_1SendAnnouncementCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SendAnnouncementResponse(
-    data.SendAnnouncementResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SendAnnouncementResponse(data, context);
   const response: SendAnnouncementCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SendAnnouncementResponse",
@@ -2942,7 +2939,7 @@ async function deserializeAws_json1_1SendAnnouncementCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2962,7 +2959,6 @@ async function deserializeAws_json1_1SendAnnouncementCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.a4b.endpointoperationservice#${errorCode}`,
         $fault: "client",
@@ -2984,10 +2980,7 @@ export async function deserializeAws_json1_1DeleteDeviceUsageDataCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteDeviceUsageDataResponse(
-    data.DeleteDeviceUsageDataResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteDeviceUsageDataResponse(data, context);
   const response: DeleteDeviceUsageDataCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteDeviceUsageDataResponse",
@@ -3006,7 +2999,7 @@ async function deserializeAws_json1_1DeleteDeviceUsageDataCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3033,7 +3026,6 @@ async function deserializeAws_json1_1DeleteDeviceUsageDataCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.a4bendpointmanagement#${errorCode}`,
         $fault: "client",
@@ -3052,10 +3044,7 @@ export async function deserializeAws_json1_1ApproveSkillCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ApproveSkillResponse(
-    data.ApproveSkillResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ApproveSkillResponse(data, context);
   const response: ApproveSkillCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ApproveSkillResponse",
@@ -3074,7 +3063,7 @@ async function deserializeAws_json1_1ApproveSkillCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3101,7 +3090,6 @@ async function deserializeAws_json1_1ApproveSkillCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -3124,7 +3112,7 @@ export async function deserializeAws_json1_1AssociateContactWithAddressBookComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AssociateContactWithAddressBookResponse(
-    data.AssociateContactWithAddressBookResponse,
+    data,
     context
   );
   const response: AssociateContactWithAddressBookCommandOutput = {
@@ -3145,7 +3133,7 @@ async function deserializeAws_json1_1AssociateContactWithAddressBookCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3158,7 +3146,6 @@ async function deserializeAws_json1_1AssociateContactWithAddressBookCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -3181,7 +3168,7 @@ export async function deserializeAws_json1_1AssociateDeviceWithNetworkProfileCom
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AssociateDeviceWithNetworkProfileResponse(
-    data.AssociateDeviceWithNetworkProfileResponse,
+    data,
     context
   );
   const response: AssociateDeviceWithNetworkProfileCommandOutput = {
@@ -3202,7 +3189,7 @@ async function deserializeAws_json1_1AssociateDeviceWithNetworkProfileCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3229,7 +3216,6 @@ async function deserializeAws_json1_1AssociateDeviceWithNetworkProfileCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -3252,7 +3238,7 @@ export async function deserializeAws_json1_1AssociateDeviceWithRoomCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AssociateDeviceWithRoomResponse(
-    data.AssociateDeviceWithRoomResponse,
+    data,
     context
   );
   const response: AssociateDeviceWithRoomCommandOutput = {
@@ -3273,7 +3259,7 @@ async function deserializeAws_json1_1AssociateDeviceWithRoomCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3300,7 +3286,6 @@ async function deserializeAws_json1_1AssociateDeviceWithRoomCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -3323,7 +3308,7 @@ export async function deserializeAws_json1_1AssociateSkillGroupWithRoomCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AssociateSkillGroupWithRoomResponse(
-    data.AssociateSkillGroupWithRoomResponse,
+    data,
     context
   );
   const response: AssociateSkillGroupWithRoomCommandOutput = {
@@ -3344,7 +3329,7 @@ async function deserializeAws_json1_1AssociateSkillGroupWithRoomCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3357,7 +3342,6 @@ async function deserializeAws_json1_1AssociateSkillGroupWithRoomCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -3380,7 +3364,7 @@ export async function deserializeAws_json1_1AssociateSkillWithSkillGroupCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AssociateSkillWithSkillGroupResponse(
-    data.AssociateSkillWithSkillGroupResponse,
+    data,
     context
   );
   const response: AssociateSkillWithSkillGroupCommandOutput = {
@@ -3401,7 +3385,7 @@ async function deserializeAws_json1_1AssociateSkillWithSkillGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3428,7 +3412,6 @@ async function deserializeAws_json1_1AssociateSkillWithSkillGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -3451,7 +3434,7 @@ export async function deserializeAws_json1_1AssociateSkillWithUsersCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AssociateSkillWithUsersResponse(
-    data.AssociateSkillWithUsersResponse,
+    data,
     context
   );
   const response: AssociateSkillWithUsersCommandOutput = {
@@ -3472,7 +3455,7 @@ async function deserializeAws_json1_1AssociateSkillWithUsersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3492,7 +3475,6 @@ async function deserializeAws_json1_1AssociateSkillWithUsersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -3511,10 +3493,7 @@ export async function deserializeAws_json1_1CreateAddressBookCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateAddressBookResponse(
-    data.CreateAddressBookResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateAddressBookResponse(data, context);
   const response: CreateAddressBookCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateAddressBookResponse",
@@ -3533,7 +3512,7 @@ async function deserializeAws_json1_1CreateAddressBookCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3553,7 +3532,6 @@ async function deserializeAws_json1_1CreateAddressBookCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -3576,7 +3554,7 @@ export async function deserializeAws_json1_1CreateBusinessReportScheduleCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateBusinessReportScheduleResponse(
-    data.CreateBusinessReportScheduleResponse,
+    data,
     context
   );
   const response: CreateBusinessReportScheduleCommandOutput = {
@@ -3597,7 +3575,7 @@ async function deserializeAws_json1_1CreateBusinessReportScheduleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3610,7 +3588,6 @@ async function deserializeAws_json1_1CreateBusinessReportScheduleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -3633,7 +3610,7 @@ export async function deserializeAws_json1_1CreateConferenceProviderCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateConferenceProviderResponse(
-    data.CreateConferenceProviderResponse,
+    data,
     context
   );
   const response: CreateConferenceProviderCommandOutput = {
@@ -3654,7 +3631,7 @@ async function deserializeAws_json1_1CreateConferenceProviderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3667,7 +3644,6 @@ async function deserializeAws_json1_1CreateConferenceProviderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -3686,10 +3662,7 @@ export async function deserializeAws_json1_1CreateContactCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateContactResponse(
-    data.CreateContactResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateContactResponse(data, context);
   const response: CreateContactCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateContactResponse",
@@ -3708,7 +3681,7 @@ async function deserializeAws_json1_1CreateContactCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3728,7 +3701,6 @@ async function deserializeAws_json1_1CreateContactCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -3750,10 +3722,7 @@ export async function deserializeAws_json1_1CreateGatewayGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateGatewayGroupResponse(
-    data.CreateGatewayGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateGatewayGroupResponse(data, context);
   const response: CreateGatewayGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateGatewayGroupResponse",
@@ -3772,7 +3741,7 @@ async function deserializeAws_json1_1CreateGatewayGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3792,7 +3761,6 @@ async function deserializeAws_json1_1CreateGatewayGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -3814,10 +3782,7 @@ export async function deserializeAws_json1_1CreateNetworkProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateNetworkProfileResponse(
-    data.CreateNetworkProfileResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateNetworkProfileResponse(data, context);
   const response: CreateNetworkProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateNetworkProfileResponse",
@@ -3836,7 +3801,7 @@ async function deserializeAws_json1_1CreateNetworkProfileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3877,7 +3842,6 @@ async function deserializeAws_json1_1CreateNetworkProfileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -3896,10 +3860,7 @@ export async function deserializeAws_json1_1CreateProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateProfileResponse(
-    data.CreateProfileResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateProfileResponse(data, context);
   const response: CreateProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateProfileResponse",
@@ -3918,7 +3879,7 @@ async function deserializeAws_json1_1CreateProfileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3945,7 +3906,6 @@ async function deserializeAws_json1_1CreateProfileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -3964,10 +3924,7 @@ export async function deserializeAws_json1_1CreateRoomCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateRoomResponse(
-    data.CreateRoomResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateRoomResponse(data, context);
   const response: CreateRoomCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateRoomResponse",
@@ -3986,7 +3943,7 @@ async function deserializeAws_json1_1CreateRoomCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4006,7 +3963,6 @@ async function deserializeAws_json1_1CreateRoomCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -4025,10 +3981,7 @@ export async function deserializeAws_json1_1CreateSkillGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateSkillGroupResponse(
-    data.CreateSkillGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateSkillGroupResponse(data, context);
   const response: CreateSkillGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateSkillGroupResponse",
@@ -4047,7 +4000,7 @@ async function deserializeAws_json1_1CreateSkillGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4074,7 +4027,6 @@ async function deserializeAws_json1_1CreateSkillGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -4093,10 +4045,7 @@ export async function deserializeAws_json1_1CreateUserCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateUserResponse(
-    data.CreateUserResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateUserResponse(data, context);
   const response: CreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateUserResponse",
@@ -4115,7 +4064,7 @@ async function deserializeAws_json1_1CreateUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4142,7 +4091,6 @@ async function deserializeAws_json1_1CreateUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -4161,10 +4109,7 @@ export async function deserializeAws_json1_1DeleteAddressBookCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteAddressBookResponse(
-    data.DeleteAddressBookResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteAddressBookResponse(data, context);
   const response: DeleteAddressBookCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteAddressBookResponse",
@@ -4183,7 +4128,7 @@ async function deserializeAws_json1_1DeleteAddressBookCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4203,7 +4148,6 @@ async function deserializeAws_json1_1DeleteAddressBookCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -4226,7 +4170,7 @@ export async function deserializeAws_json1_1DeleteBusinessReportScheduleCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteBusinessReportScheduleResponse(
-    data.DeleteBusinessReportScheduleResponse,
+    data,
     context
   );
   const response: DeleteBusinessReportScheduleCommandOutput = {
@@ -4247,7 +4191,7 @@ async function deserializeAws_json1_1DeleteBusinessReportScheduleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4267,7 +4211,6 @@ async function deserializeAws_json1_1DeleteBusinessReportScheduleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -4290,7 +4233,7 @@ export async function deserializeAws_json1_1DeleteConferenceProviderCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteConferenceProviderResponse(
-    data.DeleteConferenceProviderResponse,
+    data,
     context
   );
   const response: DeleteConferenceProviderCommandOutput = {
@@ -4311,7 +4254,7 @@ async function deserializeAws_json1_1DeleteConferenceProviderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4324,7 +4267,6 @@ async function deserializeAws_json1_1DeleteConferenceProviderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -4343,10 +4285,7 @@ export async function deserializeAws_json1_1DeleteContactCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteContactResponse(
-    data.DeleteContactResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteContactResponse(data, context);
   const response: DeleteContactCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteContactResponse",
@@ -4365,7 +4304,7 @@ async function deserializeAws_json1_1DeleteContactCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4385,7 +4324,6 @@ async function deserializeAws_json1_1DeleteContactCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -4404,10 +4342,7 @@ export async function deserializeAws_json1_1DeleteDeviceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteDeviceResponse(
-    data.DeleteDeviceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteDeviceResponse(data, context);
   const response: DeleteDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteDeviceResponse",
@@ -4426,7 +4361,7 @@ async function deserializeAws_json1_1DeleteDeviceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4453,7 +4388,6 @@ async function deserializeAws_json1_1DeleteDeviceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -4475,10 +4409,7 @@ export async function deserializeAws_json1_1DeleteGatewayGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteGatewayGroupResponse(
-    data.DeleteGatewayGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteGatewayGroupResponse(data, context);
   const response: DeleteGatewayGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteGatewayGroupResponse",
@@ -4497,7 +4428,7 @@ async function deserializeAws_json1_1DeleteGatewayGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4510,7 +4441,6 @@ async function deserializeAws_json1_1DeleteGatewayGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -4532,10 +4462,7 @@ export async function deserializeAws_json1_1DeleteNetworkProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteNetworkProfileResponse(
-    data.DeleteNetworkProfileResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteNetworkProfileResponse(data, context);
   const response: DeleteNetworkProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteNetworkProfileResponse",
@@ -4554,7 +4481,7 @@ async function deserializeAws_json1_1DeleteNetworkProfileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4581,7 +4508,6 @@ async function deserializeAws_json1_1DeleteNetworkProfileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -4600,10 +4526,7 @@ export async function deserializeAws_json1_1DeleteProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteProfileResponse(
-    data.DeleteProfileResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteProfileResponse(data, context);
   const response: DeleteProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteProfileResponse",
@@ -4622,7 +4545,7 @@ async function deserializeAws_json1_1DeleteProfileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4642,7 +4565,6 @@ async function deserializeAws_json1_1DeleteProfileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -4661,10 +4583,7 @@ export async function deserializeAws_json1_1DeleteRoomCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteRoomResponse(
-    data.DeleteRoomResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteRoomResponse(data, context);
   const response: DeleteRoomCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteRoomResponse",
@@ -4683,7 +4602,7 @@ async function deserializeAws_json1_1DeleteRoomCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4703,7 +4622,6 @@ async function deserializeAws_json1_1DeleteRoomCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -4726,7 +4644,7 @@ export async function deserializeAws_json1_1DeleteRoomSkillParameterCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteRoomSkillParameterResponse(
-    data.DeleteRoomSkillParameterResponse,
+    data,
     context
   );
   const response: DeleteRoomSkillParameterCommandOutput = {
@@ -4747,7 +4665,7 @@ async function deserializeAws_json1_1DeleteRoomSkillParameterCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4760,7 +4678,6 @@ async function deserializeAws_json1_1DeleteRoomSkillParameterCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -4783,7 +4700,7 @@ export async function deserializeAws_json1_1DeleteSkillAuthorizationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteSkillAuthorizationResponse(
-    data.DeleteSkillAuthorizationResponse,
+    data,
     context
   );
   const response: DeleteSkillAuthorizationCommandOutput = {
@@ -4804,7 +4721,7 @@ async function deserializeAws_json1_1DeleteSkillAuthorizationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4824,7 +4741,6 @@ async function deserializeAws_json1_1DeleteSkillAuthorizationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -4843,10 +4759,7 @@ export async function deserializeAws_json1_1DeleteSkillGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteSkillGroupResponse(
-    data.DeleteSkillGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteSkillGroupResponse(data, context);
   const response: DeleteSkillGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteSkillGroupResponse",
@@ -4865,7 +4778,7 @@ async function deserializeAws_json1_1DeleteSkillGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4885,7 +4798,6 @@ async function deserializeAws_json1_1DeleteSkillGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -4904,10 +4816,7 @@ export async function deserializeAws_json1_1DeleteUserCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteUserResponse(
-    data.DeleteUserResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteUserResponse(data, context);
   const response: DeleteUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteUserResponse",
@@ -4926,7 +4835,7 @@ async function deserializeAws_json1_1DeleteUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4946,7 +4855,6 @@ async function deserializeAws_json1_1DeleteUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -4969,7 +4877,7 @@ export async function deserializeAws_json1_1DisassociateContactFromAddressBookCo
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DisassociateContactFromAddressBookResponse(
-    data.DisassociateContactFromAddressBookResponse,
+    data,
     context
   );
   const response: DisassociateContactFromAddressBookCommandOutput = {
@@ -4986,13 +4894,12 @@ async function deserializeAws_json1_1DisassociateContactFromAddressBookCommandEr
 ): Promise<DisassociateContactFromAddressBookCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -5015,7 +4922,7 @@ export async function deserializeAws_json1_1DisassociateDeviceFromRoomCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DisassociateDeviceFromRoomResponse(
-    data.DisassociateDeviceFromRoomResponse,
+    data,
     context
   );
   const response: DisassociateDeviceFromRoomCommandOutput = {
@@ -5036,7 +4943,7 @@ async function deserializeAws_json1_1DisassociateDeviceFromRoomCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5056,7 +4963,6 @@ async function deserializeAws_json1_1DisassociateDeviceFromRoomCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -5079,7 +4985,7 @@ export async function deserializeAws_json1_1DisassociateSkillFromSkillGroupComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DisassociateSkillFromSkillGroupResponse(
-    data.DisassociateSkillFromSkillGroupResponse,
+    data,
     context
   );
   const response: DisassociateSkillFromSkillGroupCommandOutput = {
@@ -5100,7 +5006,7 @@ async function deserializeAws_json1_1DisassociateSkillFromSkillGroupCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5120,7 +5026,6 @@ async function deserializeAws_json1_1DisassociateSkillFromSkillGroupCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -5143,7 +5048,7 @@ export async function deserializeAws_json1_1DisassociateSkillFromUsersCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DisassociateSkillFromUsersResponse(
-    data.DisassociateSkillFromUsersResponse,
+    data,
     context
   );
   const response: DisassociateSkillFromUsersCommandOutput = {
@@ -5164,7 +5069,7 @@ async function deserializeAws_json1_1DisassociateSkillFromUsersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5184,7 +5089,6 @@ async function deserializeAws_json1_1DisassociateSkillFromUsersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -5207,7 +5111,7 @@ export async function deserializeAws_json1_1DisassociateSkillGroupFromRoomComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DisassociateSkillGroupFromRoomResponse(
-    data.DisassociateSkillGroupFromRoomResponse,
+    data,
     context
   );
   const response: DisassociateSkillGroupFromRoomCommandOutput = {
@@ -5228,7 +5132,7 @@ async function deserializeAws_json1_1DisassociateSkillGroupFromRoomCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5241,7 +5145,6 @@ async function deserializeAws_json1_1DisassociateSkillGroupFromRoomCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -5264,7 +5167,7 @@ export async function deserializeAws_json1_1ForgetSmartHomeAppliancesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ForgetSmartHomeAppliancesResponse(
-    data.ForgetSmartHomeAppliancesResponse,
+    data,
     context
   );
   const response: ForgetSmartHomeAppliancesCommandOutput = {
@@ -5285,7 +5188,7 @@ async function deserializeAws_json1_1ForgetSmartHomeAppliancesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5298,7 +5201,6 @@ async function deserializeAws_json1_1ForgetSmartHomeAppliancesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -5317,10 +5219,7 @@ export async function deserializeAws_json1_1GetAddressBookCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetAddressBookResponse(
-    data.GetAddressBookResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetAddressBookResponse(data, context);
   const response: GetAddressBookCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetAddressBookResponse",
@@ -5339,7 +5238,7 @@ async function deserializeAws_json1_1GetAddressBookCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5352,7 +5251,6 @@ async function deserializeAws_json1_1GetAddressBookCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -5375,7 +5273,7 @@ export async function deserializeAws_json1_1GetConferencePreferenceCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetConferencePreferenceResponse(
-    data.GetConferencePreferenceResponse,
+    data,
     context
   );
   const response: GetConferencePreferenceCommandOutput = {
@@ -5396,7 +5294,7 @@ async function deserializeAws_json1_1GetConferencePreferenceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5409,7 +5307,6 @@ async function deserializeAws_json1_1GetConferencePreferenceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -5431,10 +5328,7 @@ export async function deserializeAws_json1_1GetConferenceProviderCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetConferenceProviderResponse(
-    data.GetConferenceProviderResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetConferenceProviderResponse(data, context);
   const response: GetConferenceProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetConferenceProviderResponse",
@@ -5453,7 +5347,7 @@ async function deserializeAws_json1_1GetConferenceProviderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5466,7 +5360,6 @@ async function deserializeAws_json1_1GetConferenceProviderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -5485,10 +5378,7 @@ export async function deserializeAws_json1_1GetContactCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetContactResponse(
-    data.GetContactResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetContactResponse(data, context);
   const response: GetContactCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetContactResponse",
@@ -5507,7 +5397,7 @@ async function deserializeAws_json1_1GetContactCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5520,7 +5410,6 @@ async function deserializeAws_json1_1GetContactCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -5539,10 +5428,7 @@ export async function deserializeAws_json1_1GetDeviceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDeviceResponse(
-    data.GetDeviceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetDeviceResponse(data, context);
   const response: GetDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDeviceResponse",
@@ -5561,7 +5447,7 @@ async function deserializeAws_json1_1GetDeviceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5574,7 +5460,6 @@ async function deserializeAws_json1_1GetDeviceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -5593,10 +5478,7 @@ export async function deserializeAws_json1_1GetGatewayCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetGatewayResponse(
-    data.GetGatewayResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetGatewayResponse(data, context);
   const response: GetGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetGatewayResponse",
@@ -5615,7 +5497,7 @@ async function deserializeAws_json1_1GetGatewayCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5628,7 +5510,6 @@ async function deserializeAws_json1_1GetGatewayCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -5647,10 +5528,7 @@ export async function deserializeAws_json1_1GetGatewayGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetGatewayGroupResponse(
-    data.GetGatewayGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetGatewayGroupResponse(data, context);
   const response: GetGatewayGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetGatewayGroupResponse",
@@ -5669,7 +5547,7 @@ async function deserializeAws_json1_1GetGatewayGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5682,7 +5560,6 @@ async function deserializeAws_json1_1GetGatewayGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -5705,7 +5582,7 @@ export async function deserializeAws_json1_1GetInvitationConfigurationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetInvitationConfigurationResponse(
-    data.GetInvitationConfigurationResponse,
+    data,
     context
   );
   const response: GetInvitationConfigurationCommandOutput = {
@@ -5726,7 +5603,7 @@ async function deserializeAws_json1_1GetInvitationConfigurationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5739,7 +5616,6 @@ async function deserializeAws_json1_1GetInvitationConfigurationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -5758,10 +5634,7 @@ export async function deserializeAws_json1_1GetNetworkProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetNetworkProfileResponse(
-    data.GetNetworkProfileResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetNetworkProfileResponse(data, context);
   const response: GetNetworkProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetNetworkProfileResponse",
@@ -5780,7 +5653,7 @@ async function deserializeAws_json1_1GetNetworkProfileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5800,7 +5673,6 @@ async function deserializeAws_json1_1GetNetworkProfileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -5819,10 +5691,7 @@ export async function deserializeAws_json1_1GetProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetProfileResponse(
-    data.GetProfileResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetProfileResponse(data, context);
   const response: GetProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetProfileResponse",
@@ -5841,7 +5710,7 @@ async function deserializeAws_json1_1GetProfileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5854,7 +5723,6 @@ async function deserializeAws_json1_1GetProfileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -5873,10 +5741,7 @@ export async function deserializeAws_json1_1GetRoomCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetRoomResponse(
-    data.GetRoomResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetRoomResponse(data, context);
   const response: GetRoomCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetRoomResponse",
@@ -5895,7 +5760,7 @@ async function deserializeAws_json1_1GetRoomCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5908,7 +5773,6 @@ async function deserializeAws_json1_1GetRoomCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -5930,10 +5794,7 @@ export async function deserializeAws_json1_1GetRoomSkillParameterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetRoomSkillParameterResponse(
-    data.GetRoomSkillParameterResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetRoomSkillParameterResponse(data, context);
   const response: GetRoomSkillParameterCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetRoomSkillParameterResponse",
@@ -5952,7 +5813,7 @@ async function deserializeAws_json1_1GetRoomSkillParameterCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5965,7 +5826,6 @@ async function deserializeAws_json1_1GetRoomSkillParameterCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -5984,10 +5844,7 @@ export async function deserializeAws_json1_1GetSkillGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetSkillGroupResponse(
-    data.GetSkillGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetSkillGroupResponse(data, context);
   const response: GetSkillGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetSkillGroupResponse",
@@ -6006,7 +5863,7 @@ async function deserializeAws_json1_1GetSkillGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6019,7 +5876,6 @@ async function deserializeAws_json1_1GetSkillGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -6042,7 +5898,7 @@ export async function deserializeAws_json1_1ListBusinessReportSchedulesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListBusinessReportSchedulesResponse(
-    data.ListBusinessReportSchedulesResponse,
+    data,
     context
   );
   const response: ListBusinessReportSchedulesCommandOutput = {
@@ -6059,13 +5915,12 @@ async function deserializeAws_json1_1ListBusinessReportSchedulesCommandError(
 ): Promise<ListBusinessReportSchedulesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -6088,7 +5943,7 @@ export async function deserializeAws_json1_1ListConferenceProvidersCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListConferenceProvidersResponse(
-    data.ListConferenceProvidersResponse,
+    data,
     context
   );
   const response: ListConferenceProvidersCommandOutput = {
@@ -6105,13 +5960,12 @@ async function deserializeAws_json1_1ListConferenceProvidersCommandError(
 ): Promise<ListConferenceProvidersCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -6130,10 +5984,7 @@ export async function deserializeAws_json1_1ListDeviceEventsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDeviceEventsResponse(
-    data.ListDeviceEventsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListDeviceEventsResponse(data, context);
   const response: ListDeviceEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListDeviceEventsResponse",
@@ -6152,7 +6003,7 @@ async function deserializeAws_json1_1ListDeviceEventsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6165,7 +6016,6 @@ async function deserializeAws_json1_1ListDeviceEventsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -6184,10 +6034,7 @@ export async function deserializeAws_json1_1ListGatewayGroupsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListGatewayGroupsResponse(
-    data.ListGatewayGroupsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListGatewayGroupsResponse(data, context);
   const response: ListGatewayGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListGatewayGroupsResponse",
@@ -6202,13 +6049,12 @@ async function deserializeAws_json1_1ListGatewayGroupsCommandError(
 ): Promise<ListGatewayGroupsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -6227,10 +6073,7 @@ export async function deserializeAws_json1_1ListGatewaysCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListGatewaysResponse(
-    data.ListGatewaysResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListGatewaysResponse(data, context);
   const response: ListGatewaysCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListGatewaysResponse",
@@ -6245,13 +6088,12 @@ async function deserializeAws_json1_1ListGatewaysCommandError(
 ): Promise<ListGatewaysCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -6270,10 +6112,7 @@ export async function deserializeAws_json1_1ListSkillsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListSkillsResponse(
-    data.ListSkillsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListSkillsResponse(data, context);
   const response: ListSkillsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListSkillsResponse",
@@ -6288,13 +6127,12 @@ async function deserializeAws_json1_1ListSkillsCommandError(
 ): Promise<ListSkillsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -6317,7 +6155,7 @@ export async function deserializeAws_json1_1ListSkillsStoreCategoriesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListSkillsStoreCategoriesResponse(
-    data.ListSkillsStoreCategoriesResponse,
+    data,
     context
   );
   const response: ListSkillsStoreCategoriesCommandOutput = {
@@ -6334,13 +6172,12 @@ async function deserializeAws_json1_1ListSkillsStoreCategoriesCommandError(
 ): Promise<ListSkillsStoreCategoriesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -6363,7 +6200,7 @@ export async function deserializeAws_json1_1ListSkillsStoreSkillsByCategoryComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListSkillsStoreSkillsByCategoryResponse(
-    data.ListSkillsStoreSkillsByCategoryResponse,
+    data,
     context
   );
   const response: ListSkillsStoreSkillsByCategoryCommandOutput = {
@@ -6380,13 +6217,12 @@ async function deserializeAws_json1_1ListSkillsStoreSkillsByCategoryCommandError
 ): Promise<ListSkillsStoreSkillsByCategoryCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -6409,7 +6245,7 @@ export async function deserializeAws_json1_1ListSmartHomeAppliancesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListSmartHomeAppliancesResponse(
-    data.ListSmartHomeAppliancesResponse,
+    data,
     context
   );
   const response: ListSmartHomeAppliancesCommandOutput = {
@@ -6430,7 +6266,7 @@ async function deserializeAws_json1_1ListSmartHomeAppliancesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6443,7 +6279,6 @@ async function deserializeAws_json1_1ListSmartHomeAppliancesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -6462,10 +6297,7 @@ export async function deserializeAws_json1_1ListTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsResponse(
-    data.ListTagsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsResponse(data, context);
   const response: ListTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsResponse",
@@ -6484,7 +6316,7 @@ async function deserializeAws_json1_1ListTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6497,7 +6329,6 @@ async function deserializeAws_json1_1ListTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -6520,7 +6351,7 @@ export async function deserializeAws_json1_1PutConferencePreferenceCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutConferencePreferenceResponse(
-    data.PutConferencePreferenceResponse,
+    data,
     context
   );
   const response: PutConferencePreferenceCommandOutput = {
@@ -6541,7 +6372,7 @@ async function deserializeAws_json1_1PutConferencePreferenceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6554,7 +6385,6 @@ async function deserializeAws_json1_1PutConferencePreferenceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -6577,7 +6407,7 @@ export async function deserializeAws_json1_1PutInvitationConfigurationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutInvitationConfigurationResponse(
-    data.PutInvitationConfigurationResponse,
+    data,
     context
   );
   const response: PutInvitationConfigurationCommandOutput = {
@@ -6598,7 +6428,7 @@ async function deserializeAws_json1_1PutInvitationConfigurationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6618,7 +6448,6 @@ async function deserializeAws_json1_1PutInvitationConfigurationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -6640,10 +6469,7 @@ export async function deserializeAws_json1_1PutRoomSkillParameterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutRoomSkillParameterResponse(
-    data.PutRoomSkillParameterResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutRoomSkillParameterResponse(data, context);
   const response: PutRoomSkillParameterCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutRoomSkillParameterResponse",
@@ -6662,7 +6488,7 @@ async function deserializeAws_json1_1PutRoomSkillParameterCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6675,7 +6501,6 @@ async function deserializeAws_json1_1PutRoomSkillParameterCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -6697,10 +6522,7 @@ export async function deserializeAws_json1_1PutSkillAuthorizationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutSkillAuthorizationResponse(
-    data.PutSkillAuthorizationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutSkillAuthorizationResponse(data, context);
   const response: PutSkillAuthorizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutSkillAuthorizationResponse",
@@ -6719,7 +6541,7 @@ async function deserializeAws_json1_1PutSkillAuthorizationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6739,7 +6561,6 @@ async function deserializeAws_json1_1PutSkillAuthorizationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -6758,10 +6579,7 @@ export async function deserializeAws_json1_1RegisterAVSDeviceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RegisterAVSDeviceResponse(
-    data.RegisterAVSDeviceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1RegisterAVSDeviceResponse(data, context);
   const response: RegisterAVSDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RegisterAVSDeviceResponse",
@@ -6780,7 +6598,7 @@ async function deserializeAws_json1_1RegisterAVSDeviceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6807,7 +6625,6 @@ async function deserializeAws_json1_1RegisterAVSDeviceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -6826,10 +6643,7 @@ export async function deserializeAws_json1_1RejectSkillCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RejectSkillResponse(
-    data.RejectSkillResponse,
-    context
-  );
+  contents = deserializeAws_json1_1RejectSkillResponse(data, context);
   const response: RejectSkillCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RejectSkillResponse",
@@ -6848,7 +6662,7 @@ async function deserializeAws_json1_1RejectSkillCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6868,7 +6682,6 @@ async function deserializeAws_json1_1RejectSkillCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -6887,10 +6700,7 @@ export async function deserializeAws_json1_1ResolveRoomCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ResolveRoomResponse(
-    data.ResolveRoomResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ResolveRoomResponse(data, context);
   const response: ResolveRoomCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ResolveRoomResponse",
@@ -6909,7 +6719,7 @@ async function deserializeAws_json1_1ResolveRoomCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6922,7 +6732,6 @@ async function deserializeAws_json1_1ResolveRoomCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -6941,10 +6750,7 @@ export async function deserializeAws_json1_1RevokeInvitationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RevokeInvitationResponse(
-    data.RevokeInvitationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1RevokeInvitationResponse(data, context);
   const response: RevokeInvitationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RevokeInvitationResponse",
@@ -6963,7 +6769,7 @@ async function deserializeAws_json1_1RevokeInvitationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6983,7 +6789,6 @@ async function deserializeAws_json1_1RevokeInvitationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -7005,10 +6810,7 @@ export async function deserializeAws_json1_1SearchAddressBooksCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SearchAddressBooksResponse(
-    data.SearchAddressBooksResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SearchAddressBooksResponse(data, context);
   const response: SearchAddressBooksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SearchAddressBooksResponse",
@@ -7023,13 +6825,12 @@ async function deserializeAws_json1_1SearchAddressBooksCommandError(
 ): Promise<SearchAddressBooksCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -7048,10 +6849,7 @@ export async function deserializeAws_json1_1SearchContactsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SearchContactsResponse(
-    data.SearchContactsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SearchContactsResponse(data, context);
   const response: SearchContactsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SearchContactsResponse",
@@ -7066,13 +6864,12 @@ async function deserializeAws_json1_1SearchContactsCommandError(
 ): Promise<SearchContactsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -7091,10 +6888,7 @@ export async function deserializeAws_json1_1SearchDevicesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SearchDevicesResponse(
-    data.SearchDevicesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SearchDevicesResponse(data, context);
   const response: SearchDevicesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SearchDevicesResponse",
@@ -7109,13 +6903,12 @@ async function deserializeAws_json1_1SearchDevicesCommandError(
 ): Promise<SearchDevicesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -7137,10 +6930,7 @@ export async function deserializeAws_json1_1SearchNetworkProfilesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SearchNetworkProfilesResponse(
-    data.SearchNetworkProfilesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SearchNetworkProfilesResponse(data, context);
   const response: SearchNetworkProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SearchNetworkProfilesResponse",
@@ -7155,13 +6945,12 @@ async function deserializeAws_json1_1SearchNetworkProfilesCommandError(
 ): Promise<SearchNetworkProfilesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -7180,10 +6969,7 @@ export async function deserializeAws_json1_1SearchProfilesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SearchProfilesResponse(
-    data.SearchProfilesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SearchProfilesResponse(data, context);
   const response: SearchProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SearchProfilesResponse",
@@ -7198,13 +6984,12 @@ async function deserializeAws_json1_1SearchProfilesCommandError(
 ): Promise<SearchProfilesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -7223,10 +7008,7 @@ export async function deserializeAws_json1_1SearchRoomsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SearchRoomsResponse(
-    data.SearchRoomsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SearchRoomsResponse(data, context);
   const response: SearchRoomsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SearchRoomsResponse",
@@ -7241,13 +7023,12 @@ async function deserializeAws_json1_1SearchRoomsCommandError(
 ): Promise<SearchRoomsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -7266,10 +7047,7 @@ export async function deserializeAws_json1_1SearchSkillGroupsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SearchSkillGroupsResponse(
-    data.SearchSkillGroupsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SearchSkillGroupsResponse(data, context);
   const response: SearchSkillGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SearchSkillGroupsResponse",
@@ -7284,13 +7062,12 @@ async function deserializeAws_json1_1SearchSkillGroupsCommandError(
 ): Promise<SearchSkillGroupsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -7309,10 +7086,7 @@ export async function deserializeAws_json1_1SearchUsersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SearchUsersResponse(
-    data.SearchUsersResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SearchUsersResponse(data, context);
   const response: SearchUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SearchUsersResponse",
@@ -7327,13 +7101,12 @@ async function deserializeAws_json1_1SearchUsersCommandError(
 ): Promise<SearchUsersCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -7352,10 +7125,7 @@ export async function deserializeAws_json1_1SendInvitationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SendInvitationResponse(
-    data.SendInvitationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SendInvitationResponse(data, context);
   const response: SendInvitationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SendInvitationResponse",
@@ -7374,7 +7144,7 @@ async function deserializeAws_json1_1SendInvitationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7401,7 +7171,6 @@ async function deserializeAws_json1_1SendInvitationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -7420,10 +7189,7 @@ export async function deserializeAws_json1_1StartDeviceSyncCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartDeviceSyncResponse(
-    data.StartDeviceSyncResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartDeviceSyncResponse(data, context);
   const response: StartDeviceSyncCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartDeviceSyncResponse",
@@ -7442,7 +7208,7 @@ async function deserializeAws_json1_1StartDeviceSyncCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7455,7 +7221,6 @@ async function deserializeAws_json1_1StartDeviceSyncCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -7478,7 +7243,7 @@ export async function deserializeAws_json1_1StartSmartHomeApplianceDiscoveryComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartSmartHomeApplianceDiscoveryResponse(
-    data.StartSmartHomeApplianceDiscoveryResponse,
+    data,
     context
   );
   const response: StartSmartHomeApplianceDiscoveryCommandOutput = {
@@ -7499,7 +7264,7 @@ async function deserializeAws_json1_1StartSmartHomeApplianceDiscoveryCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7512,7 +7277,6 @@ async function deserializeAws_json1_1StartSmartHomeApplianceDiscoveryCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -7531,10 +7295,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(
-    data.TagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
@@ -7553,7 +7314,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7566,7 +7327,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -7585,10 +7345,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(
-    data.UntagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
@@ -7607,7 +7364,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7620,7 +7377,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -7639,10 +7395,7 @@ export async function deserializeAws_json1_1UpdateAddressBookCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateAddressBookResponse(
-    data.UpdateAddressBookResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateAddressBookResponse(data, context);
   const response: UpdateAddressBookCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateAddressBookResponse",
@@ -7661,7 +7414,7 @@ async function deserializeAws_json1_1UpdateAddressBookCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7688,7 +7441,6 @@ async function deserializeAws_json1_1UpdateAddressBookCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -7711,7 +7463,7 @@ export async function deserializeAws_json1_1UpdateBusinessReportScheduleCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateBusinessReportScheduleResponse(
-    data.UpdateBusinessReportScheduleResponse,
+    data,
     context
   );
   const response: UpdateBusinessReportScheduleCommandOutput = {
@@ -7732,7 +7484,7 @@ async function deserializeAws_json1_1UpdateBusinessReportScheduleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7752,7 +7504,6 @@ async function deserializeAws_json1_1UpdateBusinessReportScheduleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -7775,7 +7526,7 @@ export async function deserializeAws_json1_1UpdateConferenceProviderCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateConferenceProviderResponse(
-    data.UpdateConferenceProviderResponse,
+    data,
     context
   );
   const response: UpdateConferenceProviderCommandOutput = {
@@ -7796,7 +7547,7 @@ async function deserializeAws_json1_1UpdateConferenceProviderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7809,7 +7560,6 @@ async function deserializeAws_json1_1UpdateConferenceProviderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -7828,10 +7578,7 @@ export async function deserializeAws_json1_1UpdateContactCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateContactResponse(
-    data.UpdateContactResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateContactResponse(data, context);
   const response: UpdateContactCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateContactResponse",
@@ -7850,7 +7597,7 @@ async function deserializeAws_json1_1UpdateContactCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7870,7 +7617,6 @@ async function deserializeAws_json1_1UpdateContactCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -7889,10 +7635,7 @@ export async function deserializeAws_json1_1UpdateDeviceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateDeviceResponse(
-    data.UpdateDeviceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateDeviceResponse(data, context);
   const response: UpdateDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateDeviceResponse",
@@ -7911,7 +7654,7 @@ async function deserializeAws_json1_1UpdateDeviceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7938,7 +7681,6 @@ async function deserializeAws_json1_1UpdateDeviceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -7957,10 +7699,7 @@ export async function deserializeAws_json1_1UpdateGatewayCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateGatewayResponse(
-    data.UpdateGatewayResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateGatewayResponse(data, context);
   const response: UpdateGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateGatewayResponse",
@@ -7979,7 +7718,7 @@ async function deserializeAws_json1_1UpdateGatewayCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7999,7 +7738,6 @@ async function deserializeAws_json1_1UpdateGatewayCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -8021,10 +7759,7 @@ export async function deserializeAws_json1_1UpdateGatewayGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateGatewayGroupResponse(
-    data.UpdateGatewayGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateGatewayGroupResponse(data, context);
   const response: UpdateGatewayGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateGatewayGroupResponse",
@@ -8043,7 +7778,7 @@ async function deserializeAws_json1_1UpdateGatewayGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8063,7 +7798,6 @@ async function deserializeAws_json1_1UpdateGatewayGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -8085,10 +7819,7 @@ export async function deserializeAws_json1_1UpdateNetworkProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateNetworkProfileResponse(
-    data.UpdateNetworkProfileResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateNetworkProfileResponse(data, context);
   const response: UpdateNetworkProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateNetworkProfileResponse",
@@ -8107,7 +7838,7 @@ async function deserializeAws_json1_1UpdateNetworkProfileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8148,7 +7879,6 @@ async function deserializeAws_json1_1UpdateNetworkProfileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -8167,10 +7897,7 @@ export async function deserializeAws_json1_1UpdateProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateProfileResponse(
-    data.UpdateProfileResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateProfileResponse(data, context);
   const response: UpdateProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateProfileResponse",
@@ -8189,7 +7916,7 @@ async function deserializeAws_json1_1UpdateProfileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8216,7 +7943,6 @@ async function deserializeAws_json1_1UpdateProfileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -8235,10 +7961,7 @@ export async function deserializeAws_json1_1UpdateRoomCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateRoomResponse(
-    data.UpdateRoomResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateRoomResponse(data, context);
   const response: UpdateRoomCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateRoomResponse",
@@ -8257,7 +7980,7 @@ async function deserializeAws_json1_1UpdateRoomCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8277,7 +8000,6 @@ async function deserializeAws_json1_1UpdateRoomCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
@@ -8296,10 +8018,7 @@ export async function deserializeAws_json1_1UpdateSkillGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateSkillGroupResponse(
-    data.UpdateSkillGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateSkillGroupResponse(data, context);
   const response: UpdateSkillGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateSkillGroupResponse",
@@ -8318,7 +8037,7 @@ async function deserializeAws_json1_1UpdateSkillGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8345,7 +8064,6 @@ async function deserializeAws_json1_1UpdateSkillGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmoneypennyresourcemanagement#${errorCode}`,
         $fault: "client",
