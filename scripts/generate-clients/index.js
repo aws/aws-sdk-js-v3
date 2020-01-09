@@ -3,6 +3,7 @@ const path = require("path");
 const { emptyDirSync } = require("fs-extra");
 const { generateClients, CODE_GEN_INPUT_DIR } = require("./code-gen");
 const { copyToClients, CODE_GEN_OUTPUT_DIR } = require("./copy-to-clients");
+const { prettifyCode } = require("./code-prettify");
 
 const CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "clients"));
 
@@ -20,6 +21,7 @@ const { models, output: clientsDir } = yargs
 (async () => {
   try {
     await generateClients(models);
+    await prettifyCode();
     await copyToClients(clientsDir);
     emptyDirSync(CODE_GEN_INPUT_DIR);
     emptyDirSync(CODE_GEN_OUTPUT_DIR);
