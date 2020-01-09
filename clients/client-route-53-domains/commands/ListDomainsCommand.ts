@@ -1,17 +1,20 @@
 import {
   Route53DomainsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../Route53DomainsClient";
-import { ListDomainsRequest, ListDomainsResponse } from "../models/index";
+import {
+  ListDomainsRequest,
+  ListDomainsResponse,
+} from "../models/index";
 import {
   deserializeAws_json1_1ListDomainsCommand,
-  serializeAws_json1_1ListDomainsCommand
+  serializeAws_json1_1ListDomainsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type ListDomainsCommandInput = ListDomainsRequest;
 export type ListDomainsCommandOutput = ListDomainsResponse;
 
-export class ListDomainsCommand extends $Command<
-  ListDomainsCommandInput,
-  ListDomainsCommandOutput,
-  Route53DomainsClientResolvedConfig
-> {
+export class ListDomainsCommand extends $Command<ListDomainsCommandInput, ListDomainsCommandOutput, Route53DomainsClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class ListDomainsCommand extends $Command<
     configuration: Route53DomainsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListDomainsCommandInput, ListDomainsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

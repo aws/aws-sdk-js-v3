@@ -1,150 +1,150 @@
 import {
   AddAttributesToFindingsCommandInput,
-  AddAttributesToFindingsCommandOutput
+  AddAttributesToFindingsCommandOutput,
 } from "../commands/AddAttributesToFindingsCommand";
 import {
   CreateAssessmentTargetCommandInput,
-  CreateAssessmentTargetCommandOutput
+  CreateAssessmentTargetCommandOutput,
 } from "../commands/CreateAssessmentTargetCommand";
 import {
   CreateAssessmentTemplateCommandInput,
-  CreateAssessmentTemplateCommandOutput
+  CreateAssessmentTemplateCommandOutput,
 } from "../commands/CreateAssessmentTemplateCommand";
 import {
   CreateExclusionsPreviewCommandInput,
-  CreateExclusionsPreviewCommandOutput
+  CreateExclusionsPreviewCommandOutput,
 } from "../commands/CreateExclusionsPreviewCommand";
 import {
   CreateResourceGroupCommandInput,
-  CreateResourceGroupCommandOutput
+  CreateResourceGroupCommandOutput,
 } from "../commands/CreateResourceGroupCommand";
 import {
   DeleteAssessmentRunCommandInput,
-  DeleteAssessmentRunCommandOutput
+  DeleteAssessmentRunCommandOutput,
 } from "../commands/DeleteAssessmentRunCommand";
 import {
   DeleteAssessmentTargetCommandInput,
-  DeleteAssessmentTargetCommandOutput
+  DeleteAssessmentTargetCommandOutput,
 } from "../commands/DeleteAssessmentTargetCommand";
 import {
   DeleteAssessmentTemplateCommandInput,
-  DeleteAssessmentTemplateCommandOutput
+  DeleteAssessmentTemplateCommandOutput,
 } from "../commands/DeleteAssessmentTemplateCommand";
 import {
   DescribeAssessmentRunsCommandInput,
-  DescribeAssessmentRunsCommandOutput
+  DescribeAssessmentRunsCommandOutput,
 } from "../commands/DescribeAssessmentRunsCommand";
 import {
   DescribeAssessmentTargetsCommandInput,
-  DescribeAssessmentTargetsCommandOutput
+  DescribeAssessmentTargetsCommandOutput,
 } from "../commands/DescribeAssessmentTargetsCommand";
 import {
   DescribeAssessmentTemplatesCommandInput,
-  DescribeAssessmentTemplatesCommandOutput
+  DescribeAssessmentTemplatesCommandOutput,
 } from "../commands/DescribeAssessmentTemplatesCommand";
 import {
   DescribeCrossAccountAccessRoleCommandInput,
-  DescribeCrossAccountAccessRoleCommandOutput
+  DescribeCrossAccountAccessRoleCommandOutput,
 } from "../commands/DescribeCrossAccountAccessRoleCommand";
 import {
   DescribeExclusionsCommandInput,
-  DescribeExclusionsCommandOutput
+  DescribeExclusionsCommandOutput,
 } from "../commands/DescribeExclusionsCommand";
 import {
   DescribeFindingsCommandInput,
-  DescribeFindingsCommandOutput
+  DescribeFindingsCommandOutput,
 } from "../commands/DescribeFindingsCommand";
 import {
   DescribeResourceGroupsCommandInput,
-  DescribeResourceGroupsCommandOutput
+  DescribeResourceGroupsCommandOutput,
 } from "../commands/DescribeResourceGroupsCommand";
 import {
   DescribeRulesPackagesCommandInput,
-  DescribeRulesPackagesCommandOutput
+  DescribeRulesPackagesCommandOutput,
 } from "../commands/DescribeRulesPackagesCommand";
 import {
   GetAssessmentReportCommandInput,
-  GetAssessmentReportCommandOutput
+  GetAssessmentReportCommandOutput,
 } from "../commands/GetAssessmentReportCommand";
 import {
   GetExclusionsPreviewCommandInput,
-  GetExclusionsPreviewCommandOutput
+  GetExclusionsPreviewCommandOutput,
 } from "../commands/GetExclusionsPreviewCommand";
 import {
   GetTelemetryMetadataCommandInput,
-  GetTelemetryMetadataCommandOutput
+  GetTelemetryMetadataCommandOutput,
 } from "../commands/GetTelemetryMetadataCommand";
 import {
   ListAssessmentRunAgentsCommandInput,
-  ListAssessmentRunAgentsCommandOutput
+  ListAssessmentRunAgentsCommandOutput,
 } from "../commands/ListAssessmentRunAgentsCommand";
 import {
   ListAssessmentRunsCommandInput,
-  ListAssessmentRunsCommandOutput
+  ListAssessmentRunsCommandOutput,
 } from "../commands/ListAssessmentRunsCommand";
 import {
   ListAssessmentTargetsCommandInput,
-  ListAssessmentTargetsCommandOutput
+  ListAssessmentTargetsCommandOutput,
 } from "../commands/ListAssessmentTargetsCommand";
 import {
   ListAssessmentTemplatesCommandInput,
-  ListAssessmentTemplatesCommandOutput
+  ListAssessmentTemplatesCommandOutput,
 } from "../commands/ListAssessmentTemplatesCommand";
 import {
   ListEventSubscriptionsCommandInput,
-  ListEventSubscriptionsCommandOutput
+  ListEventSubscriptionsCommandOutput,
 } from "../commands/ListEventSubscriptionsCommand";
 import {
   ListExclusionsCommandInput,
-  ListExclusionsCommandOutput
+  ListExclusionsCommandOutput,
 } from "../commands/ListExclusionsCommand";
 import {
   ListFindingsCommandInput,
-  ListFindingsCommandOutput
+  ListFindingsCommandOutput,
 } from "../commands/ListFindingsCommand";
 import {
   ListRulesPackagesCommandInput,
-  ListRulesPackagesCommandOutput
+  ListRulesPackagesCommandOutput,
 } from "../commands/ListRulesPackagesCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import {
   PreviewAgentsCommandInput,
-  PreviewAgentsCommandOutput
+  PreviewAgentsCommandOutput,
 } from "../commands/PreviewAgentsCommand";
 import {
   RegisterCrossAccountAccessRoleCommandInput,
-  RegisterCrossAccountAccessRoleCommandOutput
+  RegisterCrossAccountAccessRoleCommandOutput,
 } from "../commands/RegisterCrossAccountAccessRoleCommand";
 import {
   RemoveAttributesFromFindingsCommandInput,
-  RemoveAttributesFromFindingsCommandOutput
+  RemoveAttributesFromFindingsCommandOutput,
 } from "../commands/RemoveAttributesFromFindingsCommand";
 import {
   SetTagsForResourceCommandInput,
-  SetTagsForResourceCommandOutput
+  SetTagsForResourceCommandOutput,
 } from "../commands/SetTagsForResourceCommand";
 import {
   StartAssessmentRunCommandInput,
-  StartAssessmentRunCommandOutput
+  StartAssessmentRunCommandOutput,
 } from "../commands/StartAssessmentRunCommand";
 import {
   StopAssessmentRunCommandInput,
-  StopAssessmentRunCommandOutput
+  StopAssessmentRunCommandOutput,
 } from "../commands/StopAssessmentRunCommand";
 import {
   SubscribeToEventCommandInput,
-  SubscribeToEventCommandOutput
+  SubscribeToEventCommandOutput,
 } from "../commands/SubscribeToEventCommand";
 import {
   UnsubscribeFromEventCommandInput,
-  UnsubscribeFromEventCommandOutput
+  UnsubscribeFromEventCommandOutput,
 } from "../commands/UnsubscribeFromEventCommand";
 import {
   UpdateAssessmentTargetCommandInput,
-  UpdateAssessmentTargetCommandOutput
+  UpdateAssessmentTargetCommandOutput,
 } from "../commands/UpdateAssessmentTargetCommand";
 import {
   AccessDeniedException,
@@ -258,18 +258,18 @@ import {
   TimestampRange,
   UnsubscribeFromEventRequest,
   UnsupportedFeatureException,
-  UpdateAssessmentTargetRequest
+  UpdateAssessmentTargetRequest,
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export async function serializeAws_json1_1AddAttributesToFindingsCommand(
@@ -277,14 +277,11 @@ export async function serializeAws_json1_1AddAttributesToFindingsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.AddAttributesToFindings";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.AddAttributesToFindings";
   let body: any = {};
   const wrappedBody: any = {
-    AddAttributesToFindingsRequest: serializeAws_json1_1AddAttributesToFindingsRequest(
-      input,
-      context
-    )
+    AddAttributesToFindingsRequest: serializeAws_json1_1AddAttributesToFindingsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -293,7 +290,7 @@ export async function serializeAws_json1_1AddAttributesToFindingsCommand(
     method: "POST",
     path: "/AddAttributesToFindings",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -302,14 +299,11 @@ export async function serializeAws_json1_1CreateAssessmentTargetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.CreateAssessmentTarget";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.CreateAssessmentTarget";
   let body: any = {};
   const wrappedBody: any = {
-    CreateAssessmentTargetRequest: serializeAws_json1_1CreateAssessmentTargetRequest(
-      input,
-      context
-    )
+    CreateAssessmentTargetRequest: serializeAws_json1_1CreateAssessmentTargetRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -318,7 +312,7 @@ export async function serializeAws_json1_1CreateAssessmentTargetCommand(
     method: "POST",
     path: "/CreateAssessmentTarget",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -327,14 +321,11 @@ export async function serializeAws_json1_1CreateAssessmentTemplateCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.CreateAssessmentTemplate";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.CreateAssessmentTemplate";
   let body: any = {};
   const wrappedBody: any = {
-    CreateAssessmentTemplateRequest: serializeAws_json1_1CreateAssessmentTemplateRequest(
-      input,
-      context
-    )
+    CreateAssessmentTemplateRequest: serializeAws_json1_1CreateAssessmentTemplateRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -343,7 +334,7 @@ export async function serializeAws_json1_1CreateAssessmentTemplateCommand(
     method: "POST",
     path: "/CreateAssessmentTemplate",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -352,14 +343,11 @@ export async function serializeAws_json1_1CreateExclusionsPreviewCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.CreateExclusionsPreview";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.CreateExclusionsPreview";
   let body: any = {};
   const wrappedBody: any = {
-    CreateExclusionsPreviewRequest: serializeAws_json1_1CreateExclusionsPreviewRequest(
-      input,
-      context
-    )
+    CreateExclusionsPreviewRequest: serializeAws_json1_1CreateExclusionsPreviewRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -368,7 +356,7 @@ export async function serializeAws_json1_1CreateExclusionsPreviewCommand(
     method: "POST",
     path: "/CreateExclusionsPreview",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -377,14 +365,11 @@ export async function serializeAws_json1_1CreateResourceGroupCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.CreateResourceGroup";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.CreateResourceGroup";
   let body: any = {};
   const wrappedBody: any = {
-    CreateResourceGroupRequest: serializeAws_json1_1CreateResourceGroupRequest(
-      input,
-      context
-    )
+    CreateResourceGroupRequest: serializeAws_json1_1CreateResourceGroupRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -393,7 +378,7 @@ export async function serializeAws_json1_1CreateResourceGroupCommand(
     method: "POST",
     path: "/CreateResourceGroup",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -402,14 +387,11 @@ export async function serializeAws_json1_1DeleteAssessmentRunCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.DeleteAssessmentRun";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.DeleteAssessmentRun";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteAssessmentRunRequest: serializeAws_json1_1DeleteAssessmentRunRequest(
-      input,
-      context
-    )
+    DeleteAssessmentRunRequest: serializeAws_json1_1DeleteAssessmentRunRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -418,7 +400,7 @@ export async function serializeAws_json1_1DeleteAssessmentRunCommand(
     method: "POST",
     path: "/DeleteAssessmentRun",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -427,14 +409,11 @@ export async function serializeAws_json1_1DeleteAssessmentTargetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.DeleteAssessmentTarget";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.DeleteAssessmentTarget";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteAssessmentTargetRequest: serializeAws_json1_1DeleteAssessmentTargetRequest(
-      input,
-      context
-    )
+    DeleteAssessmentTargetRequest: serializeAws_json1_1DeleteAssessmentTargetRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -443,7 +422,7 @@ export async function serializeAws_json1_1DeleteAssessmentTargetCommand(
     method: "POST",
     path: "/DeleteAssessmentTarget",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -452,14 +431,11 @@ export async function serializeAws_json1_1DeleteAssessmentTemplateCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.DeleteAssessmentTemplate";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.DeleteAssessmentTemplate";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteAssessmentTemplateRequest: serializeAws_json1_1DeleteAssessmentTemplateRequest(
-      input,
-      context
-    )
+    DeleteAssessmentTemplateRequest: serializeAws_json1_1DeleteAssessmentTemplateRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -468,7 +444,7 @@ export async function serializeAws_json1_1DeleteAssessmentTemplateCommand(
     method: "POST",
     path: "/DeleteAssessmentTemplate",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -477,14 +453,11 @@ export async function serializeAws_json1_1DescribeAssessmentRunsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.DescribeAssessmentRuns";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.DescribeAssessmentRuns";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeAssessmentRunsRequest: serializeAws_json1_1DescribeAssessmentRunsRequest(
-      input,
-      context
-    )
+    DescribeAssessmentRunsRequest: serializeAws_json1_1DescribeAssessmentRunsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -493,7 +466,7 @@ export async function serializeAws_json1_1DescribeAssessmentRunsCommand(
     method: "POST",
     path: "/DescribeAssessmentRuns",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -502,14 +475,11 @@ export async function serializeAws_json1_1DescribeAssessmentTargetsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.DescribeAssessmentTargets";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.DescribeAssessmentTargets";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeAssessmentTargetsRequest: serializeAws_json1_1DescribeAssessmentTargetsRequest(
-      input,
-      context
-    )
+    DescribeAssessmentTargetsRequest: serializeAws_json1_1DescribeAssessmentTargetsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -518,7 +488,7 @@ export async function serializeAws_json1_1DescribeAssessmentTargetsCommand(
     method: "POST",
     path: "/DescribeAssessmentTargets",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -527,14 +497,11 @@ export async function serializeAws_json1_1DescribeAssessmentTemplatesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.DescribeAssessmentTemplates";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.DescribeAssessmentTemplates";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeAssessmentTemplatesRequest: serializeAws_json1_1DescribeAssessmentTemplatesRequest(
-      input,
-      context
-    )
+    DescribeAssessmentTemplatesRequest: serializeAws_json1_1DescribeAssessmentTemplatesRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -543,7 +510,7 @@ export async function serializeAws_json1_1DescribeAssessmentTemplatesCommand(
     method: "POST",
     path: "/DescribeAssessmentTemplates",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -552,14 +519,14 @@ export async function serializeAws_json1_1DescribeCrossAccountAccessRoleCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.DescribeCrossAccountAccessRole";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.DescribeCrossAccountAccessRole";
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     path: "/DescribeCrossAccountAccessRole",
-    headers: headers
+    headers: headers,
   });
 }
 
@@ -568,14 +535,11 @@ export async function serializeAws_json1_1DescribeExclusionsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.DescribeExclusions";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.DescribeExclusions";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeExclusionsRequest: serializeAws_json1_1DescribeExclusionsRequest(
-      input,
-      context
-    )
+    DescribeExclusionsRequest: serializeAws_json1_1DescribeExclusionsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -584,7 +548,7 @@ export async function serializeAws_json1_1DescribeExclusionsCommand(
     method: "POST",
     path: "/DescribeExclusions",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -593,14 +557,11 @@ export async function serializeAws_json1_1DescribeFindingsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.DescribeFindings";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.DescribeFindings";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeFindingsRequest: serializeAws_json1_1DescribeFindingsRequest(
-      input,
-      context
-    )
+    DescribeFindingsRequest: serializeAws_json1_1DescribeFindingsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -609,7 +570,7 @@ export async function serializeAws_json1_1DescribeFindingsCommand(
     method: "POST",
     path: "/DescribeFindings",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -618,14 +579,11 @@ export async function serializeAws_json1_1DescribeResourceGroupsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.DescribeResourceGroups";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.DescribeResourceGroups";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeResourceGroupsRequest: serializeAws_json1_1DescribeResourceGroupsRequest(
-      input,
-      context
-    )
+    DescribeResourceGroupsRequest: serializeAws_json1_1DescribeResourceGroupsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -634,7 +592,7 @@ export async function serializeAws_json1_1DescribeResourceGroupsCommand(
     method: "POST",
     path: "/DescribeResourceGroups",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -643,14 +601,11 @@ export async function serializeAws_json1_1DescribeRulesPackagesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.DescribeRulesPackages";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.DescribeRulesPackages";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeRulesPackagesRequest: serializeAws_json1_1DescribeRulesPackagesRequest(
-      input,
-      context
-    )
+    DescribeRulesPackagesRequest: serializeAws_json1_1DescribeRulesPackagesRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -659,7 +614,7 @@ export async function serializeAws_json1_1DescribeRulesPackagesCommand(
     method: "POST",
     path: "/DescribeRulesPackages",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -668,14 +623,11 @@ export async function serializeAws_json1_1GetAssessmentReportCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.GetAssessmentReport";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.GetAssessmentReport";
   let body: any = {};
   const wrappedBody: any = {
-    GetAssessmentReportRequest: serializeAws_json1_1GetAssessmentReportRequest(
-      input,
-      context
-    )
+    GetAssessmentReportRequest: serializeAws_json1_1GetAssessmentReportRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -684,7 +636,7 @@ export async function serializeAws_json1_1GetAssessmentReportCommand(
     method: "POST",
     path: "/GetAssessmentReport",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -693,14 +645,11 @@ export async function serializeAws_json1_1GetExclusionsPreviewCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.GetExclusionsPreview";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.GetExclusionsPreview";
   let body: any = {};
   const wrappedBody: any = {
-    GetExclusionsPreviewRequest: serializeAws_json1_1GetExclusionsPreviewRequest(
-      input,
-      context
-    )
+    GetExclusionsPreviewRequest: serializeAws_json1_1GetExclusionsPreviewRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -709,7 +658,7 @@ export async function serializeAws_json1_1GetExclusionsPreviewCommand(
     method: "POST",
     path: "/GetExclusionsPreview",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -718,14 +667,11 @@ export async function serializeAws_json1_1GetTelemetryMetadataCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.GetTelemetryMetadata";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.GetTelemetryMetadata";
   let body: any = {};
   const wrappedBody: any = {
-    GetTelemetryMetadataRequest: serializeAws_json1_1GetTelemetryMetadataRequest(
-      input,
-      context
-    )
+    GetTelemetryMetadataRequest: serializeAws_json1_1GetTelemetryMetadataRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -734,7 +680,7 @@ export async function serializeAws_json1_1GetTelemetryMetadataCommand(
     method: "POST",
     path: "/GetTelemetryMetadata",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -743,14 +689,11 @@ export async function serializeAws_json1_1ListAssessmentRunAgentsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.ListAssessmentRunAgents";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.ListAssessmentRunAgents";
   let body: any = {};
   const wrappedBody: any = {
-    ListAssessmentRunAgentsRequest: serializeAws_json1_1ListAssessmentRunAgentsRequest(
-      input,
-      context
-    )
+    ListAssessmentRunAgentsRequest: serializeAws_json1_1ListAssessmentRunAgentsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -759,7 +702,7 @@ export async function serializeAws_json1_1ListAssessmentRunAgentsCommand(
     method: "POST",
     path: "/ListAssessmentRunAgents",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -768,14 +711,11 @@ export async function serializeAws_json1_1ListAssessmentRunsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.ListAssessmentRuns";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.ListAssessmentRuns";
   let body: any = {};
   const wrappedBody: any = {
-    ListAssessmentRunsRequest: serializeAws_json1_1ListAssessmentRunsRequest(
-      input,
-      context
-    )
+    ListAssessmentRunsRequest: serializeAws_json1_1ListAssessmentRunsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -784,7 +724,7 @@ export async function serializeAws_json1_1ListAssessmentRunsCommand(
     method: "POST",
     path: "/ListAssessmentRuns",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -793,14 +733,11 @@ export async function serializeAws_json1_1ListAssessmentTargetsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.ListAssessmentTargets";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.ListAssessmentTargets";
   let body: any = {};
   const wrappedBody: any = {
-    ListAssessmentTargetsRequest: serializeAws_json1_1ListAssessmentTargetsRequest(
-      input,
-      context
-    )
+    ListAssessmentTargetsRequest: serializeAws_json1_1ListAssessmentTargetsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -809,7 +746,7 @@ export async function serializeAws_json1_1ListAssessmentTargetsCommand(
     method: "POST",
     path: "/ListAssessmentTargets",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -818,14 +755,11 @@ export async function serializeAws_json1_1ListAssessmentTemplatesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.ListAssessmentTemplates";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.ListAssessmentTemplates";
   let body: any = {};
   const wrappedBody: any = {
-    ListAssessmentTemplatesRequest: serializeAws_json1_1ListAssessmentTemplatesRequest(
-      input,
-      context
-    )
+    ListAssessmentTemplatesRequest: serializeAws_json1_1ListAssessmentTemplatesRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -834,7 +768,7 @@ export async function serializeAws_json1_1ListAssessmentTemplatesCommand(
     method: "POST",
     path: "/ListAssessmentTemplates",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -843,14 +777,11 @@ export async function serializeAws_json1_1ListEventSubscriptionsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.ListEventSubscriptions";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.ListEventSubscriptions";
   let body: any = {};
   const wrappedBody: any = {
-    ListEventSubscriptionsRequest: serializeAws_json1_1ListEventSubscriptionsRequest(
-      input,
-      context
-    )
+    ListEventSubscriptionsRequest: serializeAws_json1_1ListEventSubscriptionsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -859,7 +790,7 @@ export async function serializeAws_json1_1ListEventSubscriptionsCommand(
     method: "POST",
     path: "/ListEventSubscriptions",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -868,14 +799,11 @@ export async function serializeAws_json1_1ListExclusionsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.ListExclusions";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.ListExclusions";
   let body: any = {};
   const wrappedBody: any = {
-    ListExclusionsRequest: serializeAws_json1_1ListExclusionsRequest(
-      input,
-      context
-    )
+    ListExclusionsRequest: serializeAws_json1_1ListExclusionsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -884,7 +812,7 @@ export async function serializeAws_json1_1ListExclusionsCommand(
     method: "POST",
     path: "/ListExclusions",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -893,11 +821,11 @@ export async function serializeAws_json1_1ListFindingsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.ListFindings";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.ListFindings";
   let body: any = {};
   const wrappedBody: any = {
-    ListFindingsRequest: serializeAws_json1_1ListFindingsRequest(input, context)
+    ListFindingsRequest: serializeAws_json1_1ListFindingsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -906,7 +834,7 @@ export async function serializeAws_json1_1ListFindingsCommand(
     method: "POST",
     path: "/ListFindings",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -915,14 +843,11 @@ export async function serializeAws_json1_1ListRulesPackagesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.ListRulesPackages";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.ListRulesPackages";
   let body: any = {};
   const wrappedBody: any = {
-    ListRulesPackagesRequest: serializeAws_json1_1ListRulesPackagesRequest(
-      input,
-      context
-    )
+    ListRulesPackagesRequest: serializeAws_json1_1ListRulesPackagesRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -931,7 +856,7 @@ export async function serializeAws_json1_1ListRulesPackagesCommand(
     method: "POST",
     path: "/ListRulesPackages",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -940,14 +865,11 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.ListTagsForResource";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.ListTagsForResource";
   let body: any = {};
   const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
-      input,
-      context
-    )
+    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -956,7 +878,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     method: "POST",
     path: "/ListTagsForResource",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -965,14 +887,11 @@ export async function serializeAws_json1_1PreviewAgentsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.PreviewAgents";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.PreviewAgents";
   let body: any = {};
   const wrappedBody: any = {
-    PreviewAgentsRequest: serializeAws_json1_1PreviewAgentsRequest(
-      input,
-      context
-    )
+    PreviewAgentsRequest: serializeAws_json1_1PreviewAgentsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -981,7 +900,7 @@ export async function serializeAws_json1_1PreviewAgentsCommand(
     method: "POST",
     path: "/PreviewAgents",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -990,14 +909,11 @@ export async function serializeAws_json1_1RegisterCrossAccountAccessRoleCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.RegisterCrossAccountAccessRole";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.RegisterCrossAccountAccessRole";
   let body: any = {};
   const wrappedBody: any = {
-    RegisterCrossAccountAccessRoleRequest: serializeAws_json1_1RegisterCrossAccountAccessRoleRequest(
-      input,
-      context
-    )
+    RegisterCrossAccountAccessRoleRequest: serializeAws_json1_1RegisterCrossAccountAccessRoleRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1006,7 +922,7 @@ export async function serializeAws_json1_1RegisterCrossAccountAccessRoleCommand(
     method: "POST",
     path: "/RegisterCrossAccountAccessRole",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1015,14 +931,11 @@ export async function serializeAws_json1_1RemoveAttributesFromFindingsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.RemoveAttributesFromFindings";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.RemoveAttributesFromFindings";
   let body: any = {};
   const wrappedBody: any = {
-    RemoveAttributesFromFindingsRequest: serializeAws_json1_1RemoveAttributesFromFindingsRequest(
-      input,
-      context
-    )
+    RemoveAttributesFromFindingsRequest: serializeAws_json1_1RemoveAttributesFromFindingsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1031,7 +944,7 @@ export async function serializeAws_json1_1RemoveAttributesFromFindingsCommand(
     method: "POST",
     path: "/RemoveAttributesFromFindings",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1040,14 +953,11 @@ export async function serializeAws_json1_1SetTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.SetTagsForResource";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.SetTagsForResource";
   let body: any = {};
   const wrappedBody: any = {
-    SetTagsForResourceRequest: serializeAws_json1_1SetTagsForResourceRequest(
-      input,
-      context
-    )
+    SetTagsForResourceRequest: serializeAws_json1_1SetTagsForResourceRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1056,7 +966,7 @@ export async function serializeAws_json1_1SetTagsForResourceCommand(
     method: "POST",
     path: "/SetTagsForResource",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1065,14 +975,11 @@ export async function serializeAws_json1_1StartAssessmentRunCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.StartAssessmentRun";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.StartAssessmentRun";
   let body: any = {};
   const wrappedBody: any = {
-    StartAssessmentRunRequest: serializeAws_json1_1StartAssessmentRunRequest(
-      input,
-      context
-    )
+    StartAssessmentRunRequest: serializeAws_json1_1StartAssessmentRunRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1081,7 +988,7 @@ export async function serializeAws_json1_1StartAssessmentRunCommand(
     method: "POST",
     path: "/StartAssessmentRun",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1090,14 +997,11 @@ export async function serializeAws_json1_1StopAssessmentRunCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.StopAssessmentRun";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.StopAssessmentRun";
   let body: any = {};
   const wrappedBody: any = {
-    StopAssessmentRunRequest: serializeAws_json1_1StopAssessmentRunRequest(
-      input,
-      context
-    )
+    StopAssessmentRunRequest: serializeAws_json1_1StopAssessmentRunRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1106,7 +1010,7 @@ export async function serializeAws_json1_1StopAssessmentRunCommand(
     method: "POST",
     path: "/StopAssessmentRun",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1115,14 +1019,11 @@ export async function serializeAws_json1_1SubscribeToEventCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.SubscribeToEvent";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.SubscribeToEvent";
   let body: any = {};
   const wrappedBody: any = {
-    SubscribeToEventRequest: serializeAws_json1_1SubscribeToEventRequest(
-      input,
-      context
-    )
+    SubscribeToEventRequest: serializeAws_json1_1SubscribeToEventRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1131,7 +1032,7 @@ export async function serializeAws_json1_1SubscribeToEventCommand(
     method: "POST",
     path: "/SubscribeToEvent",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1140,14 +1041,11 @@ export async function serializeAws_json1_1UnsubscribeFromEventCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.UnsubscribeFromEvent";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.UnsubscribeFromEvent";
   let body: any = {};
   const wrappedBody: any = {
-    UnsubscribeFromEventRequest: serializeAws_json1_1UnsubscribeFromEventRequest(
-      input,
-      context
-    )
+    UnsubscribeFromEventRequest: serializeAws_json1_1UnsubscribeFromEventRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1156,7 +1054,7 @@ export async function serializeAws_json1_1UnsubscribeFromEventCommand(
     method: "POST",
     path: "/UnsubscribeFromEvent",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1165,14 +1063,11 @@ export async function serializeAws_json1_1UpdateAssessmentTargetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "InspectorService.UpdateAssessmentTarget";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "InspectorService.UpdateAssessmentTarget";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateAssessmentTargetRequest: serializeAws_json1_1UpdateAssessmentTargetRequest(
-      input,
-      context
-    )
+    UpdateAssessmentTargetRequest: serializeAws_json1_1UpdateAssessmentTargetRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1181,7 +1076,7 @@ export async function serializeAws_json1_1UpdateAssessmentTargetCommand(
     method: "POST",
     path: "/UpdateAssessmentTarget",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1190,81 +1085,59 @@ export async function deserializeAws_json1_1AddAttributesToFindingsCommand(
   context: __SerdeContext
 ): Promise<AddAttributesToFindingsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AddAttributesToFindingsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AddAttributesToFindingsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1AddAttributesToFindingsResponse(
-    data.AddAttributesToFindingsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1AddAttributesToFindingsResponse(data, context);
   const response: AddAttributesToFindingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddAttributesToFindingsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AddAttributesToFindingsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AddAttributesToFindingsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(parsedOutput, context);
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1275,95 +1148,67 @@ export async function deserializeAws_json1_1CreateAssessmentTargetCommand(
   context: __SerdeContext
 ): Promise<CreateAssessmentTargetCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateAssessmentTargetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateAssessmentTargetCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateAssessmentTargetResponse(
-    data.CreateAssessmentTargetResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateAssessmentTargetResponse(data, context);
   const response: CreateAssessmentTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateAssessmentTargetResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateAssessmentTargetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateAssessmentTargetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidCrossAccountRoleException":
     case "com.amazonaws.inspector.v20160216#InvalidCrossAccountRoleException":
-      response = await deserializeAws_json1_1InvalidCrossAccountRoleExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidCrossAccountRoleExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.inspector.v20160216#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(parsedOutput, context);
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1374,88 +1219,63 @@ export async function deserializeAws_json1_1CreateAssessmentTemplateCommand(
   context: __SerdeContext
 ): Promise<CreateAssessmentTemplateCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateAssessmentTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateAssessmentTemplateCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateAssessmentTemplateResponse(
-    data.CreateAssessmentTemplateResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateAssessmentTemplateResponse(data, context);
   const response: CreateAssessmentTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateAssessmentTemplateResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateAssessmentTemplateCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateAssessmentTemplateCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.inspector.v20160216#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(parsedOutput, context);
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1466,88 +1286,63 @@ export async function deserializeAws_json1_1CreateExclusionsPreviewCommand(
   context: __SerdeContext
 ): Promise<CreateExclusionsPreviewCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateExclusionsPreviewCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateExclusionsPreviewCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateExclusionsPreviewResponse(
-    data.CreateExclusionsPreviewResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateExclusionsPreviewResponse(data, context);
   const response: CreateExclusionsPreviewCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateExclusionsPreviewResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateExclusionsPreviewCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateExclusionsPreviewCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(parsedOutput, context);
       break;
     case "PreviewGenerationInProgressException":
     case "com.amazonaws.inspector.v20160216#PreviewGenerationInProgressException":
-      response = await deserializeAws_json1_1PreviewGenerationInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1PreviewGenerationInProgressExceptionResponse(parsedOutput, context);
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1558,81 +1353,59 @@ export async function deserializeAws_json1_1CreateResourceGroupCommand(
   context: __SerdeContext
 ): Promise<CreateResourceGroupCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateResourceGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateResourceGroupCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateResourceGroupResponse(
-    data.CreateResourceGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateResourceGroupResponse(data, context);
   const response: CreateResourceGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateResourceGroupResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateResourceGroupCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateResourceGroupCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.inspector.v20160216#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1643,80 +1416,58 @@ export async function deserializeAws_json1_1DeleteAssessmentRunCommand(
   context: __SerdeContext
 ): Promise<DeleteAssessmentRunCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteAssessmentRunCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteAssessmentRunCommandError(output, context);
   }
   const response: DeleteAssessmentRunCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteAssessmentRunCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteAssessmentRunCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "AssessmentRunInProgressException":
     case "com.amazonaws.inspector.v20160216#AssessmentRunInProgressException":
-      response = await deserializeAws_json1_1AssessmentRunInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AssessmentRunInProgressExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(parsedOutput, context);
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1727,80 +1478,58 @@ export async function deserializeAws_json1_1DeleteAssessmentTargetCommand(
   context: __SerdeContext
 ): Promise<DeleteAssessmentTargetCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteAssessmentTargetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteAssessmentTargetCommandError(output, context);
   }
   const response: DeleteAssessmentTargetCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteAssessmentTargetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteAssessmentTargetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "AssessmentRunInProgressException":
     case "com.amazonaws.inspector.v20160216#AssessmentRunInProgressException":
-      response = await deserializeAws_json1_1AssessmentRunInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AssessmentRunInProgressExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(parsedOutput, context);
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1811,80 +1540,58 @@ export async function deserializeAws_json1_1DeleteAssessmentTemplateCommand(
   context: __SerdeContext
 ): Promise<DeleteAssessmentTemplateCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteAssessmentTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteAssessmentTemplateCommandError(output, context);
   }
   const response: DeleteAssessmentTemplateCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteAssessmentTemplateCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteAssessmentTemplateCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "AssessmentRunInProgressException":
     case "com.amazonaws.inspector.v20160216#AssessmentRunInProgressException":
-      response = await deserializeAws_json1_1AssessmentRunInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AssessmentRunInProgressExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(parsedOutput, context);
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1895,60 +1602,47 @@ export async function deserializeAws_json1_1DescribeAssessmentRunsCommand(
   context: __SerdeContext
 ): Promise<DescribeAssessmentRunsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeAssessmentRunsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeAssessmentRunsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAssessmentRunsResponse(
-    data.DescribeAssessmentRunsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeAssessmentRunsResponse(data, context);
   const response: DescribeAssessmentRunsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeAssessmentRunsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeAssessmentRunsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeAssessmentRunsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1959,60 +1653,47 @@ export async function deserializeAws_json1_1DescribeAssessmentTargetsCommand(
   context: __SerdeContext
 ): Promise<DescribeAssessmentTargetsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeAssessmentTargetsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeAssessmentTargetsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAssessmentTargetsResponse(
-    data.DescribeAssessmentTargetsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeAssessmentTargetsResponse(data, context);
   const response: DescribeAssessmentTargetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeAssessmentTargetsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeAssessmentTargetsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeAssessmentTargetsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2023,60 +1704,47 @@ export async function deserializeAws_json1_1DescribeAssessmentTemplatesCommand(
   context: __SerdeContext
 ): Promise<DescribeAssessmentTemplatesCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeAssessmentTemplatesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeAssessmentTemplatesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAssessmentTemplatesResponse(
-    data.DescribeAssessmentTemplatesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeAssessmentTemplatesResponse(data, context);
   const response: DescribeAssessmentTemplatesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeAssessmentTemplatesResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeAssessmentTemplatesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeAssessmentTemplatesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2087,53 +1755,43 @@ export async function deserializeAws_json1_1DescribeCrossAccountAccessRoleComman
   context: __SerdeContext
 ): Promise<DescribeCrossAccountAccessRoleCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeCrossAccountAccessRoleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeCrossAccountAccessRoleCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeCrossAccountAccessRoleResponse(
-    data.DescribeCrossAccountAccessRoleResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeCrossAccountAccessRoleResponse(data, context);
   const response: DescribeCrossAccountAccessRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeCrossAccountAccessRoleResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeCrossAccountAccessRoleCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeCrossAccountAccessRoleCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2144,60 +1802,47 @@ export async function deserializeAws_json1_1DescribeExclusionsCommand(
   context: __SerdeContext
 ): Promise<DescribeExclusionsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeExclusionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeExclusionsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeExclusionsResponse(
-    data.DescribeExclusionsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeExclusionsResponse(data, context);
   const response: DescribeExclusionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeExclusionsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeExclusionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeExclusionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2210,55 +1855,45 @@ export async function deserializeAws_json1_1DescribeFindingsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeFindingsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeFindingsResponse(
-    data.DescribeFindingsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeFindingsResponse(data, context);
   const response: DescribeFindingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeFindingsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeFindingsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeFindingsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2269,60 +1904,47 @@ export async function deserializeAws_json1_1DescribeResourceGroupsCommand(
   context: __SerdeContext
 ): Promise<DescribeResourceGroupsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeResourceGroupsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeResourceGroupsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeResourceGroupsResponse(
-    data.DescribeResourceGroupsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeResourceGroupsResponse(data, context);
   const response: DescribeResourceGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeResourceGroupsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeResourceGroupsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeResourceGroupsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2333,60 +1955,47 @@ export async function deserializeAws_json1_1DescribeRulesPackagesCommand(
   context: __SerdeContext
 ): Promise<DescribeRulesPackagesCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeRulesPackagesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeRulesPackagesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeRulesPackagesResponse(
-    data.DescribeRulesPackagesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeRulesPackagesResponse(data, context);
   const response: DescribeRulesPackagesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeRulesPackagesResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeRulesPackagesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeRulesPackagesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2397,95 +2006,67 @@ export async function deserializeAws_json1_1GetAssessmentReportCommand(
   context: __SerdeContext
 ): Promise<GetAssessmentReportCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetAssessmentReportCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetAssessmentReportCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1GetAssessmentReportResponse(
-    data.GetAssessmentReportResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetAssessmentReportResponse(data, context);
   const response: GetAssessmentReportCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetAssessmentReportResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetAssessmentReportCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetAssessmentReportCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "AssessmentRunInProgressException":
     case "com.amazonaws.inspector.v20160216#AssessmentRunInProgressException":
-      response = await deserializeAws_json1_1AssessmentRunInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AssessmentRunInProgressExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(parsedOutput, context);
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(parsedOutput, context);
       break;
     case "UnsupportedFeatureException":
     case "com.amazonaws.inspector.v20160216#UnsupportedFeatureException":
-      response = await deserializeAws_json1_1UnsupportedFeatureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnsupportedFeatureExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2496,74 +2077,55 @@ export async function deserializeAws_json1_1GetExclusionsPreviewCommand(
   context: __SerdeContext
 ): Promise<GetExclusionsPreviewCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetExclusionsPreviewCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetExclusionsPreviewCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1GetExclusionsPreviewResponse(
-    data.GetExclusionsPreviewResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetExclusionsPreviewResponse(data, context);
   const response: GetExclusionsPreviewCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetExclusionsPreviewResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetExclusionsPreviewCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetExclusionsPreviewCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2574,74 +2136,55 @@ export async function deserializeAws_json1_1GetTelemetryMetadataCommand(
   context: __SerdeContext
 ): Promise<GetTelemetryMetadataCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetTelemetryMetadataCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetTelemetryMetadataCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1GetTelemetryMetadataResponse(
-    data.GetTelemetryMetadataResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetTelemetryMetadataResponse(data, context);
   const response: GetTelemetryMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetTelemetryMetadataResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetTelemetryMetadataCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetTelemetryMetadataCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2652,74 +2195,55 @@ export async function deserializeAws_json1_1ListAssessmentRunAgentsCommand(
   context: __SerdeContext
 ): Promise<ListAssessmentRunAgentsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListAssessmentRunAgentsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListAssessmentRunAgentsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAssessmentRunAgentsResponse(
-    data.ListAssessmentRunAgentsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListAssessmentRunAgentsResponse(data, context);
   const response: ListAssessmentRunAgentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAssessmentRunAgentsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListAssessmentRunAgentsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListAssessmentRunAgentsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2730,74 +2254,55 @@ export async function deserializeAws_json1_1ListAssessmentRunsCommand(
   context: __SerdeContext
 ): Promise<ListAssessmentRunsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListAssessmentRunsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListAssessmentRunsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAssessmentRunsResponse(
-    data.ListAssessmentRunsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListAssessmentRunsResponse(data, context);
   const response: ListAssessmentRunsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAssessmentRunsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListAssessmentRunsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListAssessmentRunsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2808,67 +2313,51 @@ export async function deserializeAws_json1_1ListAssessmentTargetsCommand(
   context: __SerdeContext
 ): Promise<ListAssessmentTargetsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListAssessmentTargetsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListAssessmentTargetsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAssessmentTargetsResponse(
-    data.ListAssessmentTargetsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListAssessmentTargetsResponse(data, context);
   const response: ListAssessmentTargetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAssessmentTargetsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListAssessmentTargetsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListAssessmentTargetsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2879,74 +2368,55 @@ export async function deserializeAws_json1_1ListAssessmentTemplatesCommand(
   context: __SerdeContext
 ): Promise<ListAssessmentTemplatesCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListAssessmentTemplatesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListAssessmentTemplatesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAssessmentTemplatesResponse(
-    data.ListAssessmentTemplatesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListAssessmentTemplatesResponse(data, context);
   const response: ListAssessmentTemplatesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAssessmentTemplatesResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListAssessmentTemplatesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListAssessmentTemplatesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2957,74 +2427,55 @@ export async function deserializeAws_json1_1ListEventSubscriptionsCommand(
   context: __SerdeContext
 ): Promise<ListEventSubscriptionsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListEventSubscriptionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListEventSubscriptionsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1ListEventSubscriptionsResponse(
-    data.ListEventSubscriptionsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListEventSubscriptionsResponse(data, context);
   const response: ListEventSubscriptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListEventSubscriptionsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListEventSubscriptionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListEventSubscriptionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3037,69 +2488,53 @@ export async function deserializeAws_json1_1ListExclusionsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListExclusionsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1ListExclusionsResponse(
-    data.ListExclusionsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListExclusionsResponse(data, context);
   const response: ListExclusionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListExclusionsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListExclusionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListExclusionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3112,69 +2547,53 @@ export async function deserializeAws_json1_1ListFindingsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListFindingsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1ListFindingsResponse(
-    data.ListFindingsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListFindingsResponse(data, context);
   const response: ListFindingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListFindingsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListFindingsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListFindingsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3187,62 +2606,49 @@ export async function deserializeAws_json1_1ListRulesPackagesCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListRulesPackagesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1ListRulesPackagesResponse(
-    data.ListRulesPackagesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListRulesPackagesResponse(data, context);
   const response: ListRulesPackagesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListRulesPackagesResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListRulesPackagesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListRulesPackagesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3253,74 +2659,55 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(
-    data.ListTagsForResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListTagsForResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3333,76 +2720,57 @@ export async function deserializeAws_json1_1PreviewAgentsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PreviewAgentsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1PreviewAgentsResponse(
-    data.PreviewAgentsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PreviewAgentsResponse(data, context);
   const response: PreviewAgentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PreviewAgentsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1PreviewAgentsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<PreviewAgentsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidCrossAccountRoleException":
     case "com.amazonaws.inspector.v20160216#InvalidCrossAccountRoleException":
-      response = await deserializeAws_json1_1InvalidCrossAccountRoleExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidCrossAccountRoleExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3413,73 +2781,54 @@ export async function deserializeAws_json1_1RegisterCrossAccountAccessRoleComman
   context: __SerdeContext
 ): Promise<RegisterCrossAccountAccessRoleCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1RegisterCrossAccountAccessRoleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RegisterCrossAccountAccessRoleCommandError(output, context);
   }
   const response: RegisterCrossAccountAccessRoleCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1RegisterCrossAccountAccessRoleCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<RegisterCrossAccountAccessRoleCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidCrossAccountRoleException":
     case "com.amazonaws.inspector.v20160216#InvalidCrossAccountRoleException":
-      response = await deserializeAws_json1_1InvalidCrossAccountRoleExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidCrossAccountRoleExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3490,81 +2839,59 @@ export async function deserializeAws_json1_1RemoveAttributesFromFindingsCommand(
   context: __SerdeContext
 ): Promise<RemoveAttributesFromFindingsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1RemoveAttributesFromFindingsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RemoveAttributesFromFindingsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1RemoveAttributesFromFindingsResponse(
-    data.RemoveAttributesFromFindingsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1RemoveAttributesFromFindingsResponse(data, context);
   const response: RemoveAttributesFromFindingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RemoveAttributesFromFindingsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1RemoveAttributesFromFindingsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<RemoveAttributesFromFindingsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(parsedOutput, context);
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3575,73 +2902,54 @@ export async function deserializeAws_json1_1SetTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<SetTagsForResourceCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1SetTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1SetTagsForResourceCommandError(output, context);
   }
   const response: SetTagsForResourceCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1SetTagsForResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<SetTagsForResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(parsedOutput, context);
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3652,102 +2960,71 @@ export async function deserializeAws_json1_1StartAssessmentRunCommand(
   context: __SerdeContext
 ): Promise<StartAssessmentRunCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StartAssessmentRunCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartAssessmentRunCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1StartAssessmentRunResponse(
-    data.StartAssessmentRunResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartAssessmentRunResponse(data, context);
   const response: StartAssessmentRunCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartAssessmentRunResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1StartAssessmentRunCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<StartAssessmentRunCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "AgentsAlreadyRunningAssessmentException":
     case "com.amazonaws.inspector.v20160216#AgentsAlreadyRunningAssessmentException":
-      response = await deserializeAws_json1_1AgentsAlreadyRunningAssessmentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AgentsAlreadyRunningAssessmentExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidCrossAccountRoleException":
     case "com.amazonaws.inspector.v20160216#InvalidCrossAccountRoleException":
-      response = await deserializeAws_json1_1InvalidCrossAccountRoleExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidCrossAccountRoleExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.inspector.v20160216#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(parsedOutput, context);
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3761,67 +3038,51 @@ export async function deserializeAws_json1_1StopAssessmentRunCommand(
     return deserializeAws_json1_1StopAssessmentRunCommandError(output, context);
   }
   const response: StopAssessmentRunCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1StopAssessmentRunCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<StopAssessmentRunCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(parsedOutput, context);
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3835,74 +3096,55 @@ export async function deserializeAws_json1_1SubscribeToEventCommand(
     return deserializeAws_json1_1SubscribeToEventCommandError(output, context);
   }
   const response: SubscribeToEventCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1SubscribeToEventCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<SubscribeToEventCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.inspector.v20160216#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(parsedOutput, context);
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3913,73 +3155,54 @@ export async function deserializeAws_json1_1UnsubscribeFromEventCommand(
   context: __SerdeContext
 ): Promise<UnsubscribeFromEventCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UnsubscribeFromEventCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UnsubscribeFromEventCommandError(output, context);
   }
   const response: UnsubscribeFromEventCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UnsubscribeFromEventCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UnsubscribeFromEventCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(parsedOutput, context);
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3990,73 +3213,54 @@ export async function deserializeAws_json1_1UpdateAssessmentTargetCommand(
   context: __SerdeContext
 ): Promise<UpdateAssessmentTargetCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateAssessmentTargetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateAssessmentTargetCommandError(output, context);
   }
   const response: UpdateAssessmentTargetCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateAssessmentTargetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateAssessmentTargetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(parsedOutput, context);
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.inspector.v20160216#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4066,15 +3270,12 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
-  const deserialized: any = deserializeAws_json1_1AccessDeniedException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1AccessDeniedException(output.body, context);
   const contents: AccessDeniedException = {
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -4083,15 +3284,12 @@ const deserializeAws_json1_1AgentsAlreadyRunningAssessmentExceptionResponse = as
   output: any,
   context: __SerdeContext
 ): Promise<AgentsAlreadyRunningAssessmentException> => {
-  const deserialized: any = deserializeAws_json1_1AgentsAlreadyRunningAssessmentException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1AgentsAlreadyRunningAssessmentException(output.body, context);
   const contents: AgentsAlreadyRunningAssessmentException = {
     __type: "AgentsAlreadyRunningAssessmentException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -4100,15 +3298,12 @@ const deserializeAws_json1_1AssessmentRunInProgressExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<AssessmentRunInProgressException> => {
-  const deserialized: any = deserializeAws_json1_1AssessmentRunInProgressException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1AssessmentRunInProgressException(output.body, context);
   const contents: AssessmentRunInProgressException = {
     __type: "AssessmentRunInProgressException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -4117,15 +3312,12 @@ const deserializeAws_json1_1InternalExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InternalException> => {
-  const deserialized: any = deserializeAws_json1_1InternalException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalException(output.body, context);
   const contents: InternalException = {
     __type: "InternalException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -4134,15 +3326,12 @@ const deserializeAws_json1_1InvalidCrossAccountRoleExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidCrossAccountRoleException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidCrossAccountRoleException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidCrossAccountRoleException(output.body, context);
   const contents: InvalidCrossAccountRoleException = {
     __type: "InvalidCrossAccountRoleException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -4151,15 +3340,12 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidInputException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidInputException(output.body, context);
   const contents: InvalidInputException = {
     __type: "InvalidInputException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -4168,15 +3354,12 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1LimitExceededException(output.body, context);
   const contents: LimitExceededException = {
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -4185,15 +3368,12 @@ const deserializeAws_json1_1NoSuchEntityExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<NoSuchEntityException> => {
-  const deserialized: any = deserializeAws_json1_1NoSuchEntityException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1NoSuchEntityException(output.body, context);
   const contents: NoSuchEntityException = {
     __type: "NoSuchEntityException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -4202,15 +3382,12 @@ const deserializeAws_json1_1PreviewGenerationInProgressExceptionResponse = async
   output: any,
   context: __SerdeContext
 ): Promise<PreviewGenerationInProgressException> => {
-  const deserialized: any = deserializeAws_json1_1PreviewGenerationInProgressException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1PreviewGenerationInProgressException(output.body, context);
   const contents: PreviewGenerationInProgressException = {
     __type: "PreviewGenerationInProgressException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -4219,15 +3396,12 @@ const deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse = asy
   output: any,
   context: __SerdeContext
 ): Promise<ServiceTemporarilyUnavailableException> => {
-  const deserialized: any = deserializeAws_json1_1ServiceTemporarilyUnavailableException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ServiceTemporarilyUnavailableException(output.body, context);
   const contents: ServiceTemporarilyUnavailableException = {
     __type: "ServiceTemporarilyUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -4236,15 +3410,12 @@ const deserializeAws_json1_1UnsupportedFeatureExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<UnsupportedFeatureException> => {
-  const deserialized: any = deserializeAws_json1_1UnsupportedFeatureException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1UnsupportedFeatureException(output.body, context);
   const contents: UnsupportedFeatureException = {
     __type: "UnsupportedFeatureException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -4255,28 +3426,22 @@ const serializeAws_json1_1AddAttributesToFindingsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.attributes !== undefined) {
-    bodyParams["attributes"] = serializeAws_json1_1UserAttributeList(
-      input.attributes,
-      context
-    );
+    bodyParams['attributes'] = serializeAws_json1_1UserAttributeList(input.attributes, context);
   }
   if (input.findingArns !== undefined) {
-    bodyParams[
-      "findingArns"
-    ] = serializeAws_json1_1AddRemoveAttributesFindingArnList(
-      input.findingArns,
-      context
-    );
+    bodyParams['findingArns'] = serializeAws_json1_1AddRemoveAttributesFindingArnList(input.findingArns, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AddRemoveAttributesFindingArnList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1AgentFilter = (
   input: AgentFilter,
@@ -4284,40 +3449,40 @@ const serializeAws_json1_1AgentFilter = (
 ): any => {
   let bodyParams: any = {};
   if (input.agentHealthCodes !== undefined) {
-    bodyParams["agentHealthCodes"] = serializeAws_json1_1AgentHealthCodeList(
-      input.agentHealthCodes,
-      context
-    );
+    bodyParams['agentHealthCodes'] = serializeAws_json1_1AgentHealthCodeList(input.agentHealthCodes, context);
   }
   if (input.agentHealths !== undefined) {
-    bodyParams["agentHealths"] = serializeAws_json1_1AgentHealthList(
-      input.agentHealths,
-      context
-    );
+    bodyParams['agentHealths'] = serializeAws_json1_1AgentHealthList(input.agentHealths, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AgentHealthCodeList = (
   input: Array<AgentHealthCode | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1AgentHealthList = (
   input: Array<AgentHealth | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1AgentIdList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1AssessmentRunFilter = (
   input: AssessmentRunFilter,
@@ -4325,55 +3490,37 @@ const serializeAws_json1_1AssessmentRunFilter = (
 ): any => {
   let bodyParams: any = {};
   if (input.completionTimeRange !== undefined) {
-    bodyParams["completionTimeRange"] = serializeAws_json1_1TimestampRange(
-      input.completionTimeRange,
-      context
-    );
+    bodyParams['completionTimeRange'] = serializeAws_json1_1TimestampRange(input.completionTimeRange, context);
   }
   if (input.durationRange !== undefined) {
-    bodyParams["durationRange"] = serializeAws_json1_1DurationRange(
-      input.durationRange,
-      context
-    );
+    bodyParams['durationRange'] = serializeAws_json1_1DurationRange(input.durationRange, context);
   }
   if (input.namePattern !== undefined) {
-    bodyParams["namePattern"] = input.namePattern;
+    bodyParams['namePattern'] = input.namePattern;
   }
   if (input.rulesPackageArns !== undefined) {
-    bodyParams[
-      "rulesPackageArns"
-    ] = serializeAws_json1_1FilterRulesPackageArnList(
-      input.rulesPackageArns,
-      context
-    );
+    bodyParams['rulesPackageArns'] = serializeAws_json1_1FilterRulesPackageArnList(input.rulesPackageArns, context);
   }
   if (input.startTimeRange !== undefined) {
-    bodyParams["startTimeRange"] = serializeAws_json1_1TimestampRange(
-      input.startTimeRange,
-      context
-    );
+    bodyParams['startTimeRange'] = serializeAws_json1_1TimestampRange(input.startTimeRange, context);
   }
   if (input.stateChangeTimeRange !== undefined) {
-    bodyParams["stateChangeTimeRange"] = serializeAws_json1_1TimestampRange(
-      input.stateChangeTimeRange,
-      context
-    );
+    bodyParams['stateChangeTimeRange'] = serializeAws_json1_1TimestampRange(input.stateChangeTimeRange, context);
   }
   if (input.states !== undefined) {
-    bodyParams["states"] = serializeAws_json1_1AssessmentRunStateList(
-      input.states,
-      context
-    );
+    bodyParams['states'] = serializeAws_json1_1AssessmentRunStateList(input.states, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AssessmentRunStateList = (
   input: Array<AssessmentRunState | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1AssessmentTargetFilter = (
   input: AssessmentTargetFilter,
@@ -4381,11 +3528,10 @@ const serializeAws_json1_1AssessmentTargetFilter = (
 ): any => {
   let bodyParams: any = {};
   if (input.assessmentTargetNamePattern !== undefined) {
-    bodyParams["assessmentTargetNamePattern"] =
-      input.assessmentTargetNamePattern;
+    bodyParams['assessmentTargetNamePattern'] = input.assessmentTargetNamePattern;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AssessmentTemplateFilter = (
   input: AssessmentTemplateFilter,
@@ -4393,31 +3539,25 @@ const serializeAws_json1_1AssessmentTemplateFilter = (
 ): any => {
   let bodyParams: any = {};
   if (input.durationRange !== undefined) {
-    bodyParams["durationRange"] = serializeAws_json1_1DurationRange(
-      input.durationRange,
-      context
-    );
+    bodyParams['durationRange'] = serializeAws_json1_1DurationRange(input.durationRange, context);
   }
   if (input.namePattern !== undefined) {
-    bodyParams["namePattern"] = input.namePattern;
+    bodyParams['namePattern'] = input.namePattern;
   }
   if (input.rulesPackageArns !== undefined) {
-    bodyParams[
-      "rulesPackageArns"
-    ] = serializeAws_json1_1FilterRulesPackageArnList(
-      input.rulesPackageArns,
-      context
-    );
+    bodyParams['rulesPackageArns'] = serializeAws_json1_1FilterRulesPackageArnList(input.rulesPackageArns, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AssessmentTemplateRulesPackageArnList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1Attribute = (
   input: Attribute,
@@ -4425,13 +3565,13 @@ const serializeAws_json1_1Attribute = (
 ): any => {
   let bodyParams: any = {};
   if (input.key !== undefined) {
-    bodyParams["key"] = input.key;
+    bodyParams['key'] = input.key;
   }
   if (input.value !== undefined) {
-    bodyParams["value"] = input.value;
+    bodyParams['value'] = input.value;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AttributeList = (
   input: Array<Attribute>,
@@ -4440,28 +3580,34 @@ const serializeAws_json1_1AttributeList = (
   return (input || []).map(entry =>
     serializeAws_json1_1Attribute(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1AutoScalingGroupList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1BatchDescribeArnList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1BatchDescribeExclusionsArnList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1CreateAssessmentTargetRequest = (
   input: CreateAssessmentTargetRequest,
@@ -4469,13 +3615,13 @@ const serializeAws_json1_1CreateAssessmentTargetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.assessmentTargetName !== undefined) {
-    bodyParams["assessmentTargetName"] = input.assessmentTargetName;
+    bodyParams['assessmentTargetName'] = input.assessmentTargetName;
   }
   if (input.resourceGroupArn !== undefined) {
-    bodyParams["resourceGroupArn"] = input.resourceGroupArn;
+    bodyParams['resourceGroupArn'] = input.resourceGroupArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateAssessmentTemplateRequest = (
   input: CreateAssessmentTemplateRequest,
@@ -4483,32 +3629,22 @@ const serializeAws_json1_1CreateAssessmentTemplateRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.assessmentTargetArn !== undefined) {
-    bodyParams["assessmentTargetArn"] = input.assessmentTargetArn;
+    bodyParams['assessmentTargetArn'] = input.assessmentTargetArn;
   }
   if (input.assessmentTemplateName !== undefined) {
-    bodyParams["assessmentTemplateName"] = input.assessmentTemplateName;
+    bodyParams['assessmentTemplateName'] = input.assessmentTemplateName;
   }
   if (input.durationInSeconds !== undefined) {
-    bodyParams["durationInSeconds"] = input.durationInSeconds;
+    bodyParams['durationInSeconds'] = input.durationInSeconds;
   }
   if (input.rulesPackageArns !== undefined) {
-    bodyParams[
-      "rulesPackageArns"
-    ] = serializeAws_json1_1AssessmentTemplateRulesPackageArnList(
-      input.rulesPackageArns,
-      context
-    );
+    bodyParams['rulesPackageArns'] = serializeAws_json1_1AssessmentTemplateRulesPackageArnList(input.rulesPackageArns, context);
   }
   if (input.userAttributesForFindings !== undefined) {
-    bodyParams[
-      "userAttributesForFindings"
-    ] = serializeAws_json1_1UserAttributeList(
-      input.userAttributesForFindings,
-      context
-    );
+    bodyParams['userAttributesForFindings'] = serializeAws_json1_1UserAttributeList(input.userAttributesForFindings, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateExclusionsPreviewRequest = (
   input: CreateExclusionsPreviewRequest,
@@ -4516,10 +3652,10 @@ const serializeAws_json1_1CreateExclusionsPreviewRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.assessmentTemplateArn !== undefined) {
-    bodyParams["assessmentTemplateArn"] = input.assessmentTemplateArn;
+    bodyParams['assessmentTemplateArn'] = input.assessmentTemplateArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateResourceGroupRequest = (
   input: CreateResourceGroupRequest,
@@ -4527,13 +3663,10 @@ const serializeAws_json1_1CreateResourceGroupRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.resourceGroupTags !== undefined) {
-    bodyParams["resourceGroupTags"] = serializeAws_json1_1ResourceGroupTags(
-      input.resourceGroupTags,
-      context
-    );
+    bodyParams['resourceGroupTags'] = serializeAws_json1_1ResourceGroupTags(input.resourceGroupTags, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteAssessmentRunRequest = (
   input: DeleteAssessmentRunRequest,
@@ -4541,10 +3674,10 @@ const serializeAws_json1_1DeleteAssessmentRunRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.assessmentRunArn !== undefined) {
-    bodyParams["assessmentRunArn"] = input.assessmentRunArn;
+    bodyParams['assessmentRunArn'] = input.assessmentRunArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteAssessmentTargetRequest = (
   input: DeleteAssessmentTargetRequest,
@@ -4552,10 +3685,10 @@ const serializeAws_json1_1DeleteAssessmentTargetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.assessmentTargetArn !== undefined) {
-    bodyParams["assessmentTargetArn"] = input.assessmentTargetArn;
+    bodyParams['assessmentTargetArn'] = input.assessmentTargetArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteAssessmentTemplateRequest = (
   input: DeleteAssessmentTemplateRequest,
@@ -4563,10 +3696,10 @@ const serializeAws_json1_1DeleteAssessmentTemplateRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.assessmentTemplateArn !== undefined) {
-    bodyParams["assessmentTemplateArn"] = input.assessmentTemplateArn;
+    bodyParams['assessmentTemplateArn'] = input.assessmentTemplateArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeAssessmentRunsRequest = (
   input: DescribeAssessmentRunsRequest,
@@ -4574,13 +3707,10 @@ const serializeAws_json1_1DescribeAssessmentRunsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.assessmentRunArns !== undefined) {
-    bodyParams["assessmentRunArns"] = serializeAws_json1_1BatchDescribeArnList(
-      input.assessmentRunArns,
-      context
-    );
+    bodyParams['assessmentRunArns'] = serializeAws_json1_1BatchDescribeArnList(input.assessmentRunArns, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeAssessmentTargetsRequest = (
   input: DescribeAssessmentTargetsRequest,
@@ -4588,15 +3718,10 @@ const serializeAws_json1_1DescribeAssessmentTargetsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.assessmentTargetArns !== undefined) {
-    bodyParams[
-      "assessmentTargetArns"
-    ] = serializeAws_json1_1BatchDescribeArnList(
-      input.assessmentTargetArns,
-      context
-    );
+    bodyParams['assessmentTargetArns'] = serializeAws_json1_1BatchDescribeArnList(input.assessmentTargetArns, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeAssessmentTemplatesRequest = (
   input: DescribeAssessmentTemplatesRequest,
@@ -4604,15 +3729,10 @@ const serializeAws_json1_1DescribeAssessmentTemplatesRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.assessmentTemplateArns !== undefined) {
-    bodyParams[
-      "assessmentTemplateArns"
-    ] = serializeAws_json1_1BatchDescribeArnList(
-      input.assessmentTemplateArns,
-      context
-    );
+    bodyParams['assessmentTemplateArns'] = serializeAws_json1_1BatchDescribeArnList(input.assessmentTemplateArns, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeExclusionsRequest = (
   input: DescribeExclusionsRequest,
@@ -4620,18 +3740,13 @@ const serializeAws_json1_1DescribeExclusionsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.exclusionArns !== undefined) {
-    bodyParams[
-      "exclusionArns"
-    ] = serializeAws_json1_1BatchDescribeExclusionsArnList(
-      input.exclusionArns,
-      context
-    );
+    bodyParams['exclusionArns'] = serializeAws_json1_1BatchDescribeExclusionsArnList(input.exclusionArns, context);
   }
   if (input.locale !== undefined) {
-    bodyParams["locale"] = input.locale;
+    bodyParams['locale'] = input.locale;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeFindingsRequest = (
   input: DescribeFindingsRequest,
@@ -4639,16 +3754,13 @@ const serializeAws_json1_1DescribeFindingsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.findingArns !== undefined) {
-    bodyParams["findingArns"] = serializeAws_json1_1BatchDescribeArnList(
-      input.findingArns,
-      context
-    );
+    bodyParams['findingArns'] = serializeAws_json1_1BatchDescribeArnList(input.findingArns, context);
   }
   if (input.locale !== undefined) {
-    bodyParams["locale"] = input.locale;
+    bodyParams['locale'] = input.locale;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeResourceGroupsRequest = (
   input: DescribeResourceGroupsRequest,
@@ -4656,13 +3768,10 @@ const serializeAws_json1_1DescribeResourceGroupsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.resourceGroupArns !== undefined) {
-    bodyParams["resourceGroupArns"] = serializeAws_json1_1BatchDescribeArnList(
-      input.resourceGroupArns,
-      context
-    );
+    bodyParams['resourceGroupArns'] = serializeAws_json1_1BatchDescribeArnList(input.resourceGroupArns, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeRulesPackagesRequest = (
   input: DescribeRulesPackagesRequest,
@@ -4670,16 +3779,13 @@ const serializeAws_json1_1DescribeRulesPackagesRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.locale !== undefined) {
-    bodyParams["locale"] = input.locale;
+    bodyParams['locale'] = input.locale;
   }
   if (input.rulesPackageArns !== undefined) {
-    bodyParams["rulesPackageArns"] = serializeAws_json1_1BatchDescribeArnList(
-      input.rulesPackageArns,
-      context
-    );
+    bodyParams['rulesPackageArns'] = serializeAws_json1_1BatchDescribeArnList(input.rulesPackageArns, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DurationRange = (
   input: DurationRange,
@@ -4687,20 +3793,22 @@ const serializeAws_json1_1DurationRange = (
 ): any => {
   let bodyParams: any = {};
   if (input.maxSeconds !== undefined) {
-    bodyParams["maxSeconds"] = input.maxSeconds;
+    bodyParams['maxSeconds'] = input.maxSeconds;
   }
   if (input.minSeconds !== undefined) {
-    bodyParams["minSeconds"] = input.minSeconds;
+    bodyParams['minSeconds'] = input.minSeconds;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1FilterRulesPackageArnList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1FindingFilter = (
   input: FindingFilter,
@@ -4708,57 +3816,31 @@ const serializeAws_json1_1FindingFilter = (
 ): any => {
   let bodyParams: any = {};
   if (input.agentIds !== undefined) {
-    bodyParams["agentIds"] = serializeAws_json1_1AgentIdList(
-      input.agentIds,
-      context
-    );
+    bodyParams['agentIds'] = serializeAws_json1_1AgentIdList(input.agentIds, context);
   }
   if (input.attributes !== undefined) {
-    bodyParams["attributes"] = serializeAws_json1_1AttributeList(
-      input.attributes,
-      context
-    );
+    bodyParams['attributes'] = serializeAws_json1_1AttributeList(input.attributes, context);
   }
   if (input.autoScalingGroups !== undefined) {
-    bodyParams["autoScalingGroups"] = serializeAws_json1_1AutoScalingGroupList(
-      input.autoScalingGroups,
-      context
-    );
+    bodyParams['autoScalingGroups'] = serializeAws_json1_1AutoScalingGroupList(input.autoScalingGroups, context);
   }
   if (input.creationTimeRange !== undefined) {
-    bodyParams["creationTimeRange"] = serializeAws_json1_1TimestampRange(
-      input.creationTimeRange,
-      context
-    );
+    bodyParams['creationTimeRange'] = serializeAws_json1_1TimestampRange(input.creationTimeRange, context);
   }
   if (input.ruleNames !== undefined) {
-    bodyParams["ruleNames"] = serializeAws_json1_1RuleNameList(
-      input.ruleNames,
-      context
-    );
+    bodyParams['ruleNames'] = serializeAws_json1_1RuleNameList(input.ruleNames, context);
   }
   if (input.rulesPackageArns !== undefined) {
-    bodyParams[
-      "rulesPackageArns"
-    ] = serializeAws_json1_1FilterRulesPackageArnList(
-      input.rulesPackageArns,
-      context
-    );
+    bodyParams['rulesPackageArns'] = serializeAws_json1_1FilterRulesPackageArnList(input.rulesPackageArns, context);
   }
   if (input.severities !== undefined) {
-    bodyParams["severities"] = serializeAws_json1_1SeverityList(
-      input.severities,
-      context
-    );
+    bodyParams['severities'] = serializeAws_json1_1SeverityList(input.severities, context);
   }
   if (input.userAttributes !== undefined) {
-    bodyParams["userAttributes"] = serializeAws_json1_1AttributeList(
-      input.userAttributes,
-      context
-    );
+    bodyParams['userAttributes'] = serializeAws_json1_1AttributeList(input.userAttributes, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1GetAssessmentReportRequest = (
   input: GetAssessmentReportRequest,
@@ -4766,16 +3848,16 @@ const serializeAws_json1_1GetAssessmentReportRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.assessmentRunArn !== undefined) {
-    bodyParams["assessmentRunArn"] = input.assessmentRunArn;
+    bodyParams['assessmentRunArn'] = input.assessmentRunArn;
   }
   if (input.reportFileFormat !== undefined) {
-    bodyParams["reportFileFormat"] = input.reportFileFormat;
+    bodyParams['reportFileFormat'] = input.reportFileFormat;
   }
   if (input.reportType !== undefined) {
-    bodyParams["reportType"] = input.reportType;
+    bodyParams['reportType'] = input.reportType;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1GetExclusionsPreviewRequest = (
   input: GetExclusionsPreviewRequest,
@@ -4783,22 +3865,22 @@ const serializeAws_json1_1GetExclusionsPreviewRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.assessmentTemplateArn !== undefined) {
-    bodyParams["assessmentTemplateArn"] = input.assessmentTemplateArn;
+    bodyParams['assessmentTemplateArn'] = input.assessmentTemplateArn;
   }
   if (input.locale !== undefined) {
-    bodyParams["locale"] = input.locale;
+    bodyParams['locale'] = input.locale;
   }
   if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
+    bodyParams['maxResults'] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
+    bodyParams['nextToken'] = input.nextToken;
   }
   if (input.previewToken !== undefined) {
-    bodyParams["previewToken"] = input.previewToken;
+    bodyParams['previewToken'] = input.previewToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1GetTelemetryMetadataRequest = (
   input: GetTelemetryMetadataRequest,
@@ -4806,10 +3888,10 @@ const serializeAws_json1_1GetTelemetryMetadataRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.assessmentRunArn !== undefined) {
-    bodyParams["assessmentRunArn"] = input.assessmentRunArn;
+    bodyParams['assessmentRunArn'] = input.assessmentRunArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListAssessmentRunAgentsRequest = (
   input: ListAssessmentRunAgentsRequest,
@@ -4817,22 +3899,19 @@ const serializeAws_json1_1ListAssessmentRunAgentsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.assessmentRunArn !== undefined) {
-    bodyParams["assessmentRunArn"] = input.assessmentRunArn;
+    bodyParams['assessmentRunArn'] = input.assessmentRunArn;
   }
   if (input.filter !== undefined) {
-    bodyParams["filter"] = serializeAws_json1_1AgentFilter(
-      input.filter,
-      context
-    );
+    bodyParams['filter'] = serializeAws_json1_1AgentFilter(input.filter, context);
   }
   if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
+    bodyParams['maxResults'] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
+    bodyParams['nextToken'] = input.nextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListAssessmentRunsRequest = (
   input: ListAssessmentRunsRequest,
@@ -4840,27 +3919,19 @@ const serializeAws_json1_1ListAssessmentRunsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.assessmentTemplateArns !== undefined) {
-    bodyParams[
-      "assessmentTemplateArns"
-    ] = serializeAws_json1_1ListParentArnList(
-      input.assessmentTemplateArns,
-      context
-    );
+    bodyParams['assessmentTemplateArns'] = serializeAws_json1_1ListParentArnList(input.assessmentTemplateArns, context);
   }
   if (input.filter !== undefined) {
-    bodyParams["filter"] = serializeAws_json1_1AssessmentRunFilter(
-      input.filter,
-      context
-    );
+    bodyParams['filter'] = serializeAws_json1_1AssessmentRunFilter(input.filter, context);
   }
   if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
+    bodyParams['maxResults'] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
+    bodyParams['nextToken'] = input.nextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListAssessmentTargetsRequest = (
   input: ListAssessmentTargetsRequest,
@@ -4868,19 +3939,16 @@ const serializeAws_json1_1ListAssessmentTargetsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.filter !== undefined) {
-    bodyParams["filter"] = serializeAws_json1_1AssessmentTargetFilter(
-      input.filter,
-      context
-    );
+    bodyParams['filter'] = serializeAws_json1_1AssessmentTargetFilter(input.filter, context);
   }
   if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
+    bodyParams['maxResults'] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
+    bodyParams['nextToken'] = input.nextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListAssessmentTemplatesRequest = (
   input: ListAssessmentTemplatesRequest,
@@ -4888,25 +3956,19 @@ const serializeAws_json1_1ListAssessmentTemplatesRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.assessmentTargetArns !== undefined) {
-    bodyParams["assessmentTargetArns"] = serializeAws_json1_1ListParentArnList(
-      input.assessmentTargetArns,
-      context
-    );
+    bodyParams['assessmentTargetArns'] = serializeAws_json1_1ListParentArnList(input.assessmentTargetArns, context);
   }
   if (input.filter !== undefined) {
-    bodyParams["filter"] = serializeAws_json1_1AssessmentTemplateFilter(
-      input.filter,
-      context
-    );
+    bodyParams['filter'] = serializeAws_json1_1AssessmentTemplateFilter(input.filter, context);
   }
   if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
+    bodyParams['maxResults'] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
+    bodyParams['nextToken'] = input.nextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListEventSubscriptionsRequest = (
   input: ListEventSubscriptionsRequest,
@@ -4914,16 +3976,16 @@ const serializeAws_json1_1ListEventSubscriptionsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
+    bodyParams['maxResults'] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
+    bodyParams['nextToken'] = input.nextToken;
   }
   if (input.resourceArn !== undefined) {
-    bodyParams["resourceArn"] = input.resourceArn;
+    bodyParams['resourceArn'] = input.resourceArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListExclusionsRequest = (
   input: ListExclusionsRequest,
@@ -4931,16 +3993,16 @@ const serializeAws_json1_1ListExclusionsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.assessmentRunArn !== undefined) {
-    bodyParams["assessmentRunArn"] = input.assessmentRunArn;
+    bodyParams['assessmentRunArn'] = input.assessmentRunArn;
   }
   if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
+    bodyParams['maxResults'] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
+    bodyParams['nextToken'] = input.nextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListFindingsRequest = (
   input: ListFindingsRequest,
@@ -4948,32 +4010,28 @@ const serializeAws_json1_1ListFindingsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.assessmentRunArns !== undefined) {
-    bodyParams["assessmentRunArns"] = serializeAws_json1_1ListParentArnList(
-      input.assessmentRunArns,
-      context
-    );
+    bodyParams['assessmentRunArns'] = serializeAws_json1_1ListParentArnList(input.assessmentRunArns, context);
   }
   if (input.filter !== undefined) {
-    bodyParams["filter"] = serializeAws_json1_1FindingFilter(
-      input.filter,
-      context
-    );
+    bodyParams['filter'] = serializeAws_json1_1FindingFilter(input.filter, context);
   }
   if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
+    bodyParams['maxResults'] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
+    bodyParams['nextToken'] = input.nextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListParentArnList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1ListRulesPackagesRequest = (
   input: ListRulesPackagesRequest,
@@ -4981,13 +4039,13 @@ const serializeAws_json1_1ListRulesPackagesRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
+    bodyParams['maxResults'] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
+    bodyParams['nextToken'] = input.nextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
   input: ListTagsForResourceRequest,
@@ -4995,10 +4053,10 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.resourceArn !== undefined) {
-    bodyParams["resourceArn"] = input.resourceArn;
+    bodyParams['resourceArn'] = input.resourceArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1PreviewAgentsRequest = (
   input: PreviewAgentsRequest,
@@ -5006,16 +4064,16 @@ const serializeAws_json1_1PreviewAgentsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
+    bodyParams['maxResults'] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
+    bodyParams['nextToken'] = input.nextToken;
   }
   if (input.previewAgentsArn !== undefined) {
-    bodyParams["previewAgentsArn"] = input.previewAgentsArn;
+    bodyParams['previewAgentsArn'] = input.previewAgentsArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1RegisterCrossAccountAccessRoleRequest = (
   input: RegisterCrossAccountAccessRoleRequest,
@@ -5023,10 +4081,10 @@ const serializeAws_json1_1RegisterCrossAccountAccessRoleRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.roleArn !== undefined) {
-    bodyParams["roleArn"] = input.roleArn;
+    bodyParams['roleArn'] = input.roleArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1RemoveAttributesFromFindingsRequest = (
   input: RemoveAttributesFromFindingsRequest,
@@ -5034,21 +4092,13 @@ const serializeAws_json1_1RemoveAttributesFromFindingsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.attributeKeys !== undefined) {
-    bodyParams["attributeKeys"] = serializeAws_json1_1UserAttributeKeyList(
-      input.attributeKeys,
-      context
-    );
+    bodyParams['attributeKeys'] = serializeAws_json1_1UserAttributeKeyList(input.attributeKeys, context);
   }
   if (input.findingArns !== undefined) {
-    bodyParams[
-      "findingArns"
-    ] = serializeAws_json1_1AddRemoveAttributesFindingArnList(
-      input.findingArns,
-      context
-    );
+    bodyParams['findingArns'] = serializeAws_json1_1AddRemoveAttributesFindingArnList(input.findingArns, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ResourceGroupTag = (
   input: ResourceGroupTag,
@@ -5056,13 +4106,13 @@ const serializeAws_json1_1ResourceGroupTag = (
 ): any => {
   let bodyParams: any = {};
   if (input.key !== undefined) {
-    bodyParams["key"] = input.key;
+    bodyParams['key'] = input.key;
   }
   if (input.value !== undefined) {
-    bodyParams["value"] = input.value;
+    bodyParams['value'] = input.value;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ResourceGroupTags = (
   input: Array<ResourceGroupTag>,
@@ -5071,14 +4121,16 @@ const serializeAws_json1_1ResourceGroupTags = (
   return (input || []).map(entry =>
     serializeAws_json1_1ResourceGroupTag(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1RuleNameList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1SetTagsForResourceRequest = (
   input: SetTagsForResourceRequest,
@@ -5086,20 +4138,22 @@ const serializeAws_json1_1SetTagsForResourceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.resourceArn !== undefined) {
-    bodyParams["resourceArn"] = input.resourceArn;
+    bodyParams['resourceArn'] = input.resourceArn;
   }
   if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_json1_1TagList(input.tags, context);
+    bodyParams['tags'] = serializeAws_json1_1TagList(input.tags, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1SeverityList = (
   input: Array<Severity | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1StartAssessmentRunRequest = (
   input: StartAssessmentRunRequest,
@@ -5107,13 +4161,13 @@ const serializeAws_json1_1StartAssessmentRunRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.assessmentRunName !== undefined) {
-    bodyParams["assessmentRunName"] = input.assessmentRunName;
+    bodyParams['assessmentRunName'] = input.assessmentRunName;
   }
   if (input.assessmentTemplateArn !== undefined) {
-    bodyParams["assessmentTemplateArn"] = input.assessmentTemplateArn;
+    bodyParams['assessmentTemplateArn'] = input.assessmentTemplateArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1StopAssessmentRunRequest = (
   input: StopAssessmentRunRequest,
@@ -5121,13 +4175,13 @@ const serializeAws_json1_1StopAssessmentRunRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.assessmentRunArn !== undefined) {
-    bodyParams["assessmentRunArn"] = input.assessmentRunArn;
+    bodyParams['assessmentRunArn'] = input.assessmentRunArn;
   }
   if (input.stopAction !== undefined) {
-    bodyParams["stopAction"] = input.stopAction;
+    bodyParams['stopAction'] = input.stopAction;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1SubscribeToEventRequest = (
   input: SubscribeToEventRequest,
@@ -5135,34 +4189,39 @@ const serializeAws_json1_1SubscribeToEventRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.event !== undefined) {
-    bodyParams["event"] = input.event;
+    bodyParams['event'] = input.event;
   }
   if (input.resourceArn !== undefined) {
-    bodyParams["resourceArn"] = input.resourceArn;
+    bodyParams['resourceArn'] = input.resourceArn;
   }
   if (input.topicArn !== undefined) {
-    bodyParams["topicArn"] = input.topicArn;
+    bodyParams['topicArn'] = input.topicArn;
   }
   return bodyParams;
-};
+}
 
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+const serializeAws_json1_1Tag = (
+  input: Tag,
+  context: __SerdeContext
+): any => {
   let bodyParams: any = {};
   if (input.key !== undefined) {
-    bodyParams["key"] = input.key;
+    bodyParams['key'] = input.key;
   }
   if (input.value !== undefined) {
-    bodyParams["value"] = input.value;
+    bodyParams['value'] = input.value;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1TagList = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Tag(entry, context));
-};
+  return (input || []).map(entry =>
+    serializeAws_json1_1Tag(entry, context)
+  );
+}
 
 const serializeAws_json1_1TimestampRange = (
   input: TimestampRange,
@@ -5170,13 +4229,13 @@ const serializeAws_json1_1TimestampRange = (
 ): any => {
   let bodyParams: any = {};
   if (input.beginDate !== undefined) {
-    bodyParams["beginDate"] = Math.round(input.beginDate.getTime() / 1000);
+    bodyParams['beginDate'] = Math.round(input.beginDate.getTime() / 1000);
   }
   if (input.endDate !== undefined) {
-    bodyParams["endDate"] = Math.round(input.endDate.getTime() / 1000);
+    bodyParams['endDate'] = Math.round(input.endDate.getTime() / 1000);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UnsubscribeFromEventRequest = (
   input: UnsubscribeFromEventRequest,
@@ -5184,16 +4243,16 @@ const serializeAws_json1_1UnsubscribeFromEventRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.event !== undefined) {
-    bodyParams["event"] = input.event;
+    bodyParams['event'] = input.event;
   }
   if (input.resourceArn !== undefined) {
-    bodyParams["resourceArn"] = input.resourceArn;
+    bodyParams['resourceArn'] = input.resourceArn;
   }
   if (input.topicArn !== undefined) {
-    bodyParams["topicArn"] = input.topicArn;
+    bodyParams['topicArn'] = input.topicArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateAssessmentTargetRequest = (
   input: UpdateAssessmentTargetRequest,
@@ -5201,23 +4260,25 @@ const serializeAws_json1_1UpdateAssessmentTargetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.assessmentTargetArn !== undefined) {
-    bodyParams["assessmentTargetArn"] = input.assessmentTargetArn;
+    bodyParams['assessmentTargetArn'] = input.assessmentTargetArn;
   }
   if (input.assessmentTargetName !== undefined) {
-    bodyParams["assessmentTargetName"] = input.assessmentTargetName;
+    bodyParams['assessmentTargetName'] = input.assessmentTargetName;
   }
   if (input.resourceGroupArn !== undefined) {
-    bodyParams["resourceGroupArn"] = input.resourceGroupArn;
+    bodyParams['resourceGroupArn'] = input.resourceGroupArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UserAttributeKeyList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1UserAttributeList = (
   input: Array<Attribute>,
@@ -5226,7 +4287,7 @@ const serializeAws_json1_1UserAttributeList = (
   return (input || []).map(entry =>
     serializeAws_json1_1Attribute(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1AccessDeniedException = (
   output: any,
@@ -5236,7 +4297,7 @@ const deserializeAws_json1_1AccessDeniedException = (
     __type: "AccessDeniedException",
     canRetry: undefined,
     errorCode: undefined,
-    message: undefined
+    message: undefined,
   };
   if (output.canRetry !== undefined) {
     contents.canRetry = output.canRetry;
@@ -5248,7 +4309,7 @@ const deserializeAws_json1_1AccessDeniedException = (
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AddAttributesToFindingsResponse = (
   output: any,
@@ -5256,16 +4317,13 @@ const deserializeAws_json1_1AddAttributesToFindingsResponse = (
 ): AddAttributesToFindingsResponse => {
   let contents: any = {
     __type: "AddAttributesToFindingsResponse",
-    failedItems: undefined
+    failedItems: undefined,
   };
   if (output.failedItems !== undefined) {
-    contents.failedItems = deserializeAws_json1_1FailedItems(
-      output.failedItems,
-      context
-    );
+    contents.failedItems = deserializeAws_json1_1FailedItems(output.failedItems, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AgentAlreadyRunningAssessment = (
   output: any,
@@ -5274,7 +4332,7 @@ const deserializeAws_json1_1AgentAlreadyRunningAssessment = (
   let contents: any = {
     __type: "AgentAlreadyRunningAssessment",
     agentId: undefined,
-    assessmentRunArn: undefined
+    assessmentRunArn: undefined,
   };
   if (output.agentId !== undefined) {
     contents.agentId = output.agentId;
@@ -5283,7 +4341,7 @@ const deserializeAws_json1_1AgentAlreadyRunningAssessment = (
     contents.assessmentRunArn = output.assessmentRunArn;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AgentAlreadyRunningAssessmentList = (
   output: any,
@@ -5292,7 +4350,7 @@ const deserializeAws_json1_1AgentAlreadyRunningAssessmentList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AgentAlreadyRunningAssessment(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1AgentPreview = (
   output: any,
@@ -5307,7 +4365,7 @@ const deserializeAws_json1_1AgentPreview = (
     hostname: undefined,
     ipv4Address: undefined,
     kernelVersion: undefined,
-    operatingSystem: undefined
+    operatingSystem: undefined,
   };
   if (output.agentHealth !== undefined) {
     contents.agentHealth = output.agentHealth;
@@ -5334,7 +4392,7 @@ const deserializeAws_json1_1AgentPreview = (
     contents.operatingSystem = output.operatingSystem;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AgentPreviewList = (
   output: any,
@@ -5343,7 +4401,7 @@ const deserializeAws_json1_1AgentPreviewList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AgentPreview(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1AgentsAlreadyRunningAssessmentException = (
   output: any,
@@ -5354,13 +4412,10 @@ const deserializeAws_json1_1AgentsAlreadyRunningAssessmentException = (
     agents: undefined,
     agentsTruncated: undefined,
     canRetry: undefined,
-    message: undefined
+    message: undefined,
   };
   if (output.agents !== undefined) {
-    contents.agents = deserializeAws_json1_1AgentAlreadyRunningAssessmentList(
-      output.agents,
-      context
-    );
+    contents.agents = deserializeAws_json1_1AgentAlreadyRunningAssessmentList(output.agents, context);
   }
   if (output.agentsTruncated !== undefined) {
     contents.agentsTruncated = output.agentsTruncated;
@@ -5372,14 +4427,16 @@ const deserializeAws_json1_1AgentsAlreadyRunningAssessmentException = (
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AssessmentRulesPackageArnList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1AssessmentRun = (
   output: any,
@@ -5401,7 +4458,7 @@ const deserializeAws_json1_1AssessmentRun = (
     state: undefined,
     stateChangedAt: undefined,
     stateChanges: undefined,
-    userAttributesForFindings: undefined
+    userAttributesForFindings: undefined,
   };
   if (output.arn !== undefined) {
     contents.arn = output.arn;
@@ -5410,18 +4467,10 @@ const deserializeAws_json1_1AssessmentRun = (
     contents.assessmentTemplateArn = output.assessmentTemplateArn;
   }
   if (output.completedAt !== undefined) {
-    contents.completedAt = new Date(
-      output.completedAt % 1 != 0
-        ? Math.round(output.completedAt * 1000)
-        : output.completedAt
-    );
+    contents.completedAt = new Date(output.completedAt % 1 != 0 ? Math.round(output.completedAt * 1000) : output.completedAt);
   }
   if (output.createdAt !== undefined) {
-    contents.createdAt = new Date(
-      output.createdAt % 1 != 0
-        ? Math.round(output.createdAt * 1000)
-        : output.createdAt
-    );
+    contents.createdAt = new Date(output.createdAt % 1 != 0 ? Math.round(output.createdAt * 1000) : output.createdAt);
   }
   if (output.dataCollected !== undefined) {
     contents.dataCollected = output.dataCollected;
@@ -5430,57 +4479,34 @@ const deserializeAws_json1_1AssessmentRun = (
     contents.durationInSeconds = output.durationInSeconds;
   }
   if (output.findingCounts !== undefined) {
-    contents.findingCounts = deserializeAws_json1_1AssessmentRunFindingCounts(
-      output.findingCounts,
-      context
-    );
+    contents.findingCounts = deserializeAws_json1_1AssessmentRunFindingCounts(output.findingCounts, context);
   }
   if (output.name !== undefined) {
     contents.name = output.name;
   }
   if (output.notifications !== undefined) {
-    contents.notifications = deserializeAws_json1_1AssessmentRunNotificationList(
-      output.notifications,
-      context
-    );
+    contents.notifications = deserializeAws_json1_1AssessmentRunNotificationList(output.notifications, context);
   }
   if (output.rulesPackageArns !== undefined) {
-    contents.rulesPackageArns = deserializeAws_json1_1AssessmentRulesPackageArnList(
-      output.rulesPackageArns,
-      context
-    );
+    contents.rulesPackageArns = deserializeAws_json1_1AssessmentRulesPackageArnList(output.rulesPackageArns, context);
   }
   if (output.startedAt !== undefined) {
-    contents.startedAt = new Date(
-      output.startedAt % 1 != 0
-        ? Math.round(output.startedAt * 1000)
-        : output.startedAt
-    );
+    contents.startedAt = new Date(output.startedAt % 1 != 0 ? Math.round(output.startedAt * 1000) : output.startedAt);
   }
   if (output.state !== undefined) {
     contents.state = output.state;
   }
   if (output.stateChangedAt !== undefined) {
-    contents.stateChangedAt = new Date(
-      output.stateChangedAt % 1 != 0
-        ? Math.round(output.stateChangedAt * 1000)
-        : output.stateChangedAt
-    );
+    contents.stateChangedAt = new Date(output.stateChangedAt % 1 != 0 ? Math.round(output.stateChangedAt * 1000) : output.stateChangedAt);
   }
   if (output.stateChanges !== undefined) {
-    contents.stateChanges = deserializeAws_json1_1AssessmentRunStateChangeList(
-      output.stateChanges,
-      context
-    );
+    contents.stateChanges = deserializeAws_json1_1AssessmentRunStateChangeList(output.stateChanges, context);
   }
   if (output.userAttributesForFindings !== undefined) {
-    contents.userAttributesForFindings = deserializeAws_json1_1UserAttributeList(
-      output.userAttributesForFindings,
-      context
-    );
+    contents.userAttributesForFindings = deserializeAws_json1_1UserAttributeList(output.userAttributesForFindings, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AssessmentRunAgent = (
   output: any,
@@ -5494,7 +4520,7 @@ const deserializeAws_json1_1AssessmentRunAgent = (
     agentId: undefined,
     assessmentRunArn: undefined,
     autoScalingGroup: undefined,
-    telemetryMetadata: undefined
+    telemetryMetadata: undefined,
   };
   if (output.agentHealth !== undefined) {
     contents.agentHealth = output.agentHealth;
@@ -5515,13 +4541,10 @@ const deserializeAws_json1_1AssessmentRunAgent = (
     contents.autoScalingGroup = output.autoScalingGroup;
   }
   if (output.telemetryMetadata !== undefined) {
-    contents.telemetryMetadata = deserializeAws_json1_1TelemetryMetadataList(
-      output.telemetryMetadata,
-      context
-    );
+    contents.telemetryMetadata = deserializeAws_json1_1TelemetryMetadataList(output.telemetryMetadata, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AssessmentRunAgentList = (
   output: any,
@@ -5530,7 +4553,7 @@ const deserializeAws_json1_1AssessmentRunAgentList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AssessmentRunAgent(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1AssessmentRunFindingCounts = (
   output: any,
@@ -5541,14 +4564,16 @@ const deserializeAws_json1_1AssessmentRunFindingCounts = (
     mapParams[key] = output[key];
   });
   return mapParams;
-};
+}
 
 const deserializeAws_json1_1AssessmentRunInProgressArnList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1AssessmentRunInProgressException = (
   output: any,
@@ -5559,13 +4584,10 @@ const deserializeAws_json1_1AssessmentRunInProgressException = (
     assessmentRunArns: undefined,
     assessmentRunArnsTruncated: undefined,
     canRetry: undefined,
-    message: undefined
+    message: undefined,
   };
   if (output.assessmentRunArns !== undefined) {
-    contents.assessmentRunArns = deserializeAws_json1_1AssessmentRunInProgressArnList(
-      output.assessmentRunArns,
-      context
-    );
+    contents.assessmentRunArns = deserializeAws_json1_1AssessmentRunInProgressArnList(output.assessmentRunArns, context);
   }
   if (output.assessmentRunArnsTruncated !== undefined) {
     contents.assessmentRunArnsTruncated = output.assessmentRunArnsTruncated;
@@ -5577,7 +4599,7 @@ const deserializeAws_json1_1AssessmentRunInProgressException = (
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AssessmentRunList = (
   output: any,
@@ -5586,7 +4608,7 @@ const deserializeAws_json1_1AssessmentRunList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AssessmentRun(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1AssessmentRunNotification = (
   output: any,
@@ -5599,12 +4621,10 @@ const deserializeAws_json1_1AssessmentRunNotification = (
     event: undefined,
     message: undefined,
     snsPublishStatusCode: undefined,
-    snsTopicArn: undefined
+    snsTopicArn: undefined,
   };
   if (output.date !== undefined) {
-    contents.date = new Date(
-      output.date % 1 != 0 ? Math.round(output.date * 1000) : output.date
-    );
+    contents.date = new Date(output.date % 1 != 0 ? Math.round(output.date * 1000) : output.date);
   }
   if (output.error !== undefined) {
     contents.error = output.error;
@@ -5622,7 +4642,7 @@ const deserializeAws_json1_1AssessmentRunNotification = (
     contents.snsTopicArn = output.snsTopicArn;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AssessmentRunNotificationList = (
   output: any,
@@ -5631,7 +4651,7 @@ const deserializeAws_json1_1AssessmentRunNotificationList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AssessmentRunNotification(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1AssessmentRunStateChange = (
   output: any,
@@ -5640,20 +4660,16 @@ const deserializeAws_json1_1AssessmentRunStateChange = (
   let contents: any = {
     __type: "AssessmentRunStateChange",
     state: undefined,
-    stateChangedAt: undefined
+    stateChangedAt: undefined,
   };
   if (output.state !== undefined) {
     contents.state = output.state;
   }
   if (output.stateChangedAt !== undefined) {
-    contents.stateChangedAt = new Date(
-      output.stateChangedAt % 1 != 0
-        ? Math.round(output.stateChangedAt * 1000)
-        : output.stateChangedAt
-    );
+    contents.stateChangedAt = new Date(output.stateChangedAt % 1 != 0 ? Math.round(output.stateChangedAt * 1000) : output.stateChangedAt);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AssessmentRunStateChangeList = (
   output: any,
@@ -5662,7 +4678,7 @@ const deserializeAws_json1_1AssessmentRunStateChangeList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AssessmentRunStateChange(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1AssessmentTarget = (
   output: any,
@@ -5674,17 +4690,13 @@ const deserializeAws_json1_1AssessmentTarget = (
     createdAt: undefined,
     name: undefined,
     resourceGroupArn: undefined,
-    updatedAt: undefined
+    updatedAt: undefined,
   };
   if (output.arn !== undefined) {
     contents.arn = output.arn;
   }
   if (output.createdAt !== undefined) {
-    contents.createdAt = new Date(
-      output.createdAt % 1 != 0
-        ? Math.round(output.createdAt * 1000)
-        : output.createdAt
-    );
+    contents.createdAt = new Date(output.createdAt % 1 != 0 ? Math.round(output.createdAt * 1000) : output.createdAt);
   }
   if (output.name !== undefined) {
     contents.name = output.name;
@@ -5693,14 +4705,10 @@ const deserializeAws_json1_1AssessmentTarget = (
     contents.resourceGroupArn = output.resourceGroupArn;
   }
   if (output.updatedAt !== undefined) {
-    contents.updatedAt = new Date(
-      output.updatedAt % 1 != 0
-        ? Math.round(output.updatedAt * 1000)
-        : output.updatedAt
-    );
+    contents.updatedAt = new Date(output.updatedAt % 1 != 0 ? Math.round(output.updatedAt * 1000) : output.updatedAt);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AssessmentTargetList = (
   output: any,
@@ -5709,7 +4717,7 @@ const deserializeAws_json1_1AssessmentTargetList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AssessmentTarget(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1AssessmentTemplate = (
   output: any,
@@ -5725,7 +4733,7 @@ const deserializeAws_json1_1AssessmentTemplate = (
     lastAssessmentRunArn: undefined,
     name: undefined,
     rulesPackageArns: undefined,
-    userAttributesForFindings: undefined
+    userAttributesForFindings: undefined,
   };
   if (output.arn !== undefined) {
     contents.arn = output.arn;
@@ -5737,11 +4745,7 @@ const deserializeAws_json1_1AssessmentTemplate = (
     contents.assessmentTargetArn = output.assessmentTargetArn;
   }
   if (output.createdAt !== undefined) {
-    contents.createdAt = new Date(
-      output.createdAt % 1 != 0
-        ? Math.round(output.createdAt * 1000)
-        : output.createdAt
-    );
+    contents.createdAt = new Date(output.createdAt % 1 != 0 ? Math.round(output.createdAt * 1000) : output.createdAt);
   }
   if (output.durationInSeconds !== undefined) {
     contents.durationInSeconds = output.durationInSeconds;
@@ -5753,19 +4757,13 @@ const deserializeAws_json1_1AssessmentTemplate = (
     contents.name = output.name;
   }
   if (output.rulesPackageArns !== undefined) {
-    contents.rulesPackageArns = deserializeAws_json1_1AssessmentTemplateRulesPackageArnList(
-      output.rulesPackageArns,
-      context
-    );
+    contents.rulesPackageArns = deserializeAws_json1_1AssessmentTemplateRulesPackageArnList(output.rulesPackageArns, context);
   }
   if (output.userAttributesForFindings !== undefined) {
-    contents.userAttributesForFindings = deserializeAws_json1_1UserAttributeList(
-      output.userAttributesForFindings,
-      context
-    );
+    contents.userAttributesForFindings = deserializeAws_json1_1UserAttributeList(output.userAttributesForFindings, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AssessmentTemplateList = (
   output: any,
@@ -5774,14 +4772,16 @@ const deserializeAws_json1_1AssessmentTemplateList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AssessmentTemplate(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1AssessmentTemplateRulesPackageArnList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1AssetAttributes = (
   output: any,
@@ -5796,7 +4796,7 @@ const deserializeAws_json1_1AssetAttributes = (
     ipv4Addresses: undefined,
     networkInterfaces: undefined,
     schemaVersion: undefined,
-    tags: undefined
+    tags: undefined,
   };
   if (output.agentId !== undefined) {
     contents.agentId = output.agentId;
@@ -5811,16 +4811,10 @@ const deserializeAws_json1_1AssetAttributes = (
     contents.hostname = output.hostname;
   }
   if (output.ipv4Addresses !== undefined) {
-    contents.ipv4Addresses = deserializeAws_json1_1Ipv4AddressList(
-      output.ipv4Addresses,
-      context
-    );
+    contents.ipv4Addresses = deserializeAws_json1_1Ipv4AddressList(output.ipv4Addresses, context);
   }
   if (output.networkInterfaces !== undefined) {
-    contents.networkInterfaces = deserializeAws_json1_1NetworkInterfaces(
-      output.networkInterfaces,
-      context
-    );
+    contents.networkInterfaces = deserializeAws_json1_1NetworkInterfaces(output.networkInterfaces, context);
   }
   if (output.schemaVersion !== undefined) {
     contents.schemaVersion = output.schemaVersion;
@@ -5829,7 +4823,7 @@ const deserializeAws_json1_1AssetAttributes = (
     contents.tags = deserializeAws_json1_1Tags(output.tags, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1Attribute = (
   output: any,
@@ -5838,7 +4832,7 @@ const deserializeAws_json1_1Attribute = (
   let contents: any = {
     __type: "Attribute",
     key: undefined,
-    value: undefined
+    value: undefined,
   };
   if (output.key !== undefined) {
     contents.key = output.key;
@@ -5847,7 +4841,7 @@ const deserializeAws_json1_1Attribute = (
     contents.value = output.value;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AttributeList = (
   output: any,
@@ -5856,7 +4850,7 @@ const deserializeAws_json1_1AttributeList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Attribute(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1CreateAssessmentTargetResponse = (
   output: any,
@@ -5864,13 +4858,13 @@ const deserializeAws_json1_1CreateAssessmentTargetResponse = (
 ): CreateAssessmentTargetResponse => {
   let contents: any = {
     __type: "CreateAssessmentTargetResponse",
-    assessmentTargetArn: undefined
+    assessmentTargetArn: undefined,
   };
   if (output.assessmentTargetArn !== undefined) {
     contents.assessmentTargetArn = output.assessmentTargetArn;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateAssessmentTemplateResponse = (
   output: any,
@@ -5878,13 +4872,13 @@ const deserializeAws_json1_1CreateAssessmentTemplateResponse = (
 ): CreateAssessmentTemplateResponse => {
   let contents: any = {
     __type: "CreateAssessmentTemplateResponse",
-    assessmentTemplateArn: undefined
+    assessmentTemplateArn: undefined,
   };
   if (output.assessmentTemplateArn !== undefined) {
     contents.assessmentTemplateArn = output.assessmentTemplateArn;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateExclusionsPreviewResponse = (
   output: any,
@@ -5892,13 +4886,13 @@ const deserializeAws_json1_1CreateExclusionsPreviewResponse = (
 ): CreateExclusionsPreviewResponse => {
   let contents: any = {
     __type: "CreateExclusionsPreviewResponse",
-    previewToken: undefined
+    previewToken: undefined,
   };
   if (output.previewToken !== undefined) {
     contents.previewToken = output.previewToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateResourceGroupResponse = (
   output: any,
@@ -5906,13 +4900,13 @@ const deserializeAws_json1_1CreateResourceGroupResponse = (
 ): CreateResourceGroupResponse => {
   let contents: any = {
     __type: "CreateResourceGroupResponse",
-    resourceGroupArn: undefined
+    resourceGroupArn: undefined,
   };
   if (output.resourceGroupArn !== undefined) {
     contents.resourceGroupArn = output.resourceGroupArn;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeAssessmentRunsResponse = (
   output: any,
@@ -5921,22 +4915,16 @@ const deserializeAws_json1_1DescribeAssessmentRunsResponse = (
   let contents: any = {
     __type: "DescribeAssessmentRunsResponse",
     assessmentRuns: undefined,
-    failedItems: undefined
+    failedItems: undefined,
   };
   if (output.assessmentRuns !== undefined) {
-    contents.assessmentRuns = deserializeAws_json1_1AssessmentRunList(
-      output.assessmentRuns,
-      context
-    );
+    contents.assessmentRuns = deserializeAws_json1_1AssessmentRunList(output.assessmentRuns, context);
   }
   if (output.failedItems !== undefined) {
-    contents.failedItems = deserializeAws_json1_1FailedItems(
-      output.failedItems,
-      context
-    );
+    contents.failedItems = deserializeAws_json1_1FailedItems(output.failedItems, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeAssessmentTargetsResponse = (
   output: any,
@@ -5945,22 +4933,16 @@ const deserializeAws_json1_1DescribeAssessmentTargetsResponse = (
   let contents: any = {
     __type: "DescribeAssessmentTargetsResponse",
     assessmentTargets: undefined,
-    failedItems: undefined
+    failedItems: undefined,
   };
   if (output.assessmentTargets !== undefined) {
-    contents.assessmentTargets = deserializeAws_json1_1AssessmentTargetList(
-      output.assessmentTargets,
-      context
-    );
+    contents.assessmentTargets = deserializeAws_json1_1AssessmentTargetList(output.assessmentTargets, context);
   }
   if (output.failedItems !== undefined) {
-    contents.failedItems = deserializeAws_json1_1FailedItems(
-      output.failedItems,
-      context
-    );
+    contents.failedItems = deserializeAws_json1_1FailedItems(output.failedItems, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeAssessmentTemplatesResponse = (
   output: any,
@@ -5969,22 +4951,16 @@ const deserializeAws_json1_1DescribeAssessmentTemplatesResponse = (
   let contents: any = {
     __type: "DescribeAssessmentTemplatesResponse",
     assessmentTemplates: undefined,
-    failedItems: undefined
+    failedItems: undefined,
   };
   if (output.assessmentTemplates !== undefined) {
-    contents.assessmentTemplates = deserializeAws_json1_1AssessmentTemplateList(
-      output.assessmentTemplates,
-      context
-    );
+    contents.assessmentTemplates = deserializeAws_json1_1AssessmentTemplateList(output.assessmentTemplates, context);
   }
   if (output.failedItems !== undefined) {
-    contents.failedItems = deserializeAws_json1_1FailedItems(
-      output.failedItems,
-      context
-    );
+    contents.failedItems = deserializeAws_json1_1FailedItems(output.failedItems, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeCrossAccountAccessRoleResponse = (
   output: any,
@@ -5994,14 +4970,10 @@ const deserializeAws_json1_1DescribeCrossAccountAccessRoleResponse = (
     __type: "DescribeCrossAccountAccessRoleResponse",
     registeredAt: undefined,
     roleArn: undefined,
-    valid: undefined
+    valid: undefined,
   };
   if (output.registeredAt !== undefined) {
-    contents.registeredAt = new Date(
-      output.registeredAt % 1 != 0
-        ? Math.round(output.registeredAt * 1000)
-        : output.registeredAt
-    );
+    contents.registeredAt = new Date(output.registeredAt % 1 != 0 ? Math.round(output.registeredAt * 1000) : output.registeredAt);
   }
   if (output.roleArn !== undefined) {
     contents.roleArn = output.roleArn;
@@ -6010,7 +4982,7 @@ const deserializeAws_json1_1DescribeCrossAccountAccessRoleResponse = (
     contents.valid = output.valid;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeExclusionsResponse = (
   output: any,
@@ -6019,22 +4991,16 @@ const deserializeAws_json1_1DescribeExclusionsResponse = (
   let contents: any = {
     __type: "DescribeExclusionsResponse",
     exclusions: undefined,
-    failedItems: undefined
+    failedItems: undefined,
   };
   if (output.exclusions !== undefined) {
-    contents.exclusions = deserializeAws_json1_1ExclusionMap(
-      output.exclusions,
-      context
-    );
+    contents.exclusions = deserializeAws_json1_1ExclusionMap(output.exclusions, context);
   }
   if (output.failedItems !== undefined) {
-    contents.failedItems = deserializeAws_json1_1FailedItems(
-      output.failedItems,
-      context
-    );
+    contents.failedItems = deserializeAws_json1_1FailedItems(output.failedItems, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeFindingsResponse = (
   output: any,
@@ -6043,22 +5009,16 @@ const deserializeAws_json1_1DescribeFindingsResponse = (
   let contents: any = {
     __type: "DescribeFindingsResponse",
     failedItems: undefined,
-    findings: undefined
+    findings: undefined,
   };
   if (output.failedItems !== undefined) {
-    contents.failedItems = deserializeAws_json1_1FailedItems(
-      output.failedItems,
-      context
-    );
+    contents.failedItems = deserializeAws_json1_1FailedItems(output.failedItems, context);
   }
   if (output.findings !== undefined) {
-    contents.findings = deserializeAws_json1_1FindingList(
-      output.findings,
-      context
-    );
+    contents.findings = deserializeAws_json1_1FindingList(output.findings, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeResourceGroupsResponse = (
   output: any,
@@ -6067,22 +5027,16 @@ const deserializeAws_json1_1DescribeResourceGroupsResponse = (
   let contents: any = {
     __type: "DescribeResourceGroupsResponse",
     failedItems: undefined,
-    resourceGroups: undefined
+    resourceGroups: undefined,
   };
   if (output.failedItems !== undefined) {
-    contents.failedItems = deserializeAws_json1_1FailedItems(
-      output.failedItems,
-      context
-    );
+    contents.failedItems = deserializeAws_json1_1FailedItems(output.failedItems, context);
   }
   if (output.resourceGroups !== undefined) {
-    contents.resourceGroups = deserializeAws_json1_1ResourceGroupList(
-      output.resourceGroups,
-      context
-    );
+    contents.resourceGroups = deserializeAws_json1_1ResourceGroupList(output.resourceGroups, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeRulesPackagesResponse = (
   output: any,
@@ -6091,22 +5045,16 @@ const deserializeAws_json1_1DescribeRulesPackagesResponse = (
   let contents: any = {
     __type: "DescribeRulesPackagesResponse",
     failedItems: undefined,
-    rulesPackages: undefined
+    rulesPackages: undefined,
   };
   if (output.failedItems !== undefined) {
-    contents.failedItems = deserializeAws_json1_1FailedItems(
-      output.failedItems,
-      context
-    );
+    contents.failedItems = deserializeAws_json1_1FailedItems(output.failedItems, context);
   }
   if (output.rulesPackages !== undefined) {
-    contents.rulesPackages = deserializeAws_json1_1RulesPackageList(
-      output.rulesPackages,
-      context
-    );
+    contents.rulesPackages = deserializeAws_json1_1RulesPackageList(output.rulesPackages, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1EventSubscription = (
   output: any,
@@ -6115,20 +5063,16 @@ const deserializeAws_json1_1EventSubscription = (
   let contents: any = {
     __type: "EventSubscription",
     event: undefined,
-    subscribedAt: undefined
+    subscribedAt: undefined,
   };
   if (output.event !== undefined) {
     contents.event = output.event;
   }
   if (output.subscribedAt !== undefined) {
-    contents.subscribedAt = new Date(
-      output.subscribedAt % 1 != 0
-        ? Math.round(output.subscribedAt * 1000)
-        : output.subscribedAt
-    );
+    contents.subscribedAt = new Date(output.subscribedAt % 1 != 0 ? Math.round(output.subscribedAt * 1000) : output.subscribedAt);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1EventSubscriptionList = (
   output: any,
@@ -6137,7 +5081,7 @@ const deserializeAws_json1_1EventSubscriptionList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EventSubscription(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1Exclusion = (
   output: any,
@@ -6150,16 +5094,13 @@ const deserializeAws_json1_1Exclusion = (
     description: undefined,
     recommendation: undefined,
     scopes: undefined,
-    title: undefined
+    title: undefined,
   };
   if (output.arn !== undefined) {
     contents.arn = output.arn;
   }
   if (output.attributes !== undefined) {
-    contents.attributes = deserializeAws_json1_1AttributeList(
-      output.attributes,
-      context
-    );
+    contents.attributes = deserializeAws_json1_1AttributeList(output.attributes, context);
   }
   if (output.description !== undefined) {
     contents.description = output.description;
@@ -6174,7 +5115,7 @@ const deserializeAws_json1_1Exclusion = (
     contents.title = output.title;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ExclusionMap = (
   output: any,
@@ -6185,7 +5126,7 @@ const deserializeAws_json1_1ExclusionMap = (
     mapParams[key] = deserializeAws_json1_1Exclusion(output[key], context);
   });
   return mapParams;
-};
+}
 
 const deserializeAws_json1_1ExclusionPreview = (
   output: any,
@@ -6197,13 +5138,10 @@ const deserializeAws_json1_1ExclusionPreview = (
     description: undefined,
     recommendation: undefined,
     scopes: undefined,
-    title: undefined
+    title: undefined,
   };
   if (output.attributes !== undefined) {
-    contents.attributes = deserializeAws_json1_1AttributeList(
-      output.attributes,
-      context
-    );
+    contents.attributes = deserializeAws_json1_1AttributeList(output.attributes, context);
   }
   if (output.description !== undefined) {
     contents.description = output.description;
@@ -6218,7 +5156,7 @@ const deserializeAws_json1_1ExclusionPreview = (
     contents.title = output.title;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ExclusionPreviewList = (
   output: any,
@@ -6227,7 +5165,7 @@ const deserializeAws_json1_1ExclusionPreviewList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ExclusionPreview(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1FailedItemDetails = (
   output: any,
@@ -6236,7 +5174,7 @@ const deserializeAws_json1_1FailedItemDetails = (
   let contents: any = {
     __type: "FailedItemDetails",
     failureCode: undefined,
-    retryable: undefined
+    retryable: undefined,
   };
   if (output.failureCode !== undefined) {
     contents.failureCode = output.failureCode;
@@ -6245,7 +5183,7 @@ const deserializeAws_json1_1FailedItemDetails = (
     contents.retryable = output.retryable;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1FailedItems = (
   output: any,
@@ -6253,13 +5191,10 @@ const deserializeAws_json1_1FailedItems = (
 ): { [key: string]: FailedItemDetails } => {
   let mapParams: any = {};
   Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_1FailedItemDetails(
-      output[key],
-      context
-    );
+    mapParams[key] = deserializeAws_json1_1FailedItemDetails(output[key], context);
   });
   return mapParams;
-};
+}
 
 const deserializeAws_json1_1Finding = (
   output: any,
@@ -6284,35 +5219,25 @@ const deserializeAws_json1_1Finding = (
     severity: undefined,
     title: undefined,
     updatedAt: undefined,
-    userAttributes: undefined
+    userAttributes: undefined,
   };
   if (output.arn !== undefined) {
     contents.arn = output.arn;
   }
   if (output.assetAttributes !== undefined) {
-    contents.assetAttributes = deserializeAws_json1_1AssetAttributes(
-      output.assetAttributes,
-      context
-    );
+    contents.assetAttributes = deserializeAws_json1_1AssetAttributes(output.assetAttributes, context);
   }
   if (output.assetType !== undefined) {
     contents.assetType = output.assetType;
   }
   if (output.attributes !== undefined) {
-    contents.attributes = deserializeAws_json1_1AttributeList(
-      output.attributes,
-      context
-    );
+    contents.attributes = deserializeAws_json1_1AttributeList(output.attributes, context);
   }
   if (output.confidence !== undefined) {
     contents.confidence = output.confidence;
   }
   if (output.createdAt !== undefined) {
-    contents.createdAt = new Date(
-      output.createdAt % 1 != 0
-        ? Math.round(output.createdAt * 1000)
-        : output.createdAt
-    );
+    contents.createdAt = new Date(output.createdAt % 1 != 0 ? Math.round(output.createdAt * 1000) : output.createdAt);
   }
   if (output.description !== undefined) {
     contents.description = output.description;
@@ -6336,10 +5261,7 @@ const deserializeAws_json1_1Finding = (
     contents.service = output.service;
   }
   if (output.serviceAttributes !== undefined) {
-    contents.serviceAttributes = deserializeAws_json1_1InspectorServiceAttributes(
-      output.serviceAttributes,
-      context
-    );
+    contents.serviceAttributes = deserializeAws_json1_1InspectorServiceAttributes(output.serviceAttributes, context);
   }
   if (output.severity !== undefined) {
     contents.severity = output.severity;
@@ -6348,20 +5270,13 @@ const deserializeAws_json1_1Finding = (
     contents.title = output.title;
   }
   if (output.updatedAt !== undefined) {
-    contents.updatedAt = new Date(
-      output.updatedAt % 1 != 0
-        ? Math.round(output.updatedAt * 1000)
-        : output.updatedAt
-    );
+    contents.updatedAt = new Date(output.updatedAt % 1 != 0 ? Math.round(output.updatedAt * 1000) : output.updatedAt);
   }
   if (output.userAttributes !== undefined) {
-    contents.userAttributes = deserializeAws_json1_1UserAttributeList(
-      output.userAttributes,
-      context
-    );
+    contents.userAttributes = deserializeAws_json1_1UserAttributeList(output.userAttributes, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1FindingList = (
   output: any,
@@ -6370,7 +5285,7 @@ const deserializeAws_json1_1FindingList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Finding(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1GetAssessmentReportResponse = (
   output: any,
@@ -6379,7 +5294,7 @@ const deserializeAws_json1_1GetAssessmentReportResponse = (
   let contents: any = {
     __type: "GetAssessmentReportResponse",
     status: undefined,
-    url: undefined
+    url: undefined,
   };
   if (output.status !== undefined) {
     contents.status = output.status;
@@ -6388,7 +5303,7 @@ const deserializeAws_json1_1GetAssessmentReportResponse = (
     contents.url = output.url;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1GetExclusionsPreviewResponse = (
   output: any,
@@ -6398,13 +5313,10 @@ const deserializeAws_json1_1GetExclusionsPreviewResponse = (
     __type: "GetExclusionsPreviewResponse",
     exclusionPreviews: undefined,
     nextToken: undefined,
-    previewStatus: undefined
+    previewStatus: undefined,
   };
   if (output.exclusionPreviews !== undefined) {
-    contents.exclusionPreviews = deserializeAws_json1_1ExclusionPreviewList(
-      output.exclusionPreviews,
-      context
-    );
+    contents.exclusionPreviews = deserializeAws_json1_1ExclusionPreviewList(output.exclusionPreviews, context);
   }
   if (output.nextToken !== undefined) {
     contents.nextToken = output.nextToken;
@@ -6413,7 +5325,7 @@ const deserializeAws_json1_1GetExclusionsPreviewResponse = (
     contents.previewStatus = output.previewStatus;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1GetTelemetryMetadataResponse = (
   output: any,
@@ -6421,16 +5333,13 @@ const deserializeAws_json1_1GetTelemetryMetadataResponse = (
 ): GetTelemetryMetadataResponse => {
   let contents: any = {
     __type: "GetTelemetryMetadataResponse",
-    telemetryMetadata: undefined
+    telemetryMetadata: undefined,
   };
   if (output.telemetryMetadata !== undefined) {
-    contents.telemetryMetadata = deserializeAws_json1_1TelemetryMetadataList(
-      output.telemetryMetadata,
-      context
-    );
+    contents.telemetryMetadata = deserializeAws_json1_1TelemetryMetadataList(output.telemetryMetadata, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InspectorServiceAttributes = (
   output: any,
@@ -6440,7 +5349,7 @@ const deserializeAws_json1_1InspectorServiceAttributes = (
     __type: "InspectorServiceAttributes",
     assessmentRunArn: undefined,
     rulesPackageArn: undefined,
-    schemaVersion: undefined
+    schemaVersion: undefined,
   };
   if (output.assessmentRunArn !== undefined) {
     contents.assessmentRunArn = output.assessmentRunArn;
@@ -6452,7 +5361,7 @@ const deserializeAws_json1_1InspectorServiceAttributes = (
     contents.schemaVersion = output.schemaVersion;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InternalException = (
   output: any,
@@ -6461,7 +5370,7 @@ const deserializeAws_json1_1InternalException = (
   let contents: any = {
     __type: "InternalException",
     canRetry: undefined,
-    message: undefined
+    message: undefined,
   };
   if (output.canRetry !== undefined) {
     contents.canRetry = output.canRetry;
@@ -6470,7 +5379,7 @@ const deserializeAws_json1_1InternalException = (
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InvalidCrossAccountRoleException = (
   output: any,
@@ -6480,7 +5389,7 @@ const deserializeAws_json1_1InvalidCrossAccountRoleException = (
     __type: "InvalidCrossAccountRoleException",
     canRetry: undefined,
     errorCode: undefined,
-    message: undefined
+    message: undefined,
   };
   if (output.canRetry !== undefined) {
     contents.canRetry = output.canRetry;
@@ -6492,7 +5401,7 @@ const deserializeAws_json1_1InvalidCrossAccountRoleException = (
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InvalidInputException = (
   output: any,
@@ -6502,7 +5411,7 @@ const deserializeAws_json1_1InvalidInputException = (
     __type: "InvalidInputException",
     canRetry: undefined,
     errorCode: undefined,
-    message: undefined
+    message: undefined,
   };
   if (output.canRetry !== undefined) {
     contents.canRetry = output.canRetry;
@@ -6514,21 +5423,25 @@ const deserializeAws_json1_1InvalidInputException = (
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1Ipv4AddressList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1Ipv6Addresses = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1LimitExceededException = (
   output: any,
@@ -6538,7 +5451,7 @@ const deserializeAws_json1_1LimitExceededException = (
     __type: "LimitExceededException",
     canRetry: undefined,
     errorCode: undefined,
-    message: undefined
+    message: undefined,
   };
   if (output.canRetry !== undefined) {
     contents.canRetry = output.canRetry;
@@ -6550,7 +5463,7 @@ const deserializeAws_json1_1LimitExceededException = (
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListAssessmentRunAgentsResponse = (
   output: any,
@@ -6559,19 +5472,16 @@ const deserializeAws_json1_1ListAssessmentRunAgentsResponse = (
   let contents: any = {
     __type: "ListAssessmentRunAgentsResponse",
     assessmentRunAgents: undefined,
-    nextToken: undefined
+    nextToken: undefined,
   };
   if (output.assessmentRunAgents !== undefined) {
-    contents.assessmentRunAgents = deserializeAws_json1_1AssessmentRunAgentList(
-      output.assessmentRunAgents,
-      context
-    );
+    contents.assessmentRunAgents = deserializeAws_json1_1AssessmentRunAgentList(output.assessmentRunAgents, context);
   }
   if (output.nextToken !== undefined) {
     contents.nextToken = output.nextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListAssessmentRunsResponse = (
   output: any,
@@ -6580,19 +5490,16 @@ const deserializeAws_json1_1ListAssessmentRunsResponse = (
   let contents: any = {
     __type: "ListAssessmentRunsResponse",
     assessmentRunArns: undefined,
-    nextToken: undefined
+    nextToken: undefined,
   };
   if (output.assessmentRunArns !== undefined) {
-    contents.assessmentRunArns = deserializeAws_json1_1ListReturnedArnList(
-      output.assessmentRunArns,
-      context
-    );
+    contents.assessmentRunArns = deserializeAws_json1_1ListReturnedArnList(output.assessmentRunArns, context);
   }
   if (output.nextToken !== undefined) {
     contents.nextToken = output.nextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListAssessmentTargetsResponse = (
   output: any,
@@ -6601,19 +5508,16 @@ const deserializeAws_json1_1ListAssessmentTargetsResponse = (
   let contents: any = {
     __type: "ListAssessmentTargetsResponse",
     assessmentTargetArns: undefined,
-    nextToken: undefined
+    nextToken: undefined,
   };
   if (output.assessmentTargetArns !== undefined) {
-    contents.assessmentTargetArns = deserializeAws_json1_1ListReturnedArnList(
-      output.assessmentTargetArns,
-      context
-    );
+    contents.assessmentTargetArns = deserializeAws_json1_1ListReturnedArnList(output.assessmentTargetArns, context);
   }
   if (output.nextToken !== undefined) {
     contents.nextToken = output.nextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListAssessmentTemplatesResponse = (
   output: any,
@@ -6622,19 +5526,16 @@ const deserializeAws_json1_1ListAssessmentTemplatesResponse = (
   let contents: any = {
     __type: "ListAssessmentTemplatesResponse",
     assessmentTemplateArns: undefined,
-    nextToken: undefined
+    nextToken: undefined,
   };
   if (output.assessmentTemplateArns !== undefined) {
-    contents.assessmentTemplateArns = deserializeAws_json1_1ListReturnedArnList(
-      output.assessmentTemplateArns,
-      context
-    );
+    contents.assessmentTemplateArns = deserializeAws_json1_1ListReturnedArnList(output.assessmentTemplateArns, context);
   }
   if (output.nextToken !== undefined) {
     contents.nextToken = output.nextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListEventSubscriptionsResponse = (
   output: any,
@@ -6643,19 +5544,16 @@ const deserializeAws_json1_1ListEventSubscriptionsResponse = (
   let contents: any = {
     __type: "ListEventSubscriptionsResponse",
     nextToken: undefined,
-    subscriptions: undefined
+    subscriptions: undefined,
   };
   if (output.nextToken !== undefined) {
     contents.nextToken = output.nextToken;
   }
   if (output.subscriptions !== undefined) {
-    contents.subscriptions = deserializeAws_json1_1SubscriptionList(
-      output.subscriptions,
-      context
-    );
+    contents.subscriptions = deserializeAws_json1_1SubscriptionList(output.subscriptions, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListExclusionsResponse = (
   output: any,
@@ -6664,19 +5562,16 @@ const deserializeAws_json1_1ListExclusionsResponse = (
   let contents: any = {
     __type: "ListExclusionsResponse",
     exclusionArns: undefined,
-    nextToken: undefined
+    nextToken: undefined,
   };
   if (output.exclusionArns !== undefined) {
-    contents.exclusionArns = deserializeAws_json1_1ListReturnedArnList(
-      output.exclusionArns,
-      context
-    );
+    contents.exclusionArns = deserializeAws_json1_1ListReturnedArnList(output.exclusionArns, context);
   }
   if (output.nextToken !== undefined) {
     contents.nextToken = output.nextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListFindingsResponse = (
   output: any,
@@ -6685,26 +5580,25 @@ const deserializeAws_json1_1ListFindingsResponse = (
   let contents: any = {
     __type: "ListFindingsResponse",
     findingArns: undefined,
-    nextToken: undefined
+    nextToken: undefined,
   };
   if (output.findingArns !== undefined) {
-    contents.findingArns = deserializeAws_json1_1ListReturnedArnList(
-      output.findingArns,
-      context
-    );
+    contents.findingArns = deserializeAws_json1_1ListReturnedArnList(output.findingArns, context);
   }
   if (output.nextToken !== undefined) {
     contents.nextToken = output.nextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListReturnedArnList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1ListRulesPackagesResponse = (
   output: any,
@@ -6713,19 +5607,16 @@ const deserializeAws_json1_1ListRulesPackagesResponse = (
   let contents: any = {
     __type: "ListRulesPackagesResponse",
     nextToken: undefined,
-    rulesPackageArns: undefined
+    rulesPackageArns: undefined,
   };
   if (output.nextToken !== undefined) {
     contents.nextToken = output.nextToken;
   }
   if (output.rulesPackageArns !== undefined) {
-    contents.rulesPackageArns = deserializeAws_json1_1ListReturnedArnList(
-      output.rulesPackageArns,
-      context
-    );
+    contents.rulesPackageArns = deserializeAws_json1_1ListReturnedArnList(output.rulesPackageArns, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListTagsForResourceResponse = (
   output: any,
@@ -6733,13 +5624,13 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 ): ListTagsForResourceResponse => {
   let contents: any = {
     __type: "ListTagsForResourceResponse",
-    tags: undefined
+    tags: undefined,
   };
   if (output.tags !== undefined) {
     contents.tags = deserializeAws_json1_1TagList(output.tags, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1NetworkInterface = (
   output: any,
@@ -6756,13 +5647,10 @@ const deserializeAws_json1_1NetworkInterface = (
     publicIp: undefined,
     securityGroups: undefined,
     subnetId: undefined,
-    vpcId: undefined
+    vpcId: undefined,
   };
   if (output.ipv6Addresses !== undefined) {
-    contents.ipv6Addresses = deserializeAws_json1_1Ipv6Addresses(
-      output.ipv6Addresses,
-      context
-    );
+    contents.ipv6Addresses = deserializeAws_json1_1Ipv6Addresses(output.ipv6Addresses, context);
   }
   if (output.networkInterfaceId !== undefined) {
     contents.networkInterfaceId = output.networkInterfaceId;
@@ -6774,10 +5662,7 @@ const deserializeAws_json1_1NetworkInterface = (
     contents.privateIpAddress = output.privateIpAddress;
   }
   if (output.privateIpAddresses !== undefined) {
-    contents.privateIpAddresses = deserializeAws_json1_1PrivateIpAddresses(
-      output.privateIpAddresses,
-      context
-    );
+    contents.privateIpAddresses = deserializeAws_json1_1PrivateIpAddresses(output.privateIpAddresses, context);
   }
   if (output.publicDnsName !== undefined) {
     contents.publicDnsName = output.publicDnsName;
@@ -6786,10 +5671,7 @@ const deserializeAws_json1_1NetworkInterface = (
     contents.publicIp = output.publicIp;
   }
   if (output.securityGroups !== undefined) {
-    contents.securityGroups = deserializeAws_json1_1SecurityGroups(
-      output.securityGroups,
-      context
-    );
+    contents.securityGroups = deserializeAws_json1_1SecurityGroups(output.securityGroups, context);
   }
   if (output.subnetId !== undefined) {
     contents.subnetId = output.subnetId;
@@ -6798,7 +5680,7 @@ const deserializeAws_json1_1NetworkInterface = (
     contents.vpcId = output.vpcId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1NetworkInterfaces = (
   output: any,
@@ -6807,7 +5689,7 @@ const deserializeAws_json1_1NetworkInterfaces = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1NetworkInterface(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1NoSuchEntityException = (
   output: any,
@@ -6817,7 +5699,7 @@ const deserializeAws_json1_1NoSuchEntityException = (
     __type: "NoSuchEntityException",
     canRetry: undefined,
     errorCode: undefined,
-    message: undefined
+    message: undefined,
   };
   if (output.canRetry !== undefined) {
     contents.canRetry = output.canRetry;
@@ -6829,7 +5711,7 @@ const deserializeAws_json1_1NoSuchEntityException = (
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1PreviewAgentsResponse = (
   output: any,
@@ -6838,19 +5720,16 @@ const deserializeAws_json1_1PreviewAgentsResponse = (
   let contents: any = {
     __type: "PreviewAgentsResponse",
     agentPreviews: undefined,
-    nextToken: undefined
+    nextToken: undefined,
   };
   if (output.agentPreviews !== undefined) {
-    contents.agentPreviews = deserializeAws_json1_1AgentPreviewList(
-      output.agentPreviews,
-      context
-    );
+    contents.agentPreviews = deserializeAws_json1_1AgentPreviewList(output.agentPreviews, context);
   }
   if (output.nextToken !== undefined) {
     contents.nextToken = output.nextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1PreviewGenerationInProgressException = (
   output: any,
@@ -6858,13 +5737,13 @@ const deserializeAws_json1_1PreviewGenerationInProgressException = (
 ): PreviewGenerationInProgressException => {
   let contents: any = {
     __type: "PreviewGenerationInProgressException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1PrivateIp = (
   output: any,
@@ -6873,7 +5752,7 @@ const deserializeAws_json1_1PrivateIp = (
   let contents: any = {
     __type: "PrivateIp",
     privateDnsName: undefined,
-    privateIpAddress: undefined
+    privateIpAddress: undefined,
   };
   if (output.privateDnsName !== undefined) {
     contents.privateDnsName = output.privateDnsName;
@@ -6882,7 +5761,7 @@ const deserializeAws_json1_1PrivateIp = (
     contents.privateIpAddress = output.privateIpAddress;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1PrivateIpAddresses = (
   output: any,
@@ -6891,7 +5770,7 @@ const deserializeAws_json1_1PrivateIpAddresses = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PrivateIp(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1RemoveAttributesFromFindingsResponse = (
   output: any,
@@ -6899,16 +5778,13 @@ const deserializeAws_json1_1RemoveAttributesFromFindingsResponse = (
 ): RemoveAttributesFromFindingsResponse => {
   let contents: any = {
     __type: "RemoveAttributesFromFindingsResponse",
-    failedItems: undefined
+    failedItems: undefined,
   };
   if (output.failedItems !== undefined) {
-    contents.failedItems = deserializeAws_json1_1FailedItems(
-      output.failedItems,
-      context
-    );
+    contents.failedItems = deserializeAws_json1_1FailedItems(output.failedItems, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ResourceGroup = (
   output: any,
@@ -6918,26 +5794,19 @@ const deserializeAws_json1_1ResourceGroup = (
     __type: "ResourceGroup",
     arn: undefined,
     createdAt: undefined,
-    tags: undefined
+    tags: undefined,
   };
   if (output.arn !== undefined) {
     contents.arn = output.arn;
   }
   if (output.createdAt !== undefined) {
-    contents.createdAt = new Date(
-      output.createdAt % 1 != 0
-        ? Math.round(output.createdAt * 1000)
-        : output.createdAt
-    );
+    contents.createdAt = new Date(output.createdAt % 1 != 0 ? Math.round(output.createdAt * 1000) : output.createdAt);
   }
   if (output.tags !== undefined) {
-    contents.tags = deserializeAws_json1_1ResourceGroupTags(
-      output.tags,
-      context
-    );
+    contents.tags = deserializeAws_json1_1ResourceGroupTags(output.tags, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ResourceGroupList = (
   output: any,
@@ -6946,7 +5815,7 @@ const deserializeAws_json1_1ResourceGroupList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourceGroup(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1ResourceGroupTag = (
   output: any,
@@ -6955,7 +5824,7 @@ const deserializeAws_json1_1ResourceGroupTag = (
   let contents: any = {
     __type: "ResourceGroupTag",
     key: undefined,
-    value: undefined
+    value: undefined,
   };
   if (output.key !== undefined) {
     contents.key = output.key;
@@ -6964,7 +5833,7 @@ const deserializeAws_json1_1ResourceGroupTag = (
     contents.value = output.value;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ResourceGroupTags = (
   output: any,
@@ -6973,7 +5842,7 @@ const deserializeAws_json1_1ResourceGroupTags = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourceGroupTag(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1RulesPackage = (
   output: any,
@@ -6985,7 +5854,7 @@ const deserializeAws_json1_1RulesPackage = (
     description: undefined,
     name: undefined,
     provider: undefined,
-    version: undefined
+    version: undefined,
   };
   if (output.arn !== undefined) {
     contents.arn = output.arn;
@@ -7003,7 +5872,7 @@ const deserializeAws_json1_1RulesPackage = (
     contents.version = output.version;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1RulesPackageList = (
   output: any,
@@ -7012,7 +5881,7 @@ const deserializeAws_json1_1RulesPackageList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RulesPackage(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1Scope = (
   output: any,
@@ -7021,7 +5890,7 @@ const deserializeAws_json1_1Scope = (
   let contents: any = {
     __type: "Scope",
     key: undefined,
-    value: undefined
+    value: undefined,
   };
   if (output.key !== undefined) {
     contents.key = output.key;
@@ -7030,7 +5899,7 @@ const deserializeAws_json1_1Scope = (
     contents.value = output.value;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ScopeList = (
   output: any,
@@ -7039,7 +5908,7 @@ const deserializeAws_json1_1ScopeList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Scope(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1SecurityGroup = (
   output: any,
@@ -7048,7 +5917,7 @@ const deserializeAws_json1_1SecurityGroup = (
   let contents: any = {
     __type: "SecurityGroup",
     groupId: undefined,
-    groupName: undefined
+    groupName: undefined,
   };
   if (output.groupId !== undefined) {
     contents.groupId = output.groupId;
@@ -7057,7 +5926,7 @@ const deserializeAws_json1_1SecurityGroup = (
     contents.groupName = output.groupName;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1SecurityGroups = (
   output: any,
@@ -7066,7 +5935,7 @@ const deserializeAws_json1_1SecurityGroups = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SecurityGroup(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1ServiceTemporarilyUnavailableException = (
   output: any,
@@ -7075,7 +5944,7 @@ const deserializeAws_json1_1ServiceTemporarilyUnavailableException = (
   let contents: any = {
     __type: "ServiceTemporarilyUnavailableException",
     canRetry: undefined,
-    message: undefined
+    message: undefined,
   };
   if (output.canRetry !== undefined) {
     contents.canRetry = output.canRetry;
@@ -7084,7 +5953,7 @@ const deserializeAws_json1_1ServiceTemporarilyUnavailableException = (
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1StartAssessmentRunResponse = (
   output: any,
@@ -7092,13 +5961,13 @@ const deserializeAws_json1_1StartAssessmentRunResponse = (
 ): StartAssessmentRunResponse => {
   let contents: any = {
     __type: "StartAssessmentRunResponse",
-    assessmentRunArn: undefined
+    assessmentRunArn: undefined,
   };
   if (output.assessmentRunArn !== undefined) {
     contents.assessmentRunArn = output.assessmentRunArn;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1Subscription = (
   output: any,
@@ -7108,13 +5977,10 @@ const deserializeAws_json1_1Subscription = (
     __type: "Subscription",
     eventSubscriptions: undefined,
     resourceArn: undefined,
-    topicArn: undefined
+    topicArn: undefined,
   };
   if (output.eventSubscriptions !== undefined) {
-    contents.eventSubscriptions = deserializeAws_json1_1EventSubscriptionList(
-      output.eventSubscriptions,
-      context
-    );
+    contents.eventSubscriptions = deserializeAws_json1_1EventSubscriptionList(output.eventSubscriptions, context);
   }
   if (output.resourceArn !== undefined) {
     contents.resourceArn = output.resourceArn;
@@ -7123,7 +5989,7 @@ const deserializeAws_json1_1Subscription = (
     contents.topicArn = output.topicArn;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1SubscriptionList = (
   output: any,
@@ -7132,7 +5998,7 @@ const deserializeAws_json1_1SubscriptionList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Subscription(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1Tag = (
   output: any,
@@ -7141,7 +6007,7 @@ const deserializeAws_json1_1Tag = (
   let contents: any = {
     __type: "Tag",
     key: undefined,
-    value: undefined
+    value: undefined,
   };
   if (output.key !== undefined) {
     contents.key = output.key;
@@ -7150,7 +6016,7 @@ const deserializeAws_json1_1Tag = (
     contents.value = output.value;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1TagList = (
   output: any,
@@ -7159,7 +6025,7 @@ const deserializeAws_json1_1TagList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1Tags = (
   output: any,
@@ -7168,7 +6034,7 @@ const deserializeAws_json1_1Tags = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1TelemetryMetadata = (
   output: any,
@@ -7178,7 +6044,7 @@ const deserializeAws_json1_1TelemetryMetadata = (
     __type: "TelemetryMetadata",
     count: undefined,
     dataSize: undefined,
-    messageType: undefined
+    messageType: undefined,
   };
   if (output.count !== undefined) {
     contents.count = output.count;
@@ -7190,7 +6056,7 @@ const deserializeAws_json1_1TelemetryMetadata = (
     contents.messageType = output.messageType;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1TelemetryMetadataList = (
   output: any,
@@ -7199,7 +6065,7 @@ const deserializeAws_json1_1TelemetryMetadataList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TelemetryMetadata(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1UnsupportedFeatureException = (
   output: any,
@@ -7208,7 +6074,7 @@ const deserializeAws_json1_1UnsupportedFeatureException = (
   let contents: any = {
     __type: "UnsupportedFeatureException",
     canRetry: undefined,
-    message: undefined
+    message: undefined,
   };
   if (output.canRetry !== undefined) {
     contents.canRetry = output.canRetry;
@@ -7217,7 +6083,7 @@ const deserializeAws_json1_1UnsupportedFeatureException = (
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UserAttributeList = (
   output: any,
@@ -7226,7 +6092,7 @@ const deserializeAws_json1_1UserAttributeList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Attribute(entry, context)
   );
-};
+}
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

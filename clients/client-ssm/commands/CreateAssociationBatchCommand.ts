@@ -1,20 +1,20 @@
 import {
   SSMClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../SSMClient";
 import {
   CreateAssociationBatchRequest,
-  CreateAssociationBatchResult
+  CreateAssociationBatchResult,
 } from "../models/index";
 import {
   deserializeAws_json1_1CreateAssociationBatchCommand,
-  serializeAws_json1_1CreateAssociationBatchCommand
+  serializeAws_json1_1CreateAssociationBatchCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type CreateAssociationBatchCommandInput = CreateAssociationBatchRequest;
 export type CreateAssociationBatchCommandOutput = CreateAssociationBatchResult;
 
-export class CreateAssociationBatchCommand extends $Command<
-  CreateAssociationBatchCommandInput,
-  CreateAssociationBatchCommandOutput,
-  SSMClientResolvedConfig
-> {
+export class CreateAssociationBatchCommand extends $Command<CreateAssociationBatchCommandInput, CreateAssociationBatchCommandOutput, SSMClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class CreateAssociationBatchCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateAssociationBatchCommandInput,
-    CreateAssociationBatchCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateAssociationBatchCommandInput, CreateAssociationBatchCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

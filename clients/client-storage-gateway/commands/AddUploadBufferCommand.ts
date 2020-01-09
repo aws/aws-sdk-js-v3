@@ -1,17 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig
+  StorageGatewayClientResolvedConfig,
 } from "../StorageGatewayClient";
-import { AddUploadBufferInput, AddUploadBufferOutput } from "../models/index";
+import {
+  AddUploadBufferInput,
+  AddUploadBufferOutput,
+} from "../models/index";
 import {
   deserializeAws_json1_1AddUploadBufferCommand,
-  serializeAws_json1_1AddUploadBufferCommand
+  serializeAws_json1_1AddUploadBufferCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type AddUploadBufferCommandInput = AddUploadBufferInput;
 export type AddUploadBufferCommandOutput = AddUploadBufferOutput;
 
-export class AddUploadBufferCommand extends $Command<
-  AddUploadBufferCommandInput,
-  AddUploadBufferCommandOutput,
-  StorageGatewayClientResolvedConfig
-> {
+export class AddUploadBufferCommand extends $Command<AddUploadBufferCommandInput, AddUploadBufferCommandOutput, StorageGatewayClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class AddUploadBufferCommand extends $Command<
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AddUploadBufferCommandInput, AddUploadBufferCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

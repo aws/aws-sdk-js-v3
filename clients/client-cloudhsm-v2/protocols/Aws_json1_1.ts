@@ -423,10 +423,7 @@ export async function deserializeAws_json1_1CopyBackupToRegionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CopyBackupToRegionResponse(
-    data.CopyBackupToRegionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CopyBackupToRegionResponse(data, context);
   const response: CopyBackupToRegionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CopyBackupToRegionResponse",
@@ -505,10 +502,7 @@ export async function deserializeAws_json1_1CreateClusterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateClusterResponse(
-    data.CreateClusterResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateClusterResponse(data, context);
   const response: CreateClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateClusterResponse",
@@ -587,10 +581,7 @@ export async function deserializeAws_json1_1CreateHsmCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateHsmResponse(
-    data.CreateHsmResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateHsmResponse(data, context);
   const response: CreateHsmCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateHsmResponse",
@@ -669,10 +660,7 @@ export async function deserializeAws_json1_1DeleteBackupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteBackupResponse(
-    data.DeleteBackupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteBackupResponse(data, context);
   const response: DeleteBackupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteBackupResponse",
@@ -751,10 +739,7 @@ export async function deserializeAws_json1_1DeleteClusterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteClusterResponse(
-    data.DeleteClusterResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteClusterResponse(data, context);
   const response: DeleteClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteClusterResponse",
@@ -833,10 +818,7 @@ export async function deserializeAws_json1_1DeleteHsmCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteHsmResponse(
-    data.DeleteHsmResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteHsmResponse(data, context);
   const response: DeleteHsmCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteHsmResponse",
@@ -915,10 +897,7 @@ export async function deserializeAws_json1_1DescribeBackupsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeBackupsResponse(
-    data.DescribeBackupsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeBackupsResponse(data, context);
   const response: DescribeBackupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeBackupsResponse",
@@ -997,10 +976,7 @@ export async function deserializeAws_json1_1DescribeClustersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeClustersResponse(
-    data.DescribeClustersResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeClustersResponse(data, context);
   const response: DescribeClustersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeClustersResponse",
@@ -1072,10 +1048,7 @@ export async function deserializeAws_json1_1InitializeClusterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1InitializeClusterResponse(
-    data.InitializeClusterResponse,
-    context
-  );
+  contents = deserializeAws_json1_1InitializeClusterResponse(data, context);
   const response: InitializeClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "InitializeClusterResponse",
@@ -1154,10 +1127,7 @@ export async function deserializeAws_json1_1ListTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsResponse(
-    data.ListTagsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsResponse(data, context);
   const response: ListTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsResponse",
@@ -1236,10 +1206,7 @@ export async function deserializeAws_json1_1RestoreBackupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RestoreBackupResponse(
-    data.RestoreBackupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1RestoreBackupResponse(data, context);
   const response: RestoreBackupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RestoreBackupResponse",
@@ -1318,10 +1285,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(
-    data.TagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
@@ -1400,10 +1364,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(
-    data.UntagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",

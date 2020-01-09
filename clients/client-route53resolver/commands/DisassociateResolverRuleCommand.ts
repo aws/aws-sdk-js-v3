@@ -1,20 +1,20 @@
 import {
   Route53ResolverClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../Route53ResolverClient";
 import {
   DisassociateResolverRuleRequest,
-  DisassociateResolverRuleResponse
+  DisassociateResolverRuleResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1DisassociateResolverRuleCommand,
-  serializeAws_json1_1DisassociateResolverRuleCommand
+  serializeAws_json1_1DisassociateResolverRuleCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DisassociateResolverRuleCommandInput = DisassociateResolverRuleRequest;
 export type DisassociateResolverRuleCommandOutput = DisassociateResolverRuleResponse;
 
-export class DisassociateResolverRuleCommand extends $Command<
-  DisassociateResolverRuleCommandInput,
-  DisassociateResolverRuleCommandOutput,
-  Route53ResolverClientResolvedConfig
-> {
+export class DisassociateResolverRuleCommand extends $Command<DisassociateResolverRuleCommandInput, DisassociateResolverRuleCommandOutput, Route53ResolverClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class DisassociateResolverRuleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateResolverRuleCommandInput,
-    DisassociateResolverRuleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateResolverRuleCommandInput, DisassociateResolverRuleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -79,10 +70,7 @@ export class DisassociateResolverRuleCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DisassociateResolverRuleCommandOutput> {
-    return deserializeAws_json1_1DisassociateResolverRuleCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisassociateResolverRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

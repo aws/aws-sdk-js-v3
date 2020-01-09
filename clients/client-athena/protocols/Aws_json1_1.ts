@@ -622,10 +622,7 @@ export async function deserializeAws_json1_1BatchGetNamedQueryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetNamedQueryOutput(
-    data.BatchGetNamedQueryOutput,
-    context
-  );
+  contents = deserializeAws_json1_1BatchGetNamedQueryOutput(data, context);
   const response: BatchGetNamedQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetNamedQueryOutput",
@@ -686,10 +683,7 @@ export async function deserializeAws_json1_1BatchGetQueryExecutionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetQueryExecutionOutput(
-    data.BatchGetQueryExecutionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1BatchGetQueryExecutionOutput(data, context);
   const response: BatchGetQueryExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetQueryExecutionOutput",
@@ -747,10 +741,7 @@ export async function deserializeAws_json1_1CreateNamedQueryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateNamedQueryOutput(
-    data.CreateNamedQueryOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateNamedQueryOutput(data, context);
   const response: CreateNamedQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateNamedQueryOutput",
@@ -808,10 +799,7 @@ export async function deserializeAws_json1_1CreateWorkGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateWorkGroupOutput(
-    data.CreateWorkGroupOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateWorkGroupOutput(data, context);
   const response: CreateWorkGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateWorkGroupOutput",
@@ -869,10 +857,7 @@ export async function deserializeAws_json1_1DeleteNamedQueryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteNamedQueryOutput(
-    data.DeleteNamedQueryOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteNamedQueryOutput(data, context);
   const response: DeleteNamedQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteNamedQueryOutput",
@@ -930,10 +915,7 @@ export async function deserializeAws_json1_1DeleteWorkGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteWorkGroupOutput(
-    data.DeleteWorkGroupOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteWorkGroupOutput(data, context);
   const response: DeleteWorkGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteWorkGroupOutput",
@@ -991,10 +973,7 @@ export async function deserializeAws_json1_1GetNamedQueryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetNamedQueryOutput(
-    data.GetNamedQueryOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetNamedQueryOutput(data, context);
   const response: GetNamedQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetNamedQueryOutput",
@@ -1052,10 +1031,7 @@ export async function deserializeAws_json1_1GetQueryExecutionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetQueryExecutionOutput(
-    data.GetQueryExecutionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetQueryExecutionOutput(data, context);
   const response: GetQueryExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetQueryExecutionOutput",
@@ -1113,10 +1089,7 @@ export async function deserializeAws_json1_1GetQueryResultsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetQueryResultsOutput(
-    data.GetQueryResultsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetQueryResultsOutput(data, context);
   const response: GetQueryResultsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetQueryResultsOutput",
@@ -1174,10 +1147,7 @@ export async function deserializeAws_json1_1GetWorkGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetWorkGroupOutput(
-    data.GetWorkGroupOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetWorkGroupOutput(data, context);
   const response: GetWorkGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetWorkGroupOutput",
@@ -1235,10 +1205,7 @@ export async function deserializeAws_json1_1ListNamedQueriesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListNamedQueriesOutput(
-    data.ListNamedQueriesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListNamedQueriesOutput(data, context);
   const response: ListNamedQueriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListNamedQueriesOutput",
@@ -1299,10 +1266,7 @@ export async function deserializeAws_json1_1ListQueryExecutionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListQueryExecutionsOutput(
-    data.ListQueryExecutionsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListQueryExecutionsOutput(data, context);
   const response: ListQueryExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListQueryExecutionsOutput",
@@ -1363,10 +1327,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceOutput(
-    data.ListTagsForResourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceOutput(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceOutput",
@@ -1431,10 +1392,7 @@ export async function deserializeAws_json1_1ListWorkGroupsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListWorkGroupsOutput(
-    data.ListWorkGroupsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListWorkGroupsOutput(data, context);
   const response: ListWorkGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListWorkGroupsOutput",
@@ -1495,10 +1453,7 @@ export async function deserializeAws_json1_1StartQueryExecutionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartQueryExecutionOutput(
-    data.StartQueryExecutionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1StartQueryExecutionOutput(data, context);
   const response: StartQueryExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartQueryExecutionOutput",
@@ -1566,10 +1521,7 @@ export async function deserializeAws_json1_1StopQueryExecutionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopQueryExecutionOutput(
-    data.StopQueryExecutionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1StopQueryExecutionOutput(data, context);
   const response: StopQueryExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopQueryExecutionOutput",
@@ -1627,10 +1579,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceOutput(
-    data.TagResourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceOutput(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceOutput",
@@ -1695,10 +1644,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceOutput(
-    data.UntagResourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceOutput(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceOutput",
@@ -1763,10 +1709,7 @@ export async function deserializeAws_json1_1UpdateWorkGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateWorkGroupOutput(
-    data.UpdateWorkGroupOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateWorkGroupOutput(data, context);
   const response: UpdateWorkGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateWorkGroupOutput",

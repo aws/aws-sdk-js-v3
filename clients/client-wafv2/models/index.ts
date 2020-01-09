@@ -172,7 +172,7 @@ export interface ByteMatchStatement {
    *          <p>
    *             <b>CONTAINS</b>
    *          </p>
-   *          <p>The specified part of the web request must include the value of <code>SearchString</code>, but the location doesn't matter.</p>
+   *          <p>The specified part of the web request must include the value of <code>SearchString</code>, but the location doesn't matter.</p>		
    *          <p>
    *             <b>CONTAINS_WORD</b>
    *          </p>
@@ -200,7 +200,7 @@ export interface ByteMatchStatement {
    *          <p>
    *             <b>STARTS_WITH</b>
    *          </p>
-   *          <p>The value of <code>SearchString</code> must appear at the beginning of the specified part of the web request.</p>
+   *          <p>The value of <code>SearchString</code> must appear at the beginning of the specified part of the web request.</p>		
    *          <p>
    *             <b>ENDS_WITH</b>
    *          </p>
@@ -212,7 +212,7 @@ export interface ByteMatchStatement {
   /**
    *
    *          <p>A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in <a>FieldToMatch</a>. The maximum length of the value is 50 bytes.</p>
-   *          <p>Valid values depend on the areas that you specify for inspection in <code>FieldToMatch</code>:</p>
+   *          <p>Valid values depend on the areas that you specify for inspection in <code>FieldToMatch</code>:</p>		
    *          <ul>
    *             <li>
    *                <p>
@@ -316,7 +316,7 @@ export enum ComparisonOperator {
   GT = "GT",
   LE = "LE",
   LT = "LT",
-  NE = "NE"
+  NE = "NE",
 }
 
 /**
@@ -586,7 +586,7 @@ export enum CountryCode {
   YT = "YT",
   ZA = "ZA",
   ZM = "ZM",
-  ZW = "ZW"
+  ZW = "ZW",
 }
 
 export interface CreateIPSetRequest {
@@ -1600,8 +1600,7 @@ export namespace GetRateBasedStatementManagedKeysRequest {
   }
 }
 
-export interface GetRateBasedStatementManagedKeysResponse
-  extends $MetadataBearer {
+export interface GetRateBasedStatementManagedKeysResponse extends $MetadataBearer {
   __type?: "GetRateBasedStatementManagedKeysResponse";
   /**
    *
@@ -2045,7 +2044,7 @@ export namespace HTTPRequest {
 
 export enum IPAddressVersion {
   IPV4 = "IPV4",
-  IPV6 = "IPV6"
+  IPV6 = "IPV6",
 }
 
 /**
@@ -2248,8 +2247,7 @@ export namespace ListAvailableManagedRuleGroupsRequest {
   }
 }
 
-export interface ListAvailableManagedRuleGroupsResponse
-  extends $MetadataBearer {
+export interface ListAvailableManagedRuleGroupsResponse extends $MetadataBearer {
   __type?: "ListAvailableManagedRuleGroupsResponse";
   /**
    *
@@ -2989,7 +2987,7 @@ export enum ParameterExceptionField {
   TAG_KEYS = "TAG_KEYS",
   TEXT_TRANSFORMATION = "TEXT_TRANSFORMATION",
   WEB_ACL = "WEB_ACL",
-  XSS_MATCH_STATEMENT = "XSS_MATCH_STATEMENT"
+  XSS_MATCH_STATEMENT = "XSS_MATCH_STATEMENT",
 }
 
 export enum PositionalConstraint {
@@ -2997,7 +2995,7 @@ export enum PositionalConstraint {
   CONTAINS_WORD = "CONTAINS_WORD",
   ENDS_WITH = "ENDS_WITH",
   EXACTLY = "EXACTLY",
-  STARTS_WITH = "STARTS_WITH"
+  STARTS_WITH = "STARTS_WITH",
 }
 
 export interface PutLoggingConfigurationRequest {
@@ -3101,7 +3099,7 @@ export namespace RateBasedStatement {
 }
 
 export enum RateBasedStatementAggregateKeyType {
-  IP = "IP"
+  IP = "IP",
 }
 
 /**
@@ -3302,7 +3300,7 @@ export namespace RegexPatternSetSummary {
 
 export enum ResourceType {
   API_GATEWAY = "API_GATEWAY",
-  APPLICATION_LOAD_BALANCER = "APPLICATION_LOAD_BALANCER"
+  APPLICATION_LOAD_BALANCER = "APPLICATION_LOAD_BALANCER",
 }
 
 /**
@@ -3667,7 +3665,7 @@ export namespace SampledHTTPRequest {
 
 export enum Scope {
   CLOUDFRONT = "CLOUDFRONT",
-  REGIONAL = "REGIONAL"
+  REGIONAL = "REGIONAL",
 }
 
 /**
@@ -4097,7 +4095,7 @@ export interface TextTransformation {
    *             </li>
    *          </ul>
    *          <p>
-   *             <code>COMPRESS_WHITE_SPACE</code> also replaces multiple spaces with one space.</p>
+   *             <code>COMPRESS_WHITE_SPACE</code> also replaces multiple spaces with one space.</p>		
    *          <p>
    *             <b>HTML_ENTITY_DECODE</b>
    *          </p>
@@ -4125,15 +4123,15 @@ export interface TextTransformation {
    *                <p>Replaces characters that are represented in decimal format, <code>(ampersand)#nnnn;</code>, with the corresponding
    *                characters</p>
    *             </li>
-   *          </ul>
+   *          </ul>		
    *          <p>
    *             <b>LOWERCASE</b>
    *          </p>
-   *          <p>Use this option to convert uppercase letters (A-Z) to lowercase (a-z).</p>
+   *          <p>Use this option to convert uppercase letters (A-Z) to lowercase (a-z).</p>		
    *          <p>
    *             <b>URL_DECODE</b>
    *          </p>
-   *          <p>Use this option to decode a URL-encoded value.</p>
+   *          <p>Use this option to decode a URL-encoded value.</p>		
    *          <p>
    *             <b>NONE</b>
    *          </p>
@@ -4155,7 +4153,7 @@ export enum TextTransformationType {
   HTML_ENTITY_DECODE = "HTML_ENTITY_DECODE",
   LOWERCASE = "LOWERCASE",
   NONE = "NONE",
-  URL_DECODE = "URL_DECODE"
+  URL_DECODE = "URL_DECODE",
 }
 
 /**
@@ -4647,9 +4645,7 @@ export namespace VisibilityConfig {
  *          <p>AWS WAF couldn’t perform the operation because your resource is being used by another resource or it’s associated with another resource. </p>
  *
  */
-export interface WAFAssociatedItemException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface WAFAssociatedItemException extends _smithy.SmithyException, $MetadataBearer {
   __type: "WAFAssociatedItemException";
   $fault: "client";
   Message?: string;
@@ -4666,9 +4662,7 @@ export namespace WAFAssociatedItemException {
  *          <p>AWS WAF couldn’t perform the operation because the resource that you tried to save is a duplicate of an existing one.</p>
  *
  */
-export interface WAFDuplicateItemException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface WAFDuplicateItemException extends _smithy.SmithyException, $MetadataBearer {
   __type: "WAFDuplicateItemException";
   $fault: "client";
   Message?: string;
@@ -4685,9 +4679,7 @@ export namespace WAFDuplicateItemException {
  *          <p>Your request is valid, but AWS WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
  *
  */
-export interface WAFInternalErrorException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface WAFInternalErrorException extends _smithy.SmithyException, $MetadataBearer {
   __type: "WAFInternalErrorException";
   $fault: "server";
   Message?: string;
@@ -4719,9 +4711,7 @@ export namespace WAFInternalErrorException {
  *          </ul>
  *
  */
-export interface WAFInvalidParameterException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface WAFInvalidParameterException extends _smithy.SmithyException, $MetadataBearer {
   __type: "WAFInvalidParameterException";
   $fault: "client";
   Field?: ParameterExceptionField | string;
@@ -4741,9 +4731,7 @@ export namespace WAFInvalidParameterException {
  *          <p>AWS WAF couldn’t perform the operation because the resource that you requested isn’t valid. Check the resource, and try again.</p>
  *
  */
-export interface WAFInvalidResourceException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface WAFInvalidResourceException extends _smithy.SmithyException, $MetadataBearer {
   __type: "WAFInvalidResourceException";
   $fault: "client";
   Message?: string;
@@ -4762,9 +4750,7 @@ export namespace WAFInvalidResourceException {
  *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
  *
  */
-export interface WAFLimitsExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface WAFLimitsExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "WAFLimitsExceededException";
   $fault: "client";
   Message?: string;
@@ -4781,9 +4767,7 @@ export namespace WAFLimitsExceededException {
  *          <p>AWS WAF couldn’t perform the operation because your resource doesn’t exist. </p>
  *
  */
-export interface WAFNonexistentItemException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface WAFNonexistentItemException extends _smithy.SmithyException, $MetadataBearer {
   __type: "WAFNonexistentItemException";
   $fault: "client";
   Message?: string;
@@ -4800,9 +4784,7 @@ export namespace WAFNonexistentItemException {
  *          <p>AWS WAF couldn’t save your changes because you tried to update or delete a resource that has changed since you last retrieved it. Get the resource again, make any changes you need to make to the new copy, and retry your operation. </p>
  *
  */
-export interface WAFOptimisticLockException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface WAFOptimisticLockException extends _smithy.SmithyException, $MetadataBearer {
   __type: "WAFOptimisticLockException";
   $fault: "client";
   Message?: string;
@@ -4819,9 +4801,7 @@ export namespace WAFOptimisticLockException {
  *          <p>AWS WAF is not able to access the service linked role. This can be caused by a previous <code>PutLoggingConfiguration</code> request, which can lock the service linked role for about 20 seconds. Please try your request again. The service linked role can also be locked by a previous <code>DeleteServiceLinkedRole</code> request, which can lock the role for 15 minutes or more. If you recently made a call to <code>DeleteServiceLinkedRole</code>, wait at least 15 minutes and try the request again. If you receive this same exception again, you will have to wait additional time until the role is unlocked.</p>
  *
  */
-export interface WAFServiceLinkedRoleErrorException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface WAFServiceLinkedRoleErrorException extends _smithy.SmithyException, $MetadataBearer {
   __type: "WAFServiceLinkedRoleErrorException";
   $fault: "client";
   message?: string;
@@ -4838,9 +4818,7 @@ export namespace WAFServiceLinkedRoleErrorException {
  *          <p>An error occurred during the tagging operation. Retry your request.</p>
  *
  */
-export interface WAFTagOperationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface WAFTagOperationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "WAFTagOperationException";
   $fault: "client";
   Message?: string;
@@ -4857,9 +4835,7 @@ export namespace WAFTagOperationException {
  *          <p>AWS WAF couldn’t perform your tagging operation because of an internal error. Retry your request.</p>
  *
  */
-export interface WAFTagOperationInternalErrorException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface WAFTagOperationInternalErrorException extends _smithy.SmithyException, $MetadataBearer {
   __type: "WAFTagOperationInternalErrorException";
   $fault: "server";
   Message?: string;
@@ -4876,9 +4852,7 @@ export namespace WAFTagOperationInternalErrorException {
  *          <p>AWS WAF couldn’t retrieve the resource that you requested. Retry your request.</p>
  *
  */
-export interface WAFUnavailableEntityException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface WAFUnavailableEntityException extends _smithy.SmithyException, $MetadataBearer {
   __type: "WAFUnavailableEntityException";
   $fault: "client";
   Message?: string;

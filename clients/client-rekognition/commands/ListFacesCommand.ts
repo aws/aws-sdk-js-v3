@@ -1,17 +1,20 @@
 import {
   RekognitionClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../RekognitionClient";
-import { ListFacesRequest, ListFacesResponse } from "../models/index";
+import {
+  ListFacesRequest,
+  ListFacesResponse,
+} from "../models/index";
 import {
   deserializeAws_json1_1ListFacesCommand,
-  serializeAws_json1_1ListFacesCommand
+  serializeAws_json1_1ListFacesCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type ListFacesCommandInput = ListFacesRequest;
 export type ListFacesCommandOutput = ListFacesResponse;
 
-export class ListFacesCommand extends $Command<
-  ListFacesCommandInput,
-  ListFacesCommandOutput,
-  RekognitionClientResolvedConfig
-> {
+export class ListFacesCommand extends $Command<ListFacesCommandInput, ListFacesCommandOutput, RekognitionClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class ListFacesCommand extends $Command<
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListFacesCommandInput, ListFacesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

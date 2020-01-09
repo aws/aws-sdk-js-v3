@@ -1,20 +1,20 @@
 import {
   HealthClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../HealthClient";
 import {
   DescribeAffectedEntitiesRequest,
-  DescribeAffectedEntitiesResponse
+  DescribeAffectedEntitiesResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeAffectedEntitiesCommand,
-  serializeAws_json1_1DescribeAffectedEntitiesCommand
+  serializeAws_json1_1DescribeAffectedEntitiesCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DescribeAffectedEntitiesCommandInput = DescribeAffectedEntitiesRequest;
 export type DescribeAffectedEntitiesCommandOutput = DescribeAffectedEntitiesResponse;
 
-export class DescribeAffectedEntitiesCommand extends $Command<
-  DescribeAffectedEntitiesCommandInput,
-  DescribeAffectedEntitiesCommandOutput,
-  HealthClientResolvedConfig
-> {
+export class DescribeAffectedEntitiesCommand extends $Command<DescribeAffectedEntitiesCommandInput, DescribeAffectedEntitiesCommandOutput, HealthClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class DescribeAffectedEntitiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: HealthClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAffectedEntitiesCommandInput,
-    DescribeAffectedEntitiesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAffectedEntitiesCommandInput, DescribeAffectedEntitiesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -79,10 +70,7 @@ export class DescribeAffectedEntitiesCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeAffectedEntitiesCommandOutput> {
-    return deserializeAws_json1_1DescribeAffectedEntitiesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeAffectedEntitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

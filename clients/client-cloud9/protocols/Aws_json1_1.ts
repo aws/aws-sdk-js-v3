@@ -355,10 +355,7 @@ export async function deserializeAws_json1_1CreateEnvironmentEC2Command(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateEnvironmentEC2Result(
-    data.CreateEnvironmentEC2Result,
-    context
-  );
+  contents = deserializeAws_json1_1CreateEnvironmentEC2Result(data, context);
   const response: CreateEnvironmentEC2CommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateEnvironmentEC2Result",
@@ -455,7 +452,7 @@ export async function deserializeAws_json1_1CreateEnvironmentMembershipCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateEnvironmentMembershipResult(
-    data.CreateEnvironmentMembershipResult,
+    data,
     context
   );
   const response: CreateEnvironmentMembershipCommandOutput = {
@@ -550,10 +547,7 @@ export async function deserializeAws_json1_1DeleteEnvironmentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteEnvironmentResult(
-    data.DeleteEnvironmentResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteEnvironmentResult(data, context);
   const response: DeleteEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteEnvironmentResult",
@@ -650,7 +644,7 @@ export async function deserializeAws_json1_1DeleteEnvironmentMembershipCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteEnvironmentMembershipResult(
-    data.DeleteEnvironmentMembershipResult,
+    data,
     context
   );
   const response: DeleteEnvironmentMembershipCommandOutput = {
@@ -749,7 +743,7 @@ export async function deserializeAws_json1_1DescribeEnvironmentMembershipsComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeEnvironmentMembershipsResult(
-    data.DescribeEnvironmentMembershipsResult,
+    data,
     context
   );
   const response: DescribeEnvironmentMembershipsCommandOutput = {
@@ -848,7 +842,7 @@ export async function deserializeAws_json1_1DescribeEnvironmentStatusCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeEnvironmentStatusResult(
-    data.DescribeEnvironmentStatusResult,
+    data,
     context
   );
   const response: DescribeEnvironmentStatusCommandOutput = {
@@ -946,10 +940,7 @@ export async function deserializeAws_json1_1DescribeEnvironmentsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEnvironmentsResult(
-    data.DescribeEnvironmentsResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeEnvironmentsResult(data, context);
   const response: DescribeEnvironmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeEnvironmentsResult",
@@ -1042,10 +1033,7 @@ export async function deserializeAws_json1_1ListEnvironmentsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListEnvironmentsResult(
-    data.ListEnvironmentsResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListEnvironmentsResult(data, context);
   const response: ListEnvironmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListEnvironmentsResult",
@@ -1138,10 +1126,7 @@ export async function deserializeAws_json1_1UpdateEnvironmentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateEnvironmentResult(
-    data.UpdateEnvironmentResult,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateEnvironmentResult(data, context);
   const response: UpdateEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateEnvironmentResult",
@@ -1238,7 +1223,7 @@ export async function deserializeAws_json1_1UpdateEnvironmentMembershipCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateEnvironmentMembershipResult(
-    data.UpdateEnvironmentMembershipResult,
+    data,
     context
   );
   const response: UpdateEnvironmentMembershipCommandOutput = {

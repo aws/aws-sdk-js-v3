@@ -1,20 +1,20 @@
 import {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ServiceCatalogClient";
 import {
   UpdateProvisioningArtifactInput,
-  UpdateProvisioningArtifactOutput
+  UpdateProvisioningArtifactOutput,
 } from "../models/index";
 import {
   deserializeAws_json1_1UpdateProvisioningArtifactCommand,
-  serializeAws_json1_1UpdateProvisioningArtifactCommand
+  serializeAws_json1_1UpdateProvisioningArtifactCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type UpdateProvisioningArtifactCommandInput = UpdateProvisioningArtifactInput;
 export type UpdateProvisioningArtifactCommandOutput = UpdateProvisioningArtifactOutput;
 
-export class UpdateProvisioningArtifactCommand extends $Command<
-  UpdateProvisioningArtifactCommandInput,
-  UpdateProvisioningArtifactCommandOutput,
-  ServiceCatalogClientResolvedConfig
-> {
+export class UpdateProvisioningArtifactCommand extends $Command<UpdateProvisioningArtifactCommandInput, UpdateProvisioningArtifactCommandOutput, ServiceCatalogClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class UpdateProvisioningArtifactCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateProvisioningArtifactCommandInput,
-    UpdateProvisioningArtifactCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateProvisioningArtifactCommandInput, UpdateProvisioningArtifactCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class UpdateProvisioningArtifactCommand extends $Command<
     input: UpdateProvisioningArtifactCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateProvisioningArtifactCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1UpdateProvisioningArtifactCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UpdateProvisioningArtifactCommandOutput> {
-    return deserializeAws_json1_1UpdateProvisioningArtifactCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateProvisioningArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,20 +1,20 @@
 import {
   Route53ResolverClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../Route53ResolverClient";
 import {
   AssociateResolverRuleRequest,
-  AssociateResolverRuleResponse
+  AssociateResolverRuleResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1AssociateResolverRuleCommand,
-  serializeAws_json1_1AssociateResolverRuleCommand
+  serializeAws_json1_1AssociateResolverRuleCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type AssociateResolverRuleCommandInput = AssociateResolverRuleRequest;
 export type AssociateResolverRuleCommandOutput = AssociateResolverRuleResponse;
 
-export class AssociateResolverRuleCommand extends $Command<
-  AssociateResolverRuleCommandInput,
-  AssociateResolverRuleCommandOutput,
-  Route53ResolverClientResolvedConfig
-> {
+export class AssociateResolverRuleCommand extends $Command<AssociateResolverRuleCommandInput, AssociateResolverRuleCommandOutput, Route53ResolverClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class AssociateResolverRuleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ResolverClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateResolverRuleCommandInput,
-    AssociateResolverRuleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateResolverRuleCommandInput, AssociateResolverRuleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

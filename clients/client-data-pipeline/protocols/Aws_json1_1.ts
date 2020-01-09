@@ -601,10 +601,7 @@ export async function deserializeAws_json1_1ActivatePipelineCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ActivatePipelineOutput(
-    data.ActivatePipelineOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ActivatePipelineOutput(data, context);
   const response: ActivatePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ActivatePipelineOutput",
@@ -676,7 +673,7 @@ export async function deserializeAws_json1_1AddTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddTagsOutput(data.AddTagsOutput, context);
+  contents = deserializeAws_json1_1AddTagsOutput(data, context);
   const response: AddTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddTagsOutput",
@@ -748,10 +745,7 @@ export async function deserializeAws_json1_1CreatePipelineCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreatePipelineOutput(
-    data.CreatePipelineOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreatePipelineOutput(data, context);
   const response: CreatePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreatePipelineOutput",
@@ -812,10 +806,7 @@ export async function deserializeAws_json1_1DeactivatePipelineCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeactivatePipelineOutput(
-    data.DeactivatePipelineOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeactivatePipelineOutput(data, context);
   const response: DeactivatePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeactivatePipelineOutput",
@@ -947,10 +938,7 @@ export async function deserializeAws_json1_1DescribeObjectsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeObjectsOutput(
-    data.DescribeObjectsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeObjectsOutput(data, context);
   const response: DescribeObjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeObjectsOutput",
@@ -1022,10 +1010,7 @@ export async function deserializeAws_json1_1DescribePipelinesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribePipelinesOutput(
-    data.DescribePipelinesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribePipelinesOutput(data, context);
   const response: DescribePipelinesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribePipelinesOutput",
@@ -1100,10 +1085,7 @@ export async function deserializeAws_json1_1EvaluateExpressionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1EvaluateExpressionOutput(
-    data.EvaluateExpressionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1EvaluateExpressionOutput(data, context);
   const response: EvaluateExpressionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "EvaluateExpressionOutput",
@@ -1185,10 +1167,7 @@ export async function deserializeAws_json1_1GetPipelineDefinitionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetPipelineDefinitionOutput(
-    data.GetPipelineDefinitionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetPipelineDefinitionOutput(data, context);
   const response: GetPipelineDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetPipelineDefinitionOutput",
@@ -1260,10 +1239,7 @@ export async function deserializeAws_json1_1ListPipelinesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPipelinesOutput(
-    data.ListPipelinesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListPipelinesOutput(data, context);
   const response: ListPipelinesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListPipelinesOutput",
@@ -1321,10 +1297,7 @@ export async function deserializeAws_json1_1PollForTaskCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PollForTaskOutput(
-    data.PollForTaskOutput,
-    context
-  );
+  contents = deserializeAws_json1_1PollForTaskOutput(data, context);
   const response: PollForTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PollForTaskOutput",
@@ -1392,10 +1365,7 @@ export async function deserializeAws_json1_1PutPipelineDefinitionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutPipelineDefinitionOutput(
-    data.PutPipelineDefinitionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1PutPipelineDefinitionOutput(data, context);
   const response: PutPipelineDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutPipelineDefinitionOutput",
@@ -1467,10 +1437,7 @@ export async function deserializeAws_json1_1QueryObjectsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1QueryObjectsOutput(
-    data.QueryObjectsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1QueryObjectsOutput(data, context);
   const response: QueryObjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "QueryObjectsOutput",
@@ -1542,10 +1509,7 @@ export async function deserializeAws_json1_1RemoveTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RemoveTagsOutput(
-    data.RemoveTagsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1RemoveTagsOutput(data, context);
   const response: RemoveTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RemoveTagsOutput",
@@ -1620,10 +1584,7 @@ export async function deserializeAws_json1_1ReportTaskProgressCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ReportTaskProgressOutput(
-    data.ReportTaskProgressOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ReportTaskProgressOutput(data, context);
   const response: ReportTaskProgressCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ReportTaskProgressOutput",
@@ -1706,7 +1667,7 @@ export async function deserializeAws_json1_1ReportTaskRunnerHeartbeatCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ReportTaskRunnerHeartbeatOutput(
-    data.ReportTaskRunnerHeartbeatOutput,
+    data,
     context
   );
   const response: ReportTaskRunnerHeartbeatCommandOutput = {
@@ -1833,10 +1794,7 @@ export async function deserializeAws_json1_1SetTaskStatusCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SetTaskStatusOutput(
-    data.SetTaskStatusOutput,
-    context
-  );
+  contents = deserializeAws_json1_1SetTaskStatusOutput(data, context);
   const response: SetTaskStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SetTaskStatusOutput",
@@ -1919,7 +1877,7 @@ export async function deserializeAws_json1_1ValidatePipelineDefinitionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ValidatePipelineDefinitionOutput(
-    data.ValidatePipelineDefinitionOutput,
+    data,
     context
   );
   const response: ValidatePipelineDefinitionCommandOutput = {

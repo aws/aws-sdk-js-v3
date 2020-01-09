@@ -1,82 +1,82 @@
 import {
   BatchDeleteDocumentCommandInput,
-  BatchDeleteDocumentCommandOutput
+  BatchDeleteDocumentCommandOutput,
 } from "../commands/BatchDeleteDocumentCommand";
 import {
   BatchPutDocumentCommandInput,
-  BatchPutDocumentCommandOutput
+  BatchPutDocumentCommandOutput,
 } from "../commands/BatchPutDocumentCommand";
 import {
   CreateDataSourceCommandInput,
-  CreateDataSourceCommandOutput
+  CreateDataSourceCommandOutput,
 } from "../commands/CreateDataSourceCommand";
 import {
   CreateFaqCommandInput,
-  CreateFaqCommandOutput
+  CreateFaqCommandOutput,
 } from "../commands/CreateFaqCommand";
 import {
   CreateIndexCommandInput,
-  CreateIndexCommandOutput
+  CreateIndexCommandOutput,
 } from "../commands/CreateIndexCommand";
 import {
   DeleteFaqCommandInput,
-  DeleteFaqCommandOutput
+  DeleteFaqCommandOutput,
 } from "../commands/DeleteFaqCommand";
 import {
   DeleteIndexCommandInput,
-  DeleteIndexCommandOutput
+  DeleteIndexCommandOutput,
 } from "../commands/DeleteIndexCommand";
 import {
   DescribeDataSourceCommandInput,
-  DescribeDataSourceCommandOutput
+  DescribeDataSourceCommandOutput,
 } from "../commands/DescribeDataSourceCommand";
 import {
   DescribeFaqCommandInput,
-  DescribeFaqCommandOutput
+  DescribeFaqCommandOutput,
 } from "../commands/DescribeFaqCommand";
 import {
   DescribeIndexCommandInput,
-  DescribeIndexCommandOutput
+  DescribeIndexCommandOutput,
 } from "../commands/DescribeIndexCommand";
 import {
   ListDataSourceSyncJobsCommandInput,
-  ListDataSourceSyncJobsCommandOutput
+  ListDataSourceSyncJobsCommandOutput,
 } from "../commands/ListDataSourceSyncJobsCommand";
 import {
   ListDataSourcesCommandInput,
-  ListDataSourcesCommandOutput
+  ListDataSourcesCommandOutput,
 } from "../commands/ListDataSourcesCommand";
 import {
   ListFaqsCommandInput,
-  ListFaqsCommandOutput
+  ListFaqsCommandOutput,
 } from "../commands/ListFaqsCommand";
 import {
   ListIndicesCommandInput,
-  ListIndicesCommandOutput
+  ListIndicesCommandOutput,
 } from "../commands/ListIndicesCommand";
 import {
   QueryCommandInput,
-  QueryCommandOutput
+  QueryCommandOutput,
 } from "../commands/QueryCommand";
 import {
   StartDataSourceSyncJobCommandInput,
-  StartDataSourceSyncJobCommandOutput
+  StartDataSourceSyncJobCommandOutput,
 } from "../commands/StartDataSourceSyncJobCommand";
 import {
   StopDataSourceSyncJobCommandInput,
-  StopDataSourceSyncJobCommandOutput
+  StopDataSourceSyncJobCommandOutput,
 } from "../commands/StopDataSourceSyncJobCommand";
 import {
   SubmitFeedbackCommandInput,
-  SubmitFeedbackCommandOutput
+  SubmitFeedbackCommandOutput,
 } from "../commands/SubmitFeedbackCommand";
 import {
   UpdateDataSourceCommandInput,
-  UpdateDataSourceCommandOutput
+  UpdateDataSourceCommandOutput,
 } from "../commands/UpdateDataSourceCommand";
 import {
   UpdateIndexCommandInput,
-  UpdateIndexCommandOutput
+  UpdateIndexCommandOutput,
 } from "../commands/UpdateIndexCommand";
 import {
   AccessControlListConfiguration,
@@ -163,18 +163,18 @@ import {
   TimeRange,
   UpdateDataSourceRequest,
   UpdateIndexRequest,
-  ValidationException
+  ValidationException,
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export async function serializeAws_json1_1BatchDeleteDocumentCommand(
@@ -182,14 +182,11 @@ export async function serializeAws_json1_1BatchDeleteDocumentCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.BatchDeleteDocument";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSKendraFrontendService.BatchDeleteDocument";
   let body: any = {};
   const wrappedBody: any = {
-    BatchDeleteDocumentRequest: serializeAws_json1_1BatchDeleteDocumentRequest(
-      input,
-      context
-    )
+    BatchDeleteDocumentRequest: serializeAws_json1_1BatchDeleteDocumentRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -198,7 +195,7 @@ export async function serializeAws_json1_1BatchDeleteDocumentCommand(
     method: "POST",
     path: "/BatchDeleteDocument",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -207,14 +204,11 @@ export async function serializeAws_json1_1BatchPutDocumentCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.BatchPutDocument";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSKendraFrontendService.BatchPutDocument";
   let body: any = {};
   const wrappedBody: any = {
-    BatchPutDocumentRequest: serializeAws_json1_1BatchPutDocumentRequest(
-      input,
-      context
-    )
+    BatchPutDocumentRequest: serializeAws_json1_1BatchPutDocumentRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -223,7 +217,7 @@ export async function serializeAws_json1_1BatchPutDocumentCommand(
     method: "POST",
     path: "/BatchPutDocument",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -232,14 +226,11 @@ export async function serializeAws_json1_1CreateDataSourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.CreateDataSource";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSKendraFrontendService.CreateDataSource";
   let body: any = {};
   const wrappedBody: any = {
-    CreateDataSourceRequest: serializeAws_json1_1CreateDataSourceRequest(
-      input,
-      context
-    )
+    CreateDataSourceRequest: serializeAws_json1_1CreateDataSourceRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -248,7 +239,7 @@ export async function serializeAws_json1_1CreateDataSourceCommand(
     method: "POST",
     path: "/CreateDataSource",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -257,11 +248,11 @@ export async function serializeAws_json1_1CreateFaqCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.CreateFaq";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSKendraFrontendService.CreateFaq";
   let body: any = {};
   const wrappedBody: any = {
-    CreateFaqRequest: serializeAws_json1_1CreateFaqRequest(input, context)
+    CreateFaqRequest: serializeAws_json1_1CreateFaqRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -270,7 +261,7 @@ export async function serializeAws_json1_1CreateFaqCommand(
     method: "POST",
     path: "/CreateFaq",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -279,11 +270,11 @@ export async function serializeAws_json1_1CreateIndexCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.CreateIndex";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSKendraFrontendService.CreateIndex";
   let body: any = {};
   const wrappedBody: any = {
-    CreateIndexRequest: serializeAws_json1_1CreateIndexRequest(input, context)
+    CreateIndexRequest: serializeAws_json1_1CreateIndexRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -292,7 +283,7 @@ export async function serializeAws_json1_1CreateIndexCommand(
     method: "POST",
     path: "/CreateIndex",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -301,11 +292,11 @@ export async function serializeAws_json1_1DeleteFaqCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.DeleteFaq";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSKendraFrontendService.DeleteFaq";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteFaqRequest: serializeAws_json1_1DeleteFaqRequest(input, context)
+    DeleteFaqRequest: serializeAws_json1_1DeleteFaqRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -314,7 +305,7 @@ export async function serializeAws_json1_1DeleteFaqCommand(
     method: "POST",
     path: "/DeleteFaq",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -323,11 +314,11 @@ export async function serializeAws_json1_1DeleteIndexCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.DeleteIndex";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSKendraFrontendService.DeleteIndex";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteIndexRequest: serializeAws_json1_1DeleteIndexRequest(input, context)
+    DeleteIndexRequest: serializeAws_json1_1DeleteIndexRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -336,7 +327,7 @@ export async function serializeAws_json1_1DeleteIndexCommand(
     method: "POST",
     path: "/DeleteIndex",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -345,14 +336,11 @@ export async function serializeAws_json1_1DescribeDataSourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.DescribeDataSource";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSKendraFrontendService.DescribeDataSource";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeDataSourceRequest: serializeAws_json1_1DescribeDataSourceRequest(
-      input,
-      context
-    )
+    DescribeDataSourceRequest: serializeAws_json1_1DescribeDataSourceRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -361,7 +349,7 @@ export async function serializeAws_json1_1DescribeDataSourceCommand(
     method: "POST",
     path: "/DescribeDataSource",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -370,11 +358,11 @@ export async function serializeAws_json1_1DescribeFaqCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.DescribeFaq";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSKendraFrontendService.DescribeFaq";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeFaqRequest: serializeAws_json1_1DescribeFaqRequest(input, context)
+    DescribeFaqRequest: serializeAws_json1_1DescribeFaqRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -383,7 +371,7 @@ export async function serializeAws_json1_1DescribeFaqCommand(
     method: "POST",
     path: "/DescribeFaq",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -392,14 +380,11 @@ export async function serializeAws_json1_1DescribeIndexCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.DescribeIndex";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSKendraFrontendService.DescribeIndex";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeIndexRequest: serializeAws_json1_1DescribeIndexRequest(
-      input,
-      context
-    )
+    DescribeIndexRequest: serializeAws_json1_1DescribeIndexRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -408,7 +393,7 @@ export async function serializeAws_json1_1DescribeIndexCommand(
     method: "POST",
     path: "/DescribeIndex",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -417,14 +402,11 @@ export async function serializeAws_json1_1ListDataSourceSyncJobsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.ListDataSourceSyncJobs";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSKendraFrontendService.ListDataSourceSyncJobs";
   let body: any = {};
   const wrappedBody: any = {
-    ListDataSourceSyncJobsRequest: serializeAws_json1_1ListDataSourceSyncJobsRequest(
-      input,
-      context
-    )
+    ListDataSourceSyncJobsRequest: serializeAws_json1_1ListDataSourceSyncJobsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -433,7 +415,7 @@ export async function serializeAws_json1_1ListDataSourceSyncJobsCommand(
     method: "POST",
     path: "/ListDataSourceSyncJobs",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -442,14 +424,11 @@ export async function serializeAws_json1_1ListDataSourcesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.ListDataSources";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSKendraFrontendService.ListDataSources";
   let body: any = {};
   const wrappedBody: any = {
-    ListDataSourcesRequest: serializeAws_json1_1ListDataSourcesRequest(
-      input,
-      context
-    )
+    ListDataSourcesRequest: serializeAws_json1_1ListDataSourcesRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -458,7 +437,7 @@ export async function serializeAws_json1_1ListDataSourcesCommand(
     method: "POST",
     path: "/ListDataSources",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -467,11 +446,11 @@ export async function serializeAws_json1_1ListFaqsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.ListFaqs";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSKendraFrontendService.ListFaqs";
   let body: any = {};
   const wrappedBody: any = {
-    ListFaqsRequest: serializeAws_json1_1ListFaqsRequest(input, context)
+    ListFaqsRequest: serializeAws_json1_1ListFaqsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -480,7 +459,7 @@ export async function serializeAws_json1_1ListFaqsCommand(
     method: "POST",
     path: "/ListFaqs",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -489,11 +468,11 @@ export async function serializeAws_json1_1ListIndicesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.ListIndices";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSKendraFrontendService.ListIndices";
   let body: any = {};
   const wrappedBody: any = {
-    ListIndicesRequest: serializeAws_json1_1ListIndicesRequest(input, context)
+    ListIndicesRequest: serializeAws_json1_1ListIndicesRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -502,7 +481,7 @@ export async function serializeAws_json1_1ListIndicesCommand(
     method: "POST",
     path: "/ListIndices",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -511,11 +490,11 @@ export async function serializeAws_json1_1QueryCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.Query";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSKendraFrontendService.Query";
   let body: any = {};
   const wrappedBody: any = {
-    QueryRequest: serializeAws_json1_1QueryRequest(input, context)
+    QueryRequest: serializeAws_json1_1QueryRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -524,7 +503,7 @@ export async function serializeAws_json1_1QueryCommand(
     method: "POST",
     path: "/Query",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -533,14 +512,11 @@ export async function serializeAws_json1_1StartDataSourceSyncJobCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.StartDataSourceSyncJob";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSKendraFrontendService.StartDataSourceSyncJob";
   let body: any = {};
   const wrappedBody: any = {
-    StartDataSourceSyncJobRequest: serializeAws_json1_1StartDataSourceSyncJobRequest(
-      input,
-      context
-    )
+    StartDataSourceSyncJobRequest: serializeAws_json1_1StartDataSourceSyncJobRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -549,7 +525,7 @@ export async function serializeAws_json1_1StartDataSourceSyncJobCommand(
     method: "POST",
     path: "/StartDataSourceSyncJob",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -558,14 +534,11 @@ export async function serializeAws_json1_1StopDataSourceSyncJobCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.StopDataSourceSyncJob";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSKendraFrontendService.StopDataSourceSyncJob";
   let body: any = {};
   const wrappedBody: any = {
-    StopDataSourceSyncJobRequest: serializeAws_json1_1StopDataSourceSyncJobRequest(
-      input,
-      context
-    )
+    StopDataSourceSyncJobRequest: serializeAws_json1_1StopDataSourceSyncJobRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -574,7 +547,7 @@ export async function serializeAws_json1_1StopDataSourceSyncJobCommand(
     method: "POST",
     path: "/StopDataSourceSyncJob",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -583,14 +556,11 @@ export async function serializeAws_json1_1SubmitFeedbackCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.SubmitFeedback";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSKendraFrontendService.SubmitFeedback";
   let body: any = {};
   const wrappedBody: any = {
-    SubmitFeedbackRequest: serializeAws_json1_1SubmitFeedbackRequest(
-      input,
-      context
-    )
+    SubmitFeedbackRequest: serializeAws_json1_1SubmitFeedbackRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -599,7 +569,7 @@ export async function serializeAws_json1_1SubmitFeedbackCommand(
     method: "POST",
     path: "/SubmitFeedback",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -608,14 +578,11 @@ export async function serializeAws_json1_1UpdateDataSourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.UpdateDataSource";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSKendraFrontendService.UpdateDataSource";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateDataSourceRequest: serializeAws_json1_1UpdateDataSourceRequest(
-      input,
-      context
-    )
+    UpdateDataSourceRequest: serializeAws_json1_1UpdateDataSourceRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -624,7 +591,7 @@ export async function serializeAws_json1_1UpdateDataSourceCommand(
     method: "POST",
     path: "/UpdateDataSource",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -633,11 +600,11 @@ export async function serializeAws_json1_1UpdateIndexCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSKendraFrontendService.UpdateIndex";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSKendraFrontendService.UpdateIndex";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateIndexRequest: serializeAws_json1_1UpdateIndexRequest(input, context)
+    UpdateIndexRequest: serializeAws_json1_1UpdateIndexRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -646,7 +613,7 @@ export async function serializeAws_json1_1UpdateIndexCommand(
     method: "POST",
     path: "/UpdateIndex",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -655,88 +622,63 @@ export async function deserializeAws_json1_1BatchDeleteDocumentCommand(
   context: __SerdeContext
 ): Promise<BatchDeleteDocumentCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1BatchDeleteDocumentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1BatchDeleteDocumentCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchDeleteDocumentResponse(
-    data.BatchDeleteDocumentResponse,
-    context
-  );
+  contents = deserializeAws_json1_1BatchDeleteDocumentResponse(data, context);
   const response: BatchDeleteDocumentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchDeleteDocumentResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1BatchDeleteDocumentCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<BatchDeleteDocumentCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "ConflictException":
     case "com.amazonaws.kendra#ConflictException":
-      response = await deserializeAws_json1_1ConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerException":
     case "com.amazonaws.kendra#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kendra#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.kendra#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.kendra#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -749,90 +691,65 @@ export async function deserializeAws_json1_1BatchPutDocumentCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1BatchPutDocumentCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchPutDocumentResponse(
-    data.BatchPutDocumentResponse,
-    context
-  );
+  contents = deserializeAws_json1_1BatchPutDocumentResponse(data, context);
   const response: BatchPutDocumentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchPutDocumentResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1BatchPutDocumentCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<BatchPutDocumentCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "ConflictException":
     case "com.amazonaws.kendra#ConflictException":
-      response = await deserializeAws_json1_1ConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerException":
     case "com.amazonaws.kendra#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kendra#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ServiceQuotaExceededException":
     case "com.amazonaws.kendra#ServiceQuotaExceededException":
-      response = await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.kendra#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.kendra#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -845,97 +762,69 @@ export async function deserializeAws_json1_1CreateDataSourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateDataSourceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDataSourceResponse(
-    data.CreateDataSourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateDataSourceResponse(data, context);
   const response: CreateDataSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDataSourceResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateDataSourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateDataSourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "ConflictException":
     case "com.amazonaws.kendra#ConflictException":
-      response = await deserializeAws_json1_1ConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerException":
     case "com.amazonaws.kendra#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "ResourceAlreadyExistException":
     case "com.amazonaws.kendra#ResourceAlreadyExistException":
-      response = await deserializeAws_json1_1ResourceAlreadyExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceAlreadyExistExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kendra#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ServiceQuotaExceededException":
     case "com.amazonaws.kendra#ServiceQuotaExceededException":
-      response = await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.kendra#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.kendra#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -948,90 +837,65 @@ export async function deserializeAws_json1_1CreateFaqCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateFaqCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateFaqResponse(
-    data.CreateFaqResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateFaqResponse(data, context);
   const response: CreateFaqCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateFaqResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateFaqCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateFaqCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "ConflictException":
     case "com.amazonaws.kendra#ConflictException":
-      response = await deserializeAws_json1_1ConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerException":
     case "com.amazonaws.kendra#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kendra#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ServiceQuotaExceededException":
     case "com.amazonaws.kendra#ServiceQuotaExceededException":
-      response = await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.kendra#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.kendra#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1044,83 +908,61 @@ export async function deserializeAws_json1_1CreateIndexCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateIndexCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateIndexResponse(
-    data.CreateIndexResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateIndexResponse(data, context);
   const response: CreateIndexCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateIndexResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateIndexCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateIndexCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerException":
     case "com.amazonaws.kendra#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "ResourceAlreadyExistException":
     case "com.amazonaws.kendra#ResourceAlreadyExistException":
-      response = await deserializeAws_json1_1ResourceAlreadyExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceAlreadyExistExceptionResponse(parsedOutput, context);
       break;
     case "ServiceQuotaExceededException":
     case "com.amazonaws.kendra#ServiceQuotaExceededException":
-      response = await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.kendra#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.kendra#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1134,74 +976,55 @@ export async function deserializeAws_json1_1DeleteFaqCommand(
     return deserializeAws_json1_1DeleteFaqCommandError(output, context);
   }
   const response: DeleteFaqCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteFaqCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteFaqCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "ConflictException":
     case "com.amazonaws.kendra#ConflictException":
-      response = await deserializeAws_json1_1ConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerException":
     case "com.amazonaws.kendra#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kendra#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.kendra#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.kendra#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1215,74 +1038,55 @@ export async function deserializeAws_json1_1DeleteIndexCommand(
     return deserializeAws_json1_1DeleteIndexCommandError(output, context);
   }
   const response: DeleteIndexCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteIndexCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteIndexCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "ConflictException":
     case "com.amazonaws.kendra#ConflictException":
-      response = await deserializeAws_json1_1ConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerException":
     case "com.amazonaws.kendra#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kendra#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.kendra#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.kendra#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1293,81 +1097,59 @@ export async function deserializeAws_json1_1DescribeDataSourceCommand(
   context: __SerdeContext
 ): Promise<DescribeDataSourceCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeDataSourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeDataSourceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeDataSourceResponse(
-    data.DescribeDataSourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeDataSourceResponse(data, context);
   const response: DescribeDataSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeDataSourceResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeDataSourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeDataSourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerException":
     case "com.amazonaws.kendra#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kendra#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.kendra#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.kendra#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1380,76 +1162,57 @@ export async function deserializeAws_json1_1DescribeFaqCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeFaqCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeFaqResponse(
-    data.DescribeFaqResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeFaqResponse(data, context);
   const response: DescribeFaqCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeFaqResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeFaqCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeFaqCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerException":
     case "com.amazonaws.kendra#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kendra#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.kendra#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.kendra#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1462,76 +1225,57 @@ export async function deserializeAws_json1_1DescribeIndexCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeIndexCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeIndexResponse(
-    data.DescribeIndexResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeIndexResponse(data, context);
   const response: DescribeIndexCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeIndexResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeIndexCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeIndexCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerException":
     case "com.amazonaws.kendra#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kendra#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.kendra#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.kendra#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1542,88 +1286,63 @@ export async function deserializeAws_json1_1ListDataSourceSyncJobsCommand(
   context: __SerdeContext
 ): Promise<ListDataSourceSyncJobsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListDataSourceSyncJobsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListDataSourceSyncJobsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDataSourceSyncJobsResponse(
-    data.ListDataSourceSyncJobsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListDataSourceSyncJobsResponse(data, context);
   const response: ListDataSourceSyncJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListDataSourceSyncJobsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListDataSourceSyncJobsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListDataSourceSyncJobsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "ConflictException":
     case "com.amazonaws.kendra#ConflictException":
-      response = await deserializeAws_json1_1ConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerException":
     case "com.amazonaws.kendra#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kendra#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.kendra#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.kendra#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1636,76 +1355,57 @@ export async function deserializeAws_json1_1ListDataSourcesCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListDataSourcesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDataSourcesResponse(
-    data.ListDataSourcesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListDataSourcesResponse(data, context);
   const response: ListDataSourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListDataSourcesResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListDataSourcesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListDataSourcesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerException":
     case "com.amazonaws.kendra#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kendra#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.kendra#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.kendra#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1718,76 +1418,57 @@ export async function deserializeAws_json1_1ListFaqsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListFaqsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1ListFaqsResponse(
-    data.ListFaqsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListFaqsResponse(data, context);
   const response: ListFaqsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListFaqsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListFaqsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListFaqsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerException":
     case "com.amazonaws.kendra#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kendra#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.kendra#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.kendra#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1800,69 +1481,53 @@ export async function deserializeAws_json1_1ListIndicesCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListIndicesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1ListIndicesResponse(
-    data.ListIndicesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListIndicesResponse(data, context);
   const response: ListIndicesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListIndicesResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListIndicesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListIndicesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerException":
     case "com.amazonaws.kendra#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.kendra#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.kendra#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1875,80 +1540,61 @@ export async function deserializeAws_json1_1QueryCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1QueryCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1QueryResult(data.QueryResult, context);
+  contents = deserializeAws_json1_1QueryResult(data, context);
   const response: QueryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "QueryResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1QueryCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<QueryCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "ConflictException":
     case "com.amazonaws.kendra#ConflictException":
-      response = await deserializeAws_json1_1ConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerException":
     case "com.amazonaws.kendra#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kendra#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.kendra#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.kendra#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1959,95 +1605,67 @@ export async function deserializeAws_json1_1StartDataSourceSyncJobCommand(
   context: __SerdeContext
 ): Promise<StartDataSourceSyncJobCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StartDataSourceSyncJobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartDataSourceSyncJobCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1StartDataSourceSyncJobResponse(
-    data.StartDataSourceSyncJobResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartDataSourceSyncJobResponse(data, context);
   const response: StartDataSourceSyncJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartDataSourceSyncJobResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1StartDataSourceSyncJobCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<StartDataSourceSyncJobCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "ConflictException":
     case "com.amazonaws.kendra#ConflictException":
-      response = await deserializeAws_json1_1ConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerException":
     case "com.amazonaws.kendra#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "ResourceInUseException":
     case "com.amazonaws.kendra#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kendra#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.kendra#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.kendra#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2058,73 +1676,54 @@ export async function deserializeAws_json1_1StopDataSourceSyncJobCommand(
   context: __SerdeContext
 ): Promise<StopDataSourceSyncJobCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StopDataSourceSyncJobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StopDataSourceSyncJobCommandError(output, context);
   }
   const response: StopDataSourceSyncJobCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1StopDataSourceSyncJobCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<StopDataSourceSyncJobCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerException":
     case "com.amazonaws.kendra#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kendra#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.kendra#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.kendra#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2138,74 +1737,55 @@ export async function deserializeAws_json1_1SubmitFeedbackCommand(
     return deserializeAws_json1_1SubmitFeedbackCommandError(output, context);
   }
   const response: SubmitFeedbackCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1SubmitFeedbackCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<SubmitFeedbackCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerException":
     case "com.amazonaws.kendra#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kendra#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ResourceUnavailableException":
     case "com.amazonaws.kendra#ResourceUnavailableException":
-      response = await deserializeAws_json1_1ResourceUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.kendra#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.kendra#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2219,74 +1799,55 @@ export async function deserializeAws_json1_1UpdateDataSourceCommand(
     return deserializeAws_json1_1UpdateDataSourceCommandError(output, context);
   }
   const response: UpdateDataSourceCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateDataSourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateDataSourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "ConflictException":
     case "com.amazonaws.kendra#ConflictException":
-      response = await deserializeAws_json1_1ConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerException":
     case "com.amazonaws.kendra#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kendra#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.kendra#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.kendra#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2300,74 +1861,55 @@ export async function deserializeAws_json1_1UpdateIndexCommand(
     return deserializeAws_json1_1UpdateIndexCommandError(output, context);
   }
   const response: UpdateIndexCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateIndexCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateIndexCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "ConflictException":
     case "com.amazonaws.kendra#ConflictException":
-      response = await deserializeAws_json1_1ConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerException":
     case "com.amazonaws.kendra#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kendra#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.kendra#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.kendra#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2377,15 +1919,12 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
-  const deserialized: any = deserializeAws_json1_1AccessDeniedException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1AccessDeniedException(output.body, context);
   const contents: AccessDeniedException = {
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2394,15 +1933,12 @@ const deserializeAws_json1_1ConflictExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ConflictException> => {
-  const deserialized: any = deserializeAws_json1_1ConflictException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ConflictException(output.body, context);
   const contents: ConflictException = {
     __type: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2411,15 +1947,12 @@ const deserializeAws_json1_1InternalServerExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
-  const deserialized: any = deserializeAws_json1_1InternalServerException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalServerException(output.body, context);
   const contents: InternalServerException = {
     __type: "InternalServerException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2428,15 +1961,12 @@ const deserializeAws_json1_1ResourceAlreadyExistExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistException> => {
-  const deserialized: any = deserializeAws_json1_1ResourceAlreadyExistException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceAlreadyExistException(output.body, context);
   const contents: ResourceAlreadyExistException = {
     __type: "ResourceAlreadyExistException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2445,15 +1975,12 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
-  const deserialized: any = deserializeAws_json1_1ResourceInUseException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceInUseException(output.body, context);
   const contents: ResourceInUseException = {
     __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2462,15 +1989,12 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(output.body, context);
   const contents: ResourceNotFoundException = {
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2479,15 +2003,12 @@ const deserializeAws_json1_1ResourceUnavailableExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ResourceUnavailableException> => {
-  const deserialized: any = deserializeAws_json1_1ResourceUnavailableException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceUnavailableException(output.body, context);
   const contents: ResourceUnavailableException = {
     __type: "ResourceUnavailableException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2496,15 +2017,12 @@ const deserializeAws_json1_1ServiceQuotaExceededExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ServiceQuotaExceededException> => {
-  const deserialized: any = deserializeAws_json1_1ServiceQuotaExceededException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ServiceQuotaExceededException(output.body, context);
   const contents: ServiceQuotaExceededException = {
     __type: "ServiceQuotaExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2513,15 +2031,12 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ThrottlingException> => {
-  const deserialized: any = deserializeAws_json1_1ThrottlingException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ThrottlingException(output.body, context);
   const contents: ThrottlingException = {
     __type: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2530,15 +2045,12 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ValidationException> => {
-  const deserialized: any = deserializeAws_json1_1ValidationException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ValidationException(output.body, context);
   const contents: ValidationException = {
     __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2549,10 +2061,10 @@ const serializeAws_json1_1AccessControlListConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.KeyPath !== undefined) {
-    bodyParams["KeyPath"] = input.KeyPath;
+    bodyParams['KeyPath'] = input.KeyPath;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AclConfiguration = (
   input: AclConfiguration,
@@ -2560,10 +2072,10 @@ const serializeAws_json1_1AclConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.AllowedGroupsColumnName !== undefined) {
-    bodyParams["AllowedGroupsColumnName"] = input.AllowedGroupsColumnName;
+    bodyParams['AllowedGroupsColumnName'] = input.AllowedGroupsColumnName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AttributeFilter = (
   input: AttributeFilter,
@@ -2571,67 +2083,37 @@ const serializeAws_json1_1AttributeFilter = (
 ): any => {
   let bodyParams: any = {};
   if (input.AndAllFilters !== undefined) {
-    bodyParams["AndAllFilters"] = serializeAws_json1_1AttributeFilterList(
-      input.AndAllFilters,
-      context
-    );
+    bodyParams['AndAllFilters'] = serializeAws_json1_1AttributeFilterList(input.AndAllFilters, context);
   }
   if (input.ContainsAll !== undefined) {
-    bodyParams["ContainsAll"] = serializeAws_json1_1DocumentAttribute(
-      input.ContainsAll,
-      context
-    );
+    bodyParams['ContainsAll'] = serializeAws_json1_1DocumentAttribute(input.ContainsAll, context);
   }
   if (input.ContainsAny !== undefined) {
-    bodyParams["ContainsAny"] = serializeAws_json1_1DocumentAttribute(
-      input.ContainsAny,
-      context
-    );
+    bodyParams['ContainsAny'] = serializeAws_json1_1DocumentAttribute(input.ContainsAny, context);
   }
   if (input.EqualsTo !== undefined) {
-    bodyParams["EqualsTo"] = serializeAws_json1_1DocumentAttribute(
-      input.EqualsTo,
-      context
-    );
+    bodyParams['EqualsTo'] = serializeAws_json1_1DocumentAttribute(input.EqualsTo, context);
   }
   if (input.GreaterThan !== undefined) {
-    bodyParams["GreaterThan"] = serializeAws_json1_1DocumentAttribute(
-      input.GreaterThan,
-      context
-    );
+    bodyParams['GreaterThan'] = serializeAws_json1_1DocumentAttribute(input.GreaterThan, context);
   }
   if (input.GreaterThanOrEquals !== undefined) {
-    bodyParams["GreaterThanOrEquals"] = serializeAws_json1_1DocumentAttribute(
-      input.GreaterThanOrEquals,
-      context
-    );
+    bodyParams['GreaterThanOrEquals'] = serializeAws_json1_1DocumentAttribute(input.GreaterThanOrEquals, context);
   }
   if (input.LessThan !== undefined) {
-    bodyParams["LessThan"] = serializeAws_json1_1DocumentAttribute(
-      input.LessThan,
-      context
-    );
+    bodyParams['LessThan'] = serializeAws_json1_1DocumentAttribute(input.LessThan, context);
   }
   if (input.LessThanOrEquals !== undefined) {
-    bodyParams["LessThanOrEquals"] = serializeAws_json1_1DocumentAttribute(
-      input.LessThanOrEquals,
-      context
-    );
+    bodyParams['LessThanOrEquals'] = serializeAws_json1_1DocumentAttribute(input.LessThanOrEquals, context);
   }
   if (input.NotFilter !== undefined) {
-    bodyParams["NotFilter"] = serializeAws_json1_1AttributeFilter(
-      input.NotFilter,
-      context
-    );
+    bodyParams['NotFilter'] = serializeAws_json1_1AttributeFilter(input.NotFilter, context);
   }
   if (input.OrAllFilters !== undefined) {
-    bodyParams["OrAllFilters"] = serializeAws_json1_1AttributeFilterList(
-      input.OrAllFilters,
-      context
-    );
+    bodyParams['OrAllFilters'] = serializeAws_json1_1AttributeFilterList(input.OrAllFilters, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AttributeFilterList = (
   input: Array<AttributeFilter>,
@@ -2640,7 +2122,7 @@ const serializeAws_json1_1AttributeFilterList = (
   return (input || []).map(entry =>
     serializeAws_json1_1AttributeFilter(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1BatchDeleteDocumentRequest = (
   input: BatchDeleteDocumentRequest,
@@ -2648,16 +2130,13 @@ const serializeAws_json1_1BatchDeleteDocumentRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.DocumentIdList !== undefined) {
-    bodyParams["DocumentIdList"] = serializeAws_json1_1DocumentIdList(
-      input.DocumentIdList,
-      context
-    );
+    bodyParams['DocumentIdList'] = serializeAws_json1_1DocumentIdList(input.DocumentIdList, context);
   }
   if (input.IndexId !== undefined) {
-    bodyParams["IndexId"] = input.IndexId;
+    bodyParams['IndexId'] = input.IndexId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1BatchPutDocumentRequest = (
   input: BatchPutDocumentRequest,
@@ -2665,26 +2144,25 @@ const serializeAws_json1_1BatchPutDocumentRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Documents !== undefined) {
-    bodyParams["Documents"] = serializeAws_json1_1DocumentList(
-      input.Documents,
-      context
-    );
+    bodyParams['Documents'] = serializeAws_json1_1DocumentList(input.Documents, context);
   }
   if (input.IndexId !== undefined) {
-    bodyParams["IndexId"] = input.IndexId;
+    bodyParams['IndexId'] = input.IndexId;
   }
   if (input.RoleArn !== undefined) {
-    bodyParams["RoleArn"] = input.RoleArn;
+    bodyParams['RoleArn'] = input.RoleArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ChangeDetectingColumns = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1ClickFeedback = (
   input: ClickFeedback,
@@ -2692,13 +2170,13 @@ const serializeAws_json1_1ClickFeedback = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClickTime !== undefined) {
-    bodyParams["ClickTime"] = Math.round(input.ClickTime.getTime() / 1000);
+    bodyParams['ClickTime'] = Math.round(input.ClickTime.getTime() / 1000);
   }
   if (input.ResultId !== undefined) {
-    bodyParams["ResultId"] = input.ResultId;
+    bodyParams['ResultId'] = input.ResultId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ClickFeedbackList = (
   input: Array<ClickFeedback>,
@@ -2707,7 +2185,7 @@ const serializeAws_json1_1ClickFeedbackList = (
   return (input || []).map(entry =>
     serializeAws_json1_1ClickFeedback(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1ColumnConfiguration = (
   input: ColumnConfiguration,
@@ -2715,32 +2193,22 @@ const serializeAws_json1_1ColumnConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeDetectingColumns !== undefined) {
-    bodyParams[
-      "ChangeDetectingColumns"
-    ] = serializeAws_json1_1ChangeDetectingColumns(
-      input.ChangeDetectingColumns,
-      context
-    );
+    bodyParams['ChangeDetectingColumns'] = serializeAws_json1_1ChangeDetectingColumns(input.ChangeDetectingColumns, context);
   }
   if (input.DocumentDataColumnName !== undefined) {
-    bodyParams["DocumentDataColumnName"] = input.DocumentDataColumnName;
+    bodyParams['DocumentDataColumnName'] = input.DocumentDataColumnName;
   }
   if (input.DocumentIdColumnName !== undefined) {
-    bodyParams["DocumentIdColumnName"] = input.DocumentIdColumnName;
+    bodyParams['DocumentIdColumnName'] = input.DocumentIdColumnName;
   }
   if (input.DocumentTitleColumnName !== undefined) {
-    bodyParams["DocumentTitleColumnName"] = input.DocumentTitleColumnName;
+    bodyParams['DocumentTitleColumnName'] = input.DocumentTitleColumnName;
   }
   if (input.FieldMappings !== undefined) {
-    bodyParams[
-      "FieldMappings"
-    ] = serializeAws_json1_1DataSourceToIndexFieldMappingList(
-      input.FieldMappings,
-      context
-    );
+    bodyParams['FieldMappings'] = serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ConnectionConfiguration = (
   input: ConnectionConfiguration,
@@ -2748,22 +2216,22 @@ const serializeAws_json1_1ConnectionConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.DatabaseHost !== undefined) {
-    bodyParams["DatabaseHost"] = input.DatabaseHost;
+    bodyParams['DatabaseHost'] = input.DatabaseHost;
   }
   if (input.DatabaseName !== undefined) {
-    bodyParams["DatabaseName"] = input.DatabaseName;
+    bodyParams['DatabaseName'] = input.DatabaseName;
   }
   if (input.DatabasePort !== undefined) {
-    bodyParams["DatabasePort"] = input.DatabasePort;
+    bodyParams['DatabasePort'] = input.DatabasePort;
   }
   if (input.SecretArn !== undefined) {
-    bodyParams["SecretArn"] = input.SecretArn;
+    bodyParams['SecretArn'] = input.SecretArn;
   }
   if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
+    bodyParams['TableName'] = input.TableName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateDataSourceRequest = (
   input: CreateDataSourceRequest,
@@ -2771,31 +2239,28 @@ const serializeAws_json1_1CreateDataSourceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Configuration !== undefined) {
-    bodyParams["Configuration"] = serializeAws_json1_1DataSourceConfiguration(
-      input.Configuration,
-      context
-    );
+    bodyParams['Configuration'] = serializeAws_json1_1DataSourceConfiguration(input.Configuration, context);
   }
   if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
+    bodyParams['Description'] = input.Description;
   }
   if (input.IndexId !== undefined) {
-    bodyParams["IndexId"] = input.IndexId;
+    bodyParams['IndexId'] = input.IndexId;
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.RoleArn !== undefined) {
-    bodyParams["RoleArn"] = input.RoleArn;
+    bodyParams['RoleArn'] = input.RoleArn;
   }
   if (input.Schedule !== undefined) {
-    bodyParams["Schedule"] = input.Schedule;
+    bodyParams['Schedule'] = input.Schedule;
   }
   if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
+    bodyParams['Type'] = input.Type;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateFaqRequest = (
   input: CreateFaqRequest,
@@ -2803,22 +2268,22 @@ const serializeAws_json1_1CreateFaqRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
+    bodyParams['Description'] = input.Description;
   }
   if (input.IndexId !== undefined) {
-    bodyParams["IndexId"] = input.IndexId;
+    bodyParams['IndexId'] = input.IndexId;
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.RoleArn !== undefined) {
-    bodyParams["RoleArn"] = input.RoleArn;
+    bodyParams['RoleArn'] = input.RoleArn;
   }
   if (input.S3Path !== undefined) {
-    bodyParams["S3Path"] = serializeAws_json1_1S3Path(input.S3Path, context);
+    bodyParams['S3Path'] = serializeAws_json1_1S3Path(input.S3Path, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateIndexRequest = (
   input: CreateIndexRequest,
@@ -2826,24 +2291,19 @@ const serializeAws_json1_1CreateIndexRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
+    bodyParams['Description'] = input.Description;
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.RoleArn !== undefined) {
-    bodyParams["RoleArn"] = input.RoleArn;
+    bodyParams['RoleArn'] = input.RoleArn;
   }
   if (input.ServerSideEncryptionConfiguration !== undefined) {
-    bodyParams[
-      "ServerSideEncryptionConfiguration"
-    ] = serializeAws_json1_1ServerSideEncryptionConfiguration(
-      input.ServerSideEncryptionConfiguration,
-      context
-    );
+    bodyParams['ServerSideEncryptionConfiguration'] = serializeAws_json1_1ServerSideEncryptionConfiguration(input.ServerSideEncryptionConfiguration, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DataSourceConfiguration = (
   input: DataSourceConfiguration,
@@ -2851,38 +2311,25 @@ const serializeAws_json1_1DataSourceConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.DatabaseConfiguration !== undefined) {
-    bodyParams[
-      "DatabaseConfiguration"
-    ] = serializeAws_json1_1DatabaseConfiguration(
-      input.DatabaseConfiguration,
-      context
-    );
+    bodyParams['DatabaseConfiguration'] = serializeAws_json1_1DatabaseConfiguration(input.DatabaseConfiguration, context);
   }
   if (input.S3Configuration !== undefined) {
-    bodyParams[
-      "S3Configuration"
-    ] = serializeAws_json1_1S3DataSourceConfiguration(
-      input.S3Configuration,
-      context
-    );
+    bodyParams['S3Configuration'] = serializeAws_json1_1S3DataSourceConfiguration(input.S3Configuration, context);
   }
   if (input.SharePointConfiguration !== undefined) {
-    bodyParams[
-      "SharePointConfiguration"
-    ] = serializeAws_json1_1SharePointConfiguration(
-      input.SharePointConfiguration,
-      context
-    );
+    bodyParams['SharePointConfiguration'] = serializeAws_json1_1SharePointConfiguration(input.SharePointConfiguration, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DataSourceInclusionsExclusionsStrings = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1DataSourceToIndexFieldMapping = (
   input: DataSourceToIndexFieldMapping,
@@ -2890,16 +2337,16 @@ const serializeAws_json1_1DataSourceToIndexFieldMapping = (
 ): any => {
   let bodyParams: any = {};
   if (input.DataSourceFieldName !== undefined) {
-    bodyParams["DataSourceFieldName"] = input.DataSourceFieldName;
+    bodyParams['DataSourceFieldName'] = input.DataSourceFieldName;
   }
   if (input.DateFieldFormat !== undefined) {
-    bodyParams["DateFieldFormat"] = input.DateFieldFormat;
+    bodyParams['DateFieldFormat'] = input.DateFieldFormat;
   }
   if (input.IndexFieldName !== undefined) {
-    bodyParams["IndexFieldName"] = input.IndexFieldName;
+    bodyParams['IndexFieldName'] = input.IndexFieldName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DataSourceToIndexFieldMappingList = (
   input: Array<DataSourceToIndexFieldMapping>,
@@ -2908,7 +2355,7 @@ const serializeAws_json1_1DataSourceToIndexFieldMappingList = (
   return (input || []).map(entry =>
     serializeAws_json1_1DataSourceToIndexFieldMapping(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1DataSourceVpcConfiguration = (
   input: DataSourceVpcConfiguration,
@@ -2916,19 +2363,13 @@ const serializeAws_json1_1DataSourceVpcConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.SecurityGroupIds !== undefined) {
-    bodyParams["SecurityGroupIds"] = serializeAws_json1_1SecurityGroupIdList(
-      input.SecurityGroupIds,
-      context
-    );
+    bodyParams['SecurityGroupIds'] = serializeAws_json1_1SecurityGroupIdList(input.SecurityGroupIds, context);
   }
   if (input.SubnetIds !== undefined) {
-    bodyParams["SubnetIds"] = serializeAws_json1_1SubnetIdList(
-      input.SubnetIds,
-      context
-    );
+    bodyParams['SubnetIds'] = serializeAws_json1_1SubnetIdList(input.SubnetIds, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DatabaseConfiguration = (
   input: DatabaseConfiguration,
@@ -2936,38 +2377,22 @@ const serializeAws_json1_1DatabaseConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.AclConfiguration !== undefined) {
-    bodyParams["AclConfiguration"] = serializeAws_json1_1AclConfiguration(
-      input.AclConfiguration,
-      context
-    );
+    bodyParams['AclConfiguration'] = serializeAws_json1_1AclConfiguration(input.AclConfiguration, context);
   }
   if (input.ColumnConfiguration !== undefined) {
-    bodyParams["ColumnConfiguration"] = serializeAws_json1_1ColumnConfiguration(
-      input.ColumnConfiguration,
-      context
-    );
+    bodyParams['ColumnConfiguration'] = serializeAws_json1_1ColumnConfiguration(input.ColumnConfiguration, context);
   }
   if (input.ConnectionConfiguration !== undefined) {
-    bodyParams[
-      "ConnectionConfiguration"
-    ] = serializeAws_json1_1ConnectionConfiguration(
-      input.ConnectionConfiguration,
-      context
-    );
+    bodyParams['ConnectionConfiguration'] = serializeAws_json1_1ConnectionConfiguration(input.ConnectionConfiguration, context);
   }
   if (input.DatabaseEngineType !== undefined) {
-    bodyParams["DatabaseEngineType"] = input.DatabaseEngineType;
+    bodyParams['DatabaseEngineType'] = input.DatabaseEngineType;
   }
   if (input.VpcConfiguration !== undefined) {
-    bodyParams[
-      "VpcConfiguration"
-    ] = serializeAws_json1_1DataSourceVpcConfiguration(
-      input.VpcConfiguration,
-      context
-    );
+    bodyParams['VpcConfiguration'] = serializeAws_json1_1DataSourceVpcConfiguration(input.VpcConfiguration, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteFaqRequest = (
   input: DeleteFaqRequest,
@@ -2975,13 +2400,13 @@ const serializeAws_json1_1DeleteFaqRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
+    bodyParams['Id'] = input.Id;
   }
   if (input.IndexId !== undefined) {
-    bodyParams["IndexId"] = input.IndexId;
+    bodyParams['IndexId'] = input.IndexId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteIndexRequest = (
   input: DeleteIndexRequest,
@@ -2989,10 +2414,10 @@ const serializeAws_json1_1DeleteIndexRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
+    bodyParams['Id'] = input.Id;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeDataSourceRequest = (
   input: DescribeDataSourceRequest,
@@ -3000,13 +2425,13 @@ const serializeAws_json1_1DescribeDataSourceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
+    bodyParams['Id'] = input.Id;
   }
   if (input.IndexId !== undefined) {
-    bodyParams["IndexId"] = input.IndexId;
+    bodyParams['IndexId'] = input.IndexId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeFaqRequest = (
   input: DescribeFaqRequest,
@@ -3014,13 +2439,13 @@ const serializeAws_json1_1DescribeFaqRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
+    bodyParams['Id'] = input.Id;
   }
   if (input.IndexId !== undefined) {
-    bodyParams["IndexId"] = input.IndexId;
+    bodyParams['IndexId'] = input.IndexId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeIndexRequest = (
   input: DescribeIndexRequest,
@@ -3028,10 +2453,10 @@ const serializeAws_json1_1DescribeIndexRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
+    bodyParams['Id'] = input.Id;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1Document = (
   input: Document,
@@ -3039,34 +2464,28 @@ const serializeAws_json1_1Document = (
 ): any => {
   let bodyParams: any = {};
   if (input.AccessControlList !== undefined) {
-    bodyParams["AccessControlList"] = serializeAws_json1_1PrincipalList(
-      input.AccessControlList,
-      context
-    );
+    bodyParams['AccessControlList'] = serializeAws_json1_1PrincipalList(input.AccessControlList, context);
   }
   if (input.Attributes !== undefined) {
-    bodyParams["Attributes"] = serializeAws_json1_1DocumentAttributeList(
-      input.Attributes,
-      context
-    );
+    bodyParams['Attributes'] = serializeAws_json1_1DocumentAttributeList(input.Attributes, context);
   }
   if (input.Blob !== undefined) {
-    bodyParams["Blob"] = context.base64Encoder(input.Blob);
+    bodyParams['Blob'] = context.base64Encoder(input.Blob);
   }
   if (input.ContentType !== undefined) {
-    bodyParams["ContentType"] = input.ContentType;
+    bodyParams['ContentType'] = input.ContentType;
   }
   if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
+    bodyParams['Id'] = input.Id;
   }
   if (input.S3Path !== undefined) {
-    bodyParams["S3Path"] = serializeAws_json1_1S3Path(input.S3Path, context);
+    bodyParams['S3Path'] = serializeAws_json1_1S3Path(input.S3Path, context);
   }
   if (input.Title !== undefined) {
-    bodyParams["Title"] = input.Title;
+    bodyParams['Title'] = input.Title;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DocumentAttribute = (
   input: DocumentAttribute,
@@ -3074,23 +2493,22 @@ const serializeAws_json1_1DocumentAttribute = (
 ): any => {
   let bodyParams: any = {};
   if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
+    bodyParams['Key'] = input.Key;
   }
   if (input.Value !== undefined) {
-    bodyParams["Value"] = serializeAws_json1_1DocumentAttributeValue(
-      input.Value,
-      context
-    );
+    bodyParams['Value'] = serializeAws_json1_1DocumentAttributeValue(input.Value, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DocumentAttributeKeyList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1DocumentAttributeList = (
   input: Array<DocumentAttribute>,
@@ -3099,14 +2517,16 @@ const serializeAws_json1_1DocumentAttributeList = (
   return (input || []).map(entry =>
     serializeAws_json1_1DocumentAttribute(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1DocumentAttributeStringListValue = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1DocumentAttributeValue = (
   input: DocumentAttributeValue,
@@ -3114,31 +2534,28 @@ const serializeAws_json1_1DocumentAttributeValue = (
 ): any => {
   let bodyParams: any = {};
   if (input.DateValue !== undefined) {
-    bodyParams["DateValue"] = Math.round(input.DateValue.getTime() / 1000);
+    bodyParams['DateValue'] = Math.round(input.DateValue.getTime() / 1000);
   }
   if (input.LongValue !== undefined) {
-    bodyParams["LongValue"] = input.LongValue;
+    bodyParams['LongValue'] = input.LongValue;
   }
   if (input.StringListValue !== undefined) {
-    bodyParams[
-      "StringListValue"
-    ] = serializeAws_json1_1DocumentAttributeStringListValue(
-      input.StringListValue,
-      context
-    );
+    bodyParams['StringListValue'] = serializeAws_json1_1DocumentAttributeStringListValue(input.StringListValue, context);
   }
   if (input.StringValue !== undefined) {
-    bodyParams["StringValue"] = input.StringValue;
+    bodyParams['StringValue'] = input.StringValue;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DocumentIdList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1DocumentList = (
   input: Array<Document>,
@@ -3147,7 +2564,7 @@ const serializeAws_json1_1DocumentList = (
   return (input || []).map(entry =>
     serializeAws_json1_1Document(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1DocumentMetadataConfiguration = (
   input: DocumentMetadataConfiguration,
@@ -3155,22 +2572,19 @@ const serializeAws_json1_1DocumentMetadataConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.Relevance !== undefined) {
-    bodyParams["Relevance"] = serializeAws_json1_1Relevance(
-      input.Relevance,
-      context
-    );
+    bodyParams['Relevance'] = serializeAws_json1_1Relevance(input.Relevance, context);
   }
   if (input.Search !== undefined) {
-    bodyParams["Search"] = serializeAws_json1_1Search(input.Search, context);
+    bodyParams['Search'] = serializeAws_json1_1Search(input.Search, context);
   }
   if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
+    bodyParams['Type'] = input.Type;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DocumentMetadataConfigurationList = (
   input: Array<DocumentMetadataConfiguration>,
@@ -3179,7 +2593,7 @@ const serializeAws_json1_1DocumentMetadataConfigurationList = (
   return (input || []).map(entry =>
     serializeAws_json1_1DocumentMetadataConfiguration(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1DocumentsMetadataConfiguration = (
   input: DocumentsMetadataConfiguration,
@@ -3187,10 +2601,10 @@ const serializeAws_json1_1DocumentsMetadataConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.S3Prefix !== undefined) {
-    bodyParams["S3Prefix"] = input.S3Prefix;
+    bodyParams['S3Prefix'] = input.S3Prefix;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1Facet = (
   input: Facet,
@@ -3198,17 +2612,19 @@ const serializeAws_json1_1Facet = (
 ): any => {
   let bodyParams: any = {};
   if (input.DocumentAttributeKey !== undefined) {
-    bodyParams["DocumentAttributeKey"] = input.DocumentAttributeKey;
+    bodyParams['DocumentAttributeKey'] = input.DocumentAttributeKey;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1FacetList = (
   input: Array<Facet>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Facet(entry, context));
-};
+  return (input || []).map(entry =>
+    serializeAws_json1_1Facet(entry, context)
+  );
+}
 
 const serializeAws_json1_1ListDataSourceSyncJobsRequest = (
   input: ListDataSourceSyncJobsRequest,
@@ -3216,28 +2632,25 @@ const serializeAws_json1_1ListDataSourceSyncJobsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
+    bodyParams['Id'] = input.Id;
   }
   if (input.IndexId !== undefined) {
-    bodyParams["IndexId"] = input.IndexId;
+    bodyParams['IndexId'] = input.IndexId;
   }
   if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
+    bodyParams['MaxResults'] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.StartTimeFilter !== undefined) {
-    bodyParams["StartTimeFilter"] = serializeAws_json1_1TimeRange(
-      input.StartTimeFilter,
-      context
-    );
+    bodyParams['StartTimeFilter'] = serializeAws_json1_1TimeRange(input.StartTimeFilter, context);
   }
   if (input.StatusFilter !== undefined) {
-    bodyParams["StatusFilter"] = input.StatusFilter;
+    bodyParams['StatusFilter'] = input.StatusFilter;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListDataSourcesRequest = (
   input: ListDataSourcesRequest,
@@ -3245,16 +2658,16 @@ const serializeAws_json1_1ListDataSourcesRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.IndexId !== undefined) {
-    bodyParams["IndexId"] = input.IndexId;
+    bodyParams['IndexId'] = input.IndexId;
   }
   if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
+    bodyParams['MaxResults'] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListFaqsRequest = (
   input: ListFaqsRequest,
@@ -3262,16 +2675,16 @@ const serializeAws_json1_1ListFaqsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.IndexId !== undefined) {
-    bodyParams["IndexId"] = input.IndexId;
+    bodyParams['IndexId'] = input.IndexId;
   }
   if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
+    bodyParams['MaxResults'] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListIndicesRequest = (
   input: ListIndicesRequest,
@@ -3279,13 +2692,13 @@ const serializeAws_json1_1ListIndicesRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
+    bodyParams['MaxResults'] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1Principal = (
   input: Principal,
@@ -3293,16 +2706,16 @@ const serializeAws_json1_1Principal = (
 ): any => {
   let bodyParams: any = {};
   if (input.Access !== undefined) {
-    bodyParams["Access"] = input.Access;
+    bodyParams['Access'] = input.Access;
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
+    bodyParams['Type'] = input.Type;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1PrincipalList = (
   input: Array<Principal>,
@@ -3311,7 +2724,7 @@ const serializeAws_json1_1PrincipalList = (
   return (input || []).map(entry =>
     serializeAws_json1_1Principal(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1QueryRequest = (
   input: QueryRequest,
@@ -3319,39 +2732,31 @@ const serializeAws_json1_1QueryRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AttributeFilter !== undefined) {
-    bodyParams["AttributeFilter"] = serializeAws_json1_1AttributeFilter(
-      input.AttributeFilter,
-      context
-    );
+    bodyParams['AttributeFilter'] = serializeAws_json1_1AttributeFilter(input.AttributeFilter, context);
   }
   if (input.Facets !== undefined) {
-    bodyParams["Facets"] = serializeAws_json1_1FacetList(input.Facets, context);
+    bodyParams['Facets'] = serializeAws_json1_1FacetList(input.Facets, context);
   }
   if (input.IndexId !== undefined) {
-    bodyParams["IndexId"] = input.IndexId;
+    bodyParams['IndexId'] = input.IndexId;
   }
   if (input.PageNumber !== undefined) {
-    bodyParams["PageNumber"] = input.PageNumber;
+    bodyParams['PageNumber'] = input.PageNumber;
   }
   if (input.PageSize !== undefined) {
-    bodyParams["PageSize"] = input.PageSize;
+    bodyParams['PageSize'] = input.PageSize;
   }
   if (input.QueryResultTypeFilter !== undefined) {
-    bodyParams["QueryResultTypeFilter"] = input.QueryResultTypeFilter;
+    bodyParams['QueryResultTypeFilter'] = input.QueryResultTypeFilter;
   }
   if (input.QueryText !== undefined) {
-    bodyParams["QueryText"] = input.QueryText;
+    bodyParams['QueryText'] = input.QueryText;
   }
   if (input.RequestedDocumentAttributes !== undefined) {
-    bodyParams[
-      "RequestedDocumentAttributes"
-    ] = serializeAws_json1_1DocumentAttributeKeyList(
-      input.RequestedDocumentAttributes,
-      context
-    );
+    bodyParams['RequestedDocumentAttributes'] = serializeAws_json1_1DocumentAttributeKeyList(input.RequestedDocumentAttributes, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1Relevance = (
   input: Relevance,
@@ -3359,25 +2764,22 @@ const serializeAws_json1_1Relevance = (
 ): any => {
   let bodyParams: any = {};
   if (input.Duration !== undefined) {
-    bodyParams["Duration"] = input.Duration;
+    bodyParams['Duration'] = input.Duration;
   }
   if (input.Freshness !== undefined) {
-    bodyParams["Freshness"] = input.Freshness;
+    bodyParams['Freshness'] = input.Freshness;
   }
   if (input.Importance !== undefined) {
-    bodyParams["Importance"] = input.Importance;
+    bodyParams['Importance'] = input.Importance;
   }
   if (input.RankOrder !== undefined) {
-    bodyParams["RankOrder"] = input.RankOrder;
+    bodyParams['RankOrder'] = input.RankOrder;
   }
   if (input.ValueImportanceMap !== undefined) {
-    bodyParams["ValueImportanceMap"] = serializeAws_json1_1ValueImportanceMap(
-      input.ValueImportanceMap,
-      context
-    );
+    bodyParams['ValueImportanceMap'] = serializeAws_json1_1ValueImportanceMap(input.ValueImportanceMap, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1RelevanceFeedback = (
   input: RelevanceFeedback,
@@ -3385,13 +2787,13 @@ const serializeAws_json1_1RelevanceFeedback = (
 ): any => {
   let bodyParams: any = {};
   if (input.RelevanceValue !== undefined) {
-    bodyParams["RelevanceValue"] = input.RelevanceValue;
+    bodyParams['RelevanceValue'] = input.RelevanceValue;
   }
   if (input.ResultId !== undefined) {
-    bodyParams["ResultId"] = input.ResultId;
+    bodyParams['ResultId'] = input.ResultId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1RelevanceFeedbackList = (
   input: Array<RelevanceFeedback>,
@@ -3400,7 +2802,7 @@ const serializeAws_json1_1RelevanceFeedbackList = (
   return (input || []).map(entry =>
     serializeAws_json1_1RelevanceFeedback(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1S3DataSourceConfiguration = (
   input: S3DataSourceConfiguration,
@@ -3408,42 +2810,22 @@ const serializeAws_json1_1S3DataSourceConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.AccessControlListConfiguration !== undefined) {
-    bodyParams[
-      "AccessControlListConfiguration"
-    ] = serializeAws_json1_1AccessControlListConfiguration(
-      input.AccessControlListConfiguration,
-      context
-    );
+    bodyParams['AccessControlListConfiguration'] = serializeAws_json1_1AccessControlListConfiguration(input.AccessControlListConfiguration, context);
   }
   if (input.BucketName !== undefined) {
-    bodyParams["BucketName"] = input.BucketName;
+    bodyParams['BucketName'] = input.BucketName;
   }
   if (input.DocumentsMetadataConfiguration !== undefined) {
-    bodyParams[
-      "DocumentsMetadataConfiguration"
-    ] = serializeAws_json1_1DocumentsMetadataConfiguration(
-      input.DocumentsMetadataConfiguration,
-      context
-    );
+    bodyParams['DocumentsMetadataConfiguration'] = serializeAws_json1_1DocumentsMetadataConfiguration(input.DocumentsMetadataConfiguration, context);
   }
   if (input.ExclusionPatterns !== undefined) {
-    bodyParams[
-      "ExclusionPatterns"
-    ] = serializeAws_json1_1DataSourceInclusionsExclusionsStrings(
-      input.ExclusionPatterns,
-      context
-    );
+    bodyParams['ExclusionPatterns'] = serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.ExclusionPatterns, context);
   }
   if (input.InclusionPrefixes !== undefined) {
-    bodyParams[
-      "InclusionPrefixes"
-    ] = serializeAws_json1_1DataSourceInclusionsExclusionsStrings(
-      input.InclusionPrefixes,
-      context
-    );
+    bodyParams['InclusionPrefixes'] = serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.InclusionPrefixes, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1S3Path = (
   input: S3Path,
@@ -3451,13 +2833,13 @@ const serializeAws_json1_1S3Path = (
 ): any => {
   let bodyParams: any = {};
   if (input.Bucket !== undefined) {
-    bodyParams["Bucket"] = input.Bucket;
+    bodyParams['Bucket'] = input.Bucket;
   }
   if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
+    bodyParams['Key'] = input.Key;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1Search = (
   input: Search,
@@ -3465,23 +2847,25 @@ const serializeAws_json1_1Search = (
 ): any => {
   let bodyParams: any = {};
   if (input.Displayable !== undefined) {
-    bodyParams["Displayable"] = input.Displayable;
+    bodyParams['Displayable'] = input.Displayable;
   }
   if (input.Facetable !== undefined) {
-    bodyParams["Facetable"] = input.Facetable;
+    bodyParams['Facetable'] = input.Facetable;
   }
   if (input.Searchable !== undefined) {
-    bodyParams["Searchable"] = input.Searchable;
+    bodyParams['Searchable'] = input.Searchable;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1SecurityGroupIdList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1ServerSideEncryptionConfiguration = (
   input: ServerSideEncryptionConfiguration,
@@ -3489,10 +2873,10 @@ const serializeAws_json1_1ServerSideEncryptionConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.KmsKeyId !== undefined) {
-    bodyParams["KmsKeyId"] = input.KmsKeyId;
+    bodyParams['KmsKeyId'] = input.KmsKeyId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1SharePointConfiguration = (
   input: SharePointConfiguration,
@@ -3500,45 +2884,34 @@ const serializeAws_json1_1SharePointConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.CrawlAttachments !== undefined) {
-    bodyParams["CrawlAttachments"] = input.CrawlAttachments;
+    bodyParams['CrawlAttachments'] = input.CrawlAttachments;
   }
   if (input.FieldMappings !== undefined) {
-    bodyParams[
-      "FieldMappings"
-    ] = serializeAws_json1_1DataSourceToIndexFieldMappingList(
-      input.FieldMappings,
-      context
-    );
+    bodyParams['FieldMappings'] = serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context);
   }
   if (input.SecretArn !== undefined) {
-    bodyParams["SecretArn"] = input.SecretArn;
+    bodyParams['SecretArn'] = input.SecretArn;
   }
   if (input.SharePointVersion !== undefined) {
-    bodyParams["SharePointVersion"] = input.SharePointVersion;
+    bodyParams['SharePointVersion'] = input.SharePointVersion;
   }
   if (input.Urls !== undefined) {
-    bodyParams["Urls"] = serializeAws_json1_1SharePointUrlList(
-      input.Urls,
-      context
-    );
+    bodyParams['Urls'] = serializeAws_json1_1SharePointUrlList(input.Urls, context);
   }
   if (input.VpcConfiguration !== undefined) {
-    bodyParams[
-      "VpcConfiguration"
-    ] = serializeAws_json1_1DataSourceVpcConfiguration(
-      input.VpcConfiguration,
-      context
-    );
+    bodyParams['VpcConfiguration'] = serializeAws_json1_1DataSourceVpcConfiguration(input.VpcConfiguration, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1SharePointUrlList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1StartDataSourceSyncJobRequest = (
   input: StartDataSourceSyncJobRequest,
@@ -3546,13 +2919,13 @@ const serializeAws_json1_1StartDataSourceSyncJobRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
+    bodyParams['Id'] = input.Id;
   }
   if (input.IndexId !== undefined) {
-    bodyParams["IndexId"] = input.IndexId;
+    bodyParams['IndexId'] = input.IndexId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1StopDataSourceSyncJobRequest = (
   input: StopDataSourceSyncJobRequest,
@@ -3560,13 +2933,13 @@ const serializeAws_json1_1StopDataSourceSyncJobRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
+    bodyParams['Id'] = input.Id;
   }
   if (input.IndexId !== undefined) {
-    bodyParams["IndexId"] = input.IndexId;
+    bodyParams['IndexId'] = input.IndexId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1SubmitFeedbackRequest = (
   input: SubmitFeedbackRequest,
@@ -3574,34 +2947,28 @@ const serializeAws_json1_1SubmitFeedbackRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClickFeedbackItems !== undefined) {
-    bodyParams["ClickFeedbackItems"] = serializeAws_json1_1ClickFeedbackList(
-      input.ClickFeedbackItems,
-      context
-    );
+    bodyParams['ClickFeedbackItems'] = serializeAws_json1_1ClickFeedbackList(input.ClickFeedbackItems, context);
   }
   if (input.IndexId !== undefined) {
-    bodyParams["IndexId"] = input.IndexId;
+    bodyParams['IndexId'] = input.IndexId;
   }
   if (input.QueryId !== undefined) {
-    bodyParams["QueryId"] = input.QueryId;
+    bodyParams['QueryId'] = input.QueryId;
   }
   if (input.RelevanceFeedbackItems !== undefined) {
-    bodyParams[
-      "RelevanceFeedbackItems"
-    ] = serializeAws_json1_1RelevanceFeedbackList(
-      input.RelevanceFeedbackItems,
-      context
-    );
+    bodyParams['RelevanceFeedbackItems'] = serializeAws_json1_1RelevanceFeedbackList(input.RelevanceFeedbackItems, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1SubnetIdList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1TimeRange = (
   input: TimeRange,
@@ -3609,13 +2976,13 @@ const serializeAws_json1_1TimeRange = (
 ): any => {
   let bodyParams: any = {};
   if (input.EndTime !== undefined) {
-    bodyParams["EndTime"] = Math.round(input.EndTime.getTime() / 1000);
+    bodyParams['EndTime'] = Math.round(input.EndTime.getTime() / 1000);
   }
   if (input.StartTime !== undefined) {
-    bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
+    bodyParams['StartTime'] = Math.round(input.StartTime.getTime() / 1000);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateDataSourceRequest = (
   input: UpdateDataSourceRequest,
@@ -3623,31 +2990,28 @@ const serializeAws_json1_1UpdateDataSourceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Configuration !== undefined) {
-    bodyParams["Configuration"] = serializeAws_json1_1DataSourceConfiguration(
-      input.Configuration,
-      context
-    );
+    bodyParams['Configuration'] = serializeAws_json1_1DataSourceConfiguration(input.Configuration, context);
   }
   if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
+    bodyParams['Description'] = input.Description;
   }
   if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
+    bodyParams['Id'] = input.Id;
   }
   if (input.IndexId !== undefined) {
-    bodyParams["IndexId"] = input.IndexId;
+    bodyParams['IndexId'] = input.IndexId;
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.RoleArn !== undefined) {
-    bodyParams["RoleArn"] = input.RoleArn;
+    bodyParams['RoleArn'] = input.RoleArn;
   }
   if (input.Schedule !== undefined) {
-    bodyParams["Schedule"] = input.Schedule;
+    bodyParams['Schedule'] = input.Schedule;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateIndexRequest = (
   input: UpdateIndexRequest,
@@ -3655,27 +3019,22 @@ const serializeAws_json1_1UpdateIndexRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
+    bodyParams['Description'] = input.Description;
   }
   if (input.DocumentMetadataConfigurationUpdates !== undefined) {
-    bodyParams[
-      "DocumentMetadataConfigurationUpdates"
-    ] = serializeAws_json1_1DocumentMetadataConfigurationList(
-      input.DocumentMetadataConfigurationUpdates,
-      context
-    );
+    bodyParams['DocumentMetadataConfigurationUpdates'] = serializeAws_json1_1DocumentMetadataConfigurationList(input.DocumentMetadataConfigurationUpdates, context);
   }
   if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
+    bodyParams['Id'] = input.Id;
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.RoleArn !== undefined) {
-    bodyParams["RoleArn"] = input.RoleArn;
+    bodyParams['RoleArn'] = input.RoleArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ValueImportanceMap = (
   input: { [key: string]: number },
@@ -3686,7 +3045,7 @@ const serializeAws_json1_1ValueImportanceMap = (
     mapParams[key] = input[key];
   });
   return mapParams;
-};
+}
 
 const deserializeAws_json1_1AccessControlListConfiguration = (
   output: any,
@@ -3694,13 +3053,13 @@ const deserializeAws_json1_1AccessControlListConfiguration = (
 ): AccessControlListConfiguration => {
   let contents: any = {
     __type: "AccessControlListConfiguration",
-    KeyPath: undefined
+    KeyPath: undefined,
   };
   if (output.KeyPath !== undefined) {
     contents.KeyPath = output.KeyPath;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AccessDeniedException = (
   output: any,
@@ -3708,13 +3067,13 @@ const deserializeAws_json1_1AccessDeniedException = (
 ): AccessDeniedException => {
   let contents: any = {
     __type: "AccessDeniedException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AclConfiguration = (
   output: any,
@@ -3722,13 +3081,13 @@ const deserializeAws_json1_1AclConfiguration = (
 ): AclConfiguration => {
   let contents: any = {
     __type: "AclConfiguration",
-    AllowedGroupsColumnName: undefined
+    AllowedGroupsColumnName: undefined,
   };
   if (output.AllowedGroupsColumnName !== undefined) {
     contents.AllowedGroupsColumnName = output.AllowedGroupsColumnName;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AdditionalResultAttribute = (
   output: any,
@@ -3738,22 +3097,19 @@ const deserializeAws_json1_1AdditionalResultAttribute = (
     __type: "AdditionalResultAttribute",
     Key: undefined,
     Value: undefined,
-    ValueType: undefined
+    ValueType: undefined,
   };
   if (output.Key !== undefined) {
     contents.Key = output.Key;
   }
   if (output.Value !== undefined) {
-    contents.Value = deserializeAws_json1_1AdditionalResultAttributeValue(
-      output.Value,
-      context
-    );
+    contents.Value = deserializeAws_json1_1AdditionalResultAttributeValue(output.Value, context);
   }
   if (output.ValueType !== undefined) {
     contents.ValueType = output.ValueType;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AdditionalResultAttributeList = (
   output: any,
@@ -3762,7 +3118,7 @@ const deserializeAws_json1_1AdditionalResultAttributeList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AdditionalResultAttribute(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1AdditionalResultAttributeValue = (
   output: any,
@@ -3770,16 +3126,13 @@ const deserializeAws_json1_1AdditionalResultAttributeValue = (
 ): AdditionalResultAttributeValue => {
   let contents: any = {
     __type: "AdditionalResultAttributeValue",
-    TextWithHighlightsValue: undefined
+    TextWithHighlightsValue: undefined,
   };
   if (output.TextWithHighlightsValue !== undefined) {
-    contents.TextWithHighlightsValue = deserializeAws_json1_1TextWithHighlights(
-      output.TextWithHighlightsValue,
-      context
-    );
+    contents.TextWithHighlightsValue = deserializeAws_json1_1TextWithHighlights(output.TextWithHighlightsValue, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1BatchDeleteDocumentResponse = (
   output: any,
@@ -3787,16 +3140,13 @@ const deserializeAws_json1_1BatchDeleteDocumentResponse = (
 ): BatchDeleteDocumentResponse => {
   let contents: any = {
     __type: "BatchDeleteDocumentResponse",
-    FailedDocuments: undefined
+    FailedDocuments: undefined,
   };
   if (output.FailedDocuments !== undefined) {
-    contents.FailedDocuments = deserializeAws_json1_1BatchDeleteDocumentResponseFailedDocuments(
-      output.FailedDocuments,
-      context
-    );
+    contents.FailedDocuments = deserializeAws_json1_1BatchDeleteDocumentResponseFailedDocuments(output.FailedDocuments, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1BatchDeleteDocumentResponseFailedDocument = (
   output: any,
@@ -3806,7 +3156,7 @@ const deserializeAws_json1_1BatchDeleteDocumentResponseFailedDocument = (
     __type: "BatchDeleteDocumentResponseFailedDocument",
     ErrorCode: undefined,
     ErrorMessage: undefined,
-    Id: undefined
+    Id: undefined,
   };
   if (output.ErrorCode !== undefined) {
     contents.ErrorCode = output.ErrorCode;
@@ -3818,19 +3168,16 @@ const deserializeAws_json1_1BatchDeleteDocumentResponseFailedDocument = (
     contents.Id = output.Id;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1BatchDeleteDocumentResponseFailedDocuments = (
   output: any,
   context: __SerdeContext
 ): Array<BatchDeleteDocumentResponseFailedDocument> => {
   return (output || []).map((entry: any) =>
-    deserializeAws_json1_1BatchDeleteDocumentResponseFailedDocument(
-      entry,
-      context
-    )
+    deserializeAws_json1_1BatchDeleteDocumentResponseFailedDocument(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1BatchPutDocumentResponse = (
   output: any,
@@ -3838,16 +3185,13 @@ const deserializeAws_json1_1BatchPutDocumentResponse = (
 ): BatchPutDocumentResponse => {
   let contents: any = {
     __type: "BatchPutDocumentResponse",
-    FailedDocuments: undefined
+    FailedDocuments: undefined,
   };
   if (output.FailedDocuments !== undefined) {
-    contents.FailedDocuments = deserializeAws_json1_1BatchPutDocumentResponseFailedDocuments(
-      output.FailedDocuments,
-      context
-    );
+    contents.FailedDocuments = deserializeAws_json1_1BatchPutDocumentResponseFailedDocuments(output.FailedDocuments, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1BatchPutDocumentResponseFailedDocument = (
   output: any,
@@ -3857,7 +3201,7 @@ const deserializeAws_json1_1BatchPutDocumentResponseFailedDocument = (
     __type: "BatchPutDocumentResponseFailedDocument",
     ErrorCode: undefined,
     ErrorMessage: undefined,
-    Id: undefined
+    Id: undefined,
   };
   if (output.ErrorCode !== undefined) {
     contents.ErrorCode = output.ErrorCode;
@@ -3869,7 +3213,7 @@ const deserializeAws_json1_1BatchPutDocumentResponseFailedDocument = (
     contents.Id = output.Id;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1BatchPutDocumentResponseFailedDocuments = (
   output: any,
@@ -3878,14 +3222,16 @@ const deserializeAws_json1_1BatchPutDocumentResponseFailedDocuments = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchPutDocumentResponseFailedDocument(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1ChangeDetectingColumns = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1ColumnConfiguration = (
   output: any,
@@ -3897,13 +3243,10 @@ const deserializeAws_json1_1ColumnConfiguration = (
     DocumentDataColumnName: undefined,
     DocumentIdColumnName: undefined,
     DocumentTitleColumnName: undefined,
-    FieldMappings: undefined
+    FieldMappings: undefined,
   };
   if (output.ChangeDetectingColumns !== undefined) {
-    contents.ChangeDetectingColumns = deserializeAws_json1_1ChangeDetectingColumns(
-      output.ChangeDetectingColumns,
-      context
-    );
+    contents.ChangeDetectingColumns = deserializeAws_json1_1ChangeDetectingColumns(output.ChangeDetectingColumns, context);
   }
   if (output.DocumentDataColumnName !== undefined) {
     contents.DocumentDataColumnName = output.DocumentDataColumnName;
@@ -3915,13 +3258,10 @@ const deserializeAws_json1_1ColumnConfiguration = (
     contents.DocumentTitleColumnName = output.DocumentTitleColumnName;
   }
   if (output.FieldMappings !== undefined) {
-    contents.FieldMappings = deserializeAws_json1_1DataSourceToIndexFieldMappingList(
-      output.FieldMappings,
-      context
-    );
+    contents.FieldMappings = deserializeAws_json1_1DataSourceToIndexFieldMappingList(output.FieldMappings, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ConflictException = (
   output: any,
@@ -3929,13 +3269,13 @@ const deserializeAws_json1_1ConflictException = (
 ): ConflictException => {
   let contents: any = {
     __type: "ConflictException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ConnectionConfiguration = (
   output: any,
@@ -3947,7 +3287,7 @@ const deserializeAws_json1_1ConnectionConfiguration = (
     DatabaseName: undefined,
     DatabasePort: undefined,
     SecretArn: undefined,
-    TableName: undefined
+    TableName: undefined,
   };
   if (output.DatabaseHost !== undefined) {
     contents.DatabaseHost = output.DatabaseHost;
@@ -3965,7 +3305,7 @@ const deserializeAws_json1_1ConnectionConfiguration = (
     contents.TableName = output.TableName;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateDataSourceResponse = (
   output: any,
@@ -3973,13 +3313,13 @@ const deserializeAws_json1_1CreateDataSourceResponse = (
 ): CreateDataSourceResponse => {
   let contents: any = {
     __type: "CreateDataSourceResponse",
-    Id: undefined
+    Id: undefined,
   };
   if (output.Id !== undefined) {
     contents.Id = output.Id;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateFaqResponse = (
   output: any,
@@ -3987,13 +3327,13 @@ const deserializeAws_json1_1CreateFaqResponse = (
 ): CreateFaqResponse => {
   let contents: any = {
     __type: "CreateFaqResponse",
-    Id: undefined
+    Id: undefined,
   };
   if (output.Id !== undefined) {
     contents.Id = output.Id;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateIndexResponse = (
   output: any,
@@ -4001,13 +3341,13 @@ const deserializeAws_json1_1CreateIndexResponse = (
 ): CreateIndexResponse => {
   let contents: any = {
     __type: "CreateIndexResponse",
-    Id: undefined
+    Id: undefined,
   };
   if (output.Id !== undefined) {
     contents.Id = output.Id;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DataSourceConfiguration = (
   output: any,
@@ -4017,35 +3357,28 @@ const deserializeAws_json1_1DataSourceConfiguration = (
     __type: "DataSourceConfiguration",
     DatabaseConfiguration: undefined,
     S3Configuration: undefined,
-    SharePointConfiguration: undefined
+    SharePointConfiguration: undefined,
   };
   if (output.DatabaseConfiguration !== undefined) {
-    contents.DatabaseConfiguration = deserializeAws_json1_1DatabaseConfiguration(
-      output.DatabaseConfiguration,
-      context
-    );
+    contents.DatabaseConfiguration = deserializeAws_json1_1DatabaseConfiguration(output.DatabaseConfiguration, context);
   }
   if (output.S3Configuration !== undefined) {
-    contents.S3Configuration = deserializeAws_json1_1S3DataSourceConfiguration(
-      output.S3Configuration,
-      context
-    );
+    contents.S3Configuration = deserializeAws_json1_1S3DataSourceConfiguration(output.S3Configuration, context);
   }
   if (output.SharePointConfiguration !== undefined) {
-    contents.SharePointConfiguration = deserializeAws_json1_1SharePointConfiguration(
-      output.SharePointConfiguration,
-      context
-    );
+    contents.SharePointConfiguration = deserializeAws_json1_1SharePointConfiguration(output.SharePointConfiguration, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DataSourceInclusionsExclusionsStrings = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1DataSourceSummary = (
   output: any,
@@ -4058,14 +3391,10 @@ const deserializeAws_json1_1DataSourceSummary = (
     Name: undefined,
     Status: undefined,
     Type: undefined,
-    UpdatedAt: undefined
+    UpdatedAt: undefined,
   };
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(output.CreatedAt % 1 != 0 ? Math.round(output.CreatedAt * 1000) : output.CreatedAt);
   }
   if (output.Id !== undefined) {
     contents.Id = output.Id;
@@ -4080,14 +3409,10 @@ const deserializeAws_json1_1DataSourceSummary = (
     contents.Type = output.Type;
   }
   if (output.UpdatedAt !== undefined) {
-    contents.UpdatedAt = new Date(
-      output.UpdatedAt % 1 != 0
-        ? Math.round(output.UpdatedAt * 1000)
-        : output.UpdatedAt
-    );
+    contents.UpdatedAt = new Date(output.UpdatedAt % 1 != 0 ? Math.round(output.UpdatedAt * 1000) : output.UpdatedAt);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DataSourceSummaryList = (
   output: any,
@@ -4096,7 +3421,7 @@ const deserializeAws_json1_1DataSourceSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DataSourceSummary(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1DataSourceSyncJob = (
   output: any,
@@ -4110,17 +3435,13 @@ const deserializeAws_json1_1DataSourceSyncJob = (
     ErrorMessage: undefined,
     ExecutionId: undefined,
     StartTime: undefined,
-    Status: undefined
+    Status: undefined,
   };
   if (output.DataSourceErrorCode !== undefined) {
     contents.DataSourceErrorCode = output.DataSourceErrorCode;
   }
   if (output.EndTime !== undefined) {
-    contents.EndTime = new Date(
-      output.EndTime % 1 != 0
-        ? Math.round(output.EndTime * 1000)
-        : output.EndTime
-    );
+    contents.EndTime = new Date(output.EndTime % 1 != 0 ? Math.round(output.EndTime * 1000) : output.EndTime);
   }
   if (output.ErrorCode !== undefined) {
     contents.ErrorCode = output.ErrorCode;
@@ -4132,17 +3453,13 @@ const deserializeAws_json1_1DataSourceSyncJob = (
     contents.ExecutionId = output.ExecutionId;
   }
   if (output.StartTime !== undefined) {
-    contents.StartTime = new Date(
-      output.StartTime % 1 != 0
-        ? Math.round(output.StartTime * 1000)
-        : output.StartTime
-    );
+    contents.StartTime = new Date(output.StartTime % 1 != 0 ? Math.round(output.StartTime * 1000) : output.StartTime);
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DataSourceSyncJobHistoryList = (
   output: any,
@@ -4151,7 +3468,7 @@ const deserializeAws_json1_1DataSourceSyncJobHistoryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DataSourceSyncJob(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1DataSourceToIndexFieldMapping = (
   output: any,
@@ -4161,7 +3478,7 @@ const deserializeAws_json1_1DataSourceToIndexFieldMapping = (
     __type: "DataSourceToIndexFieldMapping",
     DataSourceFieldName: undefined,
     DateFieldFormat: undefined,
-    IndexFieldName: undefined
+    IndexFieldName: undefined,
   };
   if (output.DataSourceFieldName !== undefined) {
     contents.DataSourceFieldName = output.DataSourceFieldName;
@@ -4173,7 +3490,7 @@ const deserializeAws_json1_1DataSourceToIndexFieldMapping = (
     contents.IndexFieldName = output.IndexFieldName;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DataSourceToIndexFieldMappingList = (
   output: any,
@@ -4182,7 +3499,7 @@ const deserializeAws_json1_1DataSourceToIndexFieldMappingList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DataSourceToIndexFieldMapping(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1DataSourceVpcConfiguration = (
   output: any,
@@ -4191,22 +3508,16 @@ const deserializeAws_json1_1DataSourceVpcConfiguration = (
   let contents: any = {
     __type: "DataSourceVpcConfiguration",
     SecurityGroupIds: undefined,
-    SubnetIds: undefined
+    SubnetIds: undefined,
   };
   if (output.SecurityGroupIds !== undefined) {
-    contents.SecurityGroupIds = deserializeAws_json1_1SecurityGroupIdList(
-      output.SecurityGroupIds,
-      context
-    );
+    contents.SecurityGroupIds = deserializeAws_json1_1SecurityGroupIdList(output.SecurityGroupIds, context);
   }
   if (output.SubnetIds !== undefined) {
-    contents.SubnetIds = deserializeAws_json1_1SubnetIdList(
-      output.SubnetIds,
-      context
-    );
+    contents.SubnetIds = deserializeAws_json1_1SubnetIdList(output.SubnetIds, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DatabaseConfiguration = (
   output: any,
@@ -4218,37 +3529,25 @@ const deserializeAws_json1_1DatabaseConfiguration = (
     ColumnConfiguration: undefined,
     ConnectionConfiguration: undefined,
     DatabaseEngineType: undefined,
-    VpcConfiguration: undefined
+    VpcConfiguration: undefined,
   };
   if (output.AclConfiguration !== undefined) {
-    contents.AclConfiguration = deserializeAws_json1_1AclConfiguration(
-      output.AclConfiguration,
-      context
-    );
+    contents.AclConfiguration = deserializeAws_json1_1AclConfiguration(output.AclConfiguration, context);
   }
   if (output.ColumnConfiguration !== undefined) {
-    contents.ColumnConfiguration = deserializeAws_json1_1ColumnConfiguration(
-      output.ColumnConfiguration,
-      context
-    );
+    contents.ColumnConfiguration = deserializeAws_json1_1ColumnConfiguration(output.ColumnConfiguration, context);
   }
   if (output.ConnectionConfiguration !== undefined) {
-    contents.ConnectionConfiguration = deserializeAws_json1_1ConnectionConfiguration(
-      output.ConnectionConfiguration,
-      context
-    );
+    contents.ConnectionConfiguration = deserializeAws_json1_1ConnectionConfiguration(output.ConnectionConfiguration, context);
   }
   if (output.DatabaseEngineType !== undefined) {
     contents.DatabaseEngineType = output.DatabaseEngineType;
   }
   if (output.VpcConfiguration !== undefined) {
-    contents.VpcConfiguration = deserializeAws_json1_1DataSourceVpcConfiguration(
-      output.VpcConfiguration,
-      context
-    );
+    contents.VpcConfiguration = deserializeAws_json1_1DataSourceVpcConfiguration(output.VpcConfiguration, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeDataSourceResponse = (
   output: any,
@@ -4267,20 +3566,13 @@ const deserializeAws_json1_1DescribeDataSourceResponse = (
     Schedule: undefined,
     Status: undefined,
     Type: undefined,
-    UpdatedAt: undefined
+    UpdatedAt: undefined,
   };
   if (output.Configuration !== undefined) {
-    contents.Configuration = deserializeAws_json1_1DataSourceConfiguration(
-      output.Configuration,
-      context
-    );
+    contents.Configuration = deserializeAws_json1_1DataSourceConfiguration(output.Configuration, context);
   }
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(output.CreatedAt % 1 != 0 ? Math.round(output.CreatedAt * 1000) : output.CreatedAt);
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -4310,14 +3602,10 @@ const deserializeAws_json1_1DescribeDataSourceResponse = (
     contents.Type = output.Type;
   }
   if (output.UpdatedAt !== undefined) {
-    contents.UpdatedAt = new Date(
-      output.UpdatedAt % 1 != 0
-        ? Math.round(output.UpdatedAt * 1000)
-        : output.UpdatedAt
-    );
+    contents.UpdatedAt = new Date(output.UpdatedAt % 1 != 0 ? Math.round(output.UpdatedAt * 1000) : output.UpdatedAt);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeFaqResponse = (
   output: any,
@@ -4334,14 +3622,10 @@ const deserializeAws_json1_1DescribeFaqResponse = (
     RoleArn: undefined,
     S3Path: undefined,
     Status: undefined,
-    UpdatedAt: undefined
+    UpdatedAt: undefined,
   };
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(output.CreatedAt % 1 != 0 ? Math.round(output.CreatedAt * 1000) : output.CreatedAt);
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -4368,14 +3652,10 @@ const deserializeAws_json1_1DescribeFaqResponse = (
     contents.Status = output.Status;
   }
   if (output.UpdatedAt !== undefined) {
-    contents.UpdatedAt = new Date(
-      output.UpdatedAt % 1 != 0
-        ? Math.round(output.UpdatedAt * 1000)
-        : output.UpdatedAt
-    );
+    contents.UpdatedAt = new Date(output.UpdatedAt % 1 != 0 ? Math.round(output.UpdatedAt * 1000) : output.UpdatedAt);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeIndexResponse = (
   output: any,
@@ -4393,23 +3673,16 @@ const deserializeAws_json1_1DescribeIndexResponse = (
     RoleArn: undefined,
     ServerSideEncryptionConfiguration: undefined,
     Status: undefined,
-    UpdatedAt: undefined
+    UpdatedAt: undefined,
   };
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(output.CreatedAt % 1 != 0 ? Math.round(output.CreatedAt * 1000) : output.CreatedAt);
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
   }
   if (output.DocumentMetadataConfigurations !== undefined) {
-    contents.DocumentMetadataConfigurations = deserializeAws_json1_1DocumentMetadataConfigurationList(
-      output.DocumentMetadataConfigurations,
-      context
-    );
+    contents.DocumentMetadataConfigurations = deserializeAws_json1_1DocumentMetadataConfigurationList(output.DocumentMetadataConfigurations, context);
   }
   if (output.ErrorMessage !== undefined) {
     contents.ErrorMessage = output.ErrorMessage;
@@ -4418,10 +3691,7 @@ const deserializeAws_json1_1DescribeIndexResponse = (
     contents.Id = output.Id;
   }
   if (output.IndexStatistics !== undefined) {
-    contents.IndexStatistics = deserializeAws_json1_1IndexStatistics(
-      output.IndexStatistics,
-      context
-    );
+    contents.IndexStatistics = deserializeAws_json1_1IndexStatistics(output.IndexStatistics, context);
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -4430,23 +3700,16 @@ const deserializeAws_json1_1DescribeIndexResponse = (
     contents.RoleArn = output.RoleArn;
   }
   if (output.ServerSideEncryptionConfiguration !== undefined) {
-    contents.ServerSideEncryptionConfiguration = deserializeAws_json1_1ServerSideEncryptionConfiguration(
-      output.ServerSideEncryptionConfiguration,
-      context
-    );
+    contents.ServerSideEncryptionConfiguration = deserializeAws_json1_1ServerSideEncryptionConfiguration(output.ServerSideEncryptionConfiguration, context);
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
   }
   if (output.UpdatedAt !== undefined) {
-    contents.UpdatedAt = new Date(
-      output.UpdatedAt % 1 != 0
-        ? Math.round(output.UpdatedAt * 1000)
-        : output.UpdatedAt
-    );
+    contents.UpdatedAt = new Date(output.UpdatedAt % 1 != 0 ? Math.round(output.UpdatedAt * 1000) : output.UpdatedAt);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DocumentAttribute = (
   output: any,
@@ -4455,19 +3718,16 @@ const deserializeAws_json1_1DocumentAttribute = (
   let contents: any = {
     __type: "DocumentAttribute",
     Key: undefined,
-    Value: undefined
+    Value: undefined,
   };
   if (output.Key !== undefined) {
     contents.Key = output.Key;
   }
   if (output.Value !== undefined) {
-    contents.Value = deserializeAws_json1_1DocumentAttributeValue(
-      output.Value,
-      context
-    );
+    contents.Value = deserializeAws_json1_1DocumentAttributeValue(output.Value, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DocumentAttributeList = (
   output: any,
@@ -4476,14 +3736,16 @@ const deserializeAws_json1_1DocumentAttributeList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DocumentAttribute(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1DocumentAttributeStringListValue = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1DocumentAttributeValue = (
   output: any,
@@ -4494,29 +3756,22 @@ const deserializeAws_json1_1DocumentAttributeValue = (
     DateValue: undefined,
     LongValue: undefined,
     StringListValue: undefined,
-    StringValue: undefined
+    StringValue: undefined,
   };
   if (output.DateValue !== undefined) {
-    contents.DateValue = new Date(
-      output.DateValue % 1 != 0
-        ? Math.round(output.DateValue * 1000)
-        : output.DateValue
-    );
+    contents.DateValue = new Date(output.DateValue % 1 != 0 ? Math.round(output.DateValue * 1000) : output.DateValue);
   }
   if (output.LongValue !== undefined) {
     contents.LongValue = output.LongValue;
   }
   if (output.StringListValue !== undefined) {
-    contents.StringListValue = deserializeAws_json1_1DocumentAttributeStringListValue(
-      output.StringListValue,
-      context
-    );
+    contents.StringListValue = deserializeAws_json1_1DocumentAttributeStringListValue(output.StringListValue, context);
   }
   if (output.StringValue !== undefined) {
     contents.StringValue = output.StringValue;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DocumentAttributeValueCountPair = (
   output: any,
@@ -4525,19 +3780,16 @@ const deserializeAws_json1_1DocumentAttributeValueCountPair = (
   let contents: any = {
     __type: "DocumentAttributeValueCountPair",
     Count: undefined,
-    DocumentAttributeValue: undefined
+    DocumentAttributeValue: undefined,
   };
   if (output.Count !== undefined) {
     contents.Count = output.Count;
   }
   if (output.DocumentAttributeValue !== undefined) {
-    contents.DocumentAttributeValue = deserializeAws_json1_1DocumentAttributeValue(
-      output.DocumentAttributeValue,
-      context
-    );
+    contents.DocumentAttributeValue = deserializeAws_json1_1DocumentAttributeValue(output.DocumentAttributeValue, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DocumentAttributeValueCountPairList = (
   output: any,
@@ -4546,7 +3798,7 @@ const deserializeAws_json1_1DocumentAttributeValueCountPairList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DocumentAttributeValueCountPair(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1DocumentMetadataConfiguration = (
   output: any,
@@ -4557,16 +3809,13 @@ const deserializeAws_json1_1DocumentMetadataConfiguration = (
     Name: undefined,
     Relevance: undefined,
     Search: undefined,
-    Type: undefined
+    Type: undefined,
   };
   if (output.Name !== undefined) {
     contents.Name = output.Name;
   }
   if (output.Relevance !== undefined) {
-    contents.Relevance = deserializeAws_json1_1Relevance(
-      output.Relevance,
-      context
-    );
+    contents.Relevance = deserializeAws_json1_1Relevance(output.Relevance, context);
   }
   if (output.Search !== undefined) {
     contents.Search = deserializeAws_json1_1Search(output.Search, context);
@@ -4575,7 +3824,7 @@ const deserializeAws_json1_1DocumentMetadataConfiguration = (
     contents.Type = output.Type;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DocumentMetadataConfigurationList = (
   output: any,
@@ -4584,7 +3833,7 @@ const deserializeAws_json1_1DocumentMetadataConfigurationList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DocumentMetadataConfiguration(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1DocumentsMetadataConfiguration = (
   output: any,
@@ -4592,13 +3841,13 @@ const deserializeAws_json1_1DocumentsMetadataConfiguration = (
 ): DocumentsMetadataConfiguration => {
   let contents: any = {
     __type: "DocumentsMetadataConfiguration",
-    S3Prefix: undefined
+    S3Prefix: undefined,
   };
   if (output.S3Prefix !== undefined) {
     contents.S3Prefix = output.S3Prefix;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1FacetResult = (
   output: any,
@@ -4607,19 +3856,16 @@ const deserializeAws_json1_1FacetResult = (
   let contents: any = {
     __type: "FacetResult",
     DocumentAttributeKey: undefined,
-    DocumentAttributeValueCountPairs: undefined
+    DocumentAttributeValueCountPairs: undefined,
   };
   if (output.DocumentAttributeKey !== undefined) {
     contents.DocumentAttributeKey = output.DocumentAttributeKey;
   }
   if (output.DocumentAttributeValueCountPairs !== undefined) {
-    contents.DocumentAttributeValueCountPairs = deserializeAws_json1_1DocumentAttributeValueCountPairList(
-      output.DocumentAttributeValueCountPairs,
-      context
-    );
+    contents.DocumentAttributeValueCountPairs = deserializeAws_json1_1DocumentAttributeValueCountPairList(output.DocumentAttributeValueCountPairs, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1FacetResultList = (
   output: any,
@@ -4628,7 +3874,7 @@ const deserializeAws_json1_1FacetResultList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FacetResult(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1FaqStatistics = (
   output: any,
@@ -4636,13 +3882,13 @@ const deserializeAws_json1_1FaqStatistics = (
 ): FaqStatistics => {
   let contents: any = {
     __type: "FaqStatistics",
-    IndexedQuestionAnswersCount: undefined
+    IndexedQuestionAnswersCount: undefined,
   };
   if (output.IndexedQuestionAnswersCount !== undefined) {
     contents.IndexedQuestionAnswersCount = output.IndexedQuestionAnswersCount;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1FaqSummary = (
   output: any,
@@ -4654,14 +3900,10 @@ const deserializeAws_json1_1FaqSummary = (
     Id: undefined,
     Name: undefined,
     Status: undefined,
-    UpdatedAt: undefined
+    UpdatedAt: undefined,
   };
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(output.CreatedAt % 1 != 0 ? Math.round(output.CreatedAt * 1000) : output.CreatedAt);
   }
   if (output.Id !== undefined) {
     contents.Id = output.Id;
@@ -4673,14 +3915,10 @@ const deserializeAws_json1_1FaqSummary = (
     contents.Status = output.Status;
   }
   if (output.UpdatedAt !== undefined) {
-    contents.UpdatedAt = new Date(
-      output.UpdatedAt % 1 != 0
-        ? Math.round(output.UpdatedAt * 1000)
-        : output.UpdatedAt
-    );
+    contents.UpdatedAt = new Date(output.UpdatedAt % 1 != 0 ? Math.round(output.UpdatedAt * 1000) : output.UpdatedAt);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1FaqSummaryItems = (
   output: any,
@@ -4689,7 +3927,7 @@ const deserializeAws_json1_1FaqSummaryItems = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FaqSummary(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1Highlight = (
   output: any,
@@ -4699,7 +3937,7 @@ const deserializeAws_json1_1Highlight = (
     __type: "Highlight",
     BeginOffset: undefined,
     EndOffset: undefined,
-    TopAnswer: undefined
+    TopAnswer: undefined,
   };
   if (output.BeginOffset !== undefined) {
     contents.BeginOffset = output.BeginOffset;
@@ -4711,7 +3949,7 @@ const deserializeAws_json1_1Highlight = (
     contents.TopAnswer = output.TopAnswer;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1HighlightList = (
   output: any,
@@ -4720,7 +3958,7 @@ const deserializeAws_json1_1HighlightList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Highlight(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1IndexConfigurationSummary = (
   output: any,
@@ -4732,14 +3970,10 @@ const deserializeAws_json1_1IndexConfigurationSummary = (
     Id: undefined,
     Name: undefined,
     Status: undefined,
-    UpdatedAt: undefined
+    UpdatedAt: undefined,
   };
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(output.CreatedAt % 1 != 0 ? Math.round(output.CreatedAt * 1000) : output.CreatedAt);
   }
   if (output.Id !== undefined) {
     contents.Id = output.Id;
@@ -4751,14 +3985,10 @@ const deserializeAws_json1_1IndexConfigurationSummary = (
     contents.Status = output.Status;
   }
   if (output.UpdatedAt !== undefined) {
-    contents.UpdatedAt = new Date(
-      output.UpdatedAt % 1 != 0
-        ? Math.round(output.UpdatedAt * 1000)
-        : output.UpdatedAt
-    );
+    contents.UpdatedAt = new Date(output.UpdatedAt % 1 != 0 ? Math.round(output.UpdatedAt * 1000) : output.UpdatedAt);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1IndexConfigurationSummaryList = (
   output: any,
@@ -4767,7 +3997,7 @@ const deserializeAws_json1_1IndexConfigurationSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1IndexConfigurationSummary(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1IndexStatistics = (
   output: any,
@@ -4776,22 +4006,16 @@ const deserializeAws_json1_1IndexStatistics = (
   let contents: any = {
     __type: "IndexStatistics",
     FaqStatistics: undefined,
-    TextDocumentStatistics: undefined
+    TextDocumentStatistics: undefined,
   };
   if (output.FaqStatistics !== undefined) {
-    contents.FaqStatistics = deserializeAws_json1_1FaqStatistics(
-      output.FaqStatistics,
-      context
-    );
+    contents.FaqStatistics = deserializeAws_json1_1FaqStatistics(output.FaqStatistics, context);
   }
   if (output.TextDocumentStatistics !== undefined) {
-    contents.TextDocumentStatistics = deserializeAws_json1_1TextDocumentStatistics(
-      output.TextDocumentStatistics,
-      context
-    );
+    contents.TextDocumentStatistics = deserializeAws_json1_1TextDocumentStatistics(output.TextDocumentStatistics, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InternalServerException = (
   output: any,
@@ -4799,13 +4023,13 @@ const deserializeAws_json1_1InternalServerException = (
 ): InternalServerException => {
   let contents: any = {
     __type: "InternalServerException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListDataSourceSyncJobsResponse = (
   output: any,
@@ -4814,19 +4038,16 @@ const deserializeAws_json1_1ListDataSourceSyncJobsResponse = (
   let contents: any = {
     __type: "ListDataSourceSyncJobsResponse",
     History: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.History !== undefined) {
-    contents.History = deserializeAws_json1_1DataSourceSyncJobHistoryList(
-      output.History,
-      context
-    );
+    contents.History = deserializeAws_json1_1DataSourceSyncJobHistoryList(output.History, context);
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListDataSourcesResponse = (
   output: any,
@@ -4835,19 +4056,16 @@ const deserializeAws_json1_1ListDataSourcesResponse = (
   let contents: any = {
     __type: "ListDataSourcesResponse",
     NextToken: undefined,
-    SummaryItems: undefined
+    SummaryItems: undefined,
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   if (output.SummaryItems !== undefined) {
-    contents.SummaryItems = deserializeAws_json1_1DataSourceSummaryList(
-      output.SummaryItems,
-      context
-    );
+    contents.SummaryItems = deserializeAws_json1_1DataSourceSummaryList(output.SummaryItems, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListFaqsResponse = (
   output: any,
@@ -4856,19 +4074,16 @@ const deserializeAws_json1_1ListFaqsResponse = (
   let contents: any = {
     __type: "ListFaqsResponse",
     FaqSummaryItems: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.FaqSummaryItems !== undefined) {
-    contents.FaqSummaryItems = deserializeAws_json1_1FaqSummaryItems(
-      output.FaqSummaryItems,
-      context
-    );
+    contents.FaqSummaryItems = deserializeAws_json1_1FaqSummaryItems(output.FaqSummaryItems, context);
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListIndicesResponse = (
   output: any,
@@ -4877,19 +4092,16 @@ const deserializeAws_json1_1ListIndicesResponse = (
   let contents: any = {
     __type: "ListIndicesResponse",
     IndexConfigurationSummaryItems: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.IndexConfigurationSummaryItems !== undefined) {
-    contents.IndexConfigurationSummaryItems = deserializeAws_json1_1IndexConfigurationSummaryList(
-      output.IndexConfigurationSummaryItems,
-      context
-    );
+    contents.IndexConfigurationSummaryItems = deserializeAws_json1_1IndexConfigurationSummaryList(output.IndexConfigurationSummaryItems, context);
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1QueryResult = (
   output: any,
@@ -4900,28 +4112,22 @@ const deserializeAws_json1_1QueryResult = (
     FacetResults: undefined,
     QueryId: undefined,
     ResultItems: undefined,
-    TotalNumberOfResults: undefined
+    TotalNumberOfResults: undefined,
   };
   if (output.FacetResults !== undefined) {
-    contents.FacetResults = deserializeAws_json1_1FacetResultList(
-      output.FacetResults,
-      context
-    );
+    contents.FacetResults = deserializeAws_json1_1FacetResultList(output.FacetResults, context);
   }
   if (output.QueryId !== undefined) {
     contents.QueryId = output.QueryId;
   }
   if (output.ResultItems !== undefined) {
-    contents.ResultItems = deserializeAws_json1_1QueryResultItemList(
-      output.ResultItems,
-      context
-    );
+    contents.ResultItems = deserializeAws_json1_1QueryResultItemList(output.ResultItems, context);
   }
   if (output.TotalNumberOfResults !== undefined) {
     contents.TotalNumberOfResults = output.TotalNumberOfResults;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1QueryResultItem = (
   output: any,
@@ -4936,34 +4142,22 @@ const deserializeAws_json1_1QueryResultItem = (
     DocumentTitle: undefined,
     DocumentURI: undefined,
     Id: undefined,
-    Type: undefined
+    Type: undefined,
   };
   if (output.AdditionalAttributes !== undefined) {
-    contents.AdditionalAttributes = deserializeAws_json1_1AdditionalResultAttributeList(
-      output.AdditionalAttributes,
-      context
-    );
+    contents.AdditionalAttributes = deserializeAws_json1_1AdditionalResultAttributeList(output.AdditionalAttributes, context);
   }
   if (output.DocumentAttributes !== undefined) {
-    contents.DocumentAttributes = deserializeAws_json1_1DocumentAttributeList(
-      output.DocumentAttributes,
-      context
-    );
+    contents.DocumentAttributes = deserializeAws_json1_1DocumentAttributeList(output.DocumentAttributes, context);
   }
   if (output.DocumentExcerpt !== undefined) {
-    contents.DocumentExcerpt = deserializeAws_json1_1TextWithHighlights(
-      output.DocumentExcerpt,
-      context
-    );
+    contents.DocumentExcerpt = deserializeAws_json1_1TextWithHighlights(output.DocumentExcerpt, context);
   }
   if (output.DocumentId !== undefined) {
     contents.DocumentId = output.DocumentId;
   }
   if (output.DocumentTitle !== undefined) {
-    contents.DocumentTitle = deserializeAws_json1_1TextWithHighlights(
-      output.DocumentTitle,
-      context
-    );
+    contents.DocumentTitle = deserializeAws_json1_1TextWithHighlights(output.DocumentTitle, context);
   }
   if (output.DocumentURI !== undefined) {
     contents.DocumentURI = output.DocumentURI;
@@ -4975,7 +4169,7 @@ const deserializeAws_json1_1QueryResultItem = (
     contents.Type = output.Type;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1QueryResultItemList = (
   output: any,
@@ -4984,7 +4178,7 @@ const deserializeAws_json1_1QueryResultItemList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1QueryResultItem(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1Relevance = (
   output: any,
@@ -4996,7 +4190,7 @@ const deserializeAws_json1_1Relevance = (
     Freshness: undefined,
     Importance: undefined,
     RankOrder: undefined,
-    ValueImportanceMap: undefined
+    ValueImportanceMap: undefined,
   };
   if (output.Duration !== undefined) {
     contents.Duration = output.Duration;
@@ -5011,13 +4205,10 @@ const deserializeAws_json1_1Relevance = (
     contents.RankOrder = output.RankOrder;
   }
   if (output.ValueImportanceMap !== undefined) {
-    contents.ValueImportanceMap = deserializeAws_json1_1ValueImportanceMap(
-      output.ValueImportanceMap,
-      context
-    );
+    contents.ValueImportanceMap = deserializeAws_json1_1ValueImportanceMap(output.ValueImportanceMap, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ResourceAlreadyExistException = (
   output: any,
@@ -5025,13 +4216,13 @@ const deserializeAws_json1_1ResourceAlreadyExistException = (
 ): ResourceAlreadyExistException => {
   let contents: any = {
     __type: "ResourceAlreadyExistException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ResourceInUseException = (
   output: any,
@@ -5039,13 +4230,13 @@ const deserializeAws_json1_1ResourceInUseException = (
 ): ResourceInUseException => {
   let contents: any = {
     __type: "ResourceInUseException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
@@ -5053,13 +4244,13 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   let contents: any = {
     __type: "ResourceNotFoundException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ResourceUnavailableException = (
   output: any,
@@ -5067,13 +4258,13 @@ const deserializeAws_json1_1ResourceUnavailableException = (
 ): ResourceUnavailableException => {
   let contents: any = {
     __type: "ResourceUnavailableException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1S3DataSourceConfiguration = (
   output: any,
@@ -5085,37 +4276,25 @@ const deserializeAws_json1_1S3DataSourceConfiguration = (
     BucketName: undefined,
     DocumentsMetadataConfiguration: undefined,
     ExclusionPatterns: undefined,
-    InclusionPrefixes: undefined
+    InclusionPrefixes: undefined,
   };
   if (output.AccessControlListConfiguration !== undefined) {
-    contents.AccessControlListConfiguration = deserializeAws_json1_1AccessControlListConfiguration(
-      output.AccessControlListConfiguration,
-      context
-    );
+    contents.AccessControlListConfiguration = deserializeAws_json1_1AccessControlListConfiguration(output.AccessControlListConfiguration, context);
   }
   if (output.BucketName !== undefined) {
     contents.BucketName = output.BucketName;
   }
   if (output.DocumentsMetadataConfiguration !== undefined) {
-    contents.DocumentsMetadataConfiguration = deserializeAws_json1_1DocumentsMetadataConfiguration(
-      output.DocumentsMetadataConfiguration,
-      context
-    );
+    contents.DocumentsMetadataConfiguration = deserializeAws_json1_1DocumentsMetadataConfiguration(output.DocumentsMetadataConfiguration, context);
   }
   if (output.ExclusionPatterns !== undefined) {
-    contents.ExclusionPatterns = deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(
-      output.ExclusionPatterns,
-      context
-    );
+    contents.ExclusionPatterns = deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.ExclusionPatterns, context);
   }
   if (output.InclusionPrefixes !== undefined) {
-    contents.InclusionPrefixes = deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(
-      output.InclusionPrefixes,
-      context
-    );
+    contents.InclusionPrefixes = deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.InclusionPrefixes, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1S3Path = (
   output: any,
@@ -5124,7 +4303,7 @@ const deserializeAws_json1_1S3Path = (
   let contents: any = {
     __type: "S3Path",
     Bucket: undefined,
-    Key: undefined
+    Key: undefined,
   };
   if (output.Bucket !== undefined) {
     contents.Bucket = output.Bucket;
@@ -5133,7 +4312,7 @@ const deserializeAws_json1_1S3Path = (
     contents.Key = output.Key;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1Search = (
   output: any,
@@ -5143,7 +4322,7 @@ const deserializeAws_json1_1Search = (
     __type: "Search",
     Displayable: undefined,
     Facetable: undefined,
-    Searchable: undefined
+    Searchable: undefined,
   };
   if (output.Displayable !== undefined) {
     contents.Displayable = output.Displayable;
@@ -5155,14 +4334,16 @@ const deserializeAws_json1_1Search = (
     contents.Searchable = output.Searchable;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1SecurityGroupIdList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1ServerSideEncryptionConfiguration = (
   output: any,
@@ -5170,13 +4351,13 @@ const deserializeAws_json1_1ServerSideEncryptionConfiguration = (
 ): ServerSideEncryptionConfiguration => {
   let contents: any = {
     __type: "ServerSideEncryptionConfiguration",
-    KmsKeyId: undefined
+    KmsKeyId: undefined,
   };
   if (output.KmsKeyId !== undefined) {
     contents.KmsKeyId = output.KmsKeyId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ServiceQuotaExceededException = (
   output: any,
@@ -5184,13 +4365,13 @@ const deserializeAws_json1_1ServiceQuotaExceededException = (
 ): ServiceQuotaExceededException => {
   let contents: any = {
     __type: "ServiceQuotaExceededException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1SharePointConfiguration = (
   output: any,
@@ -5203,16 +4384,13 @@ const deserializeAws_json1_1SharePointConfiguration = (
     SecretArn: undefined,
     SharePointVersion: undefined,
     Urls: undefined,
-    VpcConfiguration: undefined
+    VpcConfiguration: undefined,
   };
   if (output.CrawlAttachments !== undefined) {
     contents.CrawlAttachments = output.CrawlAttachments;
   }
   if (output.FieldMappings !== undefined) {
-    contents.FieldMappings = deserializeAws_json1_1DataSourceToIndexFieldMappingList(
-      output.FieldMappings,
-      context
-    );
+    contents.FieldMappings = deserializeAws_json1_1DataSourceToIndexFieldMappingList(output.FieldMappings, context);
   }
   if (output.SecretArn !== undefined) {
     contents.SecretArn = output.SecretArn;
@@ -5221,26 +4399,22 @@ const deserializeAws_json1_1SharePointConfiguration = (
     contents.SharePointVersion = output.SharePointVersion;
   }
   if (output.Urls !== undefined) {
-    contents.Urls = deserializeAws_json1_1SharePointUrlList(
-      output.Urls,
-      context
-    );
+    contents.Urls = deserializeAws_json1_1SharePointUrlList(output.Urls, context);
   }
   if (output.VpcConfiguration !== undefined) {
-    contents.VpcConfiguration = deserializeAws_json1_1DataSourceVpcConfiguration(
-      output.VpcConfiguration,
-      context
-    );
+    contents.VpcConfiguration = deserializeAws_json1_1DataSourceVpcConfiguration(output.VpcConfiguration, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1SharePointUrlList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1StartDataSourceSyncJobResponse = (
   output: any,
@@ -5248,20 +4422,22 @@ const deserializeAws_json1_1StartDataSourceSyncJobResponse = (
 ): StartDataSourceSyncJobResponse => {
   let contents: any = {
     __type: "StartDataSourceSyncJobResponse",
-    ExecutionId: undefined
+    ExecutionId: undefined,
   };
   if (output.ExecutionId !== undefined) {
     contents.ExecutionId = output.ExecutionId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1SubnetIdList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1TextDocumentStatistics = (
   output: any,
@@ -5269,13 +4445,13 @@ const deserializeAws_json1_1TextDocumentStatistics = (
 ): TextDocumentStatistics => {
   let contents: any = {
     __type: "TextDocumentStatistics",
-    IndexedTextDocumentsCount: undefined
+    IndexedTextDocumentsCount: undefined,
   };
   if (output.IndexedTextDocumentsCount !== undefined) {
     contents.IndexedTextDocumentsCount = output.IndexedTextDocumentsCount;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1TextWithHighlights = (
   output: any,
@@ -5284,19 +4460,16 @@ const deserializeAws_json1_1TextWithHighlights = (
   let contents: any = {
     __type: "TextWithHighlights",
     Highlights: undefined,
-    Text: undefined
+    Text: undefined,
   };
   if (output.Highlights !== undefined) {
-    contents.Highlights = deserializeAws_json1_1HighlightList(
-      output.Highlights,
-      context
-    );
+    contents.Highlights = deserializeAws_json1_1HighlightList(output.Highlights, context);
   }
   if (output.Text !== undefined) {
     contents.Text = output.Text;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ThrottlingException = (
   output: any,
@@ -5304,13 +4477,13 @@ const deserializeAws_json1_1ThrottlingException = (
 ): ThrottlingException => {
   let contents: any = {
     __type: "ThrottlingException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ValidationException = (
   output: any,
@@ -5318,13 +4491,13 @@ const deserializeAws_json1_1ValidationException = (
 ): ValidationException => {
   let contents: any = {
     __type: "ValidationException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ValueImportanceMap = (
   output: any,
@@ -5335,7 +4508,7 @@ const deserializeAws_json1_1ValueImportanceMap = (
     mapParams[key] = output[key];
   });
   return mapParams;
-};
+}
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

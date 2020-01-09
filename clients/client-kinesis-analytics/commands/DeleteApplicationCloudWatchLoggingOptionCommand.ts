@@ -1,20 +1,20 @@
 import {
   KinesisAnalyticsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../KinesisAnalyticsClient";
 import {
   DeleteApplicationCloudWatchLoggingOptionRequest,
-  DeleteApplicationCloudWatchLoggingOptionResponse
+  DeleteApplicationCloudWatchLoggingOptionResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommand,
-  serializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommand
+  serializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,23 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DeleteApplicationCloudWatchLoggingOptionCommandInput = DeleteApplicationCloudWatchLoggingOptionRequest;
 export type DeleteApplicationCloudWatchLoggingOptionCommandOutput = DeleteApplicationCloudWatchLoggingOptionResponse;
 
-export class DeleteApplicationCloudWatchLoggingOptionCommand extends $Command<
-  DeleteApplicationCloudWatchLoggingOptionCommandInput,
-  DeleteApplicationCloudWatchLoggingOptionCommandOutput,
-  KinesisAnalyticsClientResolvedConfig
-> {
+export class DeleteApplicationCloudWatchLoggingOptionCommand extends $Command<DeleteApplicationCloudWatchLoggingOptionCommandInput, DeleteApplicationCloudWatchLoggingOptionCommandOutput, KinesisAnalyticsClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DeleteApplicationCloudWatchLoggingOptionCommandInput
-  ) {
+  constructor(readonly input: DeleteApplicationCloudWatchLoggingOptionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -49,19 +43,14 @@ export class DeleteApplicationCloudWatchLoggingOptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteApplicationCloudWatchLoggingOptionCommandInput,
-    DeleteApplicationCloudWatchLoggingOptionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteApplicationCloudWatchLoggingOptionCommandInput, DeleteApplicationCloudWatchLoggingOptionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -74,20 +63,14 @@ export class DeleteApplicationCloudWatchLoggingOptionCommand extends $Command<
     input: DeleteApplicationCloudWatchLoggingOptionCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DeleteApplicationCloudWatchLoggingOptionCommandOutput> {
-    return deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommand(output, context);
   }
 
   // Start section: command_body_extra

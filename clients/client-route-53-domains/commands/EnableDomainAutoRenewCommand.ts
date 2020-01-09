@@ -1,20 +1,20 @@
 import {
   Route53DomainsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../Route53DomainsClient";
 import {
   EnableDomainAutoRenewRequest,
-  EnableDomainAutoRenewResponse
+  EnableDomainAutoRenewResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1EnableDomainAutoRenewCommand,
-  serializeAws_json1_1EnableDomainAutoRenewCommand
+  serializeAws_json1_1EnableDomainAutoRenewCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type EnableDomainAutoRenewCommandInput = EnableDomainAutoRenewRequest;
 export type EnableDomainAutoRenewCommandOutput = EnableDomainAutoRenewResponse;
 
-export class EnableDomainAutoRenewCommand extends $Command<
-  EnableDomainAutoRenewCommandInput,
-  EnableDomainAutoRenewCommandOutput,
-  Route53DomainsClientResolvedConfig
-> {
+export class EnableDomainAutoRenewCommand extends $Command<EnableDomainAutoRenewCommandInput, EnableDomainAutoRenewCommandOutput, Route53DomainsClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class EnableDomainAutoRenewCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    EnableDomainAutoRenewCommandInput,
-    EnableDomainAutoRenewCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<EnableDomainAutoRenewCommandInput, EnableDomainAutoRenewCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

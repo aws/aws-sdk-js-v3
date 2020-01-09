@@ -1,17 +1,17 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  TransferClientResolvedConfig
+  TransferClientResolvedConfig,
 } from "../TransferClient";
 import { StopServerRequest } from "../models/index";
 import {
   deserializeAws_json1_1StopServerCommand,
-  serializeAws_json1_1StopServerCommand
+  serializeAws_json1_1StopServerCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,17 +21,13 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
 } from "@aws-sdk/types";
 
 export type StopServerCommandInput = StopServerRequest;
-export type StopServerCommandOutput = __MetadataBearer;
+export type StopServerCommandOutput = __MetadataBearer
 
-export class StopServerCommand extends $Command<
-  StopServerCommandInput,
-  StopServerCommandOutput,
-  TransferClientResolvedConfig
-> {
+export class StopServerCommand extends $Command<StopServerCommandInput, StopServerCommandOutput, TransferClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,15 +42,13 @@ export class StopServerCommand extends $Command<
     configuration: TransferClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopServerCommandInput, StopServerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

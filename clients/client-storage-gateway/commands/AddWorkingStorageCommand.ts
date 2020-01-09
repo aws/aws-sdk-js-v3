@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig
+  StorageGatewayClientResolvedConfig,
 } from "../StorageGatewayClient";
 import {
   AddWorkingStorageInput,
-  AddWorkingStorageOutput
+  AddWorkingStorageOutput,
 } from "../models/index";
 import {
   deserializeAws_json1_1AddWorkingStorageCommand,
-  serializeAws_json1_1AddWorkingStorageCommand
+  serializeAws_json1_1AddWorkingStorageCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type AddWorkingStorageCommandInput = AddWorkingStorageInput;
 export type AddWorkingStorageCommandOutput = AddWorkingStorageOutput;
 
-export class AddWorkingStorageCommand extends $Command<
-  AddWorkingStorageCommandInput,
-  AddWorkingStorageCommandOutput,
-  StorageGatewayClientResolvedConfig
-> {
+export class AddWorkingStorageCommand extends $Command<AddWorkingStorageCommandInput, AddWorkingStorageCommandOutput, StorageGatewayClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,15 +44,13 @@ export class AddWorkingStorageCommand extends $Command<
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AddWorkingStorageCommandInput, AddWorkingStorageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

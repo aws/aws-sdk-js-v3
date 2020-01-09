@@ -599,10 +599,7 @@ export async function deserializeAws_json1_1AssociateTeamMemberCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateTeamMemberResult(
-    data.AssociateTeamMemberResult,
-    context
-  );
+  contents = deserializeAws_json1_1AssociateTeamMemberResult(data, context);
   const response: AssociateTeamMemberCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AssociateTeamMemberResult",
@@ -695,10 +692,7 @@ export async function deserializeAws_json1_1CreateProjectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateProjectResult(
-    data.CreateProjectResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateProjectResult(data, context);
   const response: CreateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateProjectResult",
@@ -791,10 +785,7 @@ export async function deserializeAws_json1_1CreateUserProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateUserProfileResult(
-    data.CreateUserProfileResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateUserProfileResult(data, context);
   const response: CreateUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateUserProfileResult",
@@ -852,10 +843,7 @@ export async function deserializeAws_json1_1DeleteProjectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteProjectResult(
-    data.DeleteProjectResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteProjectResult(data, context);
   const response: DeleteProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteProjectResult",
@@ -920,10 +908,7 @@ export async function deserializeAws_json1_1DeleteUserProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteUserProfileResult(
-    data.DeleteUserProfileResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteUserProfileResult(data, context);
   const response: DeleteUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteUserProfileResult",
@@ -974,10 +959,7 @@ export async function deserializeAws_json1_1DescribeProjectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeProjectResult(
-    data.DescribeProjectResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeProjectResult(data, context);
   const response: DescribeProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeProjectResult",
@@ -1059,10 +1041,7 @@ export async function deserializeAws_json1_1DescribeUserProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeUserProfileResult(
-    data.DescribeUserProfileResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeUserProfileResult(data, context);
   const response: DescribeUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeUserProfileResult",
@@ -1123,10 +1102,7 @@ export async function deserializeAws_json1_1DisassociateTeamMemberCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisassociateTeamMemberResult(
-    data.DisassociateTeamMemberResult,
-    context
-  );
+  contents = deserializeAws_json1_1DisassociateTeamMemberResult(data, context);
   const response: DisassociateTeamMemberCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DisassociateTeamMemberResult",
@@ -1198,10 +1174,7 @@ export async function deserializeAws_json1_1ListProjectsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListProjectsResult(
-    data.ListProjectsResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListProjectsResult(data, context);
   const response: ListProjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListProjectsResult",
@@ -1259,10 +1232,7 @@ export async function deserializeAws_json1_1ListResourcesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListResourcesResult(
-    data.ListResourcesResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListResourcesResult(data, context);
   const response: ListResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListResourcesResult",
@@ -1330,10 +1300,7 @@ export async function deserializeAws_json1_1ListTagsForProjectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForProjectResult(
-    data.ListTagsForProjectResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForProjectResult(data, context);
   const response: ListTagsForProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForProjectResult",
@@ -1398,10 +1365,7 @@ export async function deserializeAws_json1_1ListTeamMembersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTeamMembersResult(
-    data.ListTeamMembersResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListTeamMembersResult(data, context);
   const response: ListTeamMembersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTeamMembersResult",
@@ -1466,10 +1430,7 @@ export async function deserializeAws_json1_1ListUserProfilesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListUserProfilesResult(
-    data.ListUserProfilesResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListUserProfilesResult(data, context);
   const response: ListUserProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListUserProfilesResult",
@@ -1527,10 +1488,7 @@ export async function deserializeAws_json1_1TagProjectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagProjectResult(
-    data.TagProjectResult,
-    context
-  );
+  contents = deserializeAws_json1_1TagProjectResult(data, context);
   const response: TagProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagProjectResult",
@@ -1602,10 +1560,7 @@ export async function deserializeAws_json1_1UntagProjectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagProjectResult(
-    data.UntagProjectResult,
-    context
-  );
+  contents = deserializeAws_json1_1UntagProjectResult(data, context);
   const response: UntagProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagProjectResult",
@@ -1677,10 +1632,7 @@ export async function deserializeAws_json1_1UpdateProjectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateProjectResult(
-    data.UpdateProjectResult,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateProjectResult(data, context);
   const response: UpdateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateProjectResult",
@@ -1738,10 +1690,7 @@ export async function deserializeAws_json1_1UpdateTeamMemberCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateTeamMemberResult(
-    data.UpdateTeamMemberResult,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateTeamMemberResult(data, context);
   const response: UpdateTeamMemberCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateTeamMemberResult",
@@ -1834,10 +1783,7 @@ export async function deserializeAws_json1_1UpdateUserProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateUserProfileResult(
-    data.UpdateUserProfileResult,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateUserProfileResult(data, context);
   const response: UpdateUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateUserProfileResult",

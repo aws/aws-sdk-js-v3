@@ -1,17 +1,17 @@
 import {
   SageMakerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../SageMakerClient";
 import { DeleteUserProfileRequest } from "../models/index";
 import {
   deserializeAws_json1_1DeleteUserProfileCommand,
-  serializeAws_json1_1DeleteUserProfileCommand
+  serializeAws_json1_1DeleteUserProfileCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,17 +21,13 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
 } from "@aws-sdk/types";
 
 export type DeleteUserProfileCommandInput = DeleteUserProfileRequest;
-export type DeleteUserProfileCommandOutput = __MetadataBearer;
+export type DeleteUserProfileCommandOutput = __MetadataBearer
 
-export class DeleteUserProfileCommand extends $Command<
-  DeleteUserProfileCommandInput,
-  DeleteUserProfileCommandOutput,
-  SageMakerClientResolvedConfig
-> {
+export class DeleteUserProfileCommand extends $Command<DeleteUserProfileCommandInput, DeleteUserProfileCommandOutput, SageMakerClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,15 +42,13 @@ export class DeleteUserProfileCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteUserProfileCommandInput, DeleteUserProfileCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

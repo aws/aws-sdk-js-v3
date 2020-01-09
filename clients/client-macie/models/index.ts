@@ -6,9 +6,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>You do not have required permissions to access the requested resource.</p>
  *
  */
-export interface AccessDeniedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   message?: string;
@@ -247,9 +245,7 @@ export namespace FailedS3Resource {
  *          <p>Internal server error.</p>
  *
  */
-export interface InternalException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalException";
   $fault: "server";
   /**
@@ -274,9 +270,7 @@ export namespace InternalException {
  *       input parameter. </p>
  *
  */
-export interface InvalidInputException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidInputException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidInputException";
   $fault: "client";
   /**
@@ -308,9 +302,7 @@ export namespace InvalidInputException {
  *       AWS account limits. The error code describes the limit exceeded. </p>
  *
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   /**
@@ -471,12 +463,12 @@ export namespace MemberAccount {
 }
 
 export enum S3ContinuousClassificationType {
-  FULL = "FULL"
+  FULL = "FULL",
 }
 
 export enum S3OneTimeClassificationType {
   FULL = "FULL",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 /**

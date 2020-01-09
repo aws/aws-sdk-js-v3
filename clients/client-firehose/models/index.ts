@@ -84,7 +84,7 @@ export enum CompressionFormat {
   GZIP = "GZIP",
   SNAPPY = "Snappy",
   UNCOMPRESSED = "UNCOMPRESSED",
-  ZIP = "ZIP"
+  ZIP = "ZIP",
 }
 
 /**
@@ -93,9 +93,7 @@ export enum CompressionFormat {
  *          it to update the destination.</p>
  *
  */
-export interface ConcurrentModificationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ConcurrentModificationException";
   $fault: "client";
   /**
@@ -586,7 +584,7 @@ export enum DeliveryStreamEncryptionStatus {
   DISABLING_FAILED = "DISABLING_FAILED",
   ENABLED = "ENABLED",
   ENABLING = "ENABLING",
-  ENABLING_FAILED = "ENABLING_FAILED"
+  ENABLING_FAILED = "ENABLING_FAILED",
 }
 
 export enum DeliveryStreamFailureType {
@@ -597,7 +595,7 @@ export enum DeliveryStreamFailureType {
   KMS_KEY_NOT_FOUND = "KMS_KEY_NOT_FOUND",
   KMS_OPT_IN_REQUIRED = "KMS_OPT_IN_REQUIRED",
   RETIRE_KMS_GRANT_FAILED = "RETIRE_KMS_GRANT_FAILED",
-  UNKNOWN_ERROR = "UNKNOWN_ERROR"
+  UNKNOWN_ERROR = "UNKNOWN_ERROR",
 }
 
 export enum DeliveryStreamStatus {
@@ -605,10 +603,10 @@ export enum DeliveryStreamStatus {
   CREATING = "CREATING",
   CREATING_FAILED = "CREATING_FAILED",
   DELETING = "DELETING",
-  DELETING_FAILED = "DELETING_FAILED"
+  DELETING_FAILED = "DELETING_FAILED",
 }
 
-export type DeliveryStreamType = "DirectPut" | "KinesisStreamAsSource";
+export type DeliveryStreamType = "DirectPut" | "KinesisStreamAsSource"
 
 export interface DescribeDeliveryStreamInput {
   __type?: "DescribeDeliveryStreamInput";
@@ -1134,12 +1132,7 @@ export namespace ElasticsearchDestinationUpdate {
   }
 }
 
-export type ElasticsearchIndexRotationPeriod =
-  | "NoRotation"
-  | "OneDay"
-  | "OneHour"
-  | "OneMonth"
-  | "OneWeek";
+export type ElasticsearchIndexRotationPeriod = "NoRotation" | "OneDay" | "OneHour" | "OneMonth" | "OneWeek"
 
 /**
  *
@@ -1168,7 +1161,7 @@ export namespace ElasticsearchRetryOptions {
   }
 }
 
-export type ElasticsearchS3BackupMode = "AllDocuments" | "FailedDocumentsOnly";
+export type ElasticsearchS3BackupMode = "AllDocuments" | "FailedDocumentsOnly"
 
 /**
  *
@@ -1545,7 +1538,7 @@ export namespace FailureDescription {
   }
 }
 
-export type HECEndpointType = "Event" | "Raw";
+export type HECEndpointType = "Event" | "Raw"
 
 /**
  *
@@ -1602,9 +1595,7 @@ export namespace InputFormatConfiguration {
  *          <p>The specified input parameter has a value that is not valid.</p>
  *
  */
-export interface InvalidArgumentException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidArgumentException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidArgumentException";
   $fault: "client";
   /**
@@ -1627,9 +1618,7 @@ export namespace InvalidArgumentException {
  *          the KMS service throws one of the following exception types: <code>AccessDeniedException</code>, <code>InvalidStateException</code>, <code>DisabledException</code>, or <code>NotFoundException</code>.</p>
  *
  */
-export interface InvalidKMSResourceException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidKMSResourceException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidKMSResourceException";
   $fault: "client";
   code?: string;
@@ -1670,7 +1659,7 @@ export namespace KMSEncryptionConfig {
 
 export enum KeyType {
   AWS_OWNED_CMK = "AWS_OWNED_CMK",
-  CUSTOMER_MANAGED_CMK = "CUSTOMER_MANAGED_CMK"
+  CUSTOMER_MANAGED_CMK = "CUSTOMER_MANAGED_CMK",
 }
 
 /**
@@ -1751,9 +1740,7 @@ export namespace KinesisStreamSourceDescription {
  *          <p>You have already reached the limit for a requested resource.</p>
  *
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   /**
@@ -1900,7 +1887,7 @@ export namespace ListTagsForDeliveryStreamOutput {
   }
 }
 
-export type NoEncryptionConfig = "NoEncryption";
+export type NoEncryptionConfig = "NoEncryption"
 
 /**
  *
@@ -1953,12 +1940,12 @@ export namespace OpenXJsonSerDe {
 export enum OrcCompression {
   NONE = "NONE",
   SNAPPY = "SNAPPY",
-  ZLIB = "ZLIB"
+  ZLIB = "ZLIB",
 }
 
 export enum OrcFormatVersion {
   V0_11 = "V0_11",
-  V0_12 = "V0_12"
+  V0_12 = "V0_12",
 }
 
 /**
@@ -2088,7 +2075,7 @@ export namespace OutputFormatConfiguration {
 export enum ParquetCompression {
   GZIP = "GZIP",
   SNAPPY = "SNAPPY",
-  UNCOMPRESSED = "UNCOMPRESSED"
+  UNCOMPRESSED = "UNCOMPRESSED",
 }
 
 /**
@@ -2156,7 +2143,7 @@ export namespace ParquetSerDe {
 
 export enum ParquetWriterVersion {
   V1 = "V1",
-  V2 = "V2"
+  V2 = "V2",
 }
 
 /**
@@ -2248,10 +2235,10 @@ export enum ProcessorParameterName {
   BUFFER_SIZE_IN_MB = "BufferSizeInMBs",
   LAMBDA_ARN = "LambdaArn",
   LAMBDA_NUMBER_OF_RETRIES = "NumberOfRetries",
-  ROLE_ARN = "RoleArn"
+  ROLE_ARN = "RoleArn",
 }
 
-export type ProcessorType = "Lambda";
+export type ProcessorType = "Lambda"
 
 export interface PutRecordBatchInput {
   __type?: "PutRecordBatchInput";
@@ -2724,16 +2711,14 @@ export namespace RedshiftRetryOptions {
   }
 }
 
-export type RedshiftS3BackupMode = "Disabled" | "Enabled";
+export type RedshiftS3BackupMode = "Disabled" | "Enabled"
 
 /**
  *
  *          <p>The resource is already in use and not available for this operation.</p>
  *
  */
-export interface ResourceInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   /**
@@ -2755,9 +2740,7 @@ export namespace ResourceInUseException {
  *          <p>The specified resource could not be found.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -2774,7 +2757,7 @@ export namespace ResourceNotFoundException {
   }
 }
 
-export type S3BackupMode = "Disabled" | "Enabled";
+export type S3BackupMode = "Disabled" | "Enabled"
 
 /**
  *
@@ -3127,9 +3110,7 @@ export namespace Serializer {
  *          Limits</a>.</p>
  *
  */
-export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceUnavailableException";
   $fault: "server";
   /**
@@ -3464,7 +3445,7 @@ export namespace SplunkRetryOptions {
   }
 }
 
-export type SplunkS3BackupMode = "AllEvents" | "FailedEventsOnly";
+export type SplunkS3BackupMode = "AllEvents" | "FailedEventsOnly"
 
 export interface StartDeliveryStreamEncryptionInput {
   __type?: "StartDeliveryStreamEncryptionInput";

@@ -1,50 +1,50 @@
 import {
   CreateDeliveryStreamCommandInput,
-  CreateDeliveryStreamCommandOutput
+  CreateDeliveryStreamCommandOutput,
 } from "../commands/CreateDeliveryStreamCommand";
 import {
   DeleteDeliveryStreamCommandInput,
-  DeleteDeliveryStreamCommandOutput
+  DeleteDeliveryStreamCommandOutput,
 } from "../commands/DeleteDeliveryStreamCommand";
 import {
   DescribeDeliveryStreamCommandInput,
-  DescribeDeliveryStreamCommandOutput
+  DescribeDeliveryStreamCommandOutput,
 } from "../commands/DescribeDeliveryStreamCommand";
 import {
   ListDeliveryStreamsCommandInput,
-  ListDeliveryStreamsCommandOutput
+  ListDeliveryStreamsCommandOutput,
 } from "../commands/ListDeliveryStreamsCommand";
 import {
   ListTagsForDeliveryStreamCommandInput,
-  ListTagsForDeliveryStreamCommandOutput
+  ListTagsForDeliveryStreamCommandOutput,
 } from "../commands/ListTagsForDeliveryStreamCommand";
 import {
   PutRecordBatchCommandInput,
-  PutRecordBatchCommandOutput
+  PutRecordBatchCommandOutput,
 } from "../commands/PutRecordBatchCommand";
 import {
   PutRecordCommandInput,
-  PutRecordCommandOutput
+  PutRecordCommandOutput,
 } from "../commands/PutRecordCommand";
 import {
   StartDeliveryStreamEncryptionCommandInput,
-  StartDeliveryStreamEncryptionCommandOutput
+  StartDeliveryStreamEncryptionCommandOutput,
 } from "../commands/StartDeliveryStreamEncryptionCommand";
 import {
   StopDeliveryStreamEncryptionCommandInput,
-  StopDeliveryStreamEncryptionCommandOutput
+  StopDeliveryStreamEncryptionCommandOutput,
 } from "../commands/StopDeliveryStreamEncryptionCommand";
 import {
   TagDeliveryStreamCommandInput,
-  TagDeliveryStreamCommandOutput
+  TagDeliveryStreamCommandOutput,
 } from "../commands/TagDeliveryStreamCommand";
 import {
   UntagDeliveryStreamCommandInput,
-  UntagDeliveryStreamCommandOutput
+  UntagDeliveryStreamCommandOutput,
 } from "../commands/UntagDeliveryStreamCommand";
 import {
   UpdateDestinationCommandInput,
-  UpdateDestinationCommandOutput
+  UpdateDestinationCommandOutput,
 } from "../commands/UpdateDestinationCommand";
 import {
   BufferingHints,
@@ -125,18 +125,18 @@ import {
   UntagDeliveryStreamOutput,
   UpdateDestinationInput,
   UpdateDestinationOutput,
-  _Record
+  _Record,
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export async function serializeAws_json1_1CreateDeliveryStreamCommand(
@@ -144,14 +144,11 @@ export async function serializeAws_json1_1CreateDeliveryStreamCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Firehose_20150804.CreateDeliveryStream";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "Firehose_20150804.CreateDeliveryStream";
   let body: any = {};
   const wrappedBody: any = {
-    CreateDeliveryStreamInput: serializeAws_json1_1CreateDeliveryStreamInput(
-      input,
-      context
-    )
+    CreateDeliveryStreamInput: serializeAws_json1_1CreateDeliveryStreamInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -160,7 +157,7 @@ export async function serializeAws_json1_1CreateDeliveryStreamCommand(
     method: "POST",
     path: "/CreateDeliveryStream",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -169,14 +166,11 @@ export async function serializeAws_json1_1DeleteDeliveryStreamCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Firehose_20150804.DeleteDeliveryStream";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "Firehose_20150804.DeleteDeliveryStream";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteDeliveryStreamInput: serializeAws_json1_1DeleteDeliveryStreamInput(
-      input,
-      context
-    )
+    DeleteDeliveryStreamInput: serializeAws_json1_1DeleteDeliveryStreamInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -185,7 +179,7 @@ export async function serializeAws_json1_1DeleteDeliveryStreamCommand(
     method: "POST",
     path: "/DeleteDeliveryStream",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -194,14 +188,11 @@ export async function serializeAws_json1_1DescribeDeliveryStreamCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Firehose_20150804.DescribeDeliveryStream";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "Firehose_20150804.DescribeDeliveryStream";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeDeliveryStreamInput: serializeAws_json1_1DescribeDeliveryStreamInput(
-      input,
-      context
-    )
+    DescribeDeliveryStreamInput: serializeAws_json1_1DescribeDeliveryStreamInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -210,7 +201,7 @@ export async function serializeAws_json1_1DescribeDeliveryStreamCommand(
     method: "POST",
     path: "/DescribeDeliveryStream",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -219,14 +210,11 @@ export async function serializeAws_json1_1ListDeliveryStreamsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Firehose_20150804.ListDeliveryStreams";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "Firehose_20150804.ListDeliveryStreams";
   let body: any = {};
   const wrappedBody: any = {
-    ListDeliveryStreamsInput: serializeAws_json1_1ListDeliveryStreamsInput(
-      input,
-      context
-    )
+    ListDeliveryStreamsInput: serializeAws_json1_1ListDeliveryStreamsInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -235,7 +223,7 @@ export async function serializeAws_json1_1ListDeliveryStreamsCommand(
     method: "POST",
     path: "/ListDeliveryStreams",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -244,14 +232,11 @@ export async function serializeAws_json1_1ListTagsForDeliveryStreamCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Firehose_20150804.ListTagsForDeliveryStream";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "Firehose_20150804.ListTagsForDeliveryStream";
   let body: any = {};
   const wrappedBody: any = {
-    ListTagsForDeliveryStreamInput: serializeAws_json1_1ListTagsForDeliveryStreamInput(
-      input,
-      context
-    )
+    ListTagsForDeliveryStreamInput: serializeAws_json1_1ListTagsForDeliveryStreamInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -260,7 +245,7 @@ export async function serializeAws_json1_1ListTagsForDeliveryStreamCommand(
     method: "POST",
     path: "/ListTagsForDeliveryStream",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -269,11 +254,11 @@ export async function serializeAws_json1_1PutRecordCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Firehose_20150804.PutRecord";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "Firehose_20150804.PutRecord";
   let body: any = {};
   const wrappedBody: any = {
-    PutRecordInput: serializeAws_json1_1PutRecordInput(input, context)
+    PutRecordInput: serializeAws_json1_1PutRecordInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -282,7 +267,7 @@ export async function serializeAws_json1_1PutRecordCommand(
     method: "POST",
     path: "/PutRecord",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -291,11 +276,11 @@ export async function serializeAws_json1_1PutRecordBatchCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Firehose_20150804.PutRecordBatch";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "Firehose_20150804.PutRecordBatch";
   let body: any = {};
   const wrappedBody: any = {
-    PutRecordBatchInput: serializeAws_json1_1PutRecordBatchInput(input, context)
+    PutRecordBatchInput: serializeAws_json1_1PutRecordBatchInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -304,7 +289,7 @@ export async function serializeAws_json1_1PutRecordBatchCommand(
     method: "POST",
     path: "/PutRecordBatch",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -313,14 +298,11 @@ export async function serializeAws_json1_1StartDeliveryStreamEncryptionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Firehose_20150804.StartDeliveryStreamEncryption";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "Firehose_20150804.StartDeliveryStreamEncryption";
   let body: any = {};
   const wrappedBody: any = {
-    StartDeliveryStreamEncryptionInput: serializeAws_json1_1StartDeliveryStreamEncryptionInput(
-      input,
-      context
-    )
+    StartDeliveryStreamEncryptionInput: serializeAws_json1_1StartDeliveryStreamEncryptionInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -329,7 +311,7 @@ export async function serializeAws_json1_1StartDeliveryStreamEncryptionCommand(
     method: "POST",
     path: "/StartDeliveryStreamEncryption",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -338,14 +320,11 @@ export async function serializeAws_json1_1StopDeliveryStreamEncryptionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Firehose_20150804.StopDeliveryStreamEncryption";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "Firehose_20150804.StopDeliveryStreamEncryption";
   let body: any = {};
   const wrappedBody: any = {
-    StopDeliveryStreamEncryptionInput: serializeAws_json1_1StopDeliveryStreamEncryptionInput(
-      input,
-      context
-    )
+    StopDeliveryStreamEncryptionInput: serializeAws_json1_1StopDeliveryStreamEncryptionInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -354,7 +333,7 @@ export async function serializeAws_json1_1StopDeliveryStreamEncryptionCommand(
     method: "POST",
     path: "/StopDeliveryStreamEncryption",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -363,14 +342,11 @@ export async function serializeAws_json1_1TagDeliveryStreamCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Firehose_20150804.TagDeliveryStream";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "Firehose_20150804.TagDeliveryStream";
   let body: any = {};
   const wrappedBody: any = {
-    TagDeliveryStreamInput: serializeAws_json1_1TagDeliveryStreamInput(
-      input,
-      context
-    )
+    TagDeliveryStreamInput: serializeAws_json1_1TagDeliveryStreamInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -379,7 +355,7 @@ export async function serializeAws_json1_1TagDeliveryStreamCommand(
     method: "POST",
     path: "/TagDeliveryStream",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -388,14 +364,11 @@ export async function serializeAws_json1_1UntagDeliveryStreamCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Firehose_20150804.UntagDeliveryStream";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "Firehose_20150804.UntagDeliveryStream";
   let body: any = {};
   const wrappedBody: any = {
-    UntagDeliveryStreamInput: serializeAws_json1_1UntagDeliveryStreamInput(
-      input,
-      context
-    )
+    UntagDeliveryStreamInput: serializeAws_json1_1UntagDeliveryStreamInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -404,7 +377,7 @@ export async function serializeAws_json1_1UntagDeliveryStreamCommand(
     method: "POST",
     path: "/UntagDeliveryStream",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -413,14 +386,11 @@ export async function serializeAws_json1_1UpdateDestinationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "Firehose_20150804.UpdateDestination";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "Firehose_20150804.UpdateDestination";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateDestinationInput: serializeAws_json1_1UpdateDestinationInput(
-      input,
-      context
-    )
+    UpdateDestinationInput: serializeAws_json1_1UpdateDestinationInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -429,7 +399,7 @@ export async function serializeAws_json1_1UpdateDestinationCommand(
     method: "POST",
     path: "/UpdateDestination",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -438,74 +408,55 @@ export async function deserializeAws_json1_1CreateDeliveryStreamCommand(
   context: __SerdeContext
 ): Promise<CreateDeliveryStreamCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateDeliveryStreamCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateDeliveryStreamCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDeliveryStreamOutput(
-    data.CreateDeliveryStreamOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateDeliveryStreamOutput(data, context);
   const response: CreateDeliveryStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDeliveryStreamOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateDeliveryStreamCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateDeliveryStreamCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.firehose.v20150804#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     case "InvalidKMSResourceException":
     case "com.amazonaws.firehose.v20150804#InvalidKMSResourceException":
-      response = await deserializeAws_json1_1InvalidKMSResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidKMSResourceExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.firehose.v20150804#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "ResourceInUseException":
     case "com.amazonaws.firehose.v20150804#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.firehose.v20150804#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -516,60 +467,47 @@ export async function deserializeAws_json1_1DeleteDeliveryStreamCommand(
   context: __SerdeContext
 ): Promise<DeleteDeliveryStreamCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteDeliveryStreamCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteDeliveryStreamCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteDeliveryStreamOutput(
-    data.DeleteDeliveryStreamOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteDeliveryStreamOutput(data, context);
   const response: DeleteDeliveryStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteDeliveryStreamOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteDeliveryStreamCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteDeliveryStreamCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceInUseException":
     case "com.amazonaws.firehose.v20150804#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.firehose.v20150804#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.firehose.v20150804#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -580,53 +518,43 @@ export async function deserializeAws_json1_1DescribeDeliveryStreamCommand(
   context: __SerdeContext
 ): Promise<DescribeDeliveryStreamCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeDeliveryStreamCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeDeliveryStreamCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeDeliveryStreamOutput(
-    data.DescribeDeliveryStreamOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeDeliveryStreamOutput(data, context);
   const response: DescribeDeliveryStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeDeliveryStreamOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeDeliveryStreamCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeDeliveryStreamCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.firehose.v20150804#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.firehose.v20150804#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -637,42 +565,35 @@ export async function deserializeAws_json1_1ListDeliveryStreamsCommand(
   context: __SerdeContext
 ): Promise<ListDeliveryStreamsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListDeliveryStreamsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListDeliveryStreamsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDeliveryStreamsOutput(
-    data.ListDeliveryStreamsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListDeliveryStreamsOutput(data, context);
   const response: ListDeliveryStreamsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListDeliveryStreamsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListDeliveryStreamsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListDeliveryStreamsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.firehose.v20150804#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -683,67 +604,51 @@ export async function deserializeAws_json1_1ListTagsForDeliveryStreamCommand(
   context: __SerdeContext
 ): Promise<ListTagsForDeliveryStreamCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListTagsForDeliveryStreamCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListTagsForDeliveryStreamCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForDeliveryStreamOutput(
-    data.ListTagsForDeliveryStreamOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForDeliveryStreamOutput(data, context);
   const response: ListTagsForDeliveryStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForDeliveryStreamOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListTagsForDeliveryStreamCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListTagsForDeliveryStreamCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.firehose.v20150804#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.firehose.v20150804#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.firehose.v20150804#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.firehose.v20150804#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -756,69 +661,53 @@ export async function deserializeAws_json1_1PutRecordCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PutRecordCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1PutRecordOutput(
-    data.PutRecordOutput,
-    context
-  );
+  contents = deserializeAws_json1_1PutRecordOutput(data, context);
   const response: PutRecordCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutRecordOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1PutRecordCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<PutRecordCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.firehose.v20150804#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     case "InvalidKMSResourceException":
     case "com.amazonaws.firehose.v20150804#InvalidKMSResourceException":
-      response = await deserializeAws_json1_1InvalidKMSResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidKMSResourceExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.firehose.v20150804#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.firehose.v20150804#ServiceUnavailableException":
-      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.firehose.v20150804#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -831,69 +720,53 @@ export async function deserializeAws_json1_1PutRecordBatchCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PutRecordBatchCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1PutRecordBatchOutput(
-    data.PutRecordBatchOutput,
-    context
-  );
+  contents = deserializeAws_json1_1PutRecordBatchOutput(data, context);
   const response: PutRecordBatchCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutRecordBatchOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1PutRecordBatchCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<PutRecordBatchCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.firehose.v20150804#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     case "InvalidKMSResourceException":
     case "com.amazonaws.firehose.v20150804#InvalidKMSResourceException":
-      response = await deserializeAws_json1_1InvalidKMSResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidKMSResourceExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.firehose.v20150804#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.firehose.v20150804#ServiceUnavailableException":
-      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.firehose.v20150804#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -904,81 +777,59 @@ export async function deserializeAws_json1_1StartDeliveryStreamEncryptionCommand
   context: __SerdeContext
 ): Promise<StartDeliveryStreamEncryptionCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StartDeliveryStreamEncryptionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartDeliveryStreamEncryptionCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1StartDeliveryStreamEncryptionOutput(
-    data.StartDeliveryStreamEncryptionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1StartDeliveryStreamEncryptionOutput(data, context);
   const response: StartDeliveryStreamEncryptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartDeliveryStreamEncryptionOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1StartDeliveryStreamEncryptionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<StartDeliveryStreamEncryptionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.firehose.v20150804#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     case "InvalidKMSResourceException":
     case "com.amazonaws.firehose.v20150804#InvalidKMSResourceException":
-      response = await deserializeAws_json1_1InvalidKMSResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidKMSResourceExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.firehose.v20150804#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "ResourceInUseException":
     case "com.amazonaws.firehose.v20150804#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.firehose.v20150804#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.firehose.v20150804#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -989,74 +840,55 @@ export async function deserializeAws_json1_1StopDeliveryStreamEncryptionCommand(
   context: __SerdeContext
 ): Promise<StopDeliveryStreamEncryptionCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StopDeliveryStreamEncryptionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StopDeliveryStreamEncryptionCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1StopDeliveryStreamEncryptionOutput(
-    data.StopDeliveryStreamEncryptionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1StopDeliveryStreamEncryptionOutput(data, context);
   const response: StopDeliveryStreamEncryptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopDeliveryStreamEncryptionOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1StopDeliveryStreamEncryptionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<StopDeliveryStreamEncryptionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.firehose.v20150804#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.firehose.v20150804#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "ResourceInUseException":
     case "com.amazonaws.firehose.v20150804#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.firehose.v20150804#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.firehose.v20150804#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1069,69 +901,53 @@ export async function deserializeAws_json1_1TagDeliveryStreamCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TagDeliveryStreamCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1TagDeliveryStreamOutput(
-    data.TagDeliveryStreamOutput,
-    context
-  );
+  contents = deserializeAws_json1_1TagDeliveryStreamOutput(data, context);
   const response: TagDeliveryStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagDeliveryStreamOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1TagDeliveryStreamCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<TagDeliveryStreamCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.firehose.v20150804#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.firehose.v20150804#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "ResourceInUseException":
     case "com.amazonaws.firehose.v20150804#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.firehose.v20150804#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.firehose.v20150804#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1142,74 +958,55 @@ export async function deserializeAws_json1_1UntagDeliveryStreamCommand(
   context: __SerdeContext
 ): Promise<UntagDeliveryStreamCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UntagDeliveryStreamCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UntagDeliveryStreamCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagDeliveryStreamOutput(
-    data.UntagDeliveryStreamOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UntagDeliveryStreamOutput(data, context);
   const response: UntagDeliveryStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagDeliveryStreamOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UntagDeliveryStreamCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UntagDeliveryStreamCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.firehose.v20150804#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.firehose.v20150804#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "ResourceInUseException":
     case "com.amazonaws.firehose.v20150804#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.firehose.v20150804#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.firehose.v20150804#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1222,69 +1019,53 @@ export async function deserializeAws_json1_1UpdateDestinationCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateDestinationCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateDestinationOutput(
-    data.UpdateDestinationOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateDestinationOutput(data, context);
   const response: UpdateDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateDestinationOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateDestinationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateDestinationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.firehose.v20150804#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
       break;
     case "InvalidArgumentException":
     case "com.amazonaws.firehose.v20150804#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     case "ResourceInUseException":
     case "com.amazonaws.firehose.v20150804#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.firehose.v20150804#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.firehose.v20150804#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1294,15 +1075,12 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
-  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(output.body, context);
   const contents: ConcurrentModificationException = {
     __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -1311,15 +1089,12 @@ const deserializeAws_json1_1InvalidArgumentExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidArgumentException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidArgumentException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidArgumentException(output.body, context);
   const contents: InvalidArgumentException = {
     __type: "InvalidArgumentException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -1328,15 +1103,12 @@ const deserializeAws_json1_1InvalidKMSResourceExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidKMSResourceException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidKMSResourceException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidKMSResourceException(output.body, context);
   const contents: InvalidKMSResourceException = {
     __type: "InvalidKMSResourceException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -1345,15 +1117,12 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1LimitExceededException(output.body, context);
   const contents: LimitExceededException = {
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -1362,15 +1131,12 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
-  const deserialized: any = deserializeAws_json1_1ResourceInUseException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceInUseException(output.body, context);
   const contents: ResourceInUseException = {
     __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -1379,15 +1145,12 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(output.body, context);
   const contents: ResourceNotFoundException = {
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -1396,15 +1159,12 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
-  const deserialized: any = deserializeAws_json1_1ServiceUnavailableException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ServiceUnavailableException(output.body, context);
   const contents: ServiceUnavailableException = {
     __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -1415,13 +1175,13 @@ const serializeAws_json1_1BufferingHints = (
 ): any => {
   let bodyParams: any = {};
   if (input.IntervalInSeconds !== undefined) {
-    bodyParams["IntervalInSeconds"] = input.IntervalInSeconds;
+    bodyParams['IntervalInSeconds'] = input.IntervalInSeconds;
   }
   if (input.SizeInMBs !== undefined) {
-    bodyParams["SizeInMBs"] = input.SizeInMBs;
+    bodyParams['SizeInMBs'] = input.SizeInMBs;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CloudWatchLoggingOptions = (
   input: CloudWatchLoggingOptions,
@@ -1429,16 +1189,16 @@ const serializeAws_json1_1CloudWatchLoggingOptions = (
 ): any => {
   let bodyParams: any = {};
   if (input.Enabled !== undefined) {
-    bodyParams["Enabled"] = input.Enabled;
+    bodyParams['Enabled'] = input.Enabled;
   }
   if (input.LogGroupName !== undefined) {
-    bodyParams["LogGroupName"] = input.LogGroupName;
+    bodyParams['LogGroupName'] = input.LogGroupName;
   }
   if (input.LogStreamName !== undefined) {
-    bodyParams["LogStreamName"] = input.LogStreamName;
+    bodyParams['LogStreamName'] = input.LogStreamName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ColumnToJsonKeyMappings = (
   input: { [key: string]: string },
@@ -1449,7 +1209,7 @@ const serializeAws_json1_1ColumnToJsonKeyMappings = (
     mapParams[key] = input[key];
   });
   return mapParams;
-};
+}
 
 const serializeAws_json1_1CopyCommand = (
   input: CopyCommand,
@@ -1457,16 +1217,16 @@ const serializeAws_json1_1CopyCommand = (
 ): any => {
   let bodyParams: any = {};
   if (input.CopyOptions !== undefined) {
-    bodyParams["CopyOptions"] = input.CopyOptions;
+    bodyParams['CopyOptions'] = input.CopyOptions;
   }
   if (input.DataTableColumns !== undefined) {
-    bodyParams["DataTableColumns"] = input.DataTableColumns;
+    bodyParams['DataTableColumns'] = input.DataTableColumns;
   }
   if (input.DataTableName !== undefined) {
-    bodyParams["DataTableName"] = input.DataTableName;
+    bodyParams['DataTableName'] = input.DataTableName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateDeliveryStreamInput = (
   input: CreateDeliveryStreamInput,
@@ -1474,75 +1234,37 @@ const serializeAws_json1_1CreateDeliveryStreamInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.DeliveryStreamEncryptionConfigurationInput !== undefined) {
-    bodyParams[
-      "DeliveryStreamEncryptionConfigurationInput"
-    ] = serializeAws_json1_1DeliveryStreamEncryptionConfigurationInput(
-      input.DeliveryStreamEncryptionConfigurationInput,
-      context
-    );
+    bodyParams['DeliveryStreamEncryptionConfigurationInput'] = serializeAws_json1_1DeliveryStreamEncryptionConfigurationInput(input.DeliveryStreamEncryptionConfigurationInput, context);
   }
   if (input.DeliveryStreamName !== undefined) {
-    bodyParams["DeliveryStreamName"] = input.DeliveryStreamName;
+    bodyParams['DeliveryStreamName'] = input.DeliveryStreamName;
   }
   if (input.DeliveryStreamType !== undefined) {
-    bodyParams["DeliveryStreamType"] = input.DeliveryStreamType;
+    bodyParams['DeliveryStreamType'] = input.DeliveryStreamType;
   }
   if (input.ElasticsearchDestinationConfiguration !== undefined) {
-    bodyParams[
-      "ElasticsearchDestinationConfiguration"
-    ] = serializeAws_json1_1ElasticsearchDestinationConfiguration(
-      input.ElasticsearchDestinationConfiguration,
-      context
-    );
+    bodyParams['ElasticsearchDestinationConfiguration'] = serializeAws_json1_1ElasticsearchDestinationConfiguration(input.ElasticsearchDestinationConfiguration, context);
   }
   if (input.ExtendedS3DestinationConfiguration !== undefined) {
-    bodyParams[
-      "ExtendedS3DestinationConfiguration"
-    ] = serializeAws_json1_1ExtendedS3DestinationConfiguration(
-      input.ExtendedS3DestinationConfiguration,
-      context
-    );
+    bodyParams['ExtendedS3DestinationConfiguration'] = serializeAws_json1_1ExtendedS3DestinationConfiguration(input.ExtendedS3DestinationConfiguration, context);
   }
   if (input.KinesisStreamSourceConfiguration !== undefined) {
-    bodyParams[
-      "KinesisStreamSourceConfiguration"
-    ] = serializeAws_json1_1KinesisStreamSourceConfiguration(
-      input.KinesisStreamSourceConfiguration,
-      context
-    );
+    bodyParams['KinesisStreamSourceConfiguration'] = serializeAws_json1_1KinesisStreamSourceConfiguration(input.KinesisStreamSourceConfiguration, context);
   }
   if (input.RedshiftDestinationConfiguration !== undefined) {
-    bodyParams[
-      "RedshiftDestinationConfiguration"
-    ] = serializeAws_json1_1RedshiftDestinationConfiguration(
-      input.RedshiftDestinationConfiguration,
-      context
-    );
+    bodyParams['RedshiftDestinationConfiguration'] = serializeAws_json1_1RedshiftDestinationConfiguration(input.RedshiftDestinationConfiguration, context);
   }
   if (input.S3DestinationConfiguration !== undefined) {
-    bodyParams[
-      "S3DestinationConfiguration"
-    ] = serializeAws_json1_1S3DestinationConfiguration(
-      input.S3DestinationConfiguration,
-      context
-    );
+    bodyParams['S3DestinationConfiguration'] = serializeAws_json1_1S3DestinationConfiguration(input.S3DestinationConfiguration, context);
   }
   if (input.SplunkDestinationConfiguration !== undefined) {
-    bodyParams[
-      "SplunkDestinationConfiguration"
-    ] = serializeAws_json1_1SplunkDestinationConfiguration(
-      input.SplunkDestinationConfiguration,
-      context
-    );
+    bodyParams['SplunkDestinationConfiguration'] = serializeAws_json1_1SplunkDestinationConfiguration(input.SplunkDestinationConfiguration, context);
   }
   if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1TagDeliveryStreamInputTagList(
-      input.Tags,
-      context
-    );
+    bodyParams['Tags'] = serializeAws_json1_1TagDeliveryStreamInputTagList(input.Tags, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DataFormatConversionConfiguration = (
   input: DataFormatConversionConfiguration,
@@ -1550,32 +1272,19 @@ const serializeAws_json1_1DataFormatConversionConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.Enabled !== undefined) {
-    bodyParams["Enabled"] = input.Enabled;
+    bodyParams['Enabled'] = input.Enabled;
   }
   if (input.InputFormatConfiguration !== undefined) {
-    bodyParams[
-      "InputFormatConfiguration"
-    ] = serializeAws_json1_1InputFormatConfiguration(
-      input.InputFormatConfiguration,
-      context
-    );
+    bodyParams['InputFormatConfiguration'] = serializeAws_json1_1InputFormatConfiguration(input.InputFormatConfiguration, context);
   }
   if (input.OutputFormatConfiguration !== undefined) {
-    bodyParams[
-      "OutputFormatConfiguration"
-    ] = serializeAws_json1_1OutputFormatConfiguration(
-      input.OutputFormatConfiguration,
-      context
-    );
+    bodyParams['OutputFormatConfiguration'] = serializeAws_json1_1OutputFormatConfiguration(input.OutputFormatConfiguration, context);
   }
   if (input.SchemaConfiguration !== undefined) {
-    bodyParams["SchemaConfiguration"] = serializeAws_json1_1SchemaConfiguration(
-      input.SchemaConfiguration,
-      context
-    );
+    bodyParams['SchemaConfiguration'] = serializeAws_json1_1SchemaConfiguration(input.SchemaConfiguration, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteDeliveryStreamInput = (
   input: DeleteDeliveryStreamInput,
@@ -1583,13 +1292,13 @@ const serializeAws_json1_1DeleteDeliveryStreamInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.AllowForceDelete !== undefined) {
-    bodyParams["AllowForceDelete"] = input.AllowForceDelete;
+    bodyParams['AllowForceDelete'] = input.AllowForceDelete;
   }
   if (input.DeliveryStreamName !== undefined) {
-    bodyParams["DeliveryStreamName"] = input.DeliveryStreamName;
+    bodyParams['DeliveryStreamName'] = input.DeliveryStreamName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeliveryStreamEncryptionConfigurationInput = (
   input: DeliveryStreamEncryptionConfigurationInput,
@@ -1597,13 +1306,13 @@ const serializeAws_json1_1DeliveryStreamEncryptionConfigurationInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.KeyARN !== undefined) {
-    bodyParams["KeyARN"] = input.KeyARN;
+    bodyParams['KeyARN'] = input.KeyARN;
   }
   if (input.KeyType !== undefined) {
-    bodyParams["KeyType"] = input.KeyType;
+    bodyParams['KeyType'] = input.KeyType;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeDeliveryStreamInput = (
   input: DescribeDeliveryStreamInput,
@@ -1611,17 +1320,16 @@ const serializeAws_json1_1DescribeDeliveryStreamInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.DeliveryStreamName !== undefined) {
-    bodyParams["DeliveryStreamName"] = input.DeliveryStreamName;
+    bodyParams['DeliveryStreamName'] = input.DeliveryStreamName;
   }
   if (input.ExclusiveStartDestinationId !== undefined) {
-    bodyParams["ExclusiveStartDestinationId"] =
-      input.ExclusiveStartDestinationId;
+    bodyParams['ExclusiveStartDestinationId'] = input.ExclusiveStartDestinationId;
   }
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1Deserializer = (
   input: Deserializer,
@@ -1629,19 +1337,13 @@ const serializeAws_json1_1Deserializer = (
 ): any => {
   let bodyParams: any = {};
   if (input.HiveJsonSerDe !== undefined) {
-    bodyParams["HiveJsonSerDe"] = serializeAws_json1_1HiveJsonSerDe(
-      input.HiveJsonSerDe,
-      context
-    );
+    bodyParams['HiveJsonSerDe'] = serializeAws_json1_1HiveJsonSerDe(input.HiveJsonSerDe, context);
   }
   if (input.OpenXJsonSerDe !== undefined) {
-    bodyParams["OpenXJsonSerDe"] = serializeAws_json1_1OpenXJsonSerDe(
-      input.OpenXJsonSerDe,
-      context
-    );
+    bodyParams['OpenXJsonSerDe'] = serializeAws_json1_1OpenXJsonSerDe(input.OpenXJsonSerDe, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ElasticsearchBufferingHints = (
   input: ElasticsearchBufferingHints,
@@ -1649,13 +1351,13 @@ const serializeAws_json1_1ElasticsearchBufferingHints = (
 ): any => {
   let bodyParams: any = {};
   if (input.IntervalInSeconds !== undefined) {
-    bodyParams["IntervalInSeconds"] = input.IntervalInSeconds;
+    bodyParams['IntervalInSeconds'] = input.IntervalInSeconds;
   }
   if (input.SizeInMBs !== undefined) {
-    bodyParams["SizeInMBs"] = input.SizeInMBs;
+    bodyParams['SizeInMBs'] = input.SizeInMBs;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ElasticsearchDestinationConfiguration = (
   input: ElasticsearchDestinationConfiguration,
@@ -1663,66 +1365,43 @@ const serializeAws_json1_1ElasticsearchDestinationConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.BufferingHints !== undefined) {
-    bodyParams[
-      "BufferingHints"
-    ] = serializeAws_json1_1ElasticsearchBufferingHints(
-      input.BufferingHints,
-      context
-    );
+    bodyParams['BufferingHints'] = serializeAws_json1_1ElasticsearchBufferingHints(input.BufferingHints, context);
   }
   if (input.CloudWatchLoggingOptions !== undefined) {
-    bodyParams[
-      "CloudWatchLoggingOptions"
-    ] = serializeAws_json1_1CloudWatchLoggingOptions(
-      input.CloudWatchLoggingOptions,
-      context
-    );
+    bodyParams['CloudWatchLoggingOptions'] = serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context);
   }
   if (input.ClusterEndpoint !== undefined) {
-    bodyParams["ClusterEndpoint"] = input.ClusterEndpoint;
+    bodyParams['ClusterEndpoint'] = input.ClusterEndpoint;
   }
   if (input.DomainARN !== undefined) {
-    bodyParams["DomainARN"] = input.DomainARN;
+    bodyParams['DomainARN'] = input.DomainARN;
   }
   if (input.IndexName !== undefined) {
-    bodyParams["IndexName"] = input.IndexName;
+    bodyParams['IndexName'] = input.IndexName;
   }
   if (input.IndexRotationPeriod !== undefined) {
-    bodyParams["IndexRotationPeriod"] = input.IndexRotationPeriod;
+    bodyParams['IndexRotationPeriod'] = input.IndexRotationPeriod;
   }
   if (input.ProcessingConfiguration !== undefined) {
-    bodyParams[
-      "ProcessingConfiguration"
-    ] = serializeAws_json1_1ProcessingConfiguration(
-      input.ProcessingConfiguration,
-      context
-    );
+    bodyParams['ProcessingConfiguration'] = serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context);
   }
   if (input.RetryOptions !== undefined) {
-    bodyParams["RetryOptions"] = serializeAws_json1_1ElasticsearchRetryOptions(
-      input.RetryOptions,
-      context
-    );
+    bodyParams['RetryOptions'] = serializeAws_json1_1ElasticsearchRetryOptions(input.RetryOptions, context);
   }
   if (input.RoleARN !== undefined) {
-    bodyParams["RoleARN"] = input.RoleARN;
+    bodyParams['RoleARN'] = input.RoleARN;
   }
   if (input.S3BackupMode !== undefined) {
-    bodyParams["S3BackupMode"] = input.S3BackupMode;
+    bodyParams['S3BackupMode'] = input.S3BackupMode;
   }
   if (input.S3Configuration !== undefined) {
-    bodyParams[
-      "S3Configuration"
-    ] = serializeAws_json1_1S3DestinationConfiguration(
-      input.S3Configuration,
-      context
-    );
+    bodyParams['S3Configuration'] = serializeAws_json1_1S3DestinationConfiguration(input.S3Configuration, context);
   }
   if (input.TypeName !== undefined) {
-    bodyParams["TypeName"] = input.TypeName;
+    bodyParams['TypeName'] = input.TypeName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ElasticsearchDestinationUpdate = (
   input: ElasticsearchDestinationUpdate,
@@ -1730,61 +1409,40 @@ const serializeAws_json1_1ElasticsearchDestinationUpdate = (
 ): any => {
   let bodyParams: any = {};
   if (input.BufferingHints !== undefined) {
-    bodyParams[
-      "BufferingHints"
-    ] = serializeAws_json1_1ElasticsearchBufferingHints(
-      input.BufferingHints,
-      context
-    );
+    bodyParams['BufferingHints'] = serializeAws_json1_1ElasticsearchBufferingHints(input.BufferingHints, context);
   }
   if (input.CloudWatchLoggingOptions !== undefined) {
-    bodyParams[
-      "CloudWatchLoggingOptions"
-    ] = serializeAws_json1_1CloudWatchLoggingOptions(
-      input.CloudWatchLoggingOptions,
-      context
-    );
+    bodyParams['CloudWatchLoggingOptions'] = serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context);
   }
   if (input.ClusterEndpoint !== undefined) {
-    bodyParams["ClusterEndpoint"] = input.ClusterEndpoint;
+    bodyParams['ClusterEndpoint'] = input.ClusterEndpoint;
   }
   if (input.DomainARN !== undefined) {
-    bodyParams["DomainARN"] = input.DomainARN;
+    bodyParams['DomainARN'] = input.DomainARN;
   }
   if (input.IndexName !== undefined) {
-    bodyParams["IndexName"] = input.IndexName;
+    bodyParams['IndexName'] = input.IndexName;
   }
   if (input.IndexRotationPeriod !== undefined) {
-    bodyParams["IndexRotationPeriod"] = input.IndexRotationPeriod;
+    bodyParams['IndexRotationPeriod'] = input.IndexRotationPeriod;
   }
   if (input.ProcessingConfiguration !== undefined) {
-    bodyParams[
-      "ProcessingConfiguration"
-    ] = serializeAws_json1_1ProcessingConfiguration(
-      input.ProcessingConfiguration,
-      context
-    );
+    bodyParams['ProcessingConfiguration'] = serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context);
   }
   if (input.RetryOptions !== undefined) {
-    bodyParams["RetryOptions"] = serializeAws_json1_1ElasticsearchRetryOptions(
-      input.RetryOptions,
-      context
-    );
+    bodyParams['RetryOptions'] = serializeAws_json1_1ElasticsearchRetryOptions(input.RetryOptions, context);
   }
   if (input.RoleARN !== undefined) {
-    bodyParams["RoleARN"] = input.RoleARN;
+    bodyParams['RoleARN'] = input.RoleARN;
   }
   if (input.S3Update !== undefined) {
-    bodyParams["S3Update"] = serializeAws_json1_1S3DestinationUpdate(
-      input.S3Update,
-      context
-    );
+    bodyParams['S3Update'] = serializeAws_json1_1S3DestinationUpdate(input.S3Update, context);
   }
   if (input.TypeName !== undefined) {
-    bodyParams["TypeName"] = input.TypeName;
+    bodyParams['TypeName'] = input.TypeName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ElasticsearchRetryOptions = (
   input: ElasticsearchRetryOptions,
@@ -1792,10 +1450,10 @@ const serializeAws_json1_1ElasticsearchRetryOptions = (
 ): any => {
   let bodyParams: any = {};
   if (input.DurationInSeconds !== undefined) {
-    bodyParams["DurationInSeconds"] = input.DurationInSeconds;
+    bodyParams['DurationInSeconds'] = input.DurationInSeconds;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1EncryptionConfiguration = (
   input: EncryptionConfiguration,
@@ -1803,16 +1461,13 @@ const serializeAws_json1_1EncryptionConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.KMSEncryptionConfig !== undefined) {
-    bodyParams["KMSEncryptionConfig"] = serializeAws_json1_1KMSEncryptionConfig(
-      input.KMSEncryptionConfig,
-      context
-    );
+    bodyParams['KMSEncryptionConfig'] = serializeAws_json1_1KMSEncryptionConfig(input.KMSEncryptionConfig, context);
   }
   if (input.NoEncryptionConfig !== undefined) {
-    bodyParams["NoEncryptionConfig"] = input.NoEncryptionConfig;
+    bodyParams['NoEncryptionConfig'] = input.NoEncryptionConfig;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ExtendedS3DestinationConfiguration = (
   input: ExtendedS3DestinationConfiguration,
@@ -1820,71 +1475,43 @@ const serializeAws_json1_1ExtendedS3DestinationConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.BucketARN !== undefined) {
-    bodyParams["BucketARN"] = input.BucketARN;
+    bodyParams['BucketARN'] = input.BucketARN;
   }
   if (input.BufferingHints !== undefined) {
-    bodyParams["BufferingHints"] = serializeAws_json1_1BufferingHints(
-      input.BufferingHints,
-      context
-    );
+    bodyParams['BufferingHints'] = serializeAws_json1_1BufferingHints(input.BufferingHints, context);
   }
   if (input.CloudWatchLoggingOptions !== undefined) {
-    bodyParams[
-      "CloudWatchLoggingOptions"
-    ] = serializeAws_json1_1CloudWatchLoggingOptions(
-      input.CloudWatchLoggingOptions,
-      context
-    );
+    bodyParams['CloudWatchLoggingOptions'] = serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context);
   }
   if (input.CompressionFormat !== undefined) {
-    bodyParams["CompressionFormat"] = input.CompressionFormat;
+    bodyParams['CompressionFormat'] = input.CompressionFormat;
   }
   if (input.DataFormatConversionConfiguration !== undefined) {
-    bodyParams[
-      "DataFormatConversionConfiguration"
-    ] = serializeAws_json1_1DataFormatConversionConfiguration(
-      input.DataFormatConversionConfiguration,
-      context
-    );
+    bodyParams['DataFormatConversionConfiguration'] = serializeAws_json1_1DataFormatConversionConfiguration(input.DataFormatConversionConfiguration, context);
   }
   if (input.EncryptionConfiguration !== undefined) {
-    bodyParams[
-      "EncryptionConfiguration"
-    ] = serializeAws_json1_1EncryptionConfiguration(
-      input.EncryptionConfiguration,
-      context
-    );
+    bodyParams['EncryptionConfiguration'] = serializeAws_json1_1EncryptionConfiguration(input.EncryptionConfiguration, context);
   }
   if (input.ErrorOutputPrefix !== undefined) {
-    bodyParams["ErrorOutputPrefix"] = input.ErrorOutputPrefix;
+    bodyParams['ErrorOutputPrefix'] = input.ErrorOutputPrefix;
   }
   if (input.Prefix !== undefined) {
-    bodyParams["Prefix"] = input.Prefix;
+    bodyParams['Prefix'] = input.Prefix;
   }
   if (input.ProcessingConfiguration !== undefined) {
-    bodyParams[
-      "ProcessingConfiguration"
-    ] = serializeAws_json1_1ProcessingConfiguration(
-      input.ProcessingConfiguration,
-      context
-    );
+    bodyParams['ProcessingConfiguration'] = serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context);
   }
   if (input.RoleARN !== undefined) {
-    bodyParams["RoleARN"] = input.RoleARN;
+    bodyParams['RoleARN'] = input.RoleARN;
   }
   if (input.S3BackupConfiguration !== undefined) {
-    bodyParams[
-      "S3BackupConfiguration"
-    ] = serializeAws_json1_1S3DestinationConfiguration(
-      input.S3BackupConfiguration,
-      context
-    );
+    bodyParams['S3BackupConfiguration'] = serializeAws_json1_1S3DestinationConfiguration(input.S3BackupConfiguration, context);
   }
   if (input.S3BackupMode !== undefined) {
-    bodyParams["S3BackupMode"] = input.S3BackupMode;
+    bodyParams['S3BackupMode'] = input.S3BackupMode;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ExtendedS3DestinationUpdate = (
   input: ExtendedS3DestinationUpdate,
@@ -1892,69 +1519,43 @@ const serializeAws_json1_1ExtendedS3DestinationUpdate = (
 ): any => {
   let bodyParams: any = {};
   if (input.BucketARN !== undefined) {
-    bodyParams["BucketARN"] = input.BucketARN;
+    bodyParams['BucketARN'] = input.BucketARN;
   }
   if (input.BufferingHints !== undefined) {
-    bodyParams["BufferingHints"] = serializeAws_json1_1BufferingHints(
-      input.BufferingHints,
-      context
-    );
+    bodyParams['BufferingHints'] = serializeAws_json1_1BufferingHints(input.BufferingHints, context);
   }
   if (input.CloudWatchLoggingOptions !== undefined) {
-    bodyParams[
-      "CloudWatchLoggingOptions"
-    ] = serializeAws_json1_1CloudWatchLoggingOptions(
-      input.CloudWatchLoggingOptions,
-      context
-    );
+    bodyParams['CloudWatchLoggingOptions'] = serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context);
   }
   if (input.CompressionFormat !== undefined) {
-    bodyParams["CompressionFormat"] = input.CompressionFormat;
+    bodyParams['CompressionFormat'] = input.CompressionFormat;
   }
   if (input.DataFormatConversionConfiguration !== undefined) {
-    bodyParams[
-      "DataFormatConversionConfiguration"
-    ] = serializeAws_json1_1DataFormatConversionConfiguration(
-      input.DataFormatConversionConfiguration,
-      context
-    );
+    bodyParams['DataFormatConversionConfiguration'] = serializeAws_json1_1DataFormatConversionConfiguration(input.DataFormatConversionConfiguration, context);
   }
   if (input.EncryptionConfiguration !== undefined) {
-    bodyParams[
-      "EncryptionConfiguration"
-    ] = serializeAws_json1_1EncryptionConfiguration(
-      input.EncryptionConfiguration,
-      context
-    );
+    bodyParams['EncryptionConfiguration'] = serializeAws_json1_1EncryptionConfiguration(input.EncryptionConfiguration, context);
   }
   if (input.ErrorOutputPrefix !== undefined) {
-    bodyParams["ErrorOutputPrefix"] = input.ErrorOutputPrefix;
+    bodyParams['ErrorOutputPrefix'] = input.ErrorOutputPrefix;
   }
   if (input.Prefix !== undefined) {
-    bodyParams["Prefix"] = input.Prefix;
+    bodyParams['Prefix'] = input.Prefix;
   }
   if (input.ProcessingConfiguration !== undefined) {
-    bodyParams[
-      "ProcessingConfiguration"
-    ] = serializeAws_json1_1ProcessingConfiguration(
-      input.ProcessingConfiguration,
-      context
-    );
+    bodyParams['ProcessingConfiguration'] = serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context);
   }
   if (input.RoleARN !== undefined) {
-    bodyParams["RoleARN"] = input.RoleARN;
+    bodyParams['RoleARN'] = input.RoleARN;
   }
   if (input.S3BackupMode !== undefined) {
-    bodyParams["S3BackupMode"] = input.S3BackupMode;
+    bodyParams['S3BackupMode'] = input.S3BackupMode;
   }
   if (input.S3BackupUpdate !== undefined) {
-    bodyParams["S3BackupUpdate"] = serializeAws_json1_1S3DestinationUpdate(
-      input.S3BackupUpdate,
-      context
-    );
+    bodyParams['S3BackupUpdate'] = serializeAws_json1_1S3DestinationUpdate(input.S3BackupUpdate, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1HiveJsonSerDe = (
   input: HiveJsonSerDe,
@@ -1962,13 +1563,10 @@ const serializeAws_json1_1HiveJsonSerDe = (
 ): any => {
   let bodyParams: any = {};
   if (input.TimestampFormats !== undefined) {
-    bodyParams["TimestampFormats"] = serializeAws_json1_1ListOfNonEmptyStrings(
-      input.TimestampFormats,
-      context
-    );
+    bodyParams['TimestampFormats'] = serializeAws_json1_1ListOfNonEmptyStrings(input.TimestampFormats, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1InputFormatConfiguration = (
   input: InputFormatConfiguration,
@@ -1976,13 +1574,10 @@ const serializeAws_json1_1InputFormatConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.Deserializer !== undefined) {
-    bodyParams["Deserializer"] = serializeAws_json1_1Deserializer(
-      input.Deserializer,
-      context
-    );
+    bodyParams['Deserializer'] = serializeAws_json1_1Deserializer(input.Deserializer, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1KMSEncryptionConfig = (
   input: KMSEncryptionConfig,
@@ -1990,10 +1585,10 @@ const serializeAws_json1_1KMSEncryptionConfig = (
 ): any => {
   let bodyParams: any = {};
   if (input.AWSKMSKeyARN !== undefined) {
-    bodyParams["AWSKMSKeyARN"] = input.AWSKMSKeyARN;
+    bodyParams['AWSKMSKeyARN'] = input.AWSKMSKeyARN;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1KinesisStreamSourceConfiguration = (
   input: KinesisStreamSourceConfiguration,
@@ -2001,13 +1596,13 @@ const serializeAws_json1_1KinesisStreamSourceConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.KinesisStreamARN !== undefined) {
-    bodyParams["KinesisStreamARN"] = input.KinesisStreamARN;
+    bodyParams['KinesisStreamARN'] = input.KinesisStreamARN;
   }
   if (input.RoleARN !== undefined) {
-    bodyParams["RoleARN"] = input.RoleARN;
+    bodyParams['RoleARN'] = input.RoleARN;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListDeliveryStreamsInput = (
   input: ListDeliveryStreamsInput,
@@ -2015,31 +1610,34 @@ const serializeAws_json1_1ListDeliveryStreamsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.DeliveryStreamType !== undefined) {
-    bodyParams["DeliveryStreamType"] = input.DeliveryStreamType;
+    bodyParams['DeliveryStreamType'] = input.DeliveryStreamType;
   }
   if (input.ExclusiveStartDeliveryStreamName !== undefined) {
-    bodyParams["ExclusiveStartDeliveryStreamName"] =
-      input.ExclusiveStartDeliveryStreamName;
+    bodyParams['ExclusiveStartDeliveryStreamName'] = input.ExclusiveStartDeliveryStreamName;
   }
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListOfNonEmptyStrings = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1ListOfNonEmptyStringsWithoutWhitespace = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1ListTagsForDeliveryStreamInput = (
   input: ListTagsForDeliveryStreamInput,
@@ -2047,16 +1645,16 @@ const serializeAws_json1_1ListTagsForDeliveryStreamInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.DeliveryStreamName !== undefined) {
-    bodyParams["DeliveryStreamName"] = input.DeliveryStreamName;
+    bodyParams['DeliveryStreamName'] = input.DeliveryStreamName;
   }
   if (input.ExclusiveStartTagKey !== undefined) {
-    bodyParams["ExclusiveStartTagKey"] = input.ExclusiveStartTagKey;
+    bodyParams['ExclusiveStartTagKey'] = input.ExclusiveStartTagKey;
   }
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1OpenXJsonSerDe = (
   input: OpenXJsonSerDe,
@@ -2064,22 +1662,16 @@ const serializeAws_json1_1OpenXJsonSerDe = (
 ): any => {
   let bodyParams: any = {};
   if (input.CaseInsensitive !== undefined) {
-    bodyParams["CaseInsensitive"] = input.CaseInsensitive;
+    bodyParams['CaseInsensitive'] = input.CaseInsensitive;
   }
   if (input.ColumnToJsonKeyMappings !== undefined) {
-    bodyParams[
-      "ColumnToJsonKeyMappings"
-    ] = serializeAws_json1_1ColumnToJsonKeyMappings(
-      input.ColumnToJsonKeyMappings,
-      context
-    );
+    bodyParams['ColumnToJsonKeyMappings'] = serializeAws_json1_1ColumnToJsonKeyMappings(input.ColumnToJsonKeyMappings, context);
   }
   if (input.ConvertDotsInJsonKeysToUnderscores !== undefined) {
-    bodyParams["ConvertDotsInJsonKeysToUnderscores"] =
-      input.ConvertDotsInJsonKeysToUnderscores;
+    bodyParams['ConvertDotsInJsonKeysToUnderscores'] = input.ConvertDotsInJsonKeysToUnderscores;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1OrcSerDe = (
   input: OrcSerDe,
@@ -2087,43 +1679,37 @@ const serializeAws_json1_1OrcSerDe = (
 ): any => {
   let bodyParams: any = {};
   if (input.BlockSizeBytes !== undefined) {
-    bodyParams["BlockSizeBytes"] = input.BlockSizeBytes;
+    bodyParams['BlockSizeBytes'] = input.BlockSizeBytes;
   }
   if (input.BloomFilterColumns !== undefined) {
-    bodyParams[
-      "BloomFilterColumns"
-    ] = serializeAws_json1_1ListOfNonEmptyStringsWithoutWhitespace(
-      input.BloomFilterColumns,
-      context
-    );
+    bodyParams['BloomFilterColumns'] = serializeAws_json1_1ListOfNonEmptyStringsWithoutWhitespace(input.BloomFilterColumns, context);
   }
   if (input.BloomFilterFalsePositiveProbability !== undefined) {
-    bodyParams["BloomFilterFalsePositiveProbability"] =
-      input.BloomFilterFalsePositiveProbability;
+    bodyParams['BloomFilterFalsePositiveProbability'] = input.BloomFilterFalsePositiveProbability;
   }
   if (input.Compression !== undefined) {
-    bodyParams["Compression"] = input.Compression;
+    bodyParams['Compression'] = input.Compression;
   }
   if (input.DictionaryKeyThreshold !== undefined) {
-    bodyParams["DictionaryKeyThreshold"] = input.DictionaryKeyThreshold;
+    bodyParams['DictionaryKeyThreshold'] = input.DictionaryKeyThreshold;
   }
   if (input.EnablePadding !== undefined) {
-    bodyParams["EnablePadding"] = input.EnablePadding;
+    bodyParams['EnablePadding'] = input.EnablePadding;
   }
   if (input.FormatVersion !== undefined) {
-    bodyParams["FormatVersion"] = input.FormatVersion;
+    bodyParams['FormatVersion'] = input.FormatVersion;
   }
   if (input.PaddingTolerance !== undefined) {
-    bodyParams["PaddingTolerance"] = input.PaddingTolerance;
+    bodyParams['PaddingTolerance'] = input.PaddingTolerance;
   }
   if (input.RowIndexStride !== undefined) {
-    bodyParams["RowIndexStride"] = input.RowIndexStride;
+    bodyParams['RowIndexStride'] = input.RowIndexStride;
   }
   if (input.StripeSizeBytes !== undefined) {
-    bodyParams["StripeSizeBytes"] = input.StripeSizeBytes;
+    bodyParams['StripeSizeBytes'] = input.StripeSizeBytes;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1OutputFormatConfiguration = (
   input: OutputFormatConfiguration,
@@ -2131,13 +1717,10 @@ const serializeAws_json1_1OutputFormatConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.Serializer !== undefined) {
-    bodyParams["Serializer"] = serializeAws_json1_1Serializer(
-      input.Serializer,
-      context
-    );
+    bodyParams['Serializer'] = serializeAws_json1_1Serializer(input.Serializer, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ParquetSerDe = (
   input: ParquetSerDe,
@@ -2145,26 +1728,25 @@ const serializeAws_json1_1ParquetSerDe = (
 ): any => {
   let bodyParams: any = {};
   if (input.BlockSizeBytes !== undefined) {
-    bodyParams["BlockSizeBytes"] = input.BlockSizeBytes;
+    bodyParams['BlockSizeBytes'] = input.BlockSizeBytes;
   }
   if (input.Compression !== undefined) {
-    bodyParams["Compression"] = input.Compression;
+    bodyParams['Compression'] = input.Compression;
   }
   if (input.EnableDictionaryCompression !== undefined) {
-    bodyParams["EnableDictionaryCompression"] =
-      input.EnableDictionaryCompression;
+    bodyParams['EnableDictionaryCompression'] = input.EnableDictionaryCompression;
   }
   if (input.MaxPaddingBytes !== undefined) {
-    bodyParams["MaxPaddingBytes"] = input.MaxPaddingBytes;
+    bodyParams['MaxPaddingBytes'] = input.MaxPaddingBytes;
   }
   if (input.PageSizeBytes !== undefined) {
-    bodyParams["PageSizeBytes"] = input.PageSizeBytes;
+    bodyParams['PageSizeBytes'] = input.PageSizeBytes;
   }
   if (input.WriterVersion !== undefined) {
-    bodyParams["WriterVersion"] = input.WriterVersion;
+    bodyParams['WriterVersion'] = input.WriterVersion;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ProcessingConfiguration = (
   input: ProcessingConfiguration,
@@ -2172,16 +1754,13 @@ const serializeAws_json1_1ProcessingConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.Enabled !== undefined) {
-    bodyParams["Enabled"] = input.Enabled;
+    bodyParams['Enabled'] = input.Enabled;
   }
   if (input.Processors !== undefined) {
-    bodyParams["Processors"] = serializeAws_json1_1ProcessorList(
-      input.Processors,
-      context
-    );
+    bodyParams['Processors'] = serializeAws_json1_1ProcessorList(input.Processors, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1Processor = (
   input: Processor,
@@ -2189,16 +1768,13 @@ const serializeAws_json1_1Processor = (
 ): any => {
   let bodyParams: any = {};
   if (input.Parameters !== undefined) {
-    bodyParams["Parameters"] = serializeAws_json1_1ProcessorParameterList(
-      input.Parameters,
-      context
-    );
+    bodyParams['Parameters'] = serializeAws_json1_1ProcessorParameterList(input.Parameters, context);
   }
   if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
+    bodyParams['Type'] = input.Type;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ProcessorList = (
   input: Array<Processor>,
@@ -2207,7 +1783,7 @@ const serializeAws_json1_1ProcessorList = (
   return (input || []).map(entry =>
     serializeAws_json1_1Processor(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1ProcessorParameter = (
   input: ProcessorParameter,
@@ -2215,13 +1791,13 @@ const serializeAws_json1_1ProcessorParameter = (
 ): any => {
   let bodyParams: any = {};
   if (input.ParameterName !== undefined) {
-    bodyParams["ParameterName"] = input.ParameterName;
+    bodyParams['ParameterName'] = input.ParameterName;
   }
   if (input.ParameterValue !== undefined) {
-    bodyParams["ParameterValue"] = input.ParameterValue;
+    bodyParams['ParameterValue'] = input.ParameterValue;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ProcessorParameterList = (
   input: Array<ProcessorParameter>,
@@ -2230,7 +1806,7 @@ const serializeAws_json1_1ProcessorParameterList = (
   return (input || []).map(entry =>
     serializeAws_json1_1ProcessorParameter(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1PutRecordBatchInput = (
   input: PutRecordBatchInput,
@@ -2238,16 +1814,13 @@ const serializeAws_json1_1PutRecordBatchInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.DeliveryStreamName !== undefined) {
-    bodyParams["DeliveryStreamName"] = input.DeliveryStreamName;
+    bodyParams['DeliveryStreamName'] = input.DeliveryStreamName;
   }
   if (input.Records !== undefined) {
-    bodyParams["Records"] = serializeAws_json1_1PutRecordBatchRequestEntryList(
-      input.Records,
-      context
-    );
+    bodyParams['Records'] = serializeAws_json1_1PutRecordBatchRequestEntryList(input.Records, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1PutRecordBatchRequestEntryList = (
   input: Array<_Record>,
@@ -2256,7 +1829,7 @@ const serializeAws_json1_1PutRecordBatchRequestEntryList = (
   return (input || []).map(entry =>
     serializeAws_json1_1_Record(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1PutRecordInput = (
   input: PutRecordInput,
@@ -2264,13 +1837,13 @@ const serializeAws_json1_1PutRecordInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.DeliveryStreamName !== undefined) {
-    bodyParams["DeliveryStreamName"] = input.DeliveryStreamName;
+    bodyParams['DeliveryStreamName'] = input.DeliveryStreamName;
   }
   if (input.Record !== undefined) {
-    bodyParams["Record"] = serializeAws_json1_1_Record(input.Record, context);
+    bodyParams['Record'] = serializeAws_json1_1_Record(input.Record, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1_Record = (
   input: _Record,
@@ -2278,10 +1851,10 @@ const serializeAws_json1_1_Record = (
 ): any => {
   let bodyParams: any = {};
   if (input.Data !== undefined) {
-    bodyParams["Data"] = context.base64Encoder(input.Data);
+    bodyParams['Data'] = context.base64Encoder(input.Data);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1RedshiftDestinationConfiguration = (
   input: RedshiftDestinationConfiguration,
@@ -2289,66 +1862,40 @@ const serializeAws_json1_1RedshiftDestinationConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.CloudWatchLoggingOptions !== undefined) {
-    bodyParams[
-      "CloudWatchLoggingOptions"
-    ] = serializeAws_json1_1CloudWatchLoggingOptions(
-      input.CloudWatchLoggingOptions,
-      context
-    );
+    bodyParams['CloudWatchLoggingOptions'] = serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context);
   }
   if (input.ClusterJDBCURL !== undefined) {
-    bodyParams["ClusterJDBCURL"] = input.ClusterJDBCURL;
+    bodyParams['ClusterJDBCURL'] = input.ClusterJDBCURL;
   }
   if (input.CopyCommand !== undefined) {
-    bodyParams["CopyCommand"] = serializeAws_json1_1CopyCommand(
-      input.CopyCommand,
-      context
-    );
+    bodyParams['CopyCommand'] = serializeAws_json1_1CopyCommand(input.CopyCommand, context);
   }
   if (input.Password !== undefined) {
-    bodyParams["Password"] = input.Password;
+    bodyParams['Password'] = input.Password;
   }
   if (input.ProcessingConfiguration !== undefined) {
-    bodyParams[
-      "ProcessingConfiguration"
-    ] = serializeAws_json1_1ProcessingConfiguration(
-      input.ProcessingConfiguration,
-      context
-    );
+    bodyParams['ProcessingConfiguration'] = serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context);
   }
   if (input.RetryOptions !== undefined) {
-    bodyParams["RetryOptions"] = serializeAws_json1_1RedshiftRetryOptions(
-      input.RetryOptions,
-      context
-    );
+    bodyParams['RetryOptions'] = serializeAws_json1_1RedshiftRetryOptions(input.RetryOptions, context);
   }
   if (input.RoleARN !== undefined) {
-    bodyParams["RoleARN"] = input.RoleARN;
+    bodyParams['RoleARN'] = input.RoleARN;
   }
   if (input.S3BackupConfiguration !== undefined) {
-    bodyParams[
-      "S3BackupConfiguration"
-    ] = serializeAws_json1_1S3DestinationConfiguration(
-      input.S3BackupConfiguration,
-      context
-    );
+    bodyParams['S3BackupConfiguration'] = serializeAws_json1_1S3DestinationConfiguration(input.S3BackupConfiguration, context);
   }
   if (input.S3BackupMode !== undefined) {
-    bodyParams["S3BackupMode"] = input.S3BackupMode;
+    bodyParams['S3BackupMode'] = input.S3BackupMode;
   }
   if (input.S3Configuration !== undefined) {
-    bodyParams[
-      "S3Configuration"
-    ] = serializeAws_json1_1S3DestinationConfiguration(
-      input.S3Configuration,
-      context
-    );
+    bodyParams['S3Configuration'] = serializeAws_json1_1S3DestinationConfiguration(input.S3Configuration, context);
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1RedshiftDestinationUpdate = (
   input: RedshiftDestinationUpdate,
@@ -2356,62 +1903,40 @@ const serializeAws_json1_1RedshiftDestinationUpdate = (
 ): any => {
   let bodyParams: any = {};
   if (input.CloudWatchLoggingOptions !== undefined) {
-    bodyParams[
-      "CloudWatchLoggingOptions"
-    ] = serializeAws_json1_1CloudWatchLoggingOptions(
-      input.CloudWatchLoggingOptions,
-      context
-    );
+    bodyParams['CloudWatchLoggingOptions'] = serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context);
   }
   if (input.ClusterJDBCURL !== undefined) {
-    bodyParams["ClusterJDBCURL"] = input.ClusterJDBCURL;
+    bodyParams['ClusterJDBCURL'] = input.ClusterJDBCURL;
   }
   if (input.CopyCommand !== undefined) {
-    bodyParams["CopyCommand"] = serializeAws_json1_1CopyCommand(
-      input.CopyCommand,
-      context
-    );
+    bodyParams['CopyCommand'] = serializeAws_json1_1CopyCommand(input.CopyCommand, context);
   }
   if (input.Password !== undefined) {
-    bodyParams["Password"] = input.Password;
+    bodyParams['Password'] = input.Password;
   }
   if (input.ProcessingConfiguration !== undefined) {
-    bodyParams[
-      "ProcessingConfiguration"
-    ] = serializeAws_json1_1ProcessingConfiguration(
-      input.ProcessingConfiguration,
-      context
-    );
+    bodyParams['ProcessingConfiguration'] = serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context);
   }
   if (input.RetryOptions !== undefined) {
-    bodyParams["RetryOptions"] = serializeAws_json1_1RedshiftRetryOptions(
-      input.RetryOptions,
-      context
-    );
+    bodyParams['RetryOptions'] = serializeAws_json1_1RedshiftRetryOptions(input.RetryOptions, context);
   }
   if (input.RoleARN !== undefined) {
-    bodyParams["RoleARN"] = input.RoleARN;
+    bodyParams['RoleARN'] = input.RoleARN;
   }
   if (input.S3BackupMode !== undefined) {
-    bodyParams["S3BackupMode"] = input.S3BackupMode;
+    bodyParams['S3BackupMode'] = input.S3BackupMode;
   }
   if (input.S3BackupUpdate !== undefined) {
-    bodyParams["S3BackupUpdate"] = serializeAws_json1_1S3DestinationUpdate(
-      input.S3BackupUpdate,
-      context
-    );
+    bodyParams['S3BackupUpdate'] = serializeAws_json1_1S3DestinationUpdate(input.S3BackupUpdate, context);
   }
   if (input.S3Update !== undefined) {
-    bodyParams["S3Update"] = serializeAws_json1_1S3DestinationUpdate(
-      input.S3Update,
-      context
-    );
+    bodyParams['S3Update'] = serializeAws_json1_1S3DestinationUpdate(input.S3Update, context);
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1RedshiftRetryOptions = (
   input: RedshiftRetryOptions,
@@ -2419,10 +1944,10 @@ const serializeAws_json1_1RedshiftRetryOptions = (
 ): any => {
   let bodyParams: any = {};
   if (input.DurationInSeconds !== undefined) {
-    bodyParams["DurationInSeconds"] = input.DurationInSeconds;
+    bodyParams['DurationInSeconds'] = input.DurationInSeconds;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1S3DestinationConfiguration = (
   input: S3DestinationConfiguration,
@@ -2430,44 +1955,31 @@ const serializeAws_json1_1S3DestinationConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.BucketARN !== undefined) {
-    bodyParams["BucketARN"] = input.BucketARN;
+    bodyParams['BucketARN'] = input.BucketARN;
   }
   if (input.BufferingHints !== undefined) {
-    bodyParams["BufferingHints"] = serializeAws_json1_1BufferingHints(
-      input.BufferingHints,
-      context
-    );
+    bodyParams['BufferingHints'] = serializeAws_json1_1BufferingHints(input.BufferingHints, context);
   }
   if (input.CloudWatchLoggingOptions !== undefined) {
-    bodyParams[
-      "CloudWatchLoggingOptions"
-    ] = serializeAws_json1_1CloudWatchLoggingOptions(
-      input.CloudWatchLoggingOptions,
-      context
-    );
+    bodyParams['CloudWatchLoggingOptions'] = serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context);
   }
   if (input.CompressionFormat !== undefined) {
-    bodyParams["CompressionFormat"] = input.CompressionFormat;
+    bodyParams['CompressionFormat'] = input.CompressionFormat;
   }
   if (input.EncryptionConfiguration !== undefined) {
-    bodyParams[
-      "EncryptionConfiguration"
-    ] = serializeAws_json1_1EncryptionConfiguration(
-      input.EncryptionConfiguration,
-      context
-    );
+    bodyParams['EncryptionConfiguration'] = serializeAws_json1_1EncryptionConfiguration(input.EncryptionConfiguration, context);
   }
   if (input.ErrorOutputPrefix !== undefined) {
-    bodyParams["ErrorOutputPrefix"] = input.ErrorOutputPrefix;
+    bodyParams['ErrorOutputPrefix'] = input.ErrorOutputPrefix;
   }
   if (input.Prefix !== undefined) {
-    bodyParams["Prefix"] = input.Prefix;
+    bodyParams['Prefix'] = input.Prefix;
   }
   if (input.RoleARN !== undefined) {
-    bodyParams["RoleARN"] = input.RoleARN;
+    bodyParams['RoleARN'] = input.RoleARN;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1S3DestinationUpdate = (
   input: S3DestinationUpdate,
@@ -2475,44 +1987,31 @@ const serializeAws_json1_1S3DestinationUpdate = (
 ): any => {
   let bodyParams: any = {};
   if (input.BucketARN !== undefined) {
-    bodyParams["BucketARN"] = input.BucketARN;
+    bodyParams['BucketARN'] = input.BucketARN;
   }
   if (input.BufferingHints !== undefined) {
-    bodyParams["BufferingHints"] = serializeAws_json1_1BufferingHints(
-      input.BufferingHints,
-      context
-    );
+    bodyParams['BufferingHints'] = serializeAws_json1_1BufferingHints(input.BufferingHints, context);
   }
   if (input.CloudWatchLoggingOptions !== undefined) {
-    bodyParams[
-      "CloudWatchLoggingOptions"
-    ] = serializeAws_json1_1CloudWatchLoggingOptions(
-      input.CloudWatchLoggingOptions,
-      context
-    );
+    bodyParams['CloudWatchLoggingOptions'] = serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context);
   }
   if (input.CompressionFormat !== undefined) {
-    bodyParams["CompressionFormat"] = input.CompressionFormat;
+    bodyParams['CompressionFormat'] = input.CompressionFormat;
   }
   if (input.EncryptionConfiguration !== undefined) {
-    bodyParams[
-      "EncryptionConfiguration"
-    ] = serializeAws_json1_1EncryptionConfiguration(
-      input.EncryptionConfiguration,
-      context
-    );
+    bodyParams['EncryptionConfiguration'] = serializeAws_json1_1EncryptionConfiguration(input.EncryptionConfiguration, context);
   }
   if (input.ErrorOutputPrefix !== undefined) {
-    bodyParams["ErrorOutputPrefix"] = input.ErrorOutputPrefix;
+    bodyParams['ErrorOutputPrefix'] = input.ErrorOutputPrefix;
   }
   if (input.Prefix !== undefined) {
-    bodyParams["Prefix"] = input.Prefix;
+    bodyParams['Prefix'] = input.Prefix;
   }
   if (input.RoleARN !== undefined) {
-    bodyParams["RoleARN"] = input.RoleARN;
+    bodyParams['RoleARN'] = input.RoleARN;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1SchemaConfiguration = (
   input: SchemaConfiguration,
@@ -2520,25 +2019,25 @@ const serializeAws_json1_1SchemaConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.CatalogId !== undefined) {
-    bodyParams["CatalogId"] = input.CatalogId;
+    bodyParams['CatalogId'] = input.CatalogId;
   }
   if (input.DatabaseName !== undefined) {
-    bodyParams["DatabaseName"] = input.DatabaseName;
+    bodyParams['DatabaseName'] = input.DatabaseName;
   }
   if (input.Region !== undefined) {
-    bodyParams["Region"] = input.Region;
+    bodyParams['Region'] = input.Region;
   }
   if (input.RoleARN !== undefined) {
-    bodyParams["RoleARN"] = input.RoleARN;
+    bodyParams['RoleARN'] = input.RoleARN;
   }
   if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
+    bodyParams['TableName'] = input.TableName;
   }
   if (input.VersionId !== undefined) {
-    bodyParams["VersionId"] = input.VersionId;
+    bodyParams['VersionId'] = input.VersionId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1Serializer = (
   input: Serializer,
@@ -2546,19 +2045,13 @@ const serializeAws_json1_1Serializer = (
 ): any => {
   let bodyParams: any = {};
   if (input.OrcSerDe !== undefined) {
-    bodyParams["OrcSerDe"] = serializeAws_json1_1OrcSerDe(
-      input.OrcSerDe,
-      context
-    );
+    bodyParams['OrcSerDe'] = serializeAws_json1_1OrcSerDe(input.OrcSerDe, context);
   }
   if (input.ParquetSerDe !== undefined) {
-    bodyParams["ParquetSerDe"] = serializeAws_json1_1ParquetSerDe(
-      input.ParquetSerDe,
-      context
-    );
+    bodyParams['ParquetSerDe'] = serializeAws_json1_1ParquetSerDe(input.ParquetSerDe, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1SplunkDestinationConfiguration = (
   input: SplunkDestinationConfiguration,
@@ -2566,53 +2059,34 @@ const serializeAws_json1_1SplunkDestinationConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.CloudWatchLoggingOptions !== undefined) {
-    bodyParams[
-      "CloudWatchLoggingOptions"
-    ] = serializeAws_json1_1CloudWatchLoggingOptions(
-      input.CloudWatchLoggingOptions,
-      context
-    );
+    bodyParams['CloudWatchLoggingOptions'] = serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context);
   }
   if (input.HECAcknowledgmentTimeoutInSeconds !== undefined) {
-    bodyParams["HECAcknowledgmentTimeoutInSeconds"] =
-      input.HECAcknowledgmentTimeoutInSeconds;
+    bodyParams['HECAcknowledgmentTimeoutInSeconds'] = input.HECAcknowledgmentTimeoutInSeconds;
   }
   if (input.HECEndpoint !== undefined) {
-    bodyParams["HECEndpoint"] = input.HECEndpoint;
+    bodyParams['HECEndpoint'] = input.HECEndpoint;
   }
   if (input.HECEndpointType !== undefined) {
-    bodyParams["HECEndpointType"] = input.HECEndpointType;
+    bodyParams['HECEndpointType'] = input.HECEndpointType;
   }
   if (input.HECToken !== undefined) {
-    bodyParams["HECToken"] = input.HECToken;
+    bodyParams['HECToken'] = input.HECToken;
   }
   if (input.ProcessingConfiguration !== undefined) {
-    bodyParams[
-      "ProcessingConfiguration"
-    ] = serializeAws_json1_1ProcessingConfiguration(
-      input.ProcessingConfiguration,
-      context
-    );
+    bodyParams['ProcessingConfiguration'] = serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context);
   }
   if (input.RetryOptions !== undefined) {
-    bodyParams["RetryOptions"] = serializeAws_json1_1SplunkRetryOptions(
-      input.RetryOptions,
-      context
-    );
+    bodyParams['RetryOptions'] = serializeAws_json1_1SplunkRetryOptions(input.RetryOptions, context);
   }
   if (input.S3BackupMode !== undefined) {
-    bodyParams["S3BackupMode"] = input.S3BackupMode;
+    bodyParams['S3BackupMode'] = input.S3BackupMode;
   }
   if (input.S3Configuration !== undefined) {
-    bodyParams[
-      "S3Configuration"
-    ] = serializeAws_json1_1S3DestinationConfiguration(
-      input.S3Configuration,
-      context
-    );
+    bodyParams['S3Configuration'] = serializeAws_json1_1S3DestinationConfiguration(input.S3Configuration, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1SplunkDestinationUpdate = (
   input: SplunkDestinationUpdate,
@@ -2620,51 +2094,34 @@ const serializeAws_json1_1SplunkDestinationUpdate = (
 ): any => {
   let bodyParams: any = {};
   if (input.CloudWatchLoggingOptions !== undefined) {
-    bodyParams[
-      "CloudWatchLoggingOptions"
-    ] = serializeAws_json1_1CloudWatchLoggingOptions(
-      input.CloudWatchLoggingOptions,
-      context
-    );
+    bodyParams['CloudWatchLoggingOptions'] = serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context);
   }
   if (input.HECAcknowledgmentTimeoutInSeconds !== undefined) {
-    bodyParams["HECAcknowledgmentTimeoutInSeconds"] =
-      input.HECAcknowledgmentTimeoutInSeconds;
+    bodyParams['HECAcknowledgmentTimeoutInSeconds'] = input.HECAcknowledgmentTimeoutInSeconds;
   }
   if (input.HECEndpoint !== undefined) {
-    bodyParams["HECEndpoint"] = input.HECEndpoint;
+    bodyParams['HECEndpoint'] = input.HECEndpoint;
   }
   if (input.HECEndpointType !== undefined) {
-    bodyParams["HECEndpointType"] = input.HECEndpointType;
+    bodyParams['HECEndpointType'] = input.HECEndpointType;
   }
   if (input.HECToken !== undefined) {
-    bodyParams["HECToken"] = input.HECToken;
+    bodyParams['HECToken'] = input.HECToken;
   }
   if (input.ProcessingConfiguration !== undefined) {
-    bodyParams[
-      "ProcessingConfiguration"
-    ] = serializeAws_json1_1ProcessingConfiguration(
-      input.ProcessingConfiguration,
-      context
-    );
+    bodyParams['ProcessingConfiguration'] = serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context);
   }
   if (input.RetryOptions !== undefined) {
-    bodyParams["RetryOptions"] = serializeAws_json1_1SplunkRetryOptions(
-      input.RetryOptions,
-      context
-    );
+    bodyParams['RetryOptions'] = serializeAws_json1_1SplunkRetryOptions(input.RetryOptions, context);
   }
   if (input.S3BackupMode !== undefined) {
-    bodyParams["S3BackupMode"] = input.S3BackupMode;
+    bodyParams['S3BackupMode'] = input.S3BackupMode;
   }
   if (input.S3Update !== undefined) {
-    bodyParams["S3Update"] = serializeAws_json1_1S3DestinationUpdate(
-      input.S3Update,
-      context
-    );
+    bodyParams['S3Update'] = serializeAws_json1_1S3DestinationUpdate(input.S3Update, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1SplunkRetryOptions = (
   input: SplunkRetryOptions,
@@ -2672,10 +2129,10 @@ const serializeAws_json1_1SplunkRetryOptions = (
 ): any => {
   let bodyParams: any = {};
   if (input.DurationInSeconds !== undefined) {
-    bodyParams["DurationInSeconds"] = input.DurationInSeconds;
+    bodyParams['DurationInSeconds'] = input.DurationInSeconds;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1StartDeliveryStreamEncryptionInput = (
   input: StartDeliveryStreamEncryptionInput,
@@ -2683,18 +2140,13 @@ const serializeAws_json1_1StartDeliveryStreamEncryptionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.DeliveryStreamEncryptionConfigurationInput !== undefined) {
-    bodyParams[
-      "DeliveryStreamEncryptionConfigurationInput"
-    ] = serializeAws_json1_1DeliveryStreamEncryptionConfigurationInput(
-      input.DeliveryStreamEncryptionConfigurationInput,
-      context
-    );
+    bodyParams['DeliveryStreamEncryptionConfigurationInput'] = serializeAws_json1_1DeliveryStreamEncryptionConfigurationInput(input.DeliveryStreamEncryptionConfigurationInput, context);
   }
   if (input.DeliveryStreamName !== undefined) {
-    bodyParams["DeliveryStreamName"] = input.DeliveryStreamName;
+    bodyParams['DeliveryStreamName'] = input.DeliveryStreamName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1StopDeliveryStreamEncryptionInput = (
   input: StopDeliveryStreamEncryptionInput,
@@ -2702,21 +2154,24 @@ const serializeAws_json1_1StopDeliveryStreamEncryptionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.DeliveryStreamName !== undefined) {
-    bodyParams["DeliveryStreamName"] = input.DeliveryStreamName;
+    bodyParams['DeliveryStreamName'] = input.DeliveryStreamName;
   }
   return bodyParams;
-};
+}
 
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+const serializeAws_json1_1Tag = (
+  input: Tag,
+  context: __SerdeContext
+): any => {
   let bodyParams: any = {};
   if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
+    bodyParams['Key'] = input.Key;
   }
   if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
+    bodyParams['Value'] = input.Value;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1TagDeliveryStreamInput = (
   input: TagDeliveryStreamInput,
@@ -2724,30 +2179,31 @@ const serializeAws_json1_1TagDeliveryStreamInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.DeliveryStreamName !== undefined) {
-    bodyParams["DeliveryStreamName"] = input.DeliveryStreamName;
+    bodyParams['DeliveryStreamName'] = input.DeliveryStreamName;
   }
   if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1TagDeliveryStreamInputTagList(
-      input.Tags,
-      context
-    );
+    bodyParams['Tags'] = serializeAws_json1_1TagDeliveryStreamInputTagList(input.Tags, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1TagDeliveryStreamInputTagList = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Tag(entry, context));
-};
+  return (input || []).map(entry =>
+    serializeAws_json1_1Tag(entry, context)
+  );
+}
 
 const serializeAws_json1_1TagKeyList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1UntagDeliveryStreamInput = (
   input: UntagDeliveryStreamInput,
@@ -2755,16 +2211,13 @@ const serializeAws_json1_1UntagDeliveryStreamInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.DeliveryStreamName !== undefined) {
-    bodyParams["DeliveryStreamName"] = input.DeliveryStreamName;
+    bodyParams['DeliveryStreamName'] = input.DeliveryStreamName;
   }
   if (input.TagKeys !== undefined) {
-    bodyParams["TagKeys"] = serializeAws_json1_1TagKeyList(
-      input.TagKeys,
-      context
-    );
+    bodyParams['TagKeys'] = serializeAws_json1_1TagKeyList(input.TagKeys, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateDestinationInput = (
   input: UpdateDestinationInput,
@@ -2772,55 +2225,31 @@ const serializeAws_json1_1UpdateDestinationInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.CurrentDeliveryStreamVersionId !== undefined) {
-    bodyParams["CurrentDeliveryStreamVersionId"] =
-      input.CurrentDeliveryStreamVersionId;
+    bodyParams['CurrentDeliveryStreamVersionId'] = input.CurrentDeliveryStreamVersionId;
   }
   if (input.DeliveryStreamName !== undefined) {
-    bodyParams["DeliveryStreamName"] = input.DeliveryStreamName;
+    bodyParams['DeliveryStreamName'] = input.DeliveryStreamName;
   }
   if (input.DestinationId !== undefined) {
-    bodyParams["DestinationId"] = input.DestinationId;
+    bodyParams['DestinationId'] = input.DestinationId;
   }
   if (input.ElasticsearchDestinationUpdate !== undefined) {
-    bodyParams[
-      "ElasticsearchDestinationUpdate"
-    ] = serializeAws_json1_1ElasticsearchDestinationUpdate(
-      input.ElasticsearchDestinationUpdate,
-      context
-    );
+    bodyParams['ElasticsearchDestinationUpdate'] = serializeAws_json1_1ElasticsearchDestinationUpdate(input.ElasticsearchDestinationUpdate, context);
   }
   if (input.ExtendedS3DestinationUpdate !== undefined) {
-    bodyParams[
-      "ExtendedS3DestinationUpdate"
-    ] = serializeAws_json1_1ExtendedS3DestinationUpdate(
-      input.ExtendedS3DestinationUpdate,
-      context
-    );
+    bodyParams['ExtendedS3DestinationUpdate'] = serializeAws_json1_1ExtendedS3DestinationUpdate(input.ExtendedS3DestinationUpdate, context);
   }
   if (input.RedshiftDestinationUpdate !== undefined) {
-    bodyParams[
-      "RedshiftDestinationUpdate"
-    ] = serializeAws_json1_1RedshiftDestinationUpdate(
-      input.RedshiftDestinationUpdate,
-      context
-    );
+    bodyParams['RedshiftDestinationUpdate'] = serializeAws_json1_1RedshiftDestinationUpdate(input.RedshiftDestinationUpdate, context);
   }
   if (input.S3DestinationUpdate !== undefined) {
-    bodyParams["S3DestinationUpdate"] = serializeAws_json1_1S3DestinationUpdate(
-      input.S3DestinationUpdate,
-      context
-    );
+    bodyParams['S3DestinationUpdate'] = serializeAws_json1_1S3DestinationUpdate(input.S3DestinationUpdate, context);
   }
   if (input.SplunkDestinationUpdate !== undefined) {
-    bodyParams[
-      "SplunkDestinationUpdate"
-    ] = serializeAws_json1_1SplunkDestinationUpdate(
-      input.SplunkDestinationUpdate,
-      context
-    );
+    bodyParams['SplunkDestinationUpdate'] = serializeAws_json1_1SplunkDestinationUpdate(input.SplunkDestinationUpdate, context);
   }
   return bodyParams;
-};
+}
 
 const deserializeAws_json1_1BufferingHints = (
   output: any,
@@ -2829,7 +2258,7 @@ const deserializeAws_json1_1BufferingHints = (
   let contents: any = {
     __type: "BufferingHints",
     IntervalInSeconds: undefined,
-    SizeInMBs: undefined
+    SizeInMBs: undefined,
   };
   if (output.IntervalInSeconds !== undefined) {
     contents.IntervalInSeconds = output.IntervalInSeconds;
@@ -2838,7 +2267,7 @@ const deserializeAws_json1_1BufferingHints = (
     contents.SizeInMBs = output.SizeInMBs;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CloudWatchLoggingOptions = (
   output: any,
@@ -2848,7 +2277,7 @@ const deserializeAws_json1_1CloudWatchLoggingOptions = (
     __type: "CloudWatchLoggingOptions",
     Enabled: undefined,
     LogGroupName: undefined,
-    LogStreamName: undefined
+    LogStreamName: undefined,
   };
   if (output.Enabled !== undefined) {
     contents.Enabled = output.Enabled;
@@ -2860,7 +2289,7 @@ const deserializeAws_json1_1CloudWatchLoggingOptions = (
     contents.LogStreamName = output.LogStreamName;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ColumnToJsonKeyMappings = (
   output: any,
@@ -2871,7 +2300,7 @@ const deserializeAws_json1_1ColumnToJsonKeyMappings = (
     mapParams[key] = output[key];
   });
   return mapParams;
-};
+}
 
 const deserializeAws_json1_1ConcurrentModificationException = (
   output: any,
@@ -2879,13 +2308,13 @@ const deserializeAws_json1_1ConcurrentModificationException = (
 ): ConcurrentModificationException => {
   let contents: any = {
     __type: "ConcurrentModificationException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CopyCommand = (
   output: any,
@@ -2895,7 +2324,7 @@ const deserializeAws_json1_1CopyCommand = (
     __type: "CopyCommand",
     CopyOptions: undefined,
     DataTableColumns: undefined,
-    DataTableName: undefined
+    DataTableName: undefined,
   };
   if (output.CopyOptions !== undefined) {
     contents.CopyOptions = output.CopyOptions;
@@ -2907,7 +2336,7 @@ const deserializeAws_json1_1CopyCommand = (
     contents.DataTableName = output.DataTableName;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateDeliveryStreamOutput = (
   output: any,
@@ -2915,13 +2344,13 @@ const deserializeAws_json1_1CreateDeliveryStreamOutput = (
 ): CreateDeliveryStreamOutput => {
   let contents: any = {
     __type: "CreateDeliveryStreamOutput",
-    DeliveryStreamARN: undefined
+    DeliveryStreamARN: undefined,
   };
   if (output.DeliveryStreamARN !== undefined) {
     contents.DeliveryStreamARN = output.DeliveryStreamARN;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DataFormatConversionConfiguration = (
   output: any,
@@ -2932,41 +2361,32 @@ const deserializeAws_json1_1DataFormatConversionConfiguration = (
     Enabled: undefined,
     InputFormatConfiguration: undefined,
     OutputFormatConfiguration: undefined,
-    SchemaConfiguration: undefined
+    SchemaConfiguration: undefined,
   };
   if (output.Enabled !== undefined) {
     contents.Enabled = output.Enabled;
   }
   if (output.InputFormatConfiguration !== undefined) {
-    contents.InputFormatConfiguration = deserializeAws_json1_1InputFormatConfiguration(
-      output.InputFormatConfiguration,
-      context
-    );
+    contents.InputFormatConfiguration = deserializeAws_json1_1InputFormatConfiguration(output.InputFormatConfiguration, context);
   }
   if (output.OutputFormatConfiguration !== undefined) {
-    contents.OutputFormatConfiguration = deserializeAws_json1_1OutputFormatConfiguration(
-      output.OutputFormatConfiguration,
-      context
-    );
+    contents.OutputFormatConfiguration = deserializeAws_json1_1OutputFormatConfiguration(output.OutputFormatConfiguration, context);
   }
   if (output.SchemaConfiguration !== undefined) {
-    contents.SchemaConfiguration = deserializeAws_json1_1SchemaConfiguration(
-      output.SchemaConfiguration,
-      context
-    );
+    contents.SchemaConfiguration = deserializeAws_json1_1SchemaConfiguration(output.SchemaConfiguration, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeleteDeliveryStreamOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteDeliveryStreamOutput => {
   let contents: any = {
-    __type: "DeleteDeliveryStreamOutput"
+    __type: "DeleteDeliveryStreamOutput",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeliveryStreamDescription = (
   output: any,
@@ -2985,23 +2405,16 @@ const deserializeAws_json1_1DeliveryStreamDescription = (
     HasMoreDestinations: undefined,
     LastUpdateTimestamp: undefined,
     Source: undefined,
-    VersionId: undefined
+    VersionId: undefined,
   };
   if (output.CreateTimestamp !== undefined) {
-    contents.CreateTimestamp = new Date(
-      output.CreateTimestamp % 1 != 0
-        ? Math.round(output.CreateTimestamp * 1000)
-        : output.CreateTimestamp
-    );
+    contents.CreateTimestamp = new Date(output.CreateTimestamp % 1 != 0 ? Math.round(output.CreateTimestamp * 1000) : output.CreateTimestamp);
   }
   if (output.DeliveryStreamARN !== undefined) {
     contents.DeliveryStreamARN = output.DeliveryStreamARN;
   }
   if (output.DeliveryStreamEncryptionConfiguration !== undefined) {
-    contents.DeliveryStreamEncryptionConfiguration = deserializeAws_json1_1DeliveryStreamEncryptionConfiguration(
-      output.DeliveryStreamEncryptionConfiguration,
-      context
-    );
+    contents.DeliveryStreamEncryptionConfiguration = deserializeAws_json1_1DeliveryStreamEncryptionConfiguration(output.DeliveryStreamEncryptionConfiguration, context);
   }
   if (output.DeliveryStreamName !== undefined) {
     contents.DeliveryStreamName = output.DeliveryStreamName;
@@ -3013,38 +2426,25 @@ const deserializeAws_json1_1DeliveryStreamDescription = (
     contents.DeliveryStreamType = output.DeliveryStreamType;
   }
   if (output.Destinations !== undefined) {
-    contents.Destinations = deserializeAws_json1_1DestinationDescriptionList(
-      output.Destinations,
-      context
-    );
+    contents.Destinations = deserializeAws_json1_1DestinationDescriptionList(output.Destinations, context);
   }
   if (output.FailureDescription !== undefined) {
-    contents.FailureDescription = deserializeAws_json1_1FailureDescription(
-      output.FailureDescription,
-      context
-    );
+    contents.FailureDescription = deserializeAws_json1_1FailureDescription(output.FailureDescription, context);
   }
   if (output.HasMoreDestinations !== undefined) {
     contents.HasMoreDestinations = output.HasMoreDestinations;
   }
   if (output.LastUpdateTimestamp !== undefined) {
-    contents.LastUpdateTimestamp = new Date(
-      output.LastUpdateTimestamp % 1 != 0
-        ? Math.round(output.LastUpdateTimestamp * 1000)
-        : output.LastUpdateTimestamp
-    );
+    contents.LastUpdateTimestamp = new Date(output.LastUpdateTimestamp % 1 != 0 ? Math.round(output.LastUpdateTimestamp * 1000) : output.LastUpdateTimestamp);
   }
   if (output.Source !== undefined) {
-    contents.Source = deserializeAws_json1_1SourceDescription(
-      output.Source,
-      context
-    );
+    contents.Source = deserializeAws_json1_1SourceDescription(output.Source, context);
   }
   if (output.VersionId !== undefined) {
     contents.VersionId = output.VersionId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeliveryStreamEncryptionConfiguration = (
   output: any,
@@ -3055,13 +2455,10 @@ const deserializeAws_json1_1DeliveryStreamEncryptionConfiguration = (
     FailureDescription: undefined,
     KeyARN: undefined,
     KeyType: undefined,
-    Status: undefined
+    Status: undefined,
   };
   if (output.FailureDescription !== undefined) {
-    contents.FailureDescription = deserializeAws_json1_1FailureDescription(
-      output.FailureDescription,
-      context
-    );
+    contents.FailureDescription = deserializeAws_json1_1FailureDescription(output.FailureDescription, context);
   }
   if (output.KeyARN !== undefined) {
     contents.KeyARN = output.KeyARN;
@@ -3073,14 +2470,16 @@ const deserializeAws_json1_1DeliveryStreamEncryptionConfiguration = (
     contents.Status = output.Status;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeliveryStreamNameList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1DescribeDeliveryStreamOutput = (
   output: any,
@@ -3088,16 +2487,13 @@ const deserializeAws_json1_1DescribeDeliveryStreamOutput = (
 ): DescribeDeliveryStreamOutput => {
   let contents: any = {
     __type: "DescribeDeliveryStreamOutput",
-    DeliveryStreamDescription: undefined
+    DeliveryStreamDescription: undefined,
   };
   if (output.DeliveryStreamDescription !== undefined) {
-    contents.DeliveryStreamDescription = deserializeAws_json1_1DeliveryStreamDescription(
-      output.DeliveryStreamDescription,
-      context
-    );
+    contents.DeliveryStreamDescription = deserializeAws_json1_1DeliveryStreamDescription(output.DeliveryStreamDescription, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1Deserializer = (
   output: any,
@@ -3106,22 +2502,16 @@ const deserializeAws_json1_1Deserializer = (
   let contents: any = {
     __type: "Deserializer",
     HiveJsonSerDe: undefined,
-    OpenXJsonSerDe: undefined
+    OpenXJsonSerDe: undefined,
   };
   if (output.HiveJsonSerDe !== undefined) {
-    contents.HiveJsonSerDe = deserializeAws_json1_1HiveJsonSerDe(
-      output.HiveJsonSerDe,
-      context
-    );
+    contents.HiveJsonSerDe = deserializeAws_json1_1HiveJsonSerDe(output.HiveJsonSerDe, context);
   }
   if (output.OpenXJsonSerDe !== undefined) {
-    contents.OpenXJsonSerDe = deserializeAws_json1_1OpenXJsonSerDe(
-      output.OpenXJsonSerDe,
-      context
-    );
+    contents.OpenXJsonSerDe = deserializeAws_json1_1OpenXJsonSerDe(output.OpenXJsonSerDe, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DestinationDescription = (
   output: any,
@@ -3134,43 +2524,28 @@ const deserializeAws_json1_1DestinationDescription = (
     ExtendedS3DestinationDescription: undefined,
     RedshiftDestinationDescription: undefined,
     S3DestinationDescription: undefined,
-    SplunkDestinationDescription: undefined
+    SplunkDestinationDescription: undefined,
   };
   if (output.DestinationId !== undefined) {
     contents.DestinationId = output.DestinationId;
   }
   if (output.ElasticsearchDestinationDescription !== undefined) {
-    contents.ElasticsearchDestinationDescription = deserializeAws_json1_1ElasticsearchDestinationDescription(
-      output.ElasticsearchDestinationDescription,
-      context
-    );
+    contents.ElasticsearchDestinationDescription = deserializeAws_json1_1ElasticsearchDestinationDescription(output.ElasticsearchDestinationDescription, context);
   }
   if (output.ExtendedS3DestinationDescription !== undefined) {
-    contents.ExtendedS3DestinationDescription = deserializeAws_json1_1ExtendedS3DestinationDescription(
-      output.ExtendedS3DestinationDescription,
-      context
-    );
+    contents.ExtendedS3DestinationDescription = deserializeAws_json1_1ExtendedS3DestinationDescription(output.ExtendedS3DestinationDescription, context);
   }
   if (output.RedshiftDestinationDescription !== undefined) {
-    contents.RedshiftDestinationDescription = deserializeAws_json1_1RedshiftDestinationDescription(
-      output.RedshiftDestinationDescription,
-      context
-    );
+    contents.RedshiftDestinationDescription = deserializeAws_json1_1RedshiftDestinationDescription(output.RedshiftDestinationDescription, context);
   }
   if (output.S3DestinationDescription !== undefined) {
-    contents.S3DestinationDescription = deserializeAws_json1_1S3DestinationDescription(
-      output.S3DestinationDescription,
-      context
-    );
+    contents.S3DestinationDescription = deserializeAws_json1_1S3DestinationDescription(output.S3DestinationDescription, context);
   }
   if (output.SplunkDestinationDescription !== undefined) {
-    contents.SplunkDestinationDescription = deserializeAws_json1_1SplunkDestinationDescription(
-      output.SplunkDestinationDescription,
-      context
-    );
+    contents.SplunkDestinationDescription = deserializeAws_json1_1SplunkDestinationDescription(output.SplunkDestinationDescription, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DestinationDescriptionList = (
   output: any,
@@ -3179,7 +2554,7 @@ const deserializeAws_json1_1DestinationDescriptionList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DestinationDescription(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1ElasticsearchBufferingHints = (
   output: any,
@@ -3188,7 +2563,7 @@ const deserializeAws_json1_1ElasticsearchBufferingHints = (
   let contents: any = {
     __type: "ElasticsearchBufferingHints",
     IntervalInSeconds: undefined,
-    SizeInMBs: undefined
+    SizeInMBs: undefined,
   };
   if (output.IntervalInSeconds !== undefined) {
     contents.IntervalInSeconds = output.IntervalInSeconds;
@@ -3197,7 +2572,7 @@ const deserializeAws_json1_1ElasticsearchBufferingHints = (
     contents.SizeInMBs = output.SizeInMBs;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ElasticsearchDestinationDescription = (
   output: any,
@@ -3216,19 +2591,13 @@ const deserializeAws_json1_1ElasticsearchDestinationDescription = (
     RoleARN: undefined,
     S3BackupMode: undefined,
     S3DestinationDescription: undefined,
-    TypeName: undefined
+    TypeName: undefined,
   };
   if (output.BufferingHints !== undefined) {
-    contents.BufferingHints = deserializeAws_json1_1ElasticsearchBufferingHints(
-      output.BufferingHints,
-      context
-    );
+    contents.BufferingHints = deserializeAws_json1_1ElasticsearchBufferingHints(output.BufferingHints, context);
   }
   if (output.CloudWatchLoggingOptions !== undefined) {
-    contents.CloudWatchLoggingOptions = deserializeAws_json1_1CloudWatchLoggingOptions(
-      output.CloudWatchLoggingOptions,
-      context
-    );
+    contents.CloudWatchLoggingOptions = deserializeAws_json1_1CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context);
   }
   if (output.ClusterEndpoint !== undefined) {
     contents.ClusterEndpoint = output.ClusterEndpoint;
@@ -3243,16 +2612,10 @@ const deserializeAws_json1_1ElasticsearchDestinationDescription = (
     contents.IndexRotationPeriod = output.IndexRotationPeriod;
   }
   if (output.ProcessingConfiguration !== undefined) {
-    contents.ProcessingConfiguration = deserializeAws_json1_1ProcessingConfiguration(
-      output.ProcessingConfiguration,
-      context
-    );
+    contents.ProcessingConfiguration = deserializeAws_json1_1ProcessingConfiguration(output.ProcessingConfiguration, context);
   }
   if (output.RetryOptions !== undefined) {
-    contents.RetryOptions = deserializeAws_json1_1ElasticsearchRetryOptions(
-      output.RetryOptions,
-      context
-    );
+    contents.RetryOptions = deserializeAws_json1_1ElasticsearchRetryOptions(output.RetryOptions, context);
   }
   if (output.RoleARN !== undefined) {
     contents.RoleARN = output.RoleARN;
@@ -3261,16 +2624,13 @@ const deserializeAws_json1_1ElasticsearchDestinationDescription = (
     contents.S3BackupMode = output.S3BackupMode;
   }
   if (output.S3DestinationDescription !== undefined) {
-    contents.S3DestinationDescription = deserializeAws_json1_1S3DestinationDescription(
-      output.S3DestinationDescription,
-      context
-    );
+    contents.S3DestinationDescription = deserializeAws_json1_1S3DestinationDescription(output.S3DestinationDescription, context);
   }
   if (output.TypeName !== undefined) {
     contents.TypeName = output.TypeName;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ElasticsearchRetryOptions = (
   output: any,
@@ -3278,13 +2638,13 @@ const deserializeAws_json1_1ElasticsearchRetryOptions = (
 ): ElasticsearchRetryOptions => {
   let contents: any = {
     __type: "ElasticsearchRetryOptions",
-    DurationInSeconds: undefined
+    DurationInSeconds: undefined,
   };
   if (output.DurationInSeconds !== undefined) {
     contents.DurationInSeconds = output.DurationInSeconds;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1EncryptionConfiguration = (
   output: any,
@@ -3293,19 +2653,16 @@ const deserializeAws_json1_1EncryptionConfiguration = (
   let contents: any = {
     __type: "EncryptionConfiguration",
     KMSEncryptionConfig: undefined,
-    NoEncryptionConfig: undefined
+    NoEncryptionConfig: undefined,
   };
   if (output.KMSEncryptionConfig !== undefined) {
-    contents.KMSEncryptionConfig = deserializeAws_json1_1KMSEncryptionConfig(
-      output.KMSEncryptionConfig,
-      context
-    );
+    contents.KMSEncryptionConfig = deserializeAws_json1_1KMSEncryptionConfig(output.KMSEncryptionConfig, context);
   }
   if (output.NoEncryptionConfig !== undefined) {
     contents.NoEncryptionConfig = output.NoEncryptionConfig;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ExtendedS3DestinationDescription = (
   output: any,
@@ -3324,37 +2681,25 @@ const deserializeAws_json1_1ExtendedS3DestinationDescription = (
     ProcessingConfiguration: undefined,
     RoleARN: undefined,
     S3BackupDescription: undefined,
-    S3BackupMode: undefined
+    S3BackupMode: undefined,
   };
   if (output.BucketARN !== undefined) {
     contents.BucketARN = output.BucketARN;
   }
   if (output.BufferingHints !== undefined) {
-    contents.BufferingHints = deserializeAws_json1_1BufferingHints(
-      output.BufferingHints,
-      context
-    );
+    contents.BufferingHints = deserializeAws_json1_1BufferingHints(output.BufferingHints, context);
   }
   if (output.CloudWatchLoggingOptions !== undefined) {
-    contents.CloudWatchLoggingOptions = deserializeAws_json1_1CloudWatchLoggingOptions(
-      output.CloudWatchLoggingOptions,
-      context
-    );
+    contents.CloudWatchLoggingOptions = deserializeAws_json1_1CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context);
   }
   if (output.CompressionFormat !== undefined) {
     contents.CompressionFormat = output.CompressionFormat;
   }
   if (output.DataFormatConversionConfiguration !== undefined) {
-    contents.DataFormatConversionConfiguration = deserializeAws_json1_1DataFormatConversionConfiguration(
-      output.DataFormatConversionConfiguration,
-      context
-    );
+    contents.DataFormatConversionConfiguration = deserializeAws_json1_1DataFormatConversionConfiguration(output.DataFormatConversionConfiguration, context);
   }
   if (output.EncryptionConfiguration !== undefined) {
-    contents.EncryptionConfiguration = deserializeAws_json1_1EncryptionConfiguration(
-      output.EncryptionConfiguration,
-      context
-    );
+    contents.EncryptionConfiguration = deserializeAws_json1_1EncryptionConfiguration(output.EncryptionConfiguration, context);
   }
   if (output.ErrorOutputPrefix !== undefined) {
     contents.ErrorOutputPrefix = output.ErrorOutputPrefix;
@@ -3363,25 +2708,19 @@ const deserializeAws_json1_1ExtendedS3DestinationDescription = (
     contents.Prefix = output.Prefix;
   }
   if (output.ProcessingConfiguration !== undefined) {
-    contents.ProcessingConfiguration = deserializeAws_json1_1ProcessingConfiguration(
-      output.ProcessingConfiguration,
-      context
-    );
+    contents.ProcessingConfiguration = deserializeAws_json1_1ProcessingConfiguration(output.ProcessingConfiguration, context);
   }
   if (output.RoleARN !== undefined) {
     contents.RoleARN = output.RoleARN;
   }
   if (output.S3BackupDescription !== undefined) {
-    contents.S3BackupDescription = deserializeAws_json1_1S3DestinationDescription(
-      output.S3BackupDescription,
-      context
-    );
+    contents.S3BackupDescription = deserializeAws_json1_1S3DestinationDescription(output.S3BackupDescription, context);
   }
   if (output.S3BackupMode !== undefined) {
     contents.S3BackupMode = output.S3BackupMode;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1FailureDescription = (
   output: any,
@@ -3390,7 +2729,7 @@ const deserializeAws_json1_1FailureDescription = (
   let contents: any = {
     __type: "FailureDescription",
     Details: undefined,
-    Type: undefined
+    Type: undefined,
   };
   if (output.Details !== undefined) {
     contents.Details = output.Details;
@@ -3399,7 +2738,7 @@ const deserializeAws_json1_1FailureDescription = (
     contents.Type = output.Type;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1HiveJsonSerDe = (
   output: any,
@@ -3407,16 +2746,13 @@ const deserializeAws_json1_1HiveJsonSerDe = (
 ): HiveJsonSerDe => {
   let contents: any = {
     __type: "HiveJsonSerDe",
-    TimestampFormats: undefined
+    TimestampFormats: undefined,
   };
   if (output.TimestampFormats !== undefined) {
-    contents.TimestampFormats = deserializeAws_json1_1ListOfNonEmptyStrings(
-      output.TimestampFormats,
-      context
-    );
+    contents.TimestampFormats = deserializeAws_json1_1ListOfNonEmptyStrings(output.TimestampFormats, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InputFormatConfiguration = (
   output: any,
@@ -3424,16 +2760,13 @@ const deserializeAws_json1_1InputFormatConfiguration = (
 ): InputFormatConfiguration => {
   let contents: any = {
     __type: "InputFormatConfiguration",
-    Deserializer: undefined
+    Deserializer: undefined,
   };
   if (output.Deserializer !== undefined) {
-    contents.Deserializer = deserializeAws_json1_1Deserializer(
-      output.Deserializer,
-      context
-    );
+    contents.Deserializer = deserializeAws_json1_1Deserializer(output.Deserializer, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InvalidArgumentException = (
   output: any,
@@ -3441,13 +2774,13 @@ const deserializeAws_json1_1InvalidArgumentException = (
 ): InvalidArgumentException => {
   let contents: any = {
     __type: "InvalidArgumentException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InvalidKMSResourceException = (
   output: any,
@@ -3456,7 +2789,7 @@ const deserializeAws_json1_1InvalidKMSResourceException = (
   let contents: any = {
     __type: "InvalidKMSResourceException",
     code: undefined,
-    message: undefined
+    message: undefined,
   };
   if (output.code !== undefined) {
     contents.code = output.code;
@@ -3465,7 +2798,7 @@ const deserializeAws_json1_1InvalidKMSResourceException = (
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1KMSEncryptionConfig = (
   output: any,
@@ -3473,13 +2806,13 @@ const deserializeAws_json1_1KMSEncryptionConfig = (
 ): KMSEncryptionConfig => {
   let contents: any = {
     __type: "KMSEncryptionConfig",
-    AWSKMSKeyARN: undefined
+    AWSKMSKeyARN: undefined,
   };
   if (output.AWSKMSKeyARN !== undefined) {
     contents.AWSKMSKeyARN = output.AWSKMSKeyARN;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1KinesisStreamSourceDescription = (
   output: any,
@@ -3489,14 +2822,10 @@ const deserializeAws_json1_1KinesisStreamSourceDescription = (
     __type: "KinesisStreamSourceDescription",
     DeliveryStartTimestamp: undefined,
     KinesisStreamARN: undefined,
-    RoleARN: undefined
+    RoleARN: undefined,
   };
   if (output.DeliveryStartTimestamp !== undefined) {
-    contents.DeliveryStartTimestamp = new Date(
-      output.DeliveryStartTimestamp % 1 != 0
-        ? Math.round(output.DeliveryStartTimestamp * 1000)
-        : output.DeliveryStartTimestamp
-    );
+    contents.DeliveryStartTimestamp = new Date(output.DeliveryStartTimestamp % 1 != 0 ? Math.round(output.DeliveryStartTimestamp * 1000) : output.DeliveryStartTimestamp);
   }
   if (output.KinesisStreamARN !== undefined) {
     contents.KinesisStreamARN = output.KinesisStreamARN;
@@ -3505,7 +2834,7 @@ const deserializeAws_json1_1KinesisStreamSourceDescription = (
     contents.RoleARN = output.RoleARN;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1LimitExceededException = (
   output: any,
@@ -3513,13 +2842,13 @@ const deserializeAws_json1_1LimitExceededException = (
 ): LimitExceededException => {
   let contents: any = {
     __type: "LimitExceededException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListDeliveryStreamsOutput = (
   output: any,
@@ -3528,33 +2857,34 @@ const deserializeAws_json1_1ListDeliveryStreamsOutput = (
   let contents: any = {
     __type: "ListDeliveryStreamsOutput",
     DeliveryStreamNames: undefined,
-    HasMoreDeliveryStreams: undefined
+    HasMoreDeliveryStreams: undefined,
   };
   if (output.DeliveryStreamNames !== undefined) {
-    contents.DeliveryStreamNames = deserializeAws_json1_1DeliveryStreamNameList(
-      output.DeliveryStreamNames,
-      context
-    );
+    contents.DeliveryStreamNames = deserializeAws_json1_1DeliveryStreamNameList(output.DeliveryStreamNames, context);
   }
   if (output.HasMoreDeliveryStreams !== undefined) {
     contents.HasMoreDeliveryStreams = output.HasMoreDeliveryStreams;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListOfNonEmptyStrings = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1ListOfNonEmptyStringsWithoutWhitespace = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1ListTagsForDeliveryStreamOutput = (
   output: any,
@@ -3563,19 +2893,16 @@ const deserializeAws_json1_1ListTagsForDeliveryStreamOutput = (
   let contents: any = {
     __type: "ListTagsForDeliveryStreamOutput",
     HasMoreTags: undefined,
-    Tags: undefined
+    Tags: undefined,
   };
   if (output.HasMoreTags !== undefined) {
     contents.HasMoreTags = output.HasMoreTags;
   }
   if (output.Tags !== undefined) {
-    contents.Tags = deserializeAws_json1_1ListTagsForDeliveryStreamOutputTagList(
-      output.Tags,
-      context
-    );
+    contents.Tags = deserializeAws_json1_1ListTagsForDeliveryStreamOutputTagList(output.Tags, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListTagsForDeliveryStreamOutputTagList = (
   output: any,
@@ -3584,7 +2911,7 @@ const deserializeAws_json1_1ListTagsForDeliveryStreamOutputTagList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1OpenXJsonSerDe = (
   output: any,
@@ -3594,23 +2921,19 @@ const deserializeAws_json1_1OpenXJsonSerDe = (
     __type: "OpenXJsonSerDe",
     CaseInsensitive: undefined,
     ColumnToJsonKeyMappings: undefined,
-    ConvertDotsInJsonKeysToUnderscores: undefined
+    ConvertDotsInJsonKeysToUnderscores: undefined,
   };
   if (output.CaseInsensitive !== undefined) {
     contents.CaseInsensitive = output.CaseInsensitive;
   }
   if (output.ColumnToJsonKeyMappings !== undefined) {
-    contents.ColumnToJsonKeyMappings = deserializeAws_json1_1ColumnToJsonKeyMappings(
-      output.ColumnToJsonKeyMappings,
-      context
-    );
+    contents.ColumnToJsonKeyMappings = deserializeAws_json1_1ColumnToJsonKeyMappings(output.ColumnToJsonKeyMappings, context);
   }
   if (output.ConvertDotsInJsonKeysToUnderscores !== undefined) {
-    contents.ConvertDotsInJsonKeysToUnderscores =
-      output.ConvertDotsInJsonKeysToUnderscores;
+    contents.ConvertDotsInJsonKeysToUnderscores = output.ConvertDotsInJsonKeysToUnderscores;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1OrcSerDe = (
   output: any,
@@ -3627,20 +2950,16 @@ const deserializeAws_json1_1OrcSerDe = (
     FormatVersion: undefined,
     PaddingTolerance: undefined,
     RowIndexStride: undefined,
-    StripeSizeBytes: undefined
+    StripeSizeBytes: undefined,
   };
   if (output.BlockSizeBytes !== undefined) {
     contents.BlockSizeBytes = output.BlockSizeBytes;
   }
   if (output.BloomFilterColumns !== undefined) {
-    contents.BloomFilterColumns = deserializeAws_json1_1ListOfNonEmptyStringsWithoutWhitespace(
-      output.BloomFilterColumns,
-      context
-    );
+    contents.BloomFilterColumns = deserializeAws_json1_1ListOfNonEmptyStringsWithoutWhitespace(output.BloomFilterColumns, context);
   }
   if (output.BloomFilterFalsePositiveProbability !== undefined) {
-    contents.BloomFilterFalsePositiveProbability =
-      output.BloomFilterFalsePositiveProbability;
+    contents.BloomFilterFalsePositiveProbability = output.BloomFilterFalsePositiveProbability;
   }
   if (output.Compression !== undefined) {
     contents.Compression = output.Compression;
@@ -3664,7 +2983,7 @@ const deserializeAws_json1_1OrcSerDe = (
     contents.StripeSizeBytes = output.StripeSizeBytes;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1OutputFormatConfiguration = (
   output: any,
@@ -3672,16 +2991,13 @@ const deserializeAws_json1_1OutputFormatConfiguration = (
 ): OutputFormatConfiguration => {
   let contents: any = {
     __type: "OutputFormatConfiguration",
-    Serializer: undefined
+    Serializer: undefined,
   };
   if (output.Serializer !== undefined) {
-    contents.Serializer = deserializeAws_json1_1Serializer(
-      output.Serializer,
-      context
-    );
+    contents.Serializer = deserializeAws_json1_1Serializer(output.Serializer, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ParquetSerDe = (
   output: any,
@@ -3694,7 +3010,7 @@ const deserializeAws_json1_1ParquetSerDe = (
     EnableDictionaryCompression: undefined,
     MaxPaddingBytes: undefined,
     PageSizeBytes: undefined,
-    WriterVersion: undefined
+    WriterVersion: undefined,
   };
   if (output.BlockSizeBytes !== undefined) {
     contents.BlockSizeBytes = output.BlockSizeBytes;
@@ -3715,7 +3031,7 @@ const deserializeAws_json1_1ParquetSerDe = (
     contents.WriterVersion = output.WriterVersion;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ProcessingConfiguration = (
   output: any,
@@ -3724,19 +3040,16 @@ const deserializeAws_json1_1ProcessingConfiguration = (
   let contents: any = {
     __type: "ProcessingConfiguration",
     Enabled: undefined,
-    Processors: undefined
+    Processors: undefined,
   };
   if (output.Enabled !== undefined) {
     contents.Enabled = output.Enabled;
   }
   if (output.Processors !== undefined) {
-    contents.Processors = deserializeAws_json1_1ProcessorList(
-      output.Processors,
-      context
-    );
+    contents.Processors = deserializeAws_json1_1ProcessorList(output.Processors, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1Processor = (
   output: any,
@@ -3745,19 +3058,16 @@ const deserializeAws_json1_1Processor = (
   let contents: any = {
     __type: "Processor",
     Parameters: undefined,
-    Type: undefined
+    Type: undefined,
   };
   if (output.Parameters !== undefined) {
-    contents.Parameters = deserializeAws_json1_1ProcessorParameterList(
-      output.Parameters,
-      context
-    );
+    contents.Parameters = deserializeAws_json1_1ProcessorParameterList(output.Parameters, context);
   }
   if (output.Type !== undefined) {
     contents.Type = output.Type;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ProcessorList = (
   output: any,
@@ -3766,7 +3076,7 @@ const deserializeAws_json1_1ProcessorList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Processor(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1ProcessorParameter = (
   output: any,
@@ -3775,7 +3085,7 @@ const deserializeAws_json1_1ProcessorParameter = (
   let contents: any = {
     __type: "ProcessorParameter",
     ParameterName: undefined,
-    ParameterValue: undefined
+    ParameterValue: undefined,
   };
   if (output.ParameterName !== undefined) {
     contents.ParameterName = output.ParameterName;
@@ -3784,7 +3094,7 @@ const deserializeAws_json1_1ProcessorParameter = (
     contents.ParameterValue = output.ParameterValue;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ProcessorParameterList = (
   output: any,
@@ -3793,7 +3103,7 @@ const deserializeAws_json1_1ProcessorParameterList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ProcessorParameter(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1PutRecordBatchOutput = (
   output: any,
@@ -3803,7 +3113,7 @@ const deserializeAws_json1_1PutRecordBatchOutput = (
     __type: "PutRecordBatchOutput",
     Encrypted: undefined,
     FailedPutCount: undefined,
-    RequestResponses: undefined
+    RequestResponses: undefined,
   };
   if (output.Encrypted !== undefined) {
     contents.Encrypted = output.Encrypted;
@@ -3812,13 +3122,10 @@ const deserializeAws_json1_1PutRecordBatchOutput = (
     contents.FailedPutCount = output.FailedPutCount;
   }
   if (output.RequestResponses !== undefined) {
-    contents.RequestResponses = deserializeAws_json1_1PutRecordBatchResponseEntryList(
-      output.RequestResponses,
-      context
-    );
+    contents.RequestResponses = deserializeAws_json1_1PutRecordBatchResponseEntryList(output.RequestResponses, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1PutRecordBatchResponseEntry = (
   output: any,
@@ -3828,7 +3135,7 @@ const deserializeAws_json1_1PutRecordBatchResponseEntry = (
     __type: "PutRecordBatchResponseEntry",
     ErrorCode: undefined,
     ErrorMessage: undefined,
-    RecordId: undefined
+    RecordId: undefined,
   };
   if (output.ErrorCode !== undefined) {
     contents.ErrorCode = output.ErrorCode;
@@ -3840,7 +3147,7 @@ const deserializeAws_json1_1PutRecordBatchResponseEntry = (
     contents.RecordId = output.RecordId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1PutRecordBatchResponseEntryList = (
   output: any,
@@ -3849,7 +3156,7 @@ const deserializeAws_json1_1PutRecordBatchResponseEntryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PutRecordBatchResponseEntry(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1PutRecordOutput = (
   output: any,
@@ -3858,7 +3165,7 @@ const deserializeAws_json1_1PutRecordOutput = (
   let contents: any = {
     __type: "PutRecordOutput",
     Encrypted: undefined,
-    RecordId: undefined
+    RecordId: undefined,
   };
   if (output.Encrypted !== undefined) {
     contents.Encrypted = output.Encrypted;
@@ -3867,7 +3174,7 @@ const deserializeAws_json1_1PutRecordOutput = (
     contents.RecordId = output.RecordId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1RedshiftDestinationDescription = (
   output: any,
@@ -3884,58 +3191,40 @@ const deserializeAws_json1_1RedshiftDestinationDescription = (
     S3BackupDescription: undefined,
     S3BackupMode: undefined,
     S3DestinationDescription: undefined,
-    Username: undefined
+    Username: undefined,
   };
   if (output.CloudWatchLoggingOptions !== undefined) {
-    contents.CloudWatchLoggingOptions = deserializeAws_json1_1CloudWatchLoggingOptions(
-      output.CloudWatchLoggingOptions,
-      context
-    );
+    contents.CloudWatchLoggingOptions = deserializeAws_json1_1CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context);
   }
   if (output.ClusterJDBCURL !== undefined) {
     contents.ClusterJDBCURL = output.ClusterJDBCURL;
   }
   if (output.CopyCommand !== undefined) {
-    contents.CopyCommand = deserializeAws_json1_1CopyCommand(
-      output.CopyCommand,
-      context
-    );
+    contents.CopyCommand = deserializeAws_json1_1CopyCommand(output.CopyCommand, context);
   }
   if (output.ProcessingConfiguration !== undefined) {
-    contents.ProcessingConfiguration = deserializeAws_json1_1ProcessingConfiguration(
-      output.ProcessingConfiguration,
-      context
-    );
+    contents.ProcessingConfiguration = deserializeAws_json1_1ProcessingConfiguration(output.ProcessingConfiguration, context);
   }
   if (output.RetryOptions !== undefined) {
-    contents.RetryOptions = deserializeAws_json1_1RedshiftRetryOptions(
-      output.RetryOptions,
-      context
-    );
+    contents.RetryOptions = deserializeAws_json1_1RedshiftRetryOptions(output.RetryOptions, context);
   }
   if (output.RoleARN !== undefined) {
     contents.RoleARN = output.RoleARN;
   }
   if (output.S3BackupDescription !== undefined) {
-    contents.S3BackupDescription = deserializeAws_json1_1S3DestinationDescription(
-      output.S3BackupDescription,
-      context
-    );
+    contents.S3BackupDescription = deserializeAws_json1_1S3DestinationDescription(output.S3BackupDescription, context);
   }
   if (output.S3BackupMode !== undefined) {
     contents.S3BackupMode = output.S3BackupMode;
   }
   if (output.S3DestinationDescription !== undefined) {
-    contents.S3DestinationDescription = deserializeAws_json1_1S3DestinationDescription(
-      output.S3DestinationDescription,
-      context
-    );
+    contents.S3DestinationDescription = deserializeAws_json1_1S3DestinationDescription(output.S3DestinationDescription, context);
   }
   if (output.Username !== undefined) {
     contents.Username = output.Username;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1RedshiftRetryOptions = (
   output: any,
@@ -3943,13 +3232,13 @@ const deserializeAws_json1_1RedshiftRetryOptions = (
 ): RedshiftRetryOptions => {
   let contents: any = {
     __type: "RedshiftRetryOptions",
-    DurationInSeconds: undefined
+    DurationInSeconds: undefined,
   };
   if (output.DurationInSeconds !== undefined) {
     contents.DurationInSeconds = output.DurationInSeconds;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ResourceInUseException = (
   output: any,
@@ -3957,13 +3246,13 @@ const deserializeAws_json1_1ResourceInUseException = (
 ): ResourceInUseException => {
   let contents: any = {
     __type: "ResourceInUseException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
@@ -3971,13 +3260,13 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   let contents: any = {
     __type: "ResourceNotFoundException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1S3DestinationDescription = (
   output: any,
@@ -3992,31 +3281,22 @@ const deserializeAws_json1_1S3DestinationDescription = (
     EncryptionConfiguration: undefined,
     ErrorOutputPrefix: undefined,
     Prefix: undefined,
-    RoleARN: undefined
+    RoleARN: undefined,
   };
   if (output.BucketARN !== undefined) {
     contents.BucketARN = output.BucketARN;
   }
   if (output.BufferingHints !== undefined) {
-    contents.BufferingHints = deserializeAws_json1_1BufferingHints(
-      output.BufferingHints,
-      context
-    );
+    contents.BufferingHints = deserializeAws_json1_1BufferingHints(output.BufferingHints, context);
   }
   if (output.CloudWatchLoggingOptions !== undefined) {
-    contents.CloudWatchLoggingOptions = deserializeAws_json1_1CloudWatchLoggingOptions(
-      output.CloudWatchLoggingOptions,
-      context
-    );
+    contents.CloudWatchLoggingOptions = deserializeAws_json1_1CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context);
   }
   if (output.CompressionFormat !== undefined) {
     contents.CompressionFormat = output.CompressionFormat;
   }
   if (output.EncryptionConfiguration !== undefined) {
-    contents.EncryptionConfiguration = deserializeAws_json1_1EncryptionConfiguration(
-      output.EncryptionConfiguration,
-      context
-    );
+    contents.EncryptionConfiguration = deserializeAws_json1_1EncryptionConfiguration(output.EncryptionConfiguration, context);
   }
   if (output.ErrorOutputPrefix !== undefined) {
     contents.ErrorOutputPrefix = output.ErrorOutputPrefix;
@@ -4028,7 +3308,7 @@ const deserializeAws_json1_1S3DestinationDescription = (
     contents.RoleARN = output.RoleARN;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1SchemaConfiguration = (
   output: any,
@@ -4041,7 +3321,7 @@ const deserializeAws_json1_1SchemaConfiguration = (
     Region: undefined,
     RoleARN: undefined,
     TableName: undefined,
-    VersionId: undefined
+    VersionId: undefined,
   };
   if (output.CatalogId !== undefined) {
     contents.CatalogId = output.CatalogId;
@@ -4062,7 +3342,7 @@ const deserializeAws_json1_1SchemaConfiguration = (
     contents.VersionId = output.VersionId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1Serializer = (
   output: any,
@@ -4071,22 +3351,16 @@ const deserializeAws_json1_1Serializer = (
   let contents: any = {
     __type: "Serializer",
     OrcSerDe: undefined,
-    ParquetSerDe: undefined
+    ParquetSerDe: undefined,
   };
   if (output.OrcSerDe !== undefined) {
-    contents.OrcSerDe = deserializeAws_json1_1OrcSerDe(
-      output.OrcSerDe,
-      context
-    );
+    contents.OrcSerDe = deserializeAws_json1_1OrcSerDe(output.OrcSerDe, context);
   }
   if (output.ParquetSerDe !== undefined) {
-    contents.ParquetSerDe = deserializeAws_json1_1ParquetSerDe(
-      output.ParquetSerDe,
-      context
-    );
+    contents.ParquetSerDe = deserializeAws_json1_1ParquetSerDe(output.ParquetSerDe, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ServiceUnavailableException = (
   output: any,
@@ -4094,13 +3368,13 @@ const deserializeAws_json1_1ServiceUnavailableException = (
 ): ServiceUnavailableException => {
   let contents: any = {
     __type: "ServiceUnavailableException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1SourceDescription = (
   output: any,
@@ -4108,16 +3382,13 @@ const deserializeAws_json1_1SourceDescription = (
 ): SourceDescription => {
   let contents: any = {
     __type: "SourceDescription",
-    KinesisStreamSourceDescription: undefined
+    KinesisStreamSourceDescription: undefined,
   };
   if (output.KinesisStreamSourceDescription !== undefined) {
-    contents.KinesisStreamSourceDescription = deserializeAws_json1_1KinesisStreamSourceDescription(
-      output.KinesisStreamSourceDescription,
-      context
-    );
+    contents.KinesisStreamSourceDescription = deserializeAws_json1_1KinesisStreamSourceDescription(output.KinesisStreamSourceDescription, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1SplunkDestinationDescription = (
   output: any,
@@ -4133,17 +3404,13 @@ const deserializeAws_json1_1SplunkDestinationDescription = (
     ProcessingConfiguration: undefined,
     RetryOptions: undefined,
     S3BackupMode: undefined,
-    S3DestinationDescription: undefined
+    S3DestinationDescription: undefined,
   };
   if (output.CloudWatchLoggingOptions !== undefined) {
-    contents.CloudWatchLoggingOptions = deserializeAws_json1_1CloudWatchLoggingOptions(
-      output.CloudWatchLoggingOptions,
-      context
-    );
+    contents.CloudWatchLoggingOptions = deserializeAws_json1_1CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context);
   }
   if (output.HECAcknowledgmentTimeoutInSeconds !== undefined) {
-    contents.HECAcknowledgmentTimeoutInSeconds =
-      output.HECAcknowledgmentTimeoutInSeconds;
+    contents.HECAcknowledgmentTimeoutInSeconds = output.HECAcknowledgmentTimeoutInSeconds;
   }
   if (output.HECEndpoint !== undefined) {
     contents.HECEndpoint = output.HECEndpoint;
@@ -4155,28 +3422,19 @@ const deserializeAws_json1_1SplunkDestinationDescription = (
     contents.HECToken = output.HECToken;
   }
   if (output.ProcessingConfiguration !== undefined) {
-    contents.ProcessingConfiguration = deserializeAws_json1_1ProcessingConfiguration(
-      output.ProcessingConfiguration,
-      context
-    );
+    contents.ProcessingConfiguration = deserializeAws_json1_1ProcessingConfiguration(output.ProcessingConfiguration, context);
   }
   if (output.RetryOptions !== undefined) {
-    contents.RetryOptions = deserializeAws_json1_1SplunkRetryOptions(
-      output.RetryOptions,
-      context
-    );
+    contents.RetryOptions = deserializeAws_json1_1SplunkRetryOptions(output.RetryOptions, context);
   }
   if (output.S3BackupMode !== undefined) {
     contents.S3BackupMode = output.S3BackupMode;
   }
   if (output.S3DestinationDescription !== undefined) {
-    contents.S3DestinationDescription = deserializeAws_json1_1S3DestinationDescription(
-      output.S3DestinationDescription,
-      context
-    );
+    contents.S3DestinationDescription = deserializeAws_json1_1S3DestinationDescription(output.S3DestinationDescription, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1SplunkRetryOptions = (
   output: any,
@@ -4184,33 +3442,33 @@ const deserializeAws_json1_1SplunkRetryOptions = (
 ): SplunkRetryOptions => {
   let contents: any = {
     __type: "SplunkRetryOptions",
-    DurationInSeconds: undefined
+    DurationInSeconds: undefined,
   };
   if (output.DurationInSeconds !== undefined) {
     contents.DurationInSeconds = output.DurationInSeconds;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1StartDeliveryStreamEncryptionOutput = (
   output: any,
   context: __SerdeContext
 ): StartDeliveryStreamEncryptionOutput => {
   let contents: any = {
-    __type: "StartDeliveryStreamEncryptionOutput"
+    __type: "StartDeliveryStreamEncryptionOutput",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1StopDeliveryStreamEncryptionOutput = (
   output: any,
   context: __SerdeContext
 ): StopDeliveryStreamEncryptionOutput => {
   let contents: any = {
-    __type: "StopDeliveryStreamEncryptionOutput"
+    __type: "StopDeliveryStreamEncryptionOutput",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1Tag = (
   output: any,
@@ -4219,7 +3477,7 @@ const deserializeAws_json1_1Tag = (
   let contents: any = {
     __type: "Tag",
     Key: undefined,
-    Value: undefined
+    Value: undefined,
   };
   if (output.Key !== undefined) {
     contents.Key = output.Key;
@@ -4228,37 +3486,37 @@ const deserializeAws_json1_1Tag = (
     contents.Value = output.Value;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1TagDeliveryStreamOutput = (
   output: any,
   context: __SerdeContext
 ): TagDeliveryStreamOutput => {
   let contents: any = {
-    __type: "TagDeliveryStreamOutput"
+    __type: "TagDeliveryStreamOutput",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1UntagDeliveryStreamOutput = (
   output: any,
   context: __SerdeContext
 ): UntagDeliveryStreamOutput => {
   let contents: any = {
-    __type: "UntagDeliveryStreamOutput"
+    __type: "UntagDeliveryStreamOutput",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateDestinationOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateDestinationOutput => {
   let contents: any = {
-    __type: "UpdateDestinationOutput"
+    __type: "UpdateDestinationOutput",
   };
   return contents;
-};
+}
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

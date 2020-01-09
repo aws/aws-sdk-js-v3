@@ -73,9 +73,7 @@ export namespace Forecast {
  *          <p>The value is invalid or is too long.</p>
  *
  */
-export interface InvalidInputException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidInputException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidInputException";
   $fault: "client";
   Message?: string;
@@ -92,9 +90,7 @@ export namespace InvalidInputException {
  *          <p>The token is not valid. Tokens expire after 24 hours.</p>
  *
  */
-export interface InvalidNextTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -111,9 +107,7 @@ export namespace InvalidNextTokenException {
  *          <p>The limit on the number of requests per second has been exceeded.</p>
  *
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -202,9 +196,7 @@ export namespace QueryForecastResponse {
  *          <p>The specified resource is in use.</p>
  *
  */
-export interface ResourceInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   Message?: string;
@@ -222,9 +214,7 @@ export namespace ResourceInUseException {
  *       again.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;

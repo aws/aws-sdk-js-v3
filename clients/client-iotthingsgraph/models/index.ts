@@ -1707,7 +1707,7 @@ export namespace DefinitionDocument {
 }
 
 export enum DefinitionLanguage {
-  GRAPHQL = "GRAPHQL"
+  GRAPHQL = "GRAPHQL",
 }
 
 /**
@@ -1715,9 +1715,7 @@ export enum DefinitionLanguage {
  *          <p></p>
  *
  */
-export interface InternalFailureException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalFailureException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalFailureException";
   $fault: "server";
   message?: string;
@@ -1734,9 +1732,7 @@ export namespace InternalFailureException {
  *          <p></p>
  *
  */
-export interface InvalidRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRequestException";
   $fault: "client";
   message?: string;
@@ -1753,9 +1749,7 @@ export namespace InvalidRequestException {
  *          <p></p>
  *
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -1772,9 +1766,7 @@ export namespace LimitExceededException {
  *          <p></p>
  *
  */
-export interface ResourceAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -1791,9 +1783,7 @@ export namespace ResourceAlreadyExistsException {
  *          <p></p>
  *
  */
-export interface ResourceInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   message?: string;
@@ -1810,9 +1800,7 @@ export namespace ResourceInUseException {
  *          <p></p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -1829,9 +1817,7 @@ export namespace ResourceNotFoundException {
  *          <p></p>
  *
  */
-export interface ThrottlingException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ThrottlingException";
   $fault: "client";
   message?: string;
@@ -1927,7 +1913,7 @@ export enum EntityFilterName {
   NAME = "NAME",
   NAMESPACE = "NAMESPACE",
   REFERENCED_ENTITY_ID = "REFERENCED_ENTITY_ID",
-  SEMANTIC_TYPE_PATH = "SEMANTIC_TYPE_PATH"
+  SEMANTIC_TYPE_PATH = "SEMANTIC_TYPE_PATH",
 }
 
 export enum EntityType {
@@ -1940,17 +1926,17 @@ export enum EntityType {
   MAPPING = "MAPPING",
   PROPERTY = "PROPERTY",
   SERVICE = "SERVICE",
-  STATE = "STATE"
+  STATE = "STATE",
 }
 
 export enum NamespaceDeletionStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED"
+  SUCCEEDED = "SUCCEEDED",
 }
 
 export enum NamespaceDeletionStatusErrorCodes {
-  VALIDATION_FAILED = "VALIDATION_FAILED"
+  VALIDATION_FAILED = "VALIDATION_FAILED",
 }
 
 /**
@@ -1984,7 +1970,7 @@ export namespace Thing {
 export enum UploadStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED"
+  SUCCEEDED = "SUCCEEDED",
 }
 
 /**
@@ -2017,7 +2003,7 @@ export namespace DependencyRevision {
 
 export enum DeploymentTarget {
   CLOUD = "CLOUD",
-  GREENGRASS = "GREENGRASS"
+  GREENGRASS = "GREENGRASS",
 }
 
 export enum FlowExecutionEventType {
@@ -2037,7 +2023,7 @@ export enum FlowExecutionEventType {
   STEP_SUCCEEDED = "STEP_SUCCEEDED",
   THING_ACTION_TASK = "THING_ACTION_TASK",
   THING_ACTION_TASK_FAILED = "THING_ACTION_TASK_FAILED",
-  THING_ACTION_TASK_SUCCEEDED = "THING_ACTION_TASK_SUCCEEDED"
+  THING_ACTION_TASK_SUCCEEDED = "THING_ACTION_TASK_SUCCEEDED",
 }
 
 /**
@@ -2086,7 +2072,7 @@ export enum FlowExecutionStatus {
   ABORTED = "ABORTED",
   FAILED = "FAILED",
   RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED"
+  SUCCEEDED = "SUCCEEDED",
 }
 
 /**
@@ -2209,7 +2195,7 @@ export namespace FlowTemplateFilter {
 }
 
 export enum FlowTemplateFilterName {
-  DEVICE_MODEL_ID = "DEVICE_MODEL_ID"
+  DEVICE_MODEL_ID = "DEVICE_MODEL_ID",
 }
 
 /**
@@ -2290,7 +2276,7 @@ export enum SystemInstanceDeploymentStatus {
   FAILED = "FAILED",
   NOT_DEPLOYED = "NOT_DEPLOYED",
   PENDING_DELETE = "PENDING_DELETE",
-  UNDEPLOY_IN_PROGRESS = "UNDEPLOY_IN_PROGRESS"
+  UNDEPLOY_IN_PROGRESS = "UNDEPLOY_IN_PROGRESS",
 }
 
 /**
@@ -2391,7 +2377,7 @@ export namespace SystemInstanceFilter {
 export enum SystemInstanceFilterName {
   GREENGRASS_GROUP_NAME = "GREENGRASS_GROUP_NAME",
   STATUS = "STATUS",
-  SYSTEM_TEMPLATE_ID = "SYSTEM_TEMPLATE_ID"
+  SYSTEM_TEMPLATE_ID = "SYSTEM_TEMPLATE_ID",
 }
 
 /**
@@ -2537,7 +2523,7 @@ export namespace SystemTemplateFilter {
 }
 
 export enum SystemTemplateFilterName {
-  FLOW_TEMPLATE_ID = "FLOW_TEMPLATE_ID"
+  FLOW_TEMPLATE_ID = "FLOW_TEMPLATE_ID",
 }
 
 /**

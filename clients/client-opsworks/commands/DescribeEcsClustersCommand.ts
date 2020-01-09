@@ -1,20 +1,20 @@
 import {
   OpsWorksClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../OpsWorksClient";
 import {
   DescribeEcsClustersRequest,
-  DescribeEcsClustersResult
+  DescribeEcsClustersResult,
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeEcsClustersCommand,
-  serializeAws_json1_1DescribeEcsClustersCommand
+  serializeAws_json1_1DescribeEcsClustersCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DescribeEcsClustersCommandInput = DescribeEcsClustersRequest;
 export type DescribeEcsClustersCommandOutput = DescribeEcsClustersResult;
 
-export class DescribeEcsClustersCommand extends $Command<
-  DescribeEcsClustersCommandInput,
-  DescribeEcsClustersCommandOutput,
-  OpsWorksClientResolvedConfig
-> {
+export class DescribeEcsClustersCommand extends $Command<DescribeEcsClustersCommandInput, DescribeEcsClustersCommandOutput, OpsWorksClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class DescribeEcsClustersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEcsClustersCommandInput,
-    DescribeEcsClustersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEcsClustersCommandInput, DescribeEcsClustersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

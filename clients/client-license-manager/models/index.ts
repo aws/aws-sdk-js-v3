@@ -6,9 +6,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>Access to resource denied.</p>
  *
  */
-export interface AccessDeniedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -26,9 +24,7 @@ export namespace AccessDeniedException {
  *          policy associated with this account.</p>
  *
  */
-export interface AuthorizationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AuthorizationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AuthorizationException";
   $fault: "client";
   Message?: string;
@@ -227,9 +223,7 @@ export namespace DeleteLicenseConfigurationResponse {
  *          <p>A dependency required to run the API is missing.</p>
  *
  */
-export interface FailedDependencyException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface FailedDependencyException extends _smithy.SmithyException, $MetadataBearer {
   __type: "FailedDependencyException";
   $fault: "client";
   Message?: string;
@@ -276,9 +270,7 @@ export namespace Filter {
  *          <p>The request uses too many filters or too many filter values.</p>
  *
  */
-export interface FilterLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface FilterLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "FilterLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -489,9 +481,7 @@ export namespace GetServiceSettingsResponse {
  *          <p>One or more parameter values are not valid.</p>
  *
  */
-export interface InvalidParameterValueException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterValueException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidParameterValueException";
   $fault: "client";
   Message?: string;
@@ -510,9 +500,7 @@ export namespace InvalidParameterValueException {
  *          down.</p>
  *
  */
-export interface InvalidResourceStateException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidResourceStateException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidResourceStateException";
   $fault: "client";
   Message?: string;
@@ -563,7 +551,7 @@ export enum InventoryFilterCondition {
   BEGINS_WITH = "BEGINS_WITH",
   CONTAINS = "CONTAINS",
   EQUALS = "EQUALS",
-  NOT_EQUALS = "NOT_EQUALS"
+  NOT_EQUALS = "NOT_EQUALS",
 }
 
 /**
@@ -733,7 +721,7 @@ export namespace LicenseConfigurationAssociation {
 
 export enum LicenseConfigurationStatus {
   AVAILABLE = "AVAILABLE",
-  DISABLED = "DISABLED"
+  DISABLED = "DISABLED",
 }
 
 /**
@@ -796,7 +784,7 @@ export enum LicenseCountingType {
   CORE = "Core",
   INSTANCE = "Instance",
   SOCKET = "Socket",
-  VCPU = "vCPU"
+  VCPU = "vCPU",
 }
 
 /**
@@ -895,9 +883,7 @@ export namespace LicenseSpecification {
  *          <p>You do not have enough licenses available to support a new resource launch.</p>
  *
  */
-export interface LicenseUsageException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LicenseUsageException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LicenseUsageException";
   $fault: "client";
   Message?: string;
@@ -934,15 +920,12 @@ export interface ListAssociationsForLicenseConfigurationRequest {
 }
 
 export namespace ListAssociationsForLicenseConfigurationRequest {
-  export function isa(
-    o: any
-  ): o is ListAssociationsForLicenseConfigurationRequest {
+  export function isa(o: any): o is ListAssociationsForLicenseConfigurationRequest {
     return _smithy.isa(o, "ListAssociationsForLicenseConfigurationRequest");
   }
 }
 
-export interface ListAssociationsForLicenseConfigurationResponse
-  extends $MetadataBearer {
+export interface ListAssociationsForLicenseConfigurationResponse extends $MetadataBearer {
   __type?: "ListAssociationsForLicenseConfigurationResponse";
   /**
    *
@@ -960,9 +943,7 @@ export interface ListAssociationsForLicenseConfigurationResponse
 }
 
 export namespace ListAssociationsForLicenseConfigurationResponse {
-  export function isa(
-    o: any
-  ): o is ListAssociationsForLicenseConfigurationResponse {
+  export function isa(o: any): o is ListAssociationsForLicenseConfigurationResponse {
     return _smithy.isa(o, "ListAssociationsForLicenseConfigurationResponse");
   }
 }
@@ -992,18 +973,12 @@ export interface ListFailuresForLicenseConfigurationOperationsRequest {
 }
 
 export namespace ListFailuresForLicenseConfigurationOperationsRequest {
-  export function isa(
-    o: any
-  ): o is ListFailuresForLicenseConfigurationOperationsRequest {
-    return _smithy.isa(
-      o,
-      "ListFailuresForLicenseConfigurationOperationsRequest"
-    );
+  export function isa(o: any): o is ListFailuresForLicenseConfigurationOperationsRequest {
+    return _smithy.isa(o, "ListFailuresForLicenseConfigurationOperationsRequest");
   }
 }
 
-export interface ListFailuresForLicenseConfigurationOperationsResponse
-  extends $MetadataBearer {
+export interface ListFailuresForLicenseConfigurationOperationsResponse extends $MetadataBearer {
   __type?: "ListFailuresForLicenseConfigurationOperationsResponse";
   /**
    *
@@ -1021,13 +996,8 @@ export interface ListFailuresForLicenseConfigurationOperationsResponse
 }
 
 export namespace ListFailuresForLicenseConfigurationOperationsResponse {
-  export function isa(
-    o: any
-  ): o is ListFailuresForLicenseConfigurationOperationsResponse {
-    return _smithy.isa(
-      o,
-      "ListFailuresForLicenseConfigurationOperationsResponse"
-    );
+  export function isa(o: any): o is ListFailuresForLicenseConfigurationOperationsResponse {
+    return _smithy.isa(o, "ListFailuresForLicenseConfigurationOperationsResponse");
   }
 }
 
@@ -1134,15 +1104,12 @@ export interface ListLicenseSpecificationsForResourceRequest {
 }
 
 export namespace ListLicenseSpecificationsForResourceRequest {
-  export function isa(
-    o: any
-  ): o is ListLicenseSpecificationsForResourceRequest {
+  export function isa(o: any): o is ListLicenseSpecificationsForResourceRequest {
     return _smithy.isa(o, "ListLicenseSpecificationsForResourceRequest");
   }
 }
 
-export interface ListLicenseSpecificationsForResourceResponse
-  extends $MetadataBearer {
+export interface ListLicenseSpecificationsForResourceResponse extends $MetadataBearer {
   __type?: "ListLicenseSpecificationsForResourceResponse";
   /**
    *
@@ -1160,9 +1127,7 @@ export interface ListLicenseSpecificationsForResourceResponse
 }
 
 export namespace ListLicenseSpecificationsForResourceResponse {
-  export function isa(
-    o: any
-  ): o is ListLicenseSpecificationsForResourceResponse {
+  export function isa(o: any): o is ListLicenseSpecificationsForResourceResponse {
     return _smithy.isa(o, "ListLicenseSpecificationsForResourceResponse");
   }
 }
@@ -1339,8 +1304,7 @@ export namespace ListUsageForLicenseConfigurationRequest {
   }
 }
 
-export interface ListUsageForLicenseConfigurationResponse
-  extends $MetadataBearer {
+export interface ListUsageForLicenseConfigurationResponse extends $MetadataBearer {
   __type?: "ListUsageForLicenseConfigurationResponse";
   /**
    *
@@ -1545,9 +1509,7 @@ export namespace ProductInformationFilter {
  *          <p>Too many requests have been submitted. Try again after a brief wait.</p>
  *
  */
-export interface RateLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface RateLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "RateLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -1620,9 +1582,7 @@ export namespace ResourceInventory {
  *          <p>Your resource limits have been exceeded.</p>
  *
  */
-export interface ResourceLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -1639,7 +1599,7 @@ export enum ResourceType {
   EC2_HOST = "EC2_HOST",
   EC2_INSTANCE = "EC2_INSTANCE",
   RDS = "RDS",
-  SYSTEMS_MANAGER_MANAGED_INSTANCE = "SYSTEMS_MANAGER_MANAGED_INSTANCE"
+  SYSTEMS_MANAGER_MANAGED_INSTANCE = "SYSTEMS_MANAGER_MANAGED_INSTANCE",
 }
 
 /**
@@ -1647,9 +1607,7 @@ export enum ResourceType {
  *          <p>The server experienced an internal error. Try again.</p>
  *
  */
-export interface ServerInternalException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServerInternalException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServerInternalException";
   $fault: "server";
   Message?: string;
@@ -1855,22 +1813,17 @@ export interface UpdateLicenseSpecificationsForResourceRequest {
 }
 
 export namespace UpdateLicenseSpecificationsForResourceRequest {
-  export function isa(
-    o: any
-  ): o is UpdateLicenseSpecificationsForResourceRequest {
+  export function isa(o: any): o is UpdateLicenseSpecificationsForResourceRequest {
     return _smithy.isa(o, "UpdateLicenseSpecificationsForResourceRequest");
   }
 }
 
-export interface UpdateLicenseSpecificationsForResourceResponse
-  extends $MetadataBearer {
+export interface UpdateLicenseSpecificationsForResourceResponse extends $MetadataBearer {
   __type?: "UpdateLicenseSpecificationsForResourceResponse";
 }
 
 export namespace UpdateLicenseSpecificationsForResourceResponse {
-  export function isa(
-    o: any
-  ): o is UpdateLicenseSpecificationsForResourceResponse {
+  export function isa(o: any): o is UpdateLicenseSpecificationsForResourceResponse {
     return _smithy.isa(o, "UpdateLicenseSpecificationsForResourceResponse");
   }
 }

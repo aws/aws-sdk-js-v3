@@ -1,20 +1,20 @@
 import {
   SMSClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../SMSClient";
 import {
   StartOnDemandReplicationRunRequest,
-  StartOnDemandReplicationRunResponse
+  StartOnDemandReplicationRunResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1StartOnDemandReplicationRunCommand,
-  serializeAws_json1_1StartOnDemandReplicationRunCommand
+  serializeAws_json1_1StartOnDemandReplicationRunCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type StartOnDemandReplicationRunCommandInput = StartOnDemandReplicationRunRequest;
 export type StartOnDemandReplicationRunCommandOutput = StartOnDemandReplicationRunResponse;
 
-export class StartOnDemandReplicationRunCommand extends $Command<
-  StartOnDemandReplicationRunCommandInput,
-  StartOnDemandReplicationRunCommandOutput,
-  SMSClientResolvedConfig
-> {
+export class StartOnDemandReplicationRunCommand extends $Command<StartOnDemandReplicationRunCommandInput, StartOnDemandReplicationRunCommandOutput, SMSClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class StartOnDemandReplicationRunCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartOnDemandReplicationRunCommandInput,
-    StartOnDemandReplicationRunCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartOnDemandReplicationRunCommandInput, StartOnDemandReplicationRunCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class StartOnDemandReplicationRunCommand extends $Command<
     input: StartOnDemandReplicationRunCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartOnDemandReplicationRunCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1StartOnDemandReplicationRunCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<StartOnDemandReplicationRunCommandOutput> {
-    return deserializeAws_json1_1StartOnDemandReplicationRunCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartOnDemandReplicationRunCommand(output, context);
   }
 
   // Start section: command_body_extra

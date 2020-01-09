@@ -1615,7 +1615,7 @@ export async function deserializeAws_json1_1CreateCapacityProviderCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateCapacityProviderResponse(
-    data.CreateCapacityProviderResponse,
+    data,
     context
   );
   const response: CreateCapacityProviderCommandOutput = {
@@ -1689,10 +1689,7 @@ export async function deserializeAws_json1_1CreateClusterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateClusterResponse(
-    data.CreateClusterResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateClusterResponse(data, context);
   const response: CreateClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateClusterResponse",
@@ -1757,10 +1754,7 @@ export async function deserializeAws_json1_1CreateServiceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateServiceResponse(
-    data.CreateServiceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateServiceResponse(data, context);
   const response: CreateServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateServiceResponse",
@@ -1860,10 +1854,7 @@ export async function deserializeAws_json1_1CreateTaskSetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateTaskSetResponse(
-    data.CreateTaskSetResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateTaskSetResponse(data, context);
   const response: CreateTaskSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateTaskSetResponse",
@@ -1980,10 +1971,7 @@ export async function deserializeAws_json1_1DeleteAccountSettingCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteAccountSettingResponse(
-    data.DeleteAccountSettingResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteAccountSettingResponse(data, context);
   const response: DeleteAccountSettingCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteAccountSettingResponse",
@@ -2048,10 +2036,7 @@ export async function deserializeAws_json1_1DeleteAttributesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteAttributesResponse(
-    data.DeleteAttributesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteAttributesResponse(data, context);
   const response: DeleteAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteAttributesResponse",
@@ -2116,10 +2101,7 @@ export async function deserializeAws_json1_1DeleteClusterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteClusterResponse(
-    data.DeleteClusterResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteClusterResponse(data, context);
   const response: DeleteClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteClusterResponse",
@@ -2219,10 +2201,7 @@ export async function deserializeAws_json1_1DeleteServiceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteServiceResponse(
-    data.DeleteServiceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteServiceResponse(data, context);
   const response: DeleteServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteServiceResponse",
@@ -2301,10 +2280,7 @@ export async function deserializeAws_json1_1DeleteTaskSetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteTaskSetResponse(
-    data.DeleteTaskSetResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteTaskSetResponse(data, context);
   const response: DeleteTaskSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteTaskSetResponse",
@@ -2415,7 +2391,7 @@ export async function deserializeAws_json1_1DeregisterContainerInstanceCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeregisterContainerInstanceResponse(
-    data.DeregisterContainerInstanceResponse,
+    data,
     context
   );
   const response: DeregisterContainerInstanceCommandOutput = {
@@ -2493,7 +2469,7 @@ export async function deserializeAws_json1_1DeregisterTaskDefinitionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeregisterTaskDefinitionResponse(
-    data.DeregisterTaskDefinitionResponse,
+    data,
     context
   );
   const response: DeregisterTaskDefinitionCommandOutput = {
@@ -2564,7 +2540,7 @@ export async function deserializeAws_json1_1DescribeCapacityProvidersCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeCapacityProvidersResponse(
-    data.DescribeCapacityProvidersResponse,
+    data,
     context
   );
   const response: DescribeCapacityProvidersCommandOutput = {
@@ -2631,10 +2607,7 @@ export async function deserializeAws_json1_1DescribeClustersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeClustersResponse(
-    data.DescribeClustersResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeClustersResponse(data, context);
   const response: DescribeClustersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeClustersResponse",
@@ -2703,7 +2676,7 @@ export async function deserializeAws_json1_1DescribeContainerInstancesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeContainerInstancesResponse(
-    data.DescribeContainerInstancesResponse,
+    data,
     context
   );
   const response: DescribeContainerInstancesCommandOutput = {
@@ -2777,10 +2750,7 @@ export async function deserializeAws_json1_1DescribeServicesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeServicesResponse(
-    data.DescribeServicesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeServicesResponse(data, context);
   const response: DescribeServicesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeServicesResponse",
@@ -2856,7 +2826,7 @@ export async function deserializeAws_json1_1DescribeTaskDefinitionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeTaskDefinitionResponse(
-    data.DescribeTaskDefinitionResponse,
+    data,
     context
   );
   const response: DescribeTaskDefinitionCommandOutput = {
@@ -2923,10 +2893,7 @@ export async function deserializeAws_json1_1DescribeTaskSetsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTaskSetsResponse(
-    data.DescribeTaskSetsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeTaskSetsResponse(data, context);
   const response: DescribeTaskSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTaskSetsResponse",
@@ -3026,10 +2993,7 @@ export async function deserializeAws_json1_1DescribeTasksCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTasksResponse(
-    data.DescribeTasksResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeTasksResponse(data, context);
   const response: DescribeTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTasksResponse",
@@ -3104,10 +3068,7 @@ export async function deserializeAws_json1_1DiscoverPollEndpointCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DiscoverPollEndpointResponse(
-    data.DiscoverPollEndpointResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DiscoverPollEndpointResponse(data, context);
   const response: DiscoverPollEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DiscoverPollEndpointResponse",
@@ -3168,10 +3129,7 @@ export async function deserializeAws_json1_1ListAccountSettingsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAccountSettingsResponse(
-    data.ListAccountSettingsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListAccountSettingsResponse(data, context);
   const response: ListAccountSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAccountSettingsResponse",
@@ -3236,10 +3194,7 @@ export async function deserializeAws_json1_1ListAttributesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAttributesResponse(
-    data.ListAttributesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListAttributesResponse(data, context);
   const response: ListAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAttributesResponse",
@@ -3297,10 +3252,7 @@ export async function deserializeAws_json1_1ListClustersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListClustersResponse(
-    data.ListClustersResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListClustersResponse(data, context);
   const response: ListClustersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListClustersResponse",
@@ -3369,7 +3321,7 @@ export async function deserializeAws_json1_1ListContainerInstancesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListContainerInstancesResponse(
-    data.ListContainerInstancesResponse,
+    data,
     context
   );
   const response: ListContainerInstancesCommandOutput = {
@@ -3443,10 +3395,7 @@ export async function deserializeAws_json1_1ListServicesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListServicesResponse(
-    data.ListServicesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListServicesResponse(data, context);
   const response: ListServicesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListServicesResponse",
@@ -3521,10 +3470,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(
-    data.ListTagsForResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
@@ -3600,7 +3546,7 @@ export async function deserializeAws_json1_1ListTaskDefinitionFamiliesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListTaskDefinitionFamiliesResponse(
-    data.ListTaskDefinitionFamiliesResponse,
+    data,
     context
   );
   const response: ListTaskDefinitionFamiliesCommandOutput = {
@@ -3670,10 +3616,7 @@ export async function deserializeAws_json1_1ListTaskDefinitionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTaskDefinitionsResponse(
-    data.ListTaskDefinitionsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTaskDefinitionsResponse(data, context);
   const response: ListTaskDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTaskDefinitionsResponse",
@@ -3738,10 +3681,7 @@ export async function deserializeAws_json1_1ListTasksCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTasksResponse(
-    data.ListTasksResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTasksResponse(data, context);
   const response: ListTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTasksResponse",
@@ -3820,10 +3760,7 @@ export async function deserializeAws_json1_1PutAccountSettingCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutAccountSettingResponse(
-    data.PutAccountSettingResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutAccountSettingResponse(data, context);
   const response: PutAccountSettingCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutAccountSettingResponse",
@@ -3892,7 +3829,7 @@ export async function deserializeAws_json1_1PutAccountSettingDefaultCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutAccountSettingDefaultResponse(
-    data.PutAccountSettingDefaultResponse,
+    data,
     context
   );
   const response: PutAccountSettingDefaultCommandOutput = {
@@ -3959,10 +3896,7 @@ export async function deserializeAws_json1_1PutAttributesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutAttributesResponse(
-    data.PutAttributesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutAttributesResponse(data, context);
   const response: PutAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutAttributesResponse",
@@ -4038,7 +3972,7 @@ export async function deserializeAws_json1_1PutClusterCapacityProvidersCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutClusterCapacityProvidersResponse(
-    data.PutClusterCapacityProvidersResponse,
+    data,
     context
   );
   const response: PutClusterCapacityProvidersCommandOutput = {
@@ -4130,7 +4064,7 @@ export async function deserializeAws_json1_1RegisterContainerInstanceCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1RegisterContainerInstanceResponse(
-    data.RegisterContainerInstanceResponse,
+    data,
     context
   );
   const response: RegisterContainerInstanceCommandOutput = {
@@ -4201,7 +4135,7 @@ export async function deserializeAws_json1_1RegisterTaskDefinitionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1RegisterTaskDefinitionResponse(
-    data.RegisterTaskDefinitionResponse,
+    data,
     context
   );
   const response: RegisterTaskDefinitionCommandOutput = {
@@ -4268,10 +4202,7 @@ export async function deserializeAws_json1_1RunTaskCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RunTaskResponse(
-    data.RunTaskResponse,
-    context
-  );
+  contents = deserializeAws_json1_1RunTaskResponse(data, context);
   const response: RunTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RunTaskResponse",
@@ -4378,10 +4309,7 @@ export async function deserializeAws_json1_1StartTaskCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartTaskResponse(
-    data.StartTaskResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartTaskResponse(data, context);
   const response: StartTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartTaskResponse",
@@ -4453,10 +4381,7 @@ export async function deserializeAws_json1_1StopTaskCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopTaskResponse(
-    data.StopTaskResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StopTaskResponse(data, context);
   const response: StopTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopTaskResponse",
@@ -4532,7 +4457,7 @@ export async function deserializeAws_json1_1SubmitAttachmentStateChangesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1SubmitAttachmentStateChangesResponse(
-    data.SubmitAttachmentStateChangesResponse,
+    data,
     context
   );
   const response: SubmitAttachmentStateChangesCommandOutput = {
@@ -4610,7 +4535,7 @@ export async function deserializeAws_json1_1SubmitContainerStateChangeCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1SubmitContainerStateChangeResponse(
-    data.SubmitContainerStateChangeResponse,
+    data,
     context
   );
   const response: SubmitContainerStateChangeCommandOutput = {
@@ -4680,10 +4605,7 @@ export async function deserializeAws_json1_1SubmitTaskStateChangeCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SubmitTaskStateChangeResponse(
-    data.SubmitTaskStateChangeResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SubmitTaskStateChangeResponse(data, context);
   const response: SubmitTaskStateChangeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SubmitTaskStateChangeResponse",
@@ -4755,10 +4677,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(
-    data.TagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
@@ -4837,10 +4756,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(
-    data.UntagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
@@ -4922,10 +4838,7 @@ export async function deserializeAws_json1_1UpdateClusterSettingsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateClusterSettingsResponse(
-    data.UpdateClusterSettingsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateClusterSettingsResponse(data, context);
   const response: UpdateClusterSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateClusterSettingsResponse",
@@ -5000,10 +4913,7 @@ export async function deserializeAws_json1_1UpdateContainerAgentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateContainerAgentResponse(
-    data.UpdateContainerAgentResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateContainerAgentResponse(data, context);
   const response: UpdateContainerAgentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateContainerAgentResponse",
@@ -5100,7 +5010,7 @@ export async function deserializeAws_json1_1UpdateContainerInstancesStateCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateContainerInstancesStateResponse(
-    data.UpdateContainerInstancesStateResponse,
+    data,
     context
   );
   const response: UpdateContainerInstancesStateCommandOutput = {
@@ -5174,10 +5084,7 @@ export async function deserializeAws_json1_1UpdateServiceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateServiceResponse(
-    data.UpdateServiceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateServiceResponse(data, context);
   const response: UpdateServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateServiceResponse",
@@ -5288,7 +5195,7 @@ export async function deserializeAws_json1_1UpdateServicePrimaryTaskSetCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateServicePrimaryTaskSetResponse(
-    data.UpdateServicePrimaryTaskSetResponse,
+    data,
     context
   );
   const response: UpdateServicePrimaryTaskSetCommandOutput = {
@@ -5397,10 +5304,7 @@ export async function deserializeAws_json1_1UpdateTaskSetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateTaskSetResponse(
-    data.UpdateTaskSetResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateTaskSetResponse(data, context);
   const response: UpdateTaskSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateTaskSetResponse",

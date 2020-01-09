@@ -1,17 +1,20 @@
 import {
   KinesisClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../KinesisClient";
-import { ListShardsInput, ListShardsOutput } from "../models/index";
+import {
+  ListShardsInput,
+  ListShardsOutput,
+} from "../models/index";
 import {
   deserializeAws_json1_1ListShardsCommand,
-  serializeAws_json1_1ListShardsCommand
+  serializeAws_json1_1ListShardsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type ListShardsCommandInput = ListShardsInput;
 export type ListShardsCommandOutput = ListShardsOutput;
 
-export class ListShardsCommand extends $Command<
-  ListShardsCommandInput,
-  ListShardsCommandOutput,
-  KinesisClientResolvedConfig
-> {
+export class ListShardsCommand extends $Command<ListShardsCommandInput, ListShardsCommandOutput, KinesisClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class ListShardsCommand extends $Command<
     configuration: KinesisClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListShardsCommandInput, ListShardsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

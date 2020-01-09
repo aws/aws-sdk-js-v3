@@ -354,10 +354,7 @@ export async function deserializeAws_json1_1DeleteScalingPolicyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteScalingPolicyResponse(
-    data.DeleteScalingPolicyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteScalingPolicyResponse(data, context);
   const response: DeleteScalingPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteScalingPolicyResponse",
@@ -432,10 +429,7 @@ export async function deserializeAws_json1_1DeleteScheduledActionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteScheduledActionResponse(
-    data.DeleteScheduledActionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteScheduledActionResponse(data, context);
   const response: DeleteScheduledActionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteScheduledActionResponse",
@@ -511,7 +505,7 @@ export async function deserializeAws_json1_1DeregisterScalableTargetCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeregisterScalableTargetResponse(
-    data.DeregisterScalableTargetResponse,
+    data,
     context
   );
   const response: DeregisterScalableTargetCommandOutput = {
@@ -589,7 +583,7 @@ export async function deserializeAws_json1_1DescribeScalableTargetsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeScalableTargetsResponse(
-    data.DescribeScalableTargetsResponse,
+    data,
     context
   );
   const response: DescribeScalableTargetsCommandOutput = {
@@ -667,7 +661,7 @@ export async function deserializeAws_json1_1DescribeScalingActivitiesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeScalingActivitiesResponse(
-    data.DescribeScalingActivitiesResponse,
+    data,
     context
   );
   const response: DescribeScalingActivitiesCommandOutput = {
@@ -745,7 +739,7 @@ export async function deserializeAws_json1_1DescribeScalingPoliciesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeScalingPoliciesResponse(
-    data.DescribeScalingPoliciesResponse,
+    data,
     context
   );
   const response: DescribeScalingPoliciesCommandOutput = {
@@ -830,7 +824,7 @@ export async function deserializeAws_json1_1DescribeScheduledActionsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeScheduledActionsResponse(
-    data.DescribeScheduledActionsResponse,
+    data,
     context
   );
   const response: DescribeScheduledActionsCommandOutput = {
@@ -904,10 +898,7 @@ export async function deserializeAws_json1_1PutScalingPolicyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutScalingPolicyResponse(
-    data.PutScalingPolicyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutScalingPolicyResponse(data, context);
   const response: PutScalingPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutScalingPolicyResponse",
@@ -996,10 +987,7 @@ export async function deserializeAws_json1_1PutScheduledActionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutScheduledActionResponse(
-    data.PutScheduledActionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutScheduledActionResponse(data, context);
   const response: PutScheduledActionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutScheduledActionResponse",
@@ -1082,7 +1070,7 @@ export async function deserializeAws_json1_1RegisterScalableTargetCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1RegisterScalableTargetResponse(
-    data.RegisterScalableTargetResponse,
+    data,
     context
   );
   const response: RegisterScalableTargetCommandOutput = {

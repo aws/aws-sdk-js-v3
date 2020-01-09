@@ -5,7 +5,7 @@ export enum ActionOnFailure {
   CANCEL_AND_WAIT = "CANCEL_AND_WAIT",
   CONTINUE = "CONTINUE",
   TERMINATE_CLUSTER = "TERMINATE_CLUSTER",
-  TERMINATE_JOB_FLOW = "TERMINATE_JOB_FLOW"
+  TERMINATE_JOB_FLOW = "TERMINATE_JOB_FLOW",
 }
 
 export interface AddInstanceFleetInput {
@@ -220,7 +220,7 @@ export namespace AddTagsOutput {
 export enum AdjustmentType {
   CHANGE_IN_CAPACITY = "CHANGE_IN_CAPACITY",
   EXACT_CAPACITY = "EXACT_CAPACITY",
-  PERCENT_CHANGE_IN_CAPACITY = "PERCENT_CHANGE_IN_CAPACITY"
+  PERCENT_CHANGE_IN_CAPACITY = "PERCENT_CHANGE_IN_CAPACITY",
 }
 
 /**
@@ -335,7 +335,7 @@ export enum AutoScalingPolicyState {
   DETACHED = "DETACHED",
   DETACHING = "DETACHING",
   FAILED = "FAILED",
-  PENDING = "PENDING"
+  PENDING = "PENDING",
 }
 
 /**
@@ -369,7 +369,7 @@ export namespace AutoScalingPolicyStateChangeReason {
 export enum AutoScalingPolicyStateChangeReasonCode {
   CLEANUP_FAILURE = "CLEANUP_FAILURE",
   PROVISION_FAILURE = "PROVISION_FAILURE",
-  USER_REQUEST = "USER_REQUEST"
+  USER_REQUEST = "USER_REQUEST",
 }
 
 /**
@@ -622,7 +622,7 @@ export namespace CancelStepsOutput {
 
 export enum CancelStepsRequestStatus {
   FAILED = "FAILED",
-  SUBMITTED = "SUBMITTED"
+  SUBMITTED = "SUBMITTED",
 }
 
 /**
@@ -926,7 +926,7 @@ export enum ClusterState {
   TERMINATED = "TERMINATED",
   TERMINATED_WITH_ERRORS = "TERMINATED_WITH_ERRORS",
   TERMINATING = "TERMINATING",
-  WAITING = "WAITING"
+  WAITING = "WAITING",
 }
 
 /**
@@ -965,7 +965,7 @@ export enum ClusterStateChangeReasonCode {
   INTERNAL_ERROR = "INTERNAL_ERROR",
   STEP_FAILURE = "STEP_FAILURE",
   USER_REQUEST = "USER_REQUEST",
-  VALIDATION_ERROR = "VALIDATION_ERROR"
+  VALIDATION_ERROR = "VALIDATION_ERROR",
 }
 
 /**
@@ -1135,7 +1135,7 @@ export enum ComparisonOperator {
   GREATER_THAN = "GREATER_THAN",
   GREATER_THAN_OR_EQUAL = "GREATER_THAN_OR_EQUAL",
   LESS_THAN = "LESS_THAN",
-  LESS_THAN_OR_EQUAL = "LESS_THAN_OR_EQUAL"
+  LESS_THAN_OR_EQUAL = "LESS_THAN_OR_EQUAL",
 }
 
 /**
@@ -1697,8 +1697,7 @@ export namespace GetBlockPublicAccessConfigurationInput {
   }
 }
 
-export interface GetBlockPublicAccessConfigurationOutput
-  extends $MetadataBearer {
+export interface GetBlockPublicAccessConfigurationOutput extends $MetadataBearer {
   __type?: "GetBlockPublicAccessConfigurationOutput";
   /**
    *
@@ -1712,9 +1711,7 @@ export interface GetBlockPublicAccessConfigurationOutput
    *          <p>Properties that describe the AWS principal that created the <code>BlockPublicAccessConfiguration</code> using the <code>PutBlockPublicAccessConfiguration</code> action as well as the date and time that the configuration was created. Each time a configuration for block public access is updated, Amazon EMR updates this metadata.</p>
    *
    */
-  BlockPublicAccessConfigurationMetadata:
-    | BlockPublicAccessConfigurationMetadata
-    | undefined;
+  BlockPublicAccessConfigurationMetadata: BlockPublicAccessConfigurationMetadata | undefined;
 }
 
 export namespace GetBlockPublicAccessConfigurationOutput {
@@ -1908,7 +1905,7 @@ export namespace Instance {
 
 export enum InstanceCollectionType {
   INSTANCE_FLEET = "INSTANCE_FLEET",
-  INSTANCE_GROUP = "INSTANCE_GROUP"
+  INSTANCE_GROUP = "INSTANCE_GROUP",
 }
 
 /**
@@ -2143,7 +2140,7 @@ export enum InstanceFleetState {
   RUNNING = "RUNNING",
   SUSPENDED = "SUSPENDED",
   TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING"
+  TERMINATING = "TERMINATING",
 }
 
 /**
@@ -2181,7 +2178,7 @@ export enum InstanceFleetStateChangeReasonCode {
   CLUSTER_TERMINATED = "CLUSTER_TERMINATED",
   INSTANCE_FAILURE = "INSTANCE_FAILURE",
   INTERNAL_ERROR = "INTERNAL_ERROR",
-  VALIDATION_ERROR = "VALIDATION_ERROR"
+  VALIDATION_ERROR = "VALIDATION_ERROR",
 }
 
 /**
@@ -2293,7 +2290,7 @@ export namespace InstanceFleetTimeline {
 export enum InstanceFleetType {
   CORE = "CORE",
   MASTER = "MASTER",
-  TASK = "TASK"
+  TASK = "TASK",
 }
 
 /**
@@ -2686,7 +2683,7 @@ export enum InstanceGroupState {
   SHUTTING_DOWN = "SHUTTING_DOWN",
   SUSPENDED = "SUSPENDED",
   TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING"
+  TERMINATING = "TERMINATING",
 }
 
 /**
@@ -2721,7 +2718,7 @@ export enum InstanceGroupStateChangeReasonCode {
   CLUSTER_TERMINATED = "CLUSTER_TERMINATED",
   INSTANCE_FAILURE = "INSTANCE_FAILURE",
   INTERNAL_ERROR = "INTERNAL_ERROR",
-  VALIDATION_ERROR = "VALIDATION_ERROR"
+  VALIDATION_ERROR = "VALIDATION_ERROR",
 }
 
 /**
@@ -2797,7 +2794,7 @@ export namespace InstanceGroupTimeline {
 export enum InstanceGroupType {
   CORE = "CORE",
   MASTER = "MASTER",
-  TASK = "TASK"
+  TASK = "TASK",
 }
 
 /**
@@ -2835,14 +2832,14 @@ export namespace InstanceResizePolicy {
   }
 }
 
-export type InstanceRoleType = "CORE" | "MASTER" | "TASK";
+export type InstanceRoleType = "CORE" | "MASTER" | "TASK"
 
 export enum InstanceState {
   AWAITING_FULFILLMENT = "AWAITING_FULFILLMENT",
   BOOTSTRAPPING = "BOOTSTRAPPING",
   PROVISIONING = "PROVISIONING",
   RUNNING = "RUNNING",
-  TERMINATED = "TERMINATED"
+  TERMINATED = "TERMINATED",
 }
 
 /**
@@ -2878,7 +2875,7 @@ export enum InstanceStateChangeReasonCode {
   CLUSTER_TERMINATED = "CLUSTER_TERMINATED",
   INSTANCE_FAILURE = "INSTANCE_FAILURE",
   INTERNAL_ERROR = "INTERNAL_ERROR",
-  VALIDATION_ERROR = "VALIDATION_ERROR"
+  VALIDATION_ERROR = "VALIDATION_ERROR",
 }
 
 /**
@@ -3085,9 +3082,7 @@ export namespace InstanceTypeSpecification {
  *          <p>Indicates that an error occurred while processing the request and that the request was not completed.</p>
  *
  */
-export interface InternalServerError
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerError extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerError";
   $fault: "server";
 }
@@ -3104,9 +3099,7 @@ export namespace InternalServerError {
  *
  *
  */
-export interface InternalServerException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerException";
   $fault: "server";
   /**
@@ -3130,9 +3123,7 @@ export namespace InternalServerException {
  *
  *
  */
-export interface InvalidRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRequestException";
   $fault: "client";
   /**
@@ -3278,7 +3269,7 @@ export enum JobFlowExecutionState {
   SHUTTING_DOWN = "SHUTTING_DOWN",
   STARTING = "STARTING",
   TERMINATED = "TERMINATED",
-  WAITING = "WAITING"
+  WAITING = "WAITING",
 }
 
 /**
@@ -4089,7 +4080,7 @@ export namespace ListStepsOutput {
 
 export enum MarketType {
   ON_DEMAND = "ON_DEMAND",
-  SPOT = "SPOT"
+  SPOT = "SPOT",
 }
 
 /**
@@ -4352,8 +4343,7 @@ export namespace PutBlockPublicAccessConfigurationInput {
   }
 }
 
-export interface PutBlockPublicAccessConfigurationOutput
-  extends $MetadataBearer {
+export interface PutBlockPublicAccessConfigurationOutput extends $MetadataBearer {
   __type?: "PutBlockPublicAccessConfigurationOutput";
 }
 
@@ -4441,7 +4431,7 @@ export namespace RemoveTagsOutput {
 
 export enum RepoUpgradeOnBoot {
   NONE = "NONE",
-  SECURITY = "SECURITY"
+  SECURITY = "SECURITY",
 }
 
 /**
@@ -4698,7 +4688,7 @@ export namespace RunJobFlowOutput {
 
 export enum ScaleDownBehavior {
   TERMINATE_AT_INSTANCE_HOUR = "TERMINATE_AT_INSTANCE_HOUR",
-  TERMINATE_AT_TASK_COMPLETION = "TERMINATE_AT_TASK_COMPLETION"
+  TERMINATE_AT_TASK_COMPLETION = "TERMINATE_AT_TASK_COMPLETION",
 }
 
 /**
@@ -4720,9 +4710,7 @@ export interface ScalingAction {
    *          <p>The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.</p>
    *
    */
-  SimpleScalingPolicyConfiguration:
-    | SimpleScalingPolicyConfiguration
-    | undefined;
+  SimpleScalingPolicyConfiguration: SimpleScalingPolicyConfiguration | undefined;
 }
 
 export namespace ScalingAction {
@@ -5037,16 +5025,14 @@ export namespace SpotProvisioningSpecification {
   }
 }
 
-export type SpotProvisioningTimeoutAction =
-  | "SWITCH_TO_ON_DEMAND"
-  | "TERMINATE_CLUSTER";
+export type SpotProvisioningTimeoutAction = "SWITCH_TO_ON_DEMAND" | "TERMINATE_CLUSTER"
 
 export enum Statistic {
   AVERAGE = "AVERAGE",
   MAXIMUM = "MAXIMUM",
   MINIMUM = "MINIMUM",
   SAMPLE_COUNT = "SAMPLE_COUNT",
-  SUM = "SUM"
+  SUM = "SUM",
 }
 
 /**
@@ -5098,7 +5084,7 @@ export namespace Step {
   }
 }
 
-export type StepCancellationOption = "SEND_INTERRUPT" | "TERMINATE_PROCESS";
+export type StepCancellationOption = "SEND_INTERRUPT" | "TERMINATE_PROCESS"
 
 /**
  *
@@ -5163,14 +5149,7 @@ export namespace StepDetail {
   }
 }
 
-export type StepExecutionState =
-  | "CANCELLED"
-  | "COMPLETED"
-  | "CONTINUE"
-  | "FAILED"
-  | "INTERRUPTED"
-  | "PENDING"
-  | "RUNNING";
+export type StepExecutionState = "CANCELLED" | "COMPLETED" | "CONTINUE" | "FAILED" | "INTERRUPTED" | "PENDING" | "RUNNING"
 
 /**
  *
@@ -5228,7 +5207,7 @@ export enum StepState {
   FAILED = "FAILED",
   INTERRUPTED = "INTERRUPTED",
   PENDING = "PENDING",
-  RUNNING = "RUNNING"
+  RUNNING = "RUNNING",
 }
 
 /**
@@ -5259,7 +5238,7 @@ export namespace StepStateChangeReason {
   }
 }
 
-export type StepStateChangeReasonCode = "NONE";
+export type StepStateChangeReasonCode = "NONE"
 
 /**
  *
@@ -5498,7 +5477,7 @@ export enum Unit {
   TERA_BITS = "TERA_BITS",
   TERA_BITS_PER_SECOND = "TERA_BITS_PER_SECOND",
   TERA_BYTES = "TERA_BYTES",
-  TERA_BYTES_PER_SECOND = "TERA_BYTES_PER_SECOND"
+  TERA_BYTES_PER_SECOND = "TERA_BYTES_PER_SECOND",
 }
 
 /**

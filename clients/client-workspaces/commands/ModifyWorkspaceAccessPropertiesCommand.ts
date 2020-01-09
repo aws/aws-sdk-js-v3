@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  WorkSpacesClientResolvedConfig
+  WorkSpacesClientResolvedConfig,
 } from "../WorkSpacesClient";
 import {
   ModifyWorkspaceAccessPropertiesRequest,
-  ModifyWorkspaceAccessPropertiesResult
+  ModifyWorkspaceAccessPropertiesResult,
 } from "../models/index";
 import {
   deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand,
-  serializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand
+  serializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type ModifyWorkspaceAccessPropertiesCommandInput = ModifyWorkspaceAccessPropertiesRequest;
 export type ModifyWorkspaceAccessPropertiesCommandOutput = ModifyWorkspaceAccessPropertiesResult;
 
-export class ModifyWorkspaceAccessPropertiesCommand extends $Command<
-  ModifyWorkspaceAccessPropertiesCommandInput,
-  ModifyWorkspaceAccessPropertiesCommandOutput,
-  WorkSpacesClientResolvedConfig
-> {
+export class ModifyWorkspaceAccessPropertiesCommand extends $Command<ModifyWorkspaceAccessPropertiesCommandInput, ModifyWorkspaceAccessPropertiesCommandOutput, WorkSpacesClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class ModifyWorkspaceAccessPropertiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyWorkspaceAccessPropertiesCommandInput,
-    ModifyWorkspaceAccessPropertiesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyWorkspaceAccessPropertiesCommandInput, ModifyWorkspaceAccessPropertiesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class ModifyWorkspaceAccessPropertiesCommand extends $Command<
     input: ModifyWorkspaceAccessPropertiesCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ModifyWorkspaceAccessPropertiesCommandOutput> {
-    return deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

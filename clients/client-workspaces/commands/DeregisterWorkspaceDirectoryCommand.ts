@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  WorkSpacesClientResolvedConfig
+  WorkSpacesClientResolvedConfig,
 } from "../WorkSpacesClient";
 import {
   DeregisterWorkspaceDirectoryRequest,
-  DeregisterWorkspaceDirectoryResult
+  DeregisterWorkspaceDirectoryResult,
 } from "../models/index";
 import {
   deserializeAws_json1_1DeregisterWorkspaceDirectoryCommand,
-  serializeAws_json1_1DeregisterWorkspaceDirectoryCommand
+  serializeAws_json1_1DeregisterWorkspaceDirectoryCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DeregisterWorkspaceDirectoryCommandInput = DeregisterWorkspaceDirectoryRequest;
 export type DeregisterWorkspaceDirectoryCommandOutput = DeregisterWorkspaceDirectoryResult;
 
-export class DeregisterWorkspaceDirectoryCommand extends $Command<
-  DeregisterWorkspaceDirectoryCommandInput,
-  DeregisterWorkspaceDirectoryCommandOutput,
-  WorkSpacesClientResolvedConfig
-> {
+export class DeregisterWorkspaceDirectoryCommand extends $Command<DeregisterWorkspaceDirectoryCommandInput, DeregisterWorkspaceDirectoryCommandOutput, WorkSpacesClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class DeregisterWorkspaceDirectoryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeregisterWorkspaceDirectoryCommandInput,
-    DeregisterWorkspaceDirectoryCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeregisterWorkspaceDirectoryCommandInput, DeregisterWorkspaceDirectoryCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class DeregisterWorkspaceDirectoryCommand extends $Command<
     input: DeregisterWorkspaceDirectoryCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterWorkspaceDirectoryCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeregisterWorkspaceDirectoryCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DeregisterWorkspaceDirectoryCommandOutput> {
-    return deserializeAws_json1_1DeregisterWorkspaceDirectoryCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeregisterWorkspaceDirectoryCommand(output, context);
   }
 
   // Start section: command_body_extra

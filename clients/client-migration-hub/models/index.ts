@@ -6,9 +6,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>You do not have sufficient access to perform this action.</p>
  *
  */
-export interface AccessDeniedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -23,7 +21,7 @@ export namespace AccessDeniedException {
 export enum ApplicationStatus {
   COMPLETED = "COMPLETED",
   IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED"
+  NOT_STARTED = "NOT_STARTED",
 }
 
 export interface AssociateCreatedArtifactRequest {
@@ -448,9 +446,7 @@ export namespace DiscoveredResource {
  *             <code>DryRun</code> flag is set to "true".</p>
  *
  */
-export interface DryRunOperation
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DryRunOperation extends _smithy.SmithyException, $MetadataBearer {
   __type: "DryRunOperation";
   $fault: "client";
   Message?: string;
@@ -467,9 +463,7 @@ export namespace DryRunOperation {
  *          <p>The home region is not set. Set the home region to continue.</p>
  *
  */
-export interface HomeRegionNotSetException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface HomeRegionNotSetException extends _smithy.SmithyException, $MetadataBearer {
   __type: "HomeRegionNotSetException";
   $fault: "client";
   Message?: string;
@@ -530,9 +524,7 @@ export namespace ImportMigrationTaskResult {
  *          encountered.</p>
  *
  */
-export interface InternalServerError
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerError extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerError";
   $fault: "server";
   Message?: string;
@@ -550,9 +542,7 @@ export namespace InternalServerError {
  *          the wrong format or data type.</p>
  *
  */
-export interface InvalidInputException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidInputException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidInputException";
   $fault: "client";
   Message?: string;
@@ -1038,9 +1028,7 @@ export namespace NotifyMigrationTaskStateResult {
  *             <code>migrationhub-discovery</code> role is missing or not configured correctly.</p>
  *
  */
-export interface PolicyErrorException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface PolicyErrorException extends _smithy.SmithyException, $MetadataBearer {
   __type: "PolicyErrorException";
   $fault: "client";
   Message?: string;
@@ -1227,7 +1215,7 @@ export enum ResourceAttributeType {
   VM_MANAGED_OBJECT_REFERENCE = "VM_MANAGED_OBJECT_REFERENCE",
   VM_MANAGER_ID = "VM_MANAGER_ID",
   VM_NAME = "VM_NAME",
-  VM_PATH = "VM_PATH"
+  VM_PATH = "VM_PATH",
 }
 
 /**
@@ -1237,9 +1225,7 @@ export enum ResourceAttributeType {
  *          Discovery Service (Application Discovery Service) or in Migration Hub's repository.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1257,9 +1243,7 @@ export namespace ResourceNotFoundException {
  *          encountered.</p>
  *
  */
-export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
@@ -1275,7 +1259,7 @@ export enum Status {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED"
+  NOT_STARTED = "NOT_STARTED",
 }
 
 /**
@@ -1321,9 +1305,7 @@ export namespace Task {
  *          flag is set to "true".</p>
  *
  */
-export interface UnauthorizedOperation
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnauthorizedOperation extends _smithy.SmithyException, $MetadataBearer {
   __type: "UnauthorizedOperation";
   $fault: "client";
   Message?: string;

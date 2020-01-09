@@ -6,9 +6,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>You aren't authorized to perform the action.</p>
  *
  */
-export interface AccessDeniedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   Code?: string;
@@ -101,9 +99,7 @@ export namespace AnalyzeDocumentResponse {
  *          <p>Amazon Textract isn't able to read the document.</p>
  *
  */
-export interface BadDocumentException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BadDocumentException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BadDocumentException";
   $fault: "client";
   Code?: string;
@@ -341,7 +337,7 @@ export enum BlockType {
   PAGE = "PAGE",
   SELECTION_ELEMENT = "SELECTION_ELEMENT",
   TABLE = "TABLE",
-  WORD = "WORD"
+  WORD = "WORD",
 }
 
 /**
@@ -403,7 +399,7 @@ export namespace BoundingBox {
 
 export enum ContentClassifier {
   FREE_OF_ADULT_CONTENT = "FreeOfAdultContent",
-  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation"
+  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation",
 }
 
 export interface DetectDocumentTextRequest {
@@ -559,9 +555,7 @@ export namespace DocumentMetadata {
  *          MB for PDF files.</p>
  *
  */
-export interface DocumentTooLargeException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DocumentTooLargeException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DocumentTooLargeException";
   $fault: "client";
   Code?: string;
@@ -576,12 +570,12 @@ export namespace DocumentTooLargeException {
 
 export enum EntityType {
   KEY = "KEY",
-  VALUE = "VALUE"
+  VALUE = "VALUE",
 }
 
 export enum FeatureType {
   FORMS = "FORMS",
-  TABLES = "TABLES"
+  TABLES = "TABLES",
 }
 
 /**
@@ -902,9 +896,7 @@ export namespace HumanLoopDataAttributes {
  *          <p>Indicates you have exceeded the maximum number of active human in the loop workflows available</p>
  *
  */
-export interface HumanLoopQuotaExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface HumanLoopQuotaExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "HumanLoopQuotaExceededException";
   $fault: "client";
   Code?: string;
@@ -927,9 +919,7 @@ export namespace HumanLoopQuotaExceededException {
  *          operation. </p>
  *
  */
-export interface IdempotentParameterMismatchException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface IdempotentParameterMismatchException extends _smithy.SmithyException, $MetadataBearer {
   __type: "IdempotentParameterMismatchException";
   $fault: "client";
   Code?: string;
@@ -947,9 +937,7 @@ export namespace IdempotentParameterMismatchException {
  *          <p>Amazon Textract experienced a service issue. Try your call again.</p>
  *
  */
-export interface InternalServerError
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerError extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerError";
   $fault: "server";
   Code?: string;
@@ -968,9 +956,7 @@ export namespace InternalServerError {
  *       <a>GetDocumentAnalysis</a>.</p>
  *
  */
-export interface InvalidJobIdException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidJobIdException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidJobIdException";
   $fault: "client";
   Code?: string;
@@ -992,9 +978,7 @@ export namespace InvalidJobIdException {
  *        Validate your parameter before calling the API operation again.</p>
  *
  */
-export interface InvalidParameterException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidParameterException";
   $fault: "client";
   Code?: string;
@@ -1012,9 +996,7 @@ export namespace InvalidParameterException {
  *          <p>Amazon Textract is unable to access the S3 object that's specified in the request.</p>
  *
  */
-export interface InvalidS3ObjectException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidS3ObjectException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidS3ObjectException";
   $fault: "client";
   Code?: string;
@@ -1031,7 +1013,7 @@ export enum JobStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
   PARTIAL_SUCCESS = "PARTIAL_SUCCESS",
-  SUCCEEDED = "SUCCEEDED"
+  SUCCEEDED = "SUCCEEDED",
 }
 
 /**
@@ -1043,9 +1025,7 @@ export enum JobStatus {
  *          the Amazon Textract service limit. </p>
  *
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   Code?: string;
@@ -1130,9 +1110,7 @@ export namespace Point {
  *          contact Amazon Textract.</p>
  *
  */
-export interface ProvisionedThroughputExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ProvisionedThroughputExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ProvisionedThroughputExceededException";
   $fault: "client";
   Code?: string;
@@ -1184,7 +1162,7 @@ export namespace Relationship {
 
 export enum RelationshipType {
   CHILD = "CHILD",
-  VALUE = "VALUE"
+  VALUE = "VALUE",
 }
 
 /**
@@ -1232,7 +1210,7 @@ export namespace S3Object {
 
 export enum SelectionStatus {
   NOT_SELECTED = "NOT_SELECTED",
-  SELECTED = "SELECTED"
+  SELECTED = "SELECTED",
 }
 
 export interface StartDocumentAnalysisRequest {
@@ -1378,9 +1356,7 @@ export namespace StartDocumentTextDetectionResponse {
  *          <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
  *
  */
-export interface ThrottlingException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ThrottlingException";
   $fault: "server";
   Code?: string;
@@ -1399,9 +1375,7 @@ export namespace ThrottlingException {
  *          PNG or JPEG format. Documents for asynchronous operations can also be in PDF format.</p>
  *
  */
-export interface UnsupportedDocumentException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnsupportedDocumentException extends _smithy.SmithyException, $MetadataBearer {
   __type: "UnsupportedDocumentException";
   $fault: "client";
   Code?: string;

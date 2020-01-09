@@ -1,20 +1,20 @@
 import {
   GameLiftClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../GameLiftClient";
 import {
   DescribeEC2InstanceLimitsInput,
-  DescribeEC2InstanceLimitsOutput
+  DescribeEC2InstanceLimitsOutput,
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeEC2InstanceLimitsCommand,
-  serializeAws_json1_1DescribeEC2InstanceLimitsCommand
+  serializeAws_json1_1DescribeEC2InstanceLimitsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DescribeEC2InstanceLimitsCommandInput = DescribeEC2InstanceLimitsInput;
 export type DescribeEC2InstanceLimitsCommandOutput = DescribeEC2InstanceLimitsOutput;
 
-export class DescribeEC2InstanceLimitsCommand extends $Command<
-  DescribeEC2InstanceLimitsCommandInput,
-  DescribeEC2InstanceLimitsCommandOutput,
-  GameLiftClientResolvedConfig
-> {
+export class DescribeEC2InstanceLimitsCommand extends $Command<DescribeEC2InstanceLimitsCommandInput, DescribeEC2InstanceLimitsCommandOutput, GameLiftClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class DescribeEC2InstanceLimitsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEC2InstanceLimitsCommandInput,
-    DescribeEC2InstanceLimitsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEC2InstanceLimitsCommandInput, DescribeEC2InstanceLimitsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -79,10 +70,7 @@ export class DescribeEC2InstanceLimitsCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeEC2InstanceLimitsCommandOutput> {
-    return deserializeAws_json1_1DescribeEC2InstanceLimitsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeEC2InstanceLimitsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -57,10 +57,7 @@ export async function deserializeAws_json1_1SendSSHPublicKeyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SendSSHPublicKeyResponse(
-    data.SendSSHPublicKeyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SendSSHPublicKeyResponse(data, context);
   const response: SendSSHPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SendSSHPublicKeyResponse",

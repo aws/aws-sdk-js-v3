@@ -1,20 +1,20 @@
 import {
   MachineLearningClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../MachineLearningClient";
 import {
   CreateDataSourceFromS3Input,
-  CreateDataSourceFromS3Output
+  CreateDataSourceFromS3Output,
 } from "../models/index";
 import {
   deserializeAws_json1_1CreateDataSourceFromS3Command,
-  serializeAws_json1_1CreateDataSourceFromS3Command
+  serializeAws_json1_1CreateDataSourceFromS3Command,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type CreateDataSourceFromS3CommandInput = CreateDataSourceFromS3Input;
 export type CreateDataSourceFromS3CommandOutput = CreateDataSourceFromS3Output;
 
-export class CreateDataSourceFromS3Command extends $Command<
-  CreateDataSourceFromS3CommandInput,
-  CreateDataSourceFromS3CommandOutput,
-  MachineLearningClientResolvedConfig
-> {
+export class CreateDataSourceFromS3Command extends $Command<CreateDataSourceFromS3CommandInput, CreateDataSourceFromS3CommandOutput, MachineLearningClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class CreateDataSourceFromS3Command extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDataSourceFromS3CommandInput,
-    CreateDataSourceFromS3CommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDataSourceFromS3CommandInput, CreateDataSourceFromS3CommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

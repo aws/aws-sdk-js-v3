@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  WAFRegionalClientResolvedConfig
+  WAFRegionalClientResolvedConfig,
 } from "../WAFRegionalClient";
 import {
   DisassociateWebACLRequest,
-  DisassociateWebACLResponse
+  DisassociateWebACLResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1DisassociateWebACLCommand,
-  serializeAws_json1_1DisassociateWebACLCommand
+  serializeAws_json1_1DisassociateWebACLCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DisassociateWebACLCommandInput = DisassociateWebACLRequest;
 export type DisassociateWebACLCommandOutput = DisassociateWebACLResponse;
 
-export class DisassociateWebACLCommand extends $Command<
-  DisassociateWebACLCommandInput,
-  DisassociateWebACLCommandOutput,
-  WAFRegionalClientResolvedConfig
-> {
+export class DisassociateWebACLCommand extends $Command<DisassociateWebACLCommandInput, DisassociateWebACLCommandOutput, WAFRegionalClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,15 +44,13 @@ export class DisassociateWebACLCommand extends $Command<
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DisassociateWebACLCommandInput, DisassociateWebACLCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

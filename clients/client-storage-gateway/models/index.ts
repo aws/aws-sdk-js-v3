@@ -868,69 +868,7 @@ export namespace DescribeWorkingStorageOutput {
   }
 }
 
-export type ErrorCode =
-  | "ActivationKeyExpired"
-  | "ActivationKeyInvalid"
-  | "ActivationKeyNotFound"
-  | "AuthenticationFailure"
-  | "BandwidthThrottleScheduleNotFound"
-  | "Blocked"
-  | "CannotExportSnapshot"
-  | "ChapCredentialNotFound"
-  | "DiskAlreadyAllocated"
-  | "DiskDoesNotExist"
-  | "DiskSizeGreaterThanVolumeMaxSize"
-  | "DiskSizeLessThanVolumeSize"
-  | "DiskSizeNotGigAligned"
-  | "DuplicateCertificateInfo"
-  | "DuplicateSchedule"
-  | "EndpointNotFound"
-  | "GatewayInternalError"
-  | "GatewayNotConnected"
-  | "GatewayNotFound"
-  | "GatewayProxyNetworkConnectionBusy"
-  | "IAMNotSupported"
-  | "InitiatorInvalid"
-  | "InitiatorNotFound"
-  | "InternalError"
-  | "InvalidEndpoint"
-  | "InvalidGateway"
-  | "InvalidParameters"
-  | "InvalidSchedule"
-  | "JoinDomainInProgress"
-  | "LocalStorageLimitExceeded"
-  | "LunAlreadyAllocated "
-  | "LunInvalid"
-  | "MaximumContentLengthExceeded"
-  | "MaximumTapeCartridgeCountExceeded"
-  | "MaximumVolumeCountExceeded"
-  | "NetworkConfigurationChanged"
-  | "NoDisksAvailable"
-  | "NotImplemented"
-  | "NotSupported"
-  | "OperationAborted"
-  | "OutdatedGateway"
-  | "ParametersNotImplemented"
-  | "RegionInvalid"
-  | "RequestTimeout"
-  | "ServiceUnavailable"
-  | "SnapshotDeleted"
-  | "SnapshotIdInvalid"
-  | "SnapshotInProgress"
-  | "SnapshotNotFound"
-  | "SnapshotScheduleNotFound"
-  | "StagingAreaFull"
-  | "StorageFailure"
-  | "TapeCartridgeNotFound"
-  | "TargetAlreadyExists"
-  | "TargetInvalid"
-  | "TargetNotFound"
-  | "UnauthorizedOperation"
-  | "VolumeAlreadyExists"
-  | "VolumeIdInvalid"
-  | "VolumeInUse"
-  | "VolumeNotFound"
-  | "VolumeNotReady";
+export type ErrorCode = "ActivationKeyExpired" | "ActivationKeyInvalid" | "ActivationKeyNotFound" | "AuthenticationFailure" | "BandwidthThrottleScheduleNotFound" | "Blocked" | "CannotExportSnapshot" | "ChapCredentialNotFound" | "DiskAlreadyAllocated" | "DiskDoesNotExist" | "DiskSizeGreaterThanVolumeMaxSize" | "DiskSizeLessThanVolumeSize" | "DiskSizeNotGigAligned" | "DuplicateCertificateInfo" | "DuplicateSchedule" | "EndpointNotFound" | "GatewayInternalError" | "GatewayNotConnected" | "GatewayNotFound" | "GatewayProxyNetworkConnectionBusy" | "IAMNotSupported" | "InitiatorInvalid" | "InitiatorNotFound" | "InternalError" | "InvalidEndpoint" | "InvalidGateway" | "InvalidParameters" | "InvalidSchedule" | "JoinDomainInProgress" | "LocalStorageLimitExceeded" | "LunAlreadyAllocated " | "LunInvalid" | "MaximumContentLengthExceeded" | "MaximumTapeCartridgeCountExceeded" | "MaximumVolumeCountExceeded" | "NetworkConfigurationChanged" | "NoDisksAvailable" | "NotImplemented" | "NotSupported" | "OperationAborted" | "OutdatedGateway" | "ParametersNotImplemented" | "RegionInvalid" | "RequestTimeout" | "ServiceUnavailable" | "SnapshotDeleted" | "SnapshotIdInvalid" | "SnapshotInProgress" | "SnapshotNotFound" | "SnapshotScheduleNotFound" | "StagingAreaFull" | "StorageFailure" | "TapeCartridgeNotFound" | "TargetAlreadyExists" | "TargetInvalid" | "TargetNotFound" | "UnauthorizedOperation" | "VolumeAlreadyExists" | "VolumeIdInvalid" | "VolumeInUse" | "VolumeNotFound" | "VolumeNotReady"
 
 /**
  *
@@ -938,9 +876,7 @@ export type ErrorCode =
  *          the error and message fields.</p>
  *
  */
-export interface InternalServerError
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerError extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerError";
   $fault: "server";
   /**
@@ -971,9 +907,7 @@ export namespace InternalServerError {
  *          For more information, see the error and message fields.</p>
  *
  */
-export interface InvalidGatewayRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidGatewayRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidGatewayRequestException";
   $fault: "client";
   /**
@@ -1157,9 +1091,7 @@ export namespace NetworkInterface {
  *          information, see the error and message fields.</p>
  *
  */
-export interface ServiceUnavailableError
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableError extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceUnavailableError";
   $fault: "server";
   /**
@@ -2025,8 +1957,7 @@ export namespace CreateCachediSCSIVolumeOutput {
   }
 }
 
-export interface CreateSnapshotFromVolumeRecoveryPointOutput
-  extends $MetadataBearer {
+export interface CreateSnapshotFromVolumeRecoveryPointOutput extends $MetadataBearer {
   __type?: "CreateSnapshotFromVolumeRecoveryPointOutput";
   /**
    *
@@ -2052,9 +1983,7 @@ export interface CreateSnapshotFromVolumeRecoveryPointOutput
 }
 
 export namespace CreateSnapshotFromVolumeRecoveryPointOutput {
-  export function isa(
-    o: any
-  ): o is CreateSnapshotFromVolumeRecoveryPointOutput {
+  export function isa(o: any): o is CreateSnapshotFromVolumeRecoveryPointOutput {
     return _smithy.isa(o, "CreateSnapshotFromVolumeRecoveryPointOutput");
   }
 }
@@ -2481,14 +2410,7 @@ export namespace ActivateGatewayInput {
   }
 }
 
-export type ActiveDirectoryStatus =
-  | "ACCESS_DENIED"
-  | "DETACHED"
-  | "JOINED"
-  | "JOINING"
-  | "NETWORK_ERROR"
-  | "TIMEOUT"
-  | "UNKNOWN_ERROR";
+export type ActiveDirectoryStatus = "ACCESS_DENIED" | "DETACHED" | "JOINED" | "JOINING" | "NETWORK_ERROR" | "TIMEOUT" | "UNKNOWN_ERROR"
 
 /**
  *
@@ -2681,7 +2603,7 @@ export namespace AttachVolumeOutput {
   }
 }
 
-export type AvailabilityMonitorTestStatus = "COMPLETE" | "FAILED" | "PENDING";
+export type AvailabilityMonitorTestStatus = "COMPLETE" | "FAILED" | "PENDING"
 
 /**
  *
@@ -5003,7 +4925,7 @@ export namespace FileShareInfo {
   }
 }
 
-export type FileShareType = "NFS" | "SMB";
+export type FileShareType = "NFS" | "SMB"
 
 /**
  *
@@ -5072,7 +4994,7 @@ export namespace GatewayInfo {
   }
 }
 
-export type HostEnvironment = "EC2" | "HYPER-V" | "OTHER" | "VMWARE";
+export type HostEnvironment = "EC2" | "HYPER-V" | "OTHER" | "VMWARE"
 
 /**
  *
@@ -5880,14 +5802,7 @@ export namespace NotifyWhenUploadedOutput {
   }
 }
 
-export type ObjectACL =
-  | "authenticated-read"
-  | "aws-exec-read"
-  | "bucket-owner-full-control"
-  | "bucket-owner-read"
-  | "private"
-  | "public-read"
-  | "public-read-write";
+export type ObjectACL = "authenticated-read" | "aws-exec-read" | "bucket-owner-full-control" | "bucket-owner-read" | "private" | "public-read" | "public-read-write"
 
 /**
  *
@@ -6349,10 +6264,7 @@ export namespace SMBFileShareInfo {
   }
 }
 
-export type SMBSecurityStrategy =
-  | "ClientSpecified"
-  | "MandatoryEncryption"
-  | "MandatorySigning";
+export type SMBSecurityStrategy = "ClientSpecified" | "MandatoryEncryption" | "MandatorySigning"
 
 /**
  *

@@ -1,20 +1,20 @@
 import {
   MediaStoreClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../MediaStoreClient";
 import {
   GetLifecyclePolicyInput,
-  GetLifecyclePolicyOutput
+  GetLifecyclePolicyOutput,
 } from "../models/index";
 import {
   deserializeAws_json1_1GetLifecyclePolicyCommand,
-  serializeAws_json1_1GetLifecyclePolicyCommand
+  serializeAws_json1_1GetLifecyclePolicyCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type GetLifecyclePolicyCommandInput = GetLifecyclePolicyInput;
 export type GetLifecyclePolicyCommandOutput = GetLifecyclePolicyOutput;
 
-export class GetLifecyclePolicyCommand extends $Command<
-  GetLifecyclePolicyCommandInput,
-  GetLifecyclePolicyCommandOutput,
-  MediaStoreClientResolvedConfig
-> {
+export class GetLifecyclePolicyCommand extends $Command<GetLifecyclePolicyCommandInput, GetLifecyclePolicyCommandOutput, MediaStoreClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,15 +44,13 @@ export class GetLifecyclePolicyCommand extends $Command<
     configuration: MediaStoreClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetLifecyclePolicyCommandInput, GetLifecyclePolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

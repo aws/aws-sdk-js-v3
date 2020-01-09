@@ -1,17 +1,20 @@
 import {
   LightsailClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../LightsailClient";
-import { GetInstancesRequest, GetInstancesResult } from "../models/index";
+import {
+  GetInstancesRequest,
+  GetInstancesResult,
+} from "../models/index";
 import {
   deserializeAws_json1_1GetInstancesCommand,
-  serializeAws_json1_1GetInstancesCommand
+  serializeAws_json1_1GetInstancesCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type GetInstancesCommandInput = GetInstancesRequest;
 export type GetInstancesCommandOutput = GetInstancesResult;
 
-export class GetInstancesCommand extends $Command<
-  GetInstancesCommandInput,
-  GetInstancesCommandOutput,
-  LightsailClientResolvedConfig
-> {
+export class GetInstancesCommand extends $Command<GetInstancesCommandInput, GetInstancesCommandOutput, LightsailClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class GetInstancesCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetInstancesCommandInput, GetInstancesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -34,9 +34,7 @@ export namespace ActiveDirectoryBackupAttributes {
  *         <p>An Active Directory error.</p>
  *
  */
-export interface ActiveDirectoryError
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ActiveDirectoryError extends _smithy.SmithyException, $MetadataBearer {
   __type: "ActiveDirectoryError";
   $fault: "client";
   /**
@@ -71,7 +69,7 @@ export enum ActiveDirectoryErrorType {
   DOMAIN_NOT_FOUND = "DOMAIN_NOT_FOUND",
   INCOMPATIBLE_DOMAIN_MODE = "INCOMPATIBLE_DOMAIN_MODE",
   INVALID_DOMAIN_STAGE = "INVALID_DOMAIN_STAGE",
-  WRONG_VPC = "WRONG_VPC"
+  WRONG_VPC = "WRONG_VPC",
 }
 
 /**
@@ -196,9 +194,7 @@ export namespace BackupFailureDetails {
  *             additional backups of this file system.</p>
  *
  */
-export interface BackupInProgress
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BackupInProgress extends _smithy.SmithyException, $MetadataBearer {
   __type: "BackupInProgress";
   $fault: "client";
   /**
@@ -219,7 +215,7 @@ export enum BackupLifecycle {
   AVAILABLE = "AVAILABLE",
   CREATING = "CREATING",
   DELETED = "DELETED",
-  FAILED = "FAILED"
+  FAILED = "FAILED",
 }
 
 /**
@@ -227,9 +223,7 @@ export enum BackupLifecycle {
  *         <p>No Amazon FSx backups were found based upon the supplied parameters.</p>
  *
  */
-export interface BackupNotFound
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BackupNotFound extends _smithy.SmithyException, $MetadataBearer {
   __type: "BackupNotFound";
   $fault: "client";
   /**
@@ -252,9 +246,7 @@ export namespace BackupNotFound {
  *             system.</p>
  *
  */
-export interface BackupRestoring
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BackupRestoring extends _smithy.SmithyException, $MetadataBearer {
   __type: "BackupRestoring";
   $fault: "client";
   /**
@@ -280,7 +272,7 @@ export namespace BackupRestoring {
 
 export enum BackupType {
   AUTOMATIC = "AUTOMATIC",
-  USER_INITIATED = "USER_INITIATED"
+  USER_INITIATED = "USER_INITIATED",
 }
 
 /**
@@ -1333,12 +1325,12 @@ export enum FileSystemLifecycle {
   DELETING = "DELETING",
   FAILED = "FAILED",
   MISCONFIGURED = "MISCONFIGURED",
-  UPDATING = "UPDATING"
+  UPDATING = "UPDATING",
 }
 
 export enum FileSystemMaintenanceOperation {
   BACKING_UP = "BACKING_UP",
-  PATCHING = "PATCHING"
+  PATCHING = "PATCHING",
 }
 
 /**
@@ -1346,9 +1338,7 @@ export enum FileSystemMaintenanceOperation {
  *         <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
  *
  */
-export interface FileSystemNotFound
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface FileSystemNotFound extends _smithy.SmithyException, $MetadataBearer {
   __type: "FileSystemNotFound";
   $fault: "client";
   /**
@@ -1367,7 +1357,7 @@ export namespace FileSystemNotFound {
 
 export enum FileSystemType {
   LUSTRE = "LUSTRE",
-  WINDOWS = "WINDOWS"
+  WINDOWS = "WINDOWS",
 }
 
 /**
@@ -1402,7 +1392,7 @@ export namespace Filter {
 
 export enum FilterName {
   BACKUP_TYPE = "backup-type",
-  FILE_SYSTEM_ID = "file-system-id"
+  FILE_SYSTEM_ID = "file-system-id",
 }
 
 /**
@@ -1412,9 +1402,7 @@ export enum FilterName {
  *             identify a single request.</p>
  *
  */
-export interface IncompatibleParameterError
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface IncompatibleParameterError extends _smithy.SmithyException, $MetadataBearer {
   __type: "IncompatibleParameterError";
   $fault: "client";
   /**
@@ -1443,9 +1431,7 @@ export namespace IncompatibleParameterError {
  *         <p>A generic error indicating a server-side failure.</p>
  *
  */
-export interface InternalServerError
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerError extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerError";
   $fault: "server";
   /**
@@ -1467,9 +1453,7 @@ export namespace InternalServerError {
  *         <p>The path provided for data repository export isn't valid.</p>
  *
  */
-export interface InvalidExportPath
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidExportPath extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidExportPath";
   $fault: "client";
   /**
@@ -1491,9 +1475,7 @@ export namespace InvalidExportPath {
  *         <p>The path provided for data repository import isn't valid.</p>
  *
  */
-export interface InvalidImportPath
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidImportPath extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidImportPath";
   $fault: "client";
   /**
@@ -1520,9 +1502,7 @@ export namespace InvalidImportPath {
  *             that are either invalid or not part of the VPC specified.</p>
  *
  */
-export interface InvalidNetworkSettings
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidNetworkSettings extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidNetworkSettings";
   $fault: "client";
   /**
@@ -1664,9 +1644,7 @@ export namespace LustreFileSystemConfiguration {
  *         <p>File system configuration is required for this operation.</p>
  *
  */
-export interface MissingFileSystemConfiguration
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MissingFileSystemConfiguration extends _smithy.SmithyException, $MetadataBearer {
   __type: "MissingFileSystemConfiguration";
   $fault: "client";
   /**
@@ -1689,9 +1667,7 @@ export namespace MissingFileSystemConfiguration {
  *             Amazon FSx. Use the API of the relevant service to perform the operation. </p>
  *
  */
-export interface NotServiceResourceError
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotServiceResourceError extends _smithy.SmithyException, $MetadataBearer {
   __type: "NotServiceResourceError";
   $fault: "client";
   /**
@@ -1720,9 +1696,7 @@ export namespace NotServiceResourceError {
  *         <p>The resource specified does not support tagging. </p>
  *
  */
-export interface ResourceDoesNotSupportTagging
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceDoesNotSupportTagging extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceDoesNotSupportTagging";
   $fault: "client";
   /**
@@ -1752,9 +1726,7 @@ export namespace ResourceDoesNotSupportTagging {
  *         <p>The resource specified by the Amazon Resource Name (ARN) can't be found.</p>
  *
  */
-export interface ResourceNotFound
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFound extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFound";
   $fault: "client";
   /**
@@ -1959,9 +1931,7 @@ export interface SelfManagedActiveDirectoryConfigurationUpdates {
 }
 
 export namespace SelfManagedActiveDirectoryConfigurationUpdates {
-  export function isa(
-    o: any
-  ): o is SelfManagedActiveDirectoryConfigurationUpdates {
+  export function isa(o: any): o is SelfManagedActiveDirectoryConfigurationUpdates {
     return _smithy.isa(o, "SelfManagedActiveDirectoryConfigurationUpdates");
   }
 }
@@ -1970,7 +1940,7 @@ export enum ServiceLimit {
   FILE_SYSTEM_COUNT = "FILE_SYSTEM_COUNT",
   TOTAL_STORAGE = "TOTAL_STORAGE",
   TOTAL_THROUGHPUT_CAPACITY = "TOTAL_THROUGHPUT_CAPACITY",
-  TOTAL_USER_INITIATED_BACKUPS = "TOTAL_USER_INITIATED_BACKUPS"
+  TOTAL_USER_INITIATED_BACKUPS = "TOTAL_USER_INITIATED_BACKUPS",
 }
 
 /**
@@ -1980,9 +1950,7 @@ export enum ServiceLimit {
  *             </p>
  *
  */
-export interface ServiceLimitExceeded
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceLimitExceeded extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceLimitExceeded";
   $fault: "client";
   /**
@@ -2088,9 +2056,7 @@ export namespace TagResourceResponse {
  *         <p>An error occured.</p>
  *
  */
-export interface UnsupportedOperation
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnsupportedOperation extends _smithy.SmithyException, $MetadataBearer {
   __type: "UnsupportedOperation";
   $fault: "client";
   /**
@@ -2289,7 +2255,7 @@ export namespace UpdateFileSystemWindowsConfiguration {
 
 export enum WindowsDeploymentType {
   MULTI_AZ_1 = "MULTI_AZ_1",
-  SINGLE_AZ_1 = "SINGLE_AZ_1"
+  SINGLE_AZ_1 = "SINGLE_AZ_1",
 }
 
 /**
@@ -2356,9 +2322,7 @@ export interface WindowsFileSystemConfiguration {
    *         <p>The list of maintenance operations in progress for this file system.</p>
    *
    */
-  MaintenanceOperationsInProgress?: Array<
-    FileSystemMaintenanceOperation | string
-  >;
+  MaintenanceOperationsInProgress?: Array<FileSystemMaintenanceOperation | string>;
 
   /**
    *

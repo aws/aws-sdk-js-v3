@@ -1,20 +1,20 @@
 import {
   EMRClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../EMRClient";
 import {
   RemoveAutoScalingPolicyInput,
-  RemoveAutoScalingPolicyOutput
+  RemoveAutoScalingPolicyOutput,
 } from "../models/index";
 import {
   deserializeAws_json1_1RemoveAutoScalingPolicyCommand,
-  serializeAws_json1_1RemoveAutoScalingPolicyCommand
+  serializeAws_json1_1RemoveAutoScalingPolicyCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type RemoveAutoScalingPolicyCommandInput = RemoveAutoScalingPolicyInput;
 export type RemoveAutoScalingPolicyCommandOutput = RemoveAutoScalingPolicyOutput;
 
-export class RemoveAutoScalingPolicyCommand extends $Command<
-  RemoveAutoScalingPolicyCommandInput,
-  RemoveAutoScalingPolicyCommandOutput,
-  EMRClientResolvedConfig
-> {
+export class RemoveAutoScalingPolicyCommand extends $Command<RemoveAutoScalingPolicyCommandInput, RemoveAutoScalingPolicyCommandOutput, EMRClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class RemoveAutoScalingPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EMRClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RemoveAutoScalingPolicyCommandInput,
-    RemoveAutoScalingPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RemoveAutoScalingPolicyCommandInput, RemoveAutoScalingPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -79,10 +70,7 @@ export class RemoveAutoScalingPolicyCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<RemoveAutoScalingPolicyCommandOutput> {
-    return deserializeAws_json1_1RemoveAutoScalingPolicyCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RemoveAutoScalingPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

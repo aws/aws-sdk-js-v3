@@ -1,26 +1,26 @@
 import {
   DescribeAffectedEntitiesCommandInput,
-  DescribeAffectedEntitiesCommandOutput
+  DescribeAffectedEntitiesCommandOutput,
 } from "../commands/DescribeAffectedEntitiesCommand";
 import {
   DescribeEntityAggregatesCommandInput,
-  DescribeEntityAggregatesCommandOutput
+  DescribeEntityAggregatesCommandOutput,
 } from "../commands/DescribeEntityAggregatesCommand";
 import {
   DescribeEventAggregatesCommandInput,
-  DescribeEventAggregatesCommandOutput
+  DescribeEventAggregatesCommandOutput,
 } from "../commands/DescribeEventAggregatesCommand";
 import {
   DescribeEventDetailsCommandInput,
-  DescribeEventDetailsCommandOutput
+  DescribeEventDetailsCommandOutput,
 } from "../commands/DescribeEventDetailsCommand";
 import {
   DescribeEventTypesCommandInput,
-  DescribeEventTypesCommandOutput
+  DescribeEventTypesCommandOutput,
 } from "../commands/DescribeEventTypesCommand";
 import {
   DescribeEventsCommandInput,
-  DescribeEventsCommandOutput
+  DescribeEventsCommandOutput,
 } from "../commands/DescribeEventsCommand";
 import {
   AffectedEntity,
@@ -51,18 +51,18 @@ import {
   EventTypeCategory,
   EventTypeFilter,
   InvalidPaginationToken,
-  UnsupportedLocale
+  UnsupportedLocale,
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export async function serializeAws_json1_1DescribeAffectedEntitiesCommand(
@@ -70,14 +70,11 @@ export async function serializeAws_json1_1DescribeAffectedEntitiesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeAffectedEntities";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSHealth_20160804.DescribeAffectedEntities";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeAffectedEntitiesRequest: serializeAws_json1_1DescribeAffectedEntitiesRequest(
-      input,
-      context
-    )
+    DescribeAffectedEntitiesRequest: serializeAws_json1_1DescribeAffectedEntitiesRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -86,7 +83,7 @@ export async function serializeAws_json1_1DescribeAffectedEntitiesCommand(
     method: "POST",
     path: "/DescribeAffectedEntities",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -95,14 +92,11 @@ export async function serializeAws_json1_1DescribeEntityAggregatesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEntityAggregates";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSHealth_20160804.DescribeEntityAggregates";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeEntityAggregatesRequest: serializeAws_json1_1DescribeEntityAggregatesRequest(
-      input,
-      context
-    )
+    DescribeEntityAggregatesRequest: serializeAws_json1_1DescribeEntityAggregatesRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -111,7 +105,7 @@ export async function serializeAws_json1_1DescribeEntityAggregatesCommand(
     method: "POST",
     path: "/DescribeEntityAggregates",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -120,14 +114,11 @@ export async function serializeAws_json1_1DescribeEventAggregatesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEventAggregates";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSHealth_20160804.DescribeEventAggregates";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeEventAggregatesRequest: serializeAws_json1_1DescribeEventAggregatesRequest(
-      input,
-      context
-    )
+    DescribeEventAggregatesRequest: serializeAws_json1_1DescribeEventAggregatesRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -136,7 +127,7 @@ export async function serializeAws_json1_1DescribeEventAggregatesCommand(
     method: "POST",
     path: "/DescribeEventAggregates",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -145,14 +136,11 @@ export async function serializeAws_json1_1DescribeEventDetailsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEventDetails";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSHealth_20160804.DescribeEventDetails";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeEventDetailsRequest: serializeAws_json1_1DescribeEventDetailsRequest(
-      input,
-      context
-    )
+    DescribeEventDetailsRequest: serializeAws_json1_1DescribeEventDetailsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -161,7 +149,7 @@ export async function serializeAws_json1_1DescribeEventDetailsCommand(
     method: "POST",
     path: "/DescribeEventDetails",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -170,14 +158,11 @@ export async function serializeAws_json1_1DescribeEventTypesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEventTypes";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSHealth_20160804.DescribeEventTypes";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeEventTypesRequest: serializeAws_json1_1DescribeEventTypesRequest(
-      input,
-      context
-    )
+    DescribeEventTypesRequest: serializeAws_json1_1DescribeEventTypesRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -186,7 +171,7 @@ export async function serializeAws_json1_1DescribeEventTypesCommand(
     method: "POST",
     path: "/DescribeEventTypes",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -195,14 +180,11 @@ export async function serializeAws_json1_1DescribeEventsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSHealth_20160804.DescribeEvents";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSHealth_20160804.DescribeEvents";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeEventsRequest: serializeAws_json1_1DescribeEventsRequest(
-      input,
-      context
-    )
+    DescribeEventsRequest: serializeAws_json1_1DescribeEventsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -211,7 +193,7 @@ export async function serializeAws_json1_1DescribeEventsCommand(
     method: "POST",
     path: "/DescribeEvents",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -220,60 +202,47 @@ export async function deserializeAws_json1_1DescribeAffectedEntitiesCommand(
   context: __SerdeContext
 ): Promise<DescribeAffectedEntitiesCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeAffectedEntitiesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeAffectedEntitiesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAffectedEntitiesResponse(
-    data.DescribeAffectedEntitiesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeAffectedEntitiesResponse(data, context);
   const response: DescribeAffectedEntitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeAffectedEntitiesResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeAffectedEntitiesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeAffectedEntitiesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidPaginationToken":
     case "com.amazonaws.silvermineunifiedapi.v20160804.error#InvalidPaginationToken":
-      response = await deserializeAws_json1_1InvalidPaginationTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidPaginationTokenResponse(parsedOutput, context);
       break;
     case "UnsupportedLocale":
     case "com.amazonaws.silvermineunifiedapi.v20160804.error#UnsupportedLocale":
-      response = await deserializeAws_json1_1UnsupportedLocaleResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnsupportedLocaleResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -284,42 +253,35 @@ export async function deserializeAws_json1_1DescribeEntityAggregatesCommand(
   context: __SerdeContext
 ): Promise<DescribeEntityAggregatesCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeEntityAggregatesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeEntityAggregatesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEntityAggregatesResponse(
-    data.DescribeEntityAggregatesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeEntityAggregatesResponse(data, context);
   const response: DescribeEntityAggregatesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeEntityAggregatesResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeEntityAggregatesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeEntityAggregatesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -330,53 +292,43 @@ export async function deserializeAws_json1_1DescribeEventAggregatesCommand(
   context: __SerdeContext
 ): Promise<DescribeEventAggregatesCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeEventAggregatesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeEventAggregatesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEventAggregatesResponse(
-    data.DescribeEventAggregatesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeEventAggregatesResponse(data, context);
   const response: DescribeEventAggregatesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeEventAggregatesResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeEventAggregatesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeEventAggregatesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidPaginationToken":
     case "com.amazonaws.silvermineunifiedapi.v20160804.error#InvalidPaginationToken":
-      response = await deserializeAws_json1_1InvalidPaginationTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidPaginationTokenResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -387,53 +339,43 @@ export async function deserializeAws_json1_1DescribeEventDetailsCommand(
   context: __SerdeContext
 ): Promise<DescribeEventDetailsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeEventDetailsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeEventDetailsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEventDetailsResponse(
-    data.DescribeEventDetailsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeEventDetailsResponse(data, context);
   const response: DescribeEventDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeEventDetailsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeEventDetailsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeEventDetailsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "UnsupportedLocale":
     case "com.amazonaws.silvermineunifiedapi.v20160804.error#UnsupportedLocale":
-      response = await deserializeAws_json1_1UnsupportedLocaleResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnsupportedLocaleResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -444,60 +386,47 @@ export async function deserializeAws_json1_1DescribeEventTypesCommand(
   context: __SerdeContext
 ): Promise<DescribeEventTypesCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeEventTypesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeEventTypesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEventTypesResponse(
-    data.DescribeEventTypesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeEventTypesResponse(data, context);
   const response: DescribeEventTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeEventTypesResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeEventTypesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeEventTypesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidPaginationToken":
     case "com.amazonaws.silvermineunifiedapi.v20160804.error#InvalidPaginationToken":
-      response = await deserializeAws_json1_1InvalidPaginationTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidPaginationTokenResponse(parsedOutput, context);
       break;
     case "UnsupportedLocale":
     case "com.amazonaws.silvermineunifiedapi.v20160804.error#UnsupportedLocale":
-      response = await deserializeAws_json1_1UnsupportedLocaleResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnsupportedLocaleResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -510,55 +439,45 @@ export async function deserializeAws_json1_1DescribeEventsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeEventsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEventsResponse(
-    data.DescribeEventsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeEventsResponse(data, context);
   const response: DescribeEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeEventsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeEventsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeEventsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidPaginationToken":
     case "com.amazonaws.silvermineunifiedapi.v20160804.error#InvalidPaginationToken":
-      response = await deserializeAws_json1_1InvalidPaginationTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidPaginationTokenResponse(parsedOutput, context);
       break;
     case "UnsupportedLocale":
     case "com.amazonaws.silvermineunifiedapi.v20160804.error#UnsupportedLocale":
-      response = await deserializeAws_json1_1UnsupportedLocaleResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnsupportedLocaleResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -568,15 +487,12 @@ const deserializeAws_json1_1InvalidPaginationTokenResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidPaginationToken> => {
-  const deserialized: any = deserializeAws_json1_1InvalidPaginationToken(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidPaginationToken(output.body, context);
   const contents: InvalidPaginationToken = {
     __type: "InvalidPaginationToken",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -585,15 +501,12 @@ const deserializeAws_json1_1UnsupportedLocaleResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<UnsupportedLocale> => {
-  const deserialized: any = deserializeAws_json1_1UnsupportedLocale(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1UnsupportedLocale(output.body, context);
   const contents: UnsupportedLocale = {
     __type: "UnsupportedLocale",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -602,78 +515,100 @@ const serializeAws_json1_1availabilityZones = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1entityArnList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1entityStatusCodeList = (
   input: Array<EntityStatusCode | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1entityValueList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1eventArnList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1eventStatusCodeList = (
   input: Array<EventStatusCode | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1eventTypeCategoryList = (
   input: Array<EventTypeCategory | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1eventTypeList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1regionList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1serviceList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1tagFilter = (
   input: Array<{ [key: string]: string }>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1tagSet(entry, context));
-};
+  return (input || []).map(entry =>
+    serializeAws_json1_1tagSet(entry, context)
+  );
+}
 
 const serializeAws_json1_1tagSet = (
   input: { [key: string]: string },
@@ -684,7 +619,7 @@ const serializeAws_json1_1tagSet = (
     mapParams[key] = input[key];
   });
   return mapParams;
-};
+}
 
 const serializeAws_json1_1DescribeAffectedEntitiesRequest = (
   input: DescribeAffectedEntitiesRequest,
@@ -692,22 +627,19 @@ const serializeAws_json1_1DescribeAffectedEntitiesRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.filter !== undefined) {
-    bodyParams["filter"] = serializeAws_json1_1EntityFilter(
-      input.filter,
-      context
-    );
+    bodyParams['filter'] = serializeAws_json1_1EntityFilter(input.filter, context);
   }
   if (input.locale !== undefined) {
-    bodyParams["locale"] = input.locale;
+    bodyParams['locale'] = input.locale;
   }
   if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
+    bodyParams['maxResults'] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
+    bodyParams['nextToken'] = input.nextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeEntityAggregatesRequest = (
   input: DescribeEntityAggregatesRequest,
@@ -715,13 +647,10 @@ const serializeAws_json1_1DescribeEntityAggregatesRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.eventArns !== undefined) {
-    bodyParams["eventArns"] = serializeAws_json1_1EventArnsList(
-      input.eventArns,
-      context
-    );
+    bodyParams['eventArns'] = serializeAws_json1_1EventArnsList(input.eventArns, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeEventAggregatesRequest = (
   input: DescribeEventAggregatesRequest,
@@ -729,22 +658,19 @@ const serializeAws_json1_1DescribeEventAggregatesRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.aggregateField !== undefined) {
-    bodyParams["aggregateField"] = input.aggregateField;
+    bodyParams['aggregateField'] = input.aggregateField;
   }
   if (input.filter !== undefined) {
-    bodyParams["filter"] = serializeAws_json1_1EventFilter(
-      input.filter,
-      context
-    );
+    bodyParams['filter'] = serializeAws_json1_1EventFilter(input.filter, context);
   }
   if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
+    bodyParams['maxResults'] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
+    bodyParams['nextToken'] = input.nextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeEventDetailsRequest = (
   input: DescribeEventDetailsRequest,
@@ -752,16 +678,13 @@ const serializeAws_json1_1DescribeEventDetailsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.eventArns !== undefined) {
-    bodyParams["eventArns"] = serializeAws_json1_1eventArnList(
-      input.eventArns,
-      context
-    );
+    bodyParams['eventArns'] = serializeAws_json1_1eventArnList(input.eventArns, context);
   }
   if (input.locale !== undefined) {
-    bodyParams["locale"] = input.locale;
+    bodyParams['locale'] = input.locale;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeEventTypesRequest = (
   input: DescribeEventTypesRequest,
@@ -769,22 +692,19 @@ const serializeAws_json1_1DescribeEventTypesRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.filter !== undefined) {
-    bodyParams["filter"] = serializeAws_json1_1EventTypeFilter(
-      input.filter,
-      context
-    );
+    bodyParams['filter'] = serializeAws_json1_1EventTypeFilter(input.filter, context);
   }
   if (input.locale !== undefined) {
-    bodyParams["locale"] = input.locale;
+    bodyParams['locale'] = input.locale;
   }
   if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
+    bodyParams['maxResults'] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
+    bodyParams['nextToken'] = input.nextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeEventsRequest = (
   input: DescribeEventsRequest,
@@ -792,29 +712,28 @@ const serializeAws_json1_1DescribeEventsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.filter !== undefined) {
-    bodyParams["filter"] = serializeAws_json1_1EventFilter(
-      input.filter,
-      context
-    );
+    bodyParams['filter'] = serializeAws_json1_1EventFilter(input.filter, context);
   }
   if (input.locale !== undefined) {
-    bodyParams["locale"] = input.locale;
+    bodyParams['locale'] = input.locale;
   }
   if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
+    bodyParams['maxResults'] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
+    bodyParams['nextToken'] = input.nextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1EventArnsList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1DateTimeRange = (
   input: DateTimeRange,
@@ -822,13 +741,13 @@ const serializeAws_json1_1DateTimeRange = (
 ): any => {
   let bodyParams: any = {};
   if (input.from !== undefined) {
-    bodyParams["from"] = Math.round(input.from.getTime() / 1000);
+    bodyParams['from'] = Math.round(input.from.getTime() / 1000);
   }
   if (input.to !== undefined) {
-    bodyParams["to"] = Math.round(input.to.getTime() / 1000);
+    bodyParams['to'] = Math.round(input.to.getTime() / 1000);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1EntityFilter = (
   input: EntityFilter,
@@ -836,40 +755,25 @@ const serializeAws_json1_1EntityFilter = (
 ): any => {
   let bodyParams: any = {};
   if (input.entityArns !== undefined) {
-    bodyParams["entityArns"] = serializeAws_json1_1entityArnList(
-      input.entityArns,
-      context
-    );
+    bodyParams['entityArns'] = serializeAws_json1_1entityArnList(input.entityArns, context);
   }
   if (input.entityValues !== undefined) {
-    bodyParams["entityValues"] = serializeAws_json1_1entityValueList(
-      input.entityValues,
-      context
-    );
+    bodyParams['entityValues'] = serializeAws_json1_1entityValueList(input.entityValues, context);
   }
   if (input.eventArns !== undefined) {
-    bodyParams["eventArns"] = serializeAws_json1_1eventArnList(
-      input.eventArns,
-      context
-    );
+    bodyParams['eventArns'] = serializeAws_json1_1eventArnList(input.eventArns, context);
   }
   if (input.lastUpdatedTimes !== undefined) {
-    bodyParams["lastUpdatedTimes"] = serializeAws_json1_1dateTimeRangeList(
-      input.lastUpdatedTimes,
-      context
-    );
+    bodyParams['lastUpdatedTimes'] = serializeAws_json1_1dateTimeRangeList(input.lastUpdatedTimes, context);
   }
   if (input.statusCodes !== undefined) {
-    bodyParams["statusCodes"] = serializeAws_json1_1entityStatusCodeList(
-      input.statusCodes,
-      context
-    );
+    bodyParams['statusCodes'] = serializeAws_json1_1entityStatusCodeList(input.statusCodes, context);
   }
   if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_json1_1tagFilter(input.tags, context);
+    bodyParams['tags'] = serializeAws_json1_1tagFilter(input.tags, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1EventFilter = (
   input: EventFilter,
@@ -877,98 +781,64 @@ const serializeAws_json1_1EventFilter = (
 ): any => {
   let bodyParams: any = {};
   if (input.availabilityZones !== undefined) {
-    bodyParams["availabilityZones"] = serializeAws_json1_1availabilityZones(
-      input.availabilityZones,
-      context
-    );
+    bodyParams['availabilityZones'] = serializeAws_json1_1availabilityZones(input.availabilityZones, context);
   }
   if (input.endTimes !== undefined) {
-    bodyParams["endTimes"] = serializeAws_json1_1dateTimeRangeList(
-      input.endTimes,
-      context
-    );
+    bodyParams['endTimes'] = serializeAws_json1_1dateTimeRangeList(input.endTimes, context);
   }
   if (input.entityArns !== undefined) {
-    bodyParams["entityArns"] = serializeAws_json1_1entityArnList(
-      input.entityArns,
-      context
-    );
+    bodyParams['entityArns'] = serializeAws_json1_1entityArnList(input.entityArns, context);
   }
   if (input.entityValues !== undefined) {
-    bodyParams["entityValues"] = serializeAws_json1_1entityValueList(
-      input.entityValues,
-      context
-    );
+    bodyParams['entityValues'] = serializeAws_json1_1entityValueList(input.entityValues, context);
   }
   if (input.eventArns !== undefined) {
-    bodyParams["eventArns"] = serializeAws_json1_1eventArnList(
-      input.eventArns,
-      context
-    );
+    bodyParams['eventArns'] = serializeAws_json1_1eventArnList(input.eventArns, context);
   }
   if (input.eventStatusCodes !== undefined) {
-    bodyParams["eventStatusCodes"] = serializeAws_json1_1eventStatusCodeList(
-      input.eventStatusCodes,
-      context
-    );
+    bodyParams['eventStatusCodes'] = serializeAws_json1_1eventStatusCodeList(input.eventStatusCodes, context);
   }
   if (input.eventTypeCategories !== undefined) {
-    bodyParams[
-      "eventTypeCategories"
-    ] = serializeAws_json1_1eventTypeCategoryList(
-      input.eventTypeCategories,
-      context
-    );
+    bodyParams['eventTypeCategories'] = serializeAws_json1_1eventTypeCategoryList(input.eventTypeCategories, context);
   }
   if (input.eventTypeCodes !== undefined) {
-    bodyParams["eventTypeCodes"] = serializeAws_json1_1eventTypeList(
-      input.eventTypeCodes,
-      context
-    );
+    bodyParams['eventTypeCodes'] = serializeAws_json1_1eventTypeList(input.eventTypeCodes, context);
   }
   if (input.lastUpdatedTimes !== undefined) {
-    bodyParams["lastUpdatedTimes"] = serializeAws_json1_1dateTimeRangeList(
-      input.lastUpdatedTimes,
-      context
-    );
+    bodyParams['lastUpdatedTimes'] = serializeAws_json1_1dateTimeRangeList(input.lastUpdatedTimes, context);
   }
   if (input.regions !== undefined) {
-    bodyParams["regions"] = serializeAws_json1_1regionList(
-      input.regions,
-      context
-    );
+    bodyParams['regions'] = serializeAws_json1_1regionList(input.regions, context);
   }
   if (input.services !== undefined) {
-    bodyParams["services"] = serializeAws_json1_1serviceList(
-      input.services,
-      context
-    );
+    bodyParams['services'] = serializeAws_json1_1serviceList(input.services, context);
   }
   if (input.startTimes !== undefined) {
-    bodyParams["startTimes"] = serializeAws_json1_1dateTimeRangeList(
-      input.startTimes,
-      context
-    );
+    bodyParams['startTimes'] = serializeAws_json1_1dateTimeRangeList(input.startTimes, context);
   }
   if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_json1_1tagFilter(input.tags, context);
+    bodyParams['tags'] = serializeAws_json1_1tagFilter(input.tags, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1EventTypeCategoryList = (
   input: Array<EventTypeCategory | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1EventTypeCodeList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1EventTypeFilter = (
   input: EventTypeFilter,
@@ -976,27 +846,16 @@ const serializeAws_json1_1EventTypeFilter = (
 ): any => {
   let bodyParams: any = {};
   if (input.eventTypeCategories !== undefined) {
-    bodyParams[
-      "eventTypeCategories"
-    ] = serializeAws_json1_1EventTypeCategoryList(
-      input.eventTypeCategories,
-      context
-    );
+    bodyParams['eventTypeCategories'] = serializeAws_json1_1EventTypeCategoryList(input.eventTypeCategories, context);
   }
   if (input.eventTypeCodes !== undefined) {
-    bodyParams["eventTypeCodes"] = serializeAws_json1_1EventTypeCodeList(
-      input.eventTypeCodes,
-      context
-    );
+    bodyParams['eventTypeCodes'] = serializeAws_json1_1EventTypeCodeList(input.eventTypeCodes, context);
   }
   if (input.services !== undefined) {
-    bodyParams["services"] = serializeAws_json1_1serviceList(
-      input.services,
-      context
-    );
+    bodyParams['services'] = serializeAws_json1_1serviceList(input.services, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1dateTimeRangeList = (
   input: Array<DateTimeRange>,
@@ -1005,7 +864,7 @@ const serializeAws_json1_1dateTimeRangeList = (
   return (input || []).map(entry =>
     serializeAws_json1_1DateTimeRange(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1eventMetadata = (
   output: any,
@@ -1016,7 +875,7 @@ const deserializeAws_json1_1eventMetadata = (
     mapParams[key] = output[key];
   });
   return mapParams;
-};
+}
 
 const deserializeAws_json1_1tagSet = (
   output: any,
@@ -1027,7 +886,7 @@ const deserializeAws_json1_1tagSet = (
     mapParams[key] = output[key];
   });
   return mapParams;
-};
+}
 
 const deserializeAws_json1_1InvalidPaginationToken = (
   output: any,
@@ -1035,13 +894,13 @@ const deserializeAws_json1_1InvalidPaginationToken = (
 ): InvalidPaginationToken => {
   let contents: any = {
     __type: "InvalidPaginationToken",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UnsupportedLocale = (
   output: any,
@@ -1049,13 +908,13 @@ const deserializeAws_json1_1UnsupportedLocale = (
 ): UnsupportedLocale => {
   let contents: any = {
     __type: "UnsupportedLocale",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeAffectedEntitiesResponse = (
   output: any,
@@ -1064,19 +923,16 @@ const deserializeAws_json1_1DescribeAffectedEntitiesResponse = (
   let contents: any = {
     __type: "DescribeAffectedEntitiesResponse",
     entities: undefined,
-    nextToken: undefined
+    nextToken: undefined,
   };
   if (output.entities !== undefined) {
-    contents.entities = deserializeAws_json1_1EntityList(
-      output.entities,
-      context
-    );
+    contents.entities = deserializeAws_json1_1EntityList(output.entities, context);
   }
   if (output.nextToken !== undefined) {
     contents.nextToken = output.nextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeEntityAggregatesResponse = (
   output: any,
@@ -1084,16 +940,13 @@ const deserializeAws_json1_1DescribeEntityAggregatesResponse = (
 ): DescribeEntityAggregatesResponse => {
   let contents: any = {
     __type: "DescribeEntityAggregatesResponse",
-    entityAggregates: undefined
+    entityAggregates: undefined,
   };
   if (output.entityAggregates !== undefined) {
-    contents.entityAggregates = deserializeAws_json1_1EntityAggregateList(
-      output.entityAggregates,
-      context
-    );
+    contents.entityAggregates = deserializeAws_json1_1EntityAggregateList(output.entityAggregates, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeEventAggregatesResponse = (
   output: any,
@@ -1102,19 +955,16 @@ const deserializeAws_json1_1DescribeEventAggregatesResponse = (
   let contents: any = {
     __type: "DescribeEventAggregatesResponse",
     eventAggregates: undefined,
-    nextToken: undefined
+    nextToken: undefined,
   };
   if (output.eventAggregates !== undefined) {
-    contents.eventAggregates = deserializeAws_json1_1EventAggregateList(
-      output.eventAggregates,
-      context
-    );
+    contents.eventAggregates = deserializeAws_json1_1EventAggregateList(output.eventAggregates, context);
   }
   if (output.nextToken !== undefined) {
     contents.nextToken = output.nextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeEventDetailsFailedSet = (
   output: any,
@@ -1123,7 +973,7 @@ const deserializeAws_json1_1DescribeEventDetailsFailedSet = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EventDetailsErrorItem(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1DescribeEventDetailsResponse = (
   output: any,
@@ -1132,22 +982,16 @@ const deserializeAws_json1_1DescribeEventDetailsResponse = (
   let contents: any = {
     __type: "DescribeEventDetailsResponse",
     failedSet: undefined,
-    successfulSet: undefined
+    successfulSet: undefined,
   };
   if (output.failedSet !== undefined) {
-    contents.failedSet = deserializeAws_json1_1DescribeEventDetailsFailedSet(
-      output.failedSet,
-      context
-    );
+    contents.failedSet = deserializeAws_json1_1DescribeEventDetailsFailedSet(output.failedSet, context);
   }
   if (output.successfulSet !== undefined) {
-    contents.successfulSet = deserializeAws_json1_1DescribeEventDetailsSuccessfulSet(
-      output.successfulSet,
-      context
-    );
+    contents.successfulSet = deserializeAws_json1_1DescribeEventDetailsSuccessfulSet(output.successfulSet, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeEventDetailsSuccessfulSet = (
   output: any,
@@ -1156,7 +1000,7 @@ const deserializeAws_json1_1DescribeEventDetailsSuccessfulSet = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EventDetails(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1DescribeEventTypesResponse = (
   output: any,
@@ -1165,19 +1009,16 @@ const deserializeAws_json1_1DescribeEventTypesResponse = (
   let contents: any = {
     __type: "DescribeEventTypesResponse",
     eventTypes: undefined,
-    nextToken: undefined
+    nextToken: undefined,
   };
   if (output.eventTypes !== undefined) {
-    contents.eventTypes = deserializeAws_json1_1EventTypeList(
-      output.eventTypes,
-      context
-    );
+    contents.eventTypes = deserializeAws_json1_1EventTypeList(output.eventTypes, context);
   }
   if (output.nextToken !== undefined) {
     contents.nextToken = output.nextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeEventsResponse = (
   output: any,
@@ -1186,7 +1027,7 @@ const deserializeAws_json1_1DescribeEventsResponse = (
   let contents: any = {
     __type: "DescribeEventsResponse",
     events: undefined,
-    nextToken: undefined
+    nextToken: undefined,
   };
   if (output.events !== undefined) {
     contents.events = deserializeAws_json1_1EventList(output.events, context);
@@ -1195,7 +1036,7 @@ const deserializeAws_json1_1DescribeEventsResponse = (
     contents.nextToken = output.nextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1EntityAggregateList = (
   output: any,
@@ -1204,7 +1045,7 @@ const deserializeAws_json1_1EntityAggregateList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EntityAggregate(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1EntityList = (
   output: any,
@@ -1213,7 +1054,7 @@ const deserializeAws_json1_1EntityList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AffectedEntity(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1EventAggregateList = (
   output: any,
@@ -1222,7 +1063,7 @@ const deserializeAws_json1_1EventAggregateList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EventAggregate(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1EventList = (
   output: any,
@@ -1231,7 +1072,7 @@ const deserializeAws_json1_1EventList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Event(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1EventTypeList = (
   output: any,
@@ -1240,7 +1081,7 @@ const deserializeAws_json1_1EventTypeList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EventType(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1AffectedEntity = (
   output: any,
@@ -1255,7 +1096,7 @@ const deserializeAws_json1_1AffectedEntity = (
     eventArn: undefined,
     lastUpdatedTime: undefined,
     statusCode: undefined,
-    tags: undefined
+    tags: undefined,
   };
   if (output.awsAccountId !== undefined) {
     contents.awsAccountId = output.awsAccountId;
@@ -1273,11 +1114,7 @@ const deserializeAws_json1_1AffectedEntity = (
     contents.eventArn = output.eventArn;
   }
   if (output.lastUpdatedTime !== undefined) {
-    contents.lastUpdatedTime = new Date(
-      output.lastUpdatedTime % 1 != 0
-        ? Math.round(output.lastUpdatedTime * 1000)
-        : output.lastUpdatedTime
-    );
+    contents.lastUpdatedTime = new Date(output.lastUpdatedTime % 1 != 0 ? Math.round(output.lastUpdatedTime * 1000) : output.lastUpdatedTime);
   }
   if (output.statusCode !== undefined) {
     contents.statusCode = output.statusCode;
@@ -1286,7 +1123,7 @@ const deserializeAws_json1_1AffectedEntity = (
     contents.tags = deserializeAws_json1_1tagSet(output.tags, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1EntityAggregate = (
   output: any,
@@ -1295,7 +1132,7 @@ const deserializeAws_json1_1EntityAggregate = (
   let contents: any = {
     __type: "EntityAggregate",
     count: undefined,
-    eventArn: undefined
+    eventArn: undefined,
   };
   if (output.count !== undefined) {
     contents.count = output.count;
@@ -1304,7 +1141,7 @@ const deserializeAws_json1_1EntityAggregate = (
     contents.eventArn = output.eventArn;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1Event = (
   output: any,
@@ -1321,7 +1158,7 @@ const deserializeAws_json1_1Event = (
     region: undefined,
     service: undefined,
     startTime: undefined,
-    statusCode: undefined
+    statusCode: undefined,
   };
   if (output.arn !== undefined) {
     contents.arn = output.arn;
@@ -1330,11 +1167,7 @@ const deserializeAws_json1_1Event = (
     contents.availabilityZone = output.availabilityZone;
   }
   if (output.endTime !== undefined) {
-    contents.endTime = new Date(
-      output.endTime % 1 != 0
-        ? Math.round(output.endTime * 1000)
-        : output.endTime
-    );
+    contents.endTime = new Date(output.endTime % 1 != 0 ? Math.round(output.endTime * 1000) : output.endTime);
   }
   if (output.eventTypeCategory !== undefined) {
     contents.eventTypeCategory = output.eventTypeCategory;
@@ -1343,11 +1176,7 @@ const deserializeAws_json1_1Event = (
     contents.eventTypeCode = output.eventTypeCode;
   }
   if (output.lastUpdatedTime !== undefined) {
-    contents.lastUpdatedTime = new Date(
-      output.lastUpdatedTime % 1 != 0
-        ? Math.round(output.lastUpdatedTime * 1000)
-        : output.lastUpdatedTime
-    );
+    contents.lastUpdatedTime = new Date(output.lastUpdatedTime % 1 != 0 ? Math.round(output.lastUpdatedTime * 1000) : output.lastUpdatedTime);
   }
   if (output.region !== undefined) {
     contents.region = output.region;
@@ -1356,17 +1185,13 @@ const deserializeAws_json1_1Event = (
     contents.service = output.service;
   }
   if (output.startTime !== undefined) {
-    contents.startTime = new Date(
-      output.startTime % 1 != 0
-        ? Math.round(output.startTime * 1000)
-        : output.startTime
-    );
+    contents.startTime = new Date(output.startTime % 1 != 0 ? Math.round(output.startTime * 1000) : output.startTime);
   }
   if (output.statusCode !== undefined) {
     contents.statusCode = output.statusCode;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1EventAggregate = (
   output: any,
@@ -1375,7 +1200,7 @@ const deserializeAws_json1_1EventAggregate = (
   let contents: any = {
     __type: "EventAggregate",
     aggregateValue: undefined,
-    count: undefined
+    count: undefined,
   };
   if (output.aggregateValue !== undefined) {
     contents.aggregateValue = output.aggregateValue;
@@ -1384,7 +1209,7 @@ const deserializeAws_json1_1EventAggregate = (
     contents.count = output.count;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1EventDescription = (
   output: any,
@@ -1392,13 +1217,13 @@ const deserializeAws_json1_1EventDescription = (
 ): EventDescription => {
   let contents: any = {
     __type: "EventDescription",
-    latestDescription: undefined
+    latestDescription: undefined,
   };
   if (output.latestDescription !== undefined) {
     contents.latestDescription = output.latestDescription;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1EventDetails = (
   output: any,
@@ -1408,25 +1233,19 @@ const deserializeAws_json1_1EventDetails = (
     __type: "EventDetails",
     event: undefined,
     eventDescription: undefined,
-    eventMetadata: undefined
+    eventMetadata: undefined,
   };
   if (output.event !== undefined) {
     contents.event = deserializeAws_json1_1Event(output.event, context);
   }
   if (output.eventDescription !== undefined) {
-    contents.eventDescription = deserializeAws_json1_1EventDescription(
-      output.eventDescription,
-      context
-    );
+    contents.eventDescription = deserializeAws_json1_1EventDescription(output.eventDescription, context);
   }
   if (output.eventMetadata !== undefined) {
-    contents.eventMetadata = deserializeAws_json1_1eventMetadata(
-      output.eventMetadata,
-      context
-    );
+    contents.eventMetadata = deserializeAws_json1_1eventMetadata(output.eventMetadata, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1EventDetailsErrorItem = (
   output: any,
@@ -1436,7 +1255,7 @@ const deserializeAws_json1_1EventDetailsErrorItem = (
     __type: "EventDetailsErrorItem",
     errorMessage: undefined,
     errorName: undefined,
-    eventArn: undefined
+    eventArn: undefined,
   };
   if (output.errorMessage !== undefined) {
     contents.errorMessage = output.errorMessage;
@@ -1448,7 +1267,7 @@ const deserializeAws_json1_1EventDetailsErrorItem = (
     contents.eventArn = output.eventArn;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1EventType = (
   output: any,
@@ -1458,7 +1277,7 @@ const deserializeAws_json1_1EventType = (
     __type: "EventType",
     category: undefined,
     code: undefined,
-    service: undefined
+    service: undefined,
   };
   if (output.category !== undefined) {
     contents.category = output.category;
@@ -1470,7 +1289,7 @@ const deserializeAws_json1_1EventType = (
     contents.service = output.service;
   }
   return contents;
-};
+}
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

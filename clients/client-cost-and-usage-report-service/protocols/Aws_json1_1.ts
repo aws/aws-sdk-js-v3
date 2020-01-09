@@ -160,7 +160,7 @@ export async function deserializeAws_json1_1DeleteReportDefinitionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteReportDefinitionResponse(
-    data.DeleteReportDefinitionResponse,
+    data,
     context
   );
   const response: DeleteReportDefinitionCommandOutput = {
@@ -224,7 +224,7 @@ export async function deserializeAws_json1_1DescribeReportDefinitionsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeReportDefinitionsResponse(
-    data.DescribeReportDefinitionsResponse,
+    data,
     context
   );
   const response: DescribeReportDefinitionsCommandOutput = {
@@ -281,7 +281,7 @@ export async function deserializeAws_json1_1ModifyReportDefinitionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ModifyReportDefinitionResponse(
-    data.ModifyReportDefinitionResponse,
+    data,
     context
   );
   const response: ModifyReportDefinitionCommandOutput = {
@@ -344,10 +344,7 @@ export async function deserializeAws_json1_1PutReportDefinitionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutReportDefinitionResponse(
-    data.PutReportDefinitionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutReportDefinitionResponse(data, context);
   const response: PutReportDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutReportDefinitionResponse",

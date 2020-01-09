@@ -6,9 +6,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>The request has failed because the AWS Transfer for SFTP service is not available.</p>
  *
  */
-export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
@@ -662,7 +660,7 @@ export namespace EndpointDetails {
 
 export enum EndpointType {
   PUBLIC = "PUBLIC",
-  VPC_ENDPOINT = "VPC_ENDPOINT"
+  VPC_ENDPOINT = "VPC_ENDPOINT",
 }
 
 /**
@@ -696,7 +694,7 @@ export namespace HomeDirectoryMapEntry {
 
 export enum HomeDirectoryType {
   LOGICAL = "LOGICAL",
-  PATH = "PATH"
+  PATH = "PATH",
 }
 
 /**
@@ -732,7 +730,7 @@ export namespace IdentityProviderDetails {
 
 export enum IdentityProviderType {
   API_GATEWAY = "API_GATEWAY",
-  SERVICE_MANAGED = "SERVICE_MANAGED"
+  SERVICE_MANAGED = "SERVICE_MANAGED",
 }
 
 export interface ImportSshPublicKeyRequest {
@@ -807,9 +805,7 @@ export namespace ImportSshPublicKeyResponse {
  *          <p>This exception is thrown when an error occurs in the AWS Transfer for SFTP service.</p>
  *
  */
-export interface InternalServiceError
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServiceError extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServiceError";
   $fault: "server";
   Message: string | undefined;
@@ -826,9 +822,7 @@ export namespace InternalServiceError {
  *          <p>The <code>NextToken</code> parameter that was passed is invalid.</p>
  *
  */
-export interface InvalidNextTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidNextTokenException";
   $fault: "client";
   Message: string | undefined;
@@ -845,9 +839,7 @@ export namespace InvalidNextTokenException {
  *          <p>This exception is thrown when the client submits a malformed request.</p>
  *
  */
-export interface InvalidRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRequestException";
   $fault: "client";
   Message: string | undefined;
@@ -1203,9 +1195,7 @@ export namespace ListedUser {
  *          <p>The requested resource does not exist.</p>
  *
  */
-export interface ResourceExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceExistsException";
   $fault: "client";
   Message: string | undefined;
@@ -1225,9 +1215,7 @@ export namespace ResourceExistsException {
  *       service.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message: string | undefined;
@@ -1303,7 +1291,7 @@ export enum State {
   STARTING = "STARTING",
   START_FAILED = "START_FAILED",
   STOPPING = "STOPPING",
-  STOP_FAILED = "STOP_FAILED"
+  STOP_FAILED = "STOP_FAILED",
 }
 
 export interface StopServerRequest {
@@ -1454,9 +1442,7 @@ export namespace TestIdentityProviderResponse {
  *          <p> HTTP Status Code: 400</p>
  *
  */
-export interface ThrottlingException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ThrottlingException";
   $fault: "client";
   RetryAfterSeconds?: string;

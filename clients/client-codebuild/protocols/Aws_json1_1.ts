@@ -925,10 +925,7 @@ export async function deserializeAws_json1_1BatchDeleteBuildsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchDeleteBuildsOutput(
-    data.BatchDeleteBuildsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1BatchDeleteBuildsOutput(data, context);
   const response: BatchDeleteBuildsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchDeleteBuildsOutput",
@@ -979,10 +976,7 @@ export async function deserializeAws_json1_1BatchGetBuildsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetBuildsOutput(
-    data.BatchGetBuildsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1BatchGetBuildsOutput(data, context);
   const response: BatchGetBuildsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetBuildsOutput",
@@ -1033,10 +1027,7 @@ export async function deserializeAws_json1_1BatchGetProjectsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetProjectsOutput(
-    data.BatchGetProjectsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1BatchGetProjectsOutput(data, context);
   const response: BatchGetProjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetProjectsOutput",
@@ -1090,10 +1081,7 @@ export async function deserializeAws_json1_1BatchGetReportGroupsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetReportGroupsOutput(
-    data.BatchGetReportGroupsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1BatchGetReportGroupsOutput(data, context);
   const response: BatchGetReportGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetReportGroupsOutput",
@@ -1144,10 +1132,7 @@ export async function deserializeAws_json1_1BatchGetReportsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetReportsOutput(
-    data.BatchGetReportsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1BatchGetReportsOutput(data, context);
   const response: BatchGetReportsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetReportsOutput",
@@ -1198,10 +1183,7 @@ export async function deserializeAws_json1_1CreateProjectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateProjectOutput(
-    data.CreateProjectOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateProjectOutput(data, context);
   const response: CreateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateProjectOutput",
@@ -1266,10 +1248,7 @@ export async function deserializeAws_json1_1CreateReportGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateReportGroupOutput(
-    data.CreateReportGroupOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateReportGroupOutput(data, context);
   const response: CreateReportGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateReportGroupOutput",
@@ -1334,10 +1313,7 @@ export async function deserializeAws_json1_1CreateWebhookCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateWebhookOutput(
-    data.CreateWebhookOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateWebhookOutput(data, context);
   const response: CreateWebhookCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateWebhookOutput",
@@ -1409,10 +1385,7 @@ export async function deserializeAws_json1_1DeleteProjectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteProjectOutput(
-    data.DeleteProjectOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteProjectOutput(data, context);
   const response: DeleteProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteProjectOutput",
@@ -1463,10 +1436,7 @@ export async function deserializeAws_json1_1DeleteReportCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteReportOutput(
-    data.DeleteReportOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteReportOutput(data, context);
   const response: DeleteReportCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteReportOutput",
@@ -1517,10 +1487,7 @@ export async function deserializeAws_json1_1DeleteReportGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteReportGroupOutput(
-    data.DeleteReportGroupOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteReportGroupOutput(data, context);
   const response: DeleteReportGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteReportGroupOutput",
@@ -1574,10 +1541,7 @@ export async function deserializeAws_json1_1DeleteSourceCredentialsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteSourceCredentialsOutput(
-    data.DeleteSourceCredentialsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteSourceCredentialsOutput(data, context);
   const response: DeleteSourceCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteSourceCredentialsOutput",
@@ -1635,10 +1599,7 @@ export async function deserializeAws_json1_1DeleteWebhookCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteWebhookOutput(
-    data.DeleteWebhookOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteWebhookOutput(data, context);
   const response: DeleteWebhookCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteWebhookOutput",
@@ -1703,10 +1664,7 @@ export async function deserializeAws_json1_1DescribeTestCasesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTestCasesOutput(
-    data.DescribeTestCasesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeTestCasesOutput(data, context);
   const response: DescribeTestCasesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTestCasesOutput",
@@ -1767,10 +1725,7 @@ export async function deserializeAws_json1_1ImportSourceCredentialsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ImportSourceCredentialsOutput(
-    data.ImportSourceCredentialsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ImportSourceCredentialsOutput(data, context);
   const response: ImportSourceCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ImportSourceCredentialsOutput",
@@ -1838,10 +1793,7 @@ export async function deserializeAws_json1_1InvalidateProjectCacheCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1InvalidateProjectCacheOutput(
-    data.InvalidateProjectCacheOutput,
-    context
-  );
+  contents = deserializeAws_json1_1InvalidateProjectCacheOutput(data, context);
   const response: InvalidateProjectCacheCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "InvalidateProjectCacheOutput",
@@ -1899,10 +1851,7 @@ export async function deserializeAws_json1_1ListBuildsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListBuildsOutput(
-    data.ListBuildsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListBuildsOutput(data, context);
   const response: ListBuildsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListBuildsOutput",
@@ -1956,10 +1905,7 @@ export async function deserializeAws_json1_1ListBuildsForProjectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListBuildsForProjectOutput(
-    data.ListBuildsForProjectOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListBuildsForProjectOutput(data, context);
   const response: ListBuildsForProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListBuildsForProjectOutput",
@@ -2021,7 +1967,7 @@ export async function deserializeAws_json1_1ListCuratedEnvironmentImagesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListCuratedEnvironmentImagesOutput(
-    data.ListCuratedEnvironmentImagesOutput,
+    data,
     context
   );
   const response: ListCuratedEnvironmentImagesCommandOutput = {
@@ -2063,10 +2009,7 @@ export async function deserializeAws_json1_1ListProjectsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListProjectsOutput(
-    data.ListProjectsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListProjectsOutput(data, context);
   const response: ListProjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListProjectsOutput",
@@ -2117,10 +2060,7 @@ export async function deserializeAws_json1_1ListReportGroupsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListReportGroupsOutput(
-    data.ListReportGroupsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListReportGroupsOutput(data, context);
   const response: ListReportGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListReportGroupsOutput",
@@ -2171,10 +2111,7 @@ export async function deserializeAws_json1_1ListReportsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListReportsOutput(
-    data.ListReportsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListReportsOutput(data, context);
   const response: ListReportsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListReportsOutput",
@@ -2229,7 +2166,7 @@ export async function deserializeAws_json1_1ListReportsForReportGroupCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListReportsForReportGroupOutput(
-    data.ListReportsForReportGroupOutput,
+    data,
     context
   );
   const response: ListReportsForReportGroupCommandOutput = {
@@ -2292,10 +2229,7 @@ export async function deserializeAws_json1_1ListSourceCredentialsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListSourceCredentialsOutput(
-    data.ListSourceCredentialsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListSourceCredentialsOutput(data, context);
   const response: ListSourceCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListSourceCredentialsOutput",
@@ -2335,10 +2269,7 @@ export async function deserializeAws_json1_1StartBuildCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartBuildOutput(
-    data.StartBuildOutput,
-    context
-  );
+  contents = deserializeAws_json1_1StartBuildOutput(data, context);
   const response: StartBuildCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartBuildOutput",
@@ -2403,10 +2334,7 @@ export async function deserializeAws_json1_1StopBuildCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopBuildOutput(
-    data.StopBuildOutput,
-    context
-  );
+  contents = deserializeAws_json1_1StopBuildOutput(data, context);
   const response: StopBuildCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopBuildOutput",
@@ -2464,10 +2392,7 @@ export async function deserializeAws_json1_1UpdateProjectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateProjectOutput(
-    data.UpdateProjectOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateProjectOutput(data, context);
   const response: UpdateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateProjectOutput",
@@ -2525,10 +2450,7 @@ export async function deserializeAws_json1_1UpdateReportGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateReportGroupOutput(
-    data.UpdateReportGroupOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateReportGroupOutput(data, context);
   const response: UpdateReportGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateReportGroupOutput",
@@ -2586,10 +2508,7 @@ export async function deserializeAws_json1_1UpdateWebhookCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateWebhookOutput(
-    data.UpdateWebhookOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateWebhookOutput(data, context);
   const response: UpdateWebhookCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateWebhookOutput",

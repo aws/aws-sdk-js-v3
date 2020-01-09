@@ -1,20 +1,20 @@
 import {
   RekognitionClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../RekognitionClient";
 import {
   StartStreamProcessorRequest,
-  StartStreamProcessorResponse
+  StartStreamProcessorResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1StartStreamProcessorCommand,
-  serializeAws_json1_1StartStreamProcessorCommand
+  serializeAws_json1_1StartStreamProcessorCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type StartStreamProcessorCommandInput = StartStreamProcessorRequest;
 export type StartStreamProcessorCommandOutput = StartStreamProcessorResponse;
 
-export class StartStreamProcessorCommand extends $Command<
-  StartStreamProcessorCommandInput,
-  StartStreamProcessorCommandOutput,
-  RekognitionClientResolvedConfig
-> {
+export class StartStreamProcessorCommand extends $Command<StartStreamProcessorCommandInput, StartStreamProcessorCommandOutput, RekognitionClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class StartStreamProcessorCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartStreamProcessorCommandInput,
-    StartStreamProcessorCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartStreamProcessorCommandInput, StartStreamProcessorCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

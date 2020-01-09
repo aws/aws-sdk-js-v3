@@ -1,17 +1,17 @@
 import {
   EventBridgeClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../EventBridgeClient";
 import { DisableRuleRequest } from "../models/index";
 import {
   deserializeAws_json1_1DisableRuleCommand,
-  serializeAws_json1_1DisableRuleCommand
+  serializeAws_json1_1DisableRuleCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,17 +21,13 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
 } from "@aws-sdk/types";
 
 export type DisableRuleCommandInput = DisableRuleRequest;
-export type DisableRuleCommandOutput = __MetadataBearer;
+export type DisableRuleCommandOutput = __MetadataBearer
 
-export class DisableRuleCommand extends $Command<
-  DisableRuleCommandInput,
-  DisableRuleCommandOutput,
-  EventBridgeClientResolvedConfig
-> {
+export class DisableRuleCommand extends $Command<DisableRuleCommandInput, DisableRuleCommandOutput, EventBridgeClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,15 +42,13 @@ export class DisableRuleCommand extends $Command<
     configuration: EventBridgeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DisableRuleCommandInput, DisableRuleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

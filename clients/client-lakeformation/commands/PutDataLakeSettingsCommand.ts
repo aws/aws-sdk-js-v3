@@ -1,20 +1,20 @@
 import {
   LakeFormationClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../LakeFormationClient";
 import {
   PutDataLakeSettingsRequest,
-  PutDataLakeSettingsResponse
+  PutDataLakeSettingsResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1PutDataLakeSettingsCommand,
-  serializeAws_json1_1PutDataLakeSettingsCommand
+  serializeAws_json1_1PutDataLakeSettingsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type PutDataLakeSettingsCommandInput = PutDataLakeSettingsRequest;
 export type PutDataLakeSettingsCommandOutput = PutDataLakeSettingsResponse;
 
-export class PutDataLakeSettingsCommand extends $Command<
-  PutDataLakeSettingsCommandInput,
-  PutDataLakeSettingsCommandOutput,
-  LakeFormationClientResolvedConfig
-> {
+export class PutDataLakeSettingsCommand extends $Command<PutDataLakeSettingsCommandInput, PutDataLakeSettingsCommandOutput, LakeFormationClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class PutDataLakeSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LakeFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutDataLakeSettingsCommandInput,
-    PutDataLakeSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutDataLakeSettingsCommandInput, PutDataLakeSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

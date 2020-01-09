@@ -1,17 +1,20 @@
 import {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ServiceCatalogClient";
-import { DeleteTagOptionInput, DeleteTagOptionOutput } from "../models/index";
+import {
+  DeleteTagOptionInput,
+  DeleteTagOptionOutput,
+} from "../models/index";
 import {
   deserializeAws_json1_1DeleteTagOptionCommand,
-  serializeAws_json1_1DeleteTagOptionCommand
+  serializeAws_json1_1DeleteTagOptionCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DeleteTagOptionCommandInput = DeleteTagOptionInput;
 export type DeleteTagOptionCommandOutput = DeleteTagOptionOutput;
 
-export class DeleteTagOptionCommand extends $Command<
-  DeleteTagOptionCommandInput,
-  DeleteTagOptionCommandOutput,
-  ServiceCatalogClientResolvedConfig
-> {
+export class DeleteTagOptionCommand extends $Command<DeleteTagOptionCommandInput, DeleteTagOptionCommandOutput, ServiceCatalogClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class DeleteTagOptionCommand extends $Command<
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteTagOptionCommandInput, DeleteTagOptionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -101,9 +101,7 @@ export namespace DescribeServicesResponse {
  *          <p>The pagination token expired. Try again without a pagination token.</p>
  *
  */
-export interface ExpiredNextTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ExpiredNextTokenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ExpiredNextTokenException";
   $fault: "client";
   Message?: string;
@@ -163,7 +161,7 @@ export namespace Filter {
 }
 
 export enum FilterType {
-  TERM_MATCH = "TERM_MATCH"
+  TERM_MATCH = "TERM_MATCH",
 }
 
 export interface GetAttributeValuesRequest {
@@ -312,9 +310,7 @@ export namespace GetProductsResponse {
  *          <p>An error on the server occurred during the processing of your request. Try again later.</p>
  *
  */
-export interface InternalErrorException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalErrorException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalErrorException";
   $fault: "server";
   Message?: string;
@@ -331,9 +327,7 @@ export namespace InternalErrorException {
  *          <p>The pagination token is invalid. Try again without a pagination token.</p>
  *
  */
-export interface InvalidNextTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -350,9 +344,7 @@ export namespace InvalidNextTokenException {
  *          <p>One or more parameters had an invalid value.</p>
  *
  */
-export interface InvalidParameterException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidParameterException";
   $fault: "client";
   Message?: string;
@@ -369,9 +361,7 @@ export namespace InvalidParameterException {
  *          <p>The requested resource can't be found.</p>
  *
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   Message?: string;

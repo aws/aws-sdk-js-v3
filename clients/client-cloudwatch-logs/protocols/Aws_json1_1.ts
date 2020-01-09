@@ -1361,10 +1361,7 @@ export async function deserializeAws_json1_1CreateExportTaskCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateExportTaskResponse(
-    data.CreateExportTaskResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateExportTaskResponse(data, context);
   const response: CreateExportTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateExportTaskResponse",
@@ -2068,10 +2065,7 @@ export async function deserializeAws_json1_1DescribeDestinationsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeDestinationsResponse(
-    data.DescribeDestinationsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeDestinationsResponse(data, context);
   const response: DescribeDestinationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeDestinationsResponse",
@@ -2132,10 +2126,7 @@ export async function deserializeAws_json1_1DescribeExportTasksCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeExportTasksResponse(
-    data.DescribeExportTasksResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeExportTasksResponse(data, context);
   const response: DescribeExportTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeExportTasksResponse",
@@ -2193,10 +2184,7 @@ export async function deserializeAws_json1_1DescribeLogGroupsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeLogGroupsResponse(
-    data.DescribeLogGroupsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeLogGroupsResponse(data, context);
   const response: DescribeLogGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeLogGroupsResponse",
@@ -2257,10 +2245,7 @@ export async function deserializeAws_json1_1DescribeLogStreamsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeLogStreamsResponse(
-    data.DescribeLogStreamsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeLogStreamsResponse(data, context);
   const response: DescribeLogStreamsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeLogStreamsResponse",
@@ -2328,10 +2313,7 @@ export async function deserializeAws_json1_1DescribeMetricFiltersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeMetricFiltersResponse(
-    data.DescribeMetricFiltersResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeMetricFiltersResponse(data, context);
   const response: DescribeMetricFiltersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeMetricFiltersResponse",
@@ -2396,10 +2378,7 @@ export async function deserializeAws_json1_1DescribeQueriesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeQueriesResponse(
-    data.DescribeQueriesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeQueriesResponse(data, context);
   const response: DescribeQueriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeQueriesResponse",
@@ -2468,7 +2447,7 @@ export async function deserializeAws_json1_1DescribeResourcePoliciesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeResourcePoliciesResponse(
-    data.DescribeResourcePoliciesResponse,
+    data,
     context
   );
   const response: DescribeResourcePoliciesCommandOutput = {
@@ -2532,7 +2511,7 @@ export async function deserializeAws_json1_1DescribeSubscriptionFiltersCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeSubscriptionFiltersResponse(
-    data.DescribeSubscriptionFiltersResponse,
+    data,
     context
   );
   const response: DescribeSubscriptionFiltersCommandOutput = {
@@ -2669,10 +2648,7 @@ export async function deserializeAws_json1_1FilterLogEventsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1FilterLogEventsResponse(
-    data.FilterLogEventsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1FilterLogEventsResponse(data, context);
   const response: FilterLogEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "FilterLogEventsResponse",
@@ -2737,10 +2713,7 @@ export async function deserializeAws_json1_1GetLogEventsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetLogEventsResponse(
-    data.GetLogEventsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetLogEventsResponse(data, context);
   const response: GetLogEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetLogEventsResponse",
@@ -2805,10 +2778,7 @@ export async function deserializeAws_json1_1GetLogGroupFieldsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetLogGroupFieldsResponse(
-    data.GetLogGroupFieldsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetLogGroupFieldsResponse(data, context);
   const response: GetLogGroupFieldsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetLogGroupFieldsResponse",
@@ -2880,10 +2850,7 @@ export async function deserializeAws_json1_1GetLogRecordCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetLogRecordResponse(
-    data.GetLogRecordResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetLogRecordResponse(data, context);
   const response: GetLogRecordCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetLogRecordResponse",
@@ -2955,10 +2922,7 @@ export async function deserializeAws_json1_1GetQueryResultsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetQueryResultsResponse(
-    data.GetQueryResultsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetQueryResultsResponse(data, context);
   const response: GetQueryResultsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetQueryResultsResponse",
@@ -3023,10 +2987,7 @@ export async function deserializeAws_json1_1ListTagsLogGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsLogGroupResponse(
-    data.ListTagsLogGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsLogGroupResponse(data, context);
   const response: ListTagsLogGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsLogGroupResponse",
@@ -3084,10 +3045,7 @@ export async function deserializeAws_json1_1PutDestinationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutDestinationResponse(
-    data.PutDestinationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutDestinationResponse(data, context);
   const response: PutDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutDestinationResponse",
@@ -3215,10 +3173,7 @@ export async function deserializeAws_json1_1PutLogEventsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutLogEventsResponse(
-    data.PutLogEventsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutLogEventsResponse(data, context);
   const response: PutLogEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutLogEventsResponse",
@@ -3378,10 +3333,7 @@ export async function deserializeAws_json1_1PutResourcePolicyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutResourcePolicyResponse(
-    data.PutResourcePolicyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutResourcePolicyResponse(data, context);
   const response: PutResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutResourcePolicyResponse",
@@ -3593,10 +3545,7 @@ export async function deserializeAws_json1_1StartQueryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartQueryResponse(
-    data.StartQueryResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartQueryResponse(data, context);
   const response: StartQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartQueryResponse",
@@ -3675,10 +3624,7 @@ export async function deserializeAws_json1_1StopQueryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopQueryResponse(
-    data.StopQueryResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StopQueryResponse(data, context);
   const response: StopQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopQueryResponse",
@@ -3796,10 +3742,7 @@ export async function deserializeAws_json1_1TestMetricFilterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TestMetricFilterResponse(
-    data.TestMetricFilterResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TestMetricFilterResponse(data, context);
   const response: TestMetricFilterCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TestMetricFilterResponse",

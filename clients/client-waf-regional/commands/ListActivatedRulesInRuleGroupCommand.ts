@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  WAFRegionalClientResolvedConfig
+  WAFRegionalClientResolvedConfig,
 } from "../WAFRegionalClient";
 import {
   ListActivatedRulesInRuleGroupRequest,
-  ListActivatedRulesInRuleGroupResponse
+  ListActivatedRulesInRuleGroupResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1ListActivatedRulesInRuleGroupCommand,
-  serializeAws_json1_1ListActivatedRulesInRuleGroupCommand
+  serializeAws_json1_1ListActivatedRulesInRuleGroupCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type ListActivatedRulesInRuleGroupCommandInput = ListActivatedRulesInRuleGroupRequest;
 export type ListActivatedRulesInRuleGroupCommandOutput = ListActivatedRulesInRuleGroupResponse;
 
-export class ListActivatedRulesInRuleGroupCommand extends $Command<
-  ListActivatedRulesInRuleGroupCommandInput,
-  ListActivatedRulesInRuleGroupCommandOutput,
-  WAFRegionalClientResolvedConfig
-> {
+export class ListActivatedRulesInRuleGroupCommand extends $Command<ListActivatedRulesInRuleGroupCommandInput, ListActivatedRulesInRuleGroupCommandOutput, WAFRegionalClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class ListActivatedRulesInRuleGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListActivatedRulesInRuleGroupCommandInput,
-    ListActivatedRulesInRuleGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListActivatedRulesInRuleGroupCommandInput, ListActivatedRulesInRuleGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class ListActivatedRulesInRuleGroupCommand extends $Command<
     input: ListActivatedRulesInRuleGroupCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListActivatedRulesInRuleGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListActivatedRulesInRuleGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListActivatedRulesInRuleGroupCommandOutput> {
-    return deserializeAws_json1_1ListActivatedRulesInRuleGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListActivatedRulesInRuleGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

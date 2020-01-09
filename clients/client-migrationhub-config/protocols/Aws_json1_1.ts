@@ -1,14 +1,14 @@
 import {
   CreateHomeRegionControlCommandInput,
-  CreateHomeRegionControlCommandOutput
+  CreateHomeRegionControlCommandOutput,
 } from "../commands/CreateHomeRegionControlCommand";
 import {
   DescribeHomeRegionControlsCommandInput,
-  DescribeHomeRegionControlsCommandOutput
+  DescribeHomeRegionControlsCommandOutput,
 } from "../commands/DescribeHomeRegionControlsCommand";
 import {
   GetHomeRegionCommandInput,
-  GetHomeRegionCommandOutput
+  GetHomeRegionCommandOutput,
 } from "../commands/GetHomeRegionCommand";
 import {
   AccessDeniedException,
@@ -23,18 +23,18 @@ import {
   InternalServerError,
   InvalidInputException,
   ServiceUnavailableException,
-  Target
+  Target,
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export async function serializeAws_json1_1CreateHomeRegionControlCommand(
@@ -42,15 +42,11 @@ export async function serializeAws_json1_1CreateHomeRegionControlCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSMigrationHubMultiAccountService.CreateHomeRegionControl";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSMigrationHubMultiAccountService.CreateHomeRegionControl";
   let body: any = {};
   const wrappedBody: any = {
-    CreateHomeRegionControlRequest: serializeAws_json1_1CreateHomeRegionControlRequest(
-      input,
-      context
-    )
+    CreateHomeRegionControlRequest: serializeAws_json1_1CreateHomeRegionControlRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -59,7 +55,7 @@ export async function serializeAws_json1_1CreateHomeRegionControlCommand(
     method: "POST",
     path: "/CreateHomeRegionControl",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -68,15 +64,11 @@ export async function serializeAws_json1_1DescribeHomeRegionControlsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSMigrationHubMultiAccountService.DescribeHomeRegionControls";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSMigrationHubMultiAccountService.DescribeHomeRegionControls";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeHomeRegionControlsRequest: serializeAws_json1_1DescribeHomeRegionControlsRequest(
-      input,
-      context
-    )
+    DescribeHomeRegionControlsRequest: serializeAws_json1_1DescribeHomeRegionControlsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -85,7 +77,7 @@ export async function serializeAws_json1_1DescribeHomeRegionControlsCommand(
     method: "POST",
     path: "/DescribeHomeRegionControls",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -94,14 +86,11 @@ export async function serializeAws_json1_1GetHomeRegionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSMigrationHubMultiAccountService.GetHomeRegion";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSMigrationHubMultiAccountService.GetHomeRegion";
   let body: any = {};
   const wrappedBody: any = {
-    GetHomeRegionRequest: serializeAws_json1_1GetHomeRegionRequest(
-      input,
-      context
-    )
+    GetHomeRegionRequest: serializeAws_json1_1GetHomeRegionRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -110,7 +99,7 @@ export async function serializeAws_json1_1GetHomeRegionCommand(
     method: "POST",
     path: "/GetHomeRegion",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -119,81 +108,59 @@ export async function deserializeAws_json1_1CreateHomeRegionControlCommand(
   context: __SerdeContext
 ): Promise<CreateHomeRegionControlCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateHomeRegionControlCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateHomeRegionControlCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateHomeRegionControlResult(
-    data.CreateHomeRegionControlResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateHomeRegionControlResult(data, context);
   const response: CreateHomeRegionControlCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateHomeRegionControlResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateHomeRegionControlCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateHomeRegionControlCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.awsmigrationhubmultiaccount#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "DryRunOperation":
     case "com.amazonaws.awsmigrationhubmultiaccount#DryRunOperation":
-      response = await deserializeAws_json1_1DryRunOperationResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1DryRunOperationResponse(parsedOutput, context);
       break;
     case "InternalServerError":
     case "com.amazonaws.awsmigrationhubmultiaccount#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.awsmigrationhubmultiaccount#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.awsmigrationhubmultiaccount#ServiceUnavailableException":
-      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmigrationhubmultiaccount#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -204,74 +171,55 @@ export async function deserializeAws_json1_1DescribeHomeRegionControlsCommand(
   context: __SerdeContext
 ): Promise<DescribeHomeRegionControlsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeHomeRegionControlsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeHomeRegionControlsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeHomeRegionControlsResult(
-    data.DescribeHomeRegionControlsResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeHomeRegionControlsResult(data, context);
   const response: DescribeHomeRegionControlsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeHomeRegionControlsResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeHomeRegionControlsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeHomeRegionControlsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.awsmigrationhubmultiaccount#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerError":
     case "com.amazonaws.awsmigrationhubmultiaccount#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.awsmigrationhubmultiaccount#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.awsmigrationhubmultiaccount#ServiceUnavailableException":
-      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmigrationhubmultiaccount#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -284,69 +232,53 @@ export async function deserializeAws_json1_1GetHomeRegionCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetHomeRegionCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1GetHomeRegionResult(
-    data.GetHomeRegionResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetHomeRegionResult(data, context);
   const response: GetHomeRegionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetHomeRegionResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetHomeRegionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetHomeRegionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.awsmigrationhubmultiaccount#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerError":
     case "com.amazonaws.awsmigrationhubmultiaccount#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazonaws.awsmigrationhubmultiaccount#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.awsmigrationhubmultiaccount#ServiceUnavailableException":
-      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmigrationhubmultiaccount#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -356,15 +288,12 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
-  const deserialized: any = deserializeAws_json1_1AccessDeniedException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1AccessDeniedException(output.body, context);
   const contents: AccessDeniedException = {
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -373,15 +302,12 @@ const deserializeAws_json1_1DryRunOperationResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<DryRunOperation> => {
-  const deserialized: any = deserializeAws_json1_1DryRunOperation(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1DryRunOperation(output.body, context);
   const contents: DryRunOperation = {
     __type: "DryRunOperation",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -390,15 +316,12 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InternalServerError> => {
-  const deserialized: any = deserializeAws_json1_1InternalServerError(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalServerError(output.body, context);
   const contents: InternalServerError = {
     __type: "InternalServerError",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -407,15 +330,12 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidInputException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidInputException(output.body, context);
   const contents: InvalidInputException = {
     __type: "InvalidInputException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -424,15 +344,12 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
-  const deserialized: any = deserializeAws_json1_1ServiceUnavailableException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ServiceUnavailableException(output.body, context);
   const contents: ServiceUnavailableException = {
     __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -443,16 +360,16 @@ const serializeAws_json1_1CreateHomeRegionControlRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.DryRun !== undefined) {
-    bodyParams["DryRun"] = input.DryRun;
+    bodyParams['DryRun'] = input.DryRun;
   }
   if (input.HomeRegion !== undefined) {
-    bodyParams["HomeRegion"] = input.HomeRegion;
+    bodyParams['HomeRegion'] = input.HomeRegion;
   }
   if (input.Target !== undefined) {
-    bodyParams["Target"] = serializeAws_json1_1Target(input.Target, context);
+    bodyParams['Target'] = serializeAws_json1_1Target(input.Target, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeHomeRegionControlsRequest = (
   input: DescribeHomeRegionControlsRequest,
@@ -460,22 +377,22 @@ const serializeAws_json1_1DescribeHomeRegionControlsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ControlId !== undefined) {
-    bodyParams["ControlId"] = input.ControlId;
+    bodyParams['ControlId'] = input.ControlId;
   }
   if (input.HomeRegion !== undefined) {
-    bodyParams["HomeRegion"] = input.HomeRegion;
+    bodyParams['HomeRegion'] = input.HomeRegion;
   }
   if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
+    bodyParams['MaxResults'] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.Target !== undefined) {
-    bodyParams["Target"] = serializeAws_json1_1Target(input.Target, context);
+    bodyParams['Target'] = serializeAws_json1_1Target(input.Target, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1GetHomeRegionRequest = (
   input: GetHomeRegionRequest,
@@ -483,7 +400,7 @@ const serializeAws_json1_1GetHomeRegionRequest = (
 ): any => {
   let bodyParams: any = {};
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1Target = (
   input: Target,
@@ -491,13 +408,13 @@ const serializeAws_json1_1Target = (
 ): any => {
   let bodyParams: any = {};
   if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
+    bodyParams['Id'] = input.Id;
   }
   if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
+    bodyParams['Type'] = input.Type;
   }
   return bodyParams;
-};
+}
 
 const deserializeAws_json1_1AccessDeniedException = (
   output: any,
@@ -505,13 +422,13 @@ const deserializeAws_json1_1AccessDeniedException = (
 ): AccessDeniedException => {
   let contents: any = {
     __type: "AccessDeniedException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateHomeRegionControlResult = (
   output: any,
@@ -519,16 +436,13 @@ const deserializeAws_json1_1CreateHomeRegionControlResult = (
 ): CreateHomeRegionControlResult => {
   let contents: any = {
     __type: "CreateHomeRegionControlResult",
-    HomeRegionControl: undefined
+    HomeRegionControl: undefined,
   };
   if (output.HomeRegionControl !== undefined) {
-    contents.HomeRegionControl = deserializeAws_json1_1HomeRegionControl(
-      output.HomeRegionControl,
-      context
-    );
+    contents.HomeRegionControl = deserializeAws_json1_1HomeRegionControl(output.HomeRegionControl, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeHomeRegionControlsResult = (
   output: any,
@@ -537,19 +451,16 @@ const deserializeAws_json1_1DescribeHomeRegionControlsResult = (
   let contents: any = {
     __type: "DescribeHomeRegionControlsResult",
     HomeRegionControls: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.HomeRegionControls !== undefined) {
-    contents.HomeRegionControls = deserializeAws_json1_1HomeRegionControls(
-      output.HomeRegionControls,
-      context
-    );
+    contents.HomeRegionControls = deserializeAws_json1_1HomeRegionControls(output.HomeRegionControls, context);
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DryRunOperation = (
   output: any,
@@ -557,13 +468,13 @@ const deserializeAws_json1_1DryRunOperation = (
 ): DryRunOperation => {
   let contents: any = {
     __type: "DryRunOperation",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1GetHomeRegionResult = (
   output: any,
@@ -571,13 +482,13 @@ const deserializeAws_json1_1GetHomeRegionResult = (
 ): GetHomeRegionResult => {
   let contents: any = {
     __type: "GetHomeRegionResult",
-    HomeRegion: undefined
+    HomeRegion: undefined,
   };
   if (output.HomeRegion !== undefined) {
     contents.HomeRegion = output.HomeRegion;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1HomeRegionControl = (
   output: any,
@@ -588,7 +499,7 @@ const deserializeAws_json1_1HomeRegionControl = (
     ControlId: undefined,
     HomeRegion: undefined,
     RequestedTime: undefined,
-    Target: undefined
+    Target: undefined,
   };
   if (output.ControlId !== undefined) {
     contents.ControlId = output.ControlId;
@@ -597,17 +508,13 @@ const deserializeAws_json1_1HomeRegionControl = (
     contents.HomeRegion = output.HomeRegion;
   }
   if (output.RequestedTime !== undefined) {
-    contents.RequestedTime = new Date(
-      output.RequestedTime % 1 != 0
-        ? Math.round(output.RequestedTime * 1000)
-        : output.RequestedTime
-    );
+    contents.RequestedTime = new Date(output.RequestedTime % 1 != 0 ? Math.round(output.RequestedTime * 1000) : output.RequestedTime);
   }
   if (output.Target !== undefined) {
     contents.Target = deserializeAws_json1_1Target(output.Target, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1HomeRegionControls = (
   output: any,
@@ -616,7 +523,7 @@ const deserializeAws_json1_1HomeRegionControls = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1HomeRegionControl(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1InternalServerError = (
   output: any,
@@ -624,13 +531,13 @@ const deserializeAws_json1_1InternalServerError = (
 ): InternalServerError => {
   let contents: any = {
     __type: "InternalServerError",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InvalidInputException = (
   output: any,
@@ -638,13 +545,13 @@ const deserializeAws_json1_1InvalidInputException = (
 ): InvalidInputException => {
   let contents: any = {
     __type: "InvalidInputException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ServiceUnavailableException = (
   output: any,
@@ -652,13 +559,13 @@ const deserializeAws_json1_1ServiceUnavailableException = (
 ): ServiceUnavailableException => {
   let contents: any = {
     __type: "ServiceUnavailableException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1Target = (
   output: any,
@@ -667,7 +574,7 @@ const deserializeAws_json1_1Target = (
   let contents: any = {
     __type: "Target",
     Id: undefined,
-    Type: undefined
+    Type: undefined,
   };
   if (output.Id !== undefined) {
     contents.Id = output.Id;
@@ -676,7 +583,7 @@ const deserializeAws_json1_1Target = (
     contents.Type = output.Type;
   }
   return contents;
-};
+}
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

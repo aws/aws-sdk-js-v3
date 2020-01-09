@@ -1,294 +1,294 @@
 import {
   AcceptMatchCommandInput,
-  AcceptMatchCommandOutput
+  AcceptMatchCommandOutput,
 } from "../commands/AcceptMatchCommand";
 import {
   CreateAliasCommandInput,
-  CreateAliasCommandOutput
+  CreateAliasCommandOutput,
 } from "../commands/CreateAliasCommand";
 import {
   CreateBuildCommandInput,
-  CreateBuildCommandOutput
+  CreateBuildCommandOutput,
 } from "../commands/CreateBuildCommand";
 import {
   CreateFleetCommandInput,
-  CreateFleetCommandOutput
+  CreateFleetCommandOutput,
 } from "../commands/CreateFleetCommand";
 import {
   CreateGameSessionCommandInput,
-  CreateGameSessionCommandOutput
+  CreateGameSessionCommandOutput,
 } from "../commands/CreateGameSessionCommand";
 import {
   CreateGameSessionQueueCommandInput,
-  CreateGameSessionQueueCommandOutput
+  CreateGameSessionQueueCommandOutput,
 } from "../commands/CreateGameSessionQueueCommand";
 import {
   CreateMatchmakingConfigurationCommandInput,
-  CreateMatchmakingConfigurationCommandOutput
+  CreateMatchmakingConfigurationCommandOutput,
 } from "../commands/CreateMatchmakingConfigurationCommand";
 import {
   CreateMatchmakingRuleSetCommandInput,
-  CreateMatchmakingRuleSetCommandOutput
+  CreateMatchmakingRuleSetCommandOutput,
 } from "../commands/CreateMatchmakingRuleSetCommand";
 import {
   CreatePlayerSessionCommandInput,
-  CreatePlayerSessionCommandOutput
+  CreatePlayerSessionCommandOutput,
 } from "../commands/CreatePlayerSessionCommand";
 import {
   CreatePlayerSessionsCommandInput,
-  CreatePlayerSessionsCommandOutput
+  CreatePlayerSessionsCommandOutput,
 } from "../commands/CreatePlayerSessionsCommand";
 import {
   CreateScriptCommandInput,
-  CreateScriptCommandOutput
+  CreateScriptCommandOutput,
 } from "../commands/CreateScriptCommand";
 import {
   CreateVpcPeeringAuthorizationCommandInput,
-  CreateVpcPeeringAuthorizationCommandOutput
+  CreateVpcPeeringAuthorizationCommandOutput,
 } from "../commands/CreateVpcPeeringAuthorizationCommand";
 import {
   CreateVpcPeeringConnectionCommandInput,
-  CreateVpcPeeringConnectionCommandOutput
+  CreateVpcPeeringConnectionCommandOutput,
 } from "../commands/CreateVpcPeeringConnectionCommand";
 import {
   DeleteAliasCommandInput,
-  DeleteAliasCommandOutput
+  DeleteAliasCommandOutput,
 } from "../commands/DeleteAliasCommand";
 import {
   DeleteBuildCommandInput,
-  DeleteBuildCommandOutput
+  DeleteBuildCommandOutput,
 } from "../commands/DeleteBuildCommand";
 import {
   DeleteFleetCommandInput,
-  DeleteFleetCommandOutput
+  DeleteFleetCommandOutput,
 } from "../commands/DeleteFleetCommand";
 import {
   DeleteGameSessionQueueCommandInput,
-  DeleteGameSessionQueueCommandOutput
+  DeleteGameSessionQueueCommandOutput,
 } from "../commands/DeleteGameSessionQueueCommand";
 import {
   DeleteMatchmakingConfigurationCommandInput,
-  DeleteMatchmakingConfigurationCommandOutput
+  DeleteMatchmakingConfigurationCommandOutput,
 } from "../commands/DeleteMatchmakingConfigurationCommand";
 import {
   DeleteMatchmakingRuleSetCommandInput,
-  DeleteMatchmakingRuleSetCommandOutput
+  DeleteMatchmakingRuleSetCommandOutput,
 } from "../commands/DeleteMatchmakingRuleSetCommand";
 import {
   DeleteScalingPolicyCommandInput,
-  DeleteScalingPolicyCommandOutput
+  DeleteScalingPolicyCommandOutput,
 } from "../commands/DeleteScalingPolicyCommand";
 import {
   DeleteScriptCommandInput,
-  DeleteScriptCommandOutput
+  DeleteScriptCommandOutput,
 } from "../commands/DeleteScriptCommand";
 import {
   DeleteVpcPeeringAuthorizationCommandInput,
-  DeleteVpcPeeringAuthorizationCommandOutput
+  DeleteVpcPeeringAuthorizationCommandOutput,
 } from "../commands/DeleteVpcPeeringAuthorizationCommand";
 import {
   DeleteVpcPeeringConnectionCommandInput,
-  DeleteVpcPeeringConnectionCommandOutput
+  DeleteVpcPeeringConnectionCommandOutput,
 } from "../commands/DeleteVpcPeeringConnectionCommand";
 import {
   DescribeAliasCommandInput,
-  DescribeAliasCommandOutput
+  DescribeAliasCommandOutput,
 } from "../commands/DescribeAliasCommand";
 import {
   DescribeBuildCommandInput,
-  DescribeBuildCommandOutput
+  DescribeBuildCommandOutput,
 } from "../commands/DescribeBuildCommand";
 import {
   DescribeEC2InstanceLimitsCommandInput,
-  DescribeEC2InstanceLimitsCommandOutput
+  DescribeEC2InstanceLimitsCommandOutput,
 } from "../commands/DescribeEC2InstanceLimitsCommand";
 import {
   DescribeFleetAttributesCommandInput,
-  DescribeFleetAttributesCommandOutput
+  DescribeFleetAttributesCommandOutput,
 } from "../commands/DescribeFleetAttributesCommand";
 import {
   DescribeFleetCapacityCommandInput,
-  DescribeFleetCapacityCommandOutput
+  DescribeFleetCapacityCommandOutput,
 } from "../commands/DescribeFleetCapacityCommand";
 import {
   DescribeFleetEventsCommandInput,
-  DescribeFleetEventsCommandOutput
+  DescribeFleetEventsCommandOutput,
 } from "../commands/DescribeFleetEventsCommand";
 import {
   DescribeFleetPortSettingsCommandInput,
-  DescribeFleetPortSettingsCommandOutput
+  DescribeFleetPortSettingsCommandOutput,
 } from "../commands/DescribeFleetPortSettingsCommand";
 import {
   DescribeFleetUtilizationCommandInput,
-  DescribeFleetUtilizationCommandOutput
+  DescribeFleetUtilizationCommandOutput,
 } from "../commands/DescribeFleetUtilizationCommand";
 import {
   DescribeGameSessionDetailsCommandInput,
-  DescribeGameSessionDetailsCommandOutput
+  DescribeGameSessionDetailsCommandOutput,
 } from "../commands/DescribeGameSessionDetailsCommand";
 import {
   DescribeGameSessionPlacementCommandInput,
-  DescribeGameSessionPlacementCommandOutput
+  DescribeGameSessionPlacementCommandOutput,
 } from "../commands/DescribeGameSessionPlacementCommand";
 import {
   DescribeGameSessionQueuesCommandInput,
-  DescribeGameSessionQueuesCommandOutput
+  DescribeGameSessionQueuesCommandOutput,
 } from "../commands/DescribeGameSessionQueuesCommand";
 import {
   DescribeGameSessionsCommandInput,
-  DescribeGameSessionsCommandOutput
+  DescribeGameSessionsCommandOutput,
 } from "../commands/DescribeGameSessionsCommand";
 import {
   DescribeInstancesCommandInput,
-  DescribeInstancesCommandOutput
+  DescribeInstancesCommandOutput,
 } from "../commands/DescribeInstancesCommand";
 import {
   DescribeMatchmakingCommandInput,
-  DescribeMatchmakingCommandOutput
+  DescribeMatchmakingCommandOutput,
 } from "../commands/DescribeMatchmakingCommand";
 import {
   DescribeMatchmakingConfigurationsCommandInput,
-  DescribeMatchmakingConfigurationsCommandOutput
+  DescribeMatchmakingConfigurationsCommandOutput,
 } from "../commands/DescribeMatchmakingConfigurationsCommand";
 import {
   DescribeMatchmakingRuleSetsCommandInput,
-  DescribeMatchmakingRuleSetsCommandOutput
+  DescribeMatchmakingRuleSetsCommandOutput,
 } from "../commands/DescribeMatchmakingRuleSetsCommand";
 import {
   DescribePlayerSessionsCommandInput,
-  DescribePlayerSessionsCommandOutput
+  DescribePlayerSessionsCommandOutput,
 } from "../commands/DescribePlayerSessionsCommand";
 import {
   DescribeRuntimeConfigurationCommandInput,
-  DescribeRuntimeConfigurationCommandOutput
+  DescribeRuntimeConfigurationCommandOutput,
 } from "../commands/DescribeRuntimeConfigurationCommand";
 import {
   DescribeScalingPoliciesCommandInput,
-  DescribeScalingPoliciesCommandOutput
+  DescribeScalingPoliciesCommandOutput,
 } from "../commands/DescribeScalingPoliciesCommand";
 import {
   DescribeScriptCommandInput,
-  DescribeScriptCommandOutput
+  DescribeScriptCommandOutput,
 } from "../commands/DescribeScriptCommand";
 import {
   DescribeVpcPeeringAuthorizationsCommandInput,
-  DescribeVpcPeeringAuthorizationsCommandOutput
+  DescribeVpcPeeringAuthorizationsCommandOutput,
 } from "../commands/DescribeVpcPeeringAuthorizationsCommand";
 import {
   DescribeVpcPeeringConnectionsCommandInput,
-  DescribeVpcPeeringConnectionsCommandOutput
+  DescribeVpcPeeringConnectionsCommandOutput,
 } from "../commands/DescribeVpcPeeringConnectionsCommand";
 import {
   GetGameSessionLogUrlCommandInput,
-  GetGameSessionLogUrlCommandOutput
+  GetGameSessionLogUrlCommandOutput,
 } from "../commands/GetGameSessionLogUrlCommand";
 import {
   GetInstanceAccessCommandInput,
-  GetInstanceAccessCommandOutput
+  GetInstanceAccessCommandOutput,
 } from "../commands/GetInstanceAccessCommand";
 import {
   ListAliasesCommandInput,
-  ListAliasesCommandOutput
+  ListAliasesCommandOutput,
 } from "../commands/ListAliasesCommand";
 import {
   ListBuildsCommandInput,
-  ListBuildsCommandOutput
+  ListBuildsCommandOutput,
 } from "../commands/ListBuildsCommand";
 import {
   ListFleetsCommandInput,
-  ListFleetsCommandOutput
+  ListFleetsCommandOutput,
 } from "../commands/ListFleetsCommand";
 import {
   ListScriptsCommandInput,
-  ListScriptsCommandOutput
+  ListScriptsCommandOutput,
 } from "../commands/ListScriptsCommand";
 import {
   PutScalingPolicyCommandInput,
-  PutScalingPolicyCommandOutput
+  PutScalingPolicyCommandOutput,
 } from "../commands/PutScalingPolicyCommand";
 import {
   RequestUploadCredentialsCommandInput,
-  RequestUploadCredentialsCommandOutput
+  RequestUploadCredentialsCommandOutput,
 } from "../commands/RequestUploadCredentialsCommand";
 import {
   ResolveAliasCommandInput,
-  ResolveAliasCommandOutput
+  ResolveAliasCommandOutput,
 } from "../commands/ResolveAliasCommand";
 import {
   SearchGameSessionsCommandInput,
-  SearchGameSessionsCommandOutput
+  SearchGameSessionsCommandOutput,
 } from "../commands/SearchGameSessionsCommand";
 import {
   StartFleetActionsCommandInput,
-  StartFleetActionsCommandOutput
+  StartFleetActionsCommandOutput,
 } from "../commands/StartFleetActionsCommand";
 import {
   StartGameSessionPlacementCommandInput,
-  StartGameSessionPlacementCommandOutput
+  StartGameSessionPlacementCommandOutput,
 } from "../commands/StartGameSessionPlacementCommand";
 import {
   StartMatchBackfillCommandInput,
-  StartMatchBackfillCommandOutput
+  StartMatchBackfillCommandOutput,
 } from "../commands/StartMatchBackfillCommand";
 import {
   StartMatchmakingCommandInput,
-  StartMatchmakingCommandOutput
+  StartMatchmakingCommandOutput,
 } from "../commands/StartMatchmakingCommand";
 import {
   StopFleetActionsCommandInput,
-  StopFleetActionsCommandOutput
+  StopFleetActionsCommandOutput,
 } from "../commands/StopFleetActionsCommand";
 import {
   StopGameSessionPlacementCommandInput,
-  StopGameSessionPlacementCommandOutput
+  StopGameSessionPlacementCommandOutput,
 } from "../commands/StopGameSessionPlacementCommand";
 import {
   StopMatchmakingCommandInput,
-  StopMatchmakingCommandOutput
+  StopMatchmakingCommandOutput,
 } from "../commands/StopMatchmakingCommand";
 import {
   UpdateAliasCommandInput,
-  UpdateAliasCommandOutput
+  UpdateAliasCommandOutput,
 } from "../commands/UpdateAliasCommand";
 import {
   UpdateBuildCommandInput,
-  UpdateBuildCommandOutput
+  UpdateBuildCommandOutput,
 } from "../commands/UpdateBuildCommand";
 import {
   UpdateFleetAttributesCommandInput,
-  UpdateFleetAttributesCommandOutput
+  UpdateFleetAttributesCommandOutput,
 } from "../commands/UpdateFleetAttributesCommand";
 import {
   UpdateFleetCapacityCommandInput,
-  UpdateFleetCapacityCommandOutput
+  UpdateFleetCapacityCommandOutput,
 } from "../commands/UpdateFleetCapacityCommand";
 import {
   UpdateFleetPortSettingsCommandInput,
-  UpdateFleetPortSettingsCommandOutput
+  UpdateFleetPortSettingsCommandOutput,
 } from "../commands/UpdateFleetPortSettingsCommand";
 import {
   UpdateGameSessionCommandInput,
-  UpdateGameSessionCommandOutput
+  UpdateGameSessionCommandOutput,
 } from "../commands/UpdateGameSessionCommand";
 import {
   UpdateGameSessionQueueCommandInput,
-  UpdateGameSessionQueueCommandOutput
+  UpdateGameSessionQueueCommandOutput,
 } from "../commands/UpdateGameSessionQueueCommand";
 import {
   UpdateMatchmakingConfigurationCommandInput,
-  UpdateMatchmakingConfigurationCommandOutput
+  UpdateMatchmakingConfigurationCommandOutput,
 } from "../commands/UpdateMatchmakingConfigurationCommand";
 import {
   UpdateRuntimeConfigurationCommandInput,
-  UpdateRuntimeConfigurationCommandOutput
+  UpdateRuntimeConfigurationCommandOutput,
 } from "../commands/UpdateRuntimeConfigurationCommand";
 import {
   UpdateScriptCommandInput,
-  UpdateScriptCommandOutput
+  UpdateScriptCommandOutput,
 } from "../commands/UpdateScriptCommand";
 import {
   ValidateMatchmakingRuleSetCommandInput,
-  ValidateMatchmakingRuleSetCommandOutput
+  ValidateMatchmakingRuleSetCommandOutput,
 } from "../commands/ValidateMatchmakingRuleSetCommand";
 import {
   AcceptMatchInput,
@@ -488,18 +488,18 @@ import {
   ValidateMatchmakingRuleSetOutput,
   VpcPeeringAuthorization,
   VpcPeeringConnection,
-  VpcPeeringConnectionStatus
+  VpcPeeringConnectionStatus,
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export async function serializeAws_json1_1AcceptMatchCommand(
@@ -507,11 +507,11 @@ export async function serializeAws_json1_1AcceptMatchCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.AcceptMatch";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.AcceptMatch";
   let body: any = {};
   const wrappedBody: any = {
-    AcceptMatchInput: serializeAws_json1_1AcceptMatchInput(input, context)
+    AcceptMatchInput: serializeAws_json1_1AcceptMatchInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -520,7 +520,7 @@ export async function serializeAws_json1_1AcceptMatchCommand(
     method: "POST",
     path: "/AcceptMatch",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -529,11 +529,11 @@ export async function serializeAws_json1_1CreateAliasCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.CreateAlias";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.CreateAlias";
   let body: any = {};
   const wrappedBody: any = {
-    CreateAliasInput: serializeAws_json1_1CreateAliasInput(input, context)
+    CreateAliasInput: serializeAws_json1_1CreateAliasInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -542,7 +542,7 @@ export async function serializeAws_json1_1CreateAliasCommand(
     method: "POST",
     path: "/CreateAlias",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -551,11 +551,11 @@ export async function serializeAws_json1_1CreateBuildCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.CreateBuild";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.CreateBuild";
   let body: any = {};
   const wrappedBody: any = {
-    CreateBuildInput: serializeAws_json1_1CreateBuildInput(input, context)
+    CreateBuildInput: serializeAws_json1_1CreateBuildInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -564,7 +564,7 @@ export async function serializeAws_json1_1CreateBuildCommand(
     method: "POST",
     path: "/CreateBuild",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -573,11 +573,11 @@ export async function serializeAws_json1_1CreateFleetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.CreateFleet";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.CreateFleet";
   let body: any = {};
   const wrappedBody: any = {
-    CreateFleetInput: serializeAws_json1_1CreateFleetInput(input, context)
+    CreateFleetInput: serializeAws_json1_1CreateFleetInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -586,7 +586,7 @@ export async function serializeAws_json1_1CreateFleetCommand(
     method: "POST",
     path: "/CreateFleet",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -595,14 +595,11 @@ export async function serializeAws_json1_1CreateGameSessionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.CreateGameSession";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.CreateGameSession";
   let body: any = {};
   const wrappedBody: any = {
-    CreateGameSessionInput: serializeAws_json1_1CreateGameSessionInput(
-      input,
-      context
-    )
+    CreateGameSessionInput: serializeAws_json1_1CreateGameSessionInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -611,7 +608,7 @@ export async function serializeAws_json1_1CreateGameSessionCommand(
     method: "POST",
     path: "/CreateGameSession",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -620,14 +617,11 @@ export async function serializeAws_json1_1CreateGameSessionQueueCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.CreateGameSessionQueue";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.CreateGameSessionQueue";
   let body: any = {};
   const wrappedBody: any = {
-    CreateGameSessionQueueInput: serializeAws_json1_1CreateGameSessionQueueInput(
-      input,
-      context
-    )
+    CreateGameSessionQueueInput: serializeAws_json1_1CreateGameSessionQueueInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -636,7 +630,7 @@ export async function serializeAws_json1_1CreateGameSessionQueueCommand(
     method: "POST",
     path: "/CreateGameSessionQueue",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -645,14 +639,11 @@ export async function serializeAws_json1_1CreateMatchmakingConfigurationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.CreateMatchmakingConfiguration";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.CreateMatchmakingConfiguration";
   let body: any = {};
   const wrappedBody: any = {
-    CreateMatchmakingConfigurationInput: serializeAws_json1_1CreateMatchmakingConfigurationInput(
-      input,
-      context
-    )
+    CreateMatchmakingConfigurationInput: serializeAws_json1_1CreateMatchmakingConfigurationInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -661,7 +652,7 @@ export async function serializeAws_json1_1CreateMatchmakingConfigurationCommand(
     method: "POST",
     path: "/CreateMatchmakingConfiguration",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -670,14 +661,11 @@ export async function serializeAws_json1_1CreateMatchmakingRuleSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.CreateMatchmakingRuleSet";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.CreateMatchmakingRuleSet";
   let body: any = {};
   const wrappedBody: any = {
-    CreateMatchmakingRuleSetInput: serializeAws_json1_1CreateMatchmakingRuleSetInput(
-      input,
-      context
-    )
+    CreateMatchmakingRuleSetInput: serializeAws_json1_1CreateMatchmakingRuleSetInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -686,7 +674,7 @@ export async function serializeAws_json1_1CreateMatchmakingRuleSetCommand(
     method: "POST",
     path: "/CreateMatchmakingRuleSet",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -695,14 +683,11 @@ export async function serializeAws_json1_1CreatePlayerSessionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.CreatePlayerSession";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.CreatePlayerSession";
   let body: any = {};
   const wrappedBody: any = {
-    CreatePlayerSessionInput: serializeAws_json1_1CreatePlayerSessionInput(
-      input,
-      context
-    )
+    CreatePlayerSessionInput: serializeAws_json1_1CreatePlayerSessionInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -711,7 +696,7 @@ export async function serializeAws_json1_1CreatePlayerSessionCommand(
     method: "POST",
     path: "/CreatePlayerSession",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -720,14 +705,11 @@ export async function serializeAws_json1_1CreatePlayerSessionsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.CreatePlayerSessions";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.CreatePlayerSessions";
   let body: any = {};
   const wrappedBody: any = {
-    CreatePlayerSessionsInput: serializeAws_json1_1CreatePlayerSessionsInput(
-      input,
-      context
-    )
+    CreatePlayerSessionsInput: serializeAws_json1_1CreatePlayerSessionsInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -736,7 +718,7 @@ export async function serializeAws_json1_1CreatePlayerSessionsCommand(
     method: "POST",
     path: "/CreatePlayerSessions",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -745,11 +727,11 @@ export async function serializeAws_json1_1CreateScriptCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.CreateScript";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.CreateScript";
   let body: any = {};
   const wrappedBody: any = {
-    CreateScriptInput: serializeAws_json1_1CreateScriptInput(input, context)
+    CreateScriptInput: serializeAws_json1_1CreateScriptInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -758,7 +740,7 @@ export async function serializeAws_json1_1CreateScriptCommand(
     method: "POST",
     path: "/CreateScript",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -767,14 +749,11 @@ export async function serializeAws_json1_1CreateVpcPeeringAuthorizationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.CreateVpcPeeringAuthorization";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.CreateVpcPeeringAuthorization";
   let body: any = {};
   const wrappedBody: any = {
-    CreateVpcPeeringAuthorizationInput: serializeAws_json1_1CreateVpcPeeringAuthorizationInput(
-      input,
-      context
-    )
+    CreateVpcPeeringAuthorizationInput: serializeAws_json1_1CreateVpcPeeringAuthorizationInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -783,7 +762,7 @@ export async function serializeAws_json1_1CreateVpcPeeringAuthorizationCommand(
     method: "POST",
     path: "/CreateVpcPeeringAuthorization",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -792,14 +771,11 @@ export async function serializeAws_json1_1CreateVpcPeeringConnectionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.CreateVpcPeeringConnection";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.CreateVpcPeeringConnection";
   let body: any = {};
   const wrappedBody: any = {
-    CreateVpcPeeringConnectionInput: serializeAws_json1_1CreateVpcPeeringConnectionInput(
-      input,
-      context
-    )
+    CreateVpcPeeringConnectionInput: serializeAws_json1_1CreateVpcPeeringConnectionInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -808,7 +784,7 @@ export async function serializeAws_json1_1CreateVpcPeeringConnectionCommand(
     method: "POST",
     path: "/CreateVpcPeeringConnection",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -817,11 +793,11 @@ export async function serializeAws_json1_1DeleteAliasCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DeleteAlias";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DeleteAlias";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteAliasInput: serializeAws_json1_1DeleteAliasInput(input, context)
+    DeleteAliasInput: serializeAws_json1_1DeleteAliasInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -830,7 +806,7 @@ export async function serializeAws_json1_1DeleteAliasCommand(
     method: "POST",
     path: "/DeleteAlias",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -839,11 +815,11 @@ export async function serializeAws_json1_1DeleteBuildCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DeleteBuild";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DeleteBuild";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteBuildInput: serializeAws_json1_1DeleteBuildInput(input, context)
+    DeleteBuildInput: serializeAws_json1_1DeleteBuildInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -852,7 +828,7 @@ export async function serializeAws_json1_1DeleteBuildCommand(
     method: "POST",
     path: "/DeleteBuild",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -861,11 +837,11 @@ export async function serializeAws_json1_1DeleteFleetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DeleteFleet";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DeleteFleet";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteFleetInput: serializeAws_json1_1DeleteFleetInput(input, context)
+    DeleteFleetInput: serializeAws_json1_1DeleteFleetInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -874,7 +850,7 @@ export async function serializeAws_json1_1DeleteFleetCommand(
     method: "POST",
     path: "/DeleteFleet",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -883,14 +859,11 @@ export async function serializeAws_json1_1DeleteGameSessionQueueCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DeleteGameSessionQueue";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DeleteGameSessionQueue";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteGameSessionQueueInput: serializeAws_json1_1DeleteGameSessionQueueInput(
-      input,
-      context
-    )
+    DeleteGameSessionQueueInput: serializeAws_json1_1DeleteGameSessionQueueInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -899,7 +872,7 @@ export async function serializeAws_json1_1DeleteGameSessionQueueCommand(
     method: "POST",
     path: "/DeleteGameSessionQueue",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -908,14 +881,11 @@ export async function serializeAws_json1_1DeleteMatchmakingConfigurationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DeleteMatchmakingConfiguration";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DeleteMatchmakingConfiguration";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteMatchmakingConfigurationInput: serializeAws_json1_1DeleteMatchmakingConfigurationInput(
-      input,
-      context
-    )
+    DeleteMatchmakingConfigurationInput: serializeAws_json1_1DeleteMatchmakingConfigurationInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -924,7 +894,7 @@ export async function serializeAws_json1_1DeleteMatchmakingConfigurationCommand(
     method: "POST",
     path: "/DeleteMatchmakingConfiguration",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -933,14 +903,11 @@ export async function serializeAws_json1_1DeleteMatchmakingRuleSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DeleteMatchmakingRuleSet";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DeleteMatchmakingRuleSet";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteMatchmakingRuleSetInput: serializeAws_json1_1DeleteMatchmakingRuleSetInput(
-      input,
-      context
-    )
+    DeleteMatchmakingRuleSetInput: serializeAws_json1_1DeleteMatchmakingRuleSetInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -949,7 +916,7 @@ export async function serializeAws_json1_1DeleteMatchmakingRuleSetCommand(
     method: "POST",
     path: "/DeleteMatchmakingRuleSet",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -958,14 +925,11 @@ export async function serializeAws_json1_1DeleteScalingPolicyCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DeleteScalingPolicy";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DeleteScalingPolicy";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteScalingPolicyInput: serializeAws_json1_1DeleteScalingPolicyInput(
-      input,
-      context
-    )
+    DeleteScalingPolicyInput: serializeAws_json1_1DeleteScalingPolicyInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -974,7 +938,7 @@ export async function serializeAws_json1_1DeleteScalingPolicyCommand(
     method: "POST",
     path: "/DeleteScalingPolicy",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -983,11 +947,11 @@ export async function serializeAws_json1_1DeleteScriptCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DeleteScript";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DeleteScript";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteScriptInput: serializeAws_json1_1DeleteScriptInput(input, context)
+    DeleteScriptInput: serializeAws_json1_1DeleteScriptInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -996,7 +960,7 @@ export async function serializeAws_json1_1DeleteScriptCommand(
     method: "POST",
     path: "/DeleteScript",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1005,14 +969,11 @@ export async function serializeAws_json1_1DeleteVpcPeeringAuthorizationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DeleteVpcPeeringAuthorization";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DeleteVpcPeeringAuthorization";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteVpcPeeringAuthorizationInput: serializeAws_json1_1DeleteVpcPeeringAuthorizationInput(
-      input,
-      context
-    )
+    DeleteVpcPeeringAuthorizationInput: serializeAws_json1_1DeleteVpcPeeringAuthorizationInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1021,7 +982,7 @@ export async function serializeAws_json1_1DeleteVpcPeeringAuthorizationCommand(
     method: "POST",
     path: "/DeleteVpcPeeringAuthorization",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1030,14 +991,11 @@ export async function serializeAws_json1_1DeleteVpcPeeringConnectionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DeleteVpcPeeringConnection";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DeleteVpcPeeringConnection";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteVpcPeeringConnectionInput: serializeAws_json1_1DeleteVpcPeeringConnectionInput(
-      input,
-      context
-    )
+    DeleteVpcPeeringConnectionInput: serializeAws_json1_1DeleteVpcPeeringConnectionInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1046,7 +1004,7 @@ export async function serializeAws_json1_1DeleteVpcPeeringConnectionCommand(
     method: "POST",
     path: "/DeleteVpcPeeringConnection",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1055,11 +1013,11 @@ export async function serializeAws_json1_1DescribeAliasCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DescribeAlias";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DescribeAlias";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeAliasInput: serializeAws_json1_1DescribeAliasInput(input, context)
+    DescribeAliasInput: serializeAws_json1_1DescribeAliasInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1068,7 +1026,7 @@ export async function serializeAws_json1_1DescribeAliasCommand(
     method: "POST",
     path: "/DescribeAlias",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1077,11 +1035,11 @@ export async function serializeAws_json1_1DescribeBuildCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DescribeBuild";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DescribeBuild";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeBuildInput: serializeAws_json1_1DescribeBuildInput(input, context)
+    DescribeBuildInput: serializeAws_json1_1DescribeBuildInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1090,7 +1048,7 @@ export async function serializeAws_json1_1DescribeBuildCommand(
     method: "POST",
     path: "/DescribeBuild",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1099,14 +1057,11 @@ export async function serializeAws_json1_1DescribeEC2InstanceLimitsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DescribeEC2InstanceLimits";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DescribeEC2InstanceLimits";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeEC2InstanceLimitsInput: serializeAws_json1_1DescribeEC2InstanceLimitsInput(
-      input,
-      context
-    )
+    DescribeEC2InstanceLimitsInput: serializeAws_json1_1DescribeEC2InstanceLimitsInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1115,7 +1070,7 @@ export async function serializeAws_json1_1DescribeEC2InstanceLimitsCommand(
     method: "POST",
     path: "/DescribeEC2InstanceLimits",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1124,14 +1079,11 @@ export async function serializeAws_json1_1DescribeFleetAttributesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DescribeFleetAttributes";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DescribeFleetAttributes";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeFleetAttributesInput: serializeAws_json1_1DescribeFleetAttributesInput(
-      input,
-      context
-    )
+    DescribeFleetAttributesInput: serializeAws_json1_1DescribeFleetAttributesInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1140,7 +1092,7 @@ export async function serializeAws_json1_1DescribeFleetAttributesCommand(
     method: "POST",
     path: "/DescribeFleetAttributes",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1149,14 +1101,11 @@ export async function serializeAws_json1_1DescribeFleetCapacityCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DescribeFleetCapacity";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DescribeFleetCapacity";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeFleetCapacityInput: serializeAws_json1_1DescribeFleetCapacityInput(
-      input,
-      context
-    )
+    DescribeFleetCapacityInput: serializeAws_json1_1DescribeFleetCapacityInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1165,7 +1114,7 @@ export async function serializeAws_json1_1DescribeFleetCapacityCommand(
     method: "POST",
     path: "/DescribeFleetCapacity",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1174,14 +1123,11 @@ export async function serializeAws_json1_1DescribeFleetEventsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DescribeFleetEvents";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DescribeFleetEvents";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeFleetEventsInput: serializeAws_json1_1DescribeFleetEventsInput(
-      input,
-      context
-    )
+    DescribeFleetEventsInput: serializeAws_json1_1DescribeFleetEventsInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1190,7 +1136,7 @@ export async function serializeAws_json1_1DescribeFleetEventsCommand(
     method: "POST",
     path: "/DescribeFleetEvents",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1199,14 +1145,11 @@ export async function serializeAws_json1_1DescribeFleetPortSettingsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DescribeFleetPortSettings";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DescribeFleetPortSettings";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeFleetPortSettingsInput: serializeAws_json1_1DescribeFleetPortSettingsInput(
-      input,
-      context
-    )
+    DescribeFleetPortSettingsInput: serializeAws_json1_1DescribeFleetPortSettingsInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1215,7 +1158,7 @@ export async function serializeAws_json1_1DescribeFleetPortSettingsCommand(
     method: "POST",
     path: "/DescribeFleetPortSettings",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1224,14 +1167,11 @@ export async function serializeAws_json1_1DescribeFleetUtilizationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DescribeFleetUtilization";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DescribeFleetUtilization";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeFleetUtilizationInput: serializeAws_json1_1DescribeFleetUtilizationInput(
-      input,
-      context
-    )
+    DescribeFleetUtilizationInput: serializeAws_json1_1DescribeFleetUtilizationInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1240,7 +1180,7 @@ export async function serializeAws_json1_1DescribeFleetUtilizationCommand(
     method: "POST",
     path: "/DescribeFleetUtilization",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1249,14 +1189,11 @@ export async function serializeAws_json1_1DescribeGameSessionDetailsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DescribeGameSessionDetails";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DescribeGameSessionDetails";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeGameSessionDetailsInput: serializeAws_json1_1DescribeGameSessionDetailsInput(
-      input,
-      context
-    )
+    DescribeGameSessionDetailsInput: serializeAws_json1_1DescribeGameSessionDetailsInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1265,7 +1202,7 @@ export async function serializeAws_json1_1DescribeGameSessionDetailsCommand(
     method: "POST",
     path: "/DescribeGameSessionDetails",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1274,14 +1211,11 @@ export async function serializeAws_json1_1DescribeGameSessionPlacementCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DescribeGameSessionPlacement";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DescribeGameSessionPlacement";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeGameSessionPlacementInput: serializeAws_json1_1DescribeGameSessionPlacementInput(
-      input,
-      context
-    )
+    DescribeGameSessionPlacementInput: serializeAws_json1_1DescribeGameSessionPlacementInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1290,7 +1224,7 @@ export async function serializeAws_json1_1DescribeGameSessionPlacementCommand(
     method: "POST",
     path: "/DescribeGameSessionPlacement",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1299,14 +1233,11 @@ export async function serializeAws_json1_1DescribeGameSessionQueuesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DescribeGameSessionQueues";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DescribeGameSessionQueues";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeGameSessionQueuesInput: serializeAws_json1_1DescribeGameSessionQueuesInput(
-      input,
-      context
-    )
+    DescribeGameSessionQueuesInput: serializeAws_json1_1DescribeGameSessionQueuesInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1315,7 +1246,7 @@ export async function serializeAws_json1_1DescribeGameSessionQueuesCommand(
     method: "POST",
     path: "/DescribeGameSessionQueues",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1324,14 +1255,11 @@ export async function serializeAws_json1_1DescribeGameSessionsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DescribeGameSessions";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DescribeGameSessions";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeGameSessionsInput: serializeAws_json1_1DescribeGameSessionsInput(
-      input,
-      context
-    )
+    DescribeGameSessionsInput: serializeAws_json1_1DescribeGameSessionsInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1340,7 +1268,7 @@ export async function serializeAws_json1_1DescribeGameSessionsCommand(
     method: "POST",
     path: "/DescribeGameSessions",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1349,14 +1277,11 @@ export async function serializeAws_json1_1DescribeInstancesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DescribeInstances";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DescribeInstances";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeInstancesInput: serializeAws_json1_1DescribeInstancesInput(
-      input,
-      context
-    )
+    DescribeInstancesInput: serializeAws_json1_1DescribeInstancesInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1365,7 +1290,7 @@ export async function serializeAws_json1_1DescribeInstancesCommand(
     method: "POST",
     path: "/DescribeInstances",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1374,14 +1299,11 @@ export async function serializeAws_json1_1DescribeMatchmakingCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DescribeMatchmaking";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DescribeMatchmaking";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeMatchmakingInput: serializeAws_json1_1DescribeMatchmakingInput(
-      input,
-      context
-    )
+    DescribeMatchmakingInput: serializeAws_json1_1DescribeMatchmakingInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1390,7 +1312,7 @@ export async function serializeAws_json1_1DescribeMatchmakingCommand(
     method: "POST",
     path: "/DescribeMatchmaking",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1399,14 +1321,11 @@ export async function serializeAws_json1_1DescribeMatchmakingConfigurationsComma
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DescribeMatchmakingConfigurations";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DescribeMatchmakingConfigurations";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeMatchmakingConfigurationsInput: serializeAws_json1_1DescribeMatchmakingConfigurationsInput(
-      input,
-      context
-    )
+    DescribeMatchmakingConfigurationsInput: serializeAws_json1_1DescribeMatchmakingConfigurationsInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1415,7 +1334,7 @@ export async function serializeAws_json1_1DescribeMatchmakingConfigurationsComma
     method: "POST",
     path: "/DescribeMatchmakingConfigurations",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1424,14 +1343,11 @@ export async function serializeAws_json1_1DescribeMatchmakingRuleSetsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DescribeMatchmakingRuleSets";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DescribeMatchmakingRuleSets";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeMatchmakingRuleSetsInput: serializeAws_json1_1DescribeMatchmakingRuleSetsInput(
-      input,
-      context
-    )
+    DescribeMatchmakingRuleSetsInput: serializeAws_json1_1DescribeMatchmakingRuleSetsInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1440,7 +1356,7 @@ export async function serializeAws_json1_1DescribeMatchmakingRuleSetsCommand(
     method: "POST",
     path: "/DescribeMatchmakingRuleSets",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1449,14 +1365,11 @@ export async function serializeAws_json1_1DescribePlayerSessionsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DescribePlayerSessions";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DescribePlayerSessions";
   let body: any = {};
   const wrappedBody: any = {
-    DescribePlayerSessionsInput: serializeAws_json1_1DescribePlayerSessionsInput(
-      input,
-      context
-    )
+    DescribePlayerSessionsInput: serializeAws_json1_1DescribePlayerSessionsInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1465,7 +1378,7 @@ export async function serializeAws_json1_1DescribePlayerSessionsCommand(
     method: "POST",
     path: "/DescribePlayerSessions",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1474,14 +1387,11 @@ export async function serializeAws_json1_1DescribeRuntimeConfigurationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DescribeRuntimeConfiguration";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DescribeRuntimeConfiguration";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeRuntimeConfigurationInput: serializeAws_json1_1DescribeRuntimeConfigurationInput(
-      input,
-      context
-    )
+    DescribeRuntimeConfigurationInput: serializeAws_json1_1DescribeRuntimeConfigurationInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1490,7 +1400,7 @@ export async function serializeAws_json1_1DescribeRuntimeConfigurationCommand(
     method: "POST",
     path: "/DescribeRuntimeConfiguration",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1499,14 +1409,11 @@ export async function serializeAws_json1_1DescribeScalingPoliciesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DescribeScalingPolicies";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DescribeScalingPolicies";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeScalingPoliciesInput: serializeAws_json1_1DescribeScalingPoliciesInput(
-      input,
-      context
-    )
+    DescribeScalingPoliciesInput: serializeAws_json1_1DescribeScalingPoliciesInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1515,7 +1422,7 @@ export async function serializeAws_json1_1DescribeScalingPoliciesCommand(
     method: "POST",
     path: "/DescribeScalingPolicies",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1524,11 +1431,11 @@ export async function serializeAws_json1_1DescribeScriptCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DescribeScript";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DescribeScript";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeScriptInput: serializeAws_json1_1DescribeScriptInput(input, context)
+    DescribeScriptInput: serializeAws_json1_1DescribeScriptInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1537,7 +1444,7 @@ export async function serializeAws_json1_1DescribeScriptCommand(
     method: "POST",
     path: "/DescribeScript",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1546,14 +1453,11 @@ export async function serializeAws_json1_1DescribeVpcPeeringAuthorizationsComman
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DescribeVpcPeeringAuthorizations";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DescribeVpcPeeringAuthorizations";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeVpcPeeringAuthorizationsInput: serializeAws_json1_1DescribeVpcPeeringAuthorizationsInput(
-      input,
-      context
-    )
+    DescribeVpcPeeringAuthorizationsInput: serializeAws_json1_1DescribeVpcPeeringAuthorizationsInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1562,7 +1466,7 @@ export async function serializeAws_json1_1DescribeVpcPeeringAuthorizationsComman
     method: "POST",
     path: "/DescribeVpcPeeringAuthorizations",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1571,14 +1475,11 @@ export async function serializeAws_json1_1DescribeVpcPeeringConnectionsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.DescribeVpcPeeringConnections";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.DescribeVpcPeeringConnections";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeVpcPeeringConnectionsInput: serializeAws_json1_1DescribeVpcPeeringConnectionsInput(
-      input,
-      context
-    )
+    DescribeVpcPeeringConnectionsInput: serializeAws_json1_1DescribeVpcPeeringConnectionsInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1587,7 +1488,7 @@ export async function serializeAws_json1_1DescribeVpcPeeringConnectionsCommand(
     method: "POST",
     path: "/DescribeVpcPeeringConnections",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1596,14 +1497,11 @@ export async function serializeAws_json1_1GetGameSessionLogUrlCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.GetGameSessionLogUrl";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.GetGameSessionLogUrl";
   let body: any = {};
   const wrappedBody: any = {
-    GetGameSessionLogUrlInput: serializeAws_json1_1GetGameSessionLogUrlInput(
-      input,
-      context
-    )
+    GetGameSessionLogUrlInput: serializeAws_json1_1GetGameSessionLogUrlInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1612,7 +1510,7 @@ export async function serializeAws_json1_1GetGameSessionLogUrlCommand(
     method: "POST",
     path: "/GetGameSessionLogUrl",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1621,14 +1519,11 @@ export async function serializeAws_json1_1GetInstanceAccessCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.GetInstanceAccess";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.GetInstanceAccess";
   let body: any = {};
   const wrappedBody: any = {
-    GetInstanceAccessInput: serializeAws_json1_1GetInstanceAccessInput(
-      input,
-      context
-    )
+    GetInstanceAccessInput: serializeAws_json1_1GetInstanceAccessInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1637,7 +1532,7 @@ export async function serializeAws_json1_1GetInstanceAccessCommand(
     method: "POST",
     path: "/GetInstanceAccess",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1646,11 +1541,11 @@ export async function serializeAws_json1_1ListAliasesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.ListAliases";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.ListAliases";
   let body: any = {};
   const wrappedBody: any = {
-    ListAliasesInput: serializeAws_json1_1ListAliasesInput(input, context)
+    ListAliasesInput: serializeAws_json1_1ListAliasesInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1659,7 +1554,7 @@ export async function serializeAws_json1_1ListAliasesCommand(
     method: "POST",
     path: "/ListAliases",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1668,11 +1563,11 @@ export async function serializeAws_json1_1ListBuildsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.ListBuilds";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.ListBuilds";
   let body: any = {};
   const wrappedBody: any = {
-    ListBuildsInput: serializeAws_json1_1ListBuildsInput(input, context)
+    ListBuildsInput: serializeAws_json1_1ListBuildsInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1681,7 +1576,7 @@ export async function serializeAws_json1_1ListBuildsCommand(
     method: "POST",
     path: "/ListBuilds",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1690,11 +1585,11 @@ export async function serializeAws_json1_1ListFleetsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.ListFleets";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.ListFleets";
   let body: any = {};
   const wrappedBody: any = {
-    ListFleetsInput: serializeAws_json1_1ListFleetsInput(input, context)
+    ListFleetsInput: serializeAws_json1_1ListFleetsInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1703,7 +1598,7 @@ export async function serializeAws_json1_1ListFleetsCommand(
     method: "POST",
     path: "/ListFleets",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1712,11 +1607,11 @@ export async function serializeAws_json1_1ListScriptsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.ListScripts";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.ListScripts";
   let body: any = {};
   const wrappedBody: any = {
-    ListScriptsInput: serializeAws_json1_1ListScriptsInput(input, context)
+    ListScriptsInput: serializeAws_json1_1ListScriptsInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1725,7 +1620,7 @@ export async function serializeAws_json1_1ListScriptsCommand(
     method: "POST",
     path: "/ListScripts",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1734,14 +1629,11 @@ export async function serializeAws_json1_1PutScalingPolicyCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.PutScalingPolicy";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.PutScalingPolicy";
   let body: any = {};
   const wrappedBody: any = {
-    PutScalingPolicyInput: serializeAws_json1_1PutScalingPolicyInput(
-      input,
-      context
-    )
+    PutScalingPolicyInput: serializeAws_json1_1PutScalingPolicyInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1750,7 +1642,7 @@ export async function serializeAws_json1_1PutScalingPolicyCommand(
     method: "POST",
     path: "/PutScalingPolicy",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1759,14 +1651,11 @@ export async function serializeAws_json1_1RequestUploadCredentialsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.RequestUploadCredentials";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.RequestUploadCredentials";
   let body: any = {};
   const wrappedBody: any = {
-    RequestUploadCredentialsInput: serializeAws_json1_1RequestUploadCredentialsInput(
-      input,
-      context
-    )
+    RequestUploadCredentialsInput: serializeAws_json1_1RequestUploadCredentialsInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1775,7 +1664,7 @@ export async function serializeAws_json1_1RequestUploadCredentialsCommand(
     method: "POST",
     path: "/RequestUploadCredentials",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1784,11 +1673,11 @@ export async function serializeAws_json1_1ResolveAliasCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.ResolveAlias";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.ResolveAlias";
   let body: any = {};
   const wrappedBody: any = {
-    ResolveAliasInput: serializeAws_json1_1ResolveAliasInput(input, context)
+    ResolveAliasInput: serializeAws_json1_1ResolveAliasInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1797,7 +1686,7 @@ export async function serializeAws_json1_1ResolveAliasCommand(
     method: "POST",
     path: "/ResolveAlias",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1806,14 +1695,11 @@ export async function serializeAws_json1_1SearchGameSessionsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.SearchGameSessions";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.SearchGameSessions";
   let body: any = {};
   const wrappedBody: any = {
-    SearchGameSessionsInput: serializeAws_json1_1SearchGameSessionsInput(
-      input,
-      context
-    )
+    SearchGameSessionsInput: serializeAws_json1_1SearchGameSessionsInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1822,7 +1708,7 @@ export async function serializeAws_json1_1SearchGameSessionsCommand(
     method: "POST",
     path: "/SearchGameSessions",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1831,14 +1717,11 @@ export async function serializeAws_json1_1StartFleetActionsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.StartFleetActions";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.StartFleetActions";
   let body: any = {};
   const wrappedBody: any = {
-    StartFleetActionsInput: serializeAws_json1_1StartFleetActionsInput(
-      input,
-      context
-    )
+    StartFleetActionsInput: serializeAws_json1_1StartFleetActionsInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1847,7 +1730,7 @@ export async function serializeAws_json1_1StartFleetActionsCommand(
     method: "POST",
     path: "/StartFleetActions",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1856,14 +1739,11 @@ export async function serializeAws_json1_1StartGameSessionPlacementCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.StartGameSessionPlacement";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.StartGameSessionPlacement";
   let body: any = {};
   const wrappedBody: any = {
-    StartGameSessionPlacementInput: serializeAws_json1_1StartGameSessionPlacementInput(
-      input,
-      context
-    )
+    StartGameSessionPlacementInput: serializeAws_json1_1StartGameSessionPlacementInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1872,7 +1752,7 @@ export async function serializeAws_json1_1StartGameSessionPlacementCommand(
     method: "POST",
     path: "/StartGameSessionPlacement",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1881,14 +1761,11 @@ export async function serializeAws_json1_1StartMatchBackfillCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.StartMatchBackfill";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.StartMatchBackfill";
   let body: any = {};
   const wrappedBody: any = {
-    StartMatchBackfillInput: serializeAws_json1_1StartMatchBackfillInput(
-      input,
-      context
-    )
+    StartMatchBackfillInput: serializeAws_json1_1StartMatchBackfillInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1897,7 +1774,7 @@ export async function serializeAws_json1_1StartMatchBackfillCommand(
     method: "POST",
     path: "/StartMatchBackfill",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1906,14 +1783,11 @@ export async function serializeAws_json1_1StartMatchmakingCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.StartMatchmaking";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.StartMatchmaking";
   let body: any = {};
   const wrappedBody: any = {
-    StartMatchmakingInput: serializeAws_json1_1StartMatchmakingInput(
-      input,
-      context
-    )
+    StartMatchmakingInput: serializeAws_json1_1StartMatchmakingInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1922,7 +1796,7 @@ export async function serializeAws_json1_1StartMatchmakingCommand(
     method: "POST",
     path: "/StartMatchmaking",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1931,14 +1805,11 @@ export async function serializeAws_json1_1StopFleetActionsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.StopFleetActions";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.StopFleetActions";
   let body: any = {};
   const wrappedBody: any = {
-    StopFleetActionsInput: serializeAws_json1_1StopFleetActionsInput(
-      input,
-      context
-    )
+    StopFleetActionsInput: serializeAws_json1_1StopFleetActionsInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1947,7 +1818,7 @@ export async function serializeAws_json1_1StopFleetActionsCommand(
     method: "POST",
     path: "/StopFleetActions",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1956,14 +1827,11 @@ export async function serializeAws_json1_1StopGameSessionPlacementCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.StopGameSessionPlacement";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.StopGameSessionPlacement";
   let body: any = {};
   const wrappedBody: any = {
-    StopGameSessionPlacementInput: serializeAws_json1_1StopGameSessionPlacementInput(
-      input,
-      context
-    )
+    StopGameSessionPlacementInput: serializeAws_json1_1StopGameSessionPlacementInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1972,7 +1840,7 @@ export async function serializeAws_json1_1StopGameSessionPlacementCommand(
     method: "POST",
     path: "/StopGameSessionPlacement",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1981,14 +1849,11 @@ export async function serializeAws_json1_1StopMatchmakingCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.StopMatchmaking";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.StopMatchmaking";
   let body: any = {};
   const wrappedBody: any = {
-    StopMatchmakingInput: serializeAws_json1_1StopMatchmakingInput(
-      input,
-      context
-    )
+    StopMatchmakingInput: serializeAws_json1_1StopMatchmakingInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1997,7 +1862,7 @@ export async function serializeAws_json1_1StopMatchmakingCommand(
     method: "POST",
     path: "/StopMatchmaking",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2006,11 +1871,11 @@ export async function serializeAws_json1_1UpdateAliasCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.UpdateAlias";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.UpdateAlias";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateAliasInput: serializeAws_json1_1UpdateAliasInput(input, context)
+    UpdateAliasInput: serializeAws_json1_1UpdateAliasInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2019,7 +1884,7 @@ export async function serializeAws_json1_1UpdateAliasCommand(
     method: "POST",
     path: "/UpdateAlias",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2028,11 +1893,11 @@ export async function serializeAws_json1_1UpdateBuildCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.UpdateBuild";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.UpdateBuild";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateBuildInput: serializeAws_json1_1UpdateBuildInput(input, context)
+    UpdateBuildInput: serializeAws_json1_1UpdateBuildInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2041,7 +1906,7 @@ export async function serializeAws_json1_1UpdateBuildCommand(
     method: "POST",
     path: "/UpdateBuild",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2050,14 +1915,11 @@ export async function serializeAws_json1_1UpdateFleetAttributesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.UpdateFleetAttributes";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.UpdateFleetAttributes";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateFleetAttributesInput: serializeAws_json1_1UpdateFleetAttributesInput(
-      input,
-      context
-    )
+    UpdateFleetAttributesInput: serializeAws_json1_1UpdateFleetAttributesInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2066,7 +1928,7 @@ export async function serializeAws_json1_1UpdateFleetAttributesCommand(
     method: "POST",
     path: "/UpdateFleetAttributes",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2075,14 +1937,11 @@ export async function serializeAws_json1_1UpdateFleetCapacityCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.UpdateFleetCapacity";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.UpdateFleetCapacity";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateFleetCapacityInput: serializeAws_json1_1UpdateFleetCapacityInput(
-      input,
-      context
-    )
+    UpdateFleetCapacityInput: serializeAws_json1_1UpdateFleetCapacityInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2091,7 +1950,7 @@ export async function serializeAws_json1_1UpdateFleetCapacityCommand(
     method: "POST",
     path: "/UpdateFleetCapacity",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2100,14 +1959,11 @@ export async function serializeAws_json1_1UpdateFleetPortSettingsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.UpdateFleetPortSettings";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.UpdateFleetPortSettings";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateFleetPortSettingsInput: serializeAws_json1_1UpdateFleetPortSettingsInput(
-      input,
-      context
-    )
+    UpdateFleetPortSettingsInput: serializeAws_json1_1UpdateFleetPortSettingsInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2116,7 +1972,7 @@ export async function serializeAws_json1_1UpdateFleetPortSettingsCommand(
     method: "POST",
     path: "/UpdateFleetPortSettings",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2125,14 +1981,11 @@ export async function serializeAws_json1_1UpdateGameSessionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.UpdateGameSession";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.UpdateGameSession";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateGameSessionInput: serializeAws_json1_1UpdateGameSessionInput(
-      input,
-      context
-    )
+    UpdateGameSessionInput: serializeAws_json1_1UpdateGameSessionInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2141,7 +1994,7 @@ export async function serializeAws_json1_1UpdateGameSessionCommand(
     method: "POST",
     path: "/UpdateGameSession",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2150,14 +2003,11 @@ export async function serializeAws_json1_1UpdateGameSessionQueueCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.UpdateGameSessionQueue";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.UpdateGameSessionQueue";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateGameSessionQueueInput: serializeAws_json1_1UpdateGameSessionQueueInput(
-      input,
-      context
-    )
+    UpdateGameSessionQueueInput: serializeAws_json1_1UpdateGameSessionQueueInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2166,7 +2016,7 @@ export async function serializeAws_json1_1UpdateGameSessionQueueCommand(
     method: "POST",
     path: "/UpdateGameSessionQueue",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2175,14 +2025,11 @@ export async function serializeAws_json1_1UpdateMatchmakingConfigurationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.UpdateMatchmakingConfiguration";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.UpdateMatchmakingConfiguration";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateMatchmakingConfigurationInput: serializeAws_json1_1UpdateMatchmakingConfigurationInput(
-      input,
-      context
-    )
+    UpdateMatchmakingConfigurationInput: serializeAws_json1_1UpdateMatchmakingConfigurationInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2191,7 +2038,7 @@ export async function serializeAws_json1_1UpdateMatchmakingConfigurationCommand(
     method: "POST",
     path: "/UpdateMatchmakingConfiguration",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2200,14 +2047,11 @@ export async function serializeAws_json1_1UpdateRuntimeConfigurationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.UpdateRuntimeConfiguration";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.UpdateRuntimeConfiguration";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateRuntimeConfigurationInput: serializeAws_json1_1UpdateRuntimeConfigurationInput(
-      input,
-      context
-    )
+    UpdateRuntimeConfigurationInput: serializeAws_json1_1UpdateRuntimeConfigurationInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2216,7 +2060,7 @@ export async function serializeAws_json1_1UpdateRuntimeConfigurationCommand(
     method: "POST",
     path: "/UpdateRuntimeConfiguration",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2225,11 +2069,11 @@ export async function serializeAws_json1_1UpdateScriptCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.UpdateScript";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.UpdateScript";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateScriptInput: serializeAws_json1_1UpdateScriptInput(input, context)
+    UpdateScriptInput: serializeAws_json1_1UpdateScriptInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2238,7 +2082,7 @@ export async function serializeAws_json1_1UpdateScriptCommand(
     method: "POST",
     path: "/UpdateScript",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2247,14 +2091,11 @@ export async function serializeAws_json1_1ValidateMatchmakingRuleSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GameLift.ValidateMatchmakingRuleSet";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GameLift.ValidateMatchmakingRuleSet";
   let body: any = {};
   const wrappedBody: any = {
-    ValidateMatchmakingRuleSetInput: serializeAws_json1_1ValidateMatchmakingRuleSetInput(
-      input,
-      context
-    )
+    ValidateMatchmakingRuleSetInput: serializeAws_json1_1ValidateMatchmakingRuleSetInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2263,7 +2104,7 @@ export async function serializeAws_json1_1ValidateMatchmakingRuleSetCommand(
     method: "POST",
     path: "/ValidateMatchmakingRuleSet",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2274,69 +2115,53 @@ export async function deserializeAws_json1_1AcceptMatchCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AcceptMatchCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1AcceptMatchOutput(
-    data.AcceptMatchOutput,
-    context
-  );
+  contents = deserializeAws_json1_1AcceptMatchOutput(data, context);
   const response: AcceptMatchCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AcceptMatchOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AcceptMatchCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AcceptMatchCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnsupportedRegionException":
     case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
-      response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2349,76 +2174,57 @@ export async function deserializeAws_json1_1CreateAliasCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateAliasCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateAliasOutput(
-    data.CreateAliasOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateAliasOutput(data, context);
   const response: CreateAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateAliasOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateAliasCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateAliasCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.gameliftapi.v20151001#ConflictException":
-      response = await deserializeAws_json1_1ConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.gameliftapi.v20151001#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2431,69 +2237,53 @@ export async function deserializeAws_json1_1CreateBuildCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateBuildCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateBuildOutput(
-    data.CreateBuildOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateBuildOutput(data, context);
   const response: CreateBuildCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateBuildOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateBuildCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateBuildCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.gameliftapi.v20151001#ConflictException":
-      response = await deserializeAws_json1_1ConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2506,83 +2296,61 @@ export async function deserializeAws_json1_1CreateFleetCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateFleetCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateFleetOutput(
-    data.CreateFleetOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateFleetOutput(data, context);
   const response: CreateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateFleetOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateFleetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateFleetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.gameliftapi.v20151001#ConflictException":
-      response = await deserializeAws_json1_1ConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.gameliftapi.v20151001#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2595,111 +2363,77 @@ export async function deserializeAws_json1_1CreateGameSessionCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateGameSessionCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateGameSessionOutput(
-    data.CreateGameSessionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateGameSessionOutput(data, context);
   const response: CreateGameSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateGameSessionOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateGameSessionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateGameSessionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.gameliftapi.v20151001#ConflictException":
-      response = await deserializeAws_json1_1ConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
       break;
     case "FleetCapacityExceededException":
     case "com.amazonaws.gameliftapi.v20151001#FleetCapacityExceededException":
-      response = await deserializeAws_json1_1FleetCapacityExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1FleetCapacityExceededExceptionResponse(parsedOutput, context);
       break;
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.gameliftapi.v20151001#IdempotentParameterMismatchException":
-      response = await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidFleetStatusException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidFleetStatusException":
-      response = await deserializeAws_json1_1InvalidFleetStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidFleetStatusExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.gameliftapi.v20151001#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TerminalRoutingStrategyException":
     case "com.amazonaws.gameliftapi.v20151001#TerminalRoutingStrategyException":
-      response = await deserializeAws_json1_1TerminalRoutingStrategyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TerminalRoutingStrategyExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2710,74 +2444,55 @@ export async function deserializeAws_json1_1CreateGameSessionQueueCommand(
   context: __SerdeContext
 ): Promise<CreateGameSessionQueueCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateGameSessionQueueCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateGameSessionQueueCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateGameSessionQueueOutput(
-    data.CreateGameSessionQueueOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateGameSessionQueueOutput(data, context);
   const response: CreateGameSessionQueueCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateGameSessionQueueOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateGameSessionQueueCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateGameSessionQueueCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.gameliftapi.v20151001#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2788,81 +2503,59 @@ export async function deserializeAws_json1_1CreateMatchmakingConfigurationComman
   context: __SerdeContext
 ): Promise<CreateMatchmakingConfigurationCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateMatchmakingConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateMatchmakingConfigurationCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateMatchmakingConfigurationOutput(
-    data.CreateMatchmakingConfigurationOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateMatchmakingConfigurationOutput(data, context);
   const response: CreateMatchmakingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateMatchmakingConfigurationOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateMatchmakingConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateMatchmakingConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.gameliftapi.v20151001#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnsupportedRegionException":
     case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
-      response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2873,67 +2566,51 @@ export async function deserializeAws_json1_1CreateMatchmakingRuleSetCommand(
   context: __SerdeContext
 ): Promise<CreateMatchmakingRuleSetCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateMatchmakingRuleSetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateMatchmakingRuleSetCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateMatchmakingRuleSetOutput(
-    data.CreateMatchmakingRuleSetOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateMatchmakingRuleSetOutput(data, context);
   const response: CreateMatchmakingRuleSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateMatchmakingRuleSetOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateMatchmakingRuleSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateMatchmakingRuleSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "UnsupportedRegionException":
     case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
-      response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2944,95 +2621,67 @@ export async function deserializeAws_json1_1CreatePlayerSessionCommand(
   context: __SerdeContext
 ): Promise<CreatePlayerSessionCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreatePlayerSessionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreatePlayerSessionCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreatePlayerSessionOutput(
-    data.CreatePlayerSessionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreatePlayerSessionOutput(data, context);
   const response: CreatePlayerSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreatePlayerSessionOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreatePlayerSessionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreatePlayerSessionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "GameSessionFullException":
     case "com.amazonaws.gameliftapi.v20151001#GameSessionFullException":
-      response = await deserializeAws_json1_1GameSessionFullExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1GameSessionFullExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidGameSessionStatusException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidGameSessionStatusException":
-      response = await deserializeAws_json1_1InvalidGameSessionStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidGameSessionStatusExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TerminalRoutingStrategyException":
     case "com.amazonaws.gameliftapi.v20151001#TerminalRoutingStrategyException":
-      response = await deserializeAws_json1_1TerminalRoutingStrategyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TerminalRoutingStrategyExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3043,95 +2692,67 @@ export async function deserializeAws_json1_1CreatePlayerSessionsCommand(
   context: __SerdeContext
 ): Promise<CreatePlayerSessionsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreatePlayerSessionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreatePlayerSessionsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreatePlayerSessionsOutput(
-    data.CreatePlayerSessionsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreatePlayerSessionsOutput(data, context);
   const response: CreatePlayerSessionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreatePlayerSessionsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreatePlayerSessionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreatePlayerSessionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "GameSessionFullException":
     case "com.amazonaws.gameliftapi.v20151001#GameSessionFullException":
-      response = await deserializeAws_json1_1GameSessionFullExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1GameSessionFullExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidGameSessionStatusException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidGameSessionStatusException":
-      response = await deserializeAws_json1_1InvalidGameSessionStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidGameSessionStatusExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TerminalRoutingStrategyException":
     case "com.amazonaws.gameliftapi.v20151001#TerminalRoutingStrategyException":
-      response = await deserializeAws_json1_1TerminalRoutingStrategyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TerminalRoutingStrategyExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3144,69 +2765,53 @@ export async function deserializeAws_json1_1CreateScriptCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateScriptCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateScriptOutput(
-    data.CreateScriptOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateScriptOutput(data, context);
   const response: CreateScriptCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateScriptOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateScriptCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateScriptCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.gameliftapi.v20151001#ConflictException":
-      response = await deserializeAws_json1_1ConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3217,74 +2822,55 @@ export async function deserializeAws_json1_1CreateVpcPeeringAuthorizationCommand
   context: __SerdeContext
 ): Promise<CreateVpcPeeringAuthorizationCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateVpcPeeringAuthorizationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateVpcPeeringAuthorizationCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateVpcPeeringAuthorizationOutput(
-    data.CreateVpcPeeringAuthorizationOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateVpcPeeringAuthorizationOutput(data, context);
   const response: CreateVpcPeeringAuthorizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateVpcPeeringAuthorizationOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateVpcPeeringAuthorizationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateVpcPeeringAuthorizationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3295,74 +2881,55 @@ export async function deserializeAws_json1_1CreateVpcPeeringConnectionCommand(
   context: __SerdeContext
 ): Promise<CreateVpcPeeringConnectionCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateVpcPeeringConnectionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateVpcPeeringConnectionCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateVpcPeeringConnectionOutput(
-    data.CreateVpcPeeringConnectionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateVpcPeeringConnectionOutput(data, context);
   const response: CreateVpcPeeringConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateVpcPeeringConnectionOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateVpcPeeringConnectionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateVpcPeeringConnectionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3376,60 +2943,47 @@ export async function deserializeAws_json1_1DeleteAliasCommand(
     return deserializeAws_json1_1DeleteAliasCommandError(output, context);
   }
   const response: DeleteAliasCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteAliasCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteAliasCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3443,60 +2997,47 @@ export async function deserializeAws_json1_1DeleteBuildCommand(
     return deserializeAws_json1_1DeleteBuildCommandError(output, context);
   }
   const response: DeleteBuildCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteBuildCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteBuildCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3510,67 +3051,51 @@ export async function deserializeAws_json1_1DeleteFleetCommand(
     return deserializeAws_json1_1DeleteFleetCommandError(output, context);
   }
   const response: DeleteFleetCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteFleetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteFleetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidFleetStatusException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidFleetStatusException":
-      response = await deserializeAws_json1_1InvalidFleetStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidFleetStatusExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3581,74 +3106,55 @@ export async function deserializeAws_json1_1DeleteGameSessionQueueCommand(
   context: __SerdeContext
 ): Promise<DeleteGameSessionQueueCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteGameSessionQueueCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteGameSessionQueueCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteGameSessionQueueOutput(
-    data.DeleteGameSessionQueueOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteGameSessionQueueOutput(data, context);
   const response: DeleteGameSessionQueueCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteGameSessionQueueOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteGameSessionQueueCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteGameSessionQueueCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3659,74 +3165,55 @@ export async function deserializeAws_json1_1DeleteMatchmakingConfigurationComman
   context: __SerdeContext
 ): Promise<DeleteMatchmakingConfigurationCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteMatchmakingConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteMatchmakingConfigurationCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteMatchmakingConfigurationOutput(
-    data.DeleteMatchmakingConfigurationOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteMatchmakingConfigurationOutput(data, context);
   const response: DeleteMatchmakingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteMatchmakingConfigurationOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteMatchmakingConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteMatchmakingConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnsupportedRegionException":
     case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
-      response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3737,74 +3224,55 @@ export async function deserializeAws_json1_1DeleteMatchmakingRuleSetCommand(
   context: __SerdeContext
 ): Promise<DeleteMatchmakingRuleSetCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteMatchmakingRuleSetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteMatchmakingRuleSetCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteMatchmakingRuleSetOutput(
-    data.DeleteMatchmakingRuleSetOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteMatchmakingRuleSetOutput(data, context);
   const response: DeleteMatchmakingRuleSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteMatchmakingRuleSetOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteMatchmakingRuleSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteMatchmakingRuleSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnsupportedRegionException":
     case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
-      response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3815,66 +3283,50 @@ export async function deserializeAws_json1_1DeleteScalingPolicyCommand(
   context: __SerdeContext
 ): Promise<DeleteScalingPolicyCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteScalingPolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteScalingPolicyCommandError(output, context);
   }
   const response: DeleteScalingPolicyCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteScalingPolicyCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteScalingPolicyCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3888,60 +3340,47 @@ export async function deserializeAws_json1_1DeleteScriptCommand(
     return deserializeAws_json1_1DeleteScriptCommandError(output, context);
   }
   const response: DeleteScriptCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteScriptCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteScriptCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3952,74 +3391,55 @@ export async function deserializeAws_json1_1DeleteVpcPeeringAuthorizationCommand
   context: __SerdeContext
 ): Promise<DeleteVpcPeeringAuthorizationCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteVpcPeeringAuthorizationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteVpcPeeringAuthorizationCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteVpcPeeringAuthorizationOutput(
-    data.DeleteVpcPeeringAuthorizationOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteVpcPeeringAuthorizationOutput(data, context);
   const response: DeleteVpcPeeringAuthorizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteVpcPeeringAuthorizationOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteVpcPeeringAuthorizationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteVpcPeeringAuthorizationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4030,74 +3450,55 @@ export async function deserializeAws_json1_1DeleteVpcPeeringConnectionCommand(
   context: __SerdeContext
 ): Promise<DeleteVpcPeeringConnectionCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteVpcPeeringConnectionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteVpcPeeringConnectionCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteVpcPeeringConnectionOutput(
-    data.DeleteVpcPeeringConnectionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteVpcPeeringConnectionOutput(data, context);
   const response: DeleteVpcPeeringConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteVpcPeeringConnectionOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteVpcPeeringConnectionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteVpcPeeringConnectionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4110,69 +3511,53 @@ export async function deserializeAws_json1_1DescribeAliasCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeAliasCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAliasOutput(
-    data.DescribeAliasOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeAliasOutput(data, context);
   const response: DescribeAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeAliasOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeAliasCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeAliasCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4185,69 +3570,53 @@ export async function deserializeAws_json1_1DescribeBuildCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeBuildCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeBuildOutput(
-    data.DescribeBuildOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeBuildOutput(data, context);
   const response: DescribeBuildCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeBuildOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeBuildCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeBuildCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4258,67 +3627,51 @@ export async function deserializeAws_json1_1DescribeEC2InstanceLimitsCommand(
   context: __SerdeContext
 ): Promise<DescribeEC2InstanceLimitsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeEC2InstanceLimitsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeEC2InstanceLimitsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEC2InstanceLimitsOutput(
-    data.DescribeEC2InstanceLimitsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeEC2InstanceLimitsOutput(data, context);
   const response: DescribeEC2InstanceLimitsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeEC2InstanceLimitsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeEC2InstanceLimitsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeEC2InstanceLimitsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4329,74 +3682,55 @@ export async function deserializeAws_json1_1DescribeFleetAttributesCommand(
   context: __SerdeContext
 ): Promise<DescribeFleetAttributesCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeFleetAttributesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeFleetAttributesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeFleetAttributesOutput(
-    data.DescribeFleetAttributesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeFleetAttributesOutput(data, context);
   const response: DescribeFleetAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeFleetAttributesOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeFleetAttributesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeFleetAttributesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4407,74 +3741,55 @@ export async function deserializeAws_json1_1DescribeFleetCapacityCommand(
   context: __SerdeContext
 ): Promise<DescribeFleetCapacityCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeFleetCapacityCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeFleetCapacityCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeFleetCapacityOutput(
-    data.DescribeFleetCapacityOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeFleetCapacityOutput(data, context);
   const response: DescribeFleetCapacityCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeFleetCapacityOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeFleetCapacityCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeFleetCapacityCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4485,74 +3800,55 @@ export async function deserializeAws_json1_1DescribeFleetEventsCommand(
   context: __SerdeContext
 ): Promise<DescribeFleetEventsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeFleetEventsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeFleetEventsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeFleetEventsOutput(
-    data.DescribeFleetEventsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeFleetEventsOutput(data, context);
   const response: DescribeFleetEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeFleetEventsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeFleetEventsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeFleetEventsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4563,74 +3859,55 @@ export async function deserializeAws_json1_1DescribeFleetPortSettingsCommand(
   context: __SerdeContext
 ): Promise<DescribeFleetPortSettingsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeFleetPortSettingsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeFleetPortSettingsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeFleetPortSettingsOutput(
-    data.DescribeFleetPortSettingsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeFleetPortSettingsOutput(data, context);
   const response: DescribeFleetPortSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeFleetPortSettingsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeFleetPortSettingsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeFleetPortSettingsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4641,74 +3918,55 @@ export async function deserializeAws_json1_1DescribeFleetUtilizationCommand(
   context: __SerdeContext
 ): Promise<DescribeFleetUtilizationCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeFleetUtilizationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeFleetUtilizationCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeFleetUtilizationOutput(
-    data.DescribeFleetUtilizationOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeFleetUtilizationOutput(data, context);
   const response: DescribeFleetUtilizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeFleetUtilizationOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeFleetUtilizationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeFleetUtilizationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4719,81 +3977,59 @@ export async function deserializeAws_json1_1DescribeGameSessionDetailsCommand(
   context: __SerdeContext
 ): Promise<DescribeGameSessionDetailsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeGameSessionDetailsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeGameSessionDetailsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeGameSessionDetailsOutput(
-    data.DescribeGameSessionDetailsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeGameSessionDetailsOutput(data, context);
   const response: DescribeGameSessionDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeGameSessionDetailsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeGameSessionDetailsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeGameSessionDetailsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TerminalRoutingStrategyException":
     case "com.amazonaws.gameliftapi.v20151001#TerminalRoutingStrategyException":
-      response = await deserializeAws_json1_1TerminalRoutingStrategyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TerminalRoutingStrategyExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4804,74 +4040,55 @@ export async function deserializeAws_json1_1DescribeGameSessionPlacementCommand(
   context: __SerdeContext
 ): Promise<DescribeGameSessionPlacementCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeGameSessionPlacementCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeGameSessionPlacementCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeGameSessionPlacementOutput(
-    data.DescribeGameSessionPlacementOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeGameSessionPlacementOutput(data, context);
   const response: DescribeGameSessionPlacementCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeGameSessionPlacementOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeGameSessionPlacementCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeGameSessionPlacementCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4882,74 +4099,55 @@ export async function deserializeAws_json1_1DescribeGameSessionQueuesCommand(
   context: __SerdeContext
 ): Promise<DescribeGameSessionQueuesCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeGameSessionQueuesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeGameSessionQueuesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeGameSessionQueuesOutput(
-    data.DescribeGameSessionQueuesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeGameSessionQueuesOutput(data, context);
   const response: DescribeGameSessionQueuesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeGameSessionQueuesOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeGameSessionQueuesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeGameSessionQueuesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4960,81 +4158,59 @@ export async function deserializeAws_json1_1DescribeGameSessionsCommand(
   context: __SerdeContext
 ): Promise<DescribeGameSessionsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeGameSessionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeGameSessionsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeGameSessionsOutput(
-    data.DescribeGameSessionsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeGameSessionsOutput(data, context);
   const response: DescribeGameSessionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeGameSessionsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeGameSessionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeGameSessionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TerminalRoutingStrategyException":
     case "com.amazonaws.gameliftapi.v20151001#TerminalRoutingStrategyException":
-      response = await deserializeAws_json1_1TerminalRoutingStrategyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TerminalRoutingStrategyExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5047,69 +4223,53 @@ export async function deserializeAws_json1_1DescribeInstancesCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeInstancesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeInstancesOutput(
-    data.DescribeInstancesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeInstancesOutput(data, context);
   const response: DescribeInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeInstancesOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeInstancesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeInstancesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5120,67 +4280,51 @@ export async function deserializeAws_json1_1DescribeMatchmakingCommand(
   context: __SerdeContext
 ): Promise<DescribeMatchmakingCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeMatchmakingCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeMatchmakingCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeMatchmakingOutput(
-    data.DescribeMatchmakingOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeMatchmakingOutput(data, context);
   const response: DescribeMatchmakingCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeMatchmakingOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeMatchmakingCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeMatchmakingCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "UnsupportedRegionException":
     case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
-      response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5191,67 +4335,51 @@ export async function deserializeAws_json1_1DescribeMatchmakingConfigurationsCom
   context: __SerdeContext
 ): Promise<DescribeMatchmakingConfigurationsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeMatchmakingConfigurationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeMatchmakingConfigurationsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeMatchmakingConfigurationsOutput(
-    data.DescribeMatchmakingConfigurationsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeMatchmakingConfigurationsOutput(data, context);
   const response: DescribeMatchmakingConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeMatchmakingConfigurationsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeMatchmakingConfigurationsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeMatchmakingConfigurationsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "UnsupportedRegionException":
     case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
-      response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5262,74 +4390,55 @@ export async function deserializeAws_json1_1DescribeMatchmakingRuleSetsCommand(
   context: __SerdeContext
 ): Promise<DescribeMatchmakingRuleSetsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeMatchmakingRuleSetsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeMatchmakingRuleSetsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeMatchmakingRuleSetsOutput(
-    data.DescribeMatchmakingRuleSetsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeMatchmakingRuleSetsOutput(data, context);
   const response: DescribeMatchmakingRuleSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeMatchmakingRuleSetsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeMatchmakingRuleSetsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeMatchmakingRuleSetsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnsupportedRegionException":
     case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
-      response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5340,74 +4449,55 @@ export async function deserializeAws_json1_1DescribePlayerSessionsCommand(
   context: __SerdeContext
 ): Promise<DescribePlayerSessionsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribePlayerSessionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribePlayerSessionsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribePlayerSessionsOutput(
-    data.DescribePlayerSessionsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribePlayerSessionsOutput(data, context);
   const response: DescribePlayerSessionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribePlayerSessionsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribePlayerSessionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribePlayerSessionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5418,74 +4508,55 @@ export async function deserializeAws_json1_1DescribeRuntimeConfigurationCommand(
   context: __SerdeContext
 ): Promise<DescribeRuntimeConfigurationCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeRuntimeConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeRuntimeConfigurationCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeRuntimeConfigurationOutput(
-    data.DescribeRuntimeConfigurationOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeRuntimeConfigurationOutput(data, context);
   const response: DescribeRuntimeConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeRuntimeConfigurationOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeRuntimeConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeRuntimeConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5496,74 +4567,55 @@ export async function deserializeAws_json1_1DescribeScalingPoliciesCommand(
   context: __SerdeContext
 ): Promise<DescribeScalingPoliciesCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeScalingPoliciesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeScalingPoliciesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeScalingPoliciesOutput(
-    data.DescribeScalingPoliciesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeScalingPoliciesOutput(data, context);
   const response: DescribeScalingPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeScalingPoliciesOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeScalingPoliciesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeScalingPoliciesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5576,69 +4628,53 @@ export async function deserializeAws_json1_1DescribeScriptCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeScriptCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeScriptOutput(
-    data.DescribeScriptOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeScriptOutput(data, context);
   const response: DescribeScriptCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeScriptOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeScriptCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeScriptCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5649,67 +4685,51 @@ export async function deserializeAws_json1_1DescribeVpcPeeringAuthorizationsComm
   context: __SerdeContext
 ): Promise<DescribeVpcPeeringAuthorizationsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeVpcPeeringAuthorizationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeVpcPeeringAuthorizationsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeVpcPeeringAuthorizationsOutput(
-    data.DescribeVpcPeeringAuthorizationsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeVpcPeeringAuthorizationsOutput(data, context);
   const response: DescribeVpcPeeringAuthorizationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeVpcPeeringAuthorizationsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeVpcPeeringAuthorizationsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeVpcPeeringAuthorizationsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5720,74 +4740,55 @@ export async function deserializeAws_json1_1DescribeVpcPeeringConnectionsCommand
   context: __SerdeContext
 ): Promise<DescribeVpcPeeringConnectionsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeVpcPeeringConnectionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeVpcPeeringConnectionsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeVpcPeeringConnectionsOutput(
-    data.DescribeVpcPeeringConnectionsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeVpcPeeringConnectionsOutput(data, context);
   const response: DescribeVpcPeeringConnectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeVpcPeeringConnectionsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeVpcPeeringConnectionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeVpcPeeringConnectionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5798,74 +4799,55 @@ export async function deserializeAws_json1_1GetGameSessionLogUrlCommand(
   context: __SerdeContext
 ): Promise<GetGameSessionLogUrlCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetGameSessionLogUrlCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetGameSessionLogUrlCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1GetGameSessionLogUrlOutput(
-    data.GetGameSessionLogUrlOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetGameSessionLogUrlOutput(data, context);
   const response: GetGameSessionLogUrlCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetGameSessionLogUrlOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetGameSessionLogUrlCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetGameSessionLogUrlCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5878,69 +4860,53 @@ export async function deserializeAws_json1_1GetInstanceAccessCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetInstanceAccessCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1GetInstanceAccessOutput(
-    data.GetInstanceAccessOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetInstanceAccessOutput(data, context);
   const response: GetInstanceAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetInstanceAccessOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetInstanceAccessCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetInstanceAccessCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5953,62 +4919,49 @@ export async function deserializeAws_json1_1ListAliasesCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListAliasesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAliasesOutput(
-    data.ListAliasesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListAliasesOutput(data, context);
   const response: ListAliasesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAliasesOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListAliasesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListAliasesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6021,62 +4974,49 @@ export async function deserializeAws_json1_1ListBuildsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListBuildsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1ListBuildsOutput(
-    data.ListBuildsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListBuildsOutput(data, context);
   const response: ListBuildsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListBuildsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListBuildsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListBuildsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6089,69 +5029,53 @@ export async function deserializeAws_json1_1ListFleetsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListFleetsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1ListFleetsOutput(
-    data.ListFleetsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListFleetsOutput(data, context);
   const response: ListFleetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListFleetsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListFleetsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListFleetsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6164,62 +5088,49 @@ export async function deserializeAws_json1_1ListScriptsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListScriptsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1ListScriptsOutput(
-    data.ListScriptsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListScriptsOutput(data, context);
   const response: ListScriptsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListScriptsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListScriptsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListScriptsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6232,69 +5143,53 @@ export async function deserializeAws_json1_1PutScalingPolicyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PutScalingPolicyCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1PutScalingPolicyOutput(
-    data.PutScalingPolicyOutput,
-    context
-  );
+  contents = deserializeAws_json1_1PutScalingPolicyOutput(data, context);
   const response: PutScalingPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutScalingPolicyOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1PutScalingPolicyCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<PutScalingPolicyCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6305,74 +5200,55 @@ export async function deserializeAws_json1_1RequestUploadCredentialsCommand(
   context: __SerdeContext
 ): Promise<RequestUploadCredentialsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1RequestUploadCredentialsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RequestUploadCredentialsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1RequestUploadCredentialsOutput(
-    data.RequestUploadCredentialsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1RequestUploadCredentialsOutput(data, context);
   const response: RequestUploadCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RequestUploadCredentialsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1RequestUploadCredentialsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<RequestUploadCredentialsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6385,76 +5261,57 @@ export async function deserializeAws_json1_1ResolveAliasCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ResolveAliasCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1ResolveAliasOutput(
-    data.ResolveAliasOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ResolveAliasOutput(data, context);
   const response: ResolveAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ResolveAliasOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ResolveAliasCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ResolveAliasCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TerminalRoutingStrategyException":
     case "com.amazonaws.gameliftapi.v20151001#TerminalRoutingStrategyException":
-      response = await deserializeAws_json1_1TerminalRoutingStrategyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TerminalRoutingStrategyExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6465,81 +5322,59 @@ export async function deserializeAws_json1_1SearchGameSessionsCommand(
   context: __SerdeContext
 ): Promise<SearchGameSessionsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1SearchGameSessionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1SearchGameSessionsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1SearchGameSessionsOutput(
-    data.SearchGameSessionsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1SearchGameSessionsOutput(data, context);
   const response: SearchGameSessionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SearchGameSessionsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1SearchGameSessionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<SearchGameSessionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TerminalRoutingStrategyException":
     case "com.amazonaws.gameliftapi.v20151001#TerminalRoutingStrategyException":
-      response = await deserializeAws_json1_1TerminalRoutingStrategyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TerminalRoutingStrategyExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6552,69 +5387,53 @@ export async function deserializeAws_json1_1StartFleetActionsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartFleetActionsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1StartFleetActionsOutput(
-    data.StartFleetActionsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1StartFleetActionsOutput(data, context);
   const response: StartFleetActionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartFleetActionsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1StartFleetActionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<StartFleetActionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6625,74 +5444,55 @@ export async function deserializeAws_json1_1StartGameSessionPlacementCommand(
   context: __SerdeContext
 ): Promise<StartGameSessionPlacementCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StartGameSessionPlacementCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartGameSessionPlacementCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1StartGameSessionPlacementOutput(
-    data.StartGameSessionPlacementOutput,
-    context
-  );
+  contents = deserializeAws_json1_1StartGameSessionPlacementOutput(data, context);
   const response: StartGameSessionPlacementCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartGameSessionPlacementOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1StartGameSessionPlacementCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<StartGameSessionPlacementCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6703,74 +5503,55 @@ export async function deserializeAws_json1_1StartMatchBackfillCommand(
   context: __SerdeContext
 ): Promise<StartMatchBackfillCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StartMatchBackfillCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartMatchBackfillCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1StartMatchBackfillOutput(
-    data.StartMatchBackfillOutput,
-    context
-  );
+  contents = deserializeAws_json1_1StartMatchBackfillOutput(data, context);
   const response: StartMatchBackfillCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartMatchBackfillOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1StartMatchBackfillCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<StartMatchBackfillCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnsupportedRegionException":
     case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
-      response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6783,69 +5564,53 @@ export async function deserializeAws_json1_1StartMatchmakingCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartMatchmakingCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1StartMatchmakingOutput(
-    data.StartMatchmakingOutput,
-    context
-  );
+  contents = deserializeAws_json1_1StartMatchmakingOutput(data, context);
   const response: StartMatchmakingCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartMatchmakingOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1StartMatchmakingCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<StartMatchmakingCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnsupportedRegionException":
     case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
-      response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6858,69 +5623,53 @@ export async function deserializeAws_json1_1StopFleetActionsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StopFleetActionsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1StopFleetActionsOutput(
-    data.StopFleetActionsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1StopFleetActionsOutput(data, context);
   const response: StopFleetActionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopFleetActionsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1StopFleetActionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<StopFleetActionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6931,74 +5680,55 @@ export async function deserializeAws_json1_1StopGameSessionPlacementCommand(
   context: __SerdeContext
 ): Promise<StopGameSessionPlacementCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StopGameSessionPlacementCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StopGameSessionPlacementCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1StopGameSessionPlacementOutput(
-    data.StopGameSessionPlacementOutput,
-    context
-  );
+  contents = deserializeAws_json1_1StopGameSessionPlacementOutput(data, context);
   const response: StopGameSessionPlacementCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopGameSessionPlacementOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1StopGameSessionPlacementCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<StopGameSessionPlacementCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -7011,69 +5741,53 @@ export async function deserializeAws_json1_1StopMatchmakingCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StopMatchmakingCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1StopMatchmakingOutput(
-    data.StopMatchmakingOutput,
-    context
-  );
+  contents = deserializeAws_json1_1StopMatchmakingOutput(data, context);
   const response: StopMatchmakingCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopMatchmakingOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1StopMatchmakingCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<StopMatchmakingCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnsupportedRegionException":
     case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
-      response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -7086,69 +5800,53 @@ export async function deserializeAws_json1_1UpdateAliasCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateAliasCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateAliasOutput(
-    data.UpdateAliasOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateAliasOutput(data, context);
   const response: UpdateAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateAliasOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateAliasCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateAliasCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -7161,69 +5859,53 @@ export async function deserializeAws_json1_1UpdateBuildCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateBuildCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateBuildOutput(
-    data.UpdateBuildOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateBuildOutput(data, context);
   const response: UpdateBuildCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateBuildOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateBuildCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateBuildCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -7234,95 +5916,67 @@ export async function deserializeAws_json1_1UpdateFleetAttributesCommand(
   context: __SerdeContext
 ): Promise<UpdateFleetAttributesCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateFleetAttributesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateFleetAttributesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateFleetAttributesOutput(
-    data.UpdateFleetAttributesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateFleetAttributesOutput(data, context);
   const response: UpdateFleetAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateFleetAttributesOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateFleetAttributesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateFleetAttributesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.gameliftapi.v20151001#ConflictException":
-      response = await deserializeAws_json1_1ConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidFleetStatusException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidFleetStatusException":
-      response = await deserializeAws_json1_1InvalidFleetStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidFleetStatusExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.gameliftapi.v20151001#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -7333,95 +5987,67 @@ export async function deserializeAws_json1_1UpdateFleetCapacityCommand(
   context: __SerdeContext
 ): Promise<UpdateFleetCapacityCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateFleetCapacityCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateFleetCapacityCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateFleetCapacityOutput(
-    data.UpdateFleetCapacityOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateFleetCapacityOutput(data, context);
   const response: UpdateFleetCapacityCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateFleetCapacityOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateFleetCapacityCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateFleetCapacityCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.gameliftapi.v20151001#ConflictException":
-      response = await deserializeAws_json1_1ConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidFleetStatusException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidFleetStatusException":
-      response = await deserializeAws_json1_1InvalidFleetStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidFleetStatusExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.gameliftapi.v20151001#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -7432,95 +6058,67 @@ export async function deserializeAws_json1_1UpdateFleetPortSettingsCommand(
   context: __SerdeContext
 ): Promise<UpdateFleetPortSettingsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateFleetPortSettingsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateFleetPortSettingsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateFleetPortSettingsOutput(
-    data.UpdateFleetPortSettingsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateFleetPortSettingsOutput(data, context);
   const response: UpdateFleetPortSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateFleetPortSettingsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateFleetPortSettingsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateFleetPortSettingsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.gameliftapi.v20151001#ConflictException":
-      response = await deserializeAws_json1_1ConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidFleetStatusException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidFleetStatusException":
-      response = await deserializeAws_json1_1InvalidFleetStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidFleetStatusExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.gameliftapi.v20151001#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -7533,83 +6131,61 @@ export async function deserializeAws_json1_1UpdateGameSessionCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateGameSessionCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateGameSessionOutput(
-    data.UpdateGameSessionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateGameSessionOutput(data, context);
   const response: UpdateGameSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateGameSessionOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateGameSessionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateGameSessionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.gameliftapi.v20151001#ConflictException":
-      response = await deserializeAws_json1_1ConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidGameSessionStatusException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidGameSessionStatusException":
-      response = await deserializeAws_json1_1InvalidGameSessionStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidGameSessionStatusExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -7620,74 +6196,55 @@ export async function deserializeAws_json1_1UpdateGameSessionQueueCommand(
   context: __SerdeContext
 ): Promise<UpdateGameSessionQueueCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateGameSessionQueueCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateGameSessionQueueCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateGameSessionQueueOutput(
-    data.UpdateGameSessionQueueOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateGameSessionQueueOutput(data, context);
   const response: UpdateGameSessionQueueCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateGameSessionQueueOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateGameSessionQueueCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateGameSessionQueueCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -7698,74 +6255,55 @@ export async function deserializeAws_json1_1UpdateMatchmakingConfigurationComman
   context: __SerdeContext
 ): Promise<UpdateMatchmakingConfigurationCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateMatchmakingConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateMatchmakingConfigurationCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateMatchmakingConfigurationOutput(
-    data.UpdateMatchmakingConfigurationOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateMatchmakingConfigurationOutput(data, context);
   const response: UpdateMatchmakingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateMatchmakingConfigurationOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateMatchmakingConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateMatchmakingConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnsupportedRegionException":
     case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
-      response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -7776,81 +6314,59 @@ export async function deserializeAws_json1_1UpdateRuntimeConfigurationCommand(
   context: __SerdeContext
 ): Promise<UpdateRuntimeConfigurationCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateRuntimeConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateRuntimeConfigurationCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateRuntimeConfigurationOutput(
-    data.UpdateRuntimeConfigurationOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateRuntimeConfigurationOutput(data, context);
   const response: UpdateRuntimeConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateRuntimeConfigurationOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateRuntimeConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateRuntimeConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidFleetStatusException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidFleetStatusException":
-      response = await deserializeAws_json1_1InvalidFleetStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidFleetStatusExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -7863,69 +6379,53 @@ export async function deserializeAws_json1_1UpdateScriptCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateScriptCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateScriptOutput(
-    data.UpdateScriptOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateScriptOutput(data, context);
   const response: UpdateScriptCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateScriptOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateScriptCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateScriptCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.gameliftapi.v20151001#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UnauthorizedException":
     case "com.amazonaws.gameliftapi.v20151001#UnauthorizedException":
-      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -7936,67 +6436,51 @@ export async function deserializeAws_json1_1ValidateMatchmakingRuleSetCommand(
   context: __SerdeContext
 ): Promise<ValidateMatchmakingRuleSetCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ValidateMatchmakingRuleSetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ValidateMatchmakingRuleSetCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1ValidateMatchmakingRuleSetOutput(
-    data.ValidateMatchmakingRuleSetOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ValidateMatchmakingRuleSetOutput(data, context);
   const response: ValidateMatchmakingRuleSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ValidateMatchmakingRuleSetOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ValidateMatchmakingRuleSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ValidateMatchmakingRuleSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.gameliftapi.v20151001#InternalServiceException":
-      response = await deserializeAws_json1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.gameliftapi.v20151001#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "UnsupportedRegionException":
     case "com.amazonaws.gameliftapi.v20151001#UnsupportedRegionException":
-      response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -8006,15 +6490,12 @@ const deserializeAws_json1_1ConflictExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ConflictException> => {
-  const deserialized: any = deserializeAws_json1_1ConflictException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ConflictException(output.body, context);
   const contents: ConflictException = {
     __type: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -8023,15 +6504,12 @@ const deserializeAws_json1_1FleetCapacityExceededExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<FleetCapacityExceededException> => {
-  const deserialized: any = deserializeAws_json1_1FleetCapacityExceededException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1FleetCapacityExceededException(output.body, context);
   const contents: FleetCapacityExceededException = {
     __type: "FleetCapacityExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -8040,15 +6518,12 @@ const deserializeAws_json1_1GameSessionFullExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<GameSessionFullException> => {
-  const deserialized: any = deserializeAws_json1_1GameSessionFullException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1GameSessionFullException(output.body, context);
   const contents: GameSessionFullException = {
     __type: "GameSessionFullException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -8057,15 +6532,12 @@ const deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse = async
   output: any,
   context: __SerdeContext
 ): Promise<IdempotentParameterMismatchException> => {
-  const deserialized: any = deserializeAws_json1_1IdempotentParameterMismatchException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1IdempotentParameterMismatchException(output.body, context);
   const contents: IdempotentParameterMismatchException = {
     __type: "IdempotentParameterMismatchException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -8074,15 +6546,12 @@ const deserializeAws_json1_1InternalServiceExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InternalServiceException> => {
-  const deserialized: any = deserializeAws_json1_1InternalServiceException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalServiceException(output.body, context);
   const contents: InternalServiceException = {
     __type: "InternalServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -8091,15 +6560,12 @@ const deserializeAws_json1_1InvalidFleetStatusExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidFleetStatusException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidFleetStatusException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidFleetStatusException(output.body, context);
   const contents: InvalidFleetStatusException = {
     __type: "InvalidFleetStatusException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -8108,15 +6574,12 @@ const deserializeAws_json1_1InvalidGameSessionStatusExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidGameSessionStatusException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidGameSessionStatusException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidGameSessionStatusException(output.body, context);
   const contents: InvalidGameSessionStatusException = {
     __type: "InvalidGameSessionStatusException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -8125,15 +6588,12 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidRequestException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidRequestException(output.body, context);
   const contents: InvalidRequestException = {
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -8142,15 +6602,12 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1LimitExceededException(output.body, context);
   const contents: LimitExceededException = {
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -8159,15 +6616,12 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<NotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1NotFoundException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1NotFoundException(output.body, context);
   const contents: NotFoundException = {
     __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -8176,15 +6630,12 @@ const deserializeAws_json1_1TerminalRoutingStrategyExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<TerminalRoutingStrategyException> => {
-  const deserialized: any = deserializeAws_json1_1TerminalRoutingStrategyException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1TerminalRoutingStrategyException(output.body, context);
   const contents: TerminalRoutingStrategyException = {
     __type: "TerminalRoutingStrategyException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -8193,15 +6644,12 @@ const deserializeAws_json1_1UnauthorizedExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<UnauthorizedException> => {
-  const deserialized: any = deserializeAws_json1_1UnauthorizedException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1UnauthorizedException(output.body, context);
   const contents: UnauthorizedException = {
     __type: "UnauthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -8210,15 +6658,12 @@ const deserializeAws_json1_1UnsupportedRegionExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<UnsupportedRegionException> => {
-  const deserialized: any = deserializeAws_json1_1UnsupportedRegionException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1UnsupportedRegionException(output.body, context);
   const contents: UnsupportedRegionException = {
     __type: "UnsupportedRegionException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -8229,19 +6674,16 @@ const serializeAws_json1_1AcceptMatchInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.AcceptanceType !== undefined) {
-    bodyParams["AcceptanceType"] = input.AcceptanceType;
+    bodyParams['AcceptanceType'] = input.AcceptanceType;
   }
   if (input.PlayerIds !== undefined) {
-    bodyParams["PlayerIds"] = serializeAws_json1_1StringList(
-      input.PlayerIds,
-      context
-    );
+    bodyParams['PlayerIds'] = serializeAws_json1_1StringList(input.PlayerIds, context);
   }
   if (input.TicketId !== undefined) {
-    bodyParams["TicketId"] = input.TicketId;
+    bodyParams['TicketId'] = input.TicketId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AttributeValue = (
   input: AttributeValue,
@@ -8249,19 +6691,19 @@ const serializeAws_json1_1AttributeValue = (
 ): any => {
   let bodyParams: any = {};
   if (input.N !== undefined) {
-    bodyParams["N"] = input.N;
+    bodyParams['N'] = input.N;
   }
   if (input.S !== undefined) {
-    bodyParams["S"] = input.S;
+    bodyParams['S'] = input.S;
   }
   if (input.SDM !== undefined) {
-    bodyParams["SDM"] = serializeAws_json1_1StringDoubleMap(input.SDM, context);
+    bodyParams['SDM'] = serializeAws_json1_1StringDoubleMap(input.SDM, context);
   }
   if (input.SL !== undefined) {
-    bodyParams["SL"] = serializeAws_json1_1StringList(input.SL, context);
+    bodyParams['SL'] = serializeAws_json1_1StringList(input.SL, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CertificateConfiguration = (
   input: CertificateConfiguration,
@@ -8269,10 +6711,10 @@ const serializeAws_json1_1CertificateConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.CertificateType !== undefined) {
-    bodyParams["CertificateType"] = input.CertificateType;
+    bodyParams['CertificateType'] = input.CertificateType;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateAliasInput = (
   input: CreateAliasInput,
@@ -8280,19 +6722,16 @@ const serializeAws_json1_1CreateAliasInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
+    bodyParams['Description'] = input.Description;
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.RoutingStrategy !== undefined) {
-    bodyParams["RoutingStrategy"] = serializeAws_json1_1RoutingStrategy(
-      input.RoutingStrategy,
-      context
-    );
+    bodyParams['RoutingStrategy'] = serializeAws_json1_1RoutingStrategy(input.RoutingStrategy, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateBuildInput = (
   input: CreateBuildInput,
@@ -8300,22 +6739,19 @@ const serializeAws_json1_1CreateBuildInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.OperatingSystem !== undefined) {
-    bodyParams["OperatingSystem"] = input.OperatingSystem;
+    bodyParams['OperatingSystem'] = input.OperatingSystem;
   }
   if (input.StorageLocation !== undefined) {
-    bodyParams["StorageLocation"] = serializeAws_json1_1S3Location(
-      input.StorageLocation,
-      context
-    );
+    bodyParams['StorageLocation'] = serializeAws_json1_1S3Location(input.StorageLocation, context);
   }
   if (input.Version !== undefined) {
-    bodyParams["Version"] = input.Version;
+    bodyParams['Version'] = input.Version;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateFleetInput = (
   input: CreateFleetInput,
@@ -8323,86 +6759,61 @@ const serializeAws_json1_1CreateFleetInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.BuildId !== undefined) {
-    bodyParams["BuildId"] = input.BuildId;
+    bodyParams['BuildId'] = input.BuildId;
   }
   if (input.CertificateConfiguration !== undefined) {
-    bodyParams[
-      "CertificateConfiguration"
-    ] = serializeAws_json1_1CertificateConfiguration(
-      input.CertificateConfiguration,
-      context
-    );
+    bodyParams['CertificateConfiguration'] = serializeAws_json1_1CertificateConfiguration(input.CertificateConfiguration, context);
   }
   if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
+    bodyParams['Description'] = input.Description;
   }
   if (input.EC2InboundPermissions !== undefined) {
-    bodyParams["EC2InboundPermissions"] = serializeAws_json1_1IpPermissionsList(
-      input.EC2InboundPermissions,
-      context
-    );
+    bodyParams['EC2InboundPermissions'] = serializeAws_json1_1IpPermissionsList(input.EC2InboundPermissions, context);
   }
   if (input.EC2InstanceType !== undefined) {
-    bodyParams["EC2InstanceType"] = input.EC2InstanceType;
+    bodyParams['EC2InstanceType'] = input.EC2InstanceType;
   }
   if (input.FleetType !== undefined) {
-    bodyParams["FleetType"] = input.FleetType;
+    bodyParams['FleetType'] = input.FleetType;
   }
   if (input.InstanceRoleArn !== undefined) {
-    bodyParams["InstanceRoleArn"] = input.InstanceRoleArn;
+    bodyParams['InstanceRoleArn'] = input.InstanceRoleArn;
   }
   if (input.LogPaths !== undefined) {
-    bodyParams["LogPaths"] = serializeAws_json1_1StringList(
-      input.LogPaths,
-      context
-    );
+    bodyParams['LogPaths'] = serializeAws_json1_1StringList(input.LogPaths, context);
   }
   if (input.MetricGroups !== undefined) {
-    bodyParams["MetricGroups"] = serializeAws_json1_1MetricGroupList(
-      input.MetricGroups,
-      context
-    );
+    bodyParams['MetricGroups'] = serializeAws_json1_1MetricGroupList(input.MetricGroups, context);
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.NewGameSessionProtectionPolicy !== undefined) {
-    bodyParams["NewGameSessionProtectionPolicy"] =
-      input.NewGameSessionProtectionPolicy;
+    bodyParams['NewGameSessionProtectionPolicy'] = input.NewGameSessionProtectionPolicy;
   }
   if (input.PeerVpcAwsAccountId !== undefined) {
-    bodyParams["PeerVpcAwsAccountId"] = input.PeerVpcAwsAccountId;
+    bodyParams['PeerVpcAwsAccountId'] = input.PeerVpcAwsAccountId;
   }
   if (input.PeerVpcId !== undefined) {
-    bodyParams["PeerVpcId"] = input.PeerVpcId;
+    bodyParams['PeerVpcId'] = input.PeerVpcId;
   }
   if (input.ResourceCreationLimitPolicy !== undefined) {
-    bodyParams[
-      "ResourceCreationLimitPolicy"
-    ] = serializeAws_json1_1ResourceCreationLimitPolicy(
-      input.ResourceCreationLimitPolicy,
-      context
-    );
+    bodyParams['ResourceCreationLimitPolicy'] = serializeAws_json1_1ResourceCreationLimitPolicy(input.ResourceCreationLimitPolicy, context);
   }
   if (input.RuntimeConfiguration !== undefined) {
-    bodyParams[
-      "RuntimeConfiguration"
-    ] = serializeAws_json1_1RuntimeConfiguration(
-      input.RuntimeConfiguration,
-      context
-    );
+    bodyParams['RuntimeConfiguration'] = serializeAws_json1_1RuntimeConfiguration(input.RuntimeConfiguration, context);
   }
   if (input.ScriptId !== undefined) {
-    bodyParams["ScriptId"] = input.ScriptId;
+    bodyParams['ScriptId'] = input.ScriptId;
   }
   if (input.ServerLaunchParameters !== undefined) {
-    bodyParams["ServerLaunchParameters"] = input.ServerLaunchParameters;
+    bodyParams['ServerLaunchParameters'] = input.ServerLaunchParameters;
   }
   if (input.ServerLaunchPath !== undefined) {
-    bodyParams["ServerLaunchPath"] = input.ServerLaunchPath;
+    bodyParams['ServerLaunchPath'] = input.ServerLaunchPath;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateGameSessionInput = (
   input: CreateGameSessionInput,
@@ -8410,37 +6821,34 @@ const serializeAws_json1_1CreateGameSessionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.AliasId !== undefined) {
-    bodyParams["AliasId"] = input.AliasId;
+    bodyParams['AliasId'] = input.AliasId;
   }
   if (input.CreatorId !== undefined) {
-    bodyParams["CreatorId"] = input.CreatorId;
+    bodyParams['CreatorId'] = input.CreatorId;
   }
   if (input.FleetId !== undefined) {
-    bodyParams["FleetId"] = input.FleetId;
+    bodyParams['FleetId'] = input.FleetId;
   }
   if (input.GameProperties !== undefined) {
-    bodyParams["GameProperties"] = serializeAws_json1_1GamePropertyList(
-      input.GameProperties,
-      context
-    );
+    bodyParams['GameProperties'] = serializeAws_json1_1GamePropertyList(input.GameProperties, context);
   }
   if (input.GameSessionData !== undefined) {
-    bodyParams["GameSessionData"] = input.GameSessionData;
+    bodyParams['GameSessionData'] = input.GameSessionData;
   }
   if (input.GameSessionId !== undefined) {
-    bodyParams["GameSessionId"] = input.GameSessionId;
+    bodyParams['GameSessionId'] = input.GameSessionId;
   }
   if (input.IdempotencyToken !== undefined) {
-    bodyParams["IdempotencyToken"] = input.IdempotencyToken;
+    bodyParams['IdempotencyToken'] = input.IdempotencyToken;
   }
   if (input.MaximumPlayerSessionCount !== undefined) {
-    bodyParams["MaximumPlayerSessionCount"] = input.MaximumPlayerSessionCount;
+    bodyParams['MaximumPlayerSessionCount'] = input.MaximumPlayerSessionCount;
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateGameSessionQueueInput = (
   input: CreateGameSessionQueueInput,
@@ -8448,29 +6856,19 @@ const serializeAws_json1_1CreateGameSessionQueueInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.Destinations !== undefined) {
-    bodyParams[
-      "Destinations"
-    ] = serializeAws_json1_1GameSessionQueueDestinationList(
-      input.Destinations,
-      context
-    );
+    bodyParams['Destinations'] = serializeAws_json1_1GameSessionQueueDestinationList(input.Destinations, context);
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.PlayerLatencyPolicies !== undefined) {
-    bodyParams[
-      "PlayerLatencyPolicies"
-    ] = serializeAws_json1_1PlayerLatencyPolicyList(
-      input.PlayerLatencyPolicies,
-      context
-    );
+    bodyParams['PlayerLatencyPolicies'] = serializeAws_json1_1PlayerLatencyPolicyList(input.PlayerLatencyPolicies, context);
   }
   if (input.TimeoutInSeconds !== undefined) {
-    bodyParams["TimeoutInSeconds"] = input.TimeoutInSeconds;
+    bodyParams['TimeoutInSeconds'] = input.TimeoutInSeconds;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateMatchmakingConfigurationInput = (
   input: CreateMatchmakingConfigurationInput,
@@ -8478,52 +6876,46 @@ const serializeAws_json1_1CreateMatchmakingConfigurationInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.AcceptanceRequired !== undefined) {
-    bodyParams["AcceptanceRequired"] = input.AcceptanceRequired;
+    bodyParams['AcceptanceRequired'] = input.AcceptanceRequired;
   }
   if (input.AcceptanceTimeoutSeconds !== undefined) {
-    bodyParams["AcceptanceTimeoutSeconds"] = input.AcceptanceTimeoutSeconds;
+    bodyParams['AcceptanceTimeoutSeconds'] = input.AcceptanceTimeoutSeconds;
   }
   if (input.AdditionalPlayerCount !== undefined) {
-    bodyParams["AdditionalPlayerCount"] = input.AdditionalPlayerCount;
+    bodyParams['AdditionalPlayerCount'] = input.AdditionalPlayerCount;
   }
   if (input.BackfillMode !== undefined) {
-    bodyParams["BackfillMode"] = input.BackfillMode;
+    bodyParams['BackfillMode'] = input.BackfillMode;
   }
   if (input.CustomEventData !== undefined) {
-    bodyParams["CustomEventData"] = input.CustomEventData;
+    bodyParams['CustomEventData'] = input.CustomEventData;
   }
   if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
+    bodyParams['Description'] = input.Description;
   }
   if (input.GameProperties !== undefined) {
-    bodyParams["GameProperties"] = serializeAws_json1_1GamePropertyList(
-      input.GameProperties,
-      context
-    );
+    bodyParams['GameProperties'] = serializeAws_json1_1GamePropertyList(input.GameProperties, context);
   }
   if (input.GameSessionData !== undefined) {
-    bodyParams["GameSessionData"] = input.GameSessionData;
+    bodyParams['GameSessionData'] = input.GameSessionData;
   }
   if (input.GameSessionQueueArns !== undefined) {
-    bodyParams["GameSessionQueueArns"] = serializeAws_json1_1QueueArnsList(
-      input.GameSessionQueueArns,
-      context
-    );
+    bodyParams['GameSessionQueueArns'] = serializeAws_json1_1QueueArnsList(input.GameSessionQueueArns, context);
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.NotificationTarget !== undefined) {
-    bodyParams["NotificationTarget"] = input.NotificationTarget;
+    bodyParams['NotificationTarget'] = input.NotificationTarget;
   }
   if (input.RequestTimeoutSeconds !== undefined) {
-    bodyParams["RequestTimeoutSeconds"] = input.RequestTimeoutSeconds;
+    bodyParams['RequestTimeoutSeconds'] = input.RequestTimeoutSeconds;
   }
   if (input.RuleSetName !== undefined) {
-    bodyParams["RuleSetName"] = input.RuleSetName;
+    bodyParams['RuleSetName'] = input.RuleSetName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateMatchmakingRuleSetInput = (
   input: CreateMatchmakingRuleSetInput,
@@ -8531,13 +6923,13 @@ const serializeAws_json1_1CreateMatchmakingRuleSetInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.RuleSetBody !== undefined) {
-    bodyParams["RuleSetBody"] = input.RuleSetBody;
+    bodyParams['RuleSetBody'] = input.RuleSetBody;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreatePlayerSessionInput = (
   input: CreatePlayerSessionInput,
@@ -8545,16 +6937,16 @@ const serializeAws_json1_1CreatePlayerSessionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.GameSessionId !== undefined) {
-    bodyParams["GameSessionId"] = input.GameSessionId;
+    bodyParams['GameSessionId'] = input.GameSessionId;
   }
   if (input.PlayerData !== undefined) {
-    bodyParams["PlayerData"] = input.PlayerData;
+    bodyParams['PlayerData'] = input.PlayerData;
   }
   if (input.PlayerId !== undefined) {
-    bodyParams["PlayerId"] = input.PlayerId;
+    bodyParams['PlayerId'] = input.PlayerId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreatePlayerSessionsInput = (
   input: CreatePlayerSessionsInput,
@@ -8562,22 +6954,16 @@ const serializeAws_json1_1CreatePlayerSessionsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.GameSessionId !== undefined) {
-    bodyParams["GameSessionId"] = input.GameSessionId;
+    bodyParams['GameSessionId'] = input.GameSessionId;
   }
   if (input.PlayerDataMap !== undefined) {
-    bodyParams["PlayerDataMap"] = serializeAws_json1_1PlayerDataMap(
-      input.PlayerDataMap,
-      context
-    );
+    bodyParams['PlayerDataMap'] = serializeAws_json1_1PlayerDataMap(input.PlayerDataMap, context);
   }
   if (input.PlayerIds !== undefined) {
-    bodyParams["PlayerIds"] = serializeAws_json1_1PlayerIdList(
-      input.PlayerIds,
-      context
-    );
+    bodyParams['PlayerIds'] = serializeAws_json1_1PlayerIdList(input.PlayerIds, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateScriptInput = (
   input: CreateScriptInput,
@@ -8585,22 +6971,19 @@ const serializeAws_json1_1CreateScriptInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.StorageLocation !== undefined) {
-    bodyParams["StorageLocation"] = serializeAws_json1_1S3Location(
-      input.StorageLocation,
-      context
-    );
+    bodyParams['StorageLocation'] = serializeAws_json1_1S3Location(input.StorageLocation, context);
   }
   if (input.Version !== undefined) {
-    bodyParams["Version"] = input.Version;
+    bodyParams['Version'] = input.Version;
   }
   if (input.ZipFile !== undefined) {
-    bodyParams["ZipFile"] = context.base64Encoder(input.ZipFile);
+    bodyParams['ZipFile'] = context.base64Encoder(input.ZipFile);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateVpcPeeringAuthorizationInput = (
   input: CreateVpcPeeringAuthorizationInput,
@@ -8608,13 +6991,13 @@ const serializeAws_json1_1CreateVpcPeeringAuthorizationInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.GameLiftAwsAccountId !== undefined) {
-    bodyParams["GameLiftAwsAccountId"] = input.GameLiftAwsAccountId;
+    bodyParams['GameLiftAwsAccountId'] = input.GameLiftAwsAccountId;
   }
   if (input.PeerVpcId !== undefined) {
-    bodyParams["PeerVpcId"] = input.PeerVpcId;
+    bodyParams['PeerVpcId'] = input.PeerVpcId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateVpcPeeringConnectionInput = (
   input: CreateVpcPeeringConnectionInput,
@@ -8622,16 +7005,16 @@ const serializeAws_json1_1CreateVpcPeeringConnectionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.FleetId !== undefined) {
-    bodyParams["FleetId"] = input.FleetId;
+    bodyParams['FleetId'] = input.FleetId;
   }
   if (input.PeerVpcAwsAccountId !== undefined) {
-    bodyParams["PeerVpcAwsAccountId"] = input.PeerVpcAwsAccountId;
+    bodyParams['PeerVpcAwsAccountId'] = input.PeerVpcAwsAccountId;
   }
   if (input.PeerVpcId !== undefined) {
-    bodyParams["PeerVpcId"] = input.PeerVpcId;
+    bodyParams['PeerVpcId'] = input.PeerVpcId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteAliasInput = (
   input: DeleteAliasInput,
@@ -8639,10 +7022,10 @@ const serializeAws_json1_1DeleteAliasInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.AliasId !== undefined) {
-    bodyParams["AliasId"] = input.AliasId;
+    bodyParams['AliasId'] = input.AliasId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteBuildInput = (
   input: DeleteBuildInput,
@@ -8650,10 +7033,10 @@ const serializeAws_json1_1DeleteBuildInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.BuildId !== undefined) {
-    bodyParams["BuildId"] = input.BuildId;
+    bodyParams['BuildId'] = input.BuildId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteFleetInput = (
   input: DeleteFleetInput,
@@ -8661,10 +7044,10 @@ const serializeAws_json1_1DeleteFleetInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.FleetId !== undefined) {
-    bodyParams["FleetId"] = input.FleetId;
+    bodyParams['FleetId'] = input.FleetId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteGameSessionQueueInput = (
   input: DeleteGameSessionQueueInput,
@@ -8672,10 +7055,10 @@ const serializeAws_json1_1DeleteGameSessionQueueInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteMatchmakingConfigurationInput = (
   input: DeleteMatchmakingConfigurationInput,
@@ -8683,10 +7066,10 @@ const serializeAws_json1_1DeleteMatchmakingConfigurationInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteMatchmakingRuleSetInput = (
   input: DeleteMatchmakingRuleSetInput,
@@ -8694,10 +7077,10 @@ const serializeAws_json1_1DeleteMatchmakingRuleSetInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteScalingPolicyInput = (
   input: DeleteScalingPolicyInput,
@@ -8705,13 +7088,13 @@ const serializeAws_json1_1DeleteScalingPolicyInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.FleetId !== undefined) {
-    bodyParams["FleetId"] = input.FleetId;
+    bodyParams['FleetId'] = input.FleetId;
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteScriptInput = (
   input: DeleteScriptInput,
@@ -8719,10 +7102,10 @@ const serializeAws_json1_1DeleteScriptInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ScriptId !== undefined) {
-    bodyParams["ScriptId"] = input.ScriptId;
+    bodyParams['ScriptId'] = input.ScriptId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteVpcPeeringAuthorizationInput = (
   input: DeleteVpcPeeringAuthorizationInput,
@@ -8730,13 +7113,13 @@ const serializeAws_json1_1DeleteVpcPeeringAuthorizationInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.GameLiftAwsAccountId !== undefined) {
-    bodyParams["GameLiftAwsAccountId"] = input.GameLiftAwsAccountId;
+    bodyParams['GameLiftAwsAccountId'] = input.GameLiftAwsAccountId;
   }
   if (input.PeerVpcId !== undefined) {
-    bodyParams["PeerVpcId"] = input.PeerVpcId;
+    bodyParams['PeerVpcId'] = input.PeerVpcId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteVpcPeeringConnectionInput = (
   input: DeleteVpcPeeringConnectionInput,
@@ -8744,13 +7127,13 @@ const serializeAws_json1_1DeleteVpcPeeringConnectionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.FleetId !== undefined) {
-    bodyParams["FleetId"] = input.FleetId;
+    bodyParams['FleetId'] = input.FleetId;
   }
   if (input.VpcPeeringConnectionId !== undefined) {
-    bodyParams["VpcPeeringConnectionId"] = input.VpcPeeringConnectionId;
+    bodyParams['VpcPeeringConnectionId'] = input.VpcPeeringConnectionId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeAliasInput = (
   input: DescribeAliasInput,
@@ -8758,10 +7141,10 @@ const serializeAws_json1_1DescribeAliasInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.AliasId !== undefined) {
-    bodyParams["AliasId"] = input.AliasId;
+    bodyParams['AliasId'] = input.AliasId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeBuildInput = (
   input: DescribeBuildInput,
@@ -8769,10 +7152,10 @@ const serializeAws_json1_1DescribeBuildInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.BuildId !== undefined) {
-    bodyParams["BuildId"] = input.BuildId;
+    bodyParams['BuildId'] = input.BuildId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeEC2InstanceLimitsInput = (
   input: DescribeEC2InstanceLimitsInput,
@@ -8780,10 +7163,10 @@ const serializeAws_json1_1DescribeEC2InstanceLimitsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.EC2InstanceType !== undefined) {
-    bodyParams["EC2InstanceType"] = input.EC2InstanceType;
+    bodyParams['EC2InstanceType'] = input.EC2InstanceType;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeFleetAttributesInput = (
   input: DescribeFleetAttributesInput,
@@ -8791,19 +7174,16 @@ const serializeAws_json1_1DescribeFleetAttributesInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.FleetIds !== undefined) {
-    bodyParams["FleetIds"] = serializeAws_json1_1FleetIdList(
-      input.FleetIds,
-      context
-    );
+    bodyParams['FleetIds'] = serializeAws_json1_1FleetIdList(input.FleetIds, context);
   }
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeFleetCapacityInput = (
   input: DescribeFleetCapacityInput,
@@ -8811,19 +7191,16 @@ const serializeAws_json1_1DescribeFleetCapacityInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.FleetIds !== undefined) {
-    bodyParams["FleetIds"] = serializeAws_json1_1FleetIdList(
-      input.FleetIds,
-      context
-    );
+    bodyParams['FleetIds'] = serializeAws_json1_1FleetIdList(input.FleetIds, context);
   }
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeFleetEventsInput = (
   input: DescribeFleetEventsInput,
@@ -8831,22 +7208,22 @@ const serializeAws_json1_1DescribeFleetEventsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.EndTime !== undefined) {
-    bodyParams["EndTime"] = Math.round(input.EndTime.getTime() / 1000);
+    bodyParams['EndTime'] = Math.round(input.EndTime.getTime() / 1000);
   }
   if (input.FleetId !== undefined) {
-    bodyParams["FleetId"] = input.FleetId;
+    bodyParams['FleetId'] = input.FleetId;
   }
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.StartTime !== undefined) {
-    bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
+    bodyParams['StartTime'] = Math.round(input.StartTime.getTime() / 1000);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeFleetPortSettingsInput = (
   input: DescribeFleetPortSettingsInput,
@@ -8854,10 +7231,10 @@ const serializeAws_json1_1DescribeFleetPortSettingsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.FleetId !== undefined) {
-    bodyParams["FleetId"] = input.FleetId;
+    bodyParams['FleetId'] = input.FleetId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeFleetUtilizationInput = (
   input: DescribeFleetUtilizationInput,
@@ -8865,19 +7242,16 @@ const serializeAws_json1_1DescribeFleetUtilizationInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.FleetIds !== undefined) {
-    bodyParams["FleetIds"] = serializeAws_json1_1FleetIdList(
-      input.FleetIds,
-      context
-    );
+    bodyParams['FleetIds'] = serializeAws_json1_1FleetIdList(input.FleetIds, context);
   }
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeGameSessionDetailsInput = (
   input: DescribeGameSessionDetailsInput,
@@ -8885,25 +7259,25 @@ const serializeAws_json1_1DescribeGameSessionDetailsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.AliasId !== undefined) {
-    bodyParams["AliasId"] = input.AliasId;
+    bodyParams['AliasId'] = input.AliasId;
   }
   if (input.FleetId !== undefined) {
-    bodyParams["FleetId"] = input.FleetId;
+    bodyParams['FleetId'] = input.FleetId;
   }
   if (input.GameSessionId !== undefined) {
-    bodyParams["GameSessionId"] = input.GameSessionId;
+    bodyParams['GameSessionId'] = input.GameSessionId;
   }
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.StatusFilter !== undefined) {
-    bodyParams["StatusFilter"] = input.StatusFilter;
+    bodyParams['StatusFilter'] = input.StatusFilter;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeGameSessionPlacementInput = (
   input: DescribeGameSessionPlacementInput,
@@ -8911,10 +7285,10 @@ const serializeAws_json1_1DescribeGameSessionPlacementInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.PlacementId !== undefined) {
-    bodyParams["PlacementId"] = input.PlacementId;
+    bodyParams['PlacementId'] = input.PlacementId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeGameSessionQueuesInput = (
   input: DescribeGameSessionQueuesInput,
@@ -8922,19 +7296,16 @@ const serializeAws_json1_1DescribeGameSessionQueuesInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.Names !== undefined) {
-    bodyParams["Names"] = serializeAws_json1_1GameSessionQueueNameList(
-      input.Names,
-      context
-    );
+    bodyParams['Names'] = serializeAws_json1_1GameSessionQueueNameList(input.Names, context);
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeGameSessionsInput = (
   input: DescribeGameSessionsInput,
@@ -8942,25 +7313,25 @@ const serializeAws_json1_1DescribeGameSessionsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.AliasId !== undefined) {
-    bodyParams["AliasId"] = input.AliasId;
+    bodyParams['AliasId'] = input.AliasId;
   }
   if (input.FleetId !== undefined) {
-    bodyParams["FleetId"] = input.FleetId;
+    bodyParams['FleetId'] = input.FleetId;
   }
   if (input.GameSessionId !== undefined) {
-    bodyParams["GameSessionId"] = input.GameSessionId;
+    bodyParams['GameSessionId'] = input.GameSessionId;
   }
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.StatusFilter !== undefined) {
-    bodyParams["StatusFilter"] = input.StatusFilter;
+    bodyParams['StatusFilter'] = input.StatusFilter;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeInstancesInput = (
   input: DescribeInstancesInput,
@@ -8968,19 +7339,19 @@ const serializeAws_json1_1DescribeInstancesInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.FleetId !== undefined) {
-    bodyParams["FleetId"] = input.FleetId;
+    bodyParams['FleetId'] = input.FleetId;
   }
   if (input.InstanceId !== undefined) {
-    bodyParams["InstanceId"] = input.InstanceId;
+    bodyParams['InstanceId'] = input.InstanceId;
   }
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeMatchmakingConfigurationsInput = (
   input: DescribeMatchmakingConfigurationsInput,
@@ -8988,22 +7359,19 @@ const serializeAws_json1_1DescribeMatchmakingConfigurationsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.Names !== undefined) {
-    bodyParams["Names"] = serializeAws_json1_1MatchmakingIdList(
-      input.Names,
-      context
-    );
+    bodyParams['Names'] = serializeAws_json1_1MatchmakingIdList(input.Names, context);
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.RuleSetName !== undefined) {
-    bodyParams["RuleSetName"] = input.RuleSetName;
+    bodyParams['RuleSetName'] = input.RuleSetName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeMatchmakingInput = (
   input: DescribeMatchmakingInput,
@@ -9011,13 +7379,10 @@ const serializeAws_json1_1DescribeMatchmakingInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.TicketIds !== undefined) {
-    bodyParams["TicketIds"] = serializeAws_json1_1MatchmakingIdList(
-      input.TicketIds,
-      context
-    );
+    bodyParams['TicketIds'] = serializeAws_json1_1MatchmakingIdList(input.TicketIds, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeMatchmakingRuleSetsInput = (
   input: DescribeMatchmakingRuleSetsInput,
@@ -9025,19 +7390,16 @@ const serializeAws_json1_1DescribeMatchmakingRuleSetsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.Names !== undefined) {
-    bodyParams["Names"] = serializeAws_json1_1MatchmakingRuleSetNameList(
-      input.Names,
-      context
-    );
+    bodyParams['Names'] = serializeAws_json1_1MatchmakingRuleSetNameList(input.Names, context);
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribePlayerSessionsInput = (
   input: DescribePlayerSessionsInput,
@@ -9045,25 +7407,25 @@ const serializeAws_json1_1DescribePlayerSessionsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.GameSessionId !== undefined) {
-    bodyParams["GameSessionId"] = input.GameSessionId;
+    bodyParams['GameSessionId'] = input.GameSessionId;
   }
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.PlayerId !== undefined) {
-    bodyParams["PlayerId"] = input.PlayerId;
+    bodyParams['PlayerId'] = input.PlayerId;
   }
   if (input.PlayerSessionId !== undefined) {
-    bodyParams["PlayerSessionId"] = input.PlayerSessionId;
+    bodyParams['PlayerSessionId'] = input.PlayerSessionId;
   }
   if (input.PlayerSessionStatusFilter !== undefined) {
-    bodyParams["PlayerSessionStatusFilter"] = input.PlayerSessionStatusFilter;
+    bodyParams['PlayerSessionStatusFilter'] = input.PlayerSessionStatusFilter;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeRuntimeConfigurationInput = (
   input: DescribeRuntimeConfigurationInput,
@@ -9071,10 +7433,10 @@ const serializeAws_json1_1DescribeRuntimeConfigurationInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.FleetId !== undefined) {
-    bodyParams["FleetId"] = input.FleetId;
+    bodyParams['FleetId'] = input.FleetId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeScalingPoliciesInput = (
   input: DescribeScalingPoliciesInput,
@@ -9082,19 +7444,19 @@ const serializeAws_json1_1DescribeScalingPoliciesInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.FleetId !== undefined) {
-    bodyParams["FleetId"] = input.FleetId;
+    bodyParams['FleetId'] = input.FleetId;
   }
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.StatusFilter !== undefined) {
-    bodyParams["StatusFilter"] = input.StatusFilter;
+    bodyParams['StatusFilter'] = input.StatusFilter;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeScriptInput = (
   input: DescribeScriptInput,
@@ -9102,10 +7464,10 @@ const serializeAws_json1_1DescribeScriptInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ScriptId !== undefined) {
-    bodyParams["ScriptId"] = input.ScriptId;
+    bodyParams['ScriptId'] = input.ScriptId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeVpcPeeringAuthorizationsInput = (
   input: DescribeVpcPeeringAuthorizationsInput,
@@ -9113,7 +7475,7 @@ const serializeAws_json1_1DescribeVpcPeeringAuthorizationsInput = (
 ): any => {
   let bodyParams: any = {};
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeVpcPeeringConnectionsInput = (
   input: DescribeVpcPeeringConnectionsInput,
@@ -9121,10 +7483,10 @@ const serializeAws_json1_1DescribeVpcPeeringConnectionsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.FleetId !== undefined) {
-    bodyParams["FleetId"] = input.FleetId;
+    bodyParams['FleetId'] = input.FleetId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DesiredPlayerSession = (
   input: DesiredPlayerSession,
@@ -9132,13 +7494,13 @@ const serializeAws_json1_1DesiredPlayerSession = (
 ): any => {
   let bodyParams: any = {};
   if (input.PlayerData !== undefined) {
-    bodyParams["PlayerData"] = input.PlayerData;
+    bodyParams['PlayerData'] = input.PlayerData;
   }
   if (input.PlayerId !== undefined) {
-    bodyParams["PlayerId"] = input.PlayerId;
+    bodyParams['PlayerId'] = input.PlayerId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DesiredPlayerSessionList = (
   input: Array<DesiredPlayerSession>,
@@ -9147,21 +7509,25 @@ const serializeAws_json1_1DesiredPlayerSessionList = (
   return (input || []).map(entry =>
     serializeAws_json1_1DesiredPlayerSession(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1FleetActionList = (
   input: Array<FleetAction | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1FleetIdList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1GameProperty = (
   input: GameProperty,
@@ -9169,13 +7535,13 @@ const serializeAws_json1_1GameProperty = (
 ): any => {
   let bodyParams: any = {};
   if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
+    bodyParams['Key'] = input.Key;
   }
   if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
+    bodyParams['Value'] = input.Value;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1GamePropertyList = (
   input: Array<GameProperty>,
@@ -9184,7 +7550,7 @@ const serializeAws_json1_1GamePropertyList = (
   return (input || []).map(entry =>
     serializeAws_json1_1GameProperty(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1GameSessionQueueDestination = (
   input: GameSessionQueueDestination,
@@ -9192,10 +7558,10 @@ const serializeAws_json1_1GameSessionQueueDestination = (
 ): any => {
   let bodyParams: any = {};
   if (input.DestinationArn !== undefined) {
-    bodyParams["DestinationArn"] = input.DestinationArn;
+    bodyParams['DestinationArn'] = input.DestinationArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1GameSessionQueueDestinationList = (
   input: Array<GameSessionQueueDestination>,
@@ -9204,14 +7570,16 @@ const serializeAws_json1_1GameSessionQueueDestinationList = (
   return (input || []).map(entry =>
     serializeAws_json1_1GameSessionQueueDestination(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1GameSessionQueueNameList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1GetGameSessionLogUrlInput = (
   input: GetGameSessionLogUrlInput,
@@ -9219,10 +7587,10 @@ const serializeAws_json1_1GetGameSessionLogUrlInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.GameSessionId !== undefined) {
-    bodyParams["GameSessionId"] = input.GameSessionId;
+    bodyParams['GameSessionId'] = input.GameSessionId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1GetInstanceAccessInput = (
   input: GetInstanceAccessInput,
@@ -9230,13 +7598,13 @@ const serializeAws_json1_1GetInstanceAccessInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.FleetId !== undefined) {
-    bodyParams["FleetId"] = input.FleetId;
+    bodyParams['FleetId'] = input.FleetId;
   }
   if (input.InstanceId !== undefined) {
-    bodyParams["InstanceId"] = input.InstanceId;
+    bodyParams['InstanceId'] = input.InstanceId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1IpPermission = (
   input: IpPermission,
@@ -9244,19 +7612,19 @@ const serializeAws_json1_1IpPermission = (
 ): any => {
   let bodyParams: any = {};
   if (input.FromPort !== undefined) {
-    bodyParams["FromPort"] = input.FromPort;
+    bodyParams['FromPort'] = input.FromPort;
   }
   if (input.IpRange !== undefined) {
-    bodyParams["IpRange"] = input.IpRange;
+    bodyParams['IpRange'] = input.IpRange;
   }
   if (input.Protocol !== undefined) {
-    bodyParams["Protocol"] = input.Protocol;
+    bodyParams['Protocol'] = input.Protocol;
   }
   if (input.ToPort !== undefined) {
-    bodyParams["ToPort"] = input.ToPort;
+    bodyParams['ToPort'] = input.ToPort;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1IpPermissionsList = (
   input: Array<IpPermission>,
@@ -9265,7 +7633,7 @@ const serializeAws_json1_1IpPermissionsList = (
   return (input || []).map(entry =>
     serializeAws_json1_1IpPermission(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1LatencyMap = (
   input: { [key: string]: number },
@@ -9276,7 +7644,7 @@ const serializeAws_json1_1LatencyMap = (
     mapParams[key] = input[key];
   });
   return mapParams;
-};
+}
 
 const serializeAws_json1_1ListAliasesInput = (
   input: ListAliasesInput,
@@ -9284,19 +7652,19 @@ const serializeAws_json1_1ListAliasesInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.RoutingStrategyType !== undefined) {
-    bodyParams["RoutingStrategyType"] = input.RoutingStrategyType;
+    bodyParams['RoutingStrategyType'] = input.RoutingStrategyType;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListBuildsInput = (
   input: ListBuildsInput,
@@ -9304,16 +7672,16 @@ const serializeAws_json1_1ListBuildsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.Status !== undefined) {
-    bodyParams["Status"] = input.Status;
+    bodyParams['Status'] = input.Status;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListFleetsInput = (
   input: ListFleetsInput,
@@ -9321,19 +7689,19 @@ const serializeAws_json1_1ListFleetsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.BuildId !== undefined) {
-    bodyParams["BuildId"] = input.BuildId;
+    bodyParams['BuildId'] = input.BuildId;
   }
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.ScriptId !== undefined) {
-    bodyParams["ScriptId"] = input.ScriptId;
+    bodyParams['ScriptId'] = input.ScriptId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListScriptsInput = (
   input: ListScriptsInput,
@@ -9341,34 +7709,40 @@ const serializeAws_json1_1ListScriptsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1MatchmakingIdList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1MatchmakingRuleSetNameList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1MetricGroupList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1Player = (
   input: Player,
@@ -9376,25 +7750,19 @@ const serializeAws_json1_1Player = (
 ): any => {
   let bodyParams: any = {};
   if (input.LatencyInMs !== undefined) {
-    bodyParams["LatencyInMs"] = serializeAws_json1_1LatencyMap(
-      input.LatencyInMs,
-      context
-    );
+    bodyParams['LatencyInMs'] = serializeAws_json1_1LatencyMap(input.LatencyInMs, context);
   }
   if (input.PlayerAttributes !== undefined) {
-    bodyParams["PlayerAttributes"] = serializeAws_json1_1PlayerAttributeMap(
-      input.PlayerAttributes,
-      context
-    );
+    bodyParams['PlayerAttributes'] = serializeAws_json1_1PlayerAttributeMap(input.PlayerAttributes, context);
   }
   if (input.PlayerId !== undefined) {
-    bodyParams["PlayerId"] = input.PlayerId;
+    bodyParams['PlayerId'] = input.PlayerId;
   }
   if (input.Team !== undefined) {
-    bodyParams["Team"] = input.Team;
+    bodyParams['Team'] = input.Team;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1PlayerAttributeMap = (
   input: { [key: string]: AttributeValue },
@@ -9405,7 +7773,7 @@ const serializeAws_json1_1PlayerAttributeMap = (
     mapParams[key] = serializeAws_json1_1AttributeValue(input[key], context);
   });
   return mapParams;
-};
+}
 
 const serializeAws_json1_1PlayerDataMap = (
   input: { [key: string]: string },
@@ -9416,14 +7784,16 @@ const serializeAws_json1_1PlayerDataMap = (
     mapParams[key] = input[key];
   });
   return mapParams;
-};
+}
 
 const serializeAws_json1_1PlayerIdList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1PlayerLatency = (
   input: PlayerLatency,
@@ -9431,16 +7801,16 @@ const serializeAws_json1_1PlayerLatency = (
 ): any => {
   let bodyParams: any = {};
   if (input.LatencyInMilliseconds !== undefined) {
-    bodyParams["LatencyInMilliseconds"] = input.LatencyInMilliseconds;
+    bodyParams['LatencyInMilliseconds'] = input.LatencyInMilliseconds;
   }
   if (input.PlayerId !== undefined) {
-    bodyParams["PlayerId"] = input.PlayerId;
+    bodyParams['PlayerId'] = input.PlayerId;
   }
   if (input.RegionIdentifier !== undefined) {
-    bodyParams["RegionIdentifier"] = input.RegionIdentifier;
+    bodyParams['RegionIdentifier'] = input.RegionIdentifier;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1PlayerLatencyList = (
   input: Array<PlayerLatency>,
@@ -9449,7 +7819,7 @@ const serializeAws_json1_1PlayerLatencyList = (
   return (input || []).map(entry =>
     serializeAws_json1_1PlayerLatency(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1PlayerLatencyPolicy = (
   input: PlayerLatencyPolicy,
@@ -9457,14 +7827,13 @@ const serializeAws_json1_1PlayerLatencyPolicy = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaximumIndividualPlayerLatencyMilliseconds !== undefined) {
-    bodyParams["MaximumIndividualPlayerLatencyMilliseconds"] =
-      input.MaximumIndividualPlayerLatencyMilliseconds;
+    bodyParams['MaximumIndividualPlayerLatencyMilliseconds'] = input.MaximumIndividualPlayerLatencyMilliseconds;
   }
   if (input.PolicyDurationSeconds !== undefined) {
-    bodyParams["PolicyDurationSeconds"] = input.PolicyDurationSeconds;
+    bodyParams['PolicyDurationSeconds'] = input.PolicyDurationSeconds;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1PlayerLatencyPolicyList = (
   input: Array<PlayerLatencyPolicy>,
@@ -9473,14 +7842,16 @@ const serializeAws_json1_1PlayerLatencyPolicyList = (
   return (input || []).map(entry =>
     serializeAws_json1_1PlayerLatencyPolicy(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1PlayerList = (
   input: Array<Player>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Player(entry, context));
-};
+  return (input || []).map(entry =>
+    serializeAws_json1_1Player(entry, context)
+  );
+}
 
 const serializeAws_json1_1PutScalingPolicyInput = (
   input: PutScalingPolicyInput,
@@ -9488,47 +7859,46 @@ const serializeAws_json1_1PutScalingPolicyInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ComparisonOperator !== undefined) {
-    bodyParams["ComparisonOperator"] = input.ComparisonOperator;
+    bodyParams['ComparisonOperator'] = input.ComparisonOperator;
   }
   if (input.EvaluationPeriods !== undefined) {
-    bodyParams["EvaluationPeriods"] = input.EvaluationPeriods;
+    bodyParams['EvaluationPeriods'] = input.EvaluationPeriods;
   }
   if (input.FleetId !== undefined) {
-    bodyParams["FleetId"] = input.FleetId;
+    bodyParams['FleetId'] = input.FleetId;
   }
   if (input.MetricName !== undefined) {
-    bodyParams["MetricName"] = input.MetricName;
+    bodyParams['MetricName'] = input.MetricName;
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.PolicyType !== undefined) {
-    bodyParams["PolicyType"] = input.PolicyType;
+    bodyParams['PolicyType'] = input.PolicyType;
   }
   if (input.ScalingAdjustment !== undefined) {
-    bodyParams["ScalingAdjustment"] = input.ScalingAdjustment;
+    bodyParams['ScalingAdjustment'] = input.ScalingAdjustment;
   }
   if (input.ScalingAdjustmentType !== undefined) {
-    bodyParams["ScalingAdjustmentType"] = input.ScalingAdjustmentType;
+    bodyParams['ScalingAdjustmentType'] = input.ScalingAdjustmentType;
   }
   if (input.TargetConfiguration !== undefined) {
-    bodyParams["TargetConfiguration"] = serializeAws_json1_1TargetConfiguration(
-      input.TargetConfiguration,
-      context
-    );
+    bodyParams['TargetConfiguration'] = serializeAws_json1_1TargetConfiguration(input.TargetConfiguration, context);
   }
   if (input.Threshold !== undefined) {
-    bodyParams["Threshold"] = input.Threshold;
+    bodyParams['Threshold'] = input.Threshold;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1QueueArnsList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1RequestUploadCredentialsInput = (
   input: RequestUploadCredentialsInput,
@@ -9536,10 +7906,10 @@ const serializeAws_json1_1RequestUploadCredentialsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.BuildId !== undefined) {
-    bodyParams["BuildId"] = input.BuildId;
+    bodyParams['BuildId'] = input.BuildId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ResolveAliasInput = (
   input: ResolveAliasInput,
@@ -9547,10 +7917,10 @@ const serializeAws_json1_1ResolveAliasInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.AliasId !== undefined) {
-    bodyParams["AliasId"] = input.AliasId;
+    bodyParams['AliasId'] = input.AliasId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ResourceCreationLimitPolicy = (
   input: ResourceCreationLimitPolicy,
@@ -9558,13 +7928,13 @@ const serializeAws_json1_1ResourceCreationLimitPolicy = (
 ): any => {
   let bodyParams: any = {};
   if (input.NewGameSessionsPerCreator !== undefined) {
-    bodyParams["NewGameSessionsPerCreator"] = input.NewGameSessionsPerCreator;
+    bodyParams['NewGameSessionsPerCreator'] = input.NewGameSessionsPerCreator;
   }
   if (input.PolicyPeriodInMinutes !== undefined) {
-    bodyParams["PolicyPeriodInMinutes"] = input.PolicyPeriodInMinutes;
+    bodyParams['PolicyPeriodInMinutes'] = input.PolicyPeriodInMinutes;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1RoutingStrategy = (
   input: RoutingStrategy,
@@ -9572,16 +7942,16 @@ const serializeAws_json1_1RoutingStrategy = (
 ): any => {
   let bodyParams: any = {};
   if (input.FleetId !== undefined) {
-    bodyParams["FleetId"] = input.FleetId;
+    bodyParams['FleetId'] = input.FleetId;
   }
   if (input.Message !== undefined) {
-    bodyParams["Message"] = input.Message;
+    bodyParams['Message'] = input.Message;
   }
   if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
+    bodyParams['Type'] = input.Type;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1RuntimeConfiguration = (
   input: RuntimeConfiguration,
@@ -9589,21 +7959,16 @@ const serializeAws_json1_1RuntimeConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.GameSessionActivationTimeoutSeconds !== undefined) {
-    bodyParams["GameSessionActivationTimeoutSeconds"] =
-      input.GameSessionActivationTimeoutSeconds;
+    bodyParams['GameSessionActivationTimeoutSeconds'] = input.GameSessionActivationTimeoutSeconds;
   }
   if (input.MaxConcurrentGameSessionActivations !== undefined) {
-    bodyParams["MaxConcurrentGameSessionActivations"] =
-      input.MaxConcurrentGameSessionActivations;
+    bodyParams['MaxConcurrentGameSessionActivations'] = input.MaxConcurrentGameSessionActivations;
   }
   if (input.ServerProcesses !== undefined) {
-    bodyParams["ServerProcesses"] = serializeAws_json1_1ServerProcessList(
-      input.ServerProcesses,
-      context
-    );
+    bodyParams['ServerProcesses'] = serializeAws_json1_1ServerProcessList(input.ServerProcesses, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1S3Location = (
   input: S3Location,
@@ -9611,19 +7976,19 @@ const serializeAws_json1_1S3Location = (
 ): any => {
   let bodyParams: any = {};
   if (input.Bucket !== undefined) {
-    bodyParams["Bucket"] = input.Bucket;
+    bodyParams['Bucket'] = input.Bucket;
   }
   if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
+    bodyParams['Key'] = input.Key;
   }
   if (input.ObjectVersion !== undefined) {
-    bodyParams["ObjectVersion"] = input.ObjectVersion;
+    bodyParams['ObjectVersion'] = input.ObjectVersion;
   }
   if (input.RoleArn !== undefined) {
-    bodyParams["RoleArn"] = input.RoleArn;
+    bodyParams['RoleArn'] = input.RoleArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1SearchGameSessionsInput = (
   input: SearchGameSessionsInput,
@@ -9631,25 +7996,25 @@ const serializeAws_json1_1SearchGameSessionsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.AliasId !== undefined) {
-    bodyParams["AliasId"] = input.AliasId;
+    bodyParams['AliasId'] = input.AliasId;
   }
   if (input.FilterExpression !== undefined) {
-    bodyParams["FilterExpression"] = input.FilterExpression;
+    bodyParams['FilterExpression'] = input.FilterExpression;
   }
   if (input.FleetId !== undefined) {
-    bodyParams["FleetId"] = input.FleetId;
+    bodyParams['FleetId'] = input.FleetId;
   }
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.SortExpression !== undefined) {
-    bodyParams["SortExpression"] = input.SortExpression;
+    bodyParams['SortExpression'] = input.SortExpression;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ServerProcess = (
   input: ServerProcess,
@@ -9657,16 +8022,16 @@ const serializeAws_json1_1ServerProcess = (
 ): any => {
   let bodyParams: any = {};
   if (input.ConcurrentExecutions !== undefined) {
-    bodyParams["ConcurrentExecutions"] = input.ConcurrentExecutions;
+    bodyParams['ConcurrentExecutions'] = input.ConcurrentExecutions;
   }
   if (input.LaunchPath !== undefined) {
-    bodyParams["LaunchPath"] = input.LaunchPath;
+    bodyParams['LaunchPath'] = input.LaunchPath;
   }
   if (input.Parameters !== undefined) {
-    bodyParams["Parameters"] = input.Parameters;
+    bodyParams['Parameters'] = input.Parameters;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ServerProcessList = (
   input: Array<ServerProcess>,
@@ -9675,7 +8040,7 @@ const serializeAws_json1_1ServerProcessList = (
   return (input || []).map(entry =>
     serializeAws_json1_1ServerProcess(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1StartFleetActionsInput = (
   input: StartFleetActionsInput,
@@ -9683,16 +8048,13 @@ const serializeAws_json1_1StartFleetActionsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.Actions !== undefined) {
-    bodyParams["Actions"] = serializeAws_json1_1FleetActionList(
-      input.Actions,
-      context
-    );
+    bodyParams['Actions'] = serializeAws_json1_1FleetActionList(input.Actions, context);
   }
   if (input.FleetId !== undefined) {
-    bodyParams["FleetId"] = input.FleetId;
+    bodyParams['FleetId'] = input.FleetId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1StartGameSessionPlacementInput = (
   input: StartGameSessionPlacementInput,
@@ -9700,42 +8062,31 @@ const serializeAws_json1_1StartGameSessionPlacementInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.DesiredPlayerSessions !== undefined) {
-    bodyParams[
-      "DesiredPlayerSessions"
-    ] = serializeAws_json1_1DesiredPlayerSessionList(
-      input.DesiredPlayerSessions,
-      context
-    );
+    bodyParams['DesiredPlayerSessions'] = serializeAws_json1_1DesiredPlayerSessionList(input.DesiredPlayerSessions, context);
   }
   if (input.GameProperties !== undefined) {
-    bodyParams["GameProperties"] = serializeAws_json1_1GamePropertyList(
-      input.GameProperties,
-      context
-    );
+    bodyParams['GameProperties'] = serializeAws_json1_1GamePropertyList(input.GameProperties, context);
   }
   if (input.GameSessionData !== undefined) {
-    bodyParams["GameSessionData"] = input.GameSessionData;
+    bodyParams['GameSessionData'] = input.GameSessionData;
   }
   if (input.GameSessionName !== undefined) {
-    bodyParams["GameSessionName"] = input.GameSessionName;
+    bodyParams['GameSessionName'] = input.GameSessionName;
   }
   if (input.GameSessionQueueName !== undefined) {
-    bodyParams["GameSessionQueueName"] = input.GameSessionQueueName;
+    bodyParams['GameSessionQueueName'] = input.GameSessionQueueName;
   }
   if (input.MaximumPlayerSessionCount !== undefined) {
-    bodyParams["MaximumPlayerSessionCount"] = input.MaximumPlayerSessionCount;
+    bodyParams['MaximumPlayerSessionCount'] = input.MaximumPlayerSessionCount;
   }
   if (input.PlacementId !== undefined) {
-    bodyParams["PlacementId"] = input.PlacementId;
+    bodyParams['PlacementId'] = input.PlacementId;
   }
   if (input.PlayerLatencies !== undefined) {
-    bodyParams["PlayerLatencies"] = serializeAws_json1_1PlayerLatencyList(
-      input.PlayerLatencies,
-      context
-    );
+    bodyParams['PlayerLatencies'] = serializeAws_json1_1PlayerLatencyList(input.PlayerLatencies, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1StartMatchBackfillInput = (
   input: StartMatchBackfillInput,
@@ -9743,22 +8094,19 @@ const serializeAws_json1_1StartMatchBackfillInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ConfigurationName !== undefined) {
-    bodyParams["ConfigurationName"] = input.ConfigurationName;
+    bodyParams['ConfigurationName'] = input.ConfigurationName;
   }
   if (input.GameSessionArn !== undefined) {
-    bodyParams["GameSessionArn"] = input.GameSessionArn;
+    bodyParams['GameSessionArn'] = input.GameSessionArn;
   }
   if (input.Players !== undefined) {
-    bodyParams["Players"] = serializeAws_json1_1PlayerList(
-      input.Players,
-      context
-    );
+    bodyParams['Players'] = serializeAws_json1_1PlayerList(input.Players, context);
   }
   if (input.TicketId !== undefined) {
-    bodyParams["TicketId"] = input.TicketId;
+    bodyParams['TicketId'] = input.TicketId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1StartMatchmakingInput = (
   input: StartMatchmakingInput,
@@ -9766,19 +8114,16 @@ const serializeAws_json1_1StartMatchmakingInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ConfigurationName !== undefined) {
-    bodyParams["ConfigurationName"] = input.ConfigurationName;
+    bodyParams['ConfigurationName'] = input.ConfigurationName;
   }
   if (input.Players !== undefined) {
-    bodyParams["Players"] = serializeAws_json1_1PlayerList(
-      input.Players,
-      context
-    );
+    bodyParams['Players'] = serializeAws_json1_1PlayerList(input.Players, context);
   }
   if (input.TicketId !== undefined) {
-    bodyParams["TicketId"] = input.TicketId;
+    bodyParams['TicketId'] = input.TicketId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1StopFleetActionsInput = (
   input: StopFleetActionsInput,
@@ -9786,16 +8131,13 @@ const serializeAws_json1_1StopFleetActionsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.Actions !== undefined) {
-    bodyParams["Actions"] = serializeAws_json1_1FleetActionList(
-      input.Actions,
-      context
-    );
+    bodyParams['Actions'] = serializeAws_json1_1FleetActionList(input.Actions, context);
   }
   if (input.FleetId !== undefined) {
-    bodyParams["FleetId"] = input.FleetId;
+    bodyParams['FleetId'] = input.FleetId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1StopGameSessionPlacementInput = (
   input: StopGameSessionPlacementInput,
@@ -9803,10 +8145,10 @@ const serializeAws_json1_1StopGameSessionPlacementInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.PlacementId !== undefined) {
-    bodyParams["PlacementId"] = input.PlacementId;
+    bodyParams['PlacementId'] = input.PlacementId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1StopMatchmakingInput = (
   input: StopMatchmakingInput,
@@ -9814,10 +8156,10 @@ const serializeAws_json1_1StopMatchmakingInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.TicketId !== undefined) {
-    bodyParams["TicketId"] = input.TicketId;
+    bodyParams['TicketId'] = input.TicketId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1StringDoubleMap = (
   input: { [key: string]: number },
@@ -9828,14 +8170,16 @@ const serializeAws_json1_1StringDoubleMap = (
     mapParams[key] = input[key];
   });
   return mapParams;
-};
+}
 
 const serializeAws_json1_1StringList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1TargetConfiguration = (
   input: TargetConfiguration,
@@ -9843,10 +8187,10 @@ const serializeAws_json1_1TargetConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.TargetValue !== undefined) {
-    bodyParams["TargetValue"] = input.TargetValue;
+    bodyParams['TargetValue'] = input.TargetValue;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateAliasInput = (
   input: UpdateAliasInput,
@@ -9854,22 +8198,19 @@ const serializeAws_json1_1UpdateAliasInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.AliasId !== undefined) {
-    bodyParams["AliasId"] = input.AliasId;
+    bodyParams['AliasId'] = input.AliasId;
   }
   if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
+    bodyParams['Description'] = input.Description;
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.RoutingStrategy !== undefined) {
-    bodyParams["RoutingStrategy"] = serializeAws_json1_1RoutingStrategy(
-      input.RoutingStrategy,
-      context
-    );
+    bodyParams['RoutingStrategy'] = serializeAws_json1_1RoutingStrategy(input.RoutingStrategy, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateBuildInput = (
   input: UpdateBuildInput,
@@ -9877,16 +8218,16 @@ const serializeAws_json1_1UpdateBuildInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.BuildId !== undefined) {
-    bodyParams["BuildId"] = input.BuildId;
+    bodyParams['BuildId'] = input.BuildId;
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.Version !== undefined) {
-    bodyParams["Version"] = input.Version;
+    bodyParams['Version'] = input.Version;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateFleetAttributesInput = (
   input: UpdateFleetAttributesInput,
@@ -9894,34 +8235,25 @@ const serializeAws_json1_1UpdateFleetAttributesInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
+    bodyParams['Description'] = input.Description;
   }
   if (input.FleetId !== undefined) {
-    bodyParams["FleetId"] = input.FleetId;
+    bodyParams['FleetId'] = input.FleetId;
   }
   if (input.MetricGroups !== undefined) {
-    bodyParams["MetricGroups"] = serializeAws_json1_1MetricGroupList(
-      input.MetricGroups,
-      context
-    );
+    bodyParams['MetricGroups'] = serializeAws_json1_1MetricGroupList(input.MetricGroups, context);
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.NewGameSessionProtectionPolicy !== undefined) {
-    bodyParams["NewGameSessionProtectionPolicy"] =
-      input.NewGameSessionProtectionPolicy;
+    bodyParams['NewGameSessionProtectionPolicy'] = input.NewGameSessionProtectionPolicy;
   }
   if (input.ResourceCreationLimitPolicy !== undefined) {
-    bodyParams[
-      "ResourceCreationLimitPolicy"
-    ] = serializeAws_json1_1ResourceCreationLimitPolicy(
-      input.ResourceCreationLimitPolicy,
-      context
-    );
+    bodyParams['ResourceCreationLimitPolicy'] = serializeAws_json1_1ResourceCreationLimitPolicy(input.ResourceCreationLimitPolicy, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateFleetCapacityInput = (
   input: UpdateFleetCapacityInput,
@@ -9929,19 +8261,19 @@ const serializeAws_json1_1UpdateFleetCapacityInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.DesiredInstances !== undefined) {
-    bodyParams["DesiredInstances"] = input.DesiredInstances;
+    bodyParams['DesiredInstances'] = input.DesiredInstances;
   }
   if (input.FleetId !== undefined) {
-    bodyParams["FleetId"] = input.FleetId;
+    bodyParams['FleetId'] = input.FleetId;
   }
   if (input.MaxSize !== undefined) {
-    bodyParams["MaxSize"] = input.MaxSize;
+    bodyParams['MaxSize'] = input.MaxSize;
   }
   if (input.MinSize !== undefined) {
-    bodyParams["MinSize"] = input.MinSize;
+    bodyParams['MinSize'] = input.MinSize;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateFleetPortSettingsInput = (
   input: UpdateFleetPortSettingsInput,
@@ -9949,26 +8281,16 @@ const serializeAws_json1_1UpdateFleetPortSettingsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.FleetId !== undefined) {
-    bodyParams["FleetId"] = input.FleetId;
+    bodyParams['FleetId'] = input.FleetId;
   }
   if (input.InboundPermissionAuthorizations !== undefined) {
-    bodyParams[
-      "InboundPermissionAuthorizations"
-    ] = serializeAws_json1_1IpPermissionsList(
-      input.InboundPermissionAuthorizations,
-      context
-    );
+    bodyParams['InboundPermissionAuthorizations'] = serializeAws_json1_1IpPermissionsList(input.InboundPermissionAuthorizations, context);
   }
   if (input.InboundPermissionRevocations !== undefined) {
-    bodyParams[
-      "InboundPermissionRevocations"
-    ] = serializeAws_json1_1IpPermissionsList(
-      input.InboundPermissionRevocations,
-      context
-    );
+    bodyParams['InboundPermissionRevocations'] = serializeAws_json1_1IpPermissionsList(input.InboundPermissionRevocations, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateGameSessionInput = (
   input: UpdateGameSessionInput,
@@ -9976,23 +8298,22 @@ const serializeAws_json1_1UpdateGameSessionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.GameSessionId !== undefined) {
-    bodyParams["GameSessionId"] = input.GameSessionId;
+    bodyParams['GameSessionId'] = input.GameSessionId;
   }
   if (input.MaximumPlayerSessionCount !== undefined) {
-    bodyParams["MaximumPlayerSessionCount"] = input.MaximumPlayerSessionCount;
+    bodyParams['MaximumPlayerSessionCount'] = input.MaximumPlayerSessionCount;
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.PlayerSessionCreationPolicy !== undefined) {
-    bodyParams["PlayerSessionCreationPolicy"] =
-      input.PlayerSessionCreationPolicy;
+    bodyParams['PlayerSessionCreationPolicy'] = input.PlayerSessionCreationPolicy;
   }
   if (input.ProtectionPolicy !== undefined) {
-    bodyParams["ProtectionPolicy"] = input.ProtectionPolicy;
+    bodyParams['ProtectionPolicy'] = input.ProtectionPolicy;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateGameSessionQueueInput = (
   input: UpdateGameSessionQueueInput,
@@ -10000,29 +8321,19 @@ const serializeAws_json1_1UpdateGameSessionQueueInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.Destinations !== undefined) {
-    bodyParams[
-      "Destinations"
-    ] = serializeAws_json1_1GameSessionQueueDestinationList(
-      input.Destinations,
-      context
-    );
+    bodyParams['Destinations'] = serializeAws_json1_1GameSessionQueueDestinationList(input.Destinations, context);
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.PlayerLatencyPolicies !== undefined) {
-    bodyParams[
-      "PlayerLatencyPolicies"
-    ] = serializeAws_json1_1PlayerLatencyPolicyList(
-      input.PlayerLatencyPolicies,
-      context
-    );
+    bodyParams['PlayerLatencyPolicies'] = serializeAws_json1_1PlayerLatencyPolicyList(input.PlayerLatencyPolicies, context);
   }
   if (input.TimeoutInSeconds !== undefined) {
-    bodyParams["TimeoutInSeconds"] = input.TimeoutInSeconds;
+    bodyParams['TimeoutInSeconds'] = input.TimeoutInSeconds;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateMatchmakingConfigurationInput = (
   input: UpdateMatchmakingConfigurationInput,
@@ -10030,52 +8341,46 @@ const serializeAws_json1_1UpdateMatchmakingConfigurationInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.AcceptanceRequired !== undefined) {
-    bodyParams["AcceptanceRequired"] = input.AcceptanceRequired;
+    bodyParams['AcceptanceRequired'] = input.AcceptanceRequired;
   }
   if (input.AcceptanceTimeoutSeconds !== undefined) {
-    bodyParams["AcceptanceTimeoutSeconds"] = input.AcceptanceTimeoutSeconds;
+    bodyParams['AcceptanceTimeoutSeconds'] = input.AcceptanceTimeoutSeconds;
   }
   if (input.AdditionalPlayerCount !== undefined) {
-    bodyParams["AdditionalPlayerCount"] = input.AdditionalPlayerCount;
+    bodyParams['AdditionalPlayerCount'] = input.AdditionalPlayerCount;
   }
   if (input.BackfillMode !== undefined) {
-    bodyParams["BackfillMode"] = input.BackfillMode;
+    bodyParams['BackfillMode'] = input.BackfillMode;
   }
   if (input.CustomEventData !== undefined) {
-    bodyParams["CustomEventData"] = input.CustomEventData;
+    bodyParams['CustomEventData'] = input.CustomEventData;
   }
   if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
+    bodyParams['Description'] = input.Description;
   }
   if (input.GameProperties !== undefined) {
-    bodyParams["GameProperties"] = serializeAws_json1_1GamePropertyList(
-      input.GameProperties,
-      context
-    );
+    bodyParams['GameProperties'] = serializeAws_json1_1GamePropertyList(input.GameProperties, context);
   }
   if (input.GameSessionData !== undefined) {
-    bodyParams["GameSessionData"] = input.GameSessionData;
+    bodyParams['GameSessionData'] = input.GameSessionData;
   }
   if (input.GameSessionQueueArns !== undefined) {
-    bodyParams["GameSessionQueueArns"] = serializeAws_json1_1QueueArnsList(
-      input.GameSessionQueueArns,
-      context
-    );
+    bodyParams['GameSessionQueueArns'] = serializeAws_json1_1QueueArnsList(input.GameSessionQueueArns, context);
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.NotificationTarget !== undefined) {
-    bodyParams["NotificationTarget"] = input.NotificationTarget;
+    bodyParams['NotificationTarget'] = input.NotificationTarget;
   }
   if (input.RequestTimeoutSeconds !== undefined) {
-    bodyParams["RequestTimeoutSeconds"] = input.RequestTimeoutSeconds;
+    bodyParams['RequestTimeoutSeconds'] = input.RequestTimeoutSeconds;
   }
   if (input.RuleSetName !== undefined) {
-    bodyParams["RuleSetName"] = input.RuleSetName;
+    bodyParams['RuleSetName'] = input.RuleSetName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateRuntimeConfigurationInput = (
   input: UpdateRuntimeConfigurationInput,
@@ -10083,18 +8388,13 @@ const serializeAws_json1_1UpdateRuntimeConfigurationInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.FleetId !== undefined) {
-    bodyParams["FleetId"] = input.FleetId;
+    bodyParams['FleetId'] = input.FleetId;
   }
   if (input.RuntimeConfiguration !== undefined) {
-    bodyParams[
-      "RuntimeConfiguration"
-    ] = serializeAws_json1_1RuntimeConfiguration(
-      input.RuntimeConfiguration,
-      context
-    );
+    bodyParams['RuntimeConfiguration'] = serializeAws_json1_1RuntimeConfiguration(input.RuntimeConfiguration, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateScriptInput = (
   input: UpdateScriptInput,
@@ -10102,25 +8402,22 @@ const serializeAws_json1_1UpdateScriptInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.ScriptId !== undefined) {
-    bodyParams["ScriptId"] = input.ScriptId;
+    bodyParams['ScriptId'] = input.ScriptId;
   }
   if (input.StorageLocation !== undefined) {
-    bodyParams["StorageLocation"] = serializeAws_json1_1S3Location(
-      input.StorageLocation,
-      context
-    );
+    bodyParams['StorageLocation'] = serializeAws_json1_1S3Location(input.StorageLocation, context);
   }
   if (input.Version !== undefined) {
-    bodyParams["Version"] = input.Version;
+    bodyParams['Version'] = input.Version;
   }
   if (input.ZipFile !== undefined) {
-    bodyParams["ZipFile"] = context.base64Encoder(input.ZipFile);
+    bodyParams['ZipFile'] = context.base64Encoder(input.ZipFile);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ValidateMatchmakingRuleSetInput = (
   input: ValidateMatchmakingRuleSetInput,
@@ -10128,20 +8425,20 @@ const serializeAws_json1_1ValidateMatchmakingRuleSetInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.RuleSetBody !== undefined) {
-    bodyParams["RuleSetBody"] = input.RuleSetBody;
+    bodyParams['RuleSetBody'] = input.RuleSetBody;
   }
   return bodyParams;
-};
+}
 
 const deserializeAws_json1_1AcceptMatchOutput = (
   output: any,
   context: __SerdeContext
 ): AcceptMatchOutput => {
   let contents: any = {
-    __type: "AcceptMatchOutput"
+    __type: "AcceptMatchOutput",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1Alias = (
   output: any,
@@ -10155,7 +8452,7 @@ const deserializeAws_json1_1Alias = (
     Description: undefined,
     LastUpdatedTime: undefined,
     Name: undefined,
-    RoutingStrategy: undefined
+    RoutingStrategy: undefined,
   };
   if (output.AliasArn !== undefined) {
     contents.AliasArn = output.AliasArn;
@@ -10164,33 +8461,22 @@ const deserializeAws_json1_1Alias = (
     contents.AliasId = output.AliasId;
   }
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(output.CreationTime % 1 != 0 ? Math.round(output.CreationTime * 1000) : output.CreationTime);
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
   }
   if (output.LastUpdatedTime !== undefined) {
-    contents.LastUpdatedTime = new Date(
-      output.LastUpdatedTime % 1 != 0
-        ? Math.round(output.LastUpdatedTime * 1000)
-        : output.LastUpdatedTime
-    );
+    contents.LastUpdatedTime = new Date(output.LastUpdatedTime % 1 != 0 ? Math.round(output.LastUpdatedTime * 1000) : output.LastUpdatedTime);
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
   }
   if (output.RoutingStrategy !== undefined) {
-    contents.RoutingStrategy = deserializeAws_json1_1RoutingStrategy(
-      output.RoutingStrategy,
-      context
-    );
+    contents.RoutingStrategy = deserializeAws_json1_1RoutingStrategy(output.RoutingStrategy, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AliasList = (
   output: any,
@@ -10199,7 +8485,7 @@ const deserializeAws_json1_1AliasList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Alias(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1AttributeValue = (
   output: any,
@@ -10210,7 +8496,7 @@ const deserializeAws_json1_1AttributeValue = (
     N: undefined,
     S: undefined,
     SDM: undefined,
-    SL: undefined
+    SL: undefined,
   };
   if (output.N !== undefined) {
     contents.N = output.N;
@@ -10225,7 +8511,7 @@ const deserializeAws_json1_1AttributeValue = (
     contents.SL = deserializeAws_json1_1StringList(output.SL, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AwsCredentials = (
   output: any,
@@ -10235,7 +8521,7 @@ const deserializeAws_json1_1AwsCredentials = (
     __type: "AwsCredentials",
     AccessKeyId: undefined,
     SecretAccessKey: undefined,
-    SessionToken: undefined
+    SessionToken: undefined,
   };
   if (output.AccessKeyId !== undefined) {
     contents.AccessKeyId = output.AccessKeyId;
@@ -10247,7 +8533,7 @@ const deserializeAws_json1_1AwsCredentials = (
     contents.SessionToken = output.SessionToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1Build = (
   output: any,
@@ -10261,17 +8547,13 @@ const deserializeAws_json1_1Build = (
     OperatingSystem: undefined,
     SizeOnDisk: undefined,
     Status: undefined,
-    Version: undefined
+    Version: undefined,
   };
   if (output.BuildId !== undefined) {
     contents.BuildId = output.BuildId;
   }
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(output.CreationTime % 1 != 0 ? Math.round(output.CreationTime * 1000) : output.CreationTime);
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -10289,7 +8571,7 @@ const deserializeAws_json1_1Build = (
     contents.Version = output.Version;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1BuildList = (
   output: any,
@@ -10298,7 +8580,7 @@ const deserializeAws_json1_1BuildList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Build(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1CertificateConfiguration = (
   output: any,
@@ -10306,13 +8588,13 @@ const deserializeAws_json1_1CertificateConfiguration = (
 ): CertificateConfiguration => {
   let contents: any = {
     __type: "CertificateConfiguration",
-    CertificateType: undefined
+    CertificateType: undefined,
   };
   if (output.CertificateType !== undefined) {
     contents.CertificateType = output.CertificateType;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ConflictException = (
   output: any,
@@ -10320,13 +8602,13 @@ const deserializeAws_json1_1ConflictException = (
 ): ConflictException => {
   let contents: any = {
     __type: "ConflictException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateAliasOutput = (
   output: any,
@@ -10334,13 +8616,13 @@ const deserializeAws_json1_1CreateAliasOutput = (
 ): CreateAliasOutput => {
   let contents: any = {
     __type: "CreateAliasOutput",
-    Alias: undefined
+    Alias: undefined,
   };
   if (output.Alias !== undefined) {
     contents.Alias = deserializeAws_json1_1Alias(output.Alias, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateBuildOutput = (
   output: any,
@@ -10350,25 +8632,19 @@ const deserializeAws_json1_1CreateBuildOutput = (
     __type: "CreateBuildOutput",
     Build: undefined,
     StorageLocation: undefined,
-    UploadCredentials: undefined
+    UploadCredentials: undefined,
   };
   if (output.Build !== undefined) {
     contents.Build = deserializeAws_json1_1Build(output.Build, context);
   }
   if (output.StorageLocation !== undefined) {
-    contents.StorageLocation = deserializeAws_json1_1S3Location(
-      output.StorageLocation,
-      context
-    );
+    contents.StorageLocation = deserializeAws_json1_1S3Location(output.StorageLocation, context);
   }
   if (output.UploadCredentials !== undefined) {
-    contents.UploadCredentials = deserializeAws_json1_1AwsCredentials(
-      output.UploadCredentials,
-      context
-    );
+    contents.UploadCredentials = deserializeAws_json1_1AwsCredentials(output.UploadCredentials, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateFleetOutput = (
   output: any,
@@ -10376,16 +8652,13 @@ const deserializeAws_json1_1CreateFleetOutput = (
 ): CreateFleetOutput => {
   let contents: any = {
     __type: "CreateFleetOutput",
-    FleetAttributes: undefined
+    FleetAttributes: undefined,
   };
   if (output.FleetAttributes !== undefined) {
-    contents.FleetAttributes = deserializeAws_json1_1FleetAttributes(
-      output.FleetAttributes,
-      context
-    );
+    contents.FleetAttributes = deserializeAws_json1_1FleetAttributes(output.FleetAttributes, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateGameSessionOutput = (
   output: any,
@@ -10393,16 +8666,13 @@ const deserializeAws_json1_1CreateGameSessionOutput = (
 ): CreateGameSessionOutput => {
   let contents: any = {
     __type: "CreateGameSessionOutput",
-    GameSession: undefined
+    GameSession: undefined,
   };
   if (output.GameSession !== undefined) {
-    contents.GameSession = deserializeAws_json1_1GameSession(
-      output.GameSession,
-      context
-    );
+    contents.GameSession = deserializeAws_json1_1GameSession(output.GameSession, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateGameSessionQueueOutput = (
   output: any,
@@ -10410,16 +8680,13 @@ const deserializeAws_json1_1CreateGameSessionQueueOutput = (
 ): CreateGameSessionQueueOutput => {
   let contents: any = {
     __type: "CreateGameSessionQueueOutput",
-    GameSessionQueue: undefined
+    GameSessionQueue: undefined,
   };
   if (output.GameSessionQueue !== undefined) {
-    contents.GameSessionQueue = deserializeAws_json1_1GameSessionQueue(
-      output.GameSessionQueue,
-      context
-    );
+    contents.GameSessionQueue = deserializeAws_json1_1GameSessionQueue(output.GameSessionQueue, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateMatchmakingConfigurationOutput = (
   output: any,
@@ -10427,16 +8694,13 @@ const deserializeAws_json1_1CreateMatchmakingConfigurationOutput = (
 ): CreateMatchmakingConfigurationOutput => {
   let contents: any = {
     __type: "CreateMatchmakingConfigurationOutput",
-    Configuration: undefined
+    Configuration: undefined,
   };
   if (output.Configuration !== undefined) {
-    contents.Configuration = deserializeAws_json1_1MatchmakingConfiguration(
-      output.Configuration,
-      context
-    );
+    contents.Configuration = deserializeAws_json1_1MatchmakingConfiguration(output.Configuration, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateMatchmakingRuleSetOutput = (
   output: any,
@@ -10444,16 +8708,13 @@ const deserializeAws_json1_1CreateMatchmakingRuleSetOutput = (
 ): CreateMatchmakingRuleSetOutput => {
   let contents: any = {
     __type: "CreateMatchmakingRuleSetOutput",
-    RuleSet: undefined
+    RuleSet: undefined,
   };
   if (output.RuleSet !== undefined) {
-    contents.RuleSet = deserializeAws_json1_1MatchmakingRuleSet(
-      output.RuleSet,
-      context
-    );
+    contents.RuleSet = deserializeAws_json1_1MatchmakingRuleSet(output.RuleSet, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreatePlayerSessionOutput = (
   output: any,
@@ -10461,16 +8722,13 @@ const deserializeAws_json1_1CreatePlayerSessionOutput = (
 ): CreatePlayerSessionOutput => {
   let contents: any = {
     __type: "CreatePlayerSessionOutput",
-    PlayerSession: undefined
+    PlayerSession: undefined,
   };
   if (output.PlayerSession !== undefined) {
-    contents.PlayerSession = deserializeAws_json1_1PlayerSession(
-      output.PlayerSession,
-      context
-    );
+    contents.PlayerSession = deserializeAws_json1_1PlayerSession(output.PlayerSession, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreatePlayerSessionsOutput = (
   output: any,
@@ -10478,16 +8736,13 @@ const deserializeAws_json1_1CreatePlayerSessionsOutput = (
 ): CreatePlayerSessionsOutput => {
   let contents: any = {
     __type: "CreatePlayerSessionsOutput",
-    PlayerSessions: undefined
+    PlayerSessions: undefined,
   };
   if (output.PlayerSessions !== undefined) {
-    contents.PlayerSessions = deserializeAws_json1_1PlayerSessionList(
-      output.PlayerSessions,
-      context
-    );
+    contents.PlayerSessions = deserializeAws_json1_1PlayerSessionList(output.PlayerSessions, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateScriptOutput = (
   output: any,
@@ -10495,13 +8750,13 @@ const deserializeAws_json1_1CreateScriptOutput = (
 ): CreateScriptOutput => {
   let contents: any = {
     __type: "CreateScriptOutput",
-    Script: undefined
+    Script: undefined,
   };
   if (output.Script !== undefined) {
     contents.Script = deserializeAws_json1_1Script(output.Script, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateVpcPeeringAuthorizationOutput = (
   output: any,
@@ -10509,76 +8764,73 @@ const deserializeAws_json1_1CreateVpcPeeringAuthorizationOutput = (
 ): CreateVpcPeeringAuthorizationOutput => {
   let contents: any = {
     __type: "CreateVpcPeeringAuthorizationOutput",
-    VpcPeeringAuthorization: undefined
+    VpcPeeringAuthorization: undefined,
   };
   if (output.VpcPeeringAuthorization !== undefined) {
-    contents.VpcPeeringAuthorization = deserializeAws_json1_1VpcPeeringAuthorization(
-      output.VpcPeeringAuthorization,
-      context
-    );
+    contents.VpcPeeringAuthorization = deserializeAws_json1_1VpcPeeringAuthorization(output.VpcPeeringAuthorization, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateVpcPeeringConnectionOutput = (
   output: any,
   context: __SerdeContext
 ): CreateVpcPeeringConnectionOutput => {
   let contents: any = {
-    __type: "CreateVpcPeeringConnectionOutput"
+    __type: "CreateVpcPeeringConnectionOutput",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeleteGameSessionQueueOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteGameSessionQueueOutput => {
   let contents: any = {
-    __type: "DeleteGameSessionQueueOutput"
+    __type: "DeleteGameSessionQueueOutput",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeleteMatchmakingConfigurationOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteMatchmakingConfigurationOutput => {
   let contents: any = {
-    __type: "DeleteMatchmakingConfigurationOutput"
+    __type: "DeleteMatchmakingConfigurationOutput",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeleteMatchmakingRuleSetOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteMatchmakingRuleSetOutput => {
   let contents: any = {
-    __type: "DeleteMatchmakingRuleSetOutput"
+    __type: "DeleteMatchmakingRuleSetOutput",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeleteVpcPeeringAuthorizationOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteVpcPeeringAuthorizationOutput => {
   let contents: any = {
-    __type: "DeleteVpcPeeringAuthorizationOutput"
+    __type: "DeleteVpcPeeringAuthorizationOutput",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeleteVpcPeeringConnectionOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteVpcPeeringConnectionOutput => {
   let contents: any = {
-    __type: "DeleteVpcPeeringConnectionOutput"
+    __type: "DeleteVpcPeeringConnectionOutput",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeAliasOutput = (
   output: any,
@@ -10586,13 +8838,13 @@ const deserializeAws_json1_1DescribeAliasOutput = (
 ): DescribeAliasOutput => {
   let contents: any = {
     __type: "DescribeAliasOutput",
-    Alias: undefined
+    Alias: undefined,
   };
   if (output.Alias !== undefined) {
     contents.Alias = deserializeAws_json1_1Alias(output.Alias, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeBuildOutput = (
   output: any,
@@ -10600,13 +8852,13 @@ const deserializeAws_json1_1DescribeBuildOutput = (
 ): DescribeBuildOutput => {
   let contents: any = {
     __type: "DescribeBuildOutput",
-    Build: undefined
+    Build: undefined,
   };
   if (output.Build !== undefined) {
     contents.Build = deserializeAws_json1_1Build(output.Build, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeEC2InstanceLimitsOutput = (
   output: any,
@@ -10614,16 +8866,13 @@ const deserializeAws_json1_1DescribeEC2InstanceLimitsOutput = (
 ): DescribeEC2InstanceLimitsOutput => {
   let contents: any = {
     __type: "DescribeEC2InstanceLimitsOutput",
-    EC2InstanceLimits: undefined
+    EC2InstanceLimits: undefined,
   };
   if (output.EC2InstanceLimits !== undefined) {
-    contents.EC2InstanceLimits = deserializeAws_json1_1EC2InstanceLimitList(
-      output.EC2InstanceLimits,
-      context
-    );
+    contents.EC2InstanceLimits = deserializeAws_json1_1EC2InstanceLimitList(output.EC2InstanceLimits, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeFleetAttributesOutput = (
   output: any,
@@ -10632,19 +8881,16 @@ const deserializeAws_json1_1DescribeFleetAttributesOutput = (
   let contents: any = {
     __type: "DescribeFleetAttributesOutput",
     FleetAttributes: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.FleetAttributes !== undefined) {
-    contents.FleetAttributes = deserializeAws_json1_1FleetAttributesList(
-      output.FleetAttributes,
-      context
-    );
+    contents.FleetAttributes = deserializeAws_json1_1FleetAttributesList(output.FleetAttributes, context);
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeFleetCapacityOutput = (
   output: any,
@@ -10653,19 +8899,16 @@ const deserializeAws_json1_1DescribeFleetCapacityOutput = (
   let contents: any = {
     __type: "DescribeFleetCapacityOutput",
     FleetCapacity: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.FleetCapacity !== undefined) {
-    contents.FleetCapacity = deserializeAws_json1_1FleetCapacityList(
-      output.FleetCapacity,
-      context
-    );
+    contents.FleetCapacity = deserializeAws_json1_1FleetCapacityList(output.FleetCapacity, context);
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeFleetEventsOutput = (
   output: any,
@@ -10674,7 +8917,7 @@ const deserializeAws_json1_1DescribeFleetEventsOutput = (
   let contents: any = {
     __type: "DescribeFleetEventsOutput",
     Events: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.Events !== undefined) {
     contents.Events = deserializeAws_json1_1EventList(output.Events, context);
@@ -10683,7 +8926,7 @@ const deserializeAws_json1_1DescribeFleetEventsOutput = (
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeFleetPortSettingsOutput = (
   output: any,
@@ -10691,16 +8934,13 @@ const deserializeAws_json1_1DescribeFleetPortSettingsOutput = (
 ): DescribeFleetPortSettingsOutput => {
   let contents: any = {
     __type: "DescribeFleetPortSettingsOutput",
-    InboundPermissions: undefined
+    InboundPermissions: undefined,
   };
   if (output.InboundPermissions !== undefined) {
-    contents.InboundPermissions = deserializeAws_json1_1IpPermissionsList(
-      output.InboundPermissions,
-      context
-    );
+    contents.InboundPermissions = deserializeAws_json1_1IpPermissionsList(output.InboundPermissions, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeFleetUtilizationOutput = (
   output: any,
@@ -10709,19 +8949,16 @@ const deserializeAws_json1_1DescribeFleetUtilizationOutput = (
   let contents: any = {
     __type: "DescribeFleetUtilizationOutput",
     FleetUtilization: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.FleetUtilization !== undefined) {
-    contents.FleetUtilization = deserializeAws_json1_1FleetUtilizationList(
-      output.FleetUtilization,
-      context
-    );
+    contents.FleetUtilization = deserializeAws_json1_1FleetUtilizationList(output.FleetUtilization, context);
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeGameSessionDetailsOutput = (
   output: any,
@@ -10730,19 +8967,16 @@ const deserializeAws_json1_1DescribeGameSessionDetailsOutput = (
   let contents: any = {
     __type: "DescribeGameSessionDetailsOutput",
     GameSessionDetails: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.GameSessionDetails !== undefined) {
-    contents.GameSessionDetails = deserializeAws_json1_1GameSessionDetailList(
-      output.GameSessionDetails,
-      context
-    );
+    contents.GameSessionDetails = deserializeAws_json1_1GameSessionDetailList(output.GameSessionDetails, context);
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeGameSessionPlacementOutput = (
   output: any,
@@ -10750,16 +8984,13 @@ const deserializeAws_json1_1DescribeGameSessionPlacementOutput = (
 ): DescribeGameSessionPlacementOutput => {
   let contents: any = {
     __type: "DescribeGameSessionPlacementOutput",
-    GameSessionPlacement: undefined
+    GameSessionPlacement: undefined,
   };
   if (output.GameSessionPlacement !== undefined) {
-    contents.GameSessionPlacement = deserializeAws_json1_1GameSessionPlacement(
-      output.GameSessionPlacement,
-      context
-    );
+    contents.GameSessionPlacement = deserializeAws_json1_1GameSessionPlacement(output.GameSessionPlacement, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeGameSessionQueuesOutput = (
   output: any,
@@ -10768,19 +8999,16 @@ const deserializeAws_json1_1DescribeGameSessionQueuesOutput = (
   let contents: any = {
     __type: "DescribeGameSessionQueuesOutput",
     GameSessionQueues: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.GameSessionQueues !== undefined) {
-    contents.GameSessionQueues = deserializeAws_json1_1GameSessionQueueList(
-      output.GameSessionQueues,
-      context
-    );
+    contents.GameSessionQueues = deserializeAws_json1_1GameSessionQueueList(output.GameSessionQueues, context);
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeGameSessionsOutput = (
   output: any,
@@ -10789,19 +9017,16 @@ const deserializeAws_json1_1DescribeGameSessionsOutput = (
   let contents: any = {
     __type: "DescribeGameSessionsOutput",
     GameSessions: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.GameSessions !== undefined) {
-    contents.GameSessions = deserializeAws_json1_1GameSessionList(
-      output.GameSessions,
-      context
-    );
+    contents.GameSessions = deserializeAws_json1_1GameSessionList(output.GameSessions, context);
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeInstancesOutput = (
   output: any,
@@ -10810,19 +9035,16 @@ const deserializeAws_json1_1DescribeInstancesOutput = (
   let contents: any = {
     __type: "DescribeInstancesOutput",
     Instances: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.Instances !== undefined) {
-    contents.Instances = deserializeAws_json1_1InstanceList(
-      output.Instances,
-      context
-    );
+    contents.Instances = deserializeAws_json1_1InstanceList(output.Instances, context);
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeMatchmakingConfigurationsOutput = (
   output: any,
@@ -10831,19 +9053,16 @@ const deserializeAws_json1_1DescribeMatchmakingConfigurationsOutput = (
   let contents: any = {
     __type: "DescribeMatchmakingConfigurationsOutput",
     Configurations: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.Configurations !== undefined) {
-    contents.Configurations = deserializeAws_json1_1MatchmakingConfigurationList(
-      output.Configurations,
-      context
-    );
+    contents.Configurations = deserializeAws_json1_1MatchmakingConfigurationList(output.Configurations, context);
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeMatchmakingOutput = (
   output: any,
@@ -10851,16 +9070,13 @@ const deserializeAws_json1_1DescribeMatchmakingOutput = (
 ): DescribeMatchmakingOutput => {
   let contents: any = {
     __type: "DescribeMatchmakingOutput",
-    TicketList: undefined
+    TicketList: undefined,
   };
   if (output.TicketList !== undefined) {
-    contents.TicketList = deserializeAws_json1_1MatchmakingTicketList(
-      output.TicketList,
-      context
-    );
+    contents.TicketList = deserializeAws_json1_1MatchmakingTicketList(output.TicketList, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeMatchmakingRuleSetsOutput = (
   output: any,
@@ -10869,19 +9085,16 @@ const deserializeAws_json1_1DescribeMatchmakingRuleSetsOutput = (
   let contents: any = {
     __type: "DescribeMatchmakingRuleSetsOutput",
     NextToken: undefined,
-    RuleSets: undefined
+    RuleSets: undefined,
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   if (output.RuleSets !== undefined) {
-    contents.RuleSets = deserializeAws_json1_1MatchmakingRuleSetList(
-      output.RuleSets,
-      context
-    );
+    contents.RuleSets = deserializeAws_json1_1MatchmakingRuleSetList(output.RuleSets, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribePlayerSessionsOutput = (
   output: any,
@@ -10890,19 +9103,16 @@ const deserializeAws_json1_1DescribePlayerSessionsOutput = (
   let contents: any = {
     __type: "DescribePlayerSessionsOutput",
     NextToken: undefined,
-    PlayerSessions: undefined
+    PlayerSessions: undefined,
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   if (output.PlayerSessions !== undefined) {
-    contents.PlayerSessions = deserializeAws_json1_1PlayerSessionList(
-      output.PlayerSessions,
-      context
-    );
+    contents.PlayerSessions = deserializeAws_json1_1PlayerSessionList(output.PlayerSessions, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeRuntimeConfigurationOutput = (
   output: any,
@@ -10910,16 +9120,13 @@ const deserializeAws_json1_1DescribeRuntimeConfigurationOutput = (
 ): DescribeRuntimeConfigurationOutput => {
   let contents: any = {
     __type: "DescribeRuntimeConfigurationOutput",
-    RuntimeConfiguration: undefined
+    RuntimeConfiguration: undefined,
   };
   if (output.RuntimeConfiguration !== undefined) {
-    contents.RuntimeConfiguration = deserializeAws_json1_1RuntimeConfiguration(
-      output.RuntimeConfiguration,
-      context
-    );
+    contents.RuntimeConfiguration = deserializeAws_json1_1RuntimeConfiguration(output.RuntimeConfiguration, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeScalingPoliciesOutput = (
   output: any,
@@ -10928,19 +9135,16 @@ const deserializeAws_json1_1DescribeScalingPoliciesOutput = (
   let contents: any = {
     __type: "DescribeScalingPoliciesOutput",
     NextToken: undefined,
-    ScalingPolicies: undefined
+    ScalingPolicies: undefined,
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   if (output.ScalingPolicies !== undefined) {
-    contents.ScalingPolicies = deserializeAws_json1_1ScalingPolicyList(
-      output.ScalingPolicies,
-      context
-    );
+    contents.ScalingPolicies = deserializeAws_json1_1ScalingPolicyList(output.ScalingPolicies, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeScriptOutput = (
   output: any,
@@ -10948,13 +9152,13 @@ const deserializeAws_json1_1DescribeScriptOutput = (
 ): DescribeScriptOutput => {
   let contents: any = {
     __type: "DescribeScriptOutput",
-    Script: undefined
+    Script: undefined,
   };
   if (output.Script !== undefined) {
     contents.Script = deserializeAws_json1_1Script(output.Script, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeVpcPeeringAuthorizationsOutput = (
   output: any,
@@ -10962,16 +9166,13 @@ const deserializeAws_json1_1DescribeVpcPeeringAuthorizationsOutput = (
 ): DescribeVpcPeeringAuthorizationsOutput => {
   let contents: any = {
     __type: "DescribeVpcPeeringAuthorizationsOutput",
-    VpcPeeringAuthorizations: undefined
+    VpcPeeringAuthorizations: undefined,
   };
   if (output.VpcPeeringAuthorizations !== undefined) {
-    contents.VpcPeeringAuthorizations = deserializeAws_json1_1VpcPeeringAuthorizationList(
-      output.VpcPeeringAuthorizations,
-      context
-    );
+    contents.VpcPeeringAuthorizations = deserializeAws_json1_1VpcPeeringAuthorizationList(output.VpcPeeringAuthorizations, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeVpcPeeringConnectionsOutput = (
   output: any,
@@ -10979,16 +9180,13 @@ const deserializeAws_json1_1DescribeVpcPeeringConnectionsOutput = (
 ): DescribeVpcPeeringConnectionsOutput => {
   let contents: any = {
     __type: "DescribeVpcPeeringConnectionsOutput",
-    VpcPeeringConnections: undefined
+    VpcPeeringConnections: undefined,
   };
   if (output.VpcPeeringConnections !== undefined) {
-    contents.VpcPeeringConnections = deserializeAws_json1_1VpcPeeringConnectionList(
-      output.VpcPeeringConnections,
-      context
-    );
+    contents.VpcPeeringConnections = deserializeAws_json1_1VpcPeeringConnectionList(output.VpcPeeringConnections, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1EC2InstanceCounts = (
   output: any,
@@ -11002,7 +9200,7 @@ const deserializeAws_json1_1EC2InstanceCounts = (
     MAXIMUM: undefined,
     MINIMUM: undefined,
     PENDING: undefined,
-    TERMINATING: undefined
+    TERMINATING: undefined,
   };
   if (output.ACTIVE !== undefined) {
     contents.ACTIVE = output.ACTIVE;
@@ -11026,7 +9224,7 @@ const deserializeAws_json1_1EC2InstanceCounts = (
     contents.TERMINATING = output.TERMINATING;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1EC2InstanceLimit = (
   output: any,
@@ -11036,7 +9234,7 @@ const deserializeAws_json1_1EC2InstanceLimit = (
     __type: "EC2InstanceLimit",
     CurrentInstances: undefined,
     EC2InstanceType: undefined,
-    InstanceLimit: undefined
+    InstanceLimit: undefined,
   };
   if (output.CurrentInstances !== undefined) {
     contents.CurrentInstances = output.CurrentInstances;
@@ -11048,7 +9246,7 @@ const deserializeAws_json1_1EC2InstanceLimit = (
     contents.InstanceLimit = output.InstanceLimit;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1EC2InstanceLimitList = (
   output: any,
@@ -11057,7 +9255,7 @@ const deserializeAws_json1_1EC2InstanceLimitList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EC2InstanceLimit(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1Event = (
   output: any,
@@ -11070,7 +9268,7 @@ const deserializeAws_json1_1Event = (
     EventTime: undefined,
     Message: undefined,
     PreSignedLogUrl: undefined,
-    ResourceId: undefined
+    ResourceId: undefined,
   };
   if (output.EventCode !== undefined) {
     contents.EventCode = output.EventCode;
@@ -11079,11 +9277,7 @@ const deserializeAws_json1_1Event = (
     contents.EventId = output.EventId;
   }
   if (output.EventTime !== undefined) {
-    contents.EventTime = new Date(
-      output.EventTime % 1 != 0
-        ? Math.round(output.EventTime * 1000)
-        : output.EventTime
-    );
+    contents.EventTime = new Date(output.EventTime % 1 != 0 ? Math.round(output.EventTime * 1000) : output.EventTime);
   }
   if (output.Message !== undefined) {
     contents.Message = output.Message;
@@ -11095,7 +9289,7 @@ const deserializeAws_json1_1Event = (
     contents.ResourceId = output.ResourceId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1EventList = (
   output: any,
@@ -11104,14 +9298,16 @@ const deserializeAws_json1_1EventList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Event(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1FleetActionList = (
   output: any,
   context: __SerdeContext
 ): Array<FleetAction | string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1FleetAttributes = (
   output: any,
@@ -11139,23 +9335,16 @@ const deserializeAws_json1_1FleetAttributes = (
     ServerLaunchPath: undefined,
     Status: undefined,
     StoppedActions: undefined,
-    TerminationTime: undefined
+    TerminationTime: undefined,
   };
   if (output.BuildId !== undefined) {
     contents.BuildId = output.BuildId;
   }
   if (output.CertificateConfiguration !== undefined) {
-    contents.CertificateConfiguration = deserializeAws_json1_1CertificateConfiguration(
-      output.CertificateConfiguration,
-      context
-    );
+    contents.CertificateConfiguration = deserializeAws_json1_1CertificateConfiguration(output.CertificateConfiguration, context);
   }
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(output.CreationTime % 1 != 0 ? Math.round(output.CreationTime * 1000) : output.CreationTime);
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -11176,32 +9365,22 @@ const deserializeAws_json1_1FleetAttributes = (
     contents.InstanceType = output.InstanceType;
   }
   if (output.LogPaths !== undefined) {
-    contents.LogPaths = deserializeAws_json1_1StringList(
-      output.LogPaths,
-      context
-    );
+    contents.LogPaths = deserializeAws_json1_1StringList(output.LogPaths, context);
   }
   if (output.MetricGroups !== undefined) {
-    contents.MetricGroups = deserializeAws_json1_1MetricGroupList(
-      output.MetricGroups,
-      context
-    );
+    contents.MetricGroups = deserializeAws_json1_1MetricGroupList(output.MetricGroups, context);
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
   }
   if (output.NewGameSessionProtectionPolicy !== undefined) {
-    contents.NewGameSessionProtectionPolicy =
-      output.NewGameSessionProtectionPolicy;
+    contents.NewGameSessionProtectionPolicy = output.NewGameSessionProtectionPolicy;
   }
   if (output.OperatingSystem !== undefined) {
     contents.OperatingSystem = output.OperatingSystem;
   }
   if (output.ResourceCreationLimitPolicy !== undefined) {
-    contents.ResourceCreationLimitPolicy = deserializeAws_json1_1ResourceCreationLimitPolicy(
-      output.ResourceCreationLimitPolicy,
-      context
-    );
+    contents.ResourceCreationLimitPolicy = deserializeAws_json1_1ResourceCreationLimitPolicy(output.ResourceCreationLimitPolicy, context);
   }
   if (output.ScriptId !== undefined) {
     contents.ScriptId = output.ScriptId;
@@ -11216,20 +9395,13 @@ const deserializeAws_json1_1FleetAttributes = (
     contents.Status = output.Status;
   }
   if (output.StoppedActions !== undefined) {
-    contents.StoppedActions = deserializeAws_json1_1FleetActionList(
-      output.StoppedActions,
-      context
-    );
+    contents.StoppedActions = deserializeAws_json1_1FleetActionList(output.StoppedActions, context);
   }
   if (output.TerminationTime !== undefined) {
-    contents.TerminationTime = new Date(
-      output.TerminationTime % 1 != 0
-        ? Math.round(output.TerminationTime * 1000)
-        : output.TerminationTime
-    );
+    contents.TerminationTime = new Date(output.TerminationTime % 1 != 0 ? Math.round(output.TerminationTime * 1000) : output.TerminationTime);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1FleetAttributesList = (
   output: any,
@@ -11238,7 +9410,7 @@ const deserializeAws_json1_1FleetAttributesList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FleetAttributes(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1FleetCapacity = (
   output: any,
@@ -11248,22 +9420,19 @@ const deserializeAws_json1_1FleetCapacity = (
     __type: "FleetCapacity",
     FleetId: undefined,
     InstanceCounts: undefined,
-    InstanceType: undefined
+    InstanceType: undefined,
   };
   if (output.FleetId !== undefined) {
     contents.FleetId = output.FleetId;
   }
   if (output.InstanceCounts !== undefined) {
-    contents.InstanceCounts = deserializeAws_json1_1EC2InstanceCounts(
-      output.InstanceCounts,
-      context
-    );
+    contents.InstanceCounts = deserializeAws_json1_1EC2InstanceCounts(output.InstanceCounts, context);
   }
   if (output.InstanceType !== undefined) {
     contents.InstanceType = output.InstanceType;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1FleetCapacityExceededException = (
   output: any,
@@ -11271,13 +9440,13 @@ const deserializeAws_json1_1FleetCapacityExceededException = (
 ): FleetCapacityExceededException => {
   let contents: any = {
     __type: "FleetCapacityExceededException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1FleetCapacityList = (
   output: any,
@@ -11286,14 +9455,16 @@ const deserializeAws_json1_1FleetCapacityList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FleetCapacity(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1FleetIdList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1FleetUtilization = (
   output: any,
@@ -11305,7 +9476,7 @@ const deserializeAws_json1_1FleetUtilization = (
     ActiveServerProcessCount: undefined,
     CurrentPlayerSessionCount: undefined,
     FleetId: undefined,
-    MaximumPlayerSessionCount: undefined
+    MaximumPlayerSessionCount: undefined,
   };
   if (output.ActiveGameSessionCount !== undefined) {
     contents.ActiveGameSessionCount = output.ActiveGameSessionCount;
@@ -11323,7 +9494,7 @@ const deserializeAws_json1_1FleetUtilization = (
     contents.MaximumPlayerSessionCount = output.MaximumPlayerSessionCount;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1FleetUtilizationList = (
   output: any,
@@ -11332,7 +9503,7 @@ const deserializeAws_json1_1FleetUtilizationList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FleetUtilization(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1GameProperty = (
   output: any,
@@ -11341,7 +9512,7 @@ const deserializeAws_json1_1GameProperty = (
   let contents: any = {
     __type: "GameProperty",
     Key: undefined,
-    Value: undefined
+    Value: undefined,
   };
   if (output.Key !== undefined) {
     contents.Key = output.Key;
@@ -11350,7 +9521,7 @@ const deserializeAws_json1_1GameProperty = (
     contents.Value = output.Value;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1GamePropertyList = (
   output: any,
@@ -11359,7 +9530,7 @@ const deserializeAws_json1_1GamePropertyList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1GameProperty(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1GameSession = (
   output: any,
@@ -11383,14 +9554,10 @@ const deserializeAws_json1_1GameSession = (
     Port: undefined,
     Status: undefined,
     StatusReason: undefined,
-    TerminationTime: undefined
+    TerminationTime: undefined,
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(output.CreationTime % 1 != 0 ? Math.round(output.CreationTime * 1000) : output.CreationTime);
   }
   if (output.CreatorId !== undefined) {
     contents.CreatorId = output.CreatorId;
@@ -11405,10 +9572,7 @@ const deserializeAws_json1_1GameSession = (
     contents.FleetId = output.FleetId;
   }
   if (output.GameProperties !== undefined) {
-    contents.GameProperties = deserializeAws_json1_1GamePropertyList(
-      output.GameProperties,
-      context
-    );
+    contents.GameProperties = deserializeAws_json1_1GamePropertyList(output.GameProperties, context);
   }
   if (output.GameSessionData !== undefined) {
     contents.GameSessionData = output.GameSessionData;
@@ -11441,14 +9605,10 @@ const deserializeAws_json1_1GameSession = (
     contents.StatusReason = output.StatusReason;
   }
   if (output.TerminationTime !== undefined) {
-    contents.TerminationTime = new Date(
-      output.TerminationTime % 1 != 0
-        ? Math.round(output.TerminationTime * 1000)
-        : output.TerminationTime
-    );
+    contents.TerminationTime = new Date(output.TerminationTime % 1 != 0 ? Math.round(output.TerminationTime * 1000) : output.TerminationTime);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1GameSessionConnectionInfo = (
   output: any,
@@ -11460,7 +9620,7 @@ const deserializeAws_json1_1GameSessionConnectionInfo = (
     GameSessionArn: undefined,
     IpAddress: undefined,
     MatchedPlayerSessions: undefined,
-    Port: undefined
+    Port: undefined,
   };
   if (output.DnsName !== undefined) {
     contents.DnsName = output.DnsName;
@@ -11472,16 +9632,13 @@ const deserializeAws_json1_1GameSessionConnectionInfo = (
     contents.IpAddress = output.IpAddress;
   }
   if (output.MatchedPlayerSessions !== undefined) {
-    contents.MatchedPlayerSessions = deserializeAws_json1_1MatchedPlayerSessionList(
-      output.MatchedPlayerSessions,
-      context
-    );
+    contents.MatchedPlayerSessions = deserializeAws_json1_1MatchedPlayerSessionList(output.MatchedPlayerSessions, context);
   }
   if (output.Port !== undefined) {
     contents.Port = output.Port;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1GameSessionDetail = (
   output: any,
@@ -11490,19 +9647,16 @@ const deserializeAws_json1_1GameSessionDetail = (
   let contents: any = {
     __type: "GameSessionDetail",
     GameSession: undefined,
-    ProtectionPolicy: undefined
+    ProtectionPolicy: undefined,
   };
   if (output.GameSession !== undefined) {
-    contents.GameSession = deserializeAws_json1_1GameSession(
-      output.GameSession,
-      context
-    );
+    contents.GameSession = deserializeAws_json1_1GameSession(output.GameSession, context);
   }
   if (output.ProtectionPolicy !== undefined) {
     contents.ProtectionPolicy = output.ProtectionPolicy;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1GameSessionDetailList = (
   output: any,
@@ -11511,7 +9665,7 @@ const deserializeAws_json1_1GameSessionDetailList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1GameSessionDetail(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1GameSessionFullException = (
   output: any,
@@ -11519,13 +9673,13 @@ const deserializeAws_json1_1GameSessionFullException = (
 ): GameSessionFullException => {
   let contents: any = {
     __type: "GameSessionFullException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1GameSessionList = (
   output: any,
@@ -11534,7 +9688,7 @@ const deserializeAws_json1_1GameSessionList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1GameSession(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1GameSessionPlacement = (
   output: any,
@@ -11559,23 +9713,16 @@ const deserializeAws_json1_1GameSessionPlacement = (
     PlayerLatencies: undefined,
     Port: undefined,
     StartTime: undefined,
-    Status: undefined
+    Status: undefined,
   };
   if (output.DnsName !== undefined) {
     contents.DnsName = output.DnsName;
   }
   if (output.EndTime !== undefined) {
-    contents.EndTime = new Date(
-      output.EndTime % 1 != 0
-        ? Math.round(output.EndTime * 1000)
-        : output.EndTime
-    );
+    contents.EndTime = new Date(output.EndTime % 1 != 0 ? Math.round(output.EndTime * 1000) : output.EndTime);
   }
   if (output.GameProperties !== undefined) {
-    contents.GameProperties = deserializeAws_json1_1GamePropertyList(
-      output.GameProperties,
-      context
-    );
+    contents.GameProperties = deserializeAws_json1_1GamePropertyList(output.GameProperties, context);
   }
   if (output.GameSessionArn !== undefined) {
     contents.GameSessionArn = output.GameSessionArn;
@@ -11605,35 +9752,25 @@ const deserializeAws_json1_1GameSessionPlacement = (
     contents.MaximumPlayerSessionCount = output.MaximumPlayerSessionCount;
   }
   if (output.PlacedPlayerSessions !== undefined) {
-    contents.PlacedPlayerSessions = deserializeAws_json1_1PlacedPlayerSessionList(
-      output.PlacedPlayerSessions,
-      context
-    );
+    contents.PlacedPlayerSessions = deserializeAws_json1_1PlacedPlayerSessionList(output.PlacedPlayerSessions, context);
   }
   if (output.PlacementId !== undefined) {
     contents.PlacementId = output.PlacementId;
   }
   if (output.PlayerLatencies !== undefined) {
-    contents.PlayerLatencies = deserializeAws_json1_1PlayerLatencyList(
-      output.PlayerLatencies,
-      context
-    );
+    contents.PlayerLatencies = deserializeAws_json1_1PlayerLatencyList(output.PlayerLatencies, context);
   }
   if (output.Port !== undefined) {
     contents.Port = output.Port;
   }
   if (output.StartTime !== undefined) {
-    contents.StartTime = new Date(
-      output.StartTime % 1 != 0
-        ? Math.round(output.StartTime * 1000)
-        : output.StartTime
-    );
+    contents.StartTime = new Date(output.StartTime % 1 != 0 ? Math.round(output.StartTime * 1000) : output.StartTime);
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1GameSessionQueue = (
   output: any,
@@ -11645,13 +9782,10 @@ const deserializeAws_json1_1GameSessionQueue = (
     GameSessionQueueArn: undefined,
     Name: undefined,
     PlayerLatencyPolicies: undefined,
-    TimeoutInSeconds: undefined
+    TimeoutInSeconds: undefined,
   };
   if (output.Destinations !== undefined) {
-    contents.Destinations = deserializeAws_json1_1GameSessionQueueDestinationList(
-      output.Destinations,
-      context
-    );
+    contents.Destinations = deserializeAws_json1_1GameSessionQueueDestinationList(output.Destinations, context);
   }
   if (output.GameSessionQueueArn !== undefined) {
     contents.GameSessionQueueArn = output.GameSessionQueueArn;
@@ -11660,16 +9794,13 @@ const deserializeAws_json1_1GameSessionQueue = (
     contents.Name = output.Name;
   }
   if (output.PlayerLatencyPolicies !== undefined) {
-    contents.PlayerLatencyPolicies = deserializeAws_json1_1PlayerLatencyPolicyList(
-      output.PlayerLatencyPolicies,
-      context
-    );
+    contents.PlayerLatencyPolicies = deserializeAws_json1_1PlayerLatencyPolicyList(output.PlayerLatencyPolicies, context);
   }
   if (output.TimeoutInSeconds !== undefined) {
     contents.TimeoutInSeconds = output.TimeoutInSeconds;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1GameSessionQueueDestination = (
   output: any,
@@ -11677,13 +9808,13 @@ const deserializeAws_json1_1GameSessionQueueDestination = (
 ): GameSessionQueueDestination => {
   let contents: any = {
     __type: "GameSessionQueueDestination",
-    DestinationArn: undefined
+    DestinationArn: undefined,
   };
   if (output.DestinationArn !== undefined) {
     contents.DestinationArn = output.DestinationArn;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1GameSessionQueueDestinationList = (
   output: any,
@@ -11692,7 +9823,7 @@ const deserializeAws_json1_1GameSessionQueueDestinationList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1GameSessionQueueDestination(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1GameSessionQueueList = (
   output: any,
@@ -11701,7 +9832,7 @@ const deserializeAws_json1_1GameSessionQueueList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1GameSessionQueue(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1GetGameSessionLogUrlOutput = (
   output: any,
@@ -11709,13 +9840,13 @@ const deserializeAws_json1_1GetGameSessionLogUrlOutput = (
 ): GetGameSessionLogUrlOutput => {
   let contents: any = {
     __type: "GetGameSessionLogUrlOutput",
-    PreSignedUrl: undefined
+    PreSignedUrl: undefined,
   };
   if (output.PreSignedUrl !== undefined) {
     contents.PreSignedUrl = output.PreSignedUrl;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1GetInstanceAccessOutput = (
   output: any,
@@ -11723,16 +9854,13 @@ const deserializeAws_json1_1GetInstanceAccessOutput = (
 ): GetInstanceAccessOutput => {
   let contents: any = {
     __type: "GetInstanceAccessOutput",
-    InstanceAccess: undefined
+    InstanceAccess: undefined,
   };
   if (output.InstanceAccess !== undefined) {
-    contents.InstanceAccess = deserializeAws_json1_1InstanceAccess(
-      output.InstanceAccess,
-      context
-    );
+    contents.InstanceAccess = deserializeAws_json1_1InstanceAccess(output.InstanceAccess, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1IdempotentParameterMismatchException = (
   output: any,
@@ -11740,13 +9868,13 @@ const deserializeAws_json1_1IdempotentParameterMismatchException = (
 ): IdempotentParameterMismatchException => {
   let contents: any = {
     __type: "IdempotentParameterMismatchException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1Instance = (
   output: any,
@@ -11761,14 +9889,10 @@ const deserializeAws_json1_1Instance = (
     IpAddress: undefined,
     OperatingSystem: undefined,
     Status: undefined,
-    Type: undefined
+    Type: undefined,
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(output.CreationTime % 1 != 0 ? Math.round(output.CreationTime * 1000) : output.CreationTime);
   }
   if (output.DnsName !== undefined) {
     contents.DnsName = output.DnsName;
@@ -11792,7 +9916,7 @@ const deserializeAws_json1_1Instance = (
     contents.Type = output.Type;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InstanceAccess = (
   output: any,
@@ -11804,13 +9928,10 @@ const deserializeAws_json1_1InstanceAccess = (
     FleetId: undefined,
     InstanceId: undefined,
     IpAddress: undefined,
-    OperatingSystem: undefined
+    OperatingSystem: undefined,
   };
   if (output.Credentials !== undefined) {
-    contents.Credentials = deserializeAws_json1_1InstanceCredentials(
-      output.Credentials,
-      context
-    );
+    contents.Credentials = deserializeAws_json1_1InstanceCredentials(output.Credentials, context);
   }
   if (output.FleetId !== undefined) {
     contents.FleetId = output.FleetId;
@@ -11825,7 +9946,7 @@ const deserializeAws_json1_1InstanceAccess = (
     contents.OperatingSystem = output.OperatingSystem;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InstanceCredentials = (
   output: any,
@@ -11834,7 +9955,7 @@ const deserializeAws_json1_1InstanceCredentials = (
   let contents: any = {
     __type: "InstanceCredentials",
     Secret: undefined,
-    UserName: undefined
+    UserName: undefined,
   };
   if (output.Secret !== undefined) {
     contents.Secret = output.Secret;
@@ -11843,7 +9964,7 @@ const deserializeAws_json1_1InstanceCredentials = (
     contents.UserName = output.UserName;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InstanceList = (
   output: any,
@@ -11852,7 +9973,7 @@ const deserializeAws_json1_1InstanceList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Instance(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1InternalServiceException = (
   output: any,
@@ -11860,13 +9981,13 @@ const deserializeAws_json1_1InternalServiceException = (
 ): InternalServiceException => {
   let contents: any = {
     __type: "InternalServiceException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InvalidFleetStatusException = (
   output: any,
@@ -11874,13 +9995,13 @@ const deserializeAws_json1_1InvalidFleetStatusException = (
 ): InvalidFleetStatusException => {
   let contents: any = {
     __type: "InvalidFleetStatusException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InvalidGameSessionStatusException = (
   output: any,
@@ -11888,13 +10009,13 @@ const deserializeAws_json1_1InvalidGameSessionStatusException = (
 ): InvalidGameSessionStatusException => {
   let contents: any = {
     __type: "InvalidGameSessionStatusException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InvalidRequestException = (
   output: any,
@@ -11902,13 +10023,13 @@ const deserializeAws_json1_1InvalidRequestException = (
 ): InvalidRequestException => {
   let contents: any = {
     __type: "InvalidRequestException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1IpPermission = (
   output: any,
@@ -11919,7 +10040,7 @@ const deserializeAws_json1_1IpPermission = (
     FromPort: undefined,
     IpRange: undefined,
     Protocol: undefined,
-    ToPort: undefined
+    ToPort: undefined,
   };
   if (output.FromPort !== undefined) {
     contents.FromPort = output.FromPort;
@@ -11934,7 +10055,7 @@ const deserializeAws_json1_1IpPermission = (
     contents.ToPort = output.ToPort;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1IpPermissionsList = (
   output: any,
@@ -11943,7 +10064,7 @@ const deserializeAws_json1_1IpPermissionsList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1IpPermission(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1LatencyMap = (
   output: any,
@@ -11954,7 +10075,7 @@ const deserializeAws_json1_1LatencyMap = (
     mapParams[key] = output[key];
   });
   return mapParams;
-};
+}
 
 const deserializeAws_json1_1LimitExceededException = (
   output: any,
@@ -11962,13 +10083,13 @@ const deserializeAws_json1_1LimitExceededException = (
 ): LimitExceededException => {
   let contents: any = {
     __type: "LimitExceededException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListAliasesOutput = (
   output: any,
@@ -11977,7 +10098,7 @@ const deserializeAws_json1_1ListAliasesOutput = (
   let contents: any = {
     __type: "ListAliasesOutput",
     Aliases: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.Aliases !== undefined) {
     contents.Aliases = deserializeAws_json1_1AliasList(output.Aliases, context);
@@ -11986,7 +10107,7 @@ const deserializeAws_json1_1ListAliasesOutput = (
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListBuildsOutput = (
   output: any,
@@ -11995,7 +10116,7 @@ const deserializeAws_json1_1ListBuildsOutput = (
   let contents: any = {
     __type: "ListBuildsOutput",
     Builds: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.Builds !== undefined) {
     contents.Builds = deserializeAws_json1_1BuildList(output.Builds, context);
@@ -12004,7 +10125,7 @@ const deserializeAws_json1_1ListBuildsOutput = (
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListFleetsOutput = (
   output: any,
@@ -12013,19 +10134,16 @@ const deserializeAws_json1_1ListFleetsOutput = (
   let contents: any = {
     __type: "ListFleetsOutput",
     FleetIds: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.FleetIds !== undefined) {
-    contents.FleetIds = deserializeAws_json1_1FleetIdList(
-      output.FleetIds,
-      context
-    );
+    contents.FleetIds = deserializeAws_json1_1FleetIdList(output.FleetIds, context);
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListScriptsOutput = (
   output: any,
@@ -12034,19 +10152,16 @@ const deserializeAws_json1_1ListScriptsOutput = (
   let contents: any = {
     __type: "ListScriptsOutput",
     NextToken: undefined,
-    Scripts: undefined
+    Scripts: undefined,
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   if (output.Scripts !== undefined) {
-    contents.Scripts = deserializeAws_json1_1ScriptList(
-      output.Scripts,
-      context
-    );
+    contents.Scripts = deserializeAws_json1_1ScriptList(output.Scripts, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1MatchedPlayerSession = (
   output: any,
@@ -12055,7 +10170,7 @@ const deserializeAws_json1_1MatchedPlayerSession = (
   let contents: any = {
     __type: "MatchedPlayerSession",
     PlayerId: undefined,
-    PlayerSessionId: undefined
+    PlayerSessionId: undefined,
   };
   if (output.PlayerId !== undefined) {
     contents.PlayerId = output.PlayerId;
@@ -12064,7 +10179,7 @@ const deserializeAws_json1_1MatchedPlayerSession = (
     contents.PlayerSessionId = output.PlayerSessionId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1MatchedPlayerSessionList = (
   output: any,
@@ -12073,7 +10188,7 @@ const deserializeAws_json1_1MatchedPlayerSessionList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MatchedPlayerSession(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1MatchmakingConfiguration = (
   output: any,
@@ -12094,7 +10209,7 @@ const deserializeAws_json1_1MatchmakingConfiguration = (
     Name: undefined,
     NotificationTarget: undefined,
     RequestTimeoutSeconds: undefined,
-    RuleSetName: undefined
+    RuleSetName: undefined,
   };
   if (output.AcceptanceRequired !== undefined) {
     contents.AcceptanceRequired = output.AcceptanceRequired;
@@ -12109,11 +10224,7 @@ const deserializeAws_json1_1MatchmakingConfiguration = (
     contents.BackfillMode = output.BackfillMode;
   }
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(output.CreationTime % 1 != 0 ? Math.round(output.CreationTime * 1000) : output.CreationTime);
   }
   if (output.CustomEventData !== undefined) {
     contents.CustomEventData = output.CustomEventData;
@@ -12122,19 +10233,13 @@ const deserializeAws_json1_1MatchmakingConfiguration = (
     contents.Description = output.Description;
   }
   if (output.GameProperties !== undefined) {
-    contents.GameProperties = deserializeAws_json1_1GamePropertyList(
-      output.GameProperties,
-      context
-    );
+    contents.GameProperties = deserializeAws_json1_1GamePropertyList(output.GameProperties, context);
   }
   if (output.GameSessionData !== undefined) {
     contents.GameSessionData = output.GameSessionData;
   }
   if (output.GameSessionQueueArns !== undefined) {
-    contents.GameSessionQueueArns = deserializeAws_json1_1QueueArnsList(
-      output.GameSessionQueueArns,
-      context
-    );
+    contents.GameSessionQueueArns = deserializeAws_json1_1QueueArnsList(output.GameSessionQueueArns, context);
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -12149,7 +10254,7 @@ const deserializeAws_json1_1MatchmakingConfiguration = (
     contents.RuleSetName = output.RuleSetName;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1MatchmakingConfigurationList = (
   output: any,
@@ -12158,7 +10263,7 @@ const deserializeAws_json1_1MatchmakingConfigurationList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MatchmakingConfiguration(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1MatchmakingRuleSet = (
   output: any,
@@ -12168,14 +10273,10 @@ const deserializeAws_json1_1MatchmakingRuleSet = (
     __type: "MatchmakingRuleSet",
     CreationTime: undefined,
     RuleSetBody: undefined,
-    RuleSetName: undefined
+    RuleSetName: undefined,
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(output.CreationTime % 1 != 0 ? Math.round(output.CreationTime * 1000) : output.CreationTime);
   }
   if (output.RuleSetBody !== undefined) {
     contents.RuleSetBody = output.RuleSetBody;
@@ -12184,7 +10285,7 @@ const deserializeAws_json1_1MatchmakingRuleSet = (
     contents.RuleSetName = output.RuleSetName;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1MatchmakingRuleSetList = (
   output: any,
@@ -12193,7 +10294,7 @@ const deserializeAws_json1_1MatchmakingRuleSetList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MatchmakingRuleSet(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1MatchmakingTicket = (
   output: any,
@@ -12210,39 +10311,25 @@ const deserializeAws_json1_1MatchmakingTicket = (
     Status: undefined,
     StatusMessage: undefined,
     StatusReason: undefined,
-    TicketId: undefined
+    TicketId: undefined,
   };
   if (output.ConfigurationName !== undefined) {
     contents.ConfigurationName = output.ConfigurationName;
   }
   if (output.EndTime !== undefined) {
-    contents.EndTime = new Date(
-      output.EndTime % 1 != 0
-        ? Math.round(output.EndTime * 1000)
-        : output.EndTime
-    );
+    contents.EndTime = new Date(output.EndTime % 1 != 0 ? Math.round(output.EndTime * 1000) : output.EndTime);
   }
   if (output.EstimatedWaitTime !== undefined) {
     contents.EstimatedWaitTime = output.EstimatedWaitTime;
   }
   if (output.GameSessionConnectionInfo !== undefined) {
-    contents.GameSessionConnectionInfo = deserializeAws_json1_1GameSessionConnectionInfo(
-      output.GameSessionConnectionInfo,
-      context
-    );
+    contents.GameSessionConnectionInfo = deserializeAws_json1_1GameSessionConnectionInfo(output.GameSessionConnectionInfo, context);
   }
   if (output.Players !== undefined) {
-    contents.Players = deserializeAws_json1_1PlayerList(
-      output.Players,
-      context
-    );
+    contents.Players = deserializeAws_json1_1PlayerList(output.Players, context);
   }
   if (output.StartTime !== undefined) {
-    contents.StartTime = new Date(
-      output.StartTime % 1 != 0
-        ? Math.round(output.StartTime * 1000)
-        : output.StartTime
-    );
+    contents.StartTime = new Date(output.StartTime % 1 != 0 ? Math.round(output.StartTime * 1000) : output.StartTime);
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
@@ -12257,7 +10344,7 @@ const deserializeAws_json1_1MatchmakingTicket = (
     contents.TicketId = output.TicketId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1MatchmakingTicketList = (
   output: any,
@@ -12266,14 +10353,16 @@ const deserializeAws_json1_1MatchmakingTicketList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MatchmakingTicket(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1MetricGroupList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1NotFoundException = (
   output: any,
@@ -12281,13 +10370,13 @@ const deserializeAws_json1_1NotFoundException = (
 ): NotFoundException => {
   let contents: any = {
     __type: "NotFoundException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1PlacedPlayerSession = (
   output: any,
@@ -12296,7 +10385,7 @@ const deserializeAws_json1_1PlacedPlayerSession = (
   let contents: any = {
     __type: "PlacedPlayerSession",
     PlayerId: undefined,
-    PlayerSessionId: undefined
+    PlayerSessionId: undefined,
   };
   if (output.PlayerId !== undefined) {
     contents.PlayerId = output.PlayerId;
@@ -12305,7 +10394,7 @@ const deserializeAws_json1_1PlacedPlayerSession = (
     contents.PlayerSessionId = output.PlayerSessionId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1PlacedPlayerSessionList = (
   output: any,
@@ -12314,7 +10403,7 @@ const deserializeAws_json1_1PlacedPlayerSessionList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PlacedPlayerSession(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1Player = (
   output: any,
@@ -12325,19 +10414,13 @@ const deserializeAws_json1_1Player = (
     LatencyInMs: undefined,
     PlayerAttributes: undefined,
     PlayerId: undefined,
-    Team: undefined
+    Team: undefined,
   };
   if (output.LatencyInMs !== undefined) {
-    contents.LatencyInMs = deserializeAws_json1_1LatencyMap(
-      output.LatencyInMs,
-      context
-    );
+    contents.LatencyInMs = deserializeAws_json1_1LatencyMap(output.LatencyInMs, context);
   }
   if (output.PlayerAttributes !== undefined) {
-    contents.PlayerAttributes = deserializeAws_json1_1PlayerAttributeMap(
-      output.PlayerAttributes,
-      context
-    );
+    contents.PlayerAttributes = deserializeAws_json1_1PlayerAttributeMap(output.PlayerAttributes, context);
   }
   if (output.PlayerId !== undefined) {
     contents.PlayerId = output.PlayerId;
@@ -12346,7 +10429,7 @@ const deserializeAws_json1_1Player = (
     contents.Team = output.Team;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1PlayerAttributeMap = (
   output: any,
@@ -12357,7 +10440,7 @@ const deserializeAws_json1_1PlayerAttributeMap = (
     mapParams[key] = deserializeAws_json1_1AttributeValue(output[key], context);
   });
   return mapParams;
-};
+}
 
 const deserializeAws_json1_1PlayerLatency = (
   output: any,
@@ -12367,7 +10450,7 @@ const deserializeAws_json1_1PlayerLatency = (
     __type: "PlayerLatency",
     LatencyInMilliseconds: undefined,
     PlayerId: undefined,
-    RegionIdentifier: undefined
+    RegionIdentifier: undefined,
   };
   if (output.LatencyInMilliseconds !== undefined) {
     contents.LatencyInMilliseconds = output.LatencyInMilliseconds;
@@ -12379,7 +10462,7 @@ const deserializeAws_json1_1PlayerLatency = (
     contents.RegionIdentifier = output.RegionIdentifier;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1PlayerLatencyList = (
   output: any,
@@ -12388,7 +10471,7 @@ const deserializeAws_json1_1PlayerLatencyList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PlayerLatency(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1PlayerLatencyPolicy = (
   output: any,
@@ -12397,17 +10480,16 @@ const deserializeAws_json1_1PlayerLatencyPolicy = (
   let contents: any = {
     __type: "PlayerLatencyPolicy",
     MaximumIndividualPlayerLatencyMilliseconds: undefined,
-    PolicyDurationSeconds: undefined
+    PolicyDurationSeconds: undefined,
   };
   if (output.MaximumIndividualPlayerLatencyMilliseconds !== undefined) {
-    contents.MaximumIndividualPlayerLatencyMilliseconds =
-      output.MaximumIndividualPlayerLatencyMilliseconds;
+    contents.MaximumIndividualPlayerLatencyMilliseconds = output.MaximumIndividualPlayerLatencyMilliseconds;
   }
   if (output.PolicyDurationSeconds !== undefined) {
     contents.PolicyDurationSeconds = output.PolicyDurationSeconds;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1PlayerLatencyPolicyList = (
   output: any,
@@ -12416,7 +10498,7 @@ const deserializeAws_json1_1PlayerLatencyPolicyList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PlayerLatencyPolicy(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1PlayerList = (
   output: any,
@@ -12425,7 +10507,7 @@ const deserializeAws_json1_1PlayerList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Player(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1PlayerSession = (
   output: any,
@@ -12443,14 +10525,10 @@ const deserializeAws_json1_1PlayerSession = (
     PlayerSessionId: undefined,
     Port: undefined,
     Status: undefined,
-    TerminationTime: undefined
+    TerminationTime: undefined,
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(output.CreationTime % 1 != 0 ? Math.round(output.CreationTime * 1000) : output.CreationTime);
   }
   if (output.DnsName !== undefined) {
     contents.DnsName = output.DnsName;
@@ -12480,14 +10558,10 @@ const deserializeAws_json1_1PlayerSession = (
     contents.Status = output.Status;
   }
   if (output.TerminationTime !== undefined) {
-    contents.TerminationTime = new Date(
-      output.TerminationTime % 1 != 0
-        ? Math.round(output.TerminationTime * 1000)
-        : output.TerminationTime
-    );
+    contents.TerminationTime = new Date(output.TerminationTime % 1 != 0 ? Math.round(output.TerminationTime * 1000) : output.TerminationTime);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1PlayerSessionList = (
   output: any,
@@ -12496,7 +10570,7 @@ const deserializeAws_json1_1PlayerSessionList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PlayerSession(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1PutScalingPolicyOutput = (
   output: any,
@@ -12504,20 +10578,22 @@ const deserializeAws_json1_1PutScalingPolicyOutput = (
 ): PutScalingPolicyOutput => {
   let contents: any = {
     __type: "PutScalingPolicyOutput",
-    Name: undefined
+    Name: undefined,
   };
   if (output.Name !== undefined) {
     contents.Name = output.Name;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1QueueArnsList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1RequestUploadCredentialsOutput = (
   output: any,
@@ -12526,22 +10602,16 @@ const deserializeAws_json1_1RequestUploadCredentialsOutput = (
   let contents: any = {
     __type: "RequestUploadCredentialsOutput",
     StorageLocation: undefined,
-    UploadCredentials: undefined
+    UploadCredentials: undefined,
   };
   if (output.StorageLocation !== undefined) {
-    contents.StorageLocation = deserializeAws_json1_1S3Location(
-      output.StorageLocation,
-      context
-    );
+    contents.StorageLocation = deserializeAws_json1_1S3Location(output.StorageLocation, context);
   }
   if (output.UploadCredentials !== undefined) {
-    contents.UploadCredentials = deserializeAws_json1_1AwsCredentials(
-      output.UploadCredentials,
-      context
-    );
+    contents.UploadCredentials = deserializeAws_json1_1AwsCredentials(output.UploadCredentials, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ResolveAliasOutput = (
   output: any,
@@ -12549,13 +10619,13 @@ const deserializeAws_json1_1ResolveAliasOutput = (
 ): ResolveAliasOutput => {
   let contents: any = {
     __type: "ResolveAliasOutput",
-    FleetId: undefined
+    FleetId: undefined,
   };
   if (output.FleetId !== undefined) {
     contents.FleetId = output.FleetId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ResourceCreationLimitPolicy = (
   output: any,
@@ -12564,7 +10634,7 @@ const deserializeAws_json1_1ResourceCreationLimitPolicy = (
   let contents: any = {
     __type: "ResourceCreationLimitPolicy",
     NewGameSessionsPerCreator: undefined,
-    PolicyPeriodInMinutes: undefined
+    PolicyPeriodInMinutes: undefined,
   };
   if (output.NewGameSessionsPerCreator !== undefined) {
     contents.NewGameSessionsPerCreator = output.NewGameSessionsPerCreator;
@@ -12573,7 +10643,7 @@ const deserializeAws_json1_1ResourceCreationLimitPolicy = (
     contents.PolicyPeriodInMinutes = output.PolicyPeriodInMinutes;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1RoutingStrategy = (
   output: any,
@@ -12583,7 +10653,7 @@ const deserializeAws_json1_1RoutingStrategy = (
     __type: "RoutingStrategy",
     FleetId: undefined,
     Message: undefined,
-    Type: undefined
+    Type: undefined,
   };
   if (output.FleetId !== undefined) {
     contents.FleetId = output.FleetId;
@@ -12595,7 +10665,7 @@ const deserializeAws_json1_1RoutingStrategy = (
     contents.Type = output.Type;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1RuntimeConfiguration = (
   output: any,
@@ -12605,24 +10675,19 @@ const deserializeAws_json1_1RuntimeConfiguration = (
     __type: "RuntimeConfiguration",
     GameSessionActivationTimeoutSeconds: undefined,
     MaxConcurrentGameSessionActivations: undefined,
-    ServerProcesses: undefined
+    ServerProcesses: undefined,
   };
   if (output.GameSessionActivationTimeoutSeconds !== undefined) {
-    contents.GameSessionActivationTimeoutSeconds =
-      output.GameSessionActivationTimeoutSeconds;
+    contents.GameSessionActivationTimeoutSeconds = output.GameSessionActivationTimeoutSeconds;
   }
   if (output.MaxConcurrentGameSessionActivations !== undefined) {
-    contents.MaxConcurrentGameSessionActivations =
-      output.MaxConcurrentGameSessionActivations;
+    contents.MaxConcurrentGameSessionActivations = output.MaxConcurrentGameSessionActivations;
   }
   if (output.ServerProcesses !== undefined) {
-    contents.ServerProcesses = deserializeAws_json1_1ServerProcessList(
-      output.ServerProcesses,
-      context
-    );
+    contents.ServerProcesses = deserializeAws_json1_1ServerProcessList(output.ServerProcesses, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1S3Location = (
   output: any,
@@ -12633,7 +10698,7 @@ const deserializeAws_json1_1S3Location = (
     Bucket: undefined,
     Key: undefined,
     ObjectVersion: undefined,
-    RoleArn: undefined
+    RoleArn: undefined,
   };
   if (output.Bucket !== undefined) {
     contents.Bucket = output.Bucket;
@@ -12648,7 +10713,7 @@ const deserializeAws_json1_1S3Location = (
     contents.RoleArn = output.RoleArn;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ScalingPolicy = (
   output: any,
@@ -12666,7 +10731,7 @@ const deserializeAws_json1_1ScalingPolicy = (
     ScalingAdjustmentType: undefined,
     Status: undefined,
     TargetConfiguration: undefined,
-    Threshold: undefined
+    Threshold: undefined,
   };
   if (output.ComparisonOperator !== undefined) {
     contents.ComparisonOperator = output.ComparisonOperator;
@@ -12696,16 +10761,13 @@ const deserializeAws_json1_1ScalingPolicy = (
     contents.Status = output.Status;
   }
   if (output.TargetConfiguration !== undefined) {
-    contents.TargetConfiguration = deserializeAws_json1_1TargetConfiguration(
-      output.TargetConfiguration,
-      context
-    );
+    contents.TargetConfiguration = deserializeAws_json1_1TargetConfiguration(output.TargetConfiguration, context);
   }
   if (output.Threshold !== undefined) {
     contents.Threshold = output.Threshold;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ScalingPolicyList = (
   output: any,
@@ -12714,7 +10776,7 @@ const deserializeAws_json1_1ScalingPolicyList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ScalingPolicy(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1Script = (
   output: any,
@@ -12727,14 +10789,10 @@ const deserializeAws_json1_1Script = (
     ScriptId: undefined,
     SizeOnDisk: undefined,
     StorageLocation: undefined,
-    Version: undefined
+    Version: undefined,
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(output.CreationTime % 1 != 0 ? Math.round(output.CreationTime * 1000) : output.CreationTime);
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -12746,16 +10804,13 @@ const deserializeAws_json1_1Script = (
     contents.SizeOnDisk = output.SizeOnDisk;
   }
   if (output.StorageLocation !== undefined) {
-    contents.StorageLocation = deserializeAws_json1_1S3Location(
-      output.StorageLocation,
-      context
-    );
+    contents.StorageLocation = deserializeAws_json1_1S3Location(output.StorageLocation, context);
   }
   if (output.Version !== undefined) {
     contents.Version = output.Version;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ScriptList = (
   output: any,
@@ -12764,7 +10819,7 @@ const deserializeAws_json1_1ScriptList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Script(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1SearchGameSessionsOutput = (
   output: any,
@@ -12773,19 +10828,16 @@ const deserializeAws_json1_1SearchGameSessionsOutput = (
   let contents: any = {
     __type: "SearchGameSessionsOutput",
     GameSessions: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.GameSessions !== undefined) {
-    contents.GameSessions = deserializeAws_json1_1GameSessionList(
-      output.GameSessions,
-      context
-    );
+    contents.GameSessions = deserializeAws_json1_1GameSessionList(output.GameSessions, context);
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ServerProcess = (
   output: any,
@@ -12795,7 +10847,7 @@ const deserializeAws_json1_1ServerProcess = (
     __type: "ServerProcess",
     ConcurrentExecutions: undefined,
     LaunchPath: undefined,
-    Parameters: undefined
+    Parameters: undefined,
   };
   if (output.ConcurrentExecutions !== undefined) {
     contents.ConcurrentExecutions = output.ConcurrentExecutions;
@@ -12807,7 +10859,7 @@ const deserializeAws_json1_1ServerProcess = (
     contents.Parameters = output.Parameters;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ServerProcessList = (
   output: any,
@@ -12816,17 +10868,17 @@ const deserializeAws_json1_1ServerProcessList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ServerProcess(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1StartFleetActionsOutput = (
   output: any,
   context: __SerdeContext
 ): StartFleetActionsOutput => {
   let contents: any = {
-    __type: "StartFleetActionsOutput"
+    __type: "StartFleetActionsOutput",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1StartGameSessionPlacementOutput = (
   output: any,
@@ -12834,16 +10886,13 @@ const deserializeAws_json1_1StartGameSessionPlacementOutput = (
 ): StartGameSessionPlacementOutput => {
   let contents: any = {
     __type: "StartGameSessionPlacementOutput",
-    GameSessionPlacement: undefined
+    GameSessionPlacement: undefined,
   };
   if (output.GameSessionPlacement !== undefined) {
-    contents.GameSessionPlacement = deserializeAws_json1_1GameSessionPlacement(
-      output.GameSessionPlacement,
-      context
-    );
+    contents.GameSessionPlacement = deserializeAws_json1_1GameSessionPlacement(output.GameSessionPlacement, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1StartMatchBackfillOutput = (
   output: any,
@@ -12851,16 +10900,13 @@ const deserializeAws_json1_1StartMatchBackfillOutput = (
 ): StartMatchBackfillOutput => {
   let contents: any = {
     __type: "StartMatchBackfillOutput",
-    MatchmakingTicket: undefined
+    MatchmakingTicket: undefined,
   };
   if (output.MatchmakingTicket !== undefined) {
-    contents.MatchmakingTicket = deserializeAws_json1_1MatchmakingTicket(
-      output.MatchmakingTicket,
-      context
-    );
+    contents.MatchmakingTicket = deserializeAws_json1_1MatchmakingTicket(output.MatchmakingTicket, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1StartMatchmakingOutput = (
   output: any,
@@ -12868,26 +10914,23 @@ const deserializeAws_json1_1StartMatchmakingOutput = (
 ): StartMatchmakingOutput => {
   let contents: any = {
     __type: "StartMatchmakingOutput",
-    MatchmakingTicket: undefined
+    MatchmakingTicket: undefined,
   };
   if (output.MatchmakingTicket !== undefined) {
-    contents.MatchmakingTicket = deserializeAws_json1_1MatchmakingTicket(
-      output.MatchmakingTicket,
-      context
-    );
+    contents.MatchmakingTicket = deserializeAws_json1_1MatchmakingTicket(output.MatchmakingTicket, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1StopFleetActionsOutput = (
   output: any,
   context: __SerdeContext
 ): StopFleetActionsOutput => {
   let contents: any = {
-    __type: "StopFleetActionsOutput"
+    __type: "StopFleetActionsOutput",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1StopGameSessionPlacementOutput = (
   output: any,
@@ -12895,26 +10938,23 @@ const deserializeAws_json1_1StopGameSessionPlacementOutput = (
 ): StopGameSessionPlacementOutput => {
   let contents: any = {
     __type: "StopGameSessionPlacementOutput",
-    GameSessionPlacement: undefined
+    GameSessionPlacement: undefined,
   };
   if (output.GameSessionPlacement !== undefined) {
-    contents.GameSessionPlacement = deserializeAws_json1_1GameSessionPlacement(
-      output.GameSessionPlacement,
-      context
-    );
+    contents.GameSessionPlacement = deserializeAws_json1_1GameSessionPlacement(output.GameSessionPlacement, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1StopMatchmakingOutput = (
   output: any,
   context: __SerdeContext
 ): StopMatchmakingOutput => {
   let contents: any = {
-    __type: "StopMatchmakingOutput"
+    __type: "StopMatchmakingOutput",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1StringDoubleMap = (
   output: any,
@@ -12925,14 +10965,16 @@ const deserializeAws_json1_1StringDoubleMap = (
     mapParams[key] = output[key];
   });
   return mapParams;
-};
+}
 
 const deserializeAws_json1_1StringList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1TargetConfiguration = (
   output: any,
@@ -12940,13 +10982,13 @@ const deserializeAws_json1_1TargetConfiguration = (
 ): TargetConfiguration => {
   let contents: any = {
     __type: "TargetConfiguration",
-    TargetValue: undefined
+    TargetValue: undefined,
   };
   if (output.TargetValue !== undefined) {
     contents.TargetValue = output.TargetValue;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1TerminalRoutingStrategyException = (
   output: any,
@@ -12954,13 +10996,13 @@ const deserializeAws_json1_1TerminalRoutingStrategyException = (
 ): TerminalRoutingStrategyException => {
   let contents: any = {
     __type: "TerminalRoutingStrategyException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UnauthorizedException = (
   output: any,
@@ -12968,13 +11010,13 @@ const deserializeAws_json1_1UnauthorizedException = (
 ): UnauthorizedException => {
   let contents: any = {
     __type: "UnauthorizedException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UnsupportedRegionException = (
   output: any,
@@ -12982,13 +11024,13 @@ const deserializeAws_json1_1UnsupportedRegionException = (
 ): UnsupportedRegionException => {
   let contents: any = {
     __type: "UnsupportedRegionException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateAliasOutput = (
   output: any,
@@ -12996,13 +11038,13 @@ const deserializeAws_json1_1UpdateAliasOutput = (
 ): UpdateAliasOutput => {
   let contents: any = {
     __type: "UpdateAliasOutput",
-    Alias: undefined
+    Alias: undefined,
   };
   if (output.Alias !== undefined) {
     contents.Alias = deserializeAws_json1_1Alias(output.Alias, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateBuildOutput = (
   output: any,
@@ -13010,13 +11052,13 @@ const deserializeAws_json1_1UpdateBuildOutput = (
 ): UpdateBuildOutput => {
   let contents: any = {
     __type: "UpdateBuildOutput",
-    Build: undefined
+    Build: undefined,
   };
   if (output.Build !== undefined) {
     contents.Build = deserializeAws_json1_1Build(output.Build, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateFleetAttributesOutput = (
   output: any,
@@ -13024,13 +11066,13 @@ const deserializeAws_json1_1UpdateFleetAttributesOutput = (
 ): UpdateFleetAttributesOutput => {
   let contents: any = {
     __type: "UpdateFleetAttributesOutput",
-    FleetId: undefined
+    FleetId: undefined,
   };
   if (output.FleetId !== undefined) {
     contents.FleetId = output.FleetId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateFleetCapacityOutput = (
   output: any,
@@ -13038,13 +11080,13 @@ const deserializeAws_json1_1UpdateFleetCapacityOutput = (
 ): UpdateFleetCapacityOutput => {
   let contents: any = {
     __type: "UpdateFleetCapacityOutput",
-    FleetId: undefined
+    FleetId: undefined,
   };
   if (output.FleetId !== undefined) {
     contents.FleetId = output.FleetId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateFleetPortSettingsOutput = (
   output: any,
@@ -13052,13 +11094,13 @@ const deserializeAws_json1_1UpdateFleetPortSettingsOutput = (
 ): UpdateFleetPortSettingsOutput => {
   let contents: any = {
     __type: "UpdateFleetPortSettingsOutput",
-    FleetId: undefined
+    FleetId: undefined,
   };
   if (output.FleetId !== undefined) {
     contents.FleetId = output.FleetId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateGameSessionOutput = (
   output: any,
@@ -13066,16 +11108,13 @@ const deserializeAws_json1_1UpdateGameSessionOutput = (
 ): UpdateGameSessionOutput => {
   let contents: any = {
     __type: "UpdateGameSessionOutput",
-    GameSession: undefined
+    GameSession: undefined,
   };
   if (output.GameSession !== undefined) {
-    contents.GameSession = deserializeAws_json1_1GameSession(
-      output.GameSession,
-      context
-    );
+    contents.GameSession = deserializeAws_json1_1GameSession(output.GameSession, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateGameSessionQueueOutput = (
   output: any,
@@ -13083,16 +11122,13 @@ const deserializeAws_json1_1UpdateGameSessionQueueOutput = (
 ): UpdateGameSessionQueueOutput => {
   let contents: any = {
     __type: "UpdateGameSessionQueueOutput",
-    GameSessionQueue: undefined
+    GameSessionQueue: undefined,
   };
   if (output.GameSessionQueue !== undefined) {
-    contents.GameSessionQueue = deserializeAws_json1_1GameSessionQueue(
-      output.GameSessionQueue,
-      context
-    );
+    contents.GameSessionQueue = deserializeAws_json1_1GameSessionQueue(output.GameSessionQueue, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateMatchmakingConfigurationOutput = (
   output: any,
@@ -13100,16 +11136,13 @@ const deserializeAws_json1_1UpdateMatchmakingConfigurationOutput = (
 ): UpdateMatchmakingConfigurationOutput => {
   let contents: any = {
     __type: "UpdateMatchmakingConfigurationOutput",
-    Configuration: undefined
+    Configuration: undefined,
   };
   if (output.Configuration !== undefined) {
-    contents.Configuration = deserializeAws_json1_1MatchmakingConfiguration(
-      output.Configuration,
-      context
-    );
+    contents.Configuration = deserializeAws_json1_1MatchmakingConfiguration(output.Configuration, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateRuntimeConfigurationOutput = (
   output: any,
@@ -13117,16 +11150,13 @@ const deserializeAws_json1_1UpdateRuntimeConfigurationOutput = (
 ): UpdateRuntimeConfigurationOutput => {
   let contents: any = {
     __type: "UpdateRuntimeConfigurationOutput",
-    RuntimeConfiguration: undefined
+    RuntimeConfiguration: undefined,
   };
   if (output.RuntimeConfiguration !== undefined) {
-    contents.RuntimeConfiguration = deserializeAws_json1_1RuntimeConfiguration(
-      output.RuntimeConfiguration,
-      context
-    );
+    contents.RuntimeConfiguration = deserializeAws_json1_1RuntimeConfiguration(output.RuntimeConfiguration, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateScriptOutput = (
   output: any,
@@ -13134,13 +11164,13 @@ const deserializeAws_json1_1UpdateScriptOutput = (
 ): UpdateScriptOutput => {
   let contents: any = {
     __type: "UpdateScriptOutput",
-    Script: undefined
+    Script: undefined,
   };
   if (output.Script !== undefined) {
     contents.Script = deserializeAws_json1_1Script(output.Script, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ValidateMatchmakingRuleSetOutput = (
   output: any,
@@ -13148,13 +11178,13 @@ const deserializeAws_json1_1ValidateMatchmakingRuleSetOutput = (
 ): ValidateMatchmakingRuleSetOutput => {
   let contents: any = {
     __type: "ValidateMatchmakingRuleSetOutput",
-    Valid: undefined
+    Valid: undefined,
   };
   if (output.Valid !== undefined) {
     contents.Valid = output.Valid;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1VpcPeeringAuthorization = (
   output: any,
@@ -13166,21 +11196,13 @@ const deserializeAws_json1_1VpcPeeringAuthorization = (
     ExpirationTime: undefined,
     GameLiftAwsAccountId: undefined,
     PeerVpcAwsAccountId: undefined,
-    PeerVpcId: undefined
+    PeerVpcId: undefined,
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(
-      output.CreationTime % 1 != 0
-        ? Math.round(output.CreationTime * 1000)
-        : output.CreationTime
-    );
+    contents.CreationTime = new Date(output.CreationTime % 1 != 0 ? Math.round(output.CreationTime * 1000) : output.CreationTime);
   }
   if (output.ExpirationTime !== undefined) {
-    contents.ExpirationTime = new Date(
-      output.ExpirationTime % 1 != 0
-        ? Math.round(output.ExpirationTime * 1000)
-        : output.ExpirationTime
-    );
+    contents.ExpirationTime = new Date(output.ExpirationTime % 1 != 0 ? Math.round(output.ExpirationTime * 1000) : output.ExpirationTime);
   }
   if (output.GameLiftAwsAccountId !== undefined) {
     contents.GameLiftAwsAccountId = output.GameLiftAwsAccountId;
@@ -13192,7 +11214,7 @@ const deserializeAws_json1_1VpcPeeringAuthorization = (
     contents.PeerVpcId = output.PeerVpcId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1VpcPeeringAuthorizationList = (
   output: any,
@@ -13201,7 +11223,7 @@ const deserializeAws_json1_1VpcPeeringAuthorizationList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1VpcPeeringAuthorization(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1VpcPeeringConnection = (
   output: any,
@@ -13214,7 +11236,7 @@ const deserializeAws_json1_1VpcPeeringConnection = (
     IpV4CidrBlock: undefined,
     PeerVpcId: undefined,
     Status: undefined,
-    VpcPeeringConnectionId: undefined
+    VpcPeeringConnectionId: undefined,
   };
   if (output.FleetId !== undefined) {
     contents.FleetId = output.FleetId;
@@ -13229,16 +11251,13 @@ const deserializeAws_json1_1VpcPeeringConnection = (
     contents.PeerVpcId = output.PeerVpcId;
   }
   if (output.Status !== undefined) {
-    contents.Status = deserializeAws_json1_1VpcPeeringConnectionStatus(
-      output.Status,
-      context
-    );
+    contents.Status = deserializeAws_json1_1VpcPeeringConnectionStatus(output.Status, context);
   }
   if (output.VpcPeeringConnectionId !== undefined) {
     contents.VpcPeeringConnectionId = output.VpcPeeringConnectionId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1VpcPeeringConnectionList = (
   output: any,
@@ -13247,7 +11266,7 @@ const deserializeAws_json1_1VpcPeeringConnectionList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1VpcPeeringConnection(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1VpcPeeringConnectionStatus = (
   output: any,
@@ -13256,7 +11275,7 @@ const deserializeAws_json1_1VpcPeeringConnectionStatus = (
   let contents: any = {
     __type: "VpcPeeringConnectionStatus",
     Code: undefined,
-    Message: undefined
+    Message: undefined,
   };
   if (output.Code !== undefined) {
     contents.Code = output.Code;
@@ -13265,7 +11284,7 @@ const deserializeAws_json1_1VpcPeeringConnectionStatus = (
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

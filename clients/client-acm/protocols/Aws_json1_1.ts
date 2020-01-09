@@ -592,10 +592,7 @@ export async function deserializeAws_json1_1DescribeCertificateCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeCertificateResponse(
-    data.DescribeCertificateResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeCertificateResponse(data, context);
   const response: DescribeCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeCertificateResponse",
@@ -653,10 +650,7 @@ export async function deserializeAws_json1_1ExportCertificateCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ExportCertificateResponse(
-    data.ExportCertificateResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ExportCertificateResponse(data, context);
   const response: ExportCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ExportCertificateResponse",
@@ -721,10 +715,7 @@ export async function deserializeAws_json1_1GetCertificateCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCertificateResponse(
-    data.GetCertificateResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetCertificateResponse(data, context);
   const response: GetCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetCertificateResponse",
@@ -789,10 +780,7 @@ export async function deserializeAws_json1_1ImportCertificateCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ImportCertificateResponse(
-    data.ImportCertificateResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ImportCertificateResponse(data, context);
   const response: ImportCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ImportCertificateResponse",
@@ -878,10 +866,7 @@ export async function deserializeAws_json1_1ListCertificatesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListCertificatesResponse(
-    data.ListCertificatesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListCertificatesResponse(data, context);
   const response: ListCertificatesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListCertificatesResponse",
@@ -936,7 +921,7 @@ export async function deserializeAws_json1_1ListTagsForCertificateCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListTagsForCertificateResponse(
-    data.ListTagsForCertificateResponse,
+    data,
     context
   );
   const response: ListTagsForCertificateCommandOutput = {
@@ -1129,10 +1114,7 @@ export async function deserializeAws_json1_1RequestCertificateCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RequestCertificateResponse(
-    data.RequestCertificateResponse,
-    context
-  );
+  contents = deserializeAws_json1_1RequestCertificateResponse(data, context);
   const response: RequestCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RequestCertificateResponse",

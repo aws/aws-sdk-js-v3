@@ -1685,7 +1685,7 @@ export async function deserializeAws_json1_1BatchGetApplicationRevisionsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1BatchGetApplicationRevisionsOutput(
-    data.BatchGetApplicationRevisionsOutput,
+    data,
     context
   );
   const response: BatchGetApplicationRevisionsCommandOutput = {
@@ -1776,10 +1776,7 @@ export async function deserializeAws_json1_1BatchGetApplicationsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetApplicationsOutput(
-    data.BatchGetApplicationsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1BatchGetApplicationsOutput(data, context);
   const response: BatchGetApplicationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetApplicationsOutput",
@@ -1855,7 +1852,7 @@ export async function deserializeAws_json1_1BatchGetDeploymentGroupsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1BatchGetDeploymentGroupsOutput(
-    data.BatchGetDeploymentGroupsOutput,
+    data,
     context
   );
   const response: BatchGetDeploymentGroupsCommandOutput = {
@@ -1954,7 +1951,7 @@ export async function deserializeAws_json1_1BatchGetDeploymentInstancesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1BatchGetDeploymentInstancesOutput(
-    data.BatchGetDeploymentInstancesOutput,
+    data,
     context
   );
   const response: BatchGetDeploymentInstancesCommandOutput = {
@@ -2053,7 +2050,7 @@ export async function deserializeAws_json1_1BatchGetDeploymentTargetsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1BatchGetDeploymentTargetsOutput(
-    data.BatchGetDeploymentTargetsOutput,
+    data,
     context
   );
   const response: BatchGetDeploymentTargetsCommandOutput = {
@@ -2158,10 +2155,7 @@ export async function deserializeAws_json1_1BatchGetDeploymentsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetDeploymentsOutput(
-    data.BatchGetDeploymentsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1BatchGetDeploymentsOutput(data, context);
   const response: BatchGetDeploymentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetDeploymentsOutput",
@@ -2230,7 +2224,7 @@ export async function deserializeAws_json1_1BatchGetOnPremisesInstancesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1BatchGetOnPremisesInstancesOutput(
-    data.BatchGetOnPremisesInstancesOutput,
+    data,
     context
   );
   const response: BatchGetOnPremisesInstancesCommandOutput = {
@@ -2395,10 +2389,7 @@ export async function deserializeAws_json1_1CreateApplicationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateApplicationOutput(
-    data.CreateApplicationOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateApplicationOutput(data, context);
   const response: CreateApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateApplicationOutput",
@@ -2484,10 +2475,7 @@ export async function deserializeAws_json1_1CreateDeploymentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDeploymentOutput(
-    data.CreateDeploymentOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateDeploymentOutput(data, context);
   const response: CreateDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDeploymentOutput",
@@ -2695,10 +2683,7 @@ export async function deserializeAws_json1_1CreateDeploymentConfigCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDeploymentConfigOutput(
-    data.CreateDeploymentConfigOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateDeploymentConfigOutput(data, context);
   const response: CreateDeploymentConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDeploymentConfigOutput",
@@ -2794,10 +2779,7 @@ export async function deserializeAws_json1_1CreateDeploymentGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDeploymentGroupOutput(
-    data.CreateDeploymentGroupOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateDeploymentGroupOutput(data, context);
   const response: CreateDeploymentGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDeploymentGroupOutput",
@@ -3198,10 +3180,7 @@ export async function deserializeAws_json1_1DeleteDeploymentGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteDeploymentGroupOutput(
-    data.DeleteDeploymentGroupOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteDeploymentGroupOutput(data, context);
   const response: DeleteDeploymentGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteDeploymentGroupOutput",
@@ -3284,7 +3263,7 @@ export async function deserializeAws_json1_1DeleteGitHubAccountTokenCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteGitHubAccountTokenOutput(
-    data.DeleteGitHubAccountTokenOutput,
+    data,
     context
   );
   const response: DeleteGitHubAccountTokenCommandOutput = {
@@ -3421,10 +3400,7 @@ export async function deserializeAws_json1_1GetApplicationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetApplicationOutput(
-    data.GetApplicationOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetApplicationOutput(data, context);
   const response: GetApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetApplicationOutput",
@@ -3492,10 +3468,7 @@ export async function deserializeAws_json1_1GetApplicationRevisionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetApplicationRevisionOutput(
-    data.GetApplicationRevisionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetApplicationRevisionOutput(data, context);
   const response: GetApplicationRevisionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetApplicationRevisionOutput",
@@ -3581,10 +3554,7 @@ export async function deserializeAws_json1_1GetDeploymentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDeploymentOutput(
-    data.GetDeploymentOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetDeploymentOutput(data, context);
   const response: GetDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDeploymentOutput",
@@ -3652,10 +3622,7 @@ export async function deserializeAws_json1_1GetDeploymentConfigCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDeploymentConfigOutput(
-    data.GetDeploymentConfigOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetDeploymentConfigOutput(data, context);
   const response: GetDeploymentConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDeploymentConfigOutput",
@@ -3730,10 +3697,7 @@ export async function deserializeAws_json1_1GetDeploymentGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDeploymentGroupOutput(
-    data.GetDeploymentGroupOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetDeploymentGroupOutput(data, context);
   const response: GetDeploymentGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDeploymentGroupOutput",
@@ -3829,10 +3793,7 @@ export async function deserializeAws_json1_1GetDeploymentInstanceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDeploymentInstanceOutput(
-    data.GetDeploymentInstanceOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetDeploymentInstanceOutput(data, context);
   const response: GetDeploymentInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDeploymentInstanceOutput",
@@ -3928,10 +3889,7 @@ export async function deserializeAws_json1_1GetDeploymentTargetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDeploymentTargetOutput(
-    data.GetDeploymentTargetOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetDeploymentTargetOutput(data, context);
   const response: GetDeploymentTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDeploymentTargetOutput",
@@ -4034,10 +3992,7 @@ export async function deserializeAws_json1_1GetOnPremisesInstanceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetOnPremisesInstanceOutput(
-    data.GetOnPremisesInstanceOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetOnPremisesInstanceOutput(data, context);
   const response: GetOnPremisesInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetOnPremisesInstanceOutput",
@@ -4106,7 +4061,7 @@ export async function deserializeAws_json1_1ListApplicationRevisionsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListApplicationRevisionsOutput(
-    data.ListApplicationRevisionsOutput,
+    data,
     context
   );
   const response: ListApplicationRevisionsCommandOutput = {
@@ -4222,10 +4177,7 @@ export async function deserializeAws_json1_1ListApplicationsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListApplicationsOutput(
-    data.ListApplicationsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListApplicationsOutput(data, context);
   const response: ListApplicationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListApplicationsOutput",
@@ -4279,10 +4231,7 @@ export async function deserializeAws_json1_1ListDeploymentConfigsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDeploymentConfigsOutput(
-    data.ListDeploymentConfigsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListDeploymentConfigsOutput(data, context);
   const response: ListDeploymentConfigsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListDeploymentConfigsOutput",
@@ -4336,10 +4285,7 @@ export async function deserializeAws_json1_1ListDeploymentGroupsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDeploymentGroupsOutput(
-    data.ListDeploymentGroupsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListDeploymentGroupsOutput(data, context);
   const response: ListDeploymentGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListDeploymentGroupsOutput",
@@ -4414,10 +4360,7 @@ export async function deserializeAws_json1_1ListDeploymentInstancesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDeploymentInstancesOutput(
-    data.ListDeploymentInstancesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListDeploymentInstancesOutput(data, context);
   const response: ListDeploymentInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListDeploymentInstancesOutput",
@@ -4534,10 +4477,7 @@ export async function deserializeAws_json1_1ListDeploymentTargetsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDeploymentTargetsOutput(
-    data.ListDeploymentTargetsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListDeploymentTargetsOutput(data, context);
   const response: ListDeploymentTargetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListDeploymentTargetsOutput",
@@ -4637,10 +4577,7 @@ export async function deserializeAws_json1_1ListDeploymentsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDeploymentsOutput(
-    data.ListDeploymentsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListDeploymentsOutput(data, context);
   const response: ListDeploymentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListDeploymentsOutput",
@@ -4751,7 +4688,7 @@ export async function deserializeAws_json1_1ListGitHubAccountTokenNamesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListGitHubAccountTokenNamesOutput(
-    data.ListGitHubAccountTokenNamesOutput,
+    data,
     context
   );
   const response: ListGitHubAccountTokenNamesCommandOutput = {
@@ -4821,10 +4758,7 @@ export async function deserializeAws_json1_1ListOnPremisesInstancesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListOnPremisesInstancesOutput(
-    data.ListOnPremisesInstancesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListOnPremisesInstancesOutput(data, context);
   const response: ListOnPremisesInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListOnPremisesInstancesOutput",
@@ -4892,10 +4826,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceOutput(
-    data.ListTagsForResourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceOutput(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceOutput",
@@ -4964,7 +4895,7 @@ export async function deserializeAws_json1_1PutLifecycleEventHookExecutionStatus
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutLifecycleEventHookExecutionStatusOutput(
-    data.PutLifecycleEventHookExecutionStatusOutput,
+    data,
     context
   );
   const response: PutLifecycleEventHookExecutionStatusCommandOutput = {
@@ -5430,10 +5361,7 @@ export async function deserializeAws_json1_1StopDeploymentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopDeploymentOutput(
-    data.StopDeploymentOutput,
-    context
-  );
+  contents = deserializeAws_json1_1StopDeploymentOutput(data, context);
   const response: StopDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopDeploymentOutput",
@@ -5512,10 +5440,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceOutput(
-    data.TagResourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceOutput(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceOutput",
@@ -5615,10 +5540,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceOutput(
-    data.UntagResourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceOutput(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceOutput",
@@ -5788,10 +5710,7 @@ export async function deserializeAws_json1_1UpdateDeploymentGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateDeploymentGroupOutput(
-    data.UpdateDeploymentGroupOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateDeploymentGroupOutput(data, context);
   const response: UpdateDeploymentGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateDeploymentGroupOutput",

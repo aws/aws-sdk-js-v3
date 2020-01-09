@@ -27,9 +27,7 @@ export namespace AccessControlListConfiguration {
  *         <p></p>
  *
  */
-export interface AccessDeniedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -124,7 +122,7 @@ export namespace AdditionalResultAttributeValue {
 }
 
 export enum AdditionalResultAttributeValueType {
-  TEXT_WITH_HIGHLIGHTS_VALUE = "TEXT_WITH_HIGHLIGHTS_VALUE"
+  TEXT_WITH_HIGHLIGHTS_VALUE = "TEXT_WITH_HIGHLIGHTS_VALUE",
 }
 
 /**
@@ -466,9 +464,7 @@ export namespace ColumnConfiguration {
  *         <p></p>
  *
  */
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConflictException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ConflictException";
   $fault: "client";
   Message?: string;
@@ -541,7 +537,7 @@ export enum ContentType {
   MS_WORD = "MS_WORD",
   PDF = "PDF",
   PLAIN_TEXT = "PLAIN_TEXT",
-  PPT = "PPT"
+  PPT = "PPT",
 }
 
 export interface CreateDataSourceRequest {
@@ -784,7 +780,7 @@ export enum DataSourceStatus {
   CREATING = "CREATING",
   DELETING = "DELETING",
   FAILED = "FAILED",
-  UPDATING = "UPDATING"
+  UPDATING = "UPDATING",
 }
 
 /**
@@ -921,7 +917,7 @@ export enum DataSourceSyncJobStatus {
   INCOMPLETE = "INCOMPLETE",
   STOPPING = "STOPPING",
   SUCCEEDED = "SUCCEEDED",
-  SYNCING = "SYNCING"
+  SYNCING = "SYNCING",
 }
 
 /**
@@ -963,7 +959,7 @@ export namespace DataSourceToIndexFieldMapping {
 export enum DataSourceType {
   DATABASE = "DATABASE",
   S3 = "S3",
-  SHAREPOINT = "SHAREPOINT"
+  SHAREPOINT = "SHAREPOINT",
 }
 
 /**
@@ -1052,7 +1048,7 @@ export enum DatabaseEngineType {
   RDS_AURORA_MYSQL = "RDS_AURORA_MYSQL",
   RDS_AURORA_POSTGRESQL = "RDS_AURORA_POSTGRESQL",
   RDS_MYSQL = "RDS_MYSQL",
-  RDS_POSTGRESQL = "RDS_POSTGRESQL"
+  RDS_POSTGRESQL = "RDS_POSTGRESQL",
 }
 
 export interface DeleteFaqRequest {
@@ -1599,7 +1595,7 @@ export enum DocumentAttributeValueType {
   DATE_VALUE = "DATE_VALUE",
   LONG_VALUE = "LONG_VALUE",
   STRING_LIST_VALUE = "STRING_LIST_VALUE",
-  STRING_VALUE = "STRING_VALUE"
+  STRING_VALUE = "STRING_VALUE",
 }
 
 /**
@@ -1672,7 +1668,7 @@ export namespace DocumentsMetadataConfiguration {
 
 export enum ErrorCode {
   INTERNAL_ERROR = "InternalError",
-  INVALID_REQUEST = "InvalidRequest"
+  INVALID_REQUEST = "InvalidRequest",
 }
 
 /**
@@ -1753,7 +1749,7 @@ export enum FaqStatus {
   CREATING = "CREATING",
   DELETING = "DELETING",
   FAILED = "FAILED",
-  UPDATING = "UPDATING"
+  UPDATING = "UPDATING",
 }
 
 /**
@@ -1931,7 +1927,7 @@ export enum IndexStatus {
   CREATING = "CREATING",
   DELETING = "DELETING",
   FAILED = "FAILED",
-  SYSTEM_UPDATING = "SYSTEM_UPDATING"
+  SYSTEM_UPDATING = "SYSTEM_UPDATING",
 }
 
 /**
@@ -1939,9 +1935,7 @@ export enum IndexStatus {
  *         <p></p>
  *
  */
-export interface InternalServerException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerException";
   $fault: "server";
   Message?: string;
@@ -2201,7 +2195,7 @@ export namespace ListIndicesResponse {
 
 export enum Order {
   ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING"
+  DESCENDING = "DESCENDING",
 }
 
 /**
@@ -2241,7 +2235,7 @@ export namespace Principal {
 
 export enum PrincipalType {
   GROUP = "GROUP",
-  USER = "USER"
+  USER = "USER",
 }
 
 export interface QueryRequest {
@@ -2439,12 +2433,12 @@ export namespace QueryResultItem {
 export enum QueryResultType {
   ANSWER = "ANSWER",
   DOCUMENT = "DOCUMENT",
-  QUESTION_ANSWER = "QUESTION_ANSWER"
+  QUESTION_ANSWER = "QUESTION_ANSWER",
 }
 
 export enum ReadAccessType {
   ALLOW = "ALLOW",
-  DENY = "DENY"
+  DENY = "DENY",
 }
 
 /**
@@ -2554,7 +2548,7 @@ export namespace RelevanceFeedback {
 
 export enum RelevanceType {
   NOT_RELEVANT = "NOT_RELEVANT",
-  RELEVANT = "RELEVANT"
+  RELEVANT = "RELEVANT",
 }
 
 /**
@@ -2562,9 +2556,7 @@ export enum RelevanceType {
  *         <p></p>
  *
  */
-export interface ResourceAlreadyExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceAlreadyExistException";
   $fault: "client";
   Message?: string;
@@ -2581,9 +2573,7 @@ export namespace ResourceAlreadyExistException {
  *         <p></p>
  *
  */
-export interface ResourceInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   Message?: string;
@@ -2600,9 +2590,7 @@ export namespace ResourceInUseException {
  *         <p></p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -2619,9 +2607,7 @@ export namespace ResourceNotFoundException {
  *         <p></p>
  *
  */
-export interface ResourceUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceUnavailableException";
   $fault: "client";
   Message?: string;
@@ -2785,9 +2771,7 @@ export namespace ServerSideEncryptionConfiguration {
  *         <p></p>
  *
  */
-export interface ServiceQuotaExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceQuotaExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceQuotaExceededException";
   $fault: "client";
   Message?: string;
@@ -2867,7 +2851,7 @@ export namespace SharePointConfiguration {
 }
 
 export enum SharePointVersion {
-  SHAREPOINT_ONLINE = "SHAREPOINT_ONLINE"
+  SHAREPOINT_ONLINE = "SHAREPOINT_ONLINE",
 }
 
 export interface StartDataSourceSyncJobRequest {
@@ -3026,9 +3010,7 @@ export namespace TextWithHighlights {
  *         <p></p>
  *
  */
-export interface ThrottlingException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ThrottlingException";
   $fault: "client";
   Message?: string;
@@ -3177,9 +3159,7 @@ export namespace UpdateIndexRequest {
  *         <p></p>
  *
  */
-export interface ValidationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ValidationException";
   $fault: "client";
   Message?: string;

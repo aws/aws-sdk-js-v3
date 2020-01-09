@@ -1,17 +1,20 @@
 import {
   GlueClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../GlueClient";
-import { DeleteTriggerRequest, DeleteTriggerResponse } from "../models/index";
+import {
+  DeleteTriggerRequest,
+  DeleteTriggerResponse,
+} from "../models/index";
 import {
   deserializeAws_json1_1DeleteTriggerCommand,
-  serializeAws_json1_1DeleteTriggerCommand
+  serializeAws_json1_1DeleteTriggerCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DeleteTriggerCommandInput = DeleteTriggerRequest;
 export type DeleteTriggerCommandOutput = DeleteTriggerResponse;
 
-export class DeleteTriggerCommand extends $Command<
-  DeleteTriggerCommandInput,
-  DeleteTriggerCommandOutput,
-  GlueClientResolvedConfig
-> {
+export class DeleteTriggerCommand extends $Command<DeleteTriggerCommandInput, DeleteTriggerCommandOutput, GlueClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class DeleteTriggerCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteTriggerCommandInput, DeleteTriggerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

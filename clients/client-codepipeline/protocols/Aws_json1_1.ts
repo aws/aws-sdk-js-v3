@@ -1183,10 +1183,7 @@ export async function deserializeAws_json1_1AcknowledgeJobCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AcknowledgeJobOutput(
-    data.AcknowledgeJobOutput,
-    context
-  );
+  contents = deserializeAws_json1_1AcknowledgeJobOutput(data, context);
   const response: AcknowledgeJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AcknowledgeJobOutput",
@@ -1255,7 +1252,7 @@ export async function deserializeAws_json1_1AcknowledgeThirdPartyJobCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AcknowledgeThirdPartyJobOutput(
-    data.AcknowledgeThirdPartyJobOutput,
+    data,
     context
   );
   const response: AcknowledgeThirdPartyJobCommandOutput = {
@@ -1332,10 +1329,7 @@ export async function deserializeAws_json1_1CreateCustomActionTypeCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateCustomActionTypeOutput(
-    data.CreateCustomActionTypeOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateCustomActionTypeOutput(data, context);
   const response: CreateCustomActionTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateCustomActionTypeOutput",
@@ -1414,10 +1408,7 @@ export async function deserializeAws_json1_1CreatePipelineCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreatePipelineOutput(
-    data.CreatePipelineOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreatePipelineOutput(data, context);
   const response: CreatePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreatePipelineOutput",
@@ -1640,10 +1631,7 @@ export async function deserializeAws_json1_1DeleteWebhookCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteWebhookOutput(
-    data.DeleteWebhookOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteWebhookOutput(data, context);
   const response: DeleteWebhookCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteWebhookOutput",
@@ -1705,7 +1693,7 @@ export async function deserializeAws_json1_1DeregisterWebhookWithThirdPartyComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeregisterWebhookWithThirdPartyOutput(
-    data.DeregisterWebhookWithThirdPartyOutput,
+    data,
     context
   );
   const response: DeregisterWebhookWithThirdPartyCommandOutput = {
@@ -1891,10 +1879,7 @@ export async function deserializeAws_json1_1GetJobDetailsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetJobDetailsOutput(
-    data.GetJobDetailsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetJobDetailsOutput(data, context);
   const response: GetJobDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetJobDetailsOutput",
@@ -1952,10 +1937,7 @@ export async function deserializeAws_json1_1GetPipelineCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetPipelineOutput(
-    data.GetPipelineOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetPipelineOutput(data, context);
   const response: GetPipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetPipelineOutput",
@@ -2023,10 +2005,7 @@ export async function deserializeAws_json1_1GetPipelineExecutionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetPipelineExecutionOutput(
-    data.GetPipelineExecutionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetPipelineExecutionOutput(data, context);
   const response: GetPipelineExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetPipelineExecutionOutput",
@@ -2091,10 +2070,7 @@ export async function deserializeAws_json1_1GetPipelineStateCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetPipelineStateOutput(
-    data.GetPipelineStateOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetPipelineStateOutput(data, context);
   const response: GetPipelineStateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetPipelineStateOutput",
@@ -2155,10 +2131,7 @@ export async function deserializeAws_json1_1GetThirdPartyJobDetailsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetThirdPartyJobDetailsOutput(
-    data.GetThirdPartyJobDetailsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetThirdPartyJobDetailsOutput(data, context);
   const response: GetThirdPartyJobDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetThirdPartyJobDetailsOutput",
@@ -2233,10 +2206,7 @@ export async function deserializeAws_json1_1ListActionExecutionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListActionExecutionsOutput(
-    data.ListActionExecutionsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListActionExecutionsOutput(data, context);
   const response: ListActionExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListActionExecutionsOutput",
@@ -2308,10 +2278,7 @@ export async function deserializeAws_json1_1ListActionTypesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListActionTypesOutput(
-    data.ListActionTypesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListActionTypesOutput(data, context);
   const response: ListActionTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListActionTypesOutput",
@@ -2372,10 +2339,7 @@ export async function deserializeAws_json1_1ListPipelineExecutionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPipelineExecutionsOutput(
-    data.ListPipelineExecutionsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListPipelineExecutionsOutput(data, context);
   const response: ListPipelineExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListPipelineExecutionsOutput",
@@ -2440,10 +2404,7 @@ export async function deserializeAws_json1_1ListPipelinesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPipelinesOutput(
-    data.ListPipelinesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListPipelinesOutput(data, context);
   const response: ListPipelinesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListPipelinesOutput",
@@ -2504,10 +2465,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceOutput(
-    data.ListTagsForResourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceOutput(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceOutput",
@@ -2579,10 +2537,7 @@ export async function deserializeAws_json1_1ListWebhooksCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListWebhooksOutput(
-    data.ListWebhooksOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListWebhooksOutput(data, context);
   const response: ListWebhooksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListWebhooksOutput",
@@ -2640,10 +2595,7 @@ export async function deserializeAws_json1_1PollForJobsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PollForJobsOutput(
-    data.PollForJobsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1PollForJobsOutput(data, context);
   const response: PollForJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PollForJobsOutput",
@@ -2704,10 +2656,7 @@ export async function deserializeAws_json1_1PollForThirdPartyJobsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PollForThirdPartyJobsOutput(
-    data.PollForThirdPartyJobsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1PollForThirdPartyJobsOutput(data, context);
   const response: PollForThirdPartyJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PollForThirdPartyJobsOutput",
@@ -2765,10 +2714,7 @@ export async function deserializeAws_json1_1PutActionRevisionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutActionRevisionOutput(
-    data.PutActionRevisionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1PutActionRevisionOutput(data, context);
   const response: PutActionRevisionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutActionRevisionOutput",
@@ -2840,10 +2786,7 @@ export async function deserializeAws_json1_1PutApprovalResultCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutApprovalResultOutput(
-    data.PutApprovalResultOutput,
-    context
-  );
+  contents = deserializeAws_json1_1PutApprovalResultOutput(data, context);
   const response: PutApprovalResultCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutApprovalResultOutput",
@@ -3202,10 +3145,7 @@ export async function deserializeAws_json1_1PutWebhookCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutWebhookOutput(
-    data.PutWebhookOutput,
-    context
-  );
+  contents = deserializeAws_json1_1PutWebhookOutput(data, context);
   const response: PutWebhookCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutWebhookOutput",
@@ -3309,7 +3249,7 @@ export async function deserializeAws_json1_1RegisterWebhookWithThirdPartyCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1RegisterWebhookWithThirdPartyOutput(
-    data.RegisterWebhookWithThirdPartyOutput,
+    data,
     context
   );
   const response: RegisterWebhookWithThirdPartyCommandOutput = {
@@ -3372,10 +3312,7 @@ export async function deserializeAws_json1_1RetryStageExecutionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RetryStageExecutionOutput(
-    data.RetryStageExecutionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1RetryStageExecutionOutput(data, context);
   const response: RetryStageExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RetryStageExecutionOutput",
@@ -3457,10 +3394,7 @@ export async function deserializeAws_json1_1StartPipelineExecutionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartPipelineExecutionOutput(
-    data.StartPipelineExecutionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1StartPipelineExecutionOutput(data, context);
   const response: StartPipelineExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartPipelineExecutionOutput",
@@ -3518,10 +3452,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceOutput(
-    data.TagResourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceOutput(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceOutput",
@@ -3607,10 +3538,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceOutput(
-    data.UntagResourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceOutput(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceOutput",
@@ -3689,10 +3617,7 @@ export async function deserializeAws_json1_1UpdatePipelineCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdatePipelineOutput(
-    data.UpdatePipelineOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdatePipelineOutput(data, context);
   const response: UpdatePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdatePipelineOutput",

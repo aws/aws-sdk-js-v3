@@ -132,7 +132,7 @@ export namespace ConsumerDescription {
 export enum ConsumerStatus {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
-  DELETING = "DELETING"
+  DELETING = "DELETING",
 }
 
 /**
@@ -584,7 +584,7 @@ export namespace EnableEnhancedMonitoringInput {
 
 export enum EncryptionType {
   KMS = "KMS",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 /**
@@ -696,9 +696,7 @@ export namespace EnhancedMonitoringOutput {
  *         <p>The provided iterator exceeds the maximum age allowed.</p>
  *
  */
-export interface ExpiredIteratorException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ExpiredIteratorException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ExpiredIteratorException";
   $fault: "client";
   /**
@@ -720,9 +718,7 @@ export namespace ExpiredIteratorException {
  *         <p>The pagination token passed to the operation is expired.</p>
  *
  */
-export interface ExpiredNextTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ExpiredNextTokenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ExpiredNextTokenException";
   $fault: "client";
   message?: string;
@@ -974,9 +970,7 @@ export namespace InternalFailureException {
  *         <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
  *
  */
-export interface InvalidArgumentException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidArgumentException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidArgumentException";
   $fault: "client";
   /**
@@ -998,9 +992,7 @@ export namespace InvalidArgumentException {
  *         <p>The ciphertext references a key that doesn't exist or that you don't have access to.</p>
  *
  */
-export interface KMSAccessDeniedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface KMSAccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "KMSAccessDeniedException";
   $fault: "client";
   /**
@@ -1023,9 +1015,7 @@ export namespace KMSAccessDeniedException {
  *             enabled.</p>
  *
  */
-export interface KMSDisabledException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface KMSDisabledException extends _smithy.SmithyException, $MetadataBearer {
   __type: "KMSDisabledException";
   $fault: "client";
   /**
@@ -1049,9 +1039,7 @@ export namespace KMSDisabledException {
  *             <i>AWS Key Management Service Developer Guide</i>.</p>
  *
  */
-export interface KMSInvalidStateException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface KMSInvalidStateException extends _smithy.SmithyException, $MetadataBearer {
   __type: "KMSInvalidStateException";
   $fault: "client";
   /**
@@ -1074,9 +1062,7 @@ export namespace KMSInvalidStateException {
  *             found.</p>
  *
  */
-export interface KMSNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface KMSNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "KMSNotFoundException";
   $fault: "client";
   /**
@@ -1098,9 +1084,7 @@ export namespace KMSNotFoundException {
  *         <p>The AWS access key ID needs a subscription for the service.</p>
  *
  */
-export interface KMSOptInRequired
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface KMSOptInRequired extends _smithy.SmithyException, $MetadataBearer {
   __type: "KMSOptInRequired";
   $fault: "client";
   /**
@@ -1123,9 +1107,7 @@ export namespace KMSOptInRequired {
  *             <i>AWS Key Management Service Developer Guide</i>.</p>
  *
  */
-export interface KMSThrottlingException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface KMSThrottlingException extends _smithy.SmithyException, $MetadataBearer {
   __type: "KMSThrottlingException";
   $fault: "client";
   /**
@@ -1147,9 +1129,7 @@ export namespace KMSThrottlingException {
  *          <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
  *
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   /**
@@ -1550,7 +1530,7 @@ export enum MetricsName {
   OUTGOING_BYTES = "OutgoingBytes",
   OUTGOING_RECORDS = "OutgoingRecords",
   READ_PROVISIONED_THROUGHPUT_EXCEEDED = "ReadProvisionedThroughputExceeded",
-  WRITE_PROVISIONED_THROUGHPUT_EXCEEDED = "WriteProvisionedThroughputExceeded"
+  WRITE_PROVISIONED_THROUGHPUT_EXCEEDED = "WriteProvisionedThroughputExceeded",
 }
 
 /**
@@ -1563,9 +1543,7 @@ export enum MetricsName {
  *             Reference</i>.</p>
  *
  */
-export interface ProvisionedThroughputExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ProvisionedThroughputExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ProvisionedThroughputExceededException";
   $fault: "client";
   /**
@@ -1997,9 +1975,7 @@ export namespace RemoveTagsFromStreamInput {
  *             resource must be in the <code>ACTIVE</code> state.</p>
  *
  */
-export interface ResourceInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   /**
@@ -2021,9 +1997,7 @@ export namespace ResourceInUseException {
  *         <p>The requested resource could not be found. The stream might not be specified correctly.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -2041,7 +2015,7 @@ export namespace ResourceNotFoundException {
 }
 
 export enum ScalingType {
-  UNIFORM_SCALING = "UNIFORM_SCALING"
+  UNIFORM_SCALING = "UNIFORM_SCALING",
 }
 
 /**
@@ -2127,7 +2101,7 @@ export enum ShardIteratorType {
   AT_SEQUENCE_NUMBER = "AT_SEQUENCE_NUMBER",
   AT_TIMESTAMP = "AT_TIMESTAMP",
   LATEST = "LATEST",
-  TRIM_HORIZON = "TRIM_HORIZON"
+  TRIM_HORIZON = "TRIM_HORIZON",
 }
 
 /**
@@ -2605,7 +2579,7 @@ export enum StreamStatus {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
   DELETING = "DELETING",
-  UPDATING = "UPDATING"
+  UPDATING = "UPDATING",
 }
 
 /**
@@ -2655,7 +2629,7 @@ export type SubscribeToShardEventStream =
   | SubscribeToShardEventStream.ResourceInUseExceptionMember
   | SubscribeToShardEventStream.ResourceNotFoundExceptionMember
   | SubscribeToShardEventStream.SubscribeToShardEventMember
-  | SubscribeToShardEventStream.$UnknownMember;
+  | SubscribeToShardEventStream.$UnknownMember
 
 export namespace SubscribeToShardEventStream {
   interface $Base {
@@ -2872,26 +2846,16 @@ export namespace SubscribeToShardEventStream {
     value: SubscribeToShardEventStream,
     visitor: Visitor<T>
   ): T {
-    if (value.InternalFailureException !== undefined)
-      return visitor.InternalFailureException(value.InternalFailureException);
-    if (value.KMSAccessDeniedException !== undefined)
-      return visitor.KMSAccessDeniedException(value.KMSAccessDeniedException);
-    if (value.KMSDisabledException !== undefined)
-      return visitor.KMSDisabledException(value.KMSDisabledException);
-    if (value.KMSInvalidStateException !== undefined)
-      return visitor.KMSInvalidStateException(value.KMSInvalidStateException);
-    if (value.KMSNotFoundException !== undefined)
-      return visitor.KMSNotFoundException(value.KMSNotFoundException);
-    if (value.KMSOptInRequired !== undefined)
-      return visitor.KMSOptInRequired(value.KMSOptInRequired);
-    if (value.KMSThrottlingException !== undefined)
-      return visitor.KMSThrottlingException(value.KMSThrottlingException);
-    if (value.ResourceInUseException !== undefined)
-      return visitor.ResourceInUseException(value.ResourceInUseException);
-    if (value.ResourceNotFoundException !== undefined)
-      return visitor.ResourceNotFoundException(value.ResourceNotFoundException);
-    if (value.SubscribeToShardEvent !== undefined)
-      return visitor.SubscribeToShardEvent(value.SubscribeToShardEvent);
+    if (value.InternalFailureException !== undefined) return visitor.InternalFailureException(value.InternalFailureException);
+    if (value.KMSAccessDeniedException !== undefined) return visitor.KMSAccessDeniedException(value.KMSAccessDeniedException);
+    if (value.KMSDisabledException !== undefined) return visitor.KMSDisabledException(value.KMSDisabledException);
+    if (value.KMSInvalidStateException !== undefined) return visitor.KMSInvalidStateException(value.KMSInvalidStateException);
+    if (value.KMSNotFoundException !== undefined) return visitor.KMSNotFoundException(value.KMSNotFoundException);
+    if (value.KMSOptInRequired !== undefined) return visitor.KMSOptInRequired(value.KMSOptInRequired);
+    if (value.KMSThrottlingException !== undefined) return visitor.KMSThrottlingException(value.KMSThrottlingException);
+    if (value.ResourceInUseException !== undefined) return visitor.ResourceInUseException(value.ResourceInUseException);
+    if (value.ResourceNotFoundException !== undefined) return visitor.ResourceNotFoundException(value.ResourceNotFoundException);
+    if (value.SubscribeToShardEvent !== undefined) return visitor.SubscribeToShardEvent(value.SubscribeToShardEvent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   }
 }

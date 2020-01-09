@@ -207,7 +207,7 @@ export namespace Assignment {
 export enum AssignmentStatus {
   Approved = "Approved",
   Rejected = "Rejected",
-  Submitted = "Submitted"
+  Submitted = "Submitted",
 }
 
 export interface AssociateQualificationWithWorkerRequest {
@@ -254,8 +254,7 @@ export namespace AssociateQualificationWithWorkerRequest {
   }
 }
 
-export interface AssociateQualificationWithWorkerResponse
-  extends $MetadataBearer {
+export interface AssociateQualificationWithWorkerResponse extends $MetadataBearer {
   __type?: "AssociateQualificationWithWorkerResponse";
 }
 
@@ -324,7 +323,7 @@ export enum Comparator {
   LessThan = "LessThan",
   LessThanOrEqualTo = "LessThanOrEqualTo",
   NotEqualTo = "NotEqualTo",
-  NotIn = "NotIn"
+  NotIn = "NotIn",
 }
 
 export interface CreateAdditionalAssignmentsForHITRequest {
@@ -364,8 +363,7 @@ export namespace CreateAdditionalAssignmentsForHITRequest {
   }
 }
 
-export interface CreateAdditionalAssignmentsForHITResponse
-  extends $MetadataBearer {
+export interface CreateAdditionalAssignmentsForHITResponse extends $MetadataBearer {
   __type?: "CreateAdditionalAssignmentsForHITResponse";
 }
 
@@ -1149,15 +1147,12 @@ export namespace DisassociateQualificationFromWorkerRequest {
   }
 }
 
-export interface DisassociateQualificationFromWorkerResponse
-  extends $MetadataBearer {
+export interface DisassociateQualificationFromWorkerResponse extends $MetadataBearer {
   __type?: "DisassociateQualificationFromWorkerResponse";
 }
 
 export namespace DisassociateQualificationFromWorkerResponse {
-  export function isa(
-    o: any
-  ): o is DisassociateQualificationFromWorkerResponse {
+  export function isa(o: any): o is DisassociateQualificationFromWorkerResponse {
     return _smithy.isa(o, "DisassociateQualificationFromWorkerResponse");
   }
 }
@@ -1174,7 +1169,7 @@ export enum EventType {
   HITExpired = "HITExpired",
   HITExtended = "HITExtended",
   HITReviewable = "HITReviewable",
-  Ping = "Ping"
+  Ping = "Ping",
 }
 
 export interface GetAccountBalanceRequest {
@@ -1595,7 +1590,7 @@ export namespace HIT {
 export enum HITAccessActions {
   Accept = "Accept",
   DiscoverPreviewAndAccept = "DiscoverPreviewAndAccept",
-  PreviewAndAccept = "PreviewAndAccept"
+  PreviewAndAccept = "PreviewAndAccept",
 }
 
 /**
@@ -1637,7 +1632,7 @@ export enum HITReviewStatus {
   MarkedForReview = "MarkedForReview",
   NotReviewed = "NotReviewed",
   ReviewedAppropriate = "ReviewedAppropriate",
-  ReviewedInappropriate = "ReviewedInappropriate"
+  ReviewedInappropriate = "ReviewedInappropriate",
 }
 
 export enum HITStatus {
@@ -1645,7 +1640,7 @@ export enum HITStatus {
   Disposed = "Disposed",
   Reviewable = "Reviewable",
   Reviewing = "Reviewing",
-  Unassignable = "Unassignable"
+  Unassignable = "Unassignable",
 }
 
 export interface ListAssignmentsForHITRequest {
@@ -2375,8 +2370,7 @@ export namespace ListWorkersWithQualificationTypeRequest {
   }
 }
 
-export interface ListWorkersWithQualificationTypeResponse
-  extends $MetadataBearer {
+export interface ListWorkersWithQualificationTypeResponse extends $MetadataBearer {
   __type?: "ListWorkersWithQualificationTypeResponse";
   /**
    *
@@ -2513,12 +2507,12 @@ export namespace NotificationSpecification {
 export enum NotificationTransport {
   Email = "Email",
   SNS = "SNS",
-  SQS = "SQS"
+  SQS = "SQS",
 }
 
 export enum NotifyWorkersFailureCode {
   HardFailure = "HardFailure",
-  SoftFailure = "SoftFailure"
+  SoftFailure = "SoftFailure",
 }
 
 /**
@@ -2942,7 +2936,7 @@ export namespace QualificationRequirement {
 
 export enum QualificationStatus {
   Granted = "Granted",
-  Revoked = "Revoked"
+  Revoked = "Revoked",
 }
 
 /**
@@ -3096,7 +3090,7 @@ export namespace QualificationType {
 
 export enum QualificationTypeStatus {
   Active = "Active",
-  Inactive = "Inactive"
+  Inactive = "Inactive",
 }
 
 export interface RejectAssignmentRequest {
@@ -3256,7 +3250,7 @@ export enum ReviewActionStatus {
   Cancelled = "Cancelled",
   Failed = "Failed",
   Intended = "Intended",
-  Succeeded = "Succeeded"
+  Succeeded = "Succeeded",
 }
 
 /**
@@ -3293,7 +3287,7 @@ export namespace ReviewPolicy {
 
 export enum ReviewPolicyLevel {
   Assignment = "Assignment",
-  HIT = "HIT"
+  HIT = "HIT",
 }
 
 /**
@@ -3406,7 +3400,7 @@ export namespace ReviewResultDetail {
 
 export enum ReviewableHITStatus {
   Reviewable = "Reviewable",
-  Reviewing = "Reviewing"
+  Reviewing = "Reviewing",
 }
 
 export interface SendBonusRequest {

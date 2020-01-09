@@ -1,17 +1,20 @@
 import {
   GlueClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../GlueClient";
-import { CreateJobRequest, CreateJobResponse } from "../models/index";
+import {
+  CreateJobRequest,
+  CreateJobResponse,
+} from "../models/index";
 import {
   deserializeAws_json1_1CreateJobCommand,
-  serializeAws_json1_1CreateJobCommand
+  serializeAws_json1_1CreateJobCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type CreateJobCommandInput = CreateJobRequest;
 export type CreateJobCommandOutput = CreateJobResponse;
 
-export class CreateJobCommand extends $Command<
-  CreateJobCommandInput,
-  CreateJobCommandOutput,
-  GlueClientResolvedConfig
-> {
+export class CreateJobCommand extends $Command<CreateJobCommandInput, CreateJobCommandOutput, GlueClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class CreateJobCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateJobCommandInput, CreateJobCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -1,20 +1,20 @@
 import {
   SSMClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../SSMClient";
 import {
   DescribeMaintenanceWindowsRequest,
-  DescribeMaintenanceWindowsResult
+  DescribeMaintenanceWindowsResult,
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeMaintenanceWindowsCommand,
-  serializeAws_json1_1DescribeMaintenanceWindowsCommand
+  serializeAws_json1_1DescribeMaintenanceWindowsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DescribeMaintenanceWindowsCommandInput = DescribeMaintenanceWindowsRequest;
 export type DescribeMaintenanceWindowsCommandOutput = DescribeMaintenanceWindowsResult;
 
-export class DescribeMaintenanceWindowsCommand extends $Command<
-  DescribeMaintenanceWindowsCommandInput,
-  DescribeMaintenanceWindowsCommandOutput,
-  SSMClientResolvedConfig
-> {
+export class DescribeMaintenanceWindowsCommand extends $Command<DescribeMaintenanceWindowsCommandInput, DescribeMaintenanceWindowsCommandOutput, SSMClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class DescribeMaintenanceWindowsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeMaintenanceWindowsCommandInput,
-    DescribeMaintenanceWindowsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeMaintenanceWindowsCommandInput, DescribeMaintenanceWindowsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class DescribeMaintenanceWindowsCommand extends $Command<
     input: DescribeMaintenanceWindowsCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeMaintenanceWindowsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeMaintenanceWindowsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeMaintenanceWindowsCommandOutput> {
-    return deserializeAws_json1_1DescribeMaintenanceWindowsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeMaintenanceWindowsCommand(output, context);
   }
 
   // Start section: command_body_extra

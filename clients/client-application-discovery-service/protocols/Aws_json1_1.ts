@@ -823,7 +823,7 @@ export async function deserializeAws_json1_1AssociateConfigurationItemsToApplica
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AssociateConfigurationItemsToApplicationResponse(
-    data.AssociateConfigurationItemsToApplicationResponse,
+    data,
     context
   );
   const response: AssociateConfigurationItemsToApplicationCommandOutput = {
@@ -907,10 +907,7 @@ export async function deserializeAws_json1_1BatchDeleteImportDataCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchDeleteImportDataResponse(
-    data.BatchDeleteImportDataResponse,
-    context
-  );
+  contents = deserializeAws_json1_1BatchDeleteImportDataResponse(data, context);
   const response: BatchDeleteImportDataCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchDeleteImportDataResponse",
@@ -989,10 +986,7 @@ export async function deserializeAws_json1_1CreateApplicationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateApplicationResponse(
-    data.CreateApplicationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateApplicationResponse(data, context);
   const response: CreateApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateApplicationResponse",
@@ -1071,10 +1065,7 @@ export async function deserializeAws_json1_1CreateTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateTagsResponse(
-    data.CreateTagsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateTagsResponse(data, context);
   const response: CreateTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateTagsResponse",
@@ -1163,10 +1154,7 @@ export async function deserializeAws_json1_1DeleteApplicationsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteApplicationsResponse(
-    data.DeleteApplicationsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteApplicationsResponse(data, context);
   const response: DeleteApplicationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteApplicationsResponse",
@@ -1245,10 +1233,7 @@ export async function deserializeAws_json1_1DeleteTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteTagsResponse(
-    data.DeleteTagsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteTagsResponse(data, context);
   const response: DeleteTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteTagsResponse",
@@ -1334,10 +1319,7 @@ export async function deserializeAws_json1_1DescribeAgentsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAgentsResponse(
-    data.DescribeAgentsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeAgentsResponse(data, context);
   const response: DescribeAgentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeAgentsResponse",
@@ -1420,7 +1402,7 @@ export async function deserializeAws_json1_1DescribeConfigurationsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeConfigurationsResponse(
-    data.DescribeConfigurationsResponse,
+    data,
     context
   );
   const response: DescribeConfigurationsCommandOutput = {
@@ -1505,7 +1487,7 @@ export async function deserializeAws_json1_1DescribeContinuousExportsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeContinuousExportsResponse(
-    data.DescribeContinuousExportsResponse,
+    data,
     context
   );
   const response: DescribeContinuousExportsCommandOutput = {
@@ -1604,7 +1586,7 @@ export async function deserializeAws_json1_1DescribeExportConfigurationsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeExportConfigurationsResponse(
-    data.DescribeExportConfigurationsResponse,
+    data,
     context
   );
   const response: DescribeExportConfigurationsCommandOutput = {
@@ -1695,10 +1677,7 @@ export async function deserializeAws_json1_1DescribeExportTasksCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeExportTasksResponse(
-    data.DescribeExportTasksResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeExportTasksResponse(data, context);
   const response: DescribeExportTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeExportTasksResponse",
@@ -1780,10 +1759,7 @@ export async function deserializeAws_json1_1DescribeImportTasksCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeImportTasksResponse(
-    data.DescribeImportTasksResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeImportTasksResponse(data, context);
   const response: DescribeImportTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeImportTasksResponse",
@@ -1862,10 +1838,7 @@ export async function deserializeAws_json1_1DescribeTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTagsResponse(
-    data.DescribeTagsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeTagsResponse(data, context);
   const response: DescribeTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTagsResponse",
@@ -1955,7 +1928,7 @@ export async function deserializeAws_json1_1DisassociateConfigurationItemsFromAp
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationResponse(
-    data.DisassociateConfigurationItemsFromApplicationResponse,
+    data,
     context
   );
   const response: DisassociateConfigurationItemsFromApplicationCommandOutput = {
@@ -2039,10 +2012,7 @@ export async function deserializeAws_json1_1ExportConfigurationsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ExportConfigurationsResponse(
-    data.ExportConfigurationsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ExportConfigurationsResponse(data, context);
   const response: ExportConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ExportConfigurationsResponse",
@@ -2131,10 +2101,7 @@ export async function deserializeAws_json1_1GetDiscoverySummaryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDiscoverySummaryResponse(
-    data.GetDiscoverySummaryResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetDiscoverySummaryResponse(data, context);
   const response: GetDiscoverySummaryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDiscoverySummaryResponse",
@@ -2216,10 +2183,7 @@ export async function deserializeAws_json1_1ListConfigurationsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListConfigurationsResponse(
-    data.ListConfigurationsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListConfigurationsResponse(data, context);
   const response: ListConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListConfigurationsResponse",
@@ -2308,10 +2272,7 @@ export async function deserializeAws_json1_1ListServerNeighborsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListServerNeighborsResponse(
-    data.ListServerNeighborsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListServerNeighborsResponse(data, context);
   const response: ListServerNeighborsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListServerNeighborsResponse",
@@ -2393,10 +2354,7 @@ export async function deserializeAws_json1_1StartContinuousExportCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartContinuousExportResponse(
-    data.StartContinuousExportResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartContinuousExportResponse(data, context);
   const response: StartContinuousExportCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartContinuousExportResponse",
@@ -2500,7 +2458,7 @@ export async function deserializeAws_json1_1StartDataCollectionByAgentIdsCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartDataCollectionByAgentIdsResponse(
-    data.StartDataCollectionByAgentIdsResponse,
+    data,
     context
   );
   const response: StartDataCollectionByAgentIdsCommandOutput = {
@@ -2581,10 +2539,7 @@ export async function deserializeAws_json1_1StartExportTaskCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartExportTaskResponse(
-    data.StartExportTaskResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartExportTaskResponse(data, context);
   const response: StartExportTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartExportTaskResponse",
@@ -2670,10 +2625,7 @@ export async function deserializeAws_json1_1StartImportTaskCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartImportTaskResponse(
-    data.StartImportTaskResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartImportTaskResponse(data, context);
   const response: StartImportTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartImportTaskResponse",
@@ -2762,10 +2714,7 @@ export async function deserializeAws_json1_1StopContinuousExportCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopContinuousExportResponse(
-    data.StopContinuousExportResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StopContinuousExportResponse(data, context);
   const response: StopContinuousExportCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopContinuousExportResponse",
@@ -2869,7 +2818,7 @@ export async function deserializeAws_json1_1StopDataCollectionByAgentIdsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StopDataCollectionByAgentIdsResponse(
-    data.StopDataCollectionByAgentIdsResponse,
+    data,
     context
   );
   const response: StopDataCollectionByAgentIdsCommandOutput = {
@@ -2950,10 +2899,7 @@ export async function deserializeAws_json1_1UpdateApplicationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateApplicationResponse(
-    data.UpdateApplicationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateApplicationResponse(data, context);
   const response: UpdateApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateApplicationResponse",

@@ -2580,7 +2580,7 @@ export async function deserializeAws_json1_1BatchGetAggregateResourceConfigComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1BatchGetAggregateResourceConfigResponse(
-    data.BatchGetAggregateResourceConfigResponse,
+    data,
     context
   );
   const response: BatchGetAggregateResourceConfigCommandOutput = {
@@ -2644,7 +2644,7 @@ export async function deserializeAws_json1_1BatchGetResourceConfigCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1BatchGetResourceConfigResponse(
-    data.BatchGetResourceConfigResponse,
+    data,
     context
   );
   const response: BatchGetResourceConfigCommandOutput = {
@@ -3020,7 +3020,7 @@ export async function deserializeAws_json1_1DeleteEvaluationResultsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteEvaluationResultsResponse(
-    data.DeleteEvaluationResultsResponse,
+    data,
     context
   );
   const response: DeleteEvaluationResultsCommandOutput = {
@@ -3259,7 +3259,7 @@ export async function deserializeAws_json1_1DeleteRemediationConfigurationComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteRemediationConfigurationResponse(
-    data.DeleteRemediationConfigurationResponse,
+    data,
     context
   );
   const response: DeleteRemediationConfigurationCommandOutput = {
@@ -3323,7 +3323,7 @@ export async function deserializeAws_json1_1DeleteRemediationExceptionsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteRemediationExceptionsResponse(
-    data.DeleteRemediationExceptionsResponse,
+    data,
     context
   );
   const response: DeleteRemediationExceptionsCommandOutput = {
@@ -3491,10 +3491,7 @@ export async function deserializeAws_json1_1DeliverConfigSnapshotCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeliverConfigSnapshotResponse(
-    data.DeliverConfigSnapshotResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeliverConfigSnapshotResponse(data, context);
   const response: DeliverConfigSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeliverConfigSnapshotResponse",
@@ -3563,7 +3560,7 @@ export async function deserializeAws_json1_1DescribeAggregateComplianceByConfigR
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesResponse(
-    data.DescribeAggregateComplianceByConfigRulesResponse,
+    data,
     context
   );
   const response: DescribeAggregateComplianceByConfigRulesCommandOutput = {
@@ -3641,7 +3638,7 @@ export async function deserializeAws_json1_1DescribeAggregationAuthorizationsCom
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeAggregationAuthorizationsResponse(
-    data.DescribeAggregationAuthorizationsResponse,
+    data,
     context
   );
   const response: DescribeAggregationAuthorizationsCommandOutput = {
@@ -3712,7 +3709,7 @@ export async function deserializeAws_json1_1DescribeComplianceByConfigRuleComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeComplianceByConfigRuleResponse(
-    data.DescribeComplianceByConfigRuleResponse,
+    data,
     context
   );
   const response: DescribeComplianceByConfigRuleCommandOutput = {
@@ -3783,7 +3780,7 @@ export async function deserializeAws_json1_1DescribeComplianceByResourceCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeComplianceByResourceResponse(
-    data.DescribeComplianceByResourceResponse,
+    data,
     context
   );
   const response: DescribeComplianceByResourceCommandOutput = {
@@ -3847,7 +3844,7 @@ export async function deserializeAws_json1_1DescribeConfigRuleEvaluationStatusCo
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeConfigRuleEvaluationStatusResponse(
-    data.DescribeConfigRuleEvaluationStatusResponse,
+    data,
     context
   );
   const response: DescribeConfigRuleEvaluationStatusCommandOutput = {
@@ -3917,10 +3914,7 @@ export async function deserializeAws_json1_1DescribeConfigRulesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeConfigRulesResponse(
-    data.DescribeConfigRulesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeConfigRulesResponse(data, context);
   const response: DescribeConfigRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeConfigRulesResponse",
@@ -3982,7 +3976,7 @@ export async function deserializeAws_json1_1DescribeConfigurationAggregatorSourc
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusResponse(
-    data.DescribeConfigurationAggregatorSourcesStatusResponse,
+    data,
     context
   );
   const response: DescribeConfigurationAggregatorSourcesStatusCommandOutput = {
@@ -4060,7 +4054,7 @@ export async function deserializeAws_json1_1DescribeConfigurationAggregatorsComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeConfigurationAggregatorsResponse(
-    data.DescribeConfigurationAggregatorsResponse,
+    data,
     context
   );
   const response: DescribeConfigurationAggregatorsCommandOutput = {
@@ -4138,7 +4132,7 @@ export async function deserializeAws_json1_1DescribeConfigurationRecorderStatusC
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeConfigurationRecorderStatusResponse(
-    data.DescribeConfigurationRecorderStatusResponse,
+    data,
     context
   );
   const response: DescribeConfigurationRecorderStatusCommandOutput = {
@@ -4195,7 +4189,7 @@ export async function deserializeAws_json1_1DescribeConfigurationRecordersComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeConfigurationRecordersResponse(
-    data.DescribeConfigurationRecordersResponse,
+    data,
     context
   );
   const response: DescribeConfigurationRecordersCommandOutput = {
@@ -4252,7 +4246,7 @@ export async function deserializeAws_json1_1DescribeConformancePackComplianceCom
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeConformancePackComplianceResponse(
-    data.DescribeConformancePackComplianceResponse,
+    data,
     context
   );
   const response: DescribeConformancePackComplianceCommandOutput = {
@@ -4337,7 +4331,7 @@ export async function deserializeAws_json1_1DescribeConformancePackStatusCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeConformancePackStatusResponse(
-    data.DescribeConformancePackStatusResponse,
+    data,
     context
   );
   const response: DescribeConformancePackStatusCommandOutput = {
@@ -4401,7 +4395,7 @@ export async function deserializeAws_json1_1DescribeConformancePacksCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeConformancePacksResponse(
-    data.DescribeConformancePacksResponse,
+    data,
     context
   );
   const response: DescribeConformancePacksCommandOutput = {
@@ -4472,7 +4466,7 @@ export async function deserializeAws_json1_1DescribeDeliveryChannelStatusCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeDeliveryChannelStatusResponse(
-    data.DescribeDeliveryChannelStatusResponse,
+    data,
     context
   );
   const response: DescribeDeliveryChannelStatusCommandOutput = {
@@ -4529,7 +4523,7 @@ export async function deserializeAws_json1_1DescribeDeliveryChannelsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeDeliveryChannelsResponse(
-    data.DescribeDeliveryChannelsResponse,
+    data,
     context
   );
   const response: DescribeDeliveryChannelsCommandOutput = {
@@ -4586,7 +4580,7 @@ export async function deserializeAws_json1_1DescribeOrganizationConfigRuleStatus
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesResponse(
-    data.DescribeOrganizationConfigRuleStatusesResponse,
+    data,
     context
   );
   const response: DescribeOrganizationConfigRuleStatusesCommandOutput = {
@@ -4664,7 +4658,7 @@ export async function deserializeAws_json1_1DescribeOrganizationConfigRulesComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeOrganizationConfigRulesResponse(
-    data.DescribeOrganizationConfigRulesResponse,
+    data,
     context
   );
   const response: DescribeOrganizationConfigRulesCommandOutput = {
@@ -4742,7 +4736,7 @@ export async function deserializeAws_json1_1DescribeOrganizationConformancePackS
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeOrganizationConformancePackStatusesResponse(
-    data.DescribeOrganizationConformancePackStatusesResponse,
+    data,
     context
   );
   const response: DescribeOrganizationConformancePackStatusesCommandOutput = {
@@ -4820,7 +4814,7 @@ export async function deserializeAws_json1_1DescribeOrganizationConformancePacks
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeOrganizationConformancePacksResponse(
-    data.DescribeOrganizationConformancePacksResponse,
+    data,
     context
   );
   const response: DescribeOrganizationConformancePacksCommandOutput = {
@@ -4898,7 +4892,7 @@ export async function deserializeAws_json1_1DescribePendingAggregationRequestsCo
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribePendingAggregationRequestsResponse(
-    data.DescribePendingAggregationRequestsResponse,
+    data,
     context
   );
   const response: DescribePendingAggregationRequestsCommandOutput = {
@@ -4969,7 +4963,7 @@ export async function deserializeAws_json1_1DescribeRemediationConfigurationsCom
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeRemediationConfigurationsResponse(
-    data.DescribeRemediationConfigurationsResponse,
+    data,
     context
   );
   const response: DescribeRemediationConfigurationsCommandOutput = {
@@ -5015,7 +5009,7 @@ export async function deserializeAws_json1_1DescribeRemediationExceptionsCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeRemediationExceptionsResponse(
-    data.DescribeRemediationExceptionsResponse,
+    data,
     context
   );
   const response: DescribeRemediationExceptionsCommandOutput = {
@@ -5079,7 +5073,7 @@ export async function deserializeAws_json1_1DescribeRemediationExecutionStatusCo
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeRemediationExecutionStatusResponse(
-    data.DescribeRemediationExecutionStatusResponse,
+    data,
     context
   );
   const response: DescribeRemediationExecutionStatusCommandOutput = {
@@ -5143,7 +5137,7 @@ export async function deserializeAws_json1_1DescribeRetentionConfigurationsComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeRetentionConfigurationsResponse(
-    data.DescribeRetentionConfigurationsResponse,
+    data,
     context
   );
   const response: DescribeRetentionConfigurationsCommandOutput = {
@@ -5214,7 +5208,7 @@ export async function deserializeAws_json1_1GetAggregateComplianceDetailsByConfi
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleResponse(
-    data.GetAggregateComplianceDetailsByConfigRuleResponse,
+    data,
     context
   );
   const response: GetAggregateComplianceDetailsByConfigRuleCommandOutput = {
@@ -5292,7 +5286,7 @@ export async function deserializeAws_json1_1GetAggregateConfigRuleComplianceSumm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryResponse(
-    data.GetAggregateConfigRuleComplianceSummaryResponse,
+    data,
     context
   );
   const response: GetAggregateConfigRuleComplianceSummaryCommandOutput = {
@@ -5370,7 +5364,7 @@ export async function deserializeAws_json1_1GetAggregateDiscoveredResourceCounts
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetAggregateDiscoveredResourceCountsResponse(
-    data.GetAggregateDiscoveredResourceCountsResponse,
+    data,
     context
   );
   const response: GetAggregateDiscoveredResourceCountsCommandOutput = {
@@ -5448,7 +5442,7 @@ export async function deserializeAws_json1_1GetAggregateResourceConfigCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetAggregateResourceConfigResponse(
-    data.GetAggregateResourceConfigResponse,
+    data,
     context
   );
   const response: GetAggregateResourceConfigCommandOutput = {
@@ -5526,7 +5520,7 @@ export async function deserializeAws_json1_1GetComplianceDetailsByConfigRuleComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetComplianceDetailsByConfigRuleResponse(
-    data.GetComplianceDetailsByConfigRuleResponse,
+    data,
     context
   );
   const response: GetComplianceDetailsByConfigRuleCommandOutput = {
@@ -5597,7 +5591,7 @@ export async function deserializeAws_json1_1GetComplianceDetailsByResourceComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetComplianceDetailsByResourceResponse(
-    data.GetComplianceDetailsByResourceResponse,
+    data,
     context
   );
   const response: GetComplianceDetailsByResourceCommandOutput = {
@@ -5654,7 +5648,7 @@ export async function deserializeAws_json1_1GetComplianceSummaryByConfigRuleComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetComplianceSummaryByConfigRuleResponse(
-    data.GetComplianceSummaryByConfigRuleResponse,
+    data,
     context
   );
   const response: GetComplianceSummaryByConfigRuleCommandOutput = {
@@ -5700,7 +5694,7 @@ export async function deserializeAws_json1_1GetComplianceSummaryByResourceTypeCo
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetComplianceSummaryByResourceTypeResponse(
-    data.GetComplianceSummaryByResourceTypeResponse,
+    data,
     context
   );
   const response: GetComplianceSummaryByResourceTypeCommandOutput = {
@@ -5757,7 +5751,7 @@ export async function deserializeAws_json1_1GetConformancePackComplianceDetailsC
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetConformancePackComplianceDetailsResponse(
-    data.GetConformancePackComplianceDetailsResponse,
+    data,
     context
   );
   const response: GetConformancePackComplianceDetailsCommandOutput = {
@@ -5842,7 +5836,7 @@ export async function deserializeAws_json1_1GetConformancePackComplianceSummaryC
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetConformancePackComplianceSummaryResponse(
-    data.GetConformancePackComplianceSummaryResponse,
+    data,
     context
   );
   const response: GetConformancePackComplianceSummaryCommandOutput = {
@@ -5913,7 +5907,7 @@ export async function deserializeAws_json1_1GetDiscoveredResourceCountsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetDiscoveredResourceCountsResponse(
-    data.GetDiscoveredResourceCountsResponse,
+    data,
     context
   );
   const response: GetDiscoveredResourceCountsCommandOutput = {
@@ -5984,7 +5978,7 @@ export async function deserializeAws_json1_1GetOrganizationConfigRuleDetailedSta
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusResponse(
-    data.GetOrganizationConfigRuleDetailedStatusResponse,
+    data,
     context
   );
   const response: GetOrganizationConfigRuleDetailedStatusCommandOutput = {
@@ -6062,7 +6056,7 @@ export async function deserializeAws_json1_1GetOrganizationConformancePackDetail
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusResponse(
-    data.GetOrganizationConformancePackDetailedStatusResponse,
+    data,
     context
   );
   const response: GetOrganizationConformancePackDetailedStatusCommandOutput = {
@@ -6140,7 +6134,7 @@ export async function deserializeAws_json1_1GetResourceConfigHistoryCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetResourceConfigHistoryResponse(
-    data.GetResourceConfigHistoryResponse,
+    data,
     context
   );
   const response: GetResourceConfigHistoryCommandOutput = {
@@ -6232,7 +6226,7 @@ export async function deserializeAws_json1_1ListAggregateDiscoveredResourcesComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListAggregateDiscoveredResourcesResponse(
-    data.ListAggregateDiscoveredResourcesResponse,
+    data,
     context
   );
   const response: ListAggregateDiscoveredResourcesCommandOutput = {
@@ -6310,7 +6304,7 @@ export async function deserializeAws_json1_1ListDiscoveredResourcesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListDiscoveredResourcesResponse(
-    data.ListDiscoveredResourcesResponse,
+    data,
     context
   );
   const response: ListDiscoveredResourcesCommandOutput = {
@@ -6387,10 +6381,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(
-    data.ListTagsForResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
@@ -6466,7 +6457,7 @@ export async function deserializeAws_json1_1PutAggregationAuthorizationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutAggregationAuthorizationResponse(
-    data.PutAggregationAuthorizationResponse,
+    data,
     context
   );
   const response: PutAggregationAuthorizationCommandOutput = {
@@ -6597,7 +6588,7 @@ export async function deserializeAws_json1_1PutConfigurationAggregatorCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutConfigurationAggregatorResponse(
-    data.PutConfigurationAggregatorResponse,
+    data,
     context
   );
   const response: PutConfigurationAggregatorCommandOutput = {
@@ -6758,10 +6749,7 @@ export async function deserializeAws_json1_1PutConformancePackCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutConformancePackResponse(
-    data.PutConformancePackResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutConformancePackResponse(data, context);
   const response: PutConformancePackCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutConformancePackResponse",
@@ -6931,10 +6919,7 @@ export async function deserializeAws_json1_1PutEvaluationsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutEvaluationsResponse(
-    data.PutEvaluationsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutEvaluationsResponse(data, context);
   const response: PutEvaluationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutEvaluationsResponse",
@@ -7003,7 +6988,7 @@ export async function deserializeAws_json1_1PutOrganizationConfigRuleCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutOrganizationConfigRuleResponse(
-    data.PutOrganizationConfigRuleResponse,
+    data,
     context
   );
   const response: PutOrganizationConfigRuleCommandOutput = {
@@ -7109,7 +7094,7 @@ export async function deserializeAws_json1_1PutOrganizationConformancePackComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutOrganizationConformancePackResponse(
-    data.PutOrganizationConformancePackResponse,
+    data,
     context
   );
   const response: PutOrganizationConformancePackCommandOutput = {
@@ -7215,7 +7200,7 @@ export async function deserializeAws_json1_1PutRemediationConfigurationsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutRemediationConfigurationsResponse(
-    data.PutRemediationConfigurationsResponse,
+    data,
     context
   );
   const response: PutRemediationConfigurationsCommandOutput = {
@@ -7279,7 +7264,7 @@ export async function deserializeAws_json1_1PutRemediationExceptionsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutRemediationExceptionsResponse(
-    data.PutRemediationExceptionsResponse,
+    data,
     context
   );
   const response: PutRemediationExceptionsCommandOutput = {
@@ -7403,7 +7388,7 @@ export async function deserializeAws_json1_1PutRetentionConfigurationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutRetentionConfigurationResponse(
-    data.PutRetentionConfigurationResponse,
+    data,
     context
   );
   const response: PutRetentionConfigurationCommandOutput = {
@@ -7466,10 +7451,7 @@ export async function deserializeAws_json1_1SelectResourceConfigCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SelectResourceConfigResponse(
-    data.SelectResourceConfigResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SelectResourceConfigResponse(data, context);
   const response: SelectResourceConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SelectResourceConfigResponse",
@@ -7538,7 +7520,7 @@ export async function deserializeAws_json1_1StartConfigRulesEvaluationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartConfigRulesEvaluationResponse(
-    data.StartConfigRulesEvaluationResponse,
+    data,
     context
   );
   const response: StartConfigRulesEvaluationCommandOutput = {
@@ -7672,7 +7654,7 @@ export async function deserializeAws_json1_1StartRemediationExecutionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartRemediationExecutionResponse(
-    data.StartRemediationExecutionResponse,
+    data,
     context
   );
   const response: StartRemediationExecutionCommandOutput = {

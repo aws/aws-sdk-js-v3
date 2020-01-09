@@ -1,17 +1,17 @@
 import {
   SageMakerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../SageMakerClient";
 import { StopTransformJobRequest } from "../models/index";
 import {
   deserializeAws_json1_1StopTransformJobCommand,
-  serializeAws_json1_1StopTransformJobCommand
+  serializeAws_json1_1StopTransformJobCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,17 +21,13 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
 } from "@aws-sdk/types";
 
 export type StopTransformJobCommandInput = StopTransformJobRequest;
-export type StopTransformJobCommandOutput = __MetadataBearer;
+export type StopTransformJobCommandOutput = __MetadataBearer
 
-export class StopTransformJobCommand extends $Command<
-  StopTransformJobCommandInput,
-  StopTransformJobCommandOutput,
-  SageMakerClientResolvedConfig
-> {
+export class StopTransformJobCommand extends $Command<StopTransformJobCommandInput, StopTransformJobCommandOutput, SageMakerClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,15 +42,13 @@ export class StopTransformJobCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopTransformJobCommandInput, StopTransformJobCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

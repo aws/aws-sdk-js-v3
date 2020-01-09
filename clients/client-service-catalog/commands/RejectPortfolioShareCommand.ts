@@ -1,20 +1,20 @@
 import {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ServiceCatalogClient";
 import {
   RejectPortfolioShareInput,
-  RejectPortfolioShareOutput
+  RejectPortfolioShareOutput,
 } from "../models/index";
 import {
   deserializeAws_json1_1RejectPortfolioShareCommand,
-  serializeAws_json1_1RejectPortfolioShareCommand
+  serializeAws_json1_1RejectPortfolioShareCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type RejectPortfolioShareCommandInput = RejectPortfolioShareInput;
 export type RejectPortfolioShareCommandOutput = RejectPortfolioShareOutput;
 
-export class RejectPortfolioShareCommand extends $Command<
-  RejectPortfolioShareCommandInput,
-  RejectPortfolioShareCommandOutput,
-  ServiceCatalogClientResolvedConfig
-> {
+export class RejectPortfolioShareCommand extends $Command<RejectPortfolioShareCommandInput, RejectPortfolioShareCommandOutput, ServiceCatalogClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class RejectPortfolioShareCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RejectPortfolioShareCommandInput,
-    RejectPortfolioShareCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RejectPortfolioShareCommandInput, RejectPortfolioShareCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

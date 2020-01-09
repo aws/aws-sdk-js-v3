@@ -26,7 +26,7 @@ export enum DataSetType {
   MONTHLY_REVENUE_FIELD_DEMONSTRATION_USAGE = "monthly_revenue_field_demonstration_usage",
   MONTHLY_REVENUE_FLEXIBLE_PAYMENT_SCHEDULE = "monthly_revenue_flexible_payment_schedule",
   SALES_COMPENSATION_BILLED_REVENUE = "sales_compensation_billed_revenue",
-  US_SALES_AND_USE_TAX_RECORDS = "us_sales_and_use_tax_records"
+  US_SALES_AND_USE_TAX_RECORDS = "us_sales_and_use_tax_records",
 }
 
 /**
@@ -242,9 +242,7 @@ export namespace GenerateDataSetResult {
  *         This exception is thrown when an internal service error occurs.
  *
  */
-export interface MarketplaceCommerceAnalyticsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MarketplaceCommerceAnalyticsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "MarketplaceCommerceAnalyticsException";
   $fault: "server";
   /**
@@ -364,6 +362,4 @@ export namespace StartSupportDataExportResult {
   }
 }
 
-export type SupportDataSetType =
-  | "customer_support_contacts_data"
-  | "test_customer_support_contacts_data";
+export type SupportDataSetType = "customer_support_contacts_data" | "test_customer_support_contacts_data"

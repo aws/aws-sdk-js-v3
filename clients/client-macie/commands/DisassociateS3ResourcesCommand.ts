@@ -1,20 +1,20 @@
 import {
   MacieClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../MacieClient";
 import {
   DisassociateS3ResourcesRequest,
-  DisassociateS3ResourcesResult
+  DisassociateS3ResourcesResult,
 } from "../models/index";
 import {
   deserializeAws_json1_1DisassociateS3ResourcesCommand,
-  serializeAws_json1_1DisassociateS3ResourcesCommand
+  serializeAws_json1_1DisassociateS3ResourcesCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DisassociateS3ResourcesCommandInput = DisassociateS3ResourcesRequest;
 export type DisassociateS3ResourcesCommandOutput = DisassociateS3ResourcesResult;
 
-export class DisassociateS3ResourcesCommand extends $Command<
-  DisassociateS3ResourcesCommandInput,
-  DisassociateS3ResourcesCommandOutput,
-  MacieClientResolvedConfig
-> {
+export class DisassociateS3ResourcesCommand extends $Command<DisassociateS3ResourcesCommandInput, DisassociateS3ResourcesCommandOutput, MacieClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class DisassociateS3ResourcesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MacieClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateS3ResourcesCommandInput,
-    DisassociateS3ResourcesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateS3ResourcesCommandInput, DisassociateS3ResourcesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -79,10 +70,7 @@ export class DisassociateS3ResourcesCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DisassociateS3ResourcesCommandOutput> {
-    return deserializeAws_json1_1DisassociateS3ResourcesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisassociateS3ResourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

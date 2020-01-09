@@ -467,10 +467,7 @@ export async function deserializeAws_json1_1CreateBudgetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateBudgetResponse(
-    data.CreateBudgetResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateBudgetResponse(data, context);
   const response: CreateBudgetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateBudgetResponse",
@@ -552,10 +549,7 @@ export async function deserializeAws_json1_1CreateNotificationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateNotificationResponse(
-    data.CreateNotificationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateNotificationResponse(data, context);
   const response: CreateNotificationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateNotificationResponse",
@@ -641,10 +635,7 @@ export async function deserializeAws_json1_1CreateSubscriberCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateSubscriberResponse(
-    data.CreateSubscriberResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateSubscriberResponse(data, context);
   const response: CreateSubscriberCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateSubscriberResponse",
@@ -730,10 +721,7 @@ export async function deserializeAws_json1_1DeleteBudgetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteBudgetResponse(
-    data.DeleteBudgetResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteBudgetResponse(data, context);
   const response: DeleteBudgetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteBudgetResponse",
@@ -808,10 +796,7 @@ export async function deserializeAws_json1_1DeleteNotificationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteNotificationResponse(
-    data.DeleteNotificationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteNotificationResponse(data, context);
   const response: DeleteNotificationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteNotificationResponse",
@@ -883,10 +868,7 @@ export async function deserializeAws_json1_1DeleteSubscriberCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteSubscriberResponse(
-    data.DeleteSubscriberResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteSubscriberResponse(data, context);
   const response: DeleteSubscriberCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteSubscriberResponse",
@@ -958,10 +940,7 @@ export async function deserializeAws_json1_1DescribeBudgetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeBudgetResponse(
-    data.DescribeBudgetResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeBudgetResponse(data, context);
   const response: DescribeBudgetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeBudgetResponse",
@@ -1037,7 +1016,7 @@ export async function deserializeAws_json1_1DescribeBudgetPerformanceHistoryComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeBudgetPerformanceHistoryResponse(
-    data.DescribeBudgetPerformanceHistoryResponse,
+    data,
     context
   );
   const response: DescribeBudgetPerformanceHistoryCommandOutput = {
@@ -1125,10 +1104,7 @@ export async function deserializeAws_json1_1DescribeBudgetsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeBudgetsResponse(
-    data.DescribeBudgetsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeBudgetsResponse(data, context);
   const response: DescribeBudgetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeBudgetsResponse",
@@ -1218,7 +1194,7 @@ export async function deserializeAws_json1_1DescribeNotificationsForBudgetComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeNotificationsForBudgetResponse(
-    data.DescribeNotificationsForBudgetResponse,
+    data,
     context
   );
   const response: DescribeNotificationsForBudgetCommandOutput = {
@@ -1310,7 +1286,7 @@ export async function deserializeAws_json1_1DescribeSubscribersForNotificationCo
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeSubscribersForNotificationResponse(
-    data.DescribeSubscribersForNotificationResponse,
+    data,
     context
   );
   const response: DescribeSubscribersForNotificationCommandOutput = {
@@ -1398,10 +1374,7 @@ export async function deserializeAws_json1_1UpdateBudgetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateBudgetResponse(
-    data.UpdateBudgetResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateBudgetResponse(data, context);
   const response: UpdateBudgetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateBudgetResponse",
@@ -1476,10 +1449,7 @@ export async function deserializeAws_json1_1UpdateNotificationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateNotificationResponse(
-    data.UpdateNotificationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateNotificationResponse(data, context);
   const response: UpdateNotificationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateNotificationResponse",
@@ -1558,10 +1528,7 @@ export async function deserializeAws_json1_1UpdateSubscriberCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateSubscriberResponse(
-    data.UpdateSubscriberResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateSubscriberResponse(data, context);
   const response: UpdateSubscriberCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateSubscriberResponse",

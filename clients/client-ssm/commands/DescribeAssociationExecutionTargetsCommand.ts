@@ -1,20 +1,20 @@
 import {
   SSMClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../SSMClient";
 import {
   DescribeAssociationExecutionTargetsRequest,
-  DescribeAssociationExecutionTargetsResult
+  DescribeAssociationExecutionTargetsResult,
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeAssociationExecutionTargetsCommand,
-  serializeAws_json1_1DescribeAssociationExecutionTargetsCommand
+  serializeAws_json1_1DescribeAssociationExecutionTargetsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DescribeAssociationExecutionTargetsCommandInput = DescribeAssociationExecutionTargetsRequest;
 export type DescribeAssociationExecutionTargetsCommandOutput = DescribeAssociationExecutionTargetsResult;
 
-export class DescribeAssociationExecutionTargetsCommand extends $Command<
-  DescribeAssociationExecutionTargetsCommandInput,
-  DescribeAssociationExecutionTargetsCommandOutput,
-  SSMClientResolvedConfig
-> {
+export class DescribeAssociationExecutionTargetsCommand extends $Command<DescribeAssociationExecutionTargetsCommandInput, DescribeAssociationExecutionTargetsCommandOutput, SSMClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class DescribeAssociationExecutionTargetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAssociationExecutionTargetsCommandInput,
-    DescribeAssociationExecutionTargetsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAssociationExecutionTargetsCommandInput, DescribeAssociationExecutionTargetsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class DescribeAssociationExecutionTargetsCommand extends $Command<
     input: DescribeAssociationExecutionTargetsCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAssociationExecutionTargetsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeAssociationExecutionTargetsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeAssociationExecutionTargetsCommandOutput> {
-    return deserializeAws_json1_1DescribeAssociationExecutionTargetsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeAssociationExecutionTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,114 +1,114 @@
 import {
   AddTagsCommandInput,
-  AddTagsCommandOutput
+  AddTagsCommandOutput,
 } from "../commands/AddTagsCommand";
 import {
   CreateBatchPredictionCommandInput,
-  CreateBatchPredictionCommandOutput
+  CreateBatchPredictionCommandOutput,
 } from "../commands/CreateBatchPredictionCommand";
 import {
   CreateDataSourceFromRDSCommandInput,
-  CreateDataSourceFromRDSCommandOutput
+  CreateDataSourceFromRDSCommandOutput,
 } from "../commands/CreateDataSourceFromRDSCommand";
 import {
   CreateDataSourceFromRedshiftCommandInput,
-  CreateDataSourceFromRedshiftCommandOutput
+  CreateDataSourceFromRedshiftCommandOutput,
 } from "../commands/CreateDataSourceFromRedshiftCommand";
 import {
   CreateDataSourceFromS3CommandInput,
-  CreateDataSourceFromS3CommandOutput
+  CreateDataSourceFromS3CommandOutput,
 } from "../commands/CreateDataSourceFromS3Command";
 import {
   CreateEvaluationCommandInput,
-  CreateEvaluationCommandOutput
+  CreateEvaluationCommandOutput,
 } from "../commands/CreateEvaluationCommand";
 import {
   CreateMLModelCommandInput,
-  CreateMLModelCommandOutput
+  CreateMLModelCommandOutput,
 } from "../commands/CreateMLModelCommand";
 import {
   CreateRealtimeEndpointCommandInput,
-  CreateRealtimeEndpointCommandOutput
+  CreateRealtimeEndpointCommandOutput,
 } from "../commands/CreateRealtimeEndpointCommand";
 import {
   DeleteBatchPredictionCommandInput,
-  DeleteBatchPredictionCommandOutput
+  DeleteBatchPredictionCommandOutput,
 } from "../commands/DeleteBatchPredictionCommand";
 import {
   DeleteDataSourceCommandInput,
-  DeleteDataSourceCommandOutput
+  DeleteDataSourceCommandOutput,
 } from "../commands/DeleteDataSourceCommand";
 import {
   DeleteEvaluationCommandInput,
-  DeleteEvaluationCommandOutput
+  DeleteEvaluationCommandOutput,
 } from "../commands/DeleteEvaluationCommand";
 import {
   DeleteMLModelCommandInput,
-  DeleteMLModelCommandOutput
+  DeleteMLModelCommandOutput,
 } from "../commands/DeleteMLModelCommand";
 import {
   DeleteRealtimeEndpointCommandInput,
-  DeleteRealtimeEndpointCommandOutput
+  DeleteRealtimeEndpointCommandOutput,
 } from "../commands/DeleteRealtimeEndpointCommand";
 import {
   DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
+  DeleteTagsCommandOutput,
 } from "../commands/DeleteTagsCommand";
 import {
   DescribeBatchPredictionsCommandInput,
-  DescribeBatchPredictionsCommandOutput
+  DescribeBatchPredictionsCommandOutput,
 } from "../commands/DescribeBatchPredictionsCommand";
 import {
   DescribeDataSourcesCommandInput,
-  DescribeDataSourcesCommandOutput
+  DescribeDataSourcesCommandOutput,
 } from "../commands/DescribeDataSourcesCommand";
 import {
   DescribeEvaluationsCommandInput,
-  DescribeEvaluationsCommandOutput
+  DescribeEvaluationsCommandOutput,
 } from "../commands/DescribeEvaluationsCommand";
 import {
   DescribeMLModelsCommandInput,
-  DescribeMLModelsCommandOutput
+  DescribeMLModelsCommandOutput,
 } from "../commands/DescribeMLModelsCommand";
 import {
   DescribeTagsCommandInput,
-  DescribeTagsCommandOutput
+  DescribeTagsCommandOutput,
 } from "../commands/DescribeTagsCommand";
 import {
   GetBatchPredictionCommandInput,
-  GetBatchPredictionCommandOutput
+  GetBatchPredictionCommandOutput,
 } from "../commands/GetBatchPredictionCommand";
 import {
   GetDataSourceCommandInput,
-  GetDataSourceCommandOutput
+  GetDataSourceCommandOutput,
 } from "../commands/GetDataSourceCommand";
 import {
   GetEvaluationCommandInput,
-  GetEvaluationCommandOutput
+  GetEvaluationCommandOutput,
 } from "../commands/GetEvaluationCommand";
 import {
   GetMLModelCommandInput,
-  GetMLModelCommandOutput
+  GetMLModelCommandOutput,
 } from "../commands/GetMLModelCommand";
 import {
   PredictCommandInput,
-  PredictCommandOutput
+  PredictCommandOutput,
 } from "../commands/PredictCommand";
 import {
   UpdateBatchPredictionCommandInput,
-  UpdateBatchPredictionCommandOutput
+  UpdateBatchPredictionCommandOutput,
 } from "../commands/UpdateBatchPredictionCommand";
 import {
   UpdateDataSourceCommandInput,
-  UpdateDataSourceCommandOutput
+  UpdateDataSourceCommandOutput,
 } from "../commands/UpdateDataSourceCommand";
 import {
   UpdateEvaluationCommandInput,
-  UpdateEvaluationCommandOutput
+  UpdateEvaluationCommandOutput,
 } from "../commands/UpdateEvaluationCommand";
 import {
   UpdateMLModelCommandInput,
-  UpdateMLModelCommandOutput
+  UpdateMLModelCommandOutput,
 } from "../commands/UpdateMLModelCommand";
 import {
   AddTagsInput,
@@ -191,18 +191,18 @@ import {
   UpdateEvaluationInput,
   UpdateEvaluationOutput,
   UpdateMLModelInput,
-  UpdateMLModelOutput
+  UpdateMLModelOutput,
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export async function serializeAws_json1_1AddTagsCommand(
@@ -210,11 +210,11 @@ export async function serializeAws_json1_1AddTagsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.AddTags";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.AddTags";
   let body: any = {};
   const wrappedBody: any = {
-    AddTagsInput: serializeAws_json1_1AddTagsInput(input, context)
+    AddTagsInput: serializeAws_json1_1AddTagsInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -223,7 +223,7 @@ export async function serializeAws_json1_1AddTagsCommand(
     method: "POST",
     path: "/AddTags",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -232,14 +232,11 @@ export async function serializeAws_json1_1CreateBatchPredictionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.CreateBatchPrediction";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.CreateBatchPrediction";
   let body: any = {};
   const wrappedBody: any = {
-    CreateBatchPredictionInput: serializeAws_json1_1CreateBatchPredictionInput(
-      input,
-      context
-    )
+    CreateBatchPredictionInput: serializeAws_json1_1CreateBatchPredictionInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -248,7 +245,7 @@ export async function serializeAws_json1_1CreateBatchPredictionCommand(
     method: "POST",
     path: "/CreateBatchPrediction",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -257,14 +254,11 @@ export async function serializeAws_json1_1CreateDataSourceFromRDSCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.CreateDataSourceFromRDS";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.CreateDataSourceFromRDS";
   let body: any = {};
   const wrappedBody: any = {
-    CreateDataSourceFromRDSInput: serializeAws_json1_1CreateDataSourceFromRDSInput(
-      input,
-      context
-    )
+    CreateDataSourceFromRDSInput: serializeAws_json1_1CreateDataSourceFromRDSInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -273,7 +267,7 @@ export async function serializeAws_json1_1CreateDataSourceFromRDSCommand(
     method: "POST",
     path: "/CreateDataSourceFromRDS",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -282,14 +276,11 @@ export async function serializeAws_json1_1CreateDataSourceFromRedshiftCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.CreateDataSourceFromRedshift";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.CreateDataSourceFromRedshift";
   let body: any = {};
   const wrappedBody: any = {
-    CreateDataSourceFromRedshiftInput: serializeAws_json1_1CreateDataSourceFromRedshiftInput(
-      input,
-      context
-    )
+    CreateDataSourceFromRedshiftInput: serializeAws_json1_1CreateDataSourceFromRedshiftInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -298,7 +289,7 @@ export async function serializeAws_json1_1CreateDataSourceFromRedshiftCommand(
     method: "POST",
     path: "/CreateDataSourceFromRedshift",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -307,14 +298,11 @@ export async function serializeAws_json1_1CreateDataSourceFromS3Command(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.CreateDataSourceFromS3";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.CreateDataSourceFromS3";
   let body: any = {};
   const wrappedBody: any = {
-    CreateDataSourceFromS3Input: serializeAws_json1_1CreateDataSourceFromS3Input(
-      input,
-      context
-    )
+    CreateDataSourceFromS3Input: serializeAws_json1_1CreateDataSourceFromS3Input(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -323,7 +311,7 @@ export async function serializeAws_json1_1CreateDataSourceFromS3Command(
     method: "POST",
     path: "/CreateDataSourceFromS3",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -332,14 +320,11 @@ export async function serializeAws_json1_1CreateEvaluationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.CreateEvaluation";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.CreateEvaluation";
   let body: any = {};
   const wrappedBody: any = {
-    CreateEvaluationInput: serializeAws_json1_1CreateEvaluationInput(
-      input,
-      context
-    )
+    CreateEvaluationInput: serializeAws_json1_1CreateEvaluationInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -348,7 +333,7 @@ export async function serializeAws_json1_1CreateEvaluationCommand(
     method: "POST",
     path: "/CreateEvaluation",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -357,11 +342,11 @@ export async function serializeAws_json1_1CreateMLModelCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.CreateMLModel";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.CreateMLModel";
   let body: any = {};
   const wrappedBody: any = {
-    CreateMLModelInput: serializeAws_json1_1CreateMLModelInput(input, context)
+    CreateMLModelInput: serializeAws_json1_1CreateMLModelInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -370,7 +355,7 @@ export async function serializeAws_json1_1CreateMLModelCommand(
     method: "POST",
     path: "/CreateMLModel",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -379,14 +364,11 @@ export async function serializeAws_json1_1CreateRealtimeEndpointCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.CreateRealtimeEndpoint";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.CreateRealtimeEndpoint";
   let body: any = {};
   const wrappedBody: any = {
-    CreateRealtimeEndpointInput: serializeAws_json1_1CreateRealtimeEndpointInput(
-      input,
-      context
-    )
+    CreateRealtimeEndpointInput: serializeAws_json1_1CreateRealtimeEndpointInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -395,7 +377,7 @@ export async function serializeAws_json1_1CreateRealtimeEndpointCommand(
     method: "POST",
     path: "/CreateRealtimeEndpoint",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -404,14 +386,11 @@ export async function serializeAws_json1_1DeleteBatchPredictionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.DeleteBatchPrediction";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.DeleteBatchPrediction";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteBatchPredictionInput: serializeAws_json1_1DeleteBatchPredictionInput(
-      input,
-      context
-    )
+    DeleteBatchPredictionInput: serializeAws_json1_1DeleteBatchPredictionInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -420,7 +399,7 @@ export async function serializeAws_json1_1DeleteBatchPredictionCommand(
     method: "POST",
     path: "/DeleteBatchPrediction",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -429,14 +408,11 @@ export async function serializeAws_json1_1DeleteDataSourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.DeleteDataSource";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.DeleteDataSource";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteDataSourceInput: serializeAws_json1_1DeleteDataSourceInput(
-      input,
-      context
-    )
+    DeleteDataSourceInput: serializeAws_json1_1DeleteDataSourceInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -445,7 +421,7 @@ export async function serializeAws_json1_1DeleteDataSourceCommand(
     method: "POST",
     path: "/DeleteDataSource",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -454,14 +430,11 @@ export async function serializeAws_json1_1DeleteEvaluationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.DeleteEvaluation";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.DeleteEvaluation";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteEvaluationInput: serializeAws_json1_1DeleteEvaluationInput(
-      input,
-      context
-    )
+    DeleteEvaluationInput: serializeAws_json1_1DeleteEvaluationInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -470,7 +443,7 @@ export async function serializeAws_json1_1DeleteEvaluationCommand(
     method: "POST",
     path: "/DeleteEvaluation",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -479,11 +452,11 @@ export async function serializeAws_json1_1DeleteMLModelCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.DeleteMLModel";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.DeleteMLModel";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteMLModelInput: serializeAws_json1_1DeleteMLModelInput(input, context)
+    DeleteMLModelInput: serializeAws_json1_1DeleteMLModelInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -492,7 +465,7 @@ export async function serializeAws_json1_1DeleteMLModelCommand(
     method: "POST",
     path: "/DeleteMLModel",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -501,14 +474,11 @@ export async function serializeAws_json1_1DeleteRealtimeEndpointCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.DeleteRealtimeEndpoint";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.DeleteRealtimeEndpoint";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteRealtimeEndpointInput: serializeAws_json1_1DeleteRealtimeEndpointInput(
-      input,
-      context
-    )
+    DeleteRealtimeEndpointInput: serializeAws_json1_1DeleteRealtimeEndpointInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -517,7 +487,7 @@ export async function serializeAws_json1_1DeleteRealtimeEndpointCommand(
     method: "POST",
     path: "/DeleteRealtimeEndpoint",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -526,11 +496,11 @@ export async function serializeAws_json1_1DeleteTagsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.DeleteTags";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.DeleteTags";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteTagsInput: serializeAws_json1_1DeleteTagsInput(input, context)
+    DeleteTagsInput: serializeAws_json1_1DeleteTagsInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -539,7 +509,7 @@ export async function serializeAws_json1_1DeleteTagsCommand(
     method: "POST",
     path: "/DeleteTags",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -548,14 +518,11 @@ export async function serializeAws_json1_1DescribeBatchPredictionsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.DescribeBatchPredictions";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.DescribeBatchPredictions";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeBatchPredictionsInput: serializeAws_json1_1DescribeBatchPredictionsInput(
-      input,
-      context
-    )
+    DescribeBatchPredictionsInput: serializeAws_json1_1DescribeBatchPredictionsInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -564,7 +531,7 @@ export async function serializeAws_json1_1DescribeBatchPredictionsCommand(
     method: "POST",
     path: "/DescribeBatchPredictions",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -573,14 +540,11 @@ export async function serializeAws_json1_1DescribeDataSourcesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.DescribeDataSources";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.DescribeDataSources";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeDataSourcesInput: serializeAws_json1_1DescribeDataSourcesInput(
-      input,
-      context
-    )
+    DescribeDataSourcesInput: serializeAws_json1_1DescribeDataSourcesInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -589,7 +553,7 @@ export async function serializeAws_json1_1DescribeDataSourcesCommand(
     method: "POST",
     path: "/DescribeDataSources",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -598,14 +562,11 @@ export async function serializeAws_json1_1DescribeEvaluationsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.DescribeEvaluations";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.DescribeEvaluations";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeEvaluationsInput: serializeAws_json1_1DescribeEvaluationsInput(
-      input,
-      context
-    )
+    DescribeEvaluationsInput: serializeAws_json1_1DescribeEvaluationsInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -614,7 +575,7 @@ export async function serializeAws_json1_1DescribeEvaluationsCommand(
     method: "POST",
     path: "/DescribeEvaluations",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -623,14 +584,11 @@ export async function serializeAws_json1_1DescribeMLModelsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.DescribeMLModels";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.DescribeMLModels";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeMLModelsInput: serializeAws_json1_1DescribeMLModelsInput(
-      input,
-      context
-    )
+    DescribeMLModelsInput: serializeAws_json1_1DescribeMLModelsInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -639,7 +597,7 @@ export async function serializeAws_json1_1DescribeMLModelsCommand(
     method: "POST",
     path: "/DescribeMLModels",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -648,11 +606,11 @@ export async function serializeAws_json1_1DescribeTagsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.DescribeTags";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.DescribeTags";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeTagsInput: serializeAws_json1_1DescribeTagsInput(input, context)
+    DescribeTagsInput: serializeAws_json1_1DescribeTagsInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -661,7 +619,7 @@ export async function serializeAws_json1_1DescribeTagsCommand(
     method: "POST",
     path: "/DescribeTags",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -670,14 +628,11 @@ export async function serializeAws_json1_1GetBatchPredictionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.GetBatchPrediction";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.GetBatchPrediction";
   let body: any = {};
   const wrappedBody: any = {
-    GetBatchPredictionInput: serializeAws_json1_1GetBatchPredictionInput(
-      input,
-      context
-    )
+    GetBatchPredictionInput: serializeAws_json1_1GetBatchPredictionInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -686,7 +641,7 @@ export async function serializeAws_json1_1GetBatchPredictionCommand(
     method: "POST",
     path: "/GetBatchPrediction",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -695,11 +650,11 @@ export async function serializeAws_json1_1GetDataSourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.GetDataSource";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.GetDataSource";
   let body: any = {};
   const wrappedBody: any = {
-    GetDataSourceInput: serializeAws_json1_1GetDataSourceInput(input, context)
+    GetDataSourceInput: serializeAws_json1_1GetDataSourceInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -708,7 +663,7 @@ export async function serializeAws_json1_1GetDataSourceCommand(
     method: "POST",
     path: "/GetDataSource",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -717,11 +672,11 @@ export async function serializeAws_json1_1GetEvaluationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.GetEvaluation";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.GetEvaluation";
   let body: any = {};
   const wrappedBody: any = {
-    GetEvaluationInput: serializeAws_json1_1GetEvaluationInput(input, context)
+    GetEvaluationInput: serializeAws_json1_1GetEvaluationInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -730,7 +685,7 @@ export async function serializeAws_json1_1GetEvaluationCommand(
     method: "POST",
     path: "/GetEvaluation",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -739,11 +694,11 @@ export async function serializeAws_json1_1GetMLModelCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.GetMLModel";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.GetMLModel";
   let body: any = {};
   const wrappedBody: any = {
-    GetMLModelInput: serializeAws_json1_1GetMLModelInput(input, context)
+    GetMLModelInput: serializeAws_json1_1GetMLModelInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -752,7 +707,7 @@ export async function serializeAws_json1_1GetMLModelCommand(
     method: "POST",
     path: "/GetMLModel",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -761,11 +716,11 @@ export async function serializeAws_json1_1PredictCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.Predict";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.Predict";
   let body: any = {};
   const wrappedBody: any = {
-    PredictInput: serializeAws_json1_1PredictInput(input, context)
+    PredictInput: serializeAws_json1_1PredictInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -774,7 +729,7 @@ export async function serializeAws_json1_1PredictCommand(
     method: "POST",
     path: "/Predict",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -783,14 +738,11 @@ export async function serializeAws_json1_1UpdateBatchPredictionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.UpdateBatchPrediction";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.UpdateBatchPrediction";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateBatchPredictionInput: serializeAws_json1_1UpdateBatchPredictionInput(
-      input,
-      context
-    )
+    UpdateBatchPredictionInput: serializeAws_json1_1UpdateBatchPredictionInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -799,7 +751,7 @@ export async function serializeAws_json1_1UpdateBatchPredictionCommand(
     method: "POST",
     path: "/UpdateBatchPrediction",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -808,14 +760,11 @@ export async function serializeAws_json1_1UpdateDataSourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.UpdateDataSource";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.UpdateDataSource";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateDataSourceInput: serializeAws_json1_1UpdateDataSourceInput(
-      input,
-      context
-    )
+    UpdateDataSourceInput: serializeAws_json1_1UpdateDataSourceInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -824,7 +773,7 @@ export async function serializeAws_json1_1UpdateDataSourceCommand(
     method: "POST",
     path: "/UpdateDataSource",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -833,14 +782,11 @@ export async function serializeAws_json1_1UpdateEvaluationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.UpdateEvaluation";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.UpdateEvaluation";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateEvaluationInput: serializeAws_json1_1UpdateEvaluationInput(
-      input,
-      context
-    )
+    UpdateEvaluationInput: serializeAws_json1_1UpdateEvaluationInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -849,7 +795,7 @@ export async function serializeAws_json1_1UpdateEvaluationCommand(
     method: "POST",
     path: "/UpdateEvaluation",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -858,11 +804,11 @@ export async function serializeAws_json1_1UpdateMLModelCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AmazonML_20141212.UpdateMLModel";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AmazonML_20141212.UpdateMLModel";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateMLModelInput: serializeAws_json1_1UpdateMLModelInput(input, context)
+    UpdateMLModelInput: serializeAws_json1_1UpdateMLModelInput(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -871,7 +817,7 @@ export async function serializeAws_json1_1UpdateMLModelCommand(
     method: "POST",
     path: "/UpdateMLModel",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -882,73 +828,57 @@ export async function deserializeAws_json1_1AddTagsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AddTagsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1AddTagsOutput(data.AddTagsOutput, context);
+  contents = deserializeAws_json1_1AddTagsOutput(data, context);
   const response: AddTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddTagsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AddTagsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AddTagsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "InvalidTagException":
     case "com.amazon.eml.v20141212#InvalidTagException":
-      response = await deserializeAws_json1_1InvalidTagExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidTagExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TagLimitExceededException":
     case "com.amazon.eml.v20141212#TagLimitExceededException":
-      response = await deserializeAws_json1_1TagLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TagLimitExceededExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -959,67 +889,51 @@ export async function deserializeAws_json1_1CreateBatchPredictionCommand(
   context: __SerdeContext
 ): Promise<CreateBatchPredictionCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateBatchPredictionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateBatchPredictionCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateBatchPredictionOutput(
-    data.CreateBatchPredictionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateBatchPredictionOutput(data, context);
   const response: CreateBatchPredictionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateBatchPredictionOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateBatchPredictionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateBatchPredictionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazon.eml.v20141212#IdempotentParameterMismatchException":
-      response = await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1030,67 +944,51 @@ export async function deserializeAws_json1_1CreateDataSourceFromRDSCommand(
   context: __SerdeContext
 ): Promise<CreateDataSourceFromRDSCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateDataSourceFromRDSCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateDataSourceFromRDSCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDataSourceFromRDSOutput(
-    data.CreateDataSourceFromRDSOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateDataSourceFromRDSOutput(data, context);
   const response: CreateDataSourceFromRDSCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDataSourceFromRDSOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateDataSourceFromRDSCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateDataSourceFromRDSCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazon.eml.v20141212#IdempotentParameterMismatchException":
-      response = await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1101,67 +999,51 @@ export async function deserializeAws_json1_1CreateDataSourceFromRedshiftCommand(
   context: __SerdeContext
 ): Promise<CreateDataSourceFromRedshiftCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateDataSourceFromRedshiftCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateDataSourceFromRedshiftCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDataSourceFromRedshiftOutput(
-    data.CreateDataSourceFromRedshiftOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateDataSourceFromRedshiftOutput(data, context);
   const response: CreateDataSourceFromRedshiftCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDataSourceFromRedshiftOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateDataSourceFromRedshiftCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateDataSourceFromRedshiftCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazon.eml.v20141212#IdempotentParameterMismatchException":
-      response = await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1172,67 +1054,51 @@ export async function deserializeAws_json1_1CreateDataSourceFromS3Command(
   context: __SerdeContext
 ): Promise<CreateDataSourceFromS3CommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateDataSourceFromS3CommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateDataSourceFromS3CommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDataSourceFromS3Output(
-    data.CreateDataSourceFromS3Output,
-    context
-  );
+  contents = deserializeAws_json1_1CreateDataSourceFromS3Output(data, context);
   const response: CreateDataSourceFromS3CommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDataSourceFromS3Output",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateDataSourceFromS3CommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateDataSourceFromS3CommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazon.eml.v20141212#IdempotentParameterMismatchException":
-      response = await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1245,62 +1111,49 @@ export async function deserializeAws_json1_1CreateEvaluationCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateEvaluationCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateEvaluationOutput(
-    data.CreateEvaluationOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateEvaluationOutput(data, context);
   const response: CreateEvaluationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateEvaluationOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateEvaluationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateEvaluationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazon.eml.v20141212#IdempotentParameterMismatchException":
-      response = await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1313,62 +1166,49 @@ export async function deserializeAws_json1_1CreateMLModelCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateMLModelCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateMLModelOutput(
-    data.CreateMLModelOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateMLModelOutput(data, context);
   const response: CreateMLModelCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateMLModelOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateMLModelCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateMLModelCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazon.eml.v20141212#IdempotentParameterMismatchException":
-      response = await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1379,67 +1219,51 @@ export async function deserializeAws_json1_1CreateRealtimeEndpointCommand(
   context: __SerdeContext
 ): Promise<CreateRealtimeEndpointCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateRealtimeEndpointCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateRealtimeEndpointCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateRealtimeEndpointOutput(
-    data.CreateRealtimeEndpointOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateRealtimeEndpointOutput(data, context);
   const response: CreateRealtimeEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateRealtimeEndpointOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateRealtimeEndpointCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateRealtimeEndpointCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1450,67 +1274,51 @@ export async function deserializeAws_json1_1DeleteBatchPredictionCommand(
   context: __SerdeContext
 ): Promise<DeleteBatchPredictionCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteBatchPredictionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteBatchPredictionCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteBatchPredictionOutput(
-    data.DeleteBatchPredictionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteBatchPredictionOutput(data, context);
   const response: DeleteBatchPredictionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteBatchPredictionOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteBatchPredictionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteBatchPredictionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1523,62 +1331,49 @@ export async function deserializeAws_json1_1DeleteDataSourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteDataSourceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteDataSourceOutput(
-    data.DeleteDataSourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteDataSourceOutput(data, context);
   const response: DeleteDataSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteDataSourceOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteDataSourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteDataSourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1591,62 +1386,49 @@ export async function deserializeAws_json1_1DeleteEvaluationCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteEvaluationCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteEvaluationOutput(
-    data.DeleteEvaluationOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteEvaluationOutput(data, context);
   const response: DeleteEvaluationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteEvaluationOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteEvaluationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteEvaluationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1659,62 +1441,49 @@ export async function deserializeAws_json1_1DeleteMLModelCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteMLModelCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteMLModelOutput(
-    data.DeleteMLModelOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteMLModelOutput(data, context);
   const response: DeleteMLModelCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteMLModelOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteMLModelCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteMLModelCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1725,67 +1494,51 @@ export async function deserializeAws_json1_1DeleteRealtimeEndpointCommand(
   context: __SerdeContext
 ): Promise<DeleteRealtimeEndpointCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteRealtimeEndpointCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteRealtimeEndpointCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteRealtimeEndpointOutput(
-    data.DeleteRealtimeEndpointOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteRealtimeEndpointOutput(data, context);
   const response: DeleteRealtimeEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteRealtimeEndpointOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteRealtimeEndpointCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteRealtimeEndpointCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1798,69 +1551,53 @@ export async function deserializeAws_json1_1DeleteTagsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteTagsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteTagsOutput(
-    data.DeleteTagsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteTagsOutput(data, context);
   const response: DeleteTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteTagsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteTagsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteTagsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "InvalidTagException":
     case "com.amazon.eml.v20141212#InvalidTagException":
-      response = await deserializeAws_json1_1InvalidTagExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidTagExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1871,60 +1608,47 @@ export async function deserializeAws_json1_1DescribeBatchPredictionsCommand(
   context: __SerdeContext
 ): Promise<DescribeBatchPredictionsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeBatchPredictionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeBatchPredictionsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeBatchPredictionsOutput(
-    data.DescribeBatchPredictionsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeBatchPredictionsOutput(data, context);
   const response: DescribeBatchPredictionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeBatchPredictionsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeBatchPredictionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeBatchPredictionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1935,60 +1659,47 @@ export async function deserializeAws_json1_1DescribeDataSourcesCommand(
   context: __SerdeContext
 ): Promise<DescribeDataSourcesCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeDataSourcesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeDataSourcesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeDataSourcesOutput(
-    data.DescribeDataSourcesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeDataSourcesOutput(data, context);
   const response: DescribeDataSourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeDataSourcesOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeDataSourcesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeDataSourcesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1999,60 +1710,47 @@ export async function deserializeAws_json1_1DescribeEvaluationsCommand(
   context: __SerdeContext
 ): Promise<DescribeEvaluationsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeEvaluationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeEvaluationsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEvaluationsOutput(
-    data.DescribeEvaluationsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeEvaluationsOutput(data, context);
   const response: DescribeEvaluationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeEvaluationsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeEvaluationsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeEvaluationsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2065,55 +1763,45 @@ export async function deserializeAws_json1_1DescribeMLModelsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeMLModelsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeMLModelsOutput(
-    data.DescribeMLModelsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeMLModelsOutput(data, context);
   const response: DescribeMLModelsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeMLModelsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeMLModelsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeMLModelsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2126,62 +1814,49 @@ export async function deserializeAws_json1_1DescribeTagsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeTagsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTagsOutput(
-    data.DescribeTagsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeTagsOutput(data, context);
   const response: DescribeTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTagsOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeTagsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeTagsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2192,67 +1867,51 @@ export async function deserializeAws_json1_1GetBatchPredictionCommand(
   context: __SerdeContext
 ): Promise<GetBatchPredictionCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetBatchPredictionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetBatchPredictionCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1GetBatchPredictionOutput(
-    data.GetBatchPredictionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetBatchPredictionOutput(data, context);
   const response: GetBatchPredictionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetBatchPredictionOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetBatchPredictionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetBatchPredictionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2265,62 +1924,49 @@ export async function deserializeAws_json1_1GetDataSourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetDataSourceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDataSourceOutput(
-    data.GetDataSourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetDataSourceOutput(data, context);
   const response: GetDataSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDataSourceOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetDataSourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetDataSourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2333,62 +1979,49 @@ export async function deserializeAws_json1_1GetEvaluationCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetEvaluationCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1GetEvaluationOutput(
-    data.GetEvaluationOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetEvaluationOutput(data, context);
   const response: GetEvaluationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetEvaluationOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetEvaluationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetEvaluationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2401,62 +2034,49 @@ export async function deserializeAws_json1_1GetMLModelCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetMLModelCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1GetMLModelOutput(
-    data.GetMLModelOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetMLModelOutput(data, context);
   const response: GetMLModelCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetMLModelOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetMLModelCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetMLModelCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2469,73 +2089,57 @@ export async function deserializeAws_json1_1PredictCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PredictCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1PredictOutput(data.PredictOutput, context);
+  contents = deserializeAws_json1_1PredictOutput(data, context);
   const response: PredictCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PredictOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1PredictCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<PredictCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazon.eml.v20141212#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "PredictorNotMountedException":
     case "com.amazon.eml.v20141212#PredictorNotMountedException":
-      response = await deserializeAws_json1_1PredictorNotMountedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1PredictorNotMountedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2546,67 +2150,51 @@ export async function deserializeAws_json1_1UpdateBatchPredictionCommand(
   context: __SerdeContext
 ): Promise<UpdateBatchPredictionCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateBatchPredictionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateBatchPredictionCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateBatchPredictionOutput(
-    data.UpdateBatchPredictionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateBatchPredictionOutput(data, context);
   const response: UpdateBatchPredictionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateBatchPredictionOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateBatchPredictionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateBatchPredictionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2619,62 +2207,49 @@ export async function deserializeAws_json1_1UpdateDataSourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateDataSourceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateDataSourceOutput(
-    data.UpdateDataSourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateDataSourceOutput(data, context);
   const response: UpdateDataSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateDataSourceOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateDataSourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateDataSourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2687,62 +2262,49 @@ export async function deserializeAws_json1_1UpdateEvaluationCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateEvaluationCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateEvaluationOutput(
-    data.UpdateEvaluationOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateEvaluationOutput(data, context);
   const response: UpdateEvaluationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateEvaluationOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateEvaluationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateEvaluationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2755,62 +2317,49 @@ export async function deserializeAws_json1_1UpdateMLModelCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateMLModelCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateMLModelOutput(
-    data.UpdateMLModelOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateMLModelOutput(data, context);
   const response: UpdateMLModelCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateMLModelOutput",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateMLModelCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateMLModelCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2820,15 +2369,12 @@ const deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse = async
   output: any,
   context: __SerdeContext
 ): Promise<IdempotentParameterMismatchException> => {
-  const deserialized: any = deserializeAws_json1_1IdempotentParameterMismatchException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1IdempotentParameterMismatchException(output.body, context);
   const contents: IdempotentParameterMismatchException = {
     __type: "IdempotentParameterMismatchException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2837,15 +2383,12 @@ const deserializeAws_json1_1InternalServerExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
-  const deserialized: any = deserializeAws_json1_1InternalServerException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalServerException(output.body, context);
   const contents: InternalServerException = {
     __type: "InternalServerException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2854,15 +2397,12 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidInputException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidInputException(output.body, context);
   const contents: InvalidInputException = {
     __type: "InvalidInputException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2871,15 +2411,12 @@ const deserializeAws_json1_1InvalidTagExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidTagException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidTagException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidTagException(output.body, context);
   const contents: InvalidTagException = {
     __type: "InvalidTagException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2888,15 +2425,12 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1LimitExceededException(output.body, context);
   const contents: LimitExceededException = {
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2905,15 +2439,12 @@ const deserializeAws_json1_1PredictorNotMountedExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<PredictorNotMountedException> => {
-  const deserialized: any = deserializeAws_json1_1PredictorNotMountedException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1PredictorNotMountedException(output.body, context);
   const contents: PredictorNotMountedException = {
     __type: "PredictorNotMountedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2922,15 +2453,12 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(output.body, context);
   const contents: ResourceNotFoundException = {
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2939,15 +2467,12 @@ const deserializeAws_json1_1TagLimitExceededExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<TagLimitExceededException> => {
-  const deserialized: any = deserializeAws_json1_1TagLimitExceededException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1TagLimitExceededException(output.body, context);
   const contents: TagLimitExceededException = {
     __type: "TagLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2958,16 +2483,16 @@ const serializeAws_json1_1AddTagsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ResourceId !== undefined) {
-    bodyParams["ResourceId"] = input.ResourceId;
+    bodyParams['ResourceId'] = input.ResourceId;
   }
   if (input.ResourceType !== undefined) {
-    bodyParams["ResourceType"] = input.ResourceType;
+    bodyParams['ResourceType'] = input.ResourceType;
   }
   if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
+    bodyParams['Tags'] = serializeAws_json1_1TagList(input.Tags, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateBatchPredictionInput = (
   input: CreateBatchPredictionInput,
@@ -2975,23 +2500,22 @@ const serializeAws_json1_1CreateBatchPredictionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.BatchPredictionDataSourceId !== undefined) {
-    bodyParams["BatchPredictionDataSourceId"] =
-      input.BatchPredictionDataSourceId;
+    bodyParams['BatchPredictionDataSourceId'] = input.BatchPredictionDataSourceId;
   }
   if (input.BatchPredictionId !== undefined) {
-    bodyParams["BatchPredictionId"] = input.BatchPredictionId;
+    bodyParams['BatchPredictionId'] = input.BatchPredictionId;
   }
   if (input.BatchPredictionName !== undefined) {
-    bodyParams["BatchPredictionName"] = input.BatchPredictionName;
+    bodyParams['BatchPredictionName'] = input.BatchPredictionName;
   }
   if (input.MLModelId !== undefined) {
-    bodyParams["MLModelId"] = input.MLModelId;
+    bodyParams['MLModelId'] = input.MLModelId;
   }
   if (input.OutputUri !== undefined) {
-    bodyParams["OutputUri"] = input.OutputUri;
+    bodyParams['OutputUri'] = input.OutputUri;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateDataSourceFromRDSInput = (
   input: CreateDataSourceFromRDSInput,
@@ -2999,25 +2523,22 @@ const serializeAws_json1_1CreateDataSourceFromRDSInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ComputeStatistics !== undefined) {
-    bodyParams["ComputeStatistics"] = input.ComputeStatistics;
+    bodyParams['ComputeStatistics'] = input.ComputeStatistics;
   }
   if (input.DataSourceId !== undefined) {
-    bodyParams["DataSourceId"] = input.DataSourceId;
+    bodyParams['DataSourceId'] = input.DataSourceId;
   }
   if (input.DataSourceName !== undefined) {
-    bodyParams["DataSourceName"] = input.DataSourceName;
+    bodyParams['DataSourceName'] = input.DataSourceName;
   }
   if (input.RDSData !== undefined) {
-    bodyParams["RDSData"] = serializeAws_json1_1RDSDataSpec(
-      input.RDSData,
-      context
-    );
+    bodyParams['RDSData'] = serializeAws_json1_1RDSDataSpec(input.RDSData, context);
   }
   if (input.RoleARN !== undefined) {
-    bodyParams["RoleARN"] = input.RoleARN;
+    bodyParams['RoleARN'] = input.RoleARN;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateDataSourceFromRedshiftInput = (
   input: CreateDataSourceFromRedshiftInput,
@@ -3025,25 +2546,22 @@ const serializeAws_json1_1CreateDataSourceFromRedshiftInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ComputeStatistics !== undefined) {
-    bodyParams["ComputeStatistics"] = input.ComputeStatistics;
+    bodyParams['ComputeStatistics'] = input.ComputeStatistics;
   }
   if (input.DataSourceId !== undefined) {
-    bodyParams["DataSourceId"] = input.DataSourceId;
+    bodyParams['DataSourceId'] = input.DataSourceId;
   }
   if (input.DataSourceName !== undefined) {
-    bodyParams["DataSourceName"] = input.DataSourceName;
+    bodyParams['DataSourceName'] = input.DataSourceName;
   }
   if (input.DataSpec !== undefined) {
-    bodyParams["DataSpec"] = serializeAws_json1_1RedshiftDataSpec(
-      input.DataSpec,
-      context
-    );
+    bodyParams['DataSpec'] = serializeAws_json1_1RedshiftDataSpec(input.DataSpec, context);
   }
   if (input.RoleARN !== undefined) {
-    bodyParams["RoleARN"] = input.RoleARN;
+    bodyParams['RoleARN'] = input.RoleARN;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateDataSourceFromS3Input = (
   input: CreateDataSourceFromS3Input,
@@ -3051,22 +2569,19 @@ const serializeAws_json1_1CreateDataSourceFromS3Input = (
 ): any => {
   let bodyParams: any = {};
   if (input.ComputeStatistics !== undefined) {
-    bodyParams["ComputeStatistics"] = input.ComputeStatistics;
+    bodyParams['ComputeStatistics'] = input.ComputeStatistics;
   }
   if (input.DataSourceId !== undefined) {
-    bodyParams["DataSourceId"] = input.DataSourceId;
+    bodyParams['DataSourceId'] = input.DataSourceId;
   }
   if (input.DataSourceName !== undefined) {
-    bodyParams["DataSourceName"] = input.DataSourceName;
+    bodyParams['DataSourceName'] = input.DataSourceName;
   }
   if (input.DataSpec !== undefined) {
-    bodyParams["DataSpec"] = serializeAws_json1_1S3DataSpec(
-      input.DataSpec,
-      context
-    );
+    bodyParams['DataSpec'] = serializeAws_json1_1S3DataSpec(input.DataSpec, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateEvaluationInput = (
   input: CreateEvaluationInput,
@@ -3074,19 +2589,19 @@ const serializeAws_json1_1CreateEvaluationInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.EvaluationDataSourceId !== undefined) {
-    bodyParams["EvaluationDataSourceId"] = input.EvaluationDataSourceId;
+    bodyParams['EvaluationDataSourceId'] = input.EvaluationDataSourceId;
   }
   if (input.EvaluationId !== undefined) {
-    bodyParams["EvaluationId"] = input.EvaluationId;
+    bodyParams['EvaluationId'] = input.EvaluationId;
   }
   if (input.EvaluationName !== undefined) {
-    bodyParams["EvaluationName"] = input.EvaluationName;
+    bodyParams['EvaluationName'] = input.EvaluationName;
   }
   if (input.MLModelId !== undefined) {
-    bodyParams["MLModelId"] = input.MLModelId;
+    bodyParams['MLModelId'] = input.MLModelId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateMLModelInput = (
   input: CreateMLModelInput,
@@ -3094,31 +2609,28 @@ const serializeAws_json1_1CreateMLModelInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.MLModelId !== undefined) {
-    bodyParams["MLModelId"] = input.MLModelId;
+    bodyParams['MLModelId'] = input.MLModelId;
   }
   if (input.MLModelName !== undefined) {
-    bodyParams["MLModelName"] = input.MLModelName;
+    bodyParams['MLModelName'] = input.MLModelName;
   }
   if (input.MLModelType !== undefined) {
-    bodyParams["MLModelType"] = input.MLModelType;
+    bodyParams['MLModelType'] = input.MLModelType;
   }
   if (input.Parameters !== undefined) {
-    bodyParams["Parameters"] = serializeAws_json1_1TrainingParameters(
-      input.Parameters,
-      context
-    );
+    bodyParams['Parameters'] = serializeAws_json1_1TrainingParameters(input.Parameters, context);
   }
   if (input.Recipe !== undefined) {
-    bodyParams["Recipe"] = input.Recipe;
+    bodyParams['Recipe'] = input.Recipe;
   }
   if (input.RecipeUri !== undefined) {
-    bodyParams["RecipeUri"] = input.RecipeUri;
+    bodyParams['RecipeUri'] = input.RecipeUri;
   }
   if (input.TrainingDataSourceId !== undefined) {
-    bodyParams["TrainingDataSourceId"] = input.TrainingDataSourceId;
+    bodyParams['TrainingDataSourceId'] = input.TrainingDataSourceId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateRealtimeEndpointInput = (
   input: CreateRealtimeEndpointInput,
@@ -3126,10 +2638,10 @@ const serializeAws_json1_1CreateRealtimeEndpointInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.MLModelId !== undefined) {
-    bodyParams["MLModelId"] = input.MLModelId;
+    bodyParams['MLModelId'] = input.MLModelId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteBatchPredictionInput = (
   input: DeleteBatchPredictionInput,
@@ -3137,10 +2649,10 @@ const serializeAws_json1_1DeleteBatchPredictionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.BatchPredictionId !== undefined) {
-    bodyParams["BatchPredictionId"] = input.BatchPredictionId;
+    bodyParams['BatchPredictionId'] = input.BatchPredictionId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteDataSourceInput = (
   input: DeleteDataSourceInput,
@@ -3148,10 +2660,10 @@ const serializeAws_json1_1DeleteDataSourceInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.DataSourceId !== undefined) {
-    bodyParams["DataSourceId"] = input.DataSourceId;
+    bodyParams['DataSourceId'] = input.DataSourceId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteEvaluationInput = (
   input: DeleteEvaluationInput,
@@ -3159,10 +2671,10 @@ const serializeAws_json1_1DeleteEvaluationInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.EvaluationId !== undefined) {
-    bodyParams["EvaluationId"] = input.EvaluationId;
+    bodyParams['EvaluationId'] = input.EvaluationId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteMLModelInput = (
   input: DeleteMLModelInput,
@@ -3170,10 +2682,10 @@ const serializeAws_json1_1DeleteMLModelInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.MLModelId !== undefined) {
-    bodyParams["MLModelId"] = input.MLModelId;
+    bodyParams['MLModelId'] = input.MLModelId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteRealtimeEndpointInput = (
   input: DeleteRealtimeEndpointInput,
@@ -3181,10 +2693,10 @@ const serializeAws_json1_1DeleteRealtimeEndpointInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.MLModelId !== undefined) {
-    bodyParams["MLModelId"] = input.MLModelId;
+    bodyParams['MLModelId'] = input.MLModelId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteTagsInput = (
   input: DeleteTagsInput,
@@ -3192,19 +2704,16 @@ const serializeAws_json1_1DeleteTagsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ResourceId !== undefined) {
-    bodyParams["ResourceId"] = input.ResourceId;
+    bodyParams['ResourceId'] = input.ResourceId;
   }
   if (input.ResourceType !== undefined) {
-    bodyParams["ResourceType"] = input.ResourceType;
+    bodyParams['ResourceType'] = input.ResourceType;
   }
   if (input.TagKeys !== undefined) {
-    bodyParams["TagKeys"] = serializeAws_json1_1TagKeyList(
-      input.TagKeys,
-      context
-    );
+    bodyParams['TagKeys'] = serializeAws_json1_1TagKeyList(input.TagKeys, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeBatchPredictionsInput = (
   input: DescribeBatchPredictionsInput,
@@ -3212,40 +2721,40 @@ const serializeAws_json1_1DescribeBatchPredictionsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.EQ !== undefined) {
-    bodyParams["EQ"] = input.EQ;
+    bodyParams['EQ'] = input.EQ;
   }
   if (input.FilterVariable !== undefined) {
-    bodyParams["FilterVariable"] = input.FilterVariable;
+    bodyParams['FilterVariable'] = input.FilterVariable;
   }
   if (input.GE !== undefined) {
-    bodyParams["GE"] = input.GE;
+    bodyParams['GE'] = input.GE;
   }
   if (input.GT !== undefined) {
-    bodyParams["GT"] = input.GT;
+    bodyParams['GT'] = input.GT;
   }
   if (input.LE !== undefined) {
-    bodyParams["LE"] = input.LE;
+    bodyParams['LE'] = input.LE;
   }
   if (input.LT !== undefined) {
-    bodyParams["LT"] = input.LT;
+    bodyParams['LT'] = input.LT;
   }
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.NE !== undefined) {
-    bodyParams["NE"] = input.NE;
+    bodyParams['NE'] = input.NE;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.Prefix !== undefined) {
-    bodyParams["Prefix"] = input.Prefix;
+    bodyParams['Prefix'] = input.Prefix;
   }
   if (input.SortOrder !== undefined) {
-    bodyParams["SortOrder"] = input.SortOrder;
+    bodyParams['SortOrder'] = input.SortOrder;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeDataSourcesInput = (
   input: DescribeDataSourcesInput,
@@ -3253,40 +2762,40 @@ const serializeAws_json1_1DescribeDataSourcesInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.EQ !== undefined) {
-    bodyParams["EQ"] = input.EQ;
+    bodyParams['EQ'] = input.EQ;
   }
   if (input.FilterVariable !== undefined) {
-    bodyParams["FilterVariable"] = input.FilterVariable;
+    bodyParams['FilterVariable'] = input.FilterVariable;
   }
   if (input.GE !== undefined) {
-    bodyParams["GE"] = input.GE;
+    bodyParams['GE'] = input.GE;
   }
   if (input.GT !== undefined) {
-    bodyParams["GT"] = input.GT;
+    bodyParams['GT'] = input.GT;
   }
   if (input.LE !== undefined) {
-    bodyParams["LE"] = input.LE;
+    bodyParams['LE'] = input.LE;
   }
   if (input.LT !== undefined) {
-    bodyParams["LT"] = input.LT;
+    bodyParams['LT'] = input.LT;
   }
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.NE !== undefined) {
-    bodyParams["NE"] = input.NE;
+    bodyParams['NE'] = input.NE;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.Prefix !== undefined) {
-    bodyParams["Prefix"] = input.Prefix;
+    bodyParams['Prefix'] = input.Prefix;
   }
   if (input.SortOrder !== undefined) {
-    bodyParams["SortOrder"] = input.SortOrder;
+    bodyParams['SortOrder'] = input.SortOrder;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeEvaluationsInput = (
   input: DescribeEvaluationsInput,
@@ -3294,40 +2803,40 @@ const serializeAws_json1_1DescribeEvaluationsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.EQ !== undefined) {
-    bodyParams["EQ"] = input.EQ;
+    bodyParams['EQ'] = input.EQ;
   }
   if (input.FilterVariable !== undefined) {
-    bodyParams["FilterVariable"] = input.FilterVariable;
+    bodyParams['FilterVariable'] = input.FilterVariable;
   }
   if (input.GE !== undefined) {
-    bodyParams["GE"] = input.GE;
+    bodyParams['GE'] = input.GE;
   }
   if (input.GT !== undefined) {
-    bodyParams["GT"] = input.GT;
+    bodyParams['GT'] = input.GT;
   }
   if (input.LE !== undefined) {
-    bodyParams["LE"] = input.LE;
+    bodyParams['LE'] = input.LE;
   }
   if (input.LT !== undefined) {
-    bodyParams["LT"] = input.LT;
+    bodyParams['LT'] = input.LT;
   }
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.NE !== undefined) {
-    bodyParams["NE"] = input.NE;
+    bodyParams['NE'] = input.NE;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.Prefix !== undefined) {
-    bodyParams["Prefix"] = input.Prefix;
+    bodyParams['Prefix'] = input.Prefix;
   }
   if (input.SortOrder !== undefined) {
-    bodyParams["SortOrder"] = input.SortOrder;
+    bodyParams['SortOrder'] = input.SortOrder;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeMLModelsInput = (
   input: DescribeMLModelsInput,
@@ -3335,40 +2844,40 @@ const serializeAws_json1_1DescribeMLModelsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.EQ !== undefined) {
-    bodyParams["EQ"] = input.EQ;
+    bodyParams['EQ'] = input.EQ;
   }
   if (input.FilterVariable !== undefined) {
-    bodyParams["FilterVariable"] = input.FilterVariable;
+    bodyParams['FilterVariable'] = input.FilterVariable;
   }
   if (input.GE !== undefined) {
-    bodyParams["GE"] = input.GE;
+    bodyParams['GE'] = input.GE;
   }
   if (input.GT !== undefined) {
-    bodyParams["GT"] = input.GT;
+    bodyParams['GT'] = input.GT;
   }
   if (input.LE !== undefined) {
-    bodyParams["LE"] = input.LE;
+    bodyParams['LE'] = input.LE;
   }
   if (input.LT !== undefined) {
-    bodyParams["LT"] = input.LT;
+    bodyParams['LT'] = input.LT;
   }
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.NE !== undefined) {
-    bodyParams["NE"] = input.NE;
+    bodyParams['NE'] = input.NE;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.Prefix !== undefined) {
-    bodyParams["Prefix"] = input.Prefix;
+    bodyParams['Prefix'] = input.Prefix;
   }
   if (input.SortOrder !== undefined) {
-    bodyParams["SortOrder"] = input.SortOrder;
+    bodyParams['SortOrder'] = input.SortOrder;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeTagsInput = (
   input: DescribeTagsInput,
@@ -3376,20 +2885,22 @@ const serializeAws_json1_1DescribeTagsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ResourceId !== undefined) {
-    bodyParams["ResourceId"] = input.ResourceId;
+    bodyParams['ResourceId'] = input.ResourceId;
   }
   if (input.ResourceType !== undefined) {
-    bodyParams["ResourceType"] = input.ResourceType;
+    bodyParams['ResourceType'] = input.ResourceType;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1EDPSecurityGroupIds = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1GetBatchPredictionInput = (
   input: GetBatchPredictionInput,
@@ -3397,10 +2908,10 @@ const serializeAws_json1_1GetBatchPredictionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.BatchPredictionId !== undefined) {
-    bodyParams["BatchPredictionId"] = input.BatchPredictionId;
+    bodyParams['BatchPredictionId'] = input.BatchPredictionId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1GetDataSourceInput = (
   input: GetDataSourceInput,
@@ -3408,13 +2919,13 @@ const serializeAws_json1_1GetDataSourceInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.DataSourceId !== undefined) {
-    bodyParams["DataSourceId"] = input.DataSourceId;
+    bodyParams['DataSourceId'] = input.DataSourceId;
   }
   if (input.Verbose !== undefined) {
-    bodyParams["Verbose"] = input.Verbose;
+    bodyParams['Verbose'] = input.Verbose;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1GetEvaluationInput = (
   input: GetEvaluationInput,
@@ -3422,10 +2933,10 @@ const serializeAws_json1_1GetEvaluationInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.EvaluationId !== undefined) {
-    bodyParams["EvaluationId"] = input.EvaluationId;
+    bodyParams['EvaluationId'] = input.EvaluationId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1GetMLModelInput = (
   input: GetMLModelInput,
@@ -3433,13 +2944,13 @@ const serializeAws_json1_1GetMLModelInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.MLModelId !== undefined) {
-    bodyParams["MLModelId"] = input.MLModelId;
+    bodyParams['MLModelId'] = input.MLModelId;
   }
   if (input.Verbose !== undefined) {
-    bodyParams["Verbose"] = input.Verbose;
+    bodyParams['Verbose'] = input.Verbose;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1PredictInput = (
   input: PredictInput,
@@ -3447,16 +2958,16 @@ const serializeAws_json1_1PredictInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.MLModelId !== undefined) {
-    bodyParams["MLModelId"] = input.MLModelId;
+    bodyParams['MLModelId'] = input.MLModelId;
   }
   if (input.PredictEndpoint !== undefined) {
-    bodyParams["PredictEndpoint"] = input.PredictEndpoint;
+    bodyParams['PredictEndpoint'] = input.PredictEndpoint;
   }
   if (input.Record !== undefined) {
-    bodyParams["Record"] = serializeAws_json1_1Record(input.Record, context);
+    bodyParams['Record'] = serializeAws_json1_1Record(input.Record, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1RDSDataSpec = (
   input: RDSDataSpec,
@@ -3464,51 +2975,40 @@ const serializeAws_json1_1RDSDataSpec = (
 ): any => {
   let bodyParams: any = {};
   if (input.DataRearrangement !== undefined) {
-    bodyParams["DataRearrangement"] = input.DataRearrangement;
+    bodyParams['DataRearrangement'] = input.DataRearrangement;
   }
   if (input.DataSchema !== undefined) {
-    bodyParams["DataSchema"] = input.DataSchema;
+    bodyParams['DataSchema'] = input.DataSchema;
   }
   if (input.DataSchemaUri !== undefined) {
-    bodyParams["DataSchemaUri"] = input.DataSchemaUri;
+    bodyParams['DataSchemaUri'] = input.DataSchemaUri;
   }
   if (input.DatabaseCredentials !== undefined) {
-    bodyParams[
-      "DatabaseCredentials"
-    ] = serializeAws_json1_1RDSDatabaseCredentials(
-      input.DatabaseCredentials,
-      context
-    );
+    bodyParams['DatabaseCredentials'] = serializeAws_json1_1RDSDatabaseCredentials(input.DatabaseCredentials, context);
   }
   if (input.DatabaseInformation !== undefined) {
-    bodyParams["DatabaseInformation"] = serializeAws_json1_1RDSDatabase(
-      input.DatabaseInformation,
-      context
-    );
+    bodyParams['DatabaseInformation'] = serializeAws_json1_1RDSDatabase(input.DatabaseInformation, context);
   }
   if (input.ResourceRole !== undefined) {
-    bodyParams["ResourceRole"] = input.ResourceRole;
+    bodyParams['ResourceRole'] = input.ResourceRole;
   }
   if (input.S3StagingLocation !== undefined) {
-    bodyParams["S3StagingLocation"] = input.S3StagingLocation;
+    bodyParams['S3StagingLocation'] = input.S3StagingLocation;
   }
   if (input.SecurityGroupIds !== undefined) {
-    bodyParams["SecurityGroupIds"] = serializeAws_json1_1EDPSecurityGroupIds(
-      input.SecurityGroupIds,
-      context
-    );
+    bodyParams['SecurityGroupIds'] = serializeAws_json1_1EDPSecurityGroupIds(input.SecurityGroupIds, context);
   }
   if (input.SelectSqlQuery !== undefined) {
-    bodyParams["SelectSqlQuery"] = input.SelectSqlQuery;
+    bodyParams['SelectSqlQuery'] = input.SelectSqlQuery;
   }
   if (input.ServiceRole !== undefined) {
-    bodyParams["ServiceRole"] = input.ServiceRole;
+    bodyParams['ServiceRole'] = input.ServiceRole;
   }
   if (input.SubnetId !== undefined) {
-    bodyParams["SubnetId"] = input.SubnetId;
+    bodyParams['SubnetId'] = input.SubnetId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1RDSDatabase = (
   input: RDSDatabase,
@@ -3516,13 +3016,13 @@ const serializeAws_json1_1RDSDatabase = (
 ): any => {
   let bodyParams: any = {};
   if (input.DatabaseName !== undefined) {
-    bodyParams["DatabaseName"] = input.DatabaseName;
+    bodyParams['DatabaseName'] = input.DatabaseName;
   }
   if (input.InstanceIdentifier !== undefined) {
-    bodyParams["InstanceIdentifier"] = input.InstanceIdentifier;
+    bodyParams['InstanceIdentifier'] = input.InstanceIdentifier;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1RDSDatabaseCredentials = (
   input: RDSDatabaseCredentials,
@@ -3530,13 +3030,13 @@ const serializeAws_json1_1RDSDatabaseCredentials = (
 ): any => {
   let bodyParams: any = {};
   if (input.Password !== undefined) {
-    bodyParams["Password"] = input.Password;
+    bodyParams['Password'] = input.Password;
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1Record = (
   input: { [key: string]: string },
@@ -3547,7 +3047,7 @@ const serializeAws_json1_1Record = (
     mapParams[key] = input[key];
   });
   return mapParams;
-};
+}
 
 const serializeAws_json1_1RedshiftDataSpec = (
   input: RedshiftDataSpec,
@@ -3555,36 +3055,28 @@ const serializeAws_json1_1RedshiftDataSpec = (
 ): any => {
   let bodyParams: any = {};
   if (input.DataRearrangement !== undefined) {
-    bodyParams["DataRearrangement"] = input.DataRearrangement;
+    bodyParams['DataRearrangement'] = input.DataRearrangement;
   }
   if (input.DataSchema !== undefined) {
-    bodyParams["DataSchema"] = input.DataSchema;
+    bodyParams['DataSchema'] = input.DataSchema;
   }
   if (input.DataSchemaUri !== undefined) {
-    bodyParams["DataSchemaUri"] = input.DataSchemaUri;
+    bodyParams['DataSchemaUri'] = input.DataSchemaUri;
   }
   if (input.DatabaseCredentials !== undefined) {
-    bodyParams[
-      "DatabaseCredentials"
-    ] = serializeAws_json1_1RedshiftDatabaseCredentials(
-      input.DatabaseCredentials,
-      context
-    );
+    bodyParams['DatabaseCredentials'] = serializeAws_json1_1RedshiftDatabaseCredentials(input.DatabaseCredentials, context);
   }
   if (input.DatabaseInformation !== undefined) {
-    bodyParams["DatabaseInformation"] = serializeAws_json1_1RedshiftDatabase(
-      input.DatabaseInformation,
-      context
-    );
+    bodyParams['DatabaseInformation'] = serializeAws_json1_1RedshiftDatabase(input.DatabaseInformation, context);
   }
   if (input.S3StagingLocation !== undefined) {
-    bodyParams["S3StagingLocation"] = input.S3StagingLocation;
+    bodyParams['S3StagingLocation'] = input.S3StagingLocation;
   }
   if (input.SelectSqlQuery !== undefined) {
-    bodyParams["SelectSqlQuery"] = input.SelectSqlQuery;
+    bodyParams['SelectSqlQuery'] = input.SelectSqlQuery;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1RedshiftDatabase = (
   input: RedshiftDatabase,
@@ -3592,13 +3084,13 @@ const serializeAws_json1_1RedshiftDatabase = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClusterIdentifier !== undefined) {
-    bodyParams["ClusterIdentifier"] = input.ClusterIdentifier;
+    bodyParams['ClusterIdentifier'] = input.ClusterIdentifier;
   }
   if (input.DatabaseName !== undefined) {
-    bodyParams["DatabaseName"] = input.DatabaseName;
+    bodyParams['DatabaseName'] = input.DatabaseName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1RedshiftDatabaseCredentials = (
   input: RedshiftDatabaseCredentials,
@@ -3606,13 +3098,13 @@ const serializeAws_json1_1RedshiftDatabaseCredentials = (
 ): any => {
   let bodyParams: any = {};
   if (input.Password !== undefined) {
-    bodyParams["Password"] = input.Password;
+    bodyParams['Password'] = input.Password;
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1S3DataSpec = (
   input: S3DataSpec,
@@ -3620,44 +3112,51 @@ const serializeAws_json1_1S3DataSpec = (
 ): any => {
   let bodyParams: any = {};
   if (input.DataLocationS3 !== undefined) {
-    bodyParams["DataLocationS3"] = input.DataLocationS3;
+    bodyParams['DataLocationS3'] = input.DataLocationS3;
   }
   if (input.DataRearrangement !== undefined) {
-    bodyParams["DataRearrangement"] = input.DataRearrangement;
+    bodyParams['DataRearrangement'] = input.DataRearrangement;
   }
   if (input.DataSchema !== undefined) {
-    bodyParams["DataSchema"] = input.DataSchema;
+    bodyParams['DataSchema'] = input.DataSchema;
   }
   if (input.DataSchemaLocationS3 !== undefined) {
-    bodyParams["DataSchemaLocationS3"] = input.DataSchemaLocationS3;
+    bodyParams['DataSchemaLocationS3'] = input.DataSchemaLocationS3;
   }
   return bodyParams;
-};
+}
 
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+const serializeAws_json1_1Tag = (
+  input: Tag,
+  context: __SerdeContext
+): any => {
   let bodyParams: any = {};
   if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
+    bodyParams['Key'] = input.Key;
   }
   if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
+    bodyParams['Value'] = input.Value;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1TagKeyList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1TagList = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Tag(entry, context));
-};
+  return (input || []).map(entry =>
+    serializeAws_json1_1Tag(entry, context)
+  );
+}
 
 const serializeAws_json1_1TrainingParameters = (
   input: { [key: string]: string },
@@ -3668,7 +3167,7 @@ const serializeAws_json1_1TrainingParameters = (
     mapParams[key] = input[key];
   });
   return mapParams;
-};
+}
 
 const serializeAws_json1_1UpdateBatchPredictionInput = (
   input: UpdateBatchPredictionInput,
@@ -3676,13 +3175,13 @@ const serializeAws_json1_1UpdateBatchPredictionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.BatchPredictionId !== undefined) {
-    bodyParams["BatchPredictionId"] = input.BatchPredictionId;
+    bodyParams['BatchPredictionId'] = input.BatchPredictionId;
   }
   if (input.BatchPredictionName !== undefined) {
-    bodyParams["BatchPredictionName"] = input.BatchPredictionName;
+    bodyParams['BatchPredictionName'] = input.BatchPredictionName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateDataSourceInput = (
   input: UpdateDataSourceInput,
@@ -3690,13 +3189,13 @@ const serializeAws_json1_1UpdateDataSourceInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.DataSourceId !== undefined) {
-    bodyParams["DataSourceId"] = input.DataSourceId;
+    bodyParams['DataSourceId'] = input.DataSourceId;
   }
   if (input.DataSourceName !== undefined) {
-    bodyParams["DataSourceName"] = input.DataSourceName;
+    bodyParams['DataSourceName'] = input.DataSourceName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateEvaluationInput = (
   input: UpdateEvaluationInput,
@@ -3704,13 +3203,13 @@ const serializeAws_json1_1UpdateEvaluationInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.EvaluationId !== undefined) {
-    bodyParams["EvaluationId"] = input.EvaluationId;
+    bodyParams['EvaluationId'] = input.EvaluationId;
   }
   if (input.EvaluationName !== undefined) {
-    bodyParams["EvaluationName"] = input.EvaluationName;
+    bodyParams['EvaluationName'] = input.EvaluationName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateMLModelInput = (
   input: UpdateMLModelInput,
@@ -3718,16 +3217,16 @@ const serializeAws_json1_1UpdateMLModelInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.MLModelId !== undefined) {
-    bodyParams["MLModelId"] = input.MLModelId;
+    bodyParams['MLModelId'] = input.MLModelId;
   }
   if (input.MLModelName !== undefined) {
-    bodyParams["MLModelName"] = input.MLModelName;
+    bodyParams['MLModelName'] = input.MLModelName;
   }
   if (input.ScoreThreshold !== undefined) {
-    bodyParams["ScoreThreshold"] = input.ScoreThreshold;
+    bodyParams['ScoreThreshold'] = input.ScoreThreshold;
   }
   return bodyParams;
-};
+}
 
 const deserializeAws_json1_1AddTagsOutput = (
   output: any,
@@ -3736,7 +3235,7 @@ const deserializeAws_json1_1AddTagsOutput = (
   let contents: any = {
     __type: "AddTagsOutput",
     ResourceId: undefined,
-    ResourceType: undefined
+    ResourceType: undefined,
   };
   if (output.ResourceId !== undefined) {
     contents.ResourceId = output.ResourceId;
@@ -3745,7 +3244,7 @@ const deserializeAws_json1_1AddTagsOutput = (
     contents.ResourceType = output.ResourceType;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1BatchPrediction = (
   output: any,
@@ -3768,7 +3267,7 @@ const deserializeAws_json1_1BatchPrediction = (
     OutputUri: undefined,
     StartedAt: undefined,
     Status: undefined,
-    TotalRecordCount: undefined
+    TotalRecordCount: undefined,
   };
   if (output.BatchPredictionDataSourceId !== undefined) {
     contents.BatchPredictionDataSourceId = output.BatchPredictionDataSourceId;
@@ -3780,21 +3279,13 @@ const deserializeAws_json1_1BatchPrediction = (
     contents.ComputeTime = output.ComputeTime;
   }
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(output.CreatedAt % 1 != 0 ? Math.round(output.CreatedAt * 1000) : output.CreatedAt);
   }
   if (output.CreatedByIamUser !== undefined) {
     contents.CreatedByIamUser = output.CreatedByIamUser;
   }
   if (output.FinishedAt !== undefined) {
-    contents.FinishedAt = new Date(
-      output.FinishedAt % 1 != 0
-        ? Math.round(output.FinishedAt * 1000)
-        : output.FinishedAt
-    );
+    contents.FinishedAt = new Date(output.FinishedAt % 1 != 0 ? Math.round(output.FinishedAt * 1000) : output.FinishedAt);
   }
   if (output.InputDataLocationS3 !== undefined) {
     contents.InputDataLocationS3 = output.InputDataLocationS3;
@@ -3803,11 +3294,7 @@ const deserializeAws_json1_1BatchPrediction = (
     contents.InvalidRecordCount = output.InvalidRecordCount;
   }
   if (output.LastUpdatedAt !== undefined) {
-    contents.LastUpdatedAt = new Date(
-      output.LastUpdatedAt % 1 != 0
-        ? Math.round(output.LastUpdatedAt * 1000)
-        : output.LastUpdatedAt
-    );
+    contents.LastUpdatedAt = new Date(output.LastUpdatedAt % 1 != 0 ? Math.round(output.LastUpdatedAt * 1000) : output.LastUpdatedAt);
   }
   if (output.MLModelId !== undefined) {
     contents.MLModelId = output.MLModelId;
@@ -3822,11 +3309,7 @@ const deserializeAws_json1_1BatchPrediction = (
     contents.OutputUri = output.OutputUri;
   }
   if (output.StartedAt !== undefined) {
-    contents.StartedAt = new Date(
-      output.StartedAt % 1 != 0
-        ? Math.round(output.StartedAt * 1000)
-        : output.StartedAt
-    );
+    contents.StartedAt = new Date(output.StartedAt % 1 != 0 ? Math.round(output.StartedAt * 1000) : output.StartedAt);
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
@@ -3835,7 +3318,7 @@ const deserializeAws_json1_1BatchPrediction = (
     contents.TotalRecordCount = output.TotalRecordCount;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1BatchPredictions = (
   output: any,
@@ -3844,7 +3327,7 @@ const deserializeAws_json1_1BatchPredictions = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BatchPrediction(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1CreateBatchPredictionOutput = (
   output: any,
@@ -3852,13 +3335,13 @@ const deserializeAws_json1_1CreateBatchPredictionOutput = (
 ): CreateBatchPredictionOutput => {
   let contents: any = {
     __type: "CreateBatchPredictionOutput",
-    BatchPredictionId: undefined
+    BatchPredictionId: undefined,
   };
   if (output.BatchPredictionId !== undefined) {
     contents.BatchPredictionId = output.BatchPredictionId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateDataSourceFromRDSOutput = (
   output: any,
@@ -3866,13 +3349,13 @@ const deserializeAws_json1_1CreateDataSourceFromRDSOutput = (
 ): CreateDataSourceFromRDSOutput => {
   let contents: any = {
     __type: "CreateDataSourceFromRDSOutput",
-    DataSourceId: undefined
+    DataSourceId: undefined,
   };
   if (output.DataSourceId !== undefined) {
     contents.DataSourceId = output.DataSourceId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateDataSourceFromRedshiftOutput = (
   output: any,
@@ -3880,13 +3363,13 @@ const deserializeAws_json1_1CreateDataSourceFromRedshiftOutput = (
 ): CreateDataSourceFromRedshiftOutput => {
   let contents: any = {
     __type: "CreateDataSourceFromRedshiftOutput",
-    DataSourceId: undefined
+    DataSourceId: undefined,
   };
   if (output.DataSourceId !== undefined) {
     contents.DataSourceId = output.DataSourceId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateDataSourceFromS3Output = (
   output: any,
@@ -3894,13 +3377,13 @@ const deserializeAws_json1_1CreateDataSourceFromS3Output = (
 ): CreateDataSourceFromS3Output => {
   let contents: any = {
     __type: "CreateDataSourceFromS3Output",
-    DataSourceId: undefined
+    DataSourceId: undefined,
   };
   if (output.DataSourceId !== undefined) {
     contents.DataSourceId = output.DataSourceId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateEvaluationOutput = (
   output: any,
@@ -3908,13 +3391,13 @@ const deserializeAws_json1_1CreateEvaluationOutput = (
 ): CreateEvaluationOutput => {
   let contents: any = {
     __type: "CreateEvaluationOutput",
-    EvaluationId: undefined
+    EvaluationId: undefined,
   };
   if (output.EvaluationId !== undefined) {
     contents.EvaluationId = output.EvaluationId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateMLModelOutput = (
   output: any,
@@ -3922,13 +3405,13 @@ const deserializeAws_json1_1CreateMLModelOutput = (
 ): CreateMLModelOutput => {
   let contents: any = {
     __type: "CreateMLModelOutput",
-    MLModelId: undefined
+    MLModelId: undefined,
   };
   if (output.MLModelId !== undefined) {
     contents.MLModelId = output.MLModelId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateRealtimeEndpointOutput = (
   output: any,
@@ -3937,19 +3420,16 @@ const deserializeAws_json1_1CreateRealtimeEndpointOutput = (
   let contents: any = {
     __type: "CreateRealtimeEndpointOutput",
     MLModelId: undefined,
-    RealtimeEndpointInfo: undefined
+    RealtimeEndpointInfo: undefined,
   };
   if (output.MLModelId !== undefined) {
     contents.MLModelId = output.MLModelId;
   }
   if (output.RealtimeEndpointInfo !== undefined) {
-    contents.RealtimeEndpointInfo = deserializeAws_json1_1RealtimeEndpointInfo(
-      output.RealtimeEndpointInfo,
-      context
-    );
+    contents.RealtimeEndpointInfo = deserializeAws_json1_1RealtimeEndpointInfo(output.RealtimeEndpointInfo, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DataSource = (
   output: any,
@@ -3974,7 +3454,7 @@ const deserializeAws_json1_1DataSource = (
     RedshiftMetadata: undefined,
     RoleARN: undefined,
     StartedAt: undefined,
-    Status: undefined
+    Status: undefined,
   };
   if (output.ComputeStatistics !== undefined) {
     contents.ComputeStatistics = output.ComputeStatistics;
@@ -3983,11 +3463,7 @@ const deserializeAws_json1_1DataSource = (
     contents.ComputeTime = output.ComputeTime;
   }
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(output.CreatedAt % 1 != 0 ? Math.round(output.CreatedAt * 1000) : output.CreatedAt);
   }
   if (output.CreatedByIamUser !== undefined) {
     contents.CreatedByIamUser = output.CreatedByIamUser;
@@ -4005,18 +3481,10 @@ const deserializeAws_json1_1DataSource = (
     contents.DataSourceId = output.DataSourceId;
   }
   if (output.FinishedAt !== undefined) {
-    contents.FinishedAt = new Date(
-      output.FinishedAt % 1 != 0
-        ? Math.round(output.FinishedAt * 1000)
-        : output.FinishedAt
-    );
+    contents.FinishedAt = new Date(output.FinishedAt % 1 != 0 ? Math.round(output.FinishedAt * 1000) : output.FinishedAt);
   }
   if (output.LastUpdatedAt !== undefined) {
-    contents.LastUpdatedAt = new Date(
-      output.LastUpdatedAt % 1 != 0
-        ? Math.round(output.LastUpdatedAt * 1000)
-        : output.LastUpdatedAt
-    );
+    contents.LastUpdatedAt = new Date(output.LastUpdatedAt % 1 != 0 ? Math.round(output.LastUpdatedAt * 1000) : output.LastUpdatedAt);
   }
   if (output.Message !== undefined) {
     contents.Message = output.Message;
@@ -4028,32 +3496,22 @@ const deserializeAws_json1_1DataSource = (
     contents.NumberOfFiles = output.NumberOfFiles;
   }
   if (output.RDSMetadata !== undefined) {
-    contents.RDSMetadata = deserializeAws_json1_1RDSMetadata(
-      output.RDSMetadata,
-      context
-    );
+    contents.RDSMetadata = deserializeAws_json1_1RDSMetadata(output.RDSMetadata, context);
   }
   if (output.RedshiftMetadata !== undefined) {
-    contents.RedshiftMetadata = deserializeAws_json1_1RedshiftMetadata(
-      output.RedshiftMetadata,
-      context
-    );
+    contents.RedshiftMetadata = deserializeAws_json1_1RedshiftMetadata(output.RedshiftMetadata, context);
   }
   if (output.RoleARN !== undefined) {
     contents.RoleARN = output.RoleARN;
   }
   if (output.StartedAt !== undefined) {
-    contents.StartedAt = new Date(
-      output.StartedAt % 1 != 0
-        ? Math.round(output.StartedAt * 1000)
-        : output.StartedAt
-    );
+    contents.StartedAt = new Date(output.StartedAt % 1 != 0 ? Math.round(output.StartedAt * 1000) : output.StartedAt);
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DataSources = (
   output: any,
@@ -4062,7 +3520,7 @@ const deserializeAws_json1_1DataSources = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DataSource(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1DeleteBatchPredictionOutput = (
   output: any,
@@ -4070,13 +3528,13 @@ const deserializeAws_json1_1DeleteBatchPredictionOutput = (
 ): DeleteBatchPredictionOutput => {
   let contents: any = {
     __type: "DeleteBatchPredictionOutput",
-    BatchPredictionId: undefined
+    BatchPredictionId: undefined,
   };
   if (output.BatchPredictionId !== undefined) {
     contents.BatchPredictionId = output.BatchPredictionId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeleteDataSourceOutput = (
   output: any,
@@ -4084,13 +3542,13 @@ const deserializeAws_json1_1DeleteDataSourceOutput = (
 ): DeleteDataSourceOutput => {
   let contents: any = {
     __type: "DeleteDataSourceOutput",
-    DataSourceId: undefined
+    DataSourceId: undefined,
   };
   if (output.DataSourceId !== undefined) {
     contents.DataSourceId = output.DataSourceId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeleteEvaluationOutput = (
   output: any,
@@ -4098,13 +3556,13 @@ const deserializeAws_json1_1DeleteEvaluationOutput = (
 ): DeleteEvaluationOutput => {
   let contents: any = {
     __type: "DeleteEvaluationOutput",
-    EvaluationId: undefined
+    EvaluationId: undefined,
   };
   if (output.EvaluationId !== undefined) {
     contents.EvaluationId = output.EvaluationId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeleteMLModelOutput = (
   output: any,
@@ -4112,13 +3570,13 @@ const deserializeAws_json1_1DeleteMLModelOutput = (
 ): DeleteMLModelOutput => {
   let contents: any = {
     __type: "DeleteMLModelOutput",
-    MLModelId: undefined
+    MLModelId: undefined,
   };
   if (output.MLModelId !== undefined) {
     contents.MLModelId = output.MLModelId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeleteRealtimeEndpointOutput = (
   output: any,
@@ -4127,19 +3585,16 @@ const deserializeAws_json1_1DeleteRealtimeEndpointOutput = (
   let contents: any = {
     __type: "DeleteRealtimeEndpointOutput",
     MLModelId: undefined,
-    RealtimeEndpointInfo: undefined
+    RealtimeEndpointInfo: undefined,
   };
   if (output.MLModelId !== undefined) {
     contents.MLModelId = output.MLModelId;
   }
   if (output.RealtimeEndpointInfo !== undefined) {
-    contents.RealtimeEndpointInfo = deserializeAws_json1_1RealtimeEndpointInfo(
-      output.RealtimeEndpointInfo,
-      context
-    );
+    contents.RealtimeEndpointInfo = deserializeAws_json1_1RealtimeEndpointInfo(output.RealtimeEndpointInfo, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeleteTagsOutput = (
   output: any,
@@ -4148,7 +3603,7 @@ const deserializeAws_json1_1DeleteTagsOutput = (
   let contents: any = {
     __type: "DeleteTagsOutput",
     ResourceId: undefined,
-    ResourceType: undefined
+    ResourceType: undefined,
   };
   if (output.ResourceId !== undefined) {
     contents.ResourceId = output.ResourceId;
@@ -4157,7 +3612,7 @@ const deserializeAws_json1_1DeleteTagsOutput = (
     contents.ResourceType = output.ResourceType;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeBatchPredictionsOutput = (
   output: any,
@@ -4166,19 +3621,16 @@ const deserializeAws_json1_1DescribeBatchPredictionsOutput = (
   let contents: any = {
     __type: "DescribeBatchPredictionsOutput",
     NextToken: undefined,
-    Results: undefined
+    Results: undefined,
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   if (output.Results !== undefined) {
-    contents.Results = deserializeAws_json1_1BatchPredictions(
-      output.Results,
-      context
-    );
+    contents.Results = deserializeAws_json1_1BatchPredictions(output.Results, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeDataSourcesOutput = (
   output: any,
@@ -4187,19 +3639,16 @@ const deserializeAws_json1_1DescribeDataSourcesOutput = (
   let contents: any = {
     __type: "DescribeDataSourcesOutput",
     NextToken: undefined,
-    Results: undefined
+    Results: undefined,
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   if (output.Results !== undefined) {
-    contents.Results = deserializeAws_json1_1DataSources(
-      output.Results,
-      context
-    );
+    contents.Results = deserializeAws_json1_1DataSources(output.Results, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeEvaluationsOutput = (
   output: any,
@@ -4208,19 +3657,16 @@ const deserializeAws_json1_1DescribeEvaluationsOutput = (
   let contents: any = {
     __type: "DescribeEvaluationsOutput",
     NextToken: undefined,
-    Results: undefined
+    Results: undefined,
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   if (output.Results !== undefined) {
-    contents.Results = deserializeAws_json1_1Evaluations(
-      output.Results,
-      context
-    );
+    contents.Results = deserializeAws_json1_1Evaluations(output.Results, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeMLModelsOutput = (
   output: any,
@@ -4229,7 +3675,7 @@ const deserializeAws_json1_1DescribeMLModelsOutput = (
   let contents: any = {
     __type: "DescribeMLModelsOutput",
     NextToken: undefined,
-    Results: undefined
+    Results: undefined,
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
@@ -4238,7 +3684,7 @@ const deserializeAws_json1_1DescribeMLModelsOutput = (
     contents.Results = deserializeAws_json1_1MLModels(output.Results, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeTagsOutput = (
   output: any,
@@ -4248,7 +3694,7 @@ const deserializeAws_json1_1DescribeTagsOutput = (
     __type: "DescribeTagsOutput",
     ResourceId: undefined,
     ResourceType: undefined,
-    Tags: undefined
+    Tags: undefined,
   };
   if (output.ResourceId !== undefined) {
     contents.ResourceId = output.ResourceId;
@@ -4260,7 +3706,7 @@ const deserializeAws_json1_1DescribeTagsOutput = (
     contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DetailsMap = (
   output: any,
@@ -4271,7 +3717,7 @@ const deserializeAws_json1_1DetailsMap = (
     mapParams[key] = output[key];
   });
   return mapParams;
-};
+}
 
 const deserializeAws_json1_1Evaluation = (
   output: any,
@@ -4292,17 +3738,13 @@ const deserializeAws_json1_1Evaluation = (
     Name: undefined,
     PerformanceMetrics: undefined,
     StartedAt: undefined,
-    Status: undefined
+    Status: undefined,
   };
   if (output.ComputeTime !== undefined) {
     contents.ComputeTime = output.ComputeTime;
   }
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(output.CreatedAt % 1 != 0 ? Math.round(output.CreatedAt * 1000) : output.CreatedAt);
   }
   if (output.CreatedByIamUser !== undefined) {
     contents.CreatedByIamUser = output.CreatedByIamUser;
@@ -4314,21 +3756,13 @@ const deserializeAws_json1_1Evaluation = (
     contents.EvaluationId = output.EvaluationId;
   }
   if (output.FinishedAt !== undefined) {
-    contents.FinishedAt = new Date(
-      output.FinishedAt % 1 != 0
-        ? Math.round(output.FinishedAt * 1000)
-        : output.FinishedAt
-    );
+    contents.FinishedAt = new Date(output.FinishedAt % 1 != 0 ? Math.round(output.FinishedAt * 1000) : output.FinishedAt);
   }
   if (output.InputDataLocationS3 !== undefined) {
     contents.InputDataLocationS3 = output.InputDataLocationS3;
   }
   if (output.LastUpdatedAt !== undefined) {
-    contents.LastUpdatedAt = new Date(
-      output.LastUpdatedAt % 1 != 0
-        ? Math.round(output.LastUpdatedAt * 1000)
-        : output.LastUpdatedAt
-    );
+    contents.LastUpdatedAt = new Date(output.LastUpdatedAt % 1 != 0 ? Math.round(output.LastUpdatedAt * 1000) : output.LastUpdatedAt);
   }
   if (output.MLModelId !== undefined) {
     contents.MLModelId = output.MLModelId;
@@ -4340,23 +3774,16 @@ const deserializeAws_json1_1Evaluation = (
     contents.Name = output.Name;
   }
   if (output.PerformanceMetrics !== undefined) {
-    contents.PerformanceMetrics = deserializeAws_json1_1PerformanceMetrics(
-      output.PerformanceMetrics,
-      context
-    );
+    contents.PerformanceMetrics = deserializeAws_json1_1PerformanceMetrics(output.PerformanceMetrics, context);
   }
   if (output.StartedAt !== undefined) {
-    contents.StartedAt = new Date(
-      output.StartedAt % 1 != 0
-        ? Math.round(output.StartedAt * 1000)
-        : output.StartedAt
-    );
+    contents.StartedAt = new Date(output.StartedAt % 1 != 0 ? Math.round(output.StartedAt * 1000) : output.StartedAt);
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1Evaluations = (
   output: any,
@@ -4365,7 +3792,7 @@ const deserializeAws_json1_1Evaluations = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Evaluation(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1GetBatchPredictionOutput = (
   output: any,
@@ -4389,7 +3816,7 @@ const deserializeAws_json1_1GetBatchPredictionOutput = (
     OutputUri: undefined,
     StartedAt: undefined,
     Status: undefined,
-    TotalRecordCount: undefined
+    TotalRecordCount: undefined,
   };
   if (output.BatchPredictionDataSourceId !== undefined) {
     contents.BatchPredictionDataSourceId = output.BatchPredictionDataSourceId;
@@ -4401,21 +3828,13 @@ const deserializeAws_json1_1GetBatchPredictionOutput = (
     contents.ComputeTime = output.ComputeTime;
   }
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(output.CreatedAt % 1 != 0 ? Math.round(output.CreatedAt * 1000) : output.CreatedAt);
   }
   if (output.CreatedByIamUser !== undefined) {
     contents.CreatedByIamUser = output.CreatedByIamUser;
   }
   if (output.FinishedAt !== undefined) {
-    contents.FinishedAt = new Date(
-      output.FinishedAt % 1 != 0
-        ? Math.round(output.FinishedAt * 1000)
-        : output.FinishedAt
-    );
+    contents.FinishedAt = new Date(output.FinishedAt % 1 != 0 ? Math.round(output.FinishedAt * 1000) : output.FinishedAt);
   }
   if (output.InputDataLocationS3 !== undefined) {
     contents.InputDataLocationS3 = output.InputDataLocationS3;
@@ -4424,11 +3843,7 @@ const deserializeAws_json1_1GetBatchPredictionOutput = (
     contents.InvalidRecordCount = output.InvalidRecordCount;
   }
   if (output.LastUpdatedAt !== undefined) {
-    contents.LastUpdatedAt = new Date(
-      output.LastUpdatedAt % 1 != 0
-        ? Math.round(output.LastUpdatedAt * 1000)
-        : output.LastUpdatedAt
-    );
+    contents.LastUpdatedAt = new Date(output.LastUpdatedAt % 1 != 0 ? Math.round(output.LastUpdatedAt * 1000) : output.LastUpdatedAt);
   }
   if (output.LogUri !== undefined) {
     contents.LogUri = output.LogUri;
@@ -4446,11 +3861,7 @@ const deserializeAws_json1_1GetBatchPredictionOutput = (
     contents.OutputUri = output.OutputUri;
   }
   if (output.StartedAt !== undefined) {
-    contents.StartedAt = new Date(
-      output.StartedAt % 1 != 0
-        ? Math.round(output.StartedAt * 1000)
-        : output.StartedAt
-    );
+    contents.StartedAt = new Date(output.StartedAt % 1 != 0 ? Math.round(output.StartedAt * 1000) : output.StartedAt);
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
@@ -4459,7 +3870,7 @@ const deserializeAws_json1_1GetBatchPredictionOutput = (
     contents.TotalRecordCount = output.TotalRecordCount;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1GetDataSourceOutput = (
   output: any,
@@ -4486,7 +3897,7 @@ const deserializeAws_json1_1GetDataSourceOutput = (
     RedshiftMetadata: undefined,
     RoleARN: undefined,
     StartedAt: undefined,
-    Status: undefined
+    Status: undefined,
   };
   if (output.ComputeStatistics !== undefined) {
     contents.ComputeStatistics = output.ComputeStatistics;
@@ -4495,11 +3906,7 @@ const deserializeAws_json1_1GetDataSourceOutput = (
     contents.ComputeTime = output.ComputeTime;
   }
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(output.CreatedAt % 1 != 0 ? Math.round(output.CreatedAt * 1000) : output.CreatedAt);
   }
   if (output.CreatedByIamUser !== undefined) {
     contents.CreatedByIamUser = output.CreatedByIamUser;
@@ -4520,18 +3927,10 @@ const deserializeAws_json1_1GetDataSourceOutput = (
     contents.DataSourceSchema = output.DataSourceSchema;
   }
   if (output.FinishedAt !== undefined) {
-    contents.FinishedAt = new Date(
-      output.FinishedAt % 1 != 0
-        ? Math.round(output.FinishedAt * 1000)
-        : output.FinishedAt
-    );
+    contents.FinishedAt = new Date(output.FinishedAt % 1 != 0 ? Math.round(output.FinishedAt * 1000) : output.FinishedAt);
   }
   if (output.LastUpdatedAt !== undefined) {
-    contents.LastUpdatedAt = new Date(
-      output.LastUpdatedAt % 1 != 0
-        ? Math.round(output.LastUpdatedAt * 1000)
-        : output.LastUpdatedAt
-    );
+    contents.LastUpdatedAt = new Date(output.LastUpdatedAt % 1 != 0 ? Math.round(output.LastUpdatedAt * 1000) : output.LastUpdatedAt);
   }
   if (output.LogUri !== undefined) {
     contents.LogUri = output.LogUri;
@@ -4546,32 +3945,22 @@ const deserializeAws_json1_1GetDataSourceOutput = (
     contents.NumberOfFiles = output.NumberOfFiles;
   }
   if (output.RDSMetadata !== undefined) {
-    contents.RDSMetadata = deserializeAws_json1_1RDSMetadata(
-      output.RDSMetadata,
-      context
-    );
+    contents.RDSMetadata = deserializeAws_json1_1RDSMetadata(output.RDSMetadata, context);
   }
   if (output.RedshiftMetadata !== undefined) {
-    contents.RedshiftMetadata = deserializeAws_json1_1RedshiftMetadata(
-      output.RedshiftMetadata,
-      context
-    );
+    contents.RedshiftMetadata = deserializeAws_json1_1RedshiftMetadata(output.RedshiftMetadata, context);
   }
   if (output.RoleARN !== undefined) {
     contents.RoleARN = output.RoleARN;
   }
   if (output.StartedAt !== undefined) {
-    contents.StartedAt = new Date(
-      output.StartedAt % 1 != 0
-        ? Math.round(output.StartedAt * 1000)
-        : output.StartedAt
-    );
+    contents.StartedAt = new Date(output.StartedAt % 1 != 0 ? Math.round(output.StartedAt * 1000) : output.StartedAt);
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1GetEvaluationOutput = (
   output: any,
@@ -4593,17 +3982,13 @@ const deserializeAws_json1_1GetEvaluationOutput = (
     Name: undefined,
     PerformanceMetrics: undefined,
     StartedAt: undefined,
-    Status: undefined
+    Status: undefined,
   };
   if (output.ComputeTime !== undefined) {
     contents.ComputeTime = output.ComputeTime;
   }
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(output.CreatedAt % 1 != 0 ? Math.round(output.CreatedAt * 1000) : output.CreatedAt);
   }
   if (output.CreatedByIamUser !== undefined) {
     contents.CreatedByIamUser = output.CreatedByIamUser;
@@ -4615,21 +4000,13 @@ const deserializeAws_json1_1GetEvaluationOutput = (
     contents.EvaluationId = output.EvaluationId;
   }
   if (output.FinishedAt !== undefined) {
-    contents.FinishedAt = new Date(
-      output.FinishedAt % 1 != 0
-        ? Math.round(output.FinishedAt * 1000)
-        : output.FinishedAt
-    );
+    contents.FinishedAt = new Date(output.FinishedAt % 1 != 0 ? Math.round(output.FinishedAt * 1000) : output.FinishedAt);
   }
   if (output.InputDataLocationS3 !== undefined) {
     contents.InputDataLocationS3 = output.InputDataLocationS3;
   }
   if (output.LastUpdatedAt !== undefined) {
-    contents.LastUpdatedAt = new Date(
-      output.LastUpdatedAt % 1 != 0
-        ? Math.round(output.LastUpdatedAt * 1000)
-        : output.LastUpdatedAt
-    );
+    contents.LastUpdatedAt = new Date(output.LastUpdatedAt % 1 != 0 ? Math.round(output.LastUpdatedAt * 1000) : output.LastUpdatedAt);
   }
   if (output.LogUri !== undefined) {
     contents.LogUri = output.LogUri;
@@ -4644,23 +4021,16 @@ const deserializeAws_json1_1GetEvaluationOutput = (
     contents.Name = output.Name;
   }
   if (output.PerformanceMetrics !== undefined) {
-    contents.PerformanceMetrics = deserializeAws_json1_1PerformanceMetrics(
-      output.PerformanceMetrics,
-      context
-    );
+    contents.PerformanceMetrics = deserializeAws_json1_1PerformanceMetrics(output.PerformanceMetrics, context);
   }
   if (output.StartedAt !== undefined) {
-    contents.StartedAt = new Date(
-      output.StartedAt % 1 != 0
-        ? Math.round(output.StartedAt * 1000)
-        : output.StartedAt
-    );
+    contents.StartedAt = new Date(output.StartedAt % 1 != 0 ? Math.round(output.StartedAt * 1000) : output.StartedAt);
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1GetMLModelOutput = (
   output: any,
@@ -4688,43 +4058,28 @@ const deserializeAws_json1_1GetMLModelOutput = (
     StartedAt: undefined,
     Status: undefined,
     TrainingDataSourceId: undefined,
-    TrainingParameters: undefined
+    TrainingParameters: undefined,
   };
   if (output.ComputeTime !== undefined) {
     contents.ComputeTime = output.ComputeTime;
   }
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(output.CreatedAt % 1 != 0 ? Math.round(output.CreatedAt * 1000) : output.CreatedAt);
   }
   if (output.CreatedByIamUser !== undefined) {
     contents.CreatedByIamUser = output.CreatedByIamUser;
   }
   if (output.EndpointInfo !== undefined) {
-    contents.EndpointInfo = deserializeAws_json1_1RealtimeEndpointInfo(
-      output.EndpointInfo,
-      context
-    );
+    contents.EndpointInfo = deserializeAws_json1_1RealtimeEndpointInfo(output.EndpointInfo, context);
   }
   if (output.FinishedAt !== undefined) {
-    contents.FinishedAt = new Date(
-      output.FinishedAt % 1 != 0
-        ? Math.round(output.FinishedAt * 1000)
-        : output.FinishedAt
-    );
+    contents.FinishedAt = new Date(output.FinishedAt % 1 != 0 ? Math.round(output.FinishedAt * 1000) : output.FinishedAt);
   }
   if (output.InputDataLocationS3 !== undefined) {
     contents.InputDataLocationS3 = output.InputDataLocationS3;
   }
   if (output.LastUpdatedAt !== undefined) {
-    contents.LastUpdatedAt = new Date(
-      output.LastUpdatedAt % 1 != 0
-        ? Math.round(output.LastUpdatedAt * 1000)
-        : output.LastUpdatedAt
-    );
+    contents.LastUpdatedAt = new Date(output.LastUpdatedAt % 1 != 0 ? Math.round(output.LastUpdatedAt * 1000) : output.LastUpdatedAt);
   }
   if (output.LogUri !== undefined) {
     contents.LogUri = output.LogUri;
@@ -4751,21 +4106,13 @@ const deserializeAws_json1_1GetMLModelOutput = (
     contents.ScoreThreshold = output.ScoreThreshold;
   }
   if (output.ScoreThresholdLastUpdatedAt !== undefined) {
-    contents.ScoreThresholdLastUpdatedAt = new Date(
-      output.ScoreThresholdLastUpdatedAt % 1 != 0
-        ? Math.round(output.ScoreThresholdLastUpdatedAt * 1000)
-        : output.ScoreThresholdLastUpdatedAt
-    );
+    contents.ScoreThresholdLastUpdatedAt = new Date(output.ScoreThresholdLastUpdatedAt % 1 != 0 ? Math.round(output.ScoreThresholdLastUpdatedAt * 1000) : output.ScoreThresholdLastUpdatedAt);
   }
   if (output.SizeInBytes !== undefined) {
     contents.SizeInBytes = output.SizeInBytes;
   }
   if (output.StartedAt !== undefined) {
-    contents.StartedAt = new Date(
-      output.StartedAt % 1 != 0
-        ? Math.round(output.StartedAt * 1000)
-        : output.StartedAt
-    );
+    contents.StartedAt = new Date(output.StartedAt % 1 != 0 ? Math.round(output.StartedAt * 1000) : output.StartedAt);
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
@@ -4774,13 +4121,10 @@ const deserializeAws_json1_1GetMLModelOutput = (
     contents.TrainingDataSourceId = output.TrainingDataSourceId;
   }
   if (output.TrainingParameters !== undefined) {
-    contents.TrainingParameters = deserializeAws_json1_1TrainingParameters(
-      output.TrainingParameters,
-      context
-    );
+    contents.TrainingParameters = deserializeAws_json1_1TrainingParameters(output.TrainingParameters, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1IdempotentParameterMismatchException = (
   output: any,
@@ -4789,7 +4133,7 @@ const deserializeAws_json1_1IdempotentParameterMismatchException = (
   let contents: any = {
     __type: "IdempotentParameterMismatchException",
     code: undefined,
-    message: undefined
+    message: undefined,
   };
   if (output.code !== undefined) {
     contents.code = output.code;
@@ -4798,7 +4142,7 @@ const deserializeAws_json1_1IdempotentParameterMismatchException = (
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InternalServerException = (
   output: any,
@@ -4807,7 +4151,7 @@ const deserializeAws_json1_1InternalServerException = (
   let contents: any = {
     __type: "InternalServerException",
     code: undefined,
-    message: undefined
+    message: undefined,
   };
   if (output.code !== undefined) {
     contents.code = output.code;
@@ -4816,7 +4160,7 @@ const deserializeAws_json1_1InternalServerException = (
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InvalidInputException = (
   output: any,
@@ -4825,7 +4169,7 @@ const deserializeAws_json1_1InvalidInputException = (
   let contents: any = {
     __type: "InvalidInputException",
     code: undefined,
-    message: undefined
+    message: undefined,
   };
   if (output.code !== undefined) {
     contents.code = output.code;
@@ -4834,7 +4178,7 @@ const deserializeAws_json1_1InvalidInputException = (
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InvalidTagException = (
   output: any,
@@ -4842,13 +4186,13 @@ const deserializeAws_json1_1InvalidTagException = (
 ): InvalidTagException => {
   let contents: any = {
     __type: "InvalidTagException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1LimitExceededException = (
   output: any,
@@ -4857,7 +4201,7 @@ const deserializeAws_json1_1LimitExceededException = (
   let contents: any = {
     __type: "LimitExceededException",
     code: undefined,
-    message: undefined
+    message: undefined,
   };
   if (output.code !== undefined) {
     contents.code = output.code;
@@ -4866,7 +4210,7 @@ const deserializeAws_json1_1LimitExceededException = (
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1MLModel = (
   output: any,
@@ -4892,7 +4236,7 @@ const deserializeAws_json1_1MLModel = (
     StartedAt: undefined,
     Status: undefined,
     TrainingDataSourceId: undefined,
-    TrainingParameters: undefined
+    TrainingParameters: undefined,
   };
   if (output.Algorithm !== undefined) {
     contents.Algorithm = output.Algorithm;
@@ -4901,37 +4245,22 @@ const deserializeAws_json1_1MLModel = (
     contents.ComputeTime = output.ComputeTime;
   }
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(output.CreatedAt % 1 != 0 ? Math.round(output.CreatedAt * 1000) : output.CreatedAt);
   }
   if (output.CreatedByIamUser !== undefined) {
     contents.CreatedByIamUser = output.CreatedByIamUser;
   }
   if (output.EndpointInfo !== undefined) {
-    contents.EndpointInfo = deserializeAws_json1_1RealtimeEndpointInfo(
-      output.EndpointInfo,
-      context
-    );
+    contents.EndpointInfo = deserializeAws_json1_1RealtimeEndpointInfo(output.EndpointInfo, context);
   }
   if (output.FinishedAt !== undefined) {
-    contents.FinishedAt = new Date(
-      output.FinishedAt % 1 != 0
-        ? Math.round(output.FinishedAt * 1000)
-        : output.FinishedAt
-    );
+    contents.FinishedAt = new Date(output.FinishedAt % 1 != 0 ? Math.round(output.FinishedAt * 1000) : output.FinishedAt);
   }
   if (output.InputDataLocationS3 !== undefined) {
     contents.InputDataLocationS3 = output.InputDataLocationS3;
   }
   if (output.LastUpdatedAt !== undefined) {
-    contents.LastUpdatedAt = new Date(
-      output.LastUpdatedAt % 1 != 0
-        ? Math.round(output.LastUpdatedAt * 1000)
-        : output.LastUpdatedAt
-    );
+    contents.LastUpdatedAt = new Date(output.LastUpdatedAt % 1 != 0 ? Math.round(output.LastUpdatedAt * 1000) : output.LastUpdatedAt);
   }
   if (output.MLModelId !== undefined) {
     contents.MLModelId = output.MLModelId;
@@ -4949,21 +4278,13 @@ const deserializeAws_json1_1MLModel = (
     contents.ScoreThreshold = output.ScoreThreshold;
   }
   if (output.ScoreThresholdLastUpdatedAt !== undefined) {
-    contents.ScoreThresholdLastUpdatedAt = new Date(
-      output.ScoreThresholdLastUpdatedAt % 1 != 0
-        ? Math.round(output.ScoreThresholdLastUpdatedAt * 1000)
-        : output.ScoreThresholdLastUpdatedAt
-    );
+    contents.ScoreThresholdLastUpdatedAt = new Date(output.ScoreThresholdLastUpdatedAt % 1 != 0 ? Math.round(output.ScoreThresholdLastUpdatedAt * 1000) : output.ScoreThresholdLastUpdatedAt);
   }
   if (output.SizeInBytes !== undefined) {
     contents.SizeInBytes = output.SizeInBytes;
   }
   if (output.StartedAt !== undefined) {
-    contents.StartedAt = new Date(
-      output.StartedAt % 1 != 0
-        ? Math.round(output.StartedAt * 1000)
-        : output.StartedAt
-    );
+    contents.StartedAt = new Date(output.StartedAt % 1 != 0 ? Math.round(output.StartedAt * 1000) : output.StartedAt);
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
@@ -4972,13 +4293,10 @@ const deserializeAws_json1_1MLModel = (
     contents.TrainingDataSourceId = output.TrainingDataSourceId;
   }
   if (output.TrainingParameters !== undefined) {
-    contents.TrainingParameters = deserializeAws_json1_1TrainingParameters(
-      output.TrainingParameters,
-      context
-    );
+    contents.TrainingParameters = deserializeAws_json1_1TrainingParameters(output.TrainingParameters, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1MLModels = (
   output: any,
@@ -4987,7 +4305,7 @@ const deserializeAws_json1_1MLModels = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MLModel(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1PerformanceMetrics = (
   output: any,
@@ -4995,16 +4313,13 @@ const deserializeAws_json1_1PerformanceMetrics = (
 ): PerformanceMetrics => {
   let contents: any = {
     __type: "PerformanceMetrics",
-    Properties: undefined
+    Properties: undefined,
   };
   if (output.Properties !== undefined) {
-    contents.Properties = deserializeAws_json1_1PerformanceMetricsProperties(
-      output.Properties,
-      context
-    );
+    contents.Properties = deserializeAws_json1_1PerformanceMetricsProperties(output.Properties, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1PerformanceMetricsProperties = (
   output: any,
@@ -5015,7 +4330,7 @@ const deserializeAws_json1_1PerformanceMetricsProperties = (
     mapParams[key] = output[key];
   });
   return mapParams;
-};
+}
 
 const deserializeAws_json1_1PredictOutput = (
   output: any,
@@ -5023,16 +4338,13 @@ const deserializeAws_json1_1PredictOutput = (
 ): PredictOutput => {
   let contents: any = {
     __type: "PredictOutput",
-    Prediction: undefined
+    Prediction: undefined,
   };
   if (output.Prediction !== undefined) {
-    contents.Prediction = deserializeAws_json1_1Prediction(
-      output.Prediction,
-      context
-    );
+    contents.Prediction = deserializeAws_json1_1Prediction(output.Prediction, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1Prediction = (
   output: any,
@@ -5043,28 +4355,22 @@ const deserializeAws_json1_1Prediction = (
     details: undefined,
     predictedLabel: undefined,
     predictedScores: undefined,
-    predictedValue: undefined
+    predictedValue: undefined,
   };
   if (output.details !== undefined) {
-    contents.details = deserializeAws_json1_1DetailsMap(
-      output.details,
-      context
-    );
+    contents.details = deserializeAws_json1_1DetailsMap(output.details, context);
   }
   if (output.predictedLabel !== undefined) {
     contents.predictedLabel = output.predictedLabel;
   }
   if (output.predictedScores !== undefined) {
-    contents.predictedScores = deserializeAws_json1_1ScoreValuePerLabelMap(
-      output.predictedScores,
-      context
-    );
+    contents.predictedScores = deserializeAws_json1_1ScoreValuePerLabelMap(output.predictedScores, context);
   }
   if (output.predictedValue !== undefined) {
     contents.predictedValue = output.predictedValue;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1PredictorNotMountedException = (
   output: any,
@@ -5072,13 +4378,13 @@ const deserializeAws_json1_1PredictorNotMountedException = (
 ): PredictorNotMountedException => {
   let contents: any = {
     __type: "PredictorNotMountedException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1RDSDatabase = (
   output: any,
@@ -5087,7 +4393,7 @@ const deserializeAws_json1_1RDSDatabase = (
   let contents: any = {
     __type: "RDSDatabase",
     DatabaseName: undefined,
-    InstanceIdentifier: undefined
+    InstanceIdentifier: undefined,
   };
   if (output.DatabaseName !== undefined) {
     contents.DatabaseName = output.DatabaseName;
@@ -5096,7 +4402,7 @@ const deserializeAws_json1_1RDSDatabase = (
     contents.InstanceIdentifier = output.InstanceIdentifier;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1RDSMetadata = (
   output: any,
@@ -5109,16 +4415,13 @@ const deserializeAws_json1_1RDSMetadata = (
     DatabaseUserName: undefined,
     ResourceRole: undefined,
     SelectSqlQuery: undefined,
-    ServiceRole: undefined
+    ServiceRole: undefined,
   };
   if (output.DataPipelineId !== undefined) {
     contents.DataPipelineId = output.DataPipelineId;
   }
   if (output.Database !== undefined) {
-    contents.Database = deserializeAws_json1_1RDSDatabase(
-      output.Database,
-      context
-    );
+    contents.Database = deserializeAws_json1_1RDSDatabase(output.Database, context);
   }
   if (output.DatabaseUserName !== undefined) {
     contents.DatabaseUserName = output.DatabaseUserName;
@@ -5133,7 +4436,7 @@ const deserializeAws_json1_1RDSMetadata = (
     contents.ServiceRole = output.ServiceRole;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1RealtimeEndpointInfo = (
   output: any,
@@ -5144,14 +4447,10 @@ const deserializeAws_json1_1RealtimeEndpointInfo = (
     CreatedAt: undefined,
     EndpointStatus: undefined,
     EndpointUrl: undefined,
-    PeakRequestsPerSecond: undefined
+    PeakRequestsPerSecond: undefined,
   };
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(
-      output.CreatedAt % 1 != 0
-        ? Math.round(output.CreatedAt * 1000)
-        : output.CreatedAt
-    );
+    contents.CreatedAt = new Date(output.CreatedAt % 1 != 0 ? Math.round(output.CreatedAt * 1000) : output.CreatedAt);
   }
   if (output.EndpointStatus !== undefined) {
     contents.EndpointStatus = output.EndpointStatus;
@@ -5163,7 +4462,7 @@ const deserializeAws_json1_1RealtimeEndpointInfo = (
     contents.PeakRequestsPerSecond = output.PeakRequestsPerSecond;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1RedshiftDatabase = (
   output: any,
@@ -5172,7 +4471,7 @@ const deserializeAws_json1_1RedshiftDatabase = (
   let contents: any = {
     __type: "RedshiftDatabase",
     ClusterIdentifier: undefined,
-    DatabaseName: undefined
+    DatabaseName: undefined,
   };
   if (output.ClusterIdentifier !== undefined) {
     contents.ClusterIdentifier = output.ClusterIdentifier;
@@ -5181,7 +4480,7 @@ const deserializeAws_json1_1RedshiftDatabase = (
     contents.DatabaseName = output.DatabaseName;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1RedshiftMetadata = (
   output: any,
@@ -5191,22 +4490,19 @@ const deserializeAws_json1_1RedshiftMetadata = (
     __type: "RedshiftMetadata",
     DatabaseUserName: undefined,
     RedshiftDatabase: undefined,
-    SelectSqlQuery: undefined
+    SelectSqlQuery: undefined,
   };
   if (output.DatabaseUserName !== undefined) {
     contents.DatabaseUserName = output.DatabaseUserName;
   }
   if (output.RedshiftDatabase !== undefined) {
-    contents.RedshiftDatabase = deserializeAws_json1_1RedshiftDatabase(
-      output.RedshiftDatabase,
-      context
-    );
+    contents.RedshiftDatabase = deserializeAws_json1_1RedshiftDatabase(output.RedshiftDatabase, context);
   }
   if (output.SelectSqlQuery !== undefined) {
     contents.SelectSqlQuery = output.SelectSqlQuery;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
@@ -5215,7 +4511,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   let contents: any = {
     __type: "ResourceNotFoundException",
     code: undefined,
-    message: undefined
+    message: undefined,
   };
   if (output.code !== undefined) {
     contents.code = output.code;
@@ -5224,7 +4520,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ScoreValuePerLabelMap = (
   output: any,
@@ -5235,7 +4531,7 @@ const deserializeAws_json1_1ScoreValuePerLabelMap = (
     mapParams[key] = output[key];
   });
   return mapParams;
-};
+}
 
 const deserializeAws_json1_1Tag = (
   output: any,
@@ -5244,7 +4540,7 @@ const deserializeAws_json1_1Tag = (
   let contents: any = {
     __type: "Tag",
     Key: undefined,
-    Value: undefined
+    Value: undefined,
   };
   if (output.Key !== undefined) {
     contents.Key = output.Key;
@@ -5253,7 +4549,7 @@ const deserializeAws_json1_1Tag = (
     contents.Value = output.Value;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1TagLimitExceededException = (
   output: any,
@@ -5261,13 +4557,13 @@ const deserializeAws_json1_1TagLimitExceededException = (
 ): TagLimitExceededException => {
   let contents: any = {
     __type: "TagLimitExceededException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1TagList = (
   output: any,
@@ -5276,7 +4572,7 @@ const deserializeAws_json1_1TagList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1TrainingParameters = (
   output: any,
@@ -5287,7 +4583,7 @@ const deserializeAws_json1_1TrainingParameters = (
     mapParams[key] = output[key];
   });
   return mapParams;
-};
+}
 
 const deserializeAws_json1_1UpdateBatchPredictionOutput = (
   output: any,
@@ -5295,13 +4591,13 @@ const deserializeAws_json1_1UpdateBatchPredictionOutput = (
 ): UpdateBatchPredictionOutput => {
   let contents: any = {
     __type: "UpdateBatchPredictionOutput",
-    BatchPredictionId: undefined
+    BatchPredictionId: undefined,
   };
   if (output.BatchPredictionId !== undefined) {
     contents.BatchPredictionId = output.BatchPredictionId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateDataSourceOutput = (
   output: any,
@@ -5309,13 +4605,13 @@ const deserializeAws_json1_1UpdateDataSourceOutput = (
 ): UpdateDataSourceOutput => {
   let contents: any = {
     __type: "UpdateDataSourceOutput",
-    DataSourceId: undefined
+    DataSourceId: undefined,
   };
   if (output.DataSourceId !== undefined) {
     contents.DataSourceId = output.DataSourceId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateEvaluationOutput = (
   output: any,
@@ -5323,13 +4619,13 @@ const deserializeAws_json1_1UpdateEvaluationOutput = (
 ): UpdateEvaluationOutput => {
   let contents: any = {
     __type: "UpdateEvaluationOutput",
-    EvaluationId: undefined
+    EvaluationId: undefined,
   };
   if (output.EvaluationId !== undefined) {
     contents.EvaluationId = output.EvaluationId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateMLModelOutput = (
   output: any,
@@ -5337,13 +4633,13 @@ const deserializeAws_json1_1UpdateMLModelOutput = (
 ): UpdateMLModelOutput => {
   let contents: any = {
     __type: "UpdateMLModelOutput",
-    MLModelId: undefined
+    MLModelId: undefined,
   };
   if (output.MLModelId !== undefined) {
     contents.MLModelId = output.MLModelId;
   }
   return contents;
-};
+}
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

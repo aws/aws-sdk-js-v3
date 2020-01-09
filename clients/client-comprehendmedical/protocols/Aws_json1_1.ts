@@ -384,7 +384,7 @@ export async function deserializeAws_json1_1DescribeEntitiesDetectionV2JobComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeEntitiesDetectionV2JobResponse(
-    data.DescribeEntitiesDetectionV2JobResponse,
+    data,
     context
   );
   const response: DescribeEntitiesDetectionV2JobCommandOutput = {
@@ -462,7 +462,7 @@ export async function deserializeAws_json1_1DescribePHIDetectionJobCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribePHIDetectionJobResponse(
-    data.DescribePHIDetectionJobResponse,
+    data,
     context
   );
   const response: DescribePHIDetectionJobCommandOutput = {
@@ -536,10 +536,7 @@ export async function deserializeAws_json1_1DetectEntitiesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DetectEntitiesResponse(
-    data.DetectEntitiesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DetectEntitiesResponse(data, context);
   const response: DetectEntitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DetectEntitiesResponse",
@@ -625,10 +622,7 @@ export async function deserializeAws_json1_1DetectEntitiesV2Command(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DetectEntitiesV2Response(
-    data.DetectEntitiesV2Response,
-    context
-  );
+  contents = deserializeAws_json1_1DetectEntitiesV2Response(data, context);
   const response: DetectEntitiesV2CommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DetectEntitiesV2Response",
@@ -714,10 +708,7 @@ export async function deserializeAws_json1_1DetectPHICommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DetectPHIResponse(
-    data.DetectPHIResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DetectPHIResponse(data, context);
   const response: DetectPHICommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DetectPHIResponse",
@@ -807,7 +798,7 @@ export async function deserializeAws_json1_1ListEntitiesDetectionV2JobsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListEntitiesDetectionV2JobsResponse(
-    data.ListEntitiesDetectionV2JobsResponse,
+    data,
     context
   );
   const response: ListEntitiesDetectionV2JobsCommandOutput = {
@@ -884,10 +875,7 @@ export async function deserializeAws_json1_1ListPHIDetectionJobsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPHIDetectionJobsResponse(
-    data.ListPHIDetectionJobsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListPHIDetectionJobsResponse(data, context);
   const response: ListPHIDetectionJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListPHIDetectionJobsResponse",
@@ -963,7 +951,7 @@ export async function deserializeAws_json1_1StartEntitiesDetectionV2JobCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartEntitiesDetectionV2JobResponse(
-    data.StartEntitiesDetectionV2JobResponse,
+    data,
     context
   );
   const response: StartEntitiesDetectionV2JobCommandOutput = {
@@ -1040,10 +1028,7 @@ export async function deserializeAws_json1_1StartPHIDetectionJobCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartPHIDetectionJobResponse(
-    data.StartPHIDetectionJobResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartPHIDetectionJobResponse(data, context);
   const response: StartPHIDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartPHIDetectionJobResponse",
@@ -1119,7 +1104,7 @@ export async function deserializeAws_json1_1StopEntitiesDetectionV2JobCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StopEntitiesDetectionV2JobResponse(
-    data.StopEntitiesDetectionV2JobResponse,
+    data,
     context
   );
   const response: StopEntitiesDetectionV2JobCommandOutput = {
@@ -1189,10 +1174,7 @@ export async function deserializeAws_json1_1StopPHIDetectionJobCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopPHIDetectionJobResponse(
-    data.StopPHIDetectionJobResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StopPHIDetectionJobResponse(data, context);
   const response: StopPHIDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopPHIDetectionJobResponse",

@@ -1,20 +1,20 @@
 import {
   SMSClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../SMSClient";
 import {
   DisassociateConnectorRequest,
-  DisassociateConnectorResponse
+  DisassociateConnectorResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1DisassociateConnectorCommand,
-  serializeAws_json1_1DisassociateConnectorCommand
+  serializeAws_json1_1DisassociateConnectorCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DisassociateConnectorCommandInput = DisassociateConnectorRequest;
 export type DisassociateConnectorCommandOutput = DisassociateConnectorResponse;
 
-export class DisassociateConnectorCommand extends $Command<
-  DisassociateConnectorCommandInput,
-  DisassociateConnectorCommandOutput,
-  SMSClientResolvedConfig
-> {
+export class DisassociateConnectorCommand extends $Command<DisassociateConnectorCommandInput, DisassociateConnectorCommandOutput, SMSClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class DisassociateConnectorCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateConnectorCommandInput,
-    DisassociateConnectorCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateConnectorCommandInput, DisassociateConnectorCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -60,7 +60,7 @@ export namespace AddTagsOutput {
 }
 
 export enum Algorithm {
-  SGD = "sgd"
+  SGD = "sgd",
 }
 
 /**
@@ -223,7 +223,7 @@ export enum BatchPredictionFilterVariable {
   LAST_UPDATED_AT = "LastUpdatedAt",
   ML_MODEL_ID = "MLModelId",
   NAME = "Name",
-  STATUS = "Status"
+  STATUS = "Status",
 }
 
 export interface CreateBatchPredictionInput {
@@ -1050,7 +1050,7 @@ export enum DataSourceFilterVariable {
   IAM_USER = "IAMUser",
   LAST_UPDATED_AT = "LastUpdatedAt",
   NAME = "Name",
-  STATUS = "Status"
+  STATUS = "Status",
 }
 
 export interface DeleteBatchPredictionInput {
@@ -2088,7 +2088,7 @@ export namespace DescribeTagsOutput {
 
 export enum DetailsAttributes {
   ALGORITHM = "Algorithm",
-  PREDICTIVE_MODEL_TYPE = "PredictiveModelType"
+  PREDICTIVE_MODEL_TYPE = "PredictiveModelType",
 }
 
 export enum EntityStatus {
@@ -2096,7 +2096,7 @@ export enum EntityStatus {
   DELETED = "DELETED",
   FAILED = "FAILED",
   INPROGRESS = "INPROGRESS",
-  PENDING = "PENDING"
+  PENDING = "PENDING",
 }
 
 /**
@@ -2259,7 +2259,7 @@ export enum EvaluationFilterVariable {
   LAST_UPDATED_AT = "LastUpdatedAt",
   ML_MODEL_ID = "MLModelId",
   NAME = "Name",
-  STATUS = "Status"
+  STATUS = "Status",
 }
 
 export interface GetBatchPredictionInput {
@@ -3097,9 +3097,7 @@ export namespace GetMLModelOutput {
  *         <p>A second request to use or change an object was not allowed. This can result from retrying a request using a parameter that was not present in the original request.</p>
  *
  */
-export interface IdempotentParameterMismatchException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface IdempotentParameterMismatchException extends _smithy.SmithyException, $MetadataBearer {
   __type: "IdempotentParameterMismatchException";
   $fault: "client";
   code?: number;
@@ -3117,9 +3115,7 @@ export namespace IdempotentParameterMismatchException {
  *         <p>An error on the server occurred when trying to process a request.</p>
  *
  */
-export interface InternalServerException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerException";
   $fault: "server";
   code?: number;
@@ -3137,9 +3133,7 @@ export namespace InternalServerException {
  *         <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
  *
  */
-export interface InvalidInputException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidInputException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidInputException";
   $fault: "client";
   code?: number;
@@ -3157,9 +3151,7 @@ export namespace InvalidInputException {
  *         <p>A submitted tag is invalid.</p>
  *
  */
-export interface InvalidTagException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidTagException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidTagException";
   $fault: "client";
   message?: string;
@@ -3176,9 +3168,7 @@ export namespace InvalidTagException {
  *         <p>The subscriber exceeded the maximum number of operations. This exception can occur when listing objects such as <code>DataSource</code>.</p>
  *
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   code?: number;
@@ -3440,13 +3430,13 @@ export enum MLModelFilterVariable {
   REAL_TIME_ENDPOINT_STATUS = "RealtimeEndpointStatus",
   STATUS = "Status",
   TRAINING_DATASOURCE_ID = "TrainingDataSourceId",
-  TRAINING_DATA_URI = "TrainingDataURI"
+  TRAINING_DATA_URI = "TrainingDataURI",
 }
 
 export enum MLModelType {
   BINARY = "BINARY",
   MULTICLASS = "MULTICLASS",
-  REGRESSION = "REGRESSION"
+  REGRESSION = "REGRESSION",
 }
 
 /**
@@ -3490,7 +3480,7 @@ export interface PredictInput {
   /**
    *
    * 		       <p>A unique identifier of the <code>MLModel</code>.</p>
-   *
+   * 	
    */
   MLModelId: string | undefined;
 
@@ -3504,7 +3494,7 @@ export interface PredictInput {
   /**
    *
    * 		       <p>A map of variable name-value pairs that represent an observation.</p>
-   *
+   * 	
    */
   Record: { [key: string]: string } | undefined;
 }
@@ -3520,7 +3510,7 @@ export interface PredictOutput extends $MetadataBearer {
   /**
    *
    * 		       <p>The output from a <code>Predict</code> operation: </p>
-   *
+   * 		
    * 		       <ul>
    *             <li>
    * 				           <p>
@@ -3538,17 +3528,17 @@ export interface PredictOutput extends $MetadataBearer {
    *             <li>
    * 				           <p>
    * 				              <code>PredictedScores</code> - Contains the raw classification score corresponding to each label.
-   * 				</p>
+   * 				</p>				
    * 			         </li>
    *             <li>
    * 				           <p>
    * 				              <code>PredictedValue</code> - Present for a <code>REGRESSION</code>
    *                   <code>MLModel</code> request.
-   * 				</p>
+   * 				</p>				
    * 			         </li>
    *          </ul>
    *
-   *
+   * 	
    */
   Prediction?: Prediction;
 }
@@ -3562,7 +3552,7 @@ export namespace PredictOutput {
 /**
  *
  * 		       <p>The output from a <code>Predict</code> operation: </p>
- *
+ * 		
  * 		       <ul>
  *             <li>
  * 				           <p>
@@ -3580,24 +3570,24 @@ export namespace PredictOutput {
  *             <li>
  * 				           <p>
  * 				              <code>PredictedScores</code> - Contains the raw classification score corresponding to each label.
- * 				</p>
+ * 				</p>				
  * 			         </li>
  *             <li>
  * 				           <p>
  * 				              <code>PredictedValue</code> - Present for a <code>REGRESSION</code>
  *                   <code>MLModel</code> request.
- * 				</p>
+ * 				</p>				
  * 			         </li>
  *          </ul>
  *
- *
+ * 	
  */
 export interface Prediction {
   __type?: "Prediction";
   /**
    *
    * 		       <p>Provides any additional details regarding the prediction.</p>
-   *
+   * 	
    */
   details?: { [key: string]: string };
 
@@ -3605,14 +3595,14 @@ export interface Prediction {
    *
    * 	        <p>The prediction label for either a <code>BINARY</code> or <code>MULTICLASS</code>
    *             <code>MLModel</code>.</p>
-   *
+   * 	
    */
   predictedLabel?: string;
 
   /**
    *
    * 		       <p>Provides the raw classification score corresponding to each label.</p>
-   *
+   * 	
    */
   predictedScores?: { [key: string]: number };
 
@@ -3620,7 +3610,7 @@ export interface Prediction {
    *
    * 	        <p>The prediction value for <code>REGRESSION</code>
    *             <code>MLModel</code>.</p>
-   *
+   * 	
    */
   predictedValue?: number;
 }
@@ -3634,11 +3624,9 @@ export namespace Prediction {
 /**
  *
  * 		       <p>The exception is thrown when a predict request is made to an unmounted <code>MLModel</code>.</p>
- *
+ * 	
  */
-export interface PredictorNotMountedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface PredictorNotMountedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "PredictorNotMountedException";
   $fault: "client";
   message?: string;
@@ -4022,7 +4010,7 @@ export enum RealtimeEndpointStatus {
   FAILED = "FAILED",
   NONE = "NONE",
   READY = "READY",
-  UPDATING = "UPDATING"
+  UPDATING = "UPDATING",
 }
 
 /**
@@ -4290,9 +4278,7 @@ export namespace RedshiftMetadata {
  *         <p>A specified resource cannot be located.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   code?: number;
@@ -4453,7 +4439,7 @@ export namespace S3DataSpec {
 
 export enum SortOrder {
   ASC = "asc",
-  DSC = "dsc"
+  DSC = "dsc",
 }
 
 /**
@@ -4489,9 +4475,7 @@ export namespace Tag {
  *         <p>The limit in the number of tags has been exceeded.</p>
  *
  */
-export interface TagLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TagLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TagLimitExceededException";
   $fault: "client";
   message?: string;
@@ -4507,7 +4491,7 @@ export enum TaggableResourceType {
   BATCH_PREDICTION = "BatchPrediction",
   DATASOURCE = "DataSource",
   EVALUATION = "Evaluation",
-  ML_MODEL = "MLModel"
+  ML_MODEL = "MLModel",
 }
 
 export interface UpdateBatchPredictionInput {

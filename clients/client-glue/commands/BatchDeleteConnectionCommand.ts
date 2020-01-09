@@ -1,20 +1,20 @@
 import {
   GlueClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../GlueClient";
 import {
   BatchDeleteConnectionRequest,
-  BatchDeleteConnectionResponse
+  BatchDeleteConnectionResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1BatchDeleteConnectionCommand,
-  serializeAws_json1_1BatchDeleteConnectionCommand
+  serializeAws_json1_1BatchDeleteConnectionCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type BatchDeleteConnectionCommandInput = BatchDeleteConnectionRequest;
 export type BatchDeleteConnectionCommandOutput = BatchDeleteConnectionResponse;
 
-export class BatchDeleteConnectionCommand extends $Command<
-  BatchDeleteConnectionCommandInput,
-  BatchDeleteConnectionCommandOutput,
-  GlueClientResolvedConfig
-> {
+export class BatchDeleteConnectionCommand extends $Command<BatchDeleteConnectionCommandInput, BatchDeleteConnectionCommandOutput, GlueClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class BatchDeleteConnectionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchDeleteConnectionCommandInput,
-    BatchDeleteConnectionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchDeleteConnectionCommandInput, BatchDeleteConnectionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

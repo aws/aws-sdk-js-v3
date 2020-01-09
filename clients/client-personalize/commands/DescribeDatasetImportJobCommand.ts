@@ -1,20 +1,20 @@
 import {
   PersonalizeClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../PersonalizeClient";
 import {
   DescribeDatasetImportJobRequest,
-  DescribeDatasetImportJobResponse
+  DescribeDatasetImportJobResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeDatasetImportJobCommand,
-  serializeAws_json1_1DescribeDatasetImportJobCommand
+  serializeAws_json1_1DescribeDatasetImportJobCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DescribeDatasetImportJobCommandInput = DescribeDatasetImportJobRequest;
 export type DescribeDatasetImportJobCommandOutput = DescribeDatasetImportJobResponse;
 
-export class DescribeDatasetImportJobCommand extends $Command<
-  DescribeDatasetImportJobCommandInput,
-  DescribeDatasetImportJobCommandOutput,
-  PersonalizeClientResolvedConfig
-> {
+export class DescribeDatasetImportJobCommand extends $Command<DescribeDatasetImportJobCommandInput, DescribeDatasetImportJobCommandOutput, PersonalizeClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class DescribeDatasetImportJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDatasetImportJobCommandInput,
-    DescribeDatasetImportJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDatasetImportJobCommandInput, DescribeDatasetImportJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -79,10 +70,7 @@ export class DescribeDatasetImportJobCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeDatasetImportJobCommandOutput> {
-    return deserializeAws_json1_1DescribeDatasetImportJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeDatasetImportJobCommand(output, context);
   }
 
   // Start section: command_body_extra

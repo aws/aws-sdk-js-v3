@@ -663,7 +663,7 @@ export async function deserializeAws_json1_1CreateCertificateAuthorityCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateCertificateAuthorityResponse(
-    data.CreateCertificateAuthorityResponse,
+    data,
     context
   );
   const response: CreateCertificateAuthorityCommandOutput = {
@@ -741,7 +741,7 @@ export async function deserializeAws_json1_1CreateCertificateAuthorityAuditRepor
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateCertificateAuthorityAuditReportResponse(
-    data.CreateCertificateAuthorityAuditReportResponse,
+    data,
     context
   );
   const response: CreateCertificateAuthorityAuditReportCommandOutput = {
@@ -1051,7 +1051,7 @@ export async function deserializeAws_json1_1DescribeCertificateAuthorityCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeCertificateAuthorityResponse(
-    data.DescribeCertificateAuthorityResponse,
+    data,
     context
   );
   const response: DescribeCertificateAuthorityCommandOutput = {
@@ -1115,7 +1115,7 @@ export async function deserializeAws_json1_1DescribeCertificateAuthorityAuditRep
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeCertificateAuthorityAuditReportResponse(
-    data.DescribeCertificateAuthorityAuditReportResponse,
+    data,
     context
   );
   const response: DescribeCertificateAuthorityAuditReportCommandOutput = {
@@ -1182,10 +1182,7 @@ export async function deserializeAws_json1_1GetCertificateCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCertificateResponse(
-    data.GetCertificateResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetCertificateResponse(data, context);
   const response: GetCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetCertificateResponse",
@@ -1268,7 +1265,7 @@ export async function deserializeAws_json1_1GetCertificateAuthorityCertificateCo
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetCertificateAuthorityCertificateResponse(
-    data.GetCertificateAuthorityCertificateResponse,
+    data,
     context
   );
   const response: GetCertificateAuthorityCertificateCommandOutput = {
@@ -1339,7 +1336,7 @@ export async function deserializeAws_json1_1GetCertificateAuthorityCsrCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetCertificateAuthorityCsrResponse(
-    data.GetCertificateAuthorityCsrResponse,
+    data,
     context
   );
   const response: GetCertificateAuthorityCsrCommandOutput = {
@@ -1525,10 +1522,7 @@ export async function deserializeAws_json1_1IssueCertificateCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1IssueCertificateResponse(
-    data.IssueCertificateResponse,
-    context
-  );
+  contents = deserializeAws_json1_1IssueCertificateResponse(data, context);
   const response: IssueCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "IssueCertificateResponse",
@@ -1618,7 +1612,7 @@ export async function deserializeAws_json1_1ListCertificateAuthoritiesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListCertificateAuthoritiesResponse(
-    data.ListCertificateAuthoritiesResponse,
+    data,
     context
   );
   const response: ListCertificateAuthoritiesCommandOutput = {
@@ -1671,10 +1665,7 @@ export async function deserializeAws_json1_1ListPermissionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPermissionsResponse(
-    data.ListPermissionsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListPermissionsResponse(data, context);
   const response: ListPermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListPermissionsResponse",
@@ -1753,10 +1744,7 @@ export async function deserializeAws_json1_1ListTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsResponse(
-    data.ListTagsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsResponse(data, context);
   const response: ListTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsResponse",

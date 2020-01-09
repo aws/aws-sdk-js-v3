@@ -599,10 +599,7 @@ export async function deserializeAws_json1_1AddTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddTagsResponse(
-    data.AddTagsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1AddTagsResponse(data, context);
   const response: AddTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddTagsResponse",
@@ -709,10 +706,7 @@ export async function deserializeAws_json1_1CreateTrailCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateTrailResponse(
-    data.CreateTrailResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateTrailResponse(data, context);
   const response: CreateTrailCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateTrailResponse",
@@ -945,10 +939,7 @@ export async function deserializeAws_json1_1DeleteTrailCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteTrailResponse(
-    data.DeleteTrailResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteTrailResponse(data, context);
   const response: DeleteTrailCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteTrailResponse",
@@ -1041,10 +1032,7 @@ export async function deserializeAws_json1_1DescribeTrailsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTrailsResponse(
-    data.DescribeTrailsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeTrailsResponse(data, context);
   const response: DescribeTrailsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTrailsResponse",
@@ -1109,10 +1097,7 @@ export async function deserializeAws_json1_1GetEventSelectorsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetEventSelectorsResponse(
-    data.GetEventSelectorsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetEventSelectorsResponse(data, context);
   const response: GetEventSelectorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetEventSelectorsResponse",
@@ -1187,10 +1172,7 @@ export async function deserializeAws_json1_1GetInsightSelectorsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetInsightSelectorsResponse(
-    data.GetInsightSelectorsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetInsightSelectorsResponse(data, context);
   const response: GetInsightSelectorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetInsightSelectorsResponse",
@@ -1269,10 +1251,7 @@ export async function deserializeAws_json1_1GetTrailCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetTrailResponse(
-    data.GetTrailResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetTrailResponse(data, context);
   const response: GetTrailCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetTrailResponse",
@@ -1344,10 +1323,7 @@ export async function deserializeAws_json1_1GetTrailStatusCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetTrailStatusResponse(
-    data.GetTrailStatusResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetTrailStatusResponse(data, context);
   const response: GetTrailStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetTrailStatusResponse",
@@ -1419,10 +1395,7 @@ export async function deserializeAws_json1_1ListPublicKeysCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPublicKeysResponse(
-    data.ListPublicKeysResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListPublicKeysResponse(data, context);
   const response: ListPublicKeysCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListPublicKeysResponse",
@@ -1494,10 +1467,7 @@ export async function deserializeAws_json1_1ListTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsResponse(
-    data.ListTagsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsResponse(data, context);
   const response: ListTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsResponse",
@@ -1590,10 +1560,7 @@ export async function deserializeAws_json1_1ListTrailsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTrailsResponse(
-    data.ListTrailsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTrailsResponse(data, context);
   const response: ListTrailsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTrailsResponse",
@@ -1651,10 +1618,7 @@ export async function deserializeAws_json1_1LookupEventsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1LookupEventsResponse(
-    data.LookupEventsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1LookupEventsResponse(data, context);
   const response: LookupEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "LookupEventsResponse",
@@ -1747,10 +1711,7 @@ export async function deserializeAws_json1_1PutEventSelectorsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutEventSelectorsResponse(
-    data.PutEventSelectorsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutEventSelectorsResponse(data, context);
   const response: PutEventSelectorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutEventSelectorsResponse",
@@ -1853,10 +1814,7 @@ export async function deserializeAws_json1_1PutInsightSelectorsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutInsightSelectorsResponse(
-    data.PutInsightSelectorsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutInsightSelectorsResponse(data, context);
   const response: PutInsightSelectorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutInsightSelectorsResponse",
@@ -1963,10 +1921,7 @@ export async function deserializeAws_json1_1RemoveTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RemoveTagsResponse(
-    data.RemoveTagsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1RemoveTagsResponse(data, context);
   const response: RemoveTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RemoveTagsResponse",
@@ -2066,10 +2021,7 @@ export async function deserializeAws_json1_1StartLoggingCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartLoggingResponse(
-    data.StartLoggingResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartLoggingResponse(data, context);
   const response: StartLoggingCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartLoggingResponse",
@@ -2162,10 +2114,7 @@ export async function deserializeAws_json1_1StopLoggingCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopLoggingResponse(
-    data.StopLoggingResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StopLoggingResponse(data, context);
   const response: StopLoggingCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopLoggingResponse",
@@ -2258,10 +2207,7 @@ export async function deserializeAws_json1_1UpdateTrailCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateTrailResponse(
-    data.UpdateTrailResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateTrailResponse(data, context);
   const response: UpdateTrailCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateTrailResponse",

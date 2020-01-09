@@ -1,20 +1,20 @@
 import {
   IoTThingsGraphClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../IoTThingsGraphClient";
 import {
   GetFlowTemplateRevisionsRequest,
-  GetFlowTemplateRevisionsResponse
+  GetFlowTemplateRevisionsResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1GetFlowTemplateRevisionsCommand,
-  serializeAws_json1_1GetFlowTemplateRevisionsCommand
+  serializeAws_json1_1GetFlowTemplateRevisionsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type GetFlowTemplateRevisionsCommandInput = GetFlowTemplateRevisionsRequest;
 export type GetFlowTemplateRevisionsCommandOutput = GetFlowTemplateRevisionsResponse;
 
-export class GetFlowTemplateRevisionsCommand extends $Command<
-  GetFlowTemplateRevisionsCommandInput,
-  GetFlowTemplateRevisionsCommandOutput,
-  IoTThingsGraphClientResolvedConfig
-> {
+export class GetFlowTemplateRevisionsCommand extends $Command<GetFlowTemplateRevisionsCommandInput, GetFlowTemplateRevisionsCommandOutput, IoTThingsGraphClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class GetFlowTemplateRevisionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetFlowTemplateRevisionsCommandInput,
-    GetFlowTemplateRevisionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetFlowTemplateRevisionsCommandInput, GetFlowTemplateRevisionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -79,10 +70,7 @@ export class GetFlowTemplateRevisionsCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<GetFlowTemplateRevisionsCommandOutput> {
-    return deserializeAws_json1_1GetFlowTemplateRevisionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetFlowTemplateRevisionsCommand(output, context);
   }
 
   // Start section: command_body_extra

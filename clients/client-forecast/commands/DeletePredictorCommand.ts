@@ -1,17 +1,17 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  forecastClientResolvedConfig
+  forecastClientResolvedConfig,
 } from "../forecastClient";
 import { DeletePredictorRequest } from "../models/index";
 import {
   deserializeAws_json1_1DeletePredictorCommand,
-  serializeAws_json1_1DeletePredictorCommand
+  serializeAws_json1_1DeletePredictorCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,17 +21,13 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
 } from "@aws-sdk/types";
 
 export type DeletePredictorCommandInput = DeletePredictorRequest;
-export type DeletePredictorCommandOutput = __MetadataBearer;
+export type DeletePredictorCommandOutput = __MetadataBearer
 
-export class DeletePredictorCommand extends $Command<
-  DeletePredictorCommandInput,
-  DeletePredictorCommandOutput,
-  forecastClientResolvedConfig
-> {
+export class DeletePredictorCommand extends $Command<DeletePredictorCommandInput, DeletePredictorCommandOutput, forecastClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,15 +42,13 @@ export class DeletePredictorCommand extends $Command<
     configuration: forecastClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeletePredictorCommandInput, DeletePredictorCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

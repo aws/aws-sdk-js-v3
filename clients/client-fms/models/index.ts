@@ -6,7 +6,7 @@ export enum AccountRoleStatus {
   Deleted = "DELETED",
   Deleting = "DELETING",
   PendingDeletion = "PENDING_DELETION",
-  Ready = "READY"
+  Ready = "READY",
 }
 
 export interface AssociateAdminAccountRequest {
@@ -65,7 +65,7 @@ export namespace ComplianceViolator {
 }
 
 export enum CustomerPolicyScopeIdType {
-  ACCOUNT = "ACCOUNT"
+  ACCOUNT = "ACCOUNT",
 }
 
 export interface DeleteNotificationChannelRequest {
@@ -135,7 +135,7 @@ export enum DependentServiceName {
   AWSConfig = "AWSCONFIG",
   AWSShieldAdvanced = "AWSSHIELD_ADVANCED",
   AWSVirtualPrivateCloud = "AWSVPC",
-  AWSWAF = "AWSWAF"
+  AWSWAF = "AWSWAF",
 }
 
 export interface DisassociateAdminAccountRequest {
@@ -474,9 +474,7 @@ export namespace GetProtectionStatusResponse {
  *       your request.</p>
  *
  */
-export interface InternalErrorException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalErrorException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalErrorException";
   $fault: "client";
   Message?: string;
@@ -493,9 +491,7 @@ export namespace InternalErrorException {
  *          <p>The parameters of the request were invalid.</p>
  *
  */
-export interface InvalidInputException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidInputException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidInputException";
   $fault: "client";
   Message?: string;
@@ -514,9 +510,7 @@ export namespace InvalidInputException {
  *       was already set as the AWS Firewall Manager administrator.</p>
  *
  */
-export interface InvalidOperationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidOperationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidOperationException";
   $fault: "client";
   Message?: string;
@@ -533,9 +527,7 @@ export namespace InvalidOperationException {
  *          <p>The value of the <code>Type</code> parameter is invalid.</p>
  *
  */
-export interface InvalidTypeException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidTypeException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidTypeException";
   $fault: "client";
   Message?: string;
@@ -555,9 +547,7 @@ export namespace InvalidTypeException {
  *         Manager Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
  *
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -1011,7 +1001,7 @@ export namespace PolicyComplianceStatus {
 
 export enum PolicyComplianceStatusType {
   Compliant = "COMPLIANT",
-  NonCompliant = "NON_COMPLIANT"
+  NonCompliant = "NON_COMPLIANT",
 }
 
 /**
@@ -1148,9 +1138,7 @@ export namespace PutPolicyResponse {
  *          <p>The specified resource was not found.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1275,7 +1263,7 @@ export enum SecurityServiceType {
   SECURITY_GROUPS_CONTENT_AUDIT = "SECURITY_GROUPS_CONTENT_AUDIT",
   SECURITY_GROUPS_USAGE_AUDIT = "SECURITY_GROUPS_USAGE_AUDIT",
   SHIELD_ADVANCED = "SHIELD_ADVANCED",
-  WAF = "WAF"
+  WAF = "WAF",
 }
 
 export enum ViolationReason {
@@ -1287,5 +1275,5 @@ export enum ViolationReason {
   ResourceViolatesAuditSecurityGroup = "RESOURCE_VIOLATES_AUDIT_SECURITY_GROUP",
   SecurityGroupRedundant = "SECURITY_GROUP_REDUNDANT",
   SecurityGroupUnused = "SECURITY_GROUP_UNUSED",
-  WebAclMissingRuleGroup = "WEB_ACL_MISSING_RULE_GROUP"
+  WebAclMissingRuleGroup = "WEB_ACL_MISSING_RULE_GROUP",
 }

@@ -705,10 +705,7 @@ export async function deserializeAws_json1_1CreateClusterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateClusterResponse(
-    data.CreateClusterResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateClusterResponse(data, context);
   const response: CreateClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateClusterResponse",
@@ -853,10 +850,7 @@ export async function deserializeAws_json1_1CreateParameterGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateParameterGroupResponse(
-    data.CreateParameterGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateParameterGroupResponse(data, context);
   const response: CreateParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateParameterGroupResponse",
@@ -942,10 +936,7 @@ export async function deserializeAws_json1_1CreateSubnetGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateSubnetGroupResponse(
-    data.CreateSubnetGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateSubnetGroupResponse(data, context);
   const response: CreateSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateSubnetGroupResponse",
@@ -1028,7 +1019,7 @@ export async function deserializeAws_json1_1DecreaseReplicationFactorCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DecreaseReplicationFactorResponse(
-    data.DecreaseReplicationFactorResponse,
+    data,
     context
   );
   const response: DecreaseReplicationFactorCommandOutput = {
@@ -1116,10 +1107,7 @@ export async function deserializeAws_json1_1DeleteClusterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteClusterResponse(
-    data.DeleteClusterResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteClusterResponse(data, context);
   const response: DeleteClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteClusterResponse",
@@ -1201,10 +1189,7 @@ export async function deserializeAws_json1_1DeleteParameterGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteParameterGroupResponse(
-    data.DeleteParameterGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteParameterGroupResponse(data, context);
   const response: DeleteParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteParameterGroupResponse",
@@ -1283,10 +1268,7 @@ export async function deserializeAws_json1_1DeleteSubnetGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteSubnetGroupResponse(
-    data.DeleteSubnetGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteSubnetGroupResponse(data, context);
   const response: DeleteSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteSubnetGroupResponse",
@@ -1351,10 +1333,7 @@ export async function deserializeAws_json1_1DescribeClustersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeClustersResponse(
-    data.DescribeClustersResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeClustersResponse(data, context);
   const response: DescribeClustersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeClustersResponse",
@@ -1430,7 +1409,7 @@ export async function deserializeAws_json1_1DescribeDefaultParametersCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeDefaultParametersResponse(
-    data.DescribeDefaultParametersResponse,
+    data,
     context
   );
   const response: DescribeDefaultParametersCommandOutput = {
@@ -1497,10 +1476,7 @@ export async function deserializeAws_json1_1DescribeEventsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEventsResponse(
-    data.DescribeEventsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeEventsResponse(data, context);
   const response: DescribeEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeEventsResponse",
@@ -1569,7 +1545,7 @@ export async function deserializeAws_json1_1DescribeParameterGroupsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeParameterGroupsResponse(
-    data.DescribeParameterGroupsResponse,
+    data,
     context
   );
   const response: DescribeParameterGroupsCommandOutput = {
@@ -1646,10 +1622,7 @@ export async function deserializeAws_json1_1DescribeParametersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeParametersResponse(
-    data.DescribeParametersResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeParametersResponse(data, context);
   const response: DescribeParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeParametersResponse",
@@ -1724,10 +1697,7 @@ export async function deserializeAws_json1_1DescribeSubnetGroupsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeSubnetGroupsResponse(
-    data.DescribeSubnetGroupsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeSubnetGroupsResponse(data, context);
   const response: DescribeSubnetGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeSubnetGroupsResponse",
@@ -1789,7 +1759,7 @@ export async function deserializeAws_json1_1IncreaseReplicationFactorCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1IncreaseReplicationFactorResponse(
-    data.IncreaseReplicationFactorResponse,
+    data,
     context
   );
   const response: IncreaseReplicationFactorCommandOutput = {
@@ -1898,10 +1868,7 @@ export async function deserializeAws_json1_1ListTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsResponse(
-    data.ListTagsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsResponse(data, context);
   const response: ListTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsResponse",
@@ -1987,10 +1954,7 @@ export async function deserializeAws_json1_1RebootNodeCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RebootNodeResponse(
-    data.RebootNodeResponse,
-    context
-  );
+  contents = deserializeAws_json1_1RebootNodeResponse(data, context);
   const response: RebootNodeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RebootNodeResponse",
@@ -2076,10 +2040,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(
-    data.TagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
@@ -2172,10 +2133,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(
-    data.UntagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
@@ -2268,10 +2226,7 @@ export async function deserializeAws_json1_1UpdateClusterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateClusterResponse(
-    data.UpdateClusterResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateClusterResponse(data, context);
   const response: UpdateClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateClusterResponse",
@@ -2367,10 +2322,7 @@ export async function deserializeAws_json1_1UpdateParameterGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateParameterGroupResponse(
-    data.UpdateParameterGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateParameterGroupResponse(data, context);
   const response: UpdateParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateParameterGroupResponse",
@@ -2449,10 +2401,7 @@ export async function deserializeAws_json1_1UpdateSubnetGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateSubnetGroupResponse(
-    data.UpdateSubnetGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateSubnetGroupResponse(data, context);
   const response: UpdateSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateSubnetGroupResponse",

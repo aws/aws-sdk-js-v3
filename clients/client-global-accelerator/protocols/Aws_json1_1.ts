@@ -1,70 +1,70 @@
 import {
   CreateAcceleratorCommandInput,
-  CreateAcceleratorCommandOutput
+  CreateAcceleratorCommandOutput,
 } from "../commands/CreateAcceleratorCommand";
 import {
   CreateEndpointGroupCommandInput,
-  CreateEndpointGroupCommandOutput
+  CreateEndpointGroupCommandOutput,
 } from "../commands/CreateEndpointGroupCommand";
 import {
   CreateListenerCommandInput,
-  CreateListenerCommandOutput
+  CreateListenerCommandOutput,
 } from "../commands/CreateListenerCommand";
 import {
   DeleteAcceleratorCommandInput,
-  DeleteAcceleratorCommandOutput
+  DeleteAcceleratorCommandOutput,
 } from "../commands/DeleteAcceleratorCommand";
 import {
   DeleteEndpointGroupCommandInput,
-  DeleteEndpointGroupCommandOutput
+  DeleteEndpointGroupCommandOutput,
 } from "../commands/DeleteEndpointGroupCommand";
 import {
   DeleteListenerCommandInput,
-  DeleteListenerCommandOutput
+  DeleteListenerCommandOutput,
 } from "../commands/DeleteListenerCommand";
 import {
   DescribeAcceleratorAttributesCommandInput,
-  DescribeAcceleratorAttributesCommandOutput
+  DescribeAcceleratorAttributesCommandOutput,
 } from "../commands/DescribeAcceleratorAttributesCommand";
 import {
   DescribeAcceleratorCommandInput,
-  DescribeAcceleratorCommandOutput
+  DescribeAcceleratorCommandOutput,
 } from "../commands/DescribeAcceleratorCommand";
 import {
   DescribeEndpointGroupCommandInput,
-  DescribeEndpointGroupCommandOutput
+  DescribeEndpointGroupCommandOutput,
 } from "../commands/DescribeEndpointGroupCommand";
 import {
   DescribeListenerCommandInput,
-  DescribeListenerCommandOutput
+  DescribeListenerCommandOutput,
 } from "../commands/DescribeListenerCommand";
 import {
   ListAcceleratorsCommandInput,
-  ListAcceleratorsCommandOutput
+  ListAcceleratorsCommandOutput,
 } from "../commands/ListAcceleratorsCommand";
 import {
   ListEndpointGroupsCommandInput,
-  ListEndpointGroupsCommandOutput
+  ListEndpointGroupsCommandOutput,
 } from "../commands/ListEndpointGroupsCommand";
 import {
   ListListenersCommandInput,
-  ListListenersCommandOutput
+  ListListenersCommandOutput,
 } from "../commands/ListListenersCommand";
 import {
   UpdateAcceleratorAttributesCommandInput,
-  UpdateAcceleratorAttributesCommandOutput
+  UpdateAcceleratorAttributesCommandOutput,
 } from "../commands/UpdateAcceleratorAttributesCommand";
 import {
   UpdateAcceleratorCommandInput,
-  UpdateAcceleratorCommandOutput
+  UpdateAcceleratorCommandOutput,
 } from "../commands/UpdateAcceleratorCommand";
 import {
   UpdateEndpointGroupCommandInput,
-  UpdateEndpointGroupCommandOutput
+  UpdateEndpointGroupCommandOutput,
 } from "../commands/UpdateEndpointGroupCommand";
 import {
   UpdateListenerCommandInput,
-  UpdateListenerCommandOutput
+  UpdateListenerCommandOutput,
 } from "../commands/UpdateListenerCommand";
 import {
   Accelerator,
@@ -118,18 +118,18 @@ import {
   UpdateEndpointGroupRequest,
   UpdateEndpointGroupResponse,
   UpdateListenerRequest,
-  UpdateListenerResponse
+  UpdateListenerResponse,
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export async function serializeAws_json1_1CreateAcceleratorCommand(
@@ -137,14 +137,11 @@ export async function serializeAws_json1_1CreateAcceleratorCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.CreateAccelerator";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GlobalAccelerator_V20180706.CreateAccelerator";
   let body: any = {};
   const wrappedBody: any = {
-    CreateAcceleratorRequest: serializeAws_json1_1CreateAcceleratorRequest(
-      input,
-      context
-    )
+    CreateAcceleratorRequest: serializeAws_json1_1CreateAcceleratorRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -153,7 +150,7 @@ export async function serializeAws_json1_1CreateAcceleratorCommand(
     method: "POST",
     path: "/CreateAccelerator",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -162,14 +159,11 @@ export async function serializeAws_json1_1CreateEndpointGroupCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.CreateEndpointGroup";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GlobalAccelerator_V20180706.CreateEndpointGroup";
   let body: any = {};
   const wrappedBody: any = {
-    CreateEndpointGroupRequest: serializeAws_json1_1CreateEndpointGroupRequest(
-      input,
-      context
-    )
+    CreateEndpointGroupRequest: serializeAws_json1_1CreateEndpointGroupRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -178,7 +172,7 @@ export async function serializeAws_json1_1CreateEndpointGroupCommand(
     method: "POST",
     path: "/CreateEndpointGroup",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -187,14 +181,11 @@ export async function serializeAws_json1_1CreateListenerCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.CreateListener";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GlobalAccelerator_V20180706.CreateListener";
   let body: any = {};
   const wrappedBody: any = {
-    CreateListenerRequest: serializeAws_json1_1CreateListenerRequest(
-      input,
-      context
-    )
+    CreateListenerRequest: serializeAws_json1_1CreateListenerRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -203,7 +194,7 @@ export async function serializeAws_json1_1CreateListenerCommand(
     method: "POST",
     path: "/CreateListener",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -212,14 +203,11 @@ export async function serializeAws_json1_1DeleteAcceleratorCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DeleteAccelerator";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GlobalAccelerator_V20180706.DeleteAccelerator";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteAcceleratorRequest: serializeAws_json1_1DeleteAcceleratorRequest(
-      input,
-      context
-    )
+    DeleteAcceleratorRequest: serializeAws_json1_1DeleteAcceleratorRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -228,7 +216,7 @@ export async function serializeAws_json1_1DeleteAcceleratorCommand(
     method: "POST",
     path: "/DeleteAccelerator",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -237,14 +225,11 @@ export async function serializeAws_json1_1DeleteEndpointGroupCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DeleteEndpointGroup";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GlobalAccelerator_V20180706.DeleteEndpointGroup";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteEndpointGroupRequest: serializeAws_json1_1DeleteEndpointGroupRequest(
-      input,
-      context
-    )
+    DeleteEndpointGroupRequest: serializeAws_json1_1DeleteEndpointGroupRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -253,7 +238,7 @@ export async function serializeAws_json1_1DeleteEndpointGroupCommand(
     method: "POST",
     path: "/DeleteEndpointGroup",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -262,14 +247,11 @@ export async function serializeAws_json1_1DeleteListenerCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DeleteListener";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GlobalAccelerator_V20180706.DeleteListener";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteListenerRequest: serializeAws_json1_1DeleteListenerRequest(
-      input,
-      context
-    )
+    DeleteListenerRequest: serializeAws_json1_1DeleteListenerRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -278,7 +260,7 @@ export async function serializeAws_json1_1DeleteListenerCommand(
     method: "POST",
     path: "/DeleteListener",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -287,14 +269,11 @@ export async function serializeAws_json1_1DescribeAcceleratorCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DescribeAccelerator";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GlobalAccelerator_V20180706.DescribeAccelerator";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeAcceleratorRequest: serializeAws_json1_1DescribeAcceleratorRequest(
-      input,
-      context
-    )
+    DescribeAcceleratorRequest: serializeAws_json1_1DescribeAcceleratorRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -303,7 +282,7 @@ export async function serializeAws_json1_1DescribeAcceleratorCommand(
     method: "POST",
     path: "/DescribeAccelerator",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -312,15 +291,11 @@ export async function serializeAws_json1_1DescribeAcceleratorAttributesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "GlobalAccelerator_V20180706.DescribeAcceleratorAttributes";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GlobalAccelerator_V20180706.DescribeAcceleratorAttributes";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeAcceleratorAttributesRequest: serializeAws_json1_1DescribeAcceleratorAttributesRequest(
-      input,
-      context
-    )
+    DescribeAcceleratorAttributesRequest: serializeAws_json1_1DescribeAcceleratorAttributesRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -329,7 +304,7 @@ export async function serializeAws_json1_1DescribeAcceleratorAttributesCommand(
     method: "POST",
     path: "/DescribeAcceleratorAttributes",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -338,14 +313,11 @@ export async function serializeAws_json1_1DescribeEndpointGroupCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DescribeEndpointGroup";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GlobalAccelerator_V20180706.DescribeEndpointGroup";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeEndpointGroupRequest: serializeAws_json1_1DescribeEndpointGroupRequest(
-      input,
-      context
-    )
+    DescribeEndpointGroupRequest: serializeAws_json1_1DescribeEndpointGroupRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -354,7 +326,7 @@ export async function serializeAws_json1_1DescribeEndpointGroupCommand(
     method: "POST",
     path: "/DescribeEndpointGroup",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -363,14 +335,11 @@ export async function serializeAws_json1_1DescribeListenerCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.DescribeListener";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GlobalAccelerator_V20180706.DescribeListener";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeListenerRequest: serializeAws_json1_1DescribeListenerRequest(
-      input,
-      context
-    )
+    DescribeListenerRequest: serializeAws_json1_1DescribeListenerRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -379,7 +348,7 @@ export async function serializeAws_json1_1DescribeListenerCommand(
     method: "POST",
     path: "/DescribeListener",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -388,14 +357,11 @@ export async function serializeAws_json1_1ListAcceleratorsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.ListAccelerators";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GlobalAccelerator_V20180706.ListAccelerators";
   let body: any = {};
   const wrappedBody: any = {
-    ListAcceleratorsRequest: serializeAws_json1_1ListAcceleratorsRequest(
-      input,
-      context
-    )
+    ListAcceleratorsRequest: serializeAws_json1_1ListAcceleratorsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -404,7 +370,7 @@ export async function serializeAws_json1_1ListAcceleratorsCommand(
     method: "POST",
     path: "/ListAccelerators",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -413,14 +379,11 @@ export async function serializeAws_json1_1ListEndpointGroupsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.ListEndpointGroups";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GlobalAccelerator_V20180706.ListEndpointGroups";
   let body: any = {};
   const wrappedBody: any = {
-    ListEndpointGroupsRequest: serializeAws_json1_1ListEndpointGroupsRequest(
-      input,
-      context
-    )
+    ListEndpointGroupsRequest: serializeAws_json1_1ListEndpointGroupsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -429,7 +392,7 @@ export async function serializeAws_json1_1ListEndpointGroupsCommand(
     method: "POST",
     path: "/ListEndpointGroups",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -438,14 +401,11 @@ export async function serializeAws_json1_1ListListenersCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.ListListeners";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GlobalAccelerator_V20180706.ListListeners";
   let body: any = {};
   const wrappedBody: any = {
-    ListListenersRequest: serializeAws_json1_1ListListenersRequest(
-      input,
-      context
-    )
+    ListListenersRequest: serializeAws_json1_1ListListenersRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -454,7 +414,7 @@ export async function serializeAws_json1_1ListListenersCommand(
     method: "POST",
     path: "/ListListeners",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -463,14 +423,11 @@ export async function serializeAws_json1_1UpdateAcceleratorCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.UpdateAccelerator";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GlobalAccelerator_V20180706.UpdateAccelerator";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateAcceleratorRequest: serializeAws_json1_1UpdateAcceleratorRequest(
-      input,
-      context
-    )
+    UpdateAcceleratorRequest: serializeAws_json1_1UpdateAcceleratorRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -479,7 +436,7 @@ export async function serializeAws_json1_1UpdateAcceleratorCommand(
     method: "POST",
     path: "/UpdateAccelerator",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -488,15 +445,11 @@ export async function serializeAws_json1_1UpdateAcceleratorAttributesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "GlobalAccelerator_V20180706.UpdateAcceleratorAttributes";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GlobalAccelerator_V20180706.UpdateAcceleratorAttributes";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateAcceleratorAttributesRequest: serializeAws_json1_1UpdateAcceleratorAttributesRequest(
-      input,
-      context
-    )
+    UpdateAcceleratorAttributesRequest: serializeAws_json1_1UpdateAcceleratorAttributesRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -505,7 +458,7 @@ export async function serializeAws_json1_1UpdateAcceleratorAttributesCommand(
     method: "POST",
     path: "/UpdateAcceleratorAttributes",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -514,14 +467,11 @@ export async function serializeAws_json1_1UpdateEndpointGroupCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.UpdateEndpointGroup";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GlobalAccelerator_V20180706.UpdateEndpointGroup";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateEndpointGroupRequest: serializeAws_json1_1UpdateEndpointGroupRequest(
-      input,
-      context
-    )
+    UpdateEndpointGroupRequest: serializeAws_json1_1UpdateEndpointGroupRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -530,7 +480,7 @@ export async function serializeAws_json1_1UpdateEndpointGroupCommand(
     method: "POST",
     path: "/UpdateEndpointGroup",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -539,14 +489,11 @@ export async function serializeAws_json1_1UpdateListenerCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "GlobalAccelerator_V20180706.UpdateListener";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "GlobalAccelerator_V20180706.UpdateListener";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateListenerRequest: serializeAws_json1_1UpdateListenerRequest(
-      input,
-      context
-    )
+    UpdateListenerRequest: serializeAws_json1_1UpdateListenerRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -555,7 +502,7 @@ export async function serializeAws_json1_1UpdateListenerCommand(
     method: "POST",
     path: "/UpdateListener",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -566,62 +513,49 @@ export async function deserializeAws_json1_1CreateAcceleratorCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateAcceleratorCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateAcceleratorResponse(
-    data.CreateAcceleratorResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateAcceleratorResponse(data, context);
   const response: CreateAcceleratorCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateAcceleratorResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateAcceleratorCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateAcceleratorCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.globalaccelerator.v20180706#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -632,95 +566,67 @@ export async function deserializeAws_json1_1CreateEndpointGroupCommand(
   context: __SerdeContext
 ): Promise<CreateEndpointGroupCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateEndpointGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateEndpointGroupCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateEndpointGroupResponse(
-    data.CreateEndpointGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateEndpointGroupResponse(data, context);
   const response: CreateEndpointGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateEndpointGroupResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateEndpointGroupCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateEndpointGroupCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException":
-      response = await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "AccessDeniedException":
     case "com.amazonaws.globalaccelerator.v20180706#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "EndpointGroupAlreadyExistsException":
     case "com.amazonaws.globalaccelerator.v20180706#EndpointGroupAlreadyExistsException":
-      response = await deserializeAws_json1_1EndpointGroupAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1EndpointGroupAlreadyExistsExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.globalaccelerator.v20180706#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "ListenerNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#ListenerNotFoundException":
-      response = await deserializeAws_json1_1ListenerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ListenerNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -733,76 +639,57 @@ export async function deserializeAws_json1_1CreateListenerCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateListenerCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateListenerResponse(
-    data.CreateListenerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateListenerResponse(data, context);
   const response: CreateListenerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateListenerResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateListenerCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateListenerCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException":
-      response = await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     case "InvalidPortRangeException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidPortRangeException":
-      response = await deserializeAws_json1_1InvalidPortRangeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidPortRangeExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.globalaccelerator.v20180706#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -816,67 +703,51 @@ export async function deserializeAws_json1_1DeleteAcceleratorCommand(
     return deserializeAws_json1_1DeleteAcceleratorCommandError(output, context);
   }
   const response: DeleteAcceleratorCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteAcceleratorCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteAcceleratorCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AcceleratorNotDisabledException":
     case "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotDisabledException":
-      response = await deserializeAws_json1_1AcceleratorNotDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AcceleratorNotDisabledExceptionResponse(parsedOutput, context);
       break;
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException":
-      response = await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "AssociatedListenerFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#AssociatedListenerFoundException":
-      response = await deserializeAws_json1_1AssociatedListenerFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AssociatedListenerFoundExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -887,59 +758,46 @@ export async function deserializeAws_json1_1DeleteEndpointGroupCommand(
   context: __SerdeContext
 ): Promise<DeleteEndpointGroupCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteEndpointGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteEndpointGroupCommandError(output, context);
   }
   const response: DeleteEndpointGroupCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteEndpointGroupCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteEndpointGroupCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EndpointGroupNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#EndpointGroupNotFoundException":
-      response = await deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -953,60 +811,47 @@ export async function deserializeAws_json1_1DeleteListenerCommand(
     return deserializeAws_json1_1DeleteListenerCommandError(output, context);
   }
   const response: DeleteListenerCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteListenerCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteListenerCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AssociatedEndpointGroupFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#AssociatedEndpointGroupFoundException":
-      response = await deserializeAws_json1_1AssociatedEndpointGroupFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AssociatedEndpointGroupFoundExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     case "ListenerNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#ListenerNotFoundException":
-      response = await deserializeAws_json1_1ListenerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ListenerNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1017,67 +862,51 @@ export async function deserializeAws_json1_1DescribeAcceleratorCommand(
   context: __SerdeContext
 ): Promise<DescribeAcceleratorCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeAcceleratorCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeAcceleratorCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAcceleratorResponse(
-    data.DescribeAcceleratorResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeAcceleratorResponse(data, context);
   const response: DescribeAcceleratorCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeAcceleratorResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeAcceleratorCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeAcceleratorCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException":
-      response = await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1088,67 +917,51 @@ export async function deserializeAws_json1_1DescribeAcceleratorAttributesCommand
   context: __SerdeContext
 ): Promise<DescribeAcceleratorAttributesCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeAcceleratorAttributesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeAcceleratorAttributesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAcceleratorAttributesResponse(
-    data.DescribeAcceleratorAttributesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeAcceleratorAttributesResponse(data, context);
   const response: DescribeAcceleratorAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeAcceleratorAttributesResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeAcceleratorAttributesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeAcceleratorAttributesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException":
-      response = await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1159,67 +972,51 @@ export async function deserializeAws_json1_1DescribeEndpointGroupCommand(
   context: __SerdeContext
 ): Promise<DescribeEndpointGroupCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeEndpointGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeEndpointGroupCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEndpointGroupResponse(
-    data.DescribeEndpointGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeEndpointGroupResponse(data, context);
   const response: DescribeEndpointGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeEndpointGroupResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeEndpointGroupCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeEndpointGroupCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EndpointGroupNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#EndpointGroupNotFoundException":
-      response = await deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1232,62 +1029,49 @@ export async function deserializeAws_json1_1DescribeListenerCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeListenerCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeListenerResponse(
-    data.DescribeListenerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeListenerResponse(data, context);
   const response: DescribeListenerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeListenerResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeListenerCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeListenerCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     case "ListenerNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#ListenerNotFoundException":
-      response = await deserializeAws_json1_1ListenerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ListenerNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1300,62 +1084,49 @@ export async function deserializeAws_json1_1ListAcceleratorsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListAcceleratorsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAcceleratorsResponse(
-    data.ListAcceleratorsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListAcceleratorsResponse(data, context);
   const response: ListAcceleratorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAcceleratorsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListAcceleratorsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListAcceleratorsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1366,74 +1137,55 @@ export async function deserializeAws_json1_1ListEndpointGroupsCommand(
   context: __SerdeContext
 ): Promise<ListEndpointGroupsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListEndpointGroupsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListEndpointGroupsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1ListEndpointGroupsResponse(
-    data.ListEndpointGroupsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListEndpointGroupsResponse(data, context);
   const response: ListEndpointGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListEndpointGroupsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListEndpointGroupsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListEndpointGroupsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
       break;
     case "ListenerNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#ListenerNotFoundException":
-      response = await deserializeAws_json1_1ListenerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ListenerNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1446,69 +1198,53 @@ export async function deserializeAws_json1_1ListListenersCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListListenersCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1ListListenersResponse(
-    data.ListListenersResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListListenersResponse(data, context);
   const response: ListListenersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListListenersResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListListenersCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListListenersCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException":
-      response = await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1521,62 +1257,49 @@ export async function deserializeAws_json1_1UpdateAcceleratorCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateAcceleratorCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateAcceleratorResponse(
-    data.UpdateAcceleratorResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateAcceleratorResponse(data, context);
   const response: UpdateAcceleratorCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateAcceleratorResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateAcceleratorCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateAcceleratorCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException":
-      response = await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1587,74 +1310,55 @@ export async function deserializeAws_json1_1UpdateAcceleratorAttributesCommand(
   context: __SerdeContext
 ): Promise<UpdateAcceleratorAttributesCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateAcceleratorAttributesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateAcceleratorAttributesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateAcceleratorAttributesResponse(
-    data.UpdateAcceleratorAttributesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateAcceleratorAttributesResponse(data, context);
   const response: UpdateAcceleratorAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateAcceleratorAttributesResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateAcceleratorAttributesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateAcceleratorAttributesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException":
-      response = await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "AccessDeniedException":
     case "com.amazonaws.globalaccelerator.v20180706#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1665,81 +1369,59 @@ export async function deserializeAws_json1_1UpdateEndpointGroupCommand(
   context: __SerdeContext
 ): Promise<UpdateEndpointGroupCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateEndpointGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateEndpointGroupCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateEndpointGroupResponse(
-    data.UpdateEndpointGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateEndpointGroupResponse(data, context);
   const response: UpdateEndpointGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateEndpointGroupResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateEndpointGroupCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateEndpointGroupCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.globalaccelerator.v20180706#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "EndpointGroupNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#EndpointGroupNotFoundException":
-      response = await deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.globalaccelerator.v20180706#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1752,76 +1434,57 @@ export async function deserializeAws_json1_1UpdateListenerCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateListenerCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateListenerResponse(
-    data.UpdateListenerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateListenerResponse(data, context);
   const response: UpdateListenerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateListenerResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateListenerCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateListenerCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     case "InvalidPortRangeException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidPortRangeException":
-      response = await deserializeAws_json1_1InvalidPortRangeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidPortRangeExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.globalaccelerator.v20180706#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "ListenerNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#ListenerNotFoundException":
-      response = await deserializeAws_json1_1ListenerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ListenerNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
       errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1831,15 +1494,12 @@ const deserializeAws_json1_1AcceleratorNotDisabledExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<AcceleratorNotDisabledException> => {
-  const deserialized: any = deserializeAws_json1_1AcceleratorNotDisabledException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1AcceleratorNotDisabledException(output.body, context);
   const contents: AcceleratorNotDisabledException = {
     __type: "AcceleratorNotDisabledException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -1848,15 +1508,12 @@ const deserializeAws_json1_1AcceleratorNotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<AcceleratorNotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1AcceleratorNotFoundException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1AcceleratorNotFoundException(output.body, context);
   const contents: AcceleratorNotFoundException = {
     __type: "AcceleratorNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -1865,15 +1522,12 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
-  const deserialized: any = deserializeAws_json1_1AccessDeniedException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1AccessDeniedException(output.body, context);
   const contents: AccessDeniedException = {
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -1882,15 +1536,12 @@ const deserializeAws_json1_1AssociatedEndpointGroupFoundExceptionResponse = asyn
   output: any,
   context: __SerdeContext
 ): Promise<AssociatedEndpointGroupFoundException> => {
-  const deserialized: any = deserializeAws_json1_1AssociatedEndpointGroupFoundException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1AssociatedEndpointGroupFoundException(output.body, context);
   const contents: AssociatedEndpointGroupFoundException = {
     __type: "AssociatedEndpointGroupFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -1899,15 +1550,12 @@ const deserializeAws_json1_1AssociatedListenerFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<AssociatedListenerFoundException> => {
-  const deserialized: any = deserializeAws_json1_1AssociatedListenerFoundException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1AssociatedListenerFoundException(output.body, context);
   const contents: AssociatedListenerFoundException = {
     __type: "AssociatedListenerFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -1916,15 +1564,12 @@ const deserializeAws_json1_1EndpointGroupAlreadyExistsExceptionResponse = async 
   output: any,
   context: __SerdeContext
 ): Promise<EndpointGroupAlreadyExistsException> => {
-  const deserialized: any = deserializeAws_json1_1EndpointGroupAlreadyExistsException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1EndpointGroupAlreadyExistsException(output.body, context);
   const contents: EndpointGroupAlreadyExistsException = {
     __type: "EndpointGroupAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -1933,15 +1578,12 @@ const deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<EndpointGroupNotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1EndpointGroupNotFoundException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1EndpointGroupNotFoundException(output.body, context);
   const contents: EndpointGroupNotFoundException = {
     __type: "EndpointGroupNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -1950,15 +1592,12 @@ const deserializeAws_json1_1InternalServiceErrorExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InternalServiceErrorException> => {
-  const deserialized: any = deserializeAws_json1_1InternalServiceErrorException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalServiceErrorException(output.body, context);
   const contents: InternalServiceErrorException = {
     __type: "InternalServiceErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -1967,15 +1606,12 @@ const deserializeAws_json1_1InvalidArgumentExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidArgumentException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidArgumentException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidArgumentException(output.body, context);
   const contents: InvalidArgumentException = {
     __type: "InvalidArgumentException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -1984,15 +1620,12 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(output.body, context);
   const contents: InvalidNextTokenException = {
     __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2001,15 +1634,12 @@ const deserializeAws_json1_1InvalidPortRangeExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidPortRangeException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidPortRangeException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidPortRangeException(output.body, context);
   const contents: InvalidPortRangeException = {
     __type: "InvalidPortRangeException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2018,15 +1648,12 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1LimitExceededException(output.body, context);
   const contents: LimitExceededException = {
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2035,15 +1662,12 @@ const deserializeAws_json1_1ListenerNotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ListenerNotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1ListenerNotFoundException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ListenerNotFoundException(output.body, context);
   const contents: ListenerNotFoundException = {
     __type: "ListenerNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -2054,19 +1678,19 @@ const serializeAws_json1_1CreateAcceleratorRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Enabled !== undefined) {
-    bodyParams["Enabled"] = input.Enabled;
+    bodyParams['Enabled'] = input.Enabled;
   }
   if (input.IdempotencyToken !== undefined) {
-    bodyParams["IdempotencyToken"] = input.IdempotencyToken;
+    bodyParams['IdempotencyToken'] = input.IdempotencyToken;
   }
   if (input.IpAddressType !== undefined) {
-    bodyParams["IpAddressType"] = input.IpAddressType;
+    bodyParams['IpAddressType'] = input.IpAddressType;
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateEndpointGroupRequest = (
   input: CreateEndpointGroupRequest,
@@ -2074,42 +1698,37 @@ const serializeAws_json1_1CreateEndpointGroupRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.EndpointConfigurations !== undefined) {
-    bodyParams[
-      "EndpointConfigurations"
-    ] = serializeAws_json1_1EndpointConfigurations(
-      input.EndpointConfigurations,
-      context
-    );
+    bodyParams['EndpointConfigurations'] = serializeAws_json1_1EndpointConfigurations(input.EndpointConfigurations, context);
   }
   if (input.EndpointGroupRegion !== undefined) {
-    bodyParams["EndpointGroupRegion"] = input.EndpointGroupRegion;
+    bodyParams['EndpointGroupRegion'] = input.EndpointGroupRegion;
   }
   if (input.HealthCheckIntervalSeconds !== undefined) {
-    bodyParams["HealthCheckIntervalSeconds"] = input.HealthCheckIntervalSeconds;
+    bodyParams['HealthCheckIntervalSeconds'] = input.HealthCheckIntervalSeconds;
   }
   if (input.HealthCheckPath !== undefined) {
-    bodyParams["HealthCheckPath"] = input.HealthCheckPath;
+    bodyParams['HealthCheckPath'] = input.HealthCheckPath;
   }
   if (input.HealthCheckPort !== undefined) {
-    bodyParams["HealthCheckPort"] = input.HealthCheckPort;
+    bodyParams['HealthCheckPort'] = input.HealthCheckPort;
   }
   if (input.HealthCheckProtocol !== undefined) {
-    bodyParams["HealthCheckProtocol"] = input.HealthCheckProtocol;
+    bodyParams['HealthCheckProtocol'] = input.HealthCheckProtocol;
   }
   if (input.IdempotencyToken !== undefined) {
-    bodyParams["IdempotencyToken"] = input.IdempotencyToken;
+    bodyParams['IdempotencyToken'] = input.IdempotencyToken;
   }
   if (input.ListenerArn !== undefined) {
-    bodyParams["ListenerArn"] = input.ListenerArn;
+    bodyParams['ListenerArn'] = input.ListenerArn;
   }
   if (input.ThresholdCount !== undefined) {
-    bodyParams["ThresholdCount"] = input.ThresholdCount;
+    bodyParams['ThresholdCount'] = input.ThresholdCount;
   }
   if (input.TrafficDialPercentage !== undefined) {
-    bodyParams["TrafficDialPercentage"] = input.TrafficDialPercentage;
+    bodyParams['TrafficDialPercentage'] = input.TrafficDialPercentage;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateListenerRequest = (
   input: CreateListenerRequest,
@@ -2117,25 +1736,22 @@ const serializeAws_json1_1CreateListenerRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AcceleratorArn !== undefined) {
-    bodyParams["AcceleratorArn"] = input.AcceleratorArn;
+    bodyParams['AcceleratorArn'] = input.AcceleratorArn;
   }
   if (input.ClientAffinity !== undefined) {
-    bodyParams["ClientAffinity"] = input.ClientAffinity;
+    bodyParams['ClientAffinity'] = input.ClientAffinity;
   }
   if (input.IdempotencyToken !== undefined) {
-    bodyParams["IdempotencyToken"] = input.IdempotencyToken;
+    bodyParams['IdempotencyToken'] = input.IdempotencyToken;
   }
   if (input.PortRanges !== undefined) {
-    bodyParams["PortRanges"] = serializeAws_json1_1PortRanges(
-      input.PortRanges,
-      context
-    );
+    bodyParams['PortRanges'] = serializeAws_json1_1PortRanges(input.PortRanges, context);
   }
   if (input.Protocol !== undefined) {
-    bodyParams["Protocol"] = input.Protocol;
+    bodyParams['Protocol'] = input.Protocol;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteAcceleratorRequest = (
   input: DeleteAcceleratorRequest,
@@ -2143,10 +1759,10 @@ const serializeAws_json1_1DeleteAcceleratorRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AcceleratorArn !== undefined) {
-    bodyParams["AcceleratorArn"] = input.AcceleratorArn;
+    bodyParams['AcceleratorArn'] = input.AcceleratorArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteEndpointGroupRequest = (
   input: DeleteEndpointGroupRequest,
@@ -2154,10 +1770,10 @@ const serializeAws_json1_1DeleteEndpointGroupRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.EndpointGroupArn !== undefined) {
-    bodyParams["EndpointGroupArn"] = input.EndpointGroupArn;
+    bodyParams['EndpointGroupArn'] = input.EndpointGroupArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteListenerRequest = (
   input: DeleteListenerRequest,
@@ -2165,10 +1781,10 @@ const serializeAws_json1_1DeleteListenerRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ListenerArn !== undefined) {
-    bodyParams["ListenerArn"] = input.ListenerArn;
+    bodyParams['ListenerArn'] = input.ListenerArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeAcceleratorAttributesRequest = (
   input: DescribeAcceleratorAttributesRequest,
@@ -2176,10 +1792,10 @@ const serializeAws_json1_1DescribeAcceleratorAttributesRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AcceleratorArn !== undefined) {
-    bodyParams["AcceleratorArn"] = input.AcceleratorArn;
+    bodyParams['AcceleratorArn'] = input.AcceleratorArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeAcceleratorRequest = (
   input: DescribeAcceleratorRequest,
@@ -2187,10 +1803,10 @@ const serializeAws_json1_1DescribeAcceleratorRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AcceleratorArn !== undefined) {
-    bodyParams["AcceleratorArn"] = input.AcceleratorArn;
+    bodyParams['AcceleratorArn'] = input.AcceleratorArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeEndpointGroupRequest = (
   input: DescribeEndpointGroupRequest,
@@ -2198,10 +1814,10 @@ const serializeAws_json1_1DescribeEndpointGroupRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.EndpointGroupArn !== undefined) {
-    bodyParams["EndpointGroupArn"] = input.EndpointGroupArn;
+    bodyParams['EndpointGroupArn'] = input.EndpointGroupArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeListenerRequest = (
   input: DescribeListenerRequest,
@@ -2209,10 +1825,10 @@ const serializeAws_json1_1DescribeListenerRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ListenerArn !== undefined) {
-    bodyParams["ListenerArn"] = input.ListenerArn;
+    bodyParams['ListenerArn'] = input.ListenerArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1EndpointConfiguration = (
   input: EndpointConfiguration,
@@ -2220,17 +1836,16 @@ const serializeAws_json1_1EndpointConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClientIPPreservationEnabled !== undefined) {
-    bodyParams["ClientIPPreservationEnabled"] =
-      input.ClientIPPreservationEnabled;
+    bodyParams['ClientIPPreservationEnabled'] = input.ClientIPPreservationEnabled;
   }
   if (input.EndpointId !== undefined) {
-    bodyParams["EndpointId"] = input.EndpointId;
+    bodyParams['EndpointId'] = input.EndpointId;
   }
   if (input.Weight !== undefined) {
-    bodyParams["Weight"] = input.Weight;
+    bodyParams['Weight'] = input.Weight;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1EndpointConfigurations = (
   input: Array<EndpointConfiguration>,
@@ -2239,7 +1854,7 @@ const serializeAws_json1_1EndpointConfigurations = (
   return (input || []).map(entry =>
     serializeAws_json1_1EndpointConfiguration(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1ListAcceleratorsRequest = (
   input: ListAcceleratorsRequest,
@@ -2247,13 +1862,13 @@ const serializeAws_json1_1ListAcceleratorsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
+    bodyParams['MaxResults'] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListEndpointGroupsRequest = (
   input: ListEndpointGroupsRequest,
@@ -2261,16 +1876,16 @@ const serializeAws_json1_1ListEndpointGroupsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ListenerArn !== undefined) {
-    bodyParams["ListenerArn"] = input.ListenerArn;
+    bodyParams['ListenerArn'] = input.ListenerArn;
   }
   if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
+    bodyParams['MaxResults'] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListListenersRequest = (
   input: ListListenersRequest,
@@ -2278,16 +1893,16 @@ const serializeAws_json1_1ListListenersRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AcceleratorArn !== undefined) {
-    bodyParams["AcceleratorArn"] = input.AcceleratorArn;
+    bodyParams['AcceleratorArn'] = input.AcceleratorArn;
   }
   if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
+    bodyParams['MaxResults'] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1PortRange = (
   input: PortRange,
@@ -2295,13 +1910,13 @@ const serializeAws_json1_1PortRange = (
 ): any => {
   let bodyParams: any = {};
   if (input.FromPort !== undefined) {
-    bodyParams["FromPort"] = input.FromPort;
+    bodyParams['FromPort'] = input.FromPort;
   }
   if (input.ToPort !== undefined) {
-    bodyParams["ToPort"] = input.ToPort;
+    bodyParams['ToPort'] = input.ToPort;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1PortRanges = (
   input: Array<PortRange>,
@@ -2310,7 +1925,7 @@ const serializeAws_json1_1PortRanges = (
   return (input || []).map(entry =>
     serializeAws_json1_1PortRange(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1UpdateAcceleratorAttributesRequest = (
   input: UpdateAcceleratorAttributesRequest,
@@ -2318,19 +1933,19 @@ const serializeAws_json1_1UpdateAcceleratorAttributesRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AcceleratorArn !== undefined) {
-    bodyParams["AcceleratorArn"] = input.AcceleratorArn;
+    bodyParams['AcceleratorArn'] = input.AcceleratorArn;
   }
   if (input.FlowLogsEnabled !== undefined) {
-    bodyParams["FlowLogsEnabled"] = input.FlowLogsEnabled;
+    bodyParams['FlowLogsEnabled'] = input.FlowLogsEnabled;
   }
   if (input.FlowLogsS3Bucket !== undefined) {
-    bodyParams["FlowLogsS3Bucket"] = input.FlowLogsS3Bucket;
+    bodyParams['FlowLogsS3Bucket'] = input.FlowLogsS3Bucket;
   }
   if (input.FlowLogsS3Prefix !== undefined) {
-    bodyParams["FlowLogsS3Prefix"] = input.FlowLogsS3Prefix;
+    bodyParams['FlowLogsS3Prefix'] = input.FlowLogsS3Prefix;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateAcceleratorRequest = (
   input: UpdateAcceleratorRequest,
@@ -2338,19 +1953,19 @@ const serializeAws_json1_1UpdateAcceleratorRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AcceleratorArn !== undefined) {
-    bodyParams["AcceleratorArn"] = input.AcceleratorArn;
+    bodyParams['AcceleratorArn'] = input.AcceleratorArn;
   }
   if (input.Enabled !== undefined) {
-    bodyParams["Enabled"] = input.Enabled;
+    bodyParams['Enabled'] = input.Enabled;
   }
   if (input.IpAddressType !== undefined) {
-    bodyParams["IpAddressType"] = input.IpAddressType;
+    bodyParams['IpAddressType'] = input.IpAddressType;
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateEndpointGroupRequest = (
   input: UpdateEndpointGroupRequest,
@@ -2358,36 +1973,31 @@ const serializeAws_json1_1UpdateEndpointGroupRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.EndpointConfigurations !== undefined) {
-    bodyParams[
-      "EndpointConfigurations"
-    ] = serializeAws_json1_1EndpointConfigurations(
-      input.EndpointConfigurations,
-      context
-    );
+    bodyParams['EndpointConfigurations'] = serializeAws_json1_1EndpointConfigurations(input.EndpointConfigurations, context);
   }
   if (input.EndpointGroupArn !== undefined) {
-    bodyParams["EndpointGroupArn"] = input.EndpointGroupArn;
+    bodyParams['EndpointGroupArn'] = input.EndpointGroupArn;
   }
   if (input.HealthCheckIntervalSeconds !== undefined) {
-    bodyParams["HealthCheckIntervalSeconds"] = input.HealthCheckIntervalSeconds;
+    bodyParams['HealthCheckIntervalSeconds'] = input.HealthCheckIntervalSeconds;
   }
   if (input.HealthCheckPath !== undefined) {
-    bodyParams["HealthCheckPath"] = input.HealthCheckPath;
+    bodyParams['HealthCheckPath'] = input.HealthCheckPath;
   }
   if (input.HealthCheckPort !== undefined) {
-    bodyParams["HealthCheckPort"] = input.HealthCheckPort;
+    bodyParams['HealthCheckPort'] = input.HealthCheckPort;
   }
   if (input.HealthCheckProtocol !== undefined) {
-    bodyParams["HealthCheckProtocol"] = input.HealthCheckProtocol;
+    bodyParams['HealthCheckProtocol'] = input.HealthCheckProtocol;
   }
   if (input.ThresholdCount !== undefined) {
-    bodyParams["ThresholdCount"] = input.ThresholdCount;
+    bodyParams['ThresholdCount'] = input.ThresholdCount;
   }
   if (input.TrafficDialPercentage !== undefined) {
-    bodyParams["TrafficDialPercentage"] = input.TrafficDialPercentage;
+    bodyParams['TrafficDialPercentage'] = input.TrafficDialPercentage;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateListenerRequest = (
   input: UpdateListenerRequest,
@@ -2395,22 +2005,19 @@ const serializeAws_json1_1UpdateListenerRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClientAffinity !== undefined) {
-    bodyParams["ClientAffinity"] = input.ClientAffinity;
+    bodyParams['ClientAffinity'] = input.ClientAffinity;
   }
   if (input.ListenerArn !== undefined) {
-    bodyParams["ListenerArn"] = input.ListenerArn;
+    bodyParams['ListenerArn'] = input.ListenerArn;
   }
   if (input.PortRanges !== undefined) {
-    bodyParams["PortRanges"] = serializeAws_json1_1PortRanges(
-      input.PortRanges,
-      context
-    );
+    bodyParams['PortRanges'] = serializeAws_json1_1PortRanges(input.PortRanges, context);
   }
   if (input.Protocol !== undefined) {
-    bodyParams["Protocol"] = input.Protocol;
+    bodyParams['Protocol'] = input.Protocol;
   }
   return bodyParams;
-};
+}
 
 const deserializeAws_json1_1Accelerator = (
   output: any,
@@ -2426,17 +2033,13 @@ const deserializeAws_json1_1Accelerator = (
     IpSets: undefined,
     LastModifiedTime: undefined,
     Name: undefined,
-    Status: undefined
+    Status: undefined,
   };
   if (output.AcceleratorArn !== undefined) {
     contents.AcceleratorArn = output.AcceleratorArn;
   }
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(
-      output.CreatedTime % 1 != 0
-        ? Math.round(output.CreatedTime * 1000)
-        : output.CreatedTime
-    );
+    contents.CreatedTime = new Date(output.CreatedTime % 1 != 0 ? Math.round(output.CreatedTime * 1000) : output.CreatedTime);
   }
   if (output.DnsName !== undefined) {
     contents.DnsName = output.DnsName;
@@ -2451,11 +2054,7 @@ const deserializeAws_json1_1Accelerator = (
     contents.IpSets = deserializeAws_json1_1IpSets(output.IpSets, context);
   }
   if (output.LastModifiedTime !== undefined) {
-    contents.LastModifiedTime = new Date(
-      output.LastModifiedTime % 1 != 0
-        ? Math.round(output.LastModifiedTime * 1000)
-        : output.LastModifiedTime
-    );
+    contents.LastModifiedTime = new Date(output.LastModifiedTime % 1 != 0 ? Math.round(output.LastModifiedTime * 1000) : output.LastModifiedTime);
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -2464,7 +2063,7 @@ const deserializeAws_json1_1Accelerator = (
     contents.Status = output.Status;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AcceleratorAttributes = (
   output: any,
@@ -2474,7 +2073,7 @@ const deserializeAws_json1_1AcceleratorAttributes = (
     __type: "AcceleratorAttributes",
     FlowLogsEnabled: undefined,
     FlowLogsS3Bucket: undefined,
-    FlowLogsS3Prefix: undefined
+    FlowLogsS3Prefix: undefined,
   };
   if (output.FlowLogsEnabled !== undefined) {
     contents.FlowLogsEnabled = output.FlowLogsEnabled;
@@ -2486,7 +2085,7 @@ const deserializeAws_json1_1AcceleratorAttributes = (
     contents.FlowLogsS3Prefix = output.FlowLogsS3Prefix;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AcceleratorNotDisabledException = (
   output: any,
@@ -2494,13 +2093,13 @@ const deserializeAws_json1_1AcceleratorNotDisabledException = (
 ): AcceleratorNotDisabledException => {
   let contents: any = {
     __type: "AcceleratorNotDisabledException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AcceleratorNotFoundException = (
   output: any,
@@ -2508,13 +2107,13 @@ const deserializeAws_json1_1AcceleratorNotFoundException = (
 ): AcceleratorNotFoundException => {
   let contents: any = {
     __type: "AcceleratorNotFoundException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1Accelerators = (
   output: any,
@@ -2523,7 +2122,7 @@ const deserializeAws_json1_1Accelerators = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Accelerator(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1AccessDeniedException = (
   output: any,
@@ -2531,13 +2130,13 @@ const deserializeAws_json1_1AccessDeniedException = (
 ): AccessDeniedException => {
   let contents: any = {
     __type: "AccessDeniedException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AssociatedEndpointGroupFoundException = (
   output: any,
@@ -2545,13 +2144,13 @@ const deserializeAws_json1_1AssociatedEndpointGroupFoundException = (
 ): AssociatedEndpointGroupFoundException => {
   let contents: any = {
     __type: "AssociatedEndpointGroupFoundException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AssociatedListenerFoundException = (
   output: any,
@@ -2559,13 +2158,13 @@ const deserializeAws_json1_1AssociatedListenerFoundException = (
 ): AssociatedListenerFoundException => {
   let contents: any = {
     __type: "AssociatedListenerFoundException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateAcceleratorResponse = (
   output: any,
@@ -2573,16 +2172,13 @@ const deserializeAws_json1_1CreateAcceleratorResponse = (
 ): CreateAcceleratorResponse => {
   let contents: any = {
     __type: "CreateAcceleratorResponse",
-    Accelerator: undefined
+    Accelerator: undefined,
   };
   if (output.Accelerator !== undefined) {
-    contents.Accelerator = deserializeAws_json1_1Accelerator(
-      output.Accelerator,
-      context
-    );
+    contents.Accelerator = deserializeAws_json1_1Accelerator(output.Accelerator, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateEndpointGroupResponse = (
   output: any,
@@ -2590,16 +2186,13 @@ const deserializeAws_json1_1CreateEndpointGroupResponse = (
 ): CreateEndpointGroupResponse => {
   let contents: any = {
     __type: "CreateEndpointGroupResponse",
-    EndpointGroup: undefined
+    EndpointGroup: undefined,
   };
   if (output.EndpointGroup !== undefined) {
-    contents.EndpointGroup = deserializeAws_json1_1EndpointGroup(
-      output.EndpointGroup,
-      context
-    );
+    contents.EndpointGroup = deserializeAws_json1_1EndpointGroup(output.EndpointGroup, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateListenerResponse = (
   output: any,
@@ -2607,16 +2200,13 @@ const deserializeAws_json1_1CreateListenerResponse = (
 ): CreateListenerResponse => {
   let contents: any = {
     __type: "CreateListenerResponse",
-    Listener: undefined
+    Listener: undefined,
   };
   if (output.Listener !== undefined) {
-    contents.Listener = deserializeAws_json1_1Listener(
-      output.Listener,
-      context
-    );
+    contents.Listener = deserializeAws_json1_1Listener(output.Listener, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeAcceleratorAttributesResponse = (
   output: any,
@@ -2624,16 +2214,13 @@ const deserializeAws_json1_1DescribeAcceleratorAttributesResponse = (
 ): DescribeAcceleratorAttributesResponse => {
   let contents: any = {
     __type: "DescribeAcceleratorAttributesResponse",
-    AcceleratorAttributes: undefined
+    AcceleratorAttributes: undefined,
   };
   if (output.AcceleratorAttributes !== undefined) {
-    contents.AcceleratorAttributes = deserializeAws_json1_1AcceleratorAttributes(
-      output.AcceleratorAttributes,
-      context
-    );
+    contents.AcceleratorAttributes = deserializeAws_json1_1AcceleratorAttributes(output.AcceleratorAttributes, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeAcceleratorResponse = (
   output: any,
@@ -2641,16 +2228,13 @@ const deserializeAws_json1_1DescribeAcceleratorResponse = (
 ): DescribeAcceleratorResponse => {
   let contents: any = {
     __type: "DescribeAcceleratorResponse",
-    Accelerator: undefined
+    Accelerator: undefined,
   };
   if (output.Accelerator !== undefined) {
-    contents.Accelerator = deserializeAws_json1_1Accelerator(
-      output.Accelerator,
-      context
-    );
+    contents.Accelerator = deserializeAws_json1_1Accelerator(output.Accelerator, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeEndpointGroupResponse = (
   output: any,
@@ -2658,16 +2242,13 @@ const deserializeAws_json1_1DescribeEndpointGroupResponse = (
 ): DescribeEndpointGroupResponse => {
   let contents: any = {
     __type: "DescribeEndpointGroupResponse",
-    EndpointGroup: undefined
+    EndpointGroup: undefined,
   };
   if (output.EndpointGroup !== undefined) {
-    contents.EndpointGroup = deserializeAws_json1_1EndpointGroup(
-      output.EndpointGroup,
-      context
-    );
+    contents.EndpointGroup = deserializeAws_json1_1EndpointGroup(output.EndpointGroup, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeListenerResponse = (
   output: any,
@@ -2675,16 +2256,13 @@ const deserializeAws_json1_1DescribeListenerResponse = (
 ): DescribeListenerResponse => {
   let contents: any = {
     __type: "DescribeListenerResponse",
-    Listener: undefined
+    Listener: undefined,
   };
   if (output.Listener !== undefined) {
-    contents.Listener = deserializeAws_json1_1Listener(
-      output.Listener,
-      context
-    );
+    contents.Listener = deserializeAws_json1_1Listener(output.Listener, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1EndpointDescription = (
   output: any,
@@ -2696,7 +2274,7 @@ const deserializeAws_json1_1EndpointDescription = (
     EndpointId: undefined,
     HealthReason: undefined,
     HealthState: undefined,
-    Weight: undefined
+    Weight: undefined,
   };
   if (output.ClientIPPreservationEnabled !== undefined) {
     contents.ClientIPPreservationEnabled = output.ClientIPPreservationEnabled;
@@ -2714,7 +2292,7 @@ const deserializeAws_json1_1EndpointDescription = (
     contents.Weight = output.Weight;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1EndpointDescriptions = (
   output: any,
@@ -2723,7 +2301,7 @@ const deserializeAws_json1_1EndpointDescriptions = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EndpointDescription(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1EndpointGroup = (
   output: any,
@@ -2739,13 +2317,10 @@ const deserializeAws_json1_1EndpointGroup = (
     HealthCheckPort: undefined,
     HealthCheckProtocol: undefined,
     ThresholdCount: undefined,
-    TrafficDialPercentage: undefined
+    TrafficDialPercentage: undefined,
   };
   if (output.EndpointDescriptions !== undefined) {
-    contents.EndpointDescriptions = deserializeAws_json1_1EndpointDescriptions(
-      output.EndpointDescriptions,
-      context
-    );
+    contents.EndpointDescriptions = deserializeAws_json1_1EndpointDescriptions(output.EndpointDescriptions, context);
   }
   if (output.EndpointGroupArn !== undefined) {
     contents.EndpointGroupArn = output.EndpointGroupArn;
@@ -2772,7 +2347,7 @@ const deserializeAws_json1_1EndpointGroup = (
     contents.TrafficDialPercentage = output.TrafficDialPercentage;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1EndpointGroupAlreadyExistsException = (
   output: any,
@@ -2780,13 +2355,13 @@ const deserializeAws_json1_1EndpointGroupAlreadyExistsException = (
 ): EndpointGroupAlreadyExistsException => {
   let contents: any = {
     __type: "EndpointGroupAlreadyExistsException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1EndpointGroupNotFoundException = (
   output: any,
@@ -2794,13 +2369,13 @@ const deserializeAws_json1_1EndpointGroupNotFoundException = (
 ): EndpointGroupNotFoundException => {
   let contents: any = {
     __type: "EndpointGroupNotFoundException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1EndpointGroups = (
   output: any,
@@ -2809,7 +2384,7 @@ const deserializeAws_json1_1EndpointGroups = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EndpointGroup(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1InternalServiceErrorException = (
   output: any,
@@ -2817,13 +2392,13 @@ const deserializeAws_json1_1InternalServiceErrorException = (
 ): InternalServiceErrorException => {
   let contents: any = {
     __type: "InternalServiceErrorException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InvalidArgumentException = (
   output: any,
@@ -2831,13 +2406,13 @@ const deserializeAws_json1_1InvalidArgumentException = (
 ): InvalidArgumentException => {
   let contents: any = {
     __type: "InvalidArgumentException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InvalidNextTokenException = (
   output: any,
@@ -2845,13 +2420,13 @@ const deserializeAws_json1_1InvalidNextTokenException = (
 ): InvalidNextTokenException => {
   let contents: any = {
     __type: "InvalidNextTokenException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InvalidPortRangeException = (
   output: any,
@@ -2859,20 +2434,22 @@ const deserializeAws_json1_1InvalidPortRangeException = (
 ): InvalidPortRangeException => {
   let contents: any = {
     __type: "InvalidPortRangeException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1IpAddresses = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1IpSet = (
   output: any,
@@ -2881,19 +2458,16 @@ const deserializeAws_json1_1IpSet = (
   let contents: any = {
     __type: "IpSet",
     IpAddresses: undefined,
-    IpFamily: undefined
+    IpFamily: undefined,
   };
   if (output.IpAddresses !== undefined) {
-    contents.IpAddresses = deserializeAws_json1_1IpAddresses(
-      output.IpAddresses,
-      context
-    );
+    contents.IpAddresses = deserializeAws_json1_1IpAddresses(output.IpAddresses, context);
   }
   if (output.IpFamily !== undefined) {
     contents.IpFamily = output.IpFamily;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1IpSets = (
   output: any,
@@ -2902,7 +2476,7 @@ const deserializeAws_json1_1IpSets = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1IpSet(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1LimitExceededException = (
   output: any,
@@ -2910,13 +2484,13 @@ const deserializeAws_json1_1LimitExceededException = (
 ): LimitExceededException => {
   let contents: any = {
     __type: "LimitExceededException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListAcceleratorsResponse = (
   output: any,
@@ -2925,19 +2499,16 @@ const deserializeAws_json1_1ListAcceleratorsResponse = (
   let contents: any = {
     __type: "ListAcceleratorsResponse",
     Accelerators: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.Accelerators !== undefined) {
-    contents.Accelerators = deserializeAws_json1_1Accelerators(
-      output.Accelerators,
-      context
-    );
+    contents.Accelerators = deserializeAws_json1_1Accelerators(output.Accelerators, context);
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListEndpointGroupsResponse = (
   output: any,
@@ -2946,19 +2517,16 @@ const deserializeAws_json1_1ListEndpointGroupsResponse = (
   let contents: any = {
     __type: "ListEndpointGroupsResponse",
     EndpointGroups: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.EndpointGroups !== undefined) {
-    contents.EndpointGroups = deserializeAws_json1_1EndpointGroups(
-      output.EndpointGroups,
-      context
-    );
+    contents.EndpointGroups = deserializeAws_json1_1EndpointGroups(output.EndpointGroups, context);
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListListenersResponse = (
   output: any,
@@ -2967,19 +2535,16 @@ const deserializeAws_json1_1ListListenersResponse = (
   let contents: any = {
     __type: "ListListenersResponse",
     Listeners: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.Listeners !== undefined) {
-    contents.Listeners = deserializeAws_json1_1Listeners(
-      output.Listeners,
-      context
-    );
+    contents.Listeners = deserializeAws_json1_1Listeners(output.Listeners, context);
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1Listener = (
   output: any,
@@ -2990,7 +2555,7 @@ const deserializeAws_json1_1Listener = (
     ClientAffinity: undefined,
     ListenerArn: undefined,
     PortRanges: undefined,
-    Protocol: undefined
+    Protocol: undefined,
   };
   if (output.ClientAffinity !== undefined) {
     contents.ClientAffinity = output.ClientAffinity;
@@ -2999,16 +2564,13 @@ const deserializeAws_json1_1Listener = (
     contents.ListenerArn = output.ListenerArn;
   }
   if (output.PortRanges !== undefined) {
-    contents.PortRanges = deserializeAws_json1_1PortRanges(
-      output.PortRanges,
-      context
-    );
+    contents.PortRanges = deserializeAws_json1_1PortRanges(output.PortRanges, context);
   }
   if (output.Protocol !== undefined) {
     contents.Protocol = output.Protocol;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListenerNotFoundException = (
   output: any,
@@ -3016,13 +2578,13 @@ const deserializeAws_json1_1ListenerNotFoundException = (
 ): ListenerNotFoundException => {
   let contents: any = {
     __type: "ListenerNotFoundException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1Listeners = (
   output: any,
@@ -3031,7 +2593,7 @@ const deserializeAws_json1_1Listeners = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Listener(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1PortRange = (
   output: any,
@@ -3040,7 +2602,7 @@ const deserializeAws_json1_1PortRange = (
   let contents: any = {
     __type: "PortRange",
     FromPort: undefined,
-    ToPort: undefined
+    ToPort: undefined,
   };
   if (output.FromPort !== undefined) {
     contents.FromPort = output.FromPort;
@@ -3049,7 +2611,7 @@ const deserializeAws_json1_1PortRange = (
     contents.ToPort = output.ToPort;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1PortRanges = (
   output: any,
@@ -3058,7 +2620,7 @@ const deserializeAws_json1_1PortRanges = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PortRange(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1UpdateAcceleratorAttributesResponse = (
   output: any,
@@ -3066,16 +2628,13 @@ const deserializeAws_json1_1UpdateAcceleratorAttributesResponse = (
 ): UpdateAcceleratorAttributesResponse => {
   let contents: any = {
     __type: "UpdateAcceleratorAttributesResponse",
-    AcceleratorAttributes: undefined
+    AcceleratorAttributes: undefined,
   };
   if (output.AcceleratorAttributes !== undefined) {
-    contents.AcceleratorAttributes = deserializeAws_json1_1AcceleratorAttributes(
-      output.AcceleratorAttributes,
-      context
-    );
+    contents.AcceleratorAttributes = deserializeAws_json1_1AcceleratorAttributes(output.AcceleratorAttributes, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateAcceleratorResponse = (
   output: any,
@@ -3083,16 +2642,13 @@ const deserializeAws_json1_1UpdateAcceleratorResponse = (
 ): UpdateAcceleratorResponse => {
   let contents: any = {
     __type: "UpdateAcceleratorResponse",
-    Accelerator: undefined
+    Accelerator: undefined,
   };
   if (output.Accelerator !== undefined) {
-    contents.Accelerator = deserializeAws_json1_1Accelerator(
-      output.Accelerator,
-      context
-    );
+    contents.Accelerator = deserializeAws_json1_1Accelerator(output.Accelerator, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateEndpointGroupResponse = (
   output: any,
@@ -3100,16 +2656,13 @@ const deserializeAws_json1_1UpdateEndpointGroupResponse = (
 ): UpdateEndpointGroupResponse => {
   let contents: any = {
     __type: "UpdateEndpointGroupResponse",
-    EndpointGroup: undefined
+    EndpointGroup: undefined,
   };
   if (output.EndpointGroup !== undefined) {
-    contents.EndpointGroup = deserializeAws_json1_1EndpointGroup(
-      output.EndpointGroup,
-      context
-    );
+    contents.EndpointGroup = deserializeAws_json1_1EndpointGroup(output.EndpointGroup, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateListenerResponse = (
   output: any,
@@ -3117,16 +2670,13 @@ const deserializeAws_json1_1UpdateListenerResponse = (
 ): UpdateListenerResponse => {
   let contents: any = {
     __type: "UpdateListenerResponse",
-    Listener: undefined
+    Listener: undefined,
   };
   if (output.Listener !== undefined) {
-    contents.Listener = deserializeAws_json1_1Listener(
-      output.Listener,
-      context
-    );
+    contents.Listener = deserializeAws_json1_1Listener(output.Listener, context);
   }
   return contents;
-};
+}
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

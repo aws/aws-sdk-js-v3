@@ -1,17 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig
+  StorageGatewayClientResolvedConfig,
 } from "../StorageGatewayClient";
-import { AttachVolumeInput, AttachVolumeOutput } from "../models/index";
+import {
+  AttachVolumeInput,
+  AttachVolumeOutput,
+} from "../models/index";
 import {
   deserializeAws_json1_1AttachVolumeCommand,
-  serializeAws_json1_1AttachVolumeCommand
+  serializeAws_json1_1AttachVolumeCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type AttachVolumeCommandInput = AttachVolumeInput;
 export type AttachVolumeCommandOutput = AttachVolumeOutput;
 
-export class AttachVolumeCommand extends $Command<
-  AttachVolumeCommandInput,
-  AttachVolumeCommandOutput,
-  StorageGatewayClientResolvedConfig
-> {
+export class AttachVolumeCommand extends $Command<AttachVolumeCommandInput, AttachVolumeCommandOutput, StorageGatewayClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class AttachVolumeCommand extends $Command<
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AttachVolumeCommandInput, AttachVolumeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

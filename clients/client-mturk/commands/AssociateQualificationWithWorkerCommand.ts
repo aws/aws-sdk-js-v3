@@ -1,20 +1,20 @@
 import {
   MTurkClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../MTurkClient";
 import {
   AssociateQualificationWithWorkerRequest,
-  AssociateQualificationWithWorkerResponse
+  AssociateQualificationWithWorkerResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1AssociateQualificationWithWorkerCommand,
-  serializeAws_json1_1AssociateQualificationWithWorkerCommand
+  serializeAws_json1_1AssociateQualificationWithWorkerCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type AssociateQualificationWithWorkerCommandInput = AssociateQualificationWithWorkerRequest;
 export type AssociateQualificationWithWorkerCommandOutput = AssociateQualificationWithWorkerResponse;
 
-export class AssociateQualificationWithWorkerCommand extends $Command<
-  AssociateQualificationWithWorkerCommandInput,
-  AssociateQualificationWithWorkerCommandOutput,
-  MTurkClientResolvedConfig
-> {
+export class AssociateQualificationWithWorkerCommand extends $Command<AssociateQualificationWithWorkerCommandInput, AssociateQualificationWithWorkerCommandOutput, MTurkClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class AssociateQualificationWithWorkerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateQualificationWithWorkerCommandInput,
-    AssociateQualificationWithWorkerCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateQualificationWithWorkerCommandInput, AssociateQualificationWithWorkerCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class AssociateQualificationWithWorkerCommand extends $Command<
     input: AssociateQualificationWithWorkerCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateQualificationWithWorkerCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1AssociateQualificationWithWorkerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<AssociateQualificationWithWorkerCommandOutput> {
-    return deserializeAws_json1_1AssociateQualificationWithWorkerCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AssociateQualificationWithWorkerCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,20 +1,20 @@
 import {
   SMSClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../SMSClient";
 import {
   DeleteAppReplicationConfigurationRequest,
-  DeleteAppReplicationConfigurationResponse
+  DeleteAppReplicationConfigurationResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1DeleteAppReplicationConfigurationCommand,
-  serializeAws_json1_1DeleteAppReplicationConfigurationCommand
+  serializeAws_json1_1DeleteAppReplicationConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DeleteAppReplicationConfigurationCommandInput = DeleteAppReplicationConfigurationRequest;
 export type DeleteAppReplicationConfigurationCommandOutput = DeleteAppReplicationConfigurationResponse;
 
-export class DeleteAppReplicationConfigurationCommand extends $Command<
-  DeleteAppReplicationConfigurationCommandInput,
-  DeleteAppReplicationConfigurationCommandOutput,
-  SMSClientResolvedConfig
-> {
+export class DeleteAppReplicationConfigurationCommand extends $Command<DeleteAppReplicationConfigurationCommandInput, DeleteAppReplicationConfigurationCommandOutput, SMSClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class DeleteAppReplicationConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteAppReplicationConfigurationCommandInput,
-    DeleteAppReplicationConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteAppReplicationConfigurationCommandInput, DeleteAppReplicationConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class DeleteAppReplicationConfigurationCommand extends $Command<
     input: DeleteAppReplicationConfigurationCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAppReplicationConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeleteAppReplicationConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DeleteAppReplicationConfigurationCommandOutput> {
-    return deserializeAws_json1_1DeleteAppReplicationConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteAppReplicationConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

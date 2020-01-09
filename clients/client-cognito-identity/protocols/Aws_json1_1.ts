@@ -668,7 +668,7 @@ export async function deserializeAws_json1_1CreateIdentityPoolCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1IdentityPool(data.IdentityPool, context);
+  contents = deserializeAws_json1_1IdentityPool(data, context);
   const response: CreateIdentityPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "IdentityPool",
@@ -754,10 +754,7 @@ export async function deserializeAws_json1_1DeleteIdentitiesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteIdentitiesResponse(
-    data.DeleteIdentitiesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteIdentitiesResponse(data, context);
   const response: DeleteIdentitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteIdentitiesResponse",
@@ -899,10 +896,7 @@ export async function deserializeAws_json1_1DescribeIdentityCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1IdentityDescription(
-    data.IdentityDescription,
-    context
-  );
+  contents = deserializeAws_json1_1IdentityDescription(data, context);
   const response: DescribeIdentityCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "IdentityDescription",
@@ -984,7 +978,7 @@ export async function deserializeAws_json1_1DescribeIdentityPoolCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1IdentityPool(data.IdentityPool, context);
+  contents = deserializeAws_json1_1IdentityPool(data, context);
   const response: DescribeIdentityPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "IdentityPool",
@@ -1067,7 +1061,7 @@ export async function deserializeAws_json1_1GetCredentialsForIdentityCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetCredentialsForIdentityResponse(
-    data.GetCredentialsForIdentityResponse,
+    data,
     context
   );
   const response: GetCredentialsForIdentityCommandOutput = {
@@ -1169,7 +1163,7 @@ export async function deserializeAws_json1_1GetIdCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetIdResponse(data.GetIdResponse, context);
+  contents = deserializeAws_json1_1GetIdResponse(data, context);
   const response: GetIdCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetIdResponse",
@@ -1272,10 +1266,7 @@ export async function deserializeAws_json1_1GetIdentityPoolRolesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetIdentityPoolRolesResponse(
-    data.GetIdentityPoolRolesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetIdentityPoolRolesResponse(data, context);
   const response: GetIdentityPoolRolesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetIdentityPoolRolesResponse",
@@ -1361,10 +1352,7 @@ export async function deserializeAws_json1_1GetOpenIdTokenCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetOpenIdTokenResponse(
-    data.GetOpenIdTokenResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetOpenIdTokenResponse(data, context);
   const response: GetOpenIdTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetOpenIdTokenResponse",
@@ -1461,7 +1449,7 @@ export async function deserializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCo
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetOpenIdTokenForDeveloperIdentityResponse(
-    data.GetOpenIdTokenForDeveloperIdentityResponse,
+    data,
     context
   );
   const response: GetOpenIdTokenForDeveloperIdentityCommandOutput = {
@@ -1556,10 +1544,7 @@ export async function deserializeAws_json1_1ListIdentitiesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListIdentitiesResponse(
-    data.ListIdentitiesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListIdentitiesResponse(data, context);
   const response: ListIdentitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListIdentitiesResponse",
@@ -1638,10 +1623,7 @@ export async function deserializeAws_json1_1ListIdentityPoolsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListIdentityPoolsResponse(
-    data.ListIdentityPoolsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListIdentityPoolsResponse(data, context);
   const response: ListIdentityPoolsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListIdentityPoolsResponse",
@@ -1723,10 +1705,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(
-    data.ListTagsForResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
@@ -1809,7 +1788,7 @@ export async function deserializeAws_json1_1LookupDeveloperIdentityCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1LookupDeveloperIdentityResponse(
-    data.LookupDeveloperIdentityResponse,
+    data,
     context
   );
   const response: LookupDeveloperIdentityCommandOutput = {
@@ -1901,7 +1880,7 @@ export async function deserializeAws_json1_1MergeDeveloperIdentitiesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1MergeDeveloperIdentitiesResponse(
-    data.MergeDeveloperIdentitiesResponse,
+    data,
     context
   );
   const response: MergeDeveloperIdentitiesCommandOutput = {
@@ -2080,10 +2059,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(
-    data.TagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
@@ -2334,10 +2310,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(
-    data.UntagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
@@ -2419,7 +2392,7 @@ export async function deserializeAws_json1_1UpdateIdentityPoolCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1IdentityPool(data.IdentityPool, context);
+  contents = deserializeAws_json1_1IdentityPool(data, context);
   const response: UpdateIdentityPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "IdentityPool",

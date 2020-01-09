@@ -1,20 +1,20 @@
 import {
   LightsailClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../LightsailClient";
 import {
   UpdateRelationalDatabaseRequest,
-  UpdateRelationalDatabaseResult
+  UpdateRelationalDatabaseResult,
 } from "../models/index";
 import {
   deserializeAws_json1_1UpdateRelationalDatabaseCommand,
-  serializeAws_json1_1UpdateRelationalDatabaseCommand
+  serializeAws_json1_1UpdateRelationalDatabaseCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type UpdateRelationalDatabaseCommandInput = UpdateRelationalDatabaseRequest;
 export type UpdateRelationalDatabaseCommandOutput = UpdateRelationalDatabaseResult;
 
-export class UpdateRelationalDatabaseCommand extends $Command<
-  UpdateRelationalDatabaseCommandInput,
-  UpdateRelationalDatabaseCommandOutput,
-  LightsailClientResolvedConfig
-> {
+export class UpdateRelationalDatabaseCommand extends $Command<UpdateRelationalDatabaseCommandInput, UpdateRelationalDatabaseCommandOutput, LightsailClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class UpdateRelationalDatabaseCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateRelationalDatabaseCommandInput,
-    UpdateRelationalDatabaseCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateRelationalDatabaseCommandInput, UpdateRelationalDatabaseCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -79,10 +70,7 @@ export class UpdateRelationalDatabaseCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UpdateRelationalDatabaseCommandOutput> {
-    return deserializeAws_json1_1UpdateRelationalDatabaseCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateRelationalDatabaseCommand(output, context);
   }
 
   // Start section: command_body_extra

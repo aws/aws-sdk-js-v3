@@ -1,20 +1,20 @@
 import {
   MTurkClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../MTurkClient";
 import {
   ListQualificationRequestsRequest,
-  ListQualificationRequestsResponse
+  ListQualificationRequestsResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1ListQualificationRequestsCommand,
-  serializeAws_json1_1ListQualificationRequestsCommand
+  serializeAws_json1_1ListQualificationRequestsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type ListQualificationRequestsCommandInput = ListQualificationRequestsRequest;
 export type ListQualificationRequestsCommandOutput = ListQualificationRequestsResponse;
 
-export class ListQualificationRequestsCommand extends $Command<
-  ListQualificationRequestsCommandInput,
-  ListQualificationRequestsCommandOutput,
-  MTurkClientResolvedConfig
-> {
+export class ListQualificationRequestsCommand extends $Command<ListQualificationRequestsCommandInput, ListQualificationRequestsCommandOutput, MTurkClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class ListQualificationRequestsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListQualificationRequestsCommandInput,
-    ListQualificationRequestsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListQualificationRequestsCommandInput, ListQualificationRequestsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -79,10 +70,7 @@ export class ListQualificationRequestsCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListQualificationRequestsCommandOutput> {
-    return deserializeAws_json1_1ListQualificationRequestsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListQualificationRequestsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  WAFRegionalClientResolvedConfig
+  WAFRegionalClientResolvedConfig,
 } from "../WAFRegionalClient";
 import {
   GetRegexPatternSetRequest,
-  GetRegexPatternSetResponse
+  GetRegexPatternSetResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1GetRegexPatternSetCommand,
-  serializeAws_json1_1GetRegexPatternSetCommand
+  serializeAws_json1_1GetRegexPatternSetCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type GetRegexPatternSetCommandInput = GetRegexPatternSetRequest;
 export type GetRegexPatternSetCommandOutput = GetRegexPatternSetResponse;
 
-export class GetRegexPatternSetCommand extends $Command<
-  GetRegexPatternSetCommandInput,
-  GetRegexPatternSetCommandOutput,
-  WAFRegionalClientResolvedConfig
-> {
+export class GetRegexPatternSetCommand extends $Command<GetRegexPatternSetCommandInput, GetRegexPatternSetCommandOutput, WAFRegionalClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,15 +44,13 @@ export class GetRegexPatternSetCommand extends $Command<
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetRegexPatternSetCommandInput, GetRegexPatternSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

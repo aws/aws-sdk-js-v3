@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  kendraClientResolvedConfig
+  kendraClientResolvedConfig,
 } from "../kendraClient";
 import {
   BatchDeleteDocumentRequest,
-  BatchDeleteDocumentResponse
+  BatchDeleteDocumentResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1BatchDeleteDocumentCommand,
-  serializeAws_json1_1BatchDeleteDocumentCommand
+  serializeAws_json1_1BatchDeleteDocumentCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type BatchDeleteDocumentCommandInput = BatchDeleteDocumentRequest;
 export type BatchDeleteDocumentCommandOutput = BatchDeleteDocumentResponse;
 
-export class BatchDeleteDocumentCommand extends $Command<
-  BatchDeleteDocumentCommandInput,
-  BatchDeleteDocumentCommandOutput,
-  kendraClientResolvedConfig
-> {
+export class BatchDeleteDocumentCommand extends $Command<BatchDeleteDocumentCommandInput, BatchDeleteDocumentCommandOutput, kendraClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class BatchDeleteDocumentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: kendraClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchDeleteDocumentCommandInput,
-    BatchDeleteDocumentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchDeleteDocumentCommandInput, BatchDeleteDocumentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

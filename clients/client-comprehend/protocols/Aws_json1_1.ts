@@ -1673,7 +1673,7 @@ export async function deserializeAws_json1_1BatchDetectDominantLanguageCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1BatchDetectDominantLanguageResponse(
-    data.BatchDetectDominantLanguageResponse,
+    data,
     context
   );
   const response: BatchDetectDominantLanguageCommandOutput = {
@@ -1750,10 +1750,7 @@ export async function deserializeAws_json1_1BatchDetectEntitiesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchDetectEntitiesResponse(
-    data.BatchDetectEntitiesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1BatchDetectEntitiesResponse(data, context);
   const response: BatchDetectEntitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchDetectEntitiesResponse",
@@ -1835,10 +1832,7 @@ export async function deserializeAws_json1_1BatchDetectKeyPhrasesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchDetectKeyPhrasesResponse(
-    data.BatchDetectKeyPhrasesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1BatchDetectKeyPhrasesResponse(data, context);
   const response: BatchDetectKeyPhrasesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchDetectKeyPhrasesResponse",
@@ -1920,10 +1914,7 @@ export async function deserializeAws_json1_1BatchDetectSentimentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchDetectSentimentResponse(
-    data.BatchDetectSentimentResponse,
-    context
-  );
+  contents = deserializeAws_json1_1BatchDetectSentimentResponse(data, context);
   const response: BatchDetectSentimentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchDetectSentimentResponse",
@@ -2002,10 +1993,7 @@ export async function deserializeAws_json1_1BatchDetectSyntaxCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchDetectSyntaxResponse(
-    data.BatchDetectSyntaxResponse,
-    context
-  );
+  contents = deserializeAws_json1_1BatchDetectSyntaxResponse(data, context);
   const response: BatchDetectSyntaxCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchDetectSyntaxResponse",
@@ -2084,10 +2072,7 @@ export async function deserializeAws_json1_1ClassifyDocumentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ClassifyDocumentResponse(
-    data.ClassifyDocumentResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ClassifyDocumentResponse(data, context);
   const response: ClassifyDocumentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ClassifyDocumentResponse",
@@ -2163,7 +2148,7 @@ export async function deserializeAws_json1_1CreateDocumentClassifierCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateDocumentClassifierResponse(
-    data.CreateDocumentClassifierResponse,
+    data,
     context
   );
   const response: CreateDocumentClassifierCommandOutput = {
@@ -2265,10 +2250,7 @@ export async function deserializeAws_json1_1CreateEndpointCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateEndpointResponse(
-    data.CreateEndpointResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateEndpointResponse(data, context);
   const response: CreateEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateEndpointResponse",
@@ -2372,7 +2354,7 @@ export async function deserializeAws_json1_1CreateEntityRecognizerCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateEntityRecognizerResponse(
-    data.CreateEntityRecognizerResponse,
+    data,
     context
   );
   const response: CreateEntityRecognizerCommandOutput = {
@@ -2478,7 +2460,7 @@ export async function deserializeAws_json1_1DeleteDocumentClassifierCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteDocumentClassifierResponse(
-    data.DeleteDocumentClassifierResponse,
+    data,
     context
   );
   const response: DeleteDocumentClassifierCommandOutput = {
@@ -2566,10 +2548,7 @@ export async function deserializeAws_json1_1DeleteEndpointCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteEndpointResponse(
-    data.DeleteEndpointResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteEndpointResponse(data, context);
   const response: DeleteEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteEndpointResponse",
@@ -2652,7 +2631,7 @@ export async function deserializeAws_json1_1DeleteEntityRecognizerCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteEntityRecognizerResponse(
-    data.DeleteEntityRecognizerResponse,
+    data,
     context
   );
   const response: DeleteEntityRecognizerCommandOutput = {
@@ -2744,7 +2723,7 @@ export async function deserializeAws_json1_1DescribeDocumentClassificationJobCom
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeDocumentClassificationJobResponse(
-    data.DescribeDocumentClassificationJobResponse,
+    data,
     context
   );
   const response: DescribeDocumentClassificationJobCommandOutput = {
@@ -2822,7 +2801,7 @@ export async function deserializeAws_json1_1DescribeDocumentClassifierCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeDocumentClassifierResponse(
-    data.DescribeDocumentClassifierResponse,
+    data,
     context
   );
   const response: DescribeDocumentClassifierCommandOutput = {
@@ -2900,7 +2879,7 @@ export async function deserializeAws_json1_1DescribeDominantLanguageDetectionJob
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeDominantLanguageDetectionJobResponse(
-    data.DescribeDominantLanguageDetectionJobResponse,
+    data,
     context
   );
   const response: DescribeDominantLanguageDetectionJobCommandOutput = {
@@ -2974,10 +2953,7 @@ export async function deserializeAws_json1_1DescribeEndpointCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEndpointResponse(
-    data.DescribeEndpointResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeEndpointResponse(data, context);
   const response: DescribeEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeEndpointResponse",
@@ -3053,7 +3029,7 @@ export async function deserializeAws_json1_1DescribeEntitiesDetectionJobCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeEntitiesDetectionJobResponse(
-    data.DescribeEntitiesDetectionJobResponse,
+    data,
     context
   );
   const response: DescribeEntitiesDetectionJobCommandOutput = {
@@ -3131,7 +3107,7 @@ export async function deserializeAws_json1_1DescribeEntityRecognizerCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeEntityRecognizerResponse(
-    data.DescribeEntityRecognizerResponse,
+    data,
     context
   );
   const response: DescribeEntityRecognizerCommandOutput = {
@@ -3209,7 +3185,7 @@ export async function deserializeAws_json1_1DescribeKeyPhrasesDetectionJobComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeKeyPhrasesDetectionJobResponse(
-    data.DescribeKeyPhrasesDetectionJobResponse,
+    data,
     context
   );
   const response: DescribeKeyPhrasesDetectionJobCommandOutput = {
@@ -3287,7 +3263,7 @@ export async function deserializeAws_json1_1DescribeSentimentDetectionJobCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeSentimentDetectionJobResponse(
-    data.DescribeSentimentDetectionJobResponse,
+    data,
     context
   );
   const response: DescribeSentimentDetectionJobCommandOutput = {
@@ -3365,7 +3341,7 @@ export async function deserializeAws_json1_1DescribeTopicsDetectionJobCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeTopicsDetectionJobResponse(
-    data.DescribeTopicsDetectionJobResponse,
+    data,
     context
   );
   const response: DescribeTopicsDetectionJobCommandOutput = {
@@ -3443,7 +3419,7 @@ export async function deserializeAws_json1_1DetectDominantLanguageCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DetectDominantLanguageResponse(
-    data.DetectDominantLanguageResponse,
+    data,
     context
   );
   const response: DetectDominantLanguageCommandOutput = {
@@ -3510,10 +3486,7 @@ export async function deserializeAws_json1_1DetectEntitiesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DetectEntitiesResponse(
-    data.DetectEntitiesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DetectEntitiesResponse(data, context);
   const response: DetectEntitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DetectEntitiesResponse",
@@ -3585,10 +3558,7 @@ export async function deserializeAws_json1_1DetectKeyPhrasesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DetectKeyPhrasesResponse(
-    data.DetectKeyPhrasesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DetectKeyPhrasesResponse(data, context);
   const response: DetectKeyPhrasesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DetectKeyPhrasesResponse",
@@ -3660,10 +3630,7 @@ export async function deserializeAws_json1_1DetectSentimentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DetectSentimentResponse(
-    data.DetectSentimentResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DetectSentimentResponse(data, context);
   const response: DetectSentimentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DetectSentimentResponse",
@@ -3735,10 +3702,7 @@ export async function deserializeAws_json1_1DetectSyntaxCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DetectSyntaxResponse(
-    data.DetectSyntaxResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DetectSyntaxResponse(data, context);
   const response: DetectSyntaxCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DetectSyntaxResponse",
@@ -3814,7 +3778,7 @@ export async function deserializeAws_json1_1ListDocumentClassificationJobsComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListDocumentClassificationJobsResponse(
-    data.ListDocumentClassificationJobsResponse,
+    data,
     context
   );
   const response: ListDocumentClassificationJobsCommandOutput = {
@@ -3892,7 +3856,7 @@ export async function deserializeAws_json1_1ListDocumentClassifiersCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListDocumentClassifiersResponse(
-    data.ListDocumentClassifiersResponse,
+    data,
     context
   );
   const response: ListDocumentClassifiersCommandOutput = {
@@ -3970,7 +3934,7 @@ export async function deserializeAws_json1_1ListDominantLanguageDetectionJobsCom
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListDominantLanguageDetectionJobsResponse(
-    data.ListDominantLanguageDetectionJobsResponse,
+    data,
     context
   );
   const response: ListDominantLanguageDetectionJobsCommandOutput = {
@@ -4044,10 +4008,7 @@ export async function deserializeAws_json1_1ListEndpointsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListEndpointsResponse(
-    data.ListEndpointsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListEndpointsResponse(data, context);
   const response: ListEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListEndpointsResponse",
@@ -4116,7 +4077,7 @@ export async function deserializeAws_json1_1ListEntitiesDetectionJobsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListEntitiesDetectionJobsResponse(
-    data.ListEntitiesDetectionJobsResponse,
+    data,
     context
   );
   const response: ListEntitiesDetectionJobsCommandOutput = {
@@ -4193,10 +4154,7 @@ export async function deserializeAws_json1_1ListEntityRecognizersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListEntityRecognizersResponse(
-    data.ListEntityRecognizersResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListEntityRecognizersResponse(data, context);
   const response: ListEntityRecognizersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListEntityRecognizersResponse",
@@ -4272,7 +4230,7 @@ export async function deserializeAws_json1_1ListKeyPhrasesDetectionJobsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListKeyPhrasesDetectionJobsResponse(
-    data.ListKeyPhrasesDetectionJobsResponse,
+    data,
     context
   );
   const response: ListKeyPhrasesDetectionJobsCommandOutput = {
@@ -4350,7 +4308,7 @@ export async function deserializeAws_json1_1ListSentimentDetectionJobsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListSentimentDetectionJobsResponse(
-    data.ListSentimentDetectionJobsResponse,
+    data,
     context
   );
   const response: ListSentimentDetectionJobsCommandOutput = {
@@ -4427,10 +4385,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(
-    data.ListTagsForResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
@@ -4499,7 +4454,7 @@ export async function deserializeAws_json1_1ListTopicsDetectionJobsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListTopicsDetectionJobsResponse(
-    data.ListTopicsDetectionJobsResponse,
+    data,
     context
   );
   const response: ListTopicsDetectionJobsCommandOutput = {
@@ -4577,7 +4532,7 @@ export async function deserializeAws_json1_1StartDocumentClassificationJobComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartDocumentClassificationJobResponse(
-    data.StartDocumentClassificationJobResponse,
+    data,
     context
   );
   const response: StartDocumentClassificationJobCommandOutput = {
@@ -4669,7 +4624,7 @@ export async function deserializeAws_json1_1StartDominantLanguageDetectionJobCom
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartDominantLanguageDetectionJobResponse(
-    data.StartDominantLanguageDetectionJobResponse,
+    data,
     context
   );
   const response: StartDominantLanguageDetectionJobCommandOutput = {
@@ -4747,7 +4702,7 @@ export async function deserializeAws_json1_1StartEntitiesDetectionJobCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartEntitiesDetectionJobResponse(
-    data.StartEntitiesDetectionJobResponse,
+    data,
     context
   );
   const response: StartEntitiesDetectionJobCommandOutput = {
@@ -4839,7 +4794,7 @@ export async function deserializeAws_json1_1StartKeyPhrasesDetectionJobCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartKeyPhrasesDetectionJobResponse(
-    data.StartKeyPhrasesDetectionJobResponse,
+    data,
     context
   );
   const response: StartKeyPhrasesDetectionJobCommandOutput = {
@@ -4917,7 +4872,7 @@ export async function deserializeAws_json1_1StartSentimentDetectionJobCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartSentimentDetectionJobResponse(
-    data.StartSentimentDetectionJobResponse,
+    data,
     context
   );
   const response: StartSentimentDetectionJobCommandOutput = {
@@ -4995,7 +4950,7 @@ export async function deserializeAws_json1_1StartTopicsDetectionJobCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartTopicsDetectionJobResponse(
-    data.StartTopicsDetectionJobResponse,
+    data,
     context
   );
   const response: StartTopicsDetectionJobCommandOutput = {
@@ -5073,7 +5028,7 @@ export async function deserializeAws_json1_1StopDominantLanguageDetectionJobComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StopDominantLanguageDetectionJobResponse(
-    data.StopDominantLanguageDetectionJobResponse,
+    data,
     context
   );
   const response: StopDominantLanguageDetectionJobCommandOutput = {
@@ -5144,7 +5099,7 @@ export async function deserializeAws_json1_1StopEntitiesDetectionJobCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StopEntitiesDetectionJobResponse(
-    data.StopEntitiesDetectionJobResponse,
+    data,
     context
   );
   const response: StopEntitiesDetectionJobCommandOutput = {
@@ -5215,7 +5170,7 @@ export async function deserializeAws_json1_1StopKeyPhrasesDetectionJobCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StopKeyPhrasesDetectionJobResponse(
-    data.StopKeyPhrasesDetectionJobResponse,
+    data,
     context
   );
   const response: StopKeyPhrasesDetectionJobCommandOutput = {
@@ -5286,7 +5241,7 @@ export async function deserializeAws_json1_1StopSentimentDetectionJobCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StopSentimentDetectionJobResponse(
-    data.StopSentimentDetectionJobResponse,
+    data,
     context
   );
   const response: StopSentimentDetectionJobCommandOutput = {
@@ -5357,7 +5312,7 @@ export async function deserializeAws_json1_1StopTrainingDocumentClassifierComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StopTrainingDocumentClassifierResponse(
-    data.StopTrainingDocumentClassifierResponse,
+    data,
     context
   );
   const response: StopTrainingDocumentClassifierCommandOutput = {
@@ -5435,7 +5390,7 @@ export async function deserializeAws_json1_1StopTrainingEntityRecognizerCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StopTrainingEntityRecognizerResponse(
-    data.StopTrainingEntityRecognizerResponse,
+    data,
     context
   );
   const response: StopTrainingEntityRecognizerCommandOutput = {
@@ -5509,10 +5464,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(
-    data.TagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
@@ -5591,10 +5543,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(
-    data.UntagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
@@ -5673,10 +5622,7 @@ export async function deserializeAws_json1_1UpdateEndpointCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateEndpointResponse(
-    data.UpdateEndpointResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateEndpointResponse(data, context);
   const response: UpdateEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateEndpointResponse",

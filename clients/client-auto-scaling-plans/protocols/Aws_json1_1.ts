@@ -232,10 +232,7 @@ export async function deserializeAws_json1_1CreateScalingPlanCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateScalingPlanResponse(
-    data.CreateScalingPlanResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateScalingPlanResponse(data, context);
   const response: CreateScalingPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateScalingPlanResponse",
@@ -307,10 +304,7 @@ export async function deserializeAws_json1_1DeleteScalingPlanCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteScalingPlanResponse(
-    data.DeleteScalingPlanResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteScalingPlanResponse(data, context);
   const response: DeleteScalingPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteScalingPlanResponse",
@@ -386,7 +380,7 @@ export async function deserializeAws_json1_1DescribeScalingPlanResourcesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeScalingPlanResourcesResponse(
-    data.DescribeScalingPlanResourcesResponse,
+    data,
     context
   );
   const response: DescribeScalingPlanResourcesCommandOutput = {
@@ -463,10 +457,7 @@ export async function deserializeAws_json1_1DescribeScalingPlansCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeScalingPlansResponse(
-    data.DescribeScalingPlansResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeScalingPlansResponse(data, context);
   const response: DescribeScalingPlansCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeScalingPlansResponse",
@@ -542,7 +533,7 @@ export async function deserializeAws_json1_1GetScalingPlanResourceForecastDataCo
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetScalingPlanResourceForecastDataResponse(
-    data.GetScalingPlanResourceForecastDataResponse,
+    data,
     context
   );
   const response: GetScalingPlanResourceForecastDataCommandOutput = {
@@ -602,10 +593,7 @@ export async function deserializeAws_json1_1UpdateScalingPlanCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateScalingPlanResponse(
-    data.UpdateScalingPlanResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateScalingPlanResponse(data, context);
   const response: UpdateScalingPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateScalingPlanResponse",

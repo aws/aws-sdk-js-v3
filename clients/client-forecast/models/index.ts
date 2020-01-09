@@ -5,7 +5,7 @@ export enum AttributeType {
   FLOAT = "float",
   INTEGER = "integer",
   STRING = "string",
-  TIMESTAMP = "timestamp"
+  TIMESTAMP = "timestamp",
 }
 
 /**
@@ -856,7 +856,7 @@ export namespace DatasetSummary {
 export enum DatasetType {
   ITEM_METADATA = "ITEM_METADATA",
   RELATED_TIME_SERIES = "RELATED_TIME_SERIES",
-  TARGET_TIME_SERIES = "TARGET_TIME_SERIES"
+  TARGET_TIME_SERIES = "TARGET_TIME_SERIES",
 }
 
 export interface DeleteDatasetGroupRequest {
@@ -1781,7 +1781,7 @@ export enum Domain {
   METRICS = "METRICS",
   RETAIL = "RETAIL",
   WEB_TRAFFIC = "WEB_TRAFFIC",
-  WORK_FORCE = "WORK_FORCE"
+  WORK_FORCE = "WORK_FORCE",
 }
 
 /**
@@ -1891,7 +1891,7 @@ export namespace EvaluationResult {
 
 export enum EvaluationType {
   COMPUTED = "COMPUTED",
-  SUMMARY = "SUMMARY"
+  SUMMARY = "SUMMARY",
 }
 
 /**
@@ -2081,7 +2081,7 @@ export namespace FeaturizationMethod {
 }
 
 export enum FeaturizationMethodName {
-  filling = "filling"
+  filling = "filling",
 }
 
 /**
@@ -2126,7 +2126,7 @@ export namespace Filter {
 
 export enum FilterConditionString {
   IS = "IS",
-  IS_NOT = "IS_NOT"
+  IS_NOT = "IS_NOT",
 }
 
 /**
@@ -2485,9 +2485,7 @@ export namespace IntegerParameterRange {
  *       the valid range.</p>
  *
  */
-export interface InvalidInputException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidInputException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidInputException";
   $fault: "client";
   Message?: string;
@@ -2504,9 +2502,7 @@ export namespace InvalidInputException {
  *          <p>The token is not valid. Tokens expire after 24 hours.</p>
  *
  */
-export interface InvalidNextTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -2523,9 +2519,7 @@ export namespace InvalidNextTokenException {
  *          <p>The limit on the number of resources per account has been exceeded.</p>
  *
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -3199,9 +3193,7 @@ export namespace PredictorSummary {
  *          <p>There is already a resource with this name. Try again with a different name.</p>
  *
  */
-export interface ResourceAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -3218,9 +3210,7 @@ export namespace ResourceAlreadyExistsException {
  *          <p>The specified resource is in use.</p>
  *
  */
-export interface ResourceInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   Message?: string;
@@ -3239,9 +3229,7 @@ export namespace ResourceInUseException {
  *       again.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -3301,7 +3289,7 @@ export enum ScalingType {
   Auto = "Auto",
   Linear = "Linear",
   Logarithmic = "Logarithmic",
-  ReverseLogarithmic = "ReverseLogarithmic"
+  ReverseLogarithmic = "ReverseLogarithmic",
 }
 
 /**

@@ -44,7 +44,7 @@ export namespace AddTagsOutput {
 
 export enum AlgorithmSortBy {
   CREATION_TIME = "CreationTime",
-  NAME = "Name"
+  NAME = "Name",
 }
 
 /**
@@ -153,7 +153,7 @@ export enum AlgorithmStatus {
   DELETING = "Deleting",
   FAILED = "Failed",
   IN_PROGRESS = "InProgress",
-  PENDING = "Pending"
+  PENDING = "Pending",
 }
 
 /**
@@ -833,11 +833,11 @@ export enum AppInstanceType {
   ML_T3_MICRO = "ml.t3.micro",
   ML_T3_SMALL = "ml.t3.small",
   ML_T3_XLARGE = "ml.t3.xlarge",
-  SYSTEM = "system"
+  SYSTEM = "system",
 }
 
 export enum AppSortKey {
-  CreationTime = "CreationTime"
+  CreationTime = "CreationTime",
 }
 
 /**
@@ -881,18 +881,18 @@ export enum AppStatus {
   Deleting = "Deleting",
   Failed = "Failed",
   InService = "InService",
-  Pending = "Pending"
+  Pending = "Pending",
 }
 
 export enum AppType {
   JupyterServer = "JupyterServer",
   KernelGateway = "KernelGateway",
-  TensorBoard = "TensorBoard"
+  TensorBoard = "TensorBoard",
 }
 
 export enum AssemblyType {
   LINE = "Line",
-  NONE = "None"
+  NONE = "None",
 }
 
 export interface AssociateTrialComponentRequest {
@@ -943,7 +943,7 @@ export namespace AssociateTrialComponentResponse {
 
 export enum AuthMode {
   IAM = "IAM",
-  SSO = "SSO"
+  SSO = "SSO",
 }
 
 /**
@@ -1278,7 +1278,7 @@ export namespace AutoMLJobObjective {
 
 export enum AutoMLJobObjectiveType {
   MAXIMIZE = "Maximize",
-  MINIMIZE = "Minimize"
+  MINIMIZE = "Minimize",
 }
 
 export enum AutoMLJobSecondaryStatus {
@@ -1291,7 +1291,7 @@ export enum AutoMLJobSecondaryStatus {
   MODEL_TUNING = "ModelTuning",
   STARTING = "Starting",
   STOPPED = "Stopped",
-  STOPPING = "Stopping"
+  STOPPING = "Stopping",
 }
 
 export enum AutoMLJobStatus {
@@ -1299,7 +1299,7 @@ export enum AutoMLJobStatus {
   FAILED = "Failed",
   IN_PROGRESS = "InProgress",
   STOPPED = "Stopped",
-  STOPPING = "Stopping"
+  STOPPING = "Stopping",
 }
 
 /**
@@ -1376,7 +1376,7 @@ export enum AutoMLMetricEnum {
   ACCURACY = "Accuracy",
   F1 = "F1",
   F1_MACRO = "F1macro",
-  MSE = "MSE"
+  MSE = "MSE",
 }
 
 /**
@@ -1437,7 +1437,7 @@ export namespace AutoMLS3DataSource {
 
 export enum AutoMLS3DataType {
   MANIFEST_FILE = "ManifestFile",
-  S3_PREFIX = "S3Prefix"
+  S3_PREFIX = "S3Prefix",
 }
 
 /**
@@ -1478,33 +1478,33 @@ export namespace AutoMLSecurityConfig {
 export enum AutoMLSortBy {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
-  STATUS = "Status"
+  STATUS = "Status",
 }
 
 export enum AutoMLSortOrder {
   ASCENDING = "Ascending",
-  DESCENDING = "Descending"
+  DESCENDING = "Descending",
 }
 
 export enum AwsManagedHumanLoopRequestSource {
   REKOGNITION_DETECT_MODERATION_LABELS_IMAGE_V3 = "AWS/Rekognition/DetectModerationLabels/Image/V3",
-  TEXTRACT_ANALYZE_DOCUMENT_FORMS_V1 = "AWS/Textract/AnalyzeDocument/Forms/V1"
+  TEXTRACT_ANALYZE_DOCUMENT_FORMS_V1 = "AWS/Textract/AnalyzeDocument/Forms/V1",
 }
 
 export enum BatchStrategy {
   MULTI_RECORD = "MultiRecord",
-  SINGLE_RECORD = "SingleRecord"
+  SINGLE_RECORD = "SingleRecord",
 }
 
 export enum BooleanOperator {
   AND = "And",
-  OR = "Or"
+  OR = "Or",
 }
 
 export enum CandidateSortBy {
   CreationTime = "CreationTime",
   FinalObjectiveMetricValue = "FinalObjectiveMetricValue",
-  Status = "Status"
+  Status = "Status",
 }
 
 export enum CandidateStatus {
@@ -1512,13 +1512,13 @@ export enum CandidateStatus {
   FAILED = "Failed",
   IN_PROGRESS = "InProgress",
   STOPPED = "Stopped",
-  STOPPING = "Stopping"
+  STOPPING = "Stopping",
 }
 
 export enum CandidateStepType {
   PROCESSING = "AWS::SageMaker::ProcessingJob",
   TRAINING = "AWS::SageMaker::TrainingJob",
-  TRANSFORM = "AWS::SageMaker::TransformJob"
+  TRANSFORM = "AWS::SageMaker::TransformJob",
 }
 
 /**
@@ -1551,7 +1551,7 @@ export namespace CaptureContentTypeHeader {
 
 export enum CaptureMode {
   INPUT = "Input",
-  OUTPUT = "Output"
+  OUTPUT = "Output",
 }
 
 /**
@@ -1577,7 +1577,7 @@ export namespace CaptureOption {
 
 export enum CaptureStatus {
   STARTED = "Started",
-  STOPPED = "Stopped"
+  STOPPED = "Stopped",
 }
 
 /**
@@ -1820,12 +1820,12 @@ export namespace CheckpointConfig {
 export enum CodeRepositorySortBy {
   CREATION_TIME = "CreationTime",
   LAST_MODIFIED_TIME = "LastModifiedTime",
-  NAME = "Name"
+  NAME = "Name",
 }
 
 export enum CodeRepositorySortOrder {
   ASCENDING = "Ascending",
-  DESCENDING = "Descending"
+  DESCENDING = "Descending",
 }
 
 /**
@@ -1956,7 +1956,7 @@ export enum CompilationJobStatus {
   INPROGRESS = "INPROGRESS",
   STARTING = "STARTING",
   STOPPED = "STOPPED",
-  STOPPING = "STOPPING"
+  STOPPING = "STOPPING",
 }
 
 /**
@@ -2031,7 +2031,7 @@ export namespace CompilationJobSummary {
 
 export enum CompressionType {
   GZIP = "Gzip",
-  NONE = "None"
+  NONE = "None",
 }
 
 /**
@@ -2039,9 +2039,7 @@ export enum CompressionType {
  *          <p>There was a conflict when you attempted to modify an experiment, trial, or trial component.</p>
  *
  */
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConflictException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ConflictException";
   $fault: "client";
   Message?: string;
@@ -2144,12 +2142,12 @@ export namespace ContainerDefinition {
 
 export enum ContainerMode {
   MULTI_MODEL = "MultiModel",
-  SINGLE_MODEL = "SingleModel"
+  SINGLE_MODEL = "SingleModel",
 }
 
 export enum ContentClassifier {
   FREE_OF_ADULT_CONTENT = "FreeOfAdultContent",
-  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation"
+  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation",
 }
 
 /**
@@ -3711,8 +3709,7 @@ export namespace CreateNotebookInstanceLifecycleConfigInput {
   }
 }
 
-export interface CreateNotebookInstanceLifecycleConfigOutput
-  extends $MetadataBearer {
+export interface CreateNotebookInstanceLifecycleConfigOutput extends $MetadataBearer {
   __type?: "CreateNotebookInstanceLifecycleConfigOutput";
   /**
    *
@@ -3723,9 +3720,7 @@ export interface CreateNotebookInstanceLifecycleConfigOutput
 }
 
 export namespace CreateNotebookInstanceLifecycleConfigOutput {
-  export function isa(
-    o: any
-  ): o is CreateNotebookInstanceLifecycleConfigOutput {
+  export function isa(o: any): o is CreateNotebookInstanceLifecycleConfigOutput {
     return _smithy.isa(o, "CreateNotebookInstanceLifecycleConfigOutput");
   }
 }
@@ -3815,8 +3810,7 @@ export namespace CreatePresignedNotebookInstanceUrlInput {
   }
 }
 
-export interface CreatePresignedNotebookInstanceUrlOutput
-  extends $MetadataBearer {
+export interface CreatePresignedNotebookInstanceUrlOutput extends $MetadataBearer {
   __type?: "CreatePresignedNotebookInstanceUrlOutput";
   /**
    *
@@ -6608,8 +6602,7 @@ export namespace DescribeHyperParameterTuningJobRequest {
   }
 }
 
-export interface DescribeHyperParameterTuningJobResponse
-  extends $MetadataBearer {
+export interface DescribeHyperParameterTuningJobResponse extends $MetadataBearer {
   __type?: "DescribeHyperParameterTuningJobResponse";
   /**
    *
@@ -6670,10 +6663,7 @@ export interface DescribeHyperParameterTuningJobResponse
    *             Stopped.</p>
    *
    */
-  HyperParameterTuningJobStatus:
-    | HyperParameterTuningJobStatus
-    | string
-    | undefined;
+  HyperParameterTuningJobStatus: HyperParameterTuningJobStatus | string | undefined;
 
   /**
    *
@@ -7264,15 +7254,12 @@ export interface DescribeNotebookInstanceLifecycleConfigInput {
 }
 
 export namespace DescribeNotebookInstanceLifecycleConfigInput {
-  export function isa(
-    o: any
-  ): o is DescribeNotebookInstanceLifecycleConfigInput {
+  export function isa(o: any): o is DescribeNotebookInstanceLifecycleConfigInput {
     return _smithy.isa(o, "DescribeNotebookInstanceLifecycleConfigInput");
   }
 }
 
-export interface DescribeNotebookInstanceLifecycleConfigOutput
-  extends $MetadataBearer {
+export interface DescribeNotebookInstanceLifecycleConfigOutput extends $MetadataBearer {
   __type?: "DescribeNotebookInstanceLifecycleConfigOutput";
   /**
    *
@@ -7319,9 +7306,7 @@ export interface DescribeNotebookInstanceLifecycleConfigOutput
 }
 
 export namespace DescribeNotebookInstanceLifecycleConfigOutput {
-  export function isa(
-    o: any
-  ): o is DescribeNotebookInstanceLifecycleConfigOutput {
+  export function isa(o: any): o is DescribeNotebookInstanceLifecycleConfigOutput {
     return _smithy.isa(o, "DescribeNotebookInstanceLifecycleConfigOutput");
   }
 }
@@ -8781,19 +8766,19 @@ export enum DetailedAlgorithmStatus {
   COMPLETED = "Completed",
   FAILED = "Failed",
   IN_PROGRESS = "InProgress",
-  NOT_STARTED = "NotStarted"
+  NOT_STARTED = "NotStarted",
 }
 
 export enum DetailedModelPackageStatus {
   COMPLETED = "Completed",
   FAILED = "Failed",
   IN_PROGRESS = "InProgress",
-  NOT_STARTED = "NotStarted"
+  NOT_STARTED = "NotStarted",
 }
 
 export enum DirectInternetAccess {
   DISABLED = "Disabled",
-  ENABLED = "Enabled"
+  ENABLED = "Enabled",
 }
 
 export interface DisassociateTrialComponentRequest {
@@ -8909,12 +8894,12 @@ export enum DomainStatus {
   Deleting = "Deleting",
   Failed = "Failed",
   InService = "InService",
-  Pending = "Pending"
+  Pending = "Pending",
 }
 
 export enum EndpointConfigSortKey {
   CreationTime = "CreationTime",
-  Name = "Name"
+  Name = "Name",
 }
 
 /**
@@ -9003,7 +8988,7 @@ export namespace EndpointInput {
 export enum EndpointSortKey {
   CreationTime = "CreationTime",
   Name = "Name",
-  Status = "Status"
+  Status = "Status",
 }
 
 export enum EndpointStatus {
@@ -9014,7 +8999,7 @@ export enum EndpointStatus {
   OUT_OF_SERVICE = "OutOfService",
   ROLLING_BACK = "RollingBack",
   SYSTEM_UPDATING = "SystemUpdating",
-  UPDATING = "Updating"
+  UPDATING = "Updating",
 }
 
 /**
@@ -9122,7 +9107,7 @@ export enum ExecutionStatus {
   IN_PROGRESS = "InProgress",
   PENDING = "Pending",
   STOPPED = "Stopped",
-  STOPPING = "Stopping"
+  STOPPING = "Stopping",
 }
 
 /**
@@ -9339,7 +9324,7 @@ export namespace ExperimentSummary {
 
 export enum FileSystemAccessMode {
   RO = "ro",
-  RW = "rw"
+  RW = "rw",
 }
 
 /**
@@ -9387,7 +9372,7 @@ export namespace FileSystemDataSource {
 
 export enum FileSystemType {
   EFS = "EFS",
-  FSXLUSTRE = "FSxLustre"
+  FSXLUSTRE = "FSxLustre",
 }
 
 /**
@@ -9615,9 +9600,7 @@ export interface FinalHyperParameterTuningJobObjectiveMetric {
 }
 
 export namespace FinalHyperParameterTuningJobObjectiveMetric {
-  export function isa(
-    o: any
-  ): o is FinalHyperParameterTuningJobObjectiveMetric {
+  export function isa(o: any): o is FinalHyperParameterTuningJobObjectiveMetric {
     return _smithy.isa(o, "FinalHyperParameterTuningJobObjectiveMetric");
   }
 }
@@ -9655,7 +9638,7 @@ export enum FlowDefinitionStatus {
   DELETED = "Deleted",
   DELETING = "Deleting",
   FAILED = "Failed",
-  INITIALIZING = "Initializing"
+  INITIALIZING = "Initializing",
 }
 
 /**
@@ -9712,7 +9695,7 @@ export enum Framework {
   ONNX = "ONNX",
   PYTORCH = "PYTORCH",
   TENSORFLOW = "TENSORFLOW",
-  XGBOOST = "XGBOOST"
+  XGBOOST = "XGBOOST",
 }
 
 export interface GetSearchSuggestionsRequest {
@@ -9859,9 +9842,7 @@ export interface HumanLoopActivationConfig {
    *          <p>Container structure for defining under what conditions SageMaker creates a human loop.</p>
    *
    */
-  HumanLoopActivationConditionsConfig:
-    | HumanLoopActivationConditionsConfig
-    | undefined;
+  HumanLoopActivationConditionsConfig: HumanLoopActivationConditionsConfig | undefined;
 
   /**
    *
@@ -10325,10 +10306,7 @@ export interface HumanLoopRequestSource {
    *          <p>Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. The default field settings and JSON parsing rules are different based on the integration source. Valid values:</p>
    *
    */
-  AwsManagedHumanLoopRequestSource:
-    | AwsManagedHumanLoopRequestSource
-    | string
-    | undefined;
+  AwsManagedHumanLoopRequestSource: AwsManagedHumanLoopRequestSource | string | undefined;
 }
 
 export namespace HumanLoopRequestSource {
@@ -11153,7 +11131,7 @@ export enum HyperParameterScalingType {
   AUTO = "Auto",
   LINEAR = "Linear",
   LOGARITHMIC = "Logarithmic",
-  REVERSE_LOGARITHMIC = "ReverseLogarithmic"
+  REVERSE_LOGARITHMIC = "ReverseLogarithmic",
 }
 
 /**
@@ -11663,13 +11641,13 @@ export namespace HyperParameterTuningJobObjective {
 
 export enum HyperParameterTuningJobObjectiveType {
   MAXIMIZE = "Maximize",
-  MINIMIZE = "Minimize"
+  MINIMIZE = "Minimize",
 }
 
 export enum HyperParameterTuningJobSortByOptions {
   CreationTime = "CreationTime",
   Name = "Name",
-  Status = "Status"
+  Status = "Status",
 }
 
 export enum HyperParameterTuningJobStatus {
@@ -11677,12 +11655,12 @@ export enum HyperParameterTuningJobStatus {
   FAILED = "Failed",
   IN_PROGRESS = "InProgress",
   STOPPED = "Stopped",
-  STOPPING = "Stopping"
+  STOPPING = "Stopping",
 }
 
 export enum HyperParameterTuningJobStrategyType {
   BAYESIAN = "Bayesian",
-  RANDOM = "Random"
+  RANDOM = "Random",
 }
 
 /**
@@ -11729,10 +11707,7 @@ export interface HyperParameterTuningJobSummary {
    *             job.</p>
    *
    */
-  HyperParameterTuningJobStatus:
-    | HyperParameterTuningJobStatus
-    | string
-    | undefined;
+  HyperParameterTuningJobStatus: HyperParameterTuningJobStatus | string | undefined;
 
   /**
    *
@@ -11814,9 +11789,7 @@ export interface HyperParameterTuningJobWarmStartConfig {
    *             jobs for warm start tuning jobs.</p>
    *
    */
-  ParentHyperParameterTuningJobs:
-    | Array<ParentHyperParameterTuningJob>
-    | undefined;
+  ParentHyperParameterTuningJobs: Array<ParentHyperParameterTuningJob> | undefined;
 
   /**
    *
@@ -11862,7 +11835,7 @@ export namespace HyperParameterTuningJobWarmStartConfig {
 
 export enum HyperParameterTuningJobWarmStartType {
   IDENTICAL_DATA_AND_ALGORITHM = "IdenticalDataAndAlgorithm",
-  TRANSFER_LEARNING = "TransferLearning"
+  TRANSFER_LEARNING = "TransferLearning",
 }
 
 /**
@@ -11891,9 +11864,7 @@ export interface InferenceSpecification {
    *         <p>A list of the instance types that are used to generate inferences in real-time.</p>
    *
    */
-  SupportedRealtimeInferenceInstanceTypes:
-    | Array<ProductionVariantInstanceType | string>
-    | undefined;
+  SupportedRealtimeInferenceInstanceTypes: Array<ProductionVariantInstanceType | string> | undefined;
 
   /**
    *
@@ -11908,9 +11879,7 @@ export interface InferenceSpecification {
    *             endpoint can be deployed.</p>
    *
    */
-  SupportedTransformInstanceTypes:
-    | Array<TransformInstanceType | string>
-    | undefined;
+  SupportedTransformInstanceTypes: Array<TransformInstanceType | string> | undefined;
 }
 
 export namespace InferenceSpecification {
@@ -12131,7 +12100,7 @@ export enum _InstanceType {
   ML_T3_2XLARGE = "ml.t3.2xlarge",
   ML_T3_LARGE = "ml.t3.large",
   ML_T3_MEDIUM = "ml.t3.medium",
-  ML_T3_XLARGE = "ml.t3.xlarge"
+  ML_T3_XLARGE = "ml.t3.xlarge",
 }
 
 /**
@@ -12232,7 +12201,7 @@ export namespace IntegerParameterRangeSpecification {
 
 export enum JoinSource {
   INPUT = "Input",
-  NONE = "None"
+  NONE = "None",
 }
 
 /**
@@ -12699,7 +12668,7 @@ export enum LabelingJobStatus {
   FAILED = "Failed",
   IN_PROGRESS = "InProgress",
   STOPPED = "Stopped",
-  STOPPING = "Stopping"
+  STOPPING = "Stopping",
 }
 
 /**
@@ -13428,7 +13397,7 @@ export namespace ListCompilationJobsResponse {
 export enum ListCompilationJobsSortBy {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
-  STATUS = "Status"
+  STATUS = "Status",
 }
 
 export interface ListDomainsRequest {
@@ -13993,9 +13962,7 @@ export interface ListHyperParameterTuningJobsResponse extends $MetadataBearer {
    *             request returned.</p>
    *
    */
-  HyperParameterTuningJobSummaries:
-    | Array<HyperParameterTuningJobSummary>
-    | undefined;
+  HyperParameterTuningJobSummaries: Array<HyperParameterTuningJobSummary> | undefined;
 
   /**
    *
@@ -14110,7 +14077,7 @@ export namespace ListLabelingJobsForWorkteamResponse {
 }
 
 export enum ListLabelingJobsForWorkteamSortByOptions {
-  CREATION_TIME = "CreationTime"
+  CREATION_TIME = "CreationTime",
 }
 
 export interface ListLabelingJobsRequest {
@@ -14720,8 +14687,7 @@ export namespace ListNotebookInstanceLifecycleConfigsInput {
   }
 }
 
-export interface ListNotebookInstanceLifecycleConfigsOutput
-  extends $MetadataBearer {
+export interface ListNotebookInstanceLifecycleConfigsOutput extends $MetadataBearer {
   __type?: "ListNotebookInstanceLifecycleConfigsOutput";
   /**
    *
@@ -14737,9 +14703,7 @@ export interface ListNotebookInstanceLifecycleConfigsOutput
    *             a lifecycle configuration.</p>
    *
    */
-  NotebookInstanceLifecycleConfigs?: Array<
-    NotebookInstanceLifecycleConfigSummary
-  >;
+  NotebookInstanceLifecycleConfigs?: Array<NotebookInstanceLifecycleConfigSummary>;
 }
 
 export namespace ListNotebookInstanceLifecycleConfigsOutput {
@@ -15169,15 +15133,12 @@ export interface ListTrainingJobsForHyperParameterTuningJobRequest {
 }
 
 export namespace ListTrainingJobsForHyperParameterTuningJobRequest {
-  export function isa(
-    o: any
-  ): o is ListTrainingJobsForHyperParameterTuningJobRequest {
+  export function isa(o: any): o is ListTrainingJobsForHyperParameterTuningJobRequest {
     return _smithy.isa(o, "ListTrainingJobsForHyperParameterTuningJobRequest");
   }
 }
 
-export interface ListTrainingJobsForHyperParameterTuningJobResponse
-  extends $MetadataBearer {
+export interface ListTrainingJobsForHyperParameterTuningJobResponse extends $MetadataBearer {
   __type?: "ListTrainingJobsForHyperParameterTuningJobResponse";
   /**
    *
@@ -15200,9 +15161,7 @@ export interface ListTrainingJobsForHyperParameterTuningJobResponse
 }
 
 export namespace ListTrainingJobsForHyperParameterTuningJobResponse {
-  export function isa(
-    o: any
-  ): o is ListTrainingJobsForHyperParameterTuningJobResponse {
+  export function isa(o: any): o is ListTrainingJobsForHyperParameterTuningJobResponse {
     return _smithy.isa(o, "ListTrainingJobsForHyperParameterTuningJobResponse");
   }
 }
@@ -15745,7 +15704,7 @@ export namespace ListWorkteamsResponse {
 
 export enum ListWorkteamsSortByOptions {
   CreateDate = "CreateDate",
-  Name = "Name"
+  Name = "Name",
 }
 
 /**
@@ -15927,7 +15886,7 @@ export namespace ModelPackageContainerDefinition {
 
 export enum ModelPackageSortBy {
   CREATION_TIME = "CreationTime",
-  NAME = "Name"
+  NAME = "Name",
 }
 
 export enum ModelPackageStatus {
@@ -15935,7 +15894,7 @@ export enum ModelPackageStatus {
   DELETING = "Deleting",
   FAILED = "Failed",
   IN_PROGRESS = "InProgress",
-  PENDING = "Pending"
+  PENDING = "Pending",
 }
 
 /**
@@ -16113,7 +16072,7 @@ export namespace ModelPackageValidationSpecification {
 
 export enum ModelSortKey {
   CreationTime = "CreationTime",
-  Name = "Name"
+  Name = "Name",
 }
 
 /**
@@ -16306,7 +16265,7 @@ export namespace MonitoringConstraintsResource {
 export enum MonitoringExecutionSortKey {
   CREATION_TIME = "CreationTime",
   SCHEDULED_TIME = "ScheduledTime",
-  STATUS = "Status"
+  STATUS = "Status",
 }
 
 /**
@@ -16624,7 +16583,7 @@ export namespace MonitoringScheduleConfig {
 export enum MonitoringScheduleSortKey {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
-  STATUS = "Status"
+  STATUS = "Status",
 }
 
 /**
@@ -16831,18 +16790,18 @@ export enum NotebookInstanceAcceleratorType {
   ML_EIA1_XLARGE = "ml.eia1.xlarge",
   ML_EIA2_LARGE = "ml.eia2.large",
   ML_EIA2_MEDIUM = "ml.eia2.medium",
-  ML_EIA2_XLARGE = "ml.eia2.xlarge"
+  ML_EIA2_XLARGE = "ml.eia2.xlarge",
 }
 
 export enum NotebookInstanceLifecycleConfigSortKey {
   CREATION_TIME = "CreationTime",
   LAST_MODIFIED_TIME = "LastModifiedTime",
-  NAME = "Name"
+  NAME = "Name",
 }
 
 export enum NotebookInstanceLifecycleConfigSortOrder {
   ASCENDING = "Ascending",
-  DESCENDING = "Descending"
+  DESCENDING = "Descending",
 }
 
 /**
@@ -16923,12 +16882,12 @@ export namespace NotebookInstanceLifecycleHook {
 export enum NotebookInstanceSortKey {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
-  STATUS = "Status"
+  STATUS = "Status",
 }
 
 export enum NotebookInstanceSortOrder {
   ASCENDING = "Ascending",
-  DESCENDING = "Descending"
+  DESCENDING = "Descending",
 }
 
 export enum NotebookInstanceStatus {
@@ -16938,7 +16897,7 @@ export enum NotebookInstanceStatus {
   Pending = "Pending",
   Stopped = "Stopped",
   Stopping = "Stopping",
-  Updating = "Updating"
+  Updating = "Updating",
 }
 
 /**
@@ -17043,7 +17002,7 @@ export namespace NotebookInstanceSummary {
 
 export enum NotebookOutputOption {
   Allowed = "Allowed",
-  Disabled = "Disabled"
+  Disabled = "Disabled",
 }
 
 /**
@@ -17071,7 +17030,7 @@ export namespace NotificationConfiguration {
 export enum ObjectiveStatus {
   Failed = "Failed",
   Pending = "Pending",
-  Succeeded = "Succeeded"
+  Succeeded = "Succeeded",
 }
 
 /**
@@ -17127,12 +17086,12 @@ export enum Operator {
   LESS_THAN = "LessThan",
   LESS_THAN_OR_EQUAL_TO = "LessThanOrEqualTo",
   NOT_EQUALS = "NotEquals",
-  NOT_EXISTS = "NotExists"
+  NOT_EXISTS = "NotExists",
 }
 
 export enum OrderKey {
   Ascending = "Ascending",
-  Descending = "Descending"
+  Descending = "Descending",
 }
 
 /**
@@ -17334,7 +17293,7 @@ export enum ParameterType {
   CATEGORICAL = "Categorical",
   CONTINUOUS = "Continuous",
   FREE_TEXT = "FreeText",
-  INTEGER = "Integer"
+  INTEGER = "Integer",
 }
 
 /**
@@ -17393,7 +17352,7 @@ export namespace ParentHyperParameterTuningJob {
 export enum ProblemType {
   BINARY_CLASSIFICATION = "BinaryClassification",
   MULTICLASS_CLASSIFICATION = "MulticlassClassification",
-  REGRESSION = "Regression"
+  REGRESSION = "Regression",
 }
 
 /**
@@ -17508,7 +17467,7 @@ export enum ProcessingInstanceType {
   ML_T3_2XLARGE = "ml.t3.2xlarge",
   ML_T3_LARGE = "ml.t3.large",
   ML_T3_MEDIUM = "ml.t3.medium",
-  ML_T3_XLARGE = "ml.t3.xlarge"
+  ML_T3_XLARGE = "ml.t3.xlarge",
 }
 
 export enum ProcessingJobStatus {
@@ -17516,7 +17475,7 @@ export enum ProcessingJobStatus {
   FAILED = "Failed",
   IN_PROGRESS = "InProgress",
   STOPPED = "Stopped",
-  STOPPING = "Stopping"
+  STOPPING = "Stopping",
 }
 
 /**
@@ -17675,17 +17634,17 @@ export namespace ProcessingResources {
 
 export enum ProcessingS3CompressionType {
   GZIP = "Gzip",
-  NONE = "None"
+  NONE = "None",
 }
 
 export enum ProcessingS3DataDistributionType {
   FULLYREPLICATED = "FullyReplicated",
-  SHARDEDBYS3KEY = "ShardedByS3Key"
+  SHARDEDBYS3KEY = "ShardedByS3Key",
 }
 
 export enum ProcessingS3DataType {
   MANIFEST_FILE = "ManifestFile",
-  S3_PREFIX = "S3Prefix"
+  S3_PREFIX = "S3Prefix",
 }
 
 /**
@@ -17760,7 +17719,7 @@ export namespace ProcessingS3Input {
 
 export enum ProcessingS3InputMode {
   FILE = "File",
-  PIPE = "Pipe"
+  PIPE = "Pipe",
 }
 
 /**
@@ -17804,7 +17763,7 @@ export namespace ProcessingS3Output {
 
 export enum ProcessingS3UploadMode {
   CONTINUOUS = "Continuous",
-  END_OF_JOB = "EndOfJob"
+  END_OF_JOB = "EndOfJob",
 }
 
 /**
@@ -17901,7 +17860,7 @@ export enum ProductionVariantAcceleratorType {
   ML_EIA1_XLARGE = "ml.eia1.xlarge",
   ML_EIA2_LARGE = "ml.eia2.large",
   ML_EIA2_MEDIUM = "ml.eia2.medium",
-  ML_EIA2_XLARGE = "ml.eia2.xlarge"
+  ML_EIA2_XLARGE = "ml.eia2.xlarge",
 }
 
 export enum ProductionVariantInstanceType {
@@ -17970,7 +17929,7 @@ export enum ProductionVariantInstanceType {
   ML_T2_2XLARGE = "ml.t2.2xlarge",
   ML_T2_LARGE = "ml.t2.large",
   ML_T2_MEDIUM = "ml.t2.medium",
-  ML_T2_XLARGE = "ml.t2.xlarge"
+  ML_T2_XLARGE = "ml.t2.xlarge",
 }
 
 /**
@@ -18465,7 +18424,7 @@ export namespace PublicWorkforceTaskPrice {
 
 export enum RecordWrapper {
   NONE = "None",
-  RECORDIO = "RecordIO"
+  RECORDIO = "RecordIO",
 }
 
 export interface RenderUiTemplateRequest {
@@ -18705,9 +18664,7 @@ export namespace ResourceConfig {
  *         <p>Resource being accessed is in use.</p>
  *
  */
-export interface ResourceInUse
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceInUse extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceInUse";
   $fault: "client";
   Message?: string;
@@ -18725,9 +18682,7 @@ export namespace ResourceInUse {
  *             training jobs created. </p>
  *
  */
-export interface ResourceLimitExceeded
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceLimitExceeded extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceLimitExceeded";
   $fault: "client";
   Message?: string;
@@ -18781,9 +18736,7 @@ export namespace ResourceLimits {
  *         <p>Resource being access is not found.</p>
  *
  */
-export interface ResourceNotFound
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFound extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFound";
   $fault: "client";
   Message?: string;
@@ -18827,7 +18780,7 @@ export enum ResourceType {
   EXPERIMENT = "Experiment",
   EXPERIMENT_TRIAL = "ExperimentTrial",
   EXPERIMENT_TRIAL_COMPONENT = "ExperimentTrialComponent",
-  TRAINING_JOB = "TrainingJob"
+  TRAINING_JOB = "TrainingJob",
 }
 
 /**
@@ -18853,12 +18806,12 @@ export namespace RetentionPolicy {
 
 export enum RetentionType {
   Delete = "Delete",
-  Retain = "Retain"
+  Retain = "Retain",
 }
 
 export enum RootAccess {
   DISABLED = "Disabled",
-  ENABLED = "Enabled"
+  ENABLED = "Enabled",
 }
 
 export enum RuleEvaluationStatus {
@@ -18867,12 +18820,12 @@ export enum RuleEvaluationStatus {
   ISSUES_FOUND = "IssuesFound",
   NO_ISSUES_FOUND = "NoIssuesFound",
   STOPPED = "Stopped",
-  STOPPING = "Stopping"
+  STOPPING = "Stopping",
 }
 
 export enum S3DataDistribution {
   FULLY_REPLICATED = "FullyReplicated",
-  SHARDED_BY_S3_KEY = "ShardedByS3Key"
+  SHARDED_BY_S3_KEY = "ShardedByS3Key",
 }
 
 /**
@@ -18997,7 +18950,7 @@ export namespace S3DataSource {
 export enum S3DataType {
   AUGMENTED_MANIFEST_FILE = "AugmentedManifestFile",
   MANIFEST_FILE = "ManifestFile",
-  S3_PREFIX = "S3Prefix"
+  S3_PREFIX = "S3Prefix",
 }
 
 /**
@@ -19082,7 +19035,7 @@ export enum ScheduleStatus {
   FAILED = "Failed",
   PENDING = "Pending",
   SCHEDULED = "Scheduled",
-  STOPPED = "Stopped"
+  STOPPED = "Stopped",
 }
 
 /**
@@ -19290,7 +19243,7 @@ export namespace SearchResponse {
 
 export enum SearchSortOrder {
   ASCENDING = "Ascending",
-  DESCENDING = "Descending"
+  DESCENDING = "Descending",
 }
 
 export enum SecondaryStatus {
@@ -19307,7 +19260,7 @@ export enum SecondaryStatus {
   STOPPED = "Stopped",
   STOPPING = "Stopping",
   TRAINING = "Training",
-  UPLOADING = "Uploading"
+  UPLOADING = "Uploading",
 }
 
 /**
@@ -19589,27 +19542,27 @@ export namespace ShuffleConfig {
 export enum SortBy {
   CREATION_TIME = "CreationTime",
   NAME = "Name",
-  STATUS = "Status"
+  STATUS = "Status",
 }
 
 export enum SortExperimentsBy {
   CREATION_TIME = "CreationTime",
-  NAME = "Name"
+  NAME = "Name",
 }
 
 export enum SortOrder {
   ASCENDING = "Ascending",
-  DESCENDING = "Descending"
+  DESCENDING = "Descending",
 }
 
 export enum SortTrialComponentsBy {
   CREATION_TIME = "CreationTime",
-  NAME = "Name"
+  NAME = "Name",
 }
 
 export enum SortTrialsBy {
   CREATION_TIME = "CreationTime",
-  NAME = "Name"
+  NAME = "Name",
 }
 
 /**
@@ -19671,7 +19624,7 @@ export enum SplitType {
   LINE = "Line",
   NONE = "None",
   RECORDIO = "RecordIO",
-  TFRECORD = "TFRecord"
+  TFRECORD = "TFRecord",
 }
 
 export interface StartMonitoringScheduleRequest {
@@ -20019,7 +19972,7 @@ export enum TargetDevice {
   RASP3B = "rasp3b",
   RK3288 = "rk3288",
   RK3399 = "rk3399",
-  SBE_C = "sbe_c"
+  SBE_C = "sbe_c",
 }
 
 /**
@@ -20074,7 +20027,7 @@ export namespace TensorBoardOutputConfig {
 
 export enum TrainingInputMode {
   FILE = "File",
-  PIPE = "Pipe"
+  PIPE = "Pipe",
 }
 
 export enum TrainingInstanceType {
@@ -20104,7 +20057,7 @@ export enum TrainingInstanceType {
   ML_P3DN_24XLARGE = "ml.p3dn.24xlarge",
   ML_P3_16XLARGE = "ml.p3.16xlarge",
   ML_P3_2XLARGE = "ml.p3.2xlarge",
-  ML_P3_8XLARGE = "ml.p3.8xlarge"
+  ML_P3_8XLARGE = "ml.p3.8xlarge",
 }
 
 /**
@@ -20591,14 +20544,14 @@ export namespace TrainingJobDefinition {
 
 export enum TrainingJobEarlyStoppingType {
   AUTO = "Auto",
-  OFF = "Off"
+  OFF = "Off",
 }
 
 export enum TrainingJobSortByOptions {
   CreationTime = "CreationTime",
   FinalObjectiveMetricValue = "FinalObjectiveMetricValue",
   Name = "Name",
-  Status = "Status"
+  Status = "Status",
 }
 
 export enum TrainingJobStatus {
@@ -20606,7 +20559,7 @@ export enum TrainingJobStatus {
   FAILED = "Failed",
   IN_PROGRESS = "InProgress",
   STOPPED = "Stopped",
-  STOPPING = "Stopping"
+  STOPPING = "Stopping",
 }
 
 /**
@@ -20752,9 +20705,7 @@ export interface TrainingSpecification {
    *         <p>A list of the instance types that this algorithm can use for training.</p>
    *
    */
-  SupportedTrainingInstanceTypes:
-    | Array<TrainingInstanceType | string>
-    | undefined;
+  SupportedTrainingInstanceTypes: Array<TrainingInstanceType | string> | undefined;
 
   /**
    *
@@ -20929,7 +20880,7 @@ export enum TransformInstanceType {
   ML_P2_XLARGE = "ml.p2.xlarge",
   ML_P3_16XLARGE = "ml.p3.16xlarge",
   ML_P3_2XLARGE = "ml.p3.2xlarge",
-  ML_P3_8XLARGE = "ml.p3.8xlarge"
+  ML_P3_8XLARGE = "ml.p3.8xlarge",
 }
 
 /**
@@ -21009,7 +20960,7 @@ export enum TransformJobStatus {
   FAILED = "Failed",
   IN_PROGRESS = "InProgress",
   STOPPED = "Stopped",
-  STOPPING = "Stopping"
+  STOPPING = "Stopping",
 }
 
 /**
@@ -21729,7 +21680,7 @@ export namespace TrialComponentParameterValue {
 export enum TrialComponentPrimaryStatus {
   COMPLETED = "Completed",
   FAILED = "Failed",
-  IN_PROGRESS = "InProgress"
+  IN_PROGRESS = "InProgress",
 }
 
 /**
@@ -22332,8 +22283,7 @@ export namespace UpdateEndpointWeightsAndCapacitiesInput {
   }
 }
 
-export interface UpdateEndpointWeightsAndCapacitiesOutput
-  extends $MetadataBearer {
+export interface UpdateEndpointWeightsAndCapacitiesOutput extends $MetadataBearer {
   __type?: "UpdateEndpointWeightsAndCapacitiesOutput";
   /**
    *
@@ -22614,15 +22564,12 @@ export namespace UpdateNotebookInstanceLifecycleConfigInput {
   }
 }
 
-export interface UpdateNotebookInstanceLifecycleConfigOutput
-  extends $MetadataBearer {
+export interface UpdateNotebookInstanceLifecycleConfigOutput extends $MetadataBearer {
   __type?: "UpdateNotebookInstanceLifecycleConfigOutput";
 }
 
 export namespace UpdateNotebookInstanceLifecycleConfigOutput {
-  export function isa(
-    o: any
-  ): o is UpdateNotebookInstanceLifecycleConfigOutput {
+  export function isa(o: any): o is UpdateNotebookInstanceLifecycleConfigOutput {
     return _smithy.isa(o, "UpdateNotebookInstanceLifecycleConfigOutput");
   }
 }
@@ -22969,14 +22916,14 @@ export namespace UserProfileDetails {
 
 export enum UserProfileSortKey {
   CreationTime = "CreationTime",
-  LastModifiedTime = "LastModifiedTime"
+  LastModifiedTime = "LastModifiedTime",
 }
 
 export enum UserProfileStatus {
   Deleting = "Deleting",
   Failed = "Failed",
   InService = "InService",
-  Pending = "Pending"
+  Pending = "Pending",
 }
 
 /**

@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  WorkSpacesClientResolvedConfig
+  WorkSpacesClientResolvedConfig,
 } from "../WorkSpacesClient";
 import {
   DescribeWorkspaceDirectoriesRequest,
-  DescribeWorkspaceDirectoriesResult
+  DescribeWorkspaceDirectoriesResult,
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeWorkspaceDirectoriesCommand,
-  serializeAws_json1_1DescribeWorkspaceDirectoriesCommand
+  serializeAws_json1_1DescribeWorkspaceDirectoriesCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DescribeWorkspaceDirectoriesCommandInput = DescribeWorkspaceDirectoriesRequest;
 export type DescribeWorkspaceDirectoriesCommandOutput = DescribeWorkspaceDirectoriesResult;
 
-export class DescribeWorkspaceDirectoriesCommand extends $Command<
-  DescribeWorkspaceDirectoriesCommandInput,
-  DescribeWorkspaceDirectoriesCommandOutput,
-  WorkSpacesClientResolvedConfig
-> {
+export class DescribeWorkspaceDirectoriesCommand extends $Command<DescribeWorkspaceDirectoriesCommandInput, DescribeWorkspaceDirectoriesCommandOutput, WorkSpacesClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class DescribeWorkspaceDirectoriesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeWorkspaceDirectoriesCommandInput,
-    DescribeWorkspaceDirectoriesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeWorkspaceDirectoriesCommandInput, DescribeWorkspaceDirectoriesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class DescribeWorkspaceDirectoriesCommand extends $Command<
     input: DescribeWorkspaceDirectoriesCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeWorkspaceDirectoriesCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeWorkspaceDirectoriesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeWorkspaceDirectoriesCommandOutput> {
-    return deserializeAws_json1_1DescribeWorkspaceDirectoriesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeWorkspaceDirectoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

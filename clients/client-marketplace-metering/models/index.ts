@@ -71,9 +71,7 @@ export namespace BatchMeterUsageResult {
  *             product.</p>
  *
  */
-export interface CustomerNotEntitledException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CustomerNotEntitledException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CustomerNotEntitledException";
   $fault: "client";
   message?: string;
@@ -90,9 +88,7 @@ export namespace CustomerNotEntitledException {
  *         <p>The API is disabled in the Region.</p>
  *
  */
-export interface DisabledApiException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DisabledApiException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DisabledApiException";
   $fault: "client";
   message?: string;
@@ -111,9 +107,7 @@ export namespace DisabledApiException {
  *             usageQuantity.</p>
  *
  */
-export interface DuplicateRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DuplicateRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DuplicateRequestException";
   $fault: "client";
   message?: string;
@@ -134,9 +128,7 @@ export namespace DuplicateRequestException {
  *             by the buyer's browser.</p>
  *
  */
-export interface ExpiredTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ExpiredTokenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ExpiredTokenException";
   $fault: "client";
   message?: string;
@@ -154,9 +146,7 @@ export namespace ExpiredTokenException {
  *             message with details on the AWS forums.</p>
  *
  */
-export interface InternalServiceErrorException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServiceErrorException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServiceErrorException";
   $fault: "server";
   message?: string;
@@ -173,9 +163,7 @@ export namespace InternalServiceErrorException {
  *         <p>You have metered usage for a CustomerIdentifier that does not exist.</p>
  *
  */
-export interface InvalidCustomerIdentifierException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidCustomerIdentifierException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidCustomerIdentifierException";
   $fault: "client";
   message?: string;
@@ -194,9 +182,7 @@ export namespace InvalidCustomerIdentifierException {
  *             resource must match.</p>
  *
  */
-export interface InvalidEndpointRegionException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidEndpointRegionException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidEndpointRegionException";
   $fault: "client";
   message?: string;
@@ -214,9 +200,7 @@ export namespace InvalidEndpointRegionException {
  *             product.</p>
  *
  */
-export interface InvalidProductCodeException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidProductCodeException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidProductCodeException";
   $fault: "client";
   message?: string;
@@ -233,9 +217,7 @@ export namespace InvalidProductCodeException {
  *         <p>Public Key version is invalid.</p>
  *
  */
-export interface InvalidPublicKeyVersionException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidPublicKeyVersionException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidPublicKeyVersionException";
   $fault: "client";
   message?: string;
@@ -254,9 +236,7 @@ export namespace InvalidPublicKeyVersionException {
  *             calling RegisterUsage.</p>
  *
  */
-export interface InvalidRegionException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRegionException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRegionException";
   $fault: "client";
   message?: string;
@@ -273,9 +253,7 @@ export namespace InvalidRegionException {
  *         <p>Registration token is invalid.</p>
  *
  */
-export interface InvalidTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidTokenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidTokenException";
   $fault: "client";
   message?: string;
@@ -293,9 +271,7 @@ export namespace InvalidTokenException {
  *             products.</p>
  *
  */
-export interface InvalidUsageDimensionException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidUsageDimensionException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidUsageDimensionException";
   $fault: "client";
   message?: string;
@@ -382,9 +358,7 @@ export namespace MeterUsageResult {
  *             Currently, only Amazon ECS is supported.</p>
  *
  */
-export interface PlatformNotSupportedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface PlatformNotSupportedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "PlatformNotSupportedException";
   $fault: "client";
   message?: string;
@@ -513,9 +487,7 @@ export namespace ResolveCustomerResult {
  *         <p>The calls to the API are throttled.</p>
  *
  */
-export interface ThrottlingException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ThrottlingException";
   $fault: "client";
   message?: string;
@@ -532,9 +504,7 @@ export namespace ThrottlingException {
  *         <p>The timestamp value passed in the meterUsage() is out of allowed range.</p>
  *
  */
-export interface TimestampOutOfBoundsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TimestampOutOfBoundsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TimestampOutOfBoundsException";
   $fault: "client";
   message?: string;
@@ -657,5 +627,5 @@ export namespace UsageRecordResult {
 export enum UsageRecordResultStatus {
   CUSTOMER_NOT_SUBSCRIBED = "CustomerNotSubscribed",
   DUPLICATE_RECORD = "DuplicateRecord",
-  SUCCESS = "Success"
+  SUCCESS = "Success",
 }

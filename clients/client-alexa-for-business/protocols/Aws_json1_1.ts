@@ -2920,10 +2920,7 @@ export async function deserializeAws_json1_1SendAnnouncementCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SendAnnouncementResponse(
-    data.SendAnnouncementResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SendAnnouncementResponse(data, context);
   const response: SendAnnouncementCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SendAnnouncementResponse",
@@ -2984,10 +2981,7 @@ export async function deserializeAws_json1_1DeleteDeviceUsageDataCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteDeviceUsageDataResponse(
-    data.DeleteDeviceUsageDataResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteDeviceUsageDataResponse(data, context);
   const response: DeleteDeviceUsageDataCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteDeviceUsageDataResponse",
@@ -3052,10 +3046,7 @@ export async function deserializeAws_json1_1ApproveSkillCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ApproveSkillResponse(
-    data.ApproveSkillResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ApproveSkillResponse(data, context);
   const response: ApproveSkillCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ApproveSkillResponse",
@@ -3124,7 +3115,7 @@ export async function deserializeAws_json1_1AssociateContactWithAddressBookComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AssociateContactWithAddressBookResponse(
-    data.AssociateContactWithAddressBookResponse,
+    data,
     context
   );
   const response: AssociateContactWithAddressBookCommandOutput = {
@@ -3181,7 +3172,7 @@ export async function deserializeAws_json1_1AssociateDeviceWithNetworkProfileCom
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AssociateDeviceWithNetworkProfileResponse(
-    data.AssociateDeviceWithNetworkProfileResponse,
+    data,
     context
   );
   const response: AssociateDeviceWithNetworkProfileCommandOutput = {
@@ -3252,7 +3243,7 @@ export async function deserializeAws_json1_1AssociateDeviceWithRoomCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AssociateDeviceWithRoomResponse(
-    data.AssociateDeviceWithRoomResponse,
+    data,
     context
   );
   const response: AssociateDeviceWithRoomCommandOutput = {
@@ -3323,7 +3314,7 @@ export async function deserializeAws_json1_1AssociateSkillGroupWithRoomCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AssociateSkillGroupWithRoomResponse(
-    data.AssociateSkillGroupWithRoomResponse,
+    data,
     context
   );
   const response: AssociateSkillGroupWithRoomCommandOutput = {
@@ -3380,7 +3371,7 @@ export async function deserializeAws_json1_1AssociateSkillWithSkillGroupCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AssociateSkillWithSkillGroupResponse(
-    data.AssociateSkillWithSkillGroupResponse,
+    data,
     context
   );
   const response: AssociateSkillWithSkillGroupCommandOutput = {
@@ -3451,7 +3442,7 @@ export async function deserializeAws_json1_1AssociateSkillWithUsersCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AssociateSkillWithUsersResponse(
-    data.AssociateSkillWithUsersResponse,
+    data,
     context
   );
   const response: AssociateSkillWithUsersCommandOutput = {
@@ -3511,10 +3502,7 @@ export async function deserializeAws_json1_1CreateAddressBookCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateAddressBookResponse(
-    data.CreateAddressBookResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateAddressBookResponse(data, context);
   const response: CreateAddressBookCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateAddressBookResponse",
@@ -3576,7 +3564,7 @@ export async function deserializeAws_json1_1CreateBusinessReportScheduleCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateBusinessReportScheduleResponse(
-    data.CreateBusinessReportScheduleResponse,
+    data,
     context
   );
   const response: CreateBusinessReportScheduleCommandOutput = {
@@ -3633,7 +3621,7 @@ export async function deserializeAws_json1_1CreateConferenceProviderCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateConferenceProviderResponse(
-    data.CreateConferenceProviderResponse,
+    data,
     context
   );
   const response: CreateConferenceProviderCommandOutput = {
@@ -3686,10 +3674,7 @@ export async function deserializeAws_json1_1CreateContactCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateContactResponse(
-    data.CreateContactResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateContactResponse(data, context);
   const response: CreateContactCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateContactResponse",
@@ -3750,10 +3735,7 @@ export async function deserializeAws_json1_1CreateGatewayGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateGatewayGroupResponse(
-    data.CreateGatewayGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateGatewayGroupResponse(data, context);
   const response: CreateGatewayGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateGatewayGroupResponse",
@@ -3814,10 +3796,7 @@ export async function deserializeAws_json1_1CreateNetworkProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateNetworkProfileResponse(
-    data.CreateNetworkProfileResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateNetworkProfileResponse(data, context);
   const response: CreateNetworkProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateNetworkProfileResponse",
@@ -3896,10 +3875,7 @@ export async function deserializeAws_json1_1CreateProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateProfileResponse(
-    data.CreateProfileResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateProfileResponse(data, context);
   const response: CreateProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateProfileResponse",
@@ -3964,10 +3940,7 @@ export async function deserializeAws_json1_1CreateRoomCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateRoomResponse(
-    data.CreateRoomResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateRoomResponse(data, context);
   const response: CreateRoomCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateRoomResponse",
@@ -4025,10 +3998,7 @@ export async function deserializeAws_json1_1CreateSkillGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateSkillGroupResponse(
-    data.CreateSkillGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateSkillGroupResponse(data, context);
   const response: CreateSkillGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateSkillGroupResponse",
@@ -4093,10 +4063,7 @@ export async function deserializeAws_json1_1CreateUserCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateUserResponse(
-    data.CreateUserResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateUserResponse(data, context);
   const response: CreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateUserResponse",
@@ -4161,10 +4128,7 @@ export async function deserializeAws_json1_1DeleteAddressBookCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteAddressBookResponse(
-    data.DeleteAddressBookResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteAddressBookResponse(data, context);
   const response: DeleteAddressBookCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteAddressBookResponse",
@@ -4226,7 +4190,7 @@ export async function deserializeAws_json1_1DeleteBusinessReportScheduleCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteBusinessReportScheduleResponse(
-    data.DeleteBusinessReportScheduleResponse,
+    data,
     context
   );
   const response: DeleteBusinessReportScheduleCommandOutput = {
@@ -4290,7 +4254,7 @@ export async function deserializeAws_json1_1DeleteConferenceProviderCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteConferenceProviderResponse(
-    data.DeleteConferenceProviderResponse,
+    data,
     context
   );
   const response: DeleteConferenceProviderCommandOutput = {
@@ -4343,10 +4307,7 @@ export async function deserializeAws_json1_1DeleteContactCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteContactResponse(
-    data.DeleteContactResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteContactResponse(data, context);
   const response: DeleteContactCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteContactResponse",
@@ -4404,10 +4365,7 @@ export async function deserializeAws_json1_1DeleteDeviceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteDeviceResponse(
-    data.DeleteDeviceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteDeviceResponse(data, context);
   const response: DeleteDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteDeviceResponse",
@@ -4475,10 +4433,7 @@ export async function deserializeAws_json1_1DeleteGatewayGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteGatewayGroupResponse(
-    data.DeleteGatewayGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteGatewayGroupResponse(data, context);
   const response: DeleteGatewayGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteGatewayGroupResponse",
@@ -4532,10 +4487,7 @@ export async function deserializeAws_json1_1DeleteNetworkProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteNetworkProfileResponse(
-    data.DeleteNetworkProfileResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteNetworkProfileResponse(data, context);
   const response: DeleteNetworkProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteNetworkProfileResponse",
@@ -4600,10 +4552,7 @@ export async function deserializeAws_json1_1DeleteProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteProfileResponse(
-    data.DeleteProfileResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteProfileResponse(data, context);
   const response: DeleteProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteProfileResponse",
@@ -4661,10 +4610,7 @@ export async function deserializeAws_json1_1DeleteRoomCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteRoomResponse(
-    data.DeleteRoomResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteRoomResponse(data, context);
   const response: DeleteRoomCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteRoomResponse",
@@ -4726,7 +4672,7 @@ export async function deserializeAws_json1_1DeleteRoomSkillParameterCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteRoomSkillParameterResponse(
-    data.DeleteRoomSkillParameterResponse,
+    data,
     context
   );
   const response: DeleteRoomSkillParameterCommandOutput = {
@@ -4783,7 +4729,7 @@ export async function deserializeAws_json1_1DeleteSkillAuthorizationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteSkillAuthorizationResponse(
-    data.DeleteSkillAuthorizationResponse,
+    data,
     context
   );
   const response: DeleteSkillAuthorizationCommandOutput = {
@@ -4843,10 +4789,7 @@ export async function deserializeAws_json1_1DeleteSkillGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteSkillGroupResponse(
-    data.DeleteSkillGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteSkillGroupResponse(data, context);
   const response: DeleteSkillGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteSkillGroupResponse",
@@ -4904,10 +4847,7 @@ export async function deserializeAws_json1_1DeleteUserCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteUserResponse(
-    data.DeleteUserResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteUserResponse(data, context);
   const response: DeleteUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteUserResponse",
@@ -4969,7 +4909,7 @@ export async function deserializeAws_json1_1DisassociateContactFromAddressBookCo
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DisassociateContactFromAddressBookResponse(
-    data.DisassociateContactFromAddressBookResponse,
+    data,
     context
   );
   const response: DisassociateContactFromAddressBookCommandOutput = {
@@ -5015,7 +4955,7 @@ export async function deserializeAws_json1_1DisassociateDeviceFromRoomCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DisassociateDeviceFromRoomResponse(
-    data.DisassociateDeviceFromRoomResponse,
+    data,
     context
   );
   const response: DisassociateDeviceFromRoomCommandOutput = {
@@ -5079,7 +5019,7 @@ export async function deserializeAws_json1_1DisassociateSkillFromSkillGroupComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DisassociateSkillFromSkillGroupResponse(
-    data.DisassociateSkillFromSkillGroupResponse,
+    data,
     context
   );
   const response: DisassociateSkillFromSkillGroupCommandOutput = {
@@ -5143,7 +5083,7 @@ export async function deserializeAws_json1_1DisassociateSkillFromUsersCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DisassociateSkillFromUsersResponse(
-    data.DisassociateSkillFromUsersResponse,
+    data,
     context
   );
   const response: DisassociateSkillFromUsersCommandOutput = {
@@ -5207,7 +5147,7 @@ export async function deserializeAws_json1_1DisassociateSkillGroupFromRoomComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DisassociateSkillGroupFromRoomResponse(
-    data.DisassociateSkillGroupFromRoomResponse,
+    data,
     context
   );
   const response: DisassociateSkillGroupFromRoomCommandOutput = {
@@ -5264,7 +5204,7 @@ export async function deserializeAws_json1_1ForgetSmartHomeAppliancesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ForgetSmartHomeAppliancesResponse(
-    data.ForgetSmartHomeAppliancesResponse,
+    data,
     context
   );
   const response: ForgetSmartHomeAppliancesCommandOutput = {
@@ -5317,10 +5257,7 @@ export async function deserializeAws_json1_1GetAddressBookCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetAddressBookResponse(
-    data.GetAddressBookResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetAddressBookResponse(data, context);
   const response: GetAddressBookCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetAddressBookResponse",
@@ -5375,7 +5312,7 @@ export async function deserializeAws_json1_1GetConferencePreferenceCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetConferencePreferenceResponse(
-    data.GetConferencePreferenceResponse,
+    data,
     context
   );
   const response: GetConferencePreferenceCommandOutput = {
@@ -5431,10 +5368,7 @@ export async function deserializeAws_json1_1GetConferenceProviderCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetConferenceProviderResponse(
-    data.GetConferenceProviderResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetConferenceProviderResponse(data, context);
   const response: GetConferenceProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetConferenceProviderResponse",
@@ -5485,10 +5419,7 @@ export async function deserializeAws_json1_1GetContactCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetContactResponse(
-    data.GetContactResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetContactResponse(data, context);
   const response: GetContactCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetContactResponse",
@@ -5539,10 +5470,7 @@ export async function deserializeAws_json1_1GetDeviceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDeviceResponse(
-    data.GetDeviceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetDeviceResponse(data, context);
   const response: GetDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDeviceResponse",
@@ -5593,10 +5521,7 @@ export async function deserializeAws_json1_1GetGatewayCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetGatewayResponse(
-    data.GetGatewayResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetGatewayResponse(data, context);
   const response: GetGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetGatewayResponse",
@@ -5647,10 +5572,7 @@ export async function deserializeAws_json1_1GetGatewayGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetGatewayGroupResponse(
-    data.GetGatewayGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetGatewayGroupResponse(data, context);
   const response: GetGatewayGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetGatewayGroupResponse",
@@ -5705,7 +5627,7 @@ export async function deserializeAws_json1_1GetInvitationConfigurationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetInvitationConfigurationResponse(
-    data.GetInvitationConfigurationResponse,
+    data,
     context
   );
   const response: GetInvitationConfigurationCommandOutput = {
@@ -5758,10 +5680,7 @@ export async function deserializeAws_json1_1GetNetworkProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetNetworkProfileResponse(
-    data.GetNetworkProfileResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetNetworkProfileResponse(data, context);
   const response: GetNetworkProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetNetworkProfileResponse",
@@ -5819,10 +5738,7 @@ export async function deserializeAws_json1_1GetProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetProfileResponse(
-    data.GetProfileResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetProfileResponse(data, context);
   const response: GetProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetProfileResponse",
@@ -5873,10 +5789,7 @@ export async function deserializeAws_json1_1GetRoomCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetRoomResponse(
-    data.GetRoomResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetRoomResponse(data, context);
   const response: GetRoomCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetRoomResponse",
@@ -5930,10 +5843,7 @@ export async function deserializeAws_json1_1GetRoomSkillParameterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetRoomSkillParameterResponse(
-    data.GetRoomSkillParameterResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetRoomSkillParameterResponse(data, context);
   const response: GetRoomSkillParameterCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetRoomSkillParameterResponse",
@@ -5984,10 +5894,7 @@ export async function deserializeAws_json1_1GetSkillGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetSkillGroupResponse(
-    data.GetSkillGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetSkillGroupResponse(data, context);
   const response: GetSkillGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetSkillGroupResponse",
@@ -6042,7 +5949,7 @@ export async function deserializeAws_json1_1ListBusinessReportSchedulesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListBusinessReportSchedulesResponse(
-    data.ListBusinessReportSchedulesResponse,
+    data,
     context
   );
   const response: ListBusinessReportSchedulesCommandOutput = {
@@ -6088,7 +5995,7 @@ export async function deserializeAws_json1_1ListConferenceProvidersCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListConferenceProvidersResponse(
-    data.ListConferenceProvidersResponse,
+    data,
     context
   );
   const response: ListConferenceProvidersCommandOutput = {
@@ -6130,10 +6037,7 @@ export async function deserializeAws_json1_1ListDeviceEventsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDeviceEventsResponse(
-    data.ListDeviceEventsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListDeviceEventsResponse(data, context);
   const response: ListDeviceEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListDeviceEventsResponse",
@@ -6184,10 +6088,7 @@ export async function deserializeAws_json1_1ListGatewayGroupsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListGatewayGroupsResponse(
-    data.ListGatewayGroupsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListGatewayGroupsResponse(data, context);
   const response: ListGatewayGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListGatewayGroupsResponse",
@@ -6227,10 +6128,7 @@ export async function deserializeAws_json1_1ListGatewaysCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListGatewaysResponse(
-    data.ListGatewaysResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListGatewaysResponse(data, context);
   const response: ListGatewaysCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListGatewaysResponse",
@@ -6270,10 +6168,7 @@ export async function deserializeAws_json1_1ListSkillsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListSkillsResponse(
-    data.ListSkillsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListSkillsResponse(data, context);
   const response: ListSkillsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListSkillsResponse",
@@ -6317,7 +6212,7 @@ export async function deserializeAws_json1_1ListSkillsStoreCategoriesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListSkillsStoreCategoriesResponse(
-    data.ListSkillsStoreCategoriesResponse,
+    data,
     context
   );
   const response: ListSkillsStoreCategoriesCommandOutput = {
@@ -6363,7 +6258,7 @@ export async function deserializeAws_json1_1ListSkillsStoreSkillsByCategoryComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListSkillsStoreSkillsByCategoryResponse(
-    data.ListSkillsStoreSkillsByCategoryResponse,
+    data,
     context
   );
   const response: ListSkillsStoreSkillsByCategoryCommandOutput = {
@@ -6409,7 +6304,7 @@ export async function deserializeAws_json1_1ListSmartHomeAppliancesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListSmartHomeAppliancesResponse(
-    data.ListSmartHomeAppliancesResponse,
+    data,
     context
   );
   const response: ListSmartHomeAppliancesCommandOutput = {
@@ -6462,10 +6357,7 @@ export async function deserializeAws_json1_1ListTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsResponse(
-    data.ListTagsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsResponse(data, context);
   const response: ListTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsResponse",
@@ -6520,7 +6412,7 @@ export async function deserializeAws_json1_1PutConferencePreferenceCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutConferencePreferenceResponse(
-    data.PutConferencePreferenceResponse,
+    data,
     context
   );
   const response: PutConferencePreferenceCommandOutput = {
@@ -6577,7 +6469,7 @@ export async function deserializeAws_json1_1PutInvitationConfigurationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutInvitationConfigurationResponse(
-    data.PutInvitationConfigurationResponse,
+    data,
     context
   );
   const response: PutInvitationConfigurationCommandOutput = {
@@ -6640,10 +6532,7 @@ export async function deserializeAws_json1_1PutRoomSkillParameterCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutRoomSkillParameterResponse(
-    data.PutRoomSkillParameterResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutRoomSkillParameterResponse(data, context);
   const response: PutRoomSkillParameterCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutRoomSkillParameterResponse",
@@ -6697,10 +6586,7 @@ export async function deserializeAws_json1_1PutSkillAuthorizationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutSkillAuthorizationResponse(
-    data.PutSkillAuthorizationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutSkillAuthorizationResponse(data, context);
   const response: PutSkillAuthorizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutSkillAuthorizationResponse",
@@ -6758,10 +6644,7 @@ export async function deserializeAws_json1_1RegisterAVSDeviceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RegisterAVSDeviceResponse(
-    data.RegisterAVSDeviceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1RegisterAVSDeviceResponse(data, context);
   const response: RegisterAVSDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RegisterAVSDeviceResponse",
@@ -6826,10 +6709,7 @@ export async function deserializeAws_json1_1RejectSkillCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RejectSkillResponse(
-    data.RejectSkillResponse,
-    context
-  );
+  contents = deserializeAws_json1_1RejectSkillResponse(data, context);
   const response: RejectSkillCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RejectSkillResponse",
@@ -6887,10 +6767,7 @@ export async function deserializeAws_json1_1ResolveRoomCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ResolveRoomResponse(
-    data.ResolveRoomResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ResolveRoomResponse(data, context);
   const response: ResolveRoomCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ResolveRoomResponse",
@@ -6941,10 +6818,7 @@ export async function deserializeAws_json1_1RevokeInvitationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RevokeInvitationResponse(
-    data.RevokeInvitationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1RevokeInvitationResponse(data, context);
   const response: RevokeInvitationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RevokeInvitationResponse",
@@ -7005,10 +6879,7 @@ export async function deserializeAws_json1_1SearchAddressBooksCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SearchAddressBooksResponse(
-    data.SearchAddressBooksResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SearchAddressBooksResponse(data, context);
   const response: SearchAddressBooksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SearchAddressBooksResponse",
@@ -7048,10 +6919,7 @@ export async function deserializeAws_json1_1SearchContactsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SearchContactsResponse(
-    data.SearchContactsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SearchContactsResponse(data, context);
   const response: SearchContactsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SearchContactsResponse",
@@ -7091,10 +6959,7 @@ export async function deserializeAws_json1_1SearchDevicesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SearchDevicesResponse(
-    data.SearchDevicesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SearchDevicesResponse(data, context);
   const response: SearchDevicesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SearchDevicesResponse",
@@ -7137,10 +7002,7 @@ export async function deserializeAws_json1_1SearchNetworkProfilesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SearchNetworkProfilesResponse(
-    data.SearchNetworkProfilesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SearchNetworkProfilesResponse(data, context);
   const response: SearchNetworkProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SearchNetworkProfilesResponse",
@@ -7180,10 +7042,7 @@ export async function deserializeAws_json1_1SearchProfilesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SearchProfilesResponse(
-    data.SearchProfilesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SearchProfilesResponse(data, context);
   const response: SearchProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SearchProfilesResponse",
@@ -7223,10 +7082,7 @@ export async function deserializeAws_json1_1SearchRoomsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SearchRoomsResponse(
-    data.SearchRoomsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SearchRoomsResponse(data, context);
   const response: SearchRoomsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SearchRoomsResponse",
@@ -7266,10 +7122,7 @@ export async function deserializeAws_json1_1SearchSkillGroupsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SearchSkillGroupsResponse(
-    data.SearchSkillGroupsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SearchSkillGroupsResponse(data, context);
   const response: SearchSkillGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SearchSkillGroupsResponse",
@@ -7309,10 +7162,7 @@ export async function deserializeAws_json1_1SearchUsersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SearchUsersResponse(
-    data.SearchUsersResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SearchUsersResponse(data, context);
   const response: SearchUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SearchUsersResponse",
@@ -7352,10 +7202,7 @@ export async function deserializeAws_json1_1SendInvitationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SendInvitationResponse(
-    data.SendInvitationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SendInvitationResponse(data, context);
   const response: SendInvitationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SendInvitationResponse",
@@ -7420,10 +7267,7 @@ export async function deserializeAws_json1_1StartDeviceSyncCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartDeviceSyncResponse(
-    data.StartDeviceSyncResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartDeviceSyncResponse(data, context);
   const response: StartDeviceSyncCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartDeviceSyncResponse",
@@ -7478,7 +7322,7 @@ export async function deserializeAws_json1_1StartSmartHomeApplianceDiscoveryComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartSmartHomeApplianceDiscoveryResponse(
-    data.StartSmartHomeApplianceDiscoveryResponse,
+    data,
     context
   );
   const response: StartSmartHomeApplianceDiscoveryCommandOutput = {
@@ -7531,10 +7375,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(
-    data.TagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
@@ -7585,10 +7426,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(
-    data.UntagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
@@ -7639,10 +7477,7 @@ export async function deserializeAws_json1_1UpdateAddressBookCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateAddressBookResponse(
-    data.UpdateAddressBookResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateAddressBookResponse(data, context);
   const response: UpdateAddressBookCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateAddressBookResponse",
@@ -7711,7 +7546,7 @@ export async function deserializeAws_json1_1UpdateBusinessReportScheduleCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateBusinessReportScheduleResponse(
-    data.UpdateBusinessReportScheduleResponse,
+    data,
     context
   );
   const response: UpdateBusinessReportScheduleCommandOutput = {
@@ -7775,7 +7610,7 @@ export async function deserializeAws_json1_1UpdateConferenceProviderCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateConferenceProviderResponse(
-    data.UpdateConferenceProviderResponse,
+    data,
     context
   );
   const response: UpdateConferenceProviderCommandOutput = {
@@ -7828,10 +7663,7 @@ export async function deserializeAws_json1_1UpdateContactCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateContactResponse(
-    data.UpdateContactResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateContactResponse(data, context);
   const response: UpdateContactCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateContactResponse",
@@ -7889,10 +7721,7 @@ export async function deserializeAws_json1_1UpdateDeviceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateDeviceResponse(
-    data.UpdateDeviceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateDeviceResponse(data, context);
   const response: UpdateDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateDeviceResponse",
@@ -7957,10 +7786,7 @@ export async function deserializeAws_json1_1UpdateGatewayCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateGatewayResponse(
-    data.UpdateGatewayResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateGatewayResponse(data, context);
   const response: UpdateGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateGatewayResponse",
@@ -8021,10 +7847,7 @@ export async function deserializeAws_json1_1UpdateGatewayGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateGatewayGroupResponse(
-    data.UpdateGatewayGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateGatewayGroupResponse(data, context);
   const response: UpdateGatewayGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateGatewayGroupResponse",
@@ -8085,10 +7908,7 @@ export async function deserializeAws_json1_1UpdateNetworkProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateNetworkProfileResponse(
-    data.UpdateNetworkProfileResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateNetworkProfileResponse(data, context);
   const response: UpdateNetworkProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateNetworkProfileResponse",
@@ -8167,10 +7987,7 @@ export async function deserializeAws_json1_1UpdateProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateProfileResponse(
-    data.UpdateProfileResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateProfileResponse(data, context);
   const response: UpdateProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateProfileResponse",
@@ -8235,10 +8052,7 @@ export async function deserializeAws_json1_1UpdateRoomCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateRoomResponse(
-    data.UpdateRoomResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateRoomResponse(data, context);
   const response: UpdateRoomCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateRoomResponse",
@@ -8296,10 +8110,7 @@ export async function deserializeAws_json1_1UpdateSkillGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateSkillGroupResponse(
-    data.UpdateSkillGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateSkillGroupResponse(data, context);
   const response: UpdateSkillGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateSkillGroupResponse",

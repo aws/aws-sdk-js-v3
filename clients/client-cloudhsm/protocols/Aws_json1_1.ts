@@ -612,10 +612,7 @@ export async function deserializeAws_json1_1AddTagsToResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddTagsToResourceResponse(
-    data.AddTagsToResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1AddTagsToResourceResponse(data, context);
   const response: AddTagsToResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddTagsToResourceResponse",
@@ -680,10 +677,7 @@ export async function deserializeAws_json1_1CreateHapgCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateHapgResponse(
-    data.CreateHapgResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateHapgResponse(data, context);
   const response: CreateHapgCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateHapgResponse",
@@ -748,10 +742,7 @@ export async function deserializeAws_json1_1CreateHsmCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateHsmResponse(
-    data.CreateHsmResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateHsmResponse(data, context);
   const response: CreateHsmCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateHsmResponse",
@@ -816,10 +807,7 @@ export async function deserializeAws_json1_1CreateLunaClientCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateLunaClientResponse(
-    data.CreateLunaClientResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateLunaClientResponse(data, context);
   const response: CreateLunaClientCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateLunaClientResponse",
@@ -884,10 +872,7 @@ export async function deserializeAws_json1_1DeleteHapgCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteHapgResponse(
-    data.DeleteHapgResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteHapgResponse(data, context);
   const response: DeleteHapgCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteHapgResponse",
@@ -952,10 +937,7 @@ export async function deserializeAws_json1_1DeleteHsmCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteHsmResponse(
-    data.DeleteHsmResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteHsmResponse(data, context);
   const response: DeleteHsmCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteHsmResponse",
@@ -1020,10 +1002,7 @@ export async function deserializeAws_json1_1DeleteLunaClientCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteLunaClientResponse(
-    data.DeleteLunaClientResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteLunaClientResponse(data, context);
   const response: DeleteLunaClientCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteLunaClientResponse",
@@ -1088,10 +1067,7 @@ export async function deserializeAws_json1_1DescribeHapgCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeHapgResponse(
-    data.DescribeHapgResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeHapgResponse(data, context);
   const response: DescribeHapgCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeHapgResponse",
@@ -1156,10 +1132,7 @@ export async function deserializeAws_json1_1DescribeHsmCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeHsmResponse(
-    data.DescribeHsmResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeHsmResponse(data, context);
   const response: DescribeHsmCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeHsmResponse",
@@ -1227,10 +1200,7 @@ export async function deserializeAws_json1_1DescribeLunaClientCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeLunaClientResponse(
-    data.DescribeLunaClientResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeLunaClientResponse(data, context);
   const response: DescribeLunaClientCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeLunaClientResponse",
@@ -1295,10 +1265,7 @@ export async function deserializeAws_json1_1GetConfigCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetConfigResponse(
-    data.GetConfigResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetConfigResponse(data, context);
   const response: GetConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetConfigResponse",
@@ -1366,10 +1333,7 @@ export async function deserializeAws_json1_1ListAvailableZonesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAvailableZonesResponse(
-    data.ListAvailableZonesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListAvailableZonesResponse(data, context);
   const response: ListAvailableZonesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAvailableZonesResponse",
@@ -1434,10 +1398,7 @@ export async function deserializeAws_json1_1ListHapgsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListHapgsResponse(
-    data.ListHapgsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListHapgsResponse(data, context);
   const response: ListHapgsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListHapgsResponse",
@@ -1502,10 +1463,7 @@ export async function deserializeAws_json1_1ListHsmsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListHsmsResponse(
-    data.ListHsmsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListHsmsResponse(data, context);
   const response: ListHsmsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListHsmsResponse",
@@ -1570,10 +1528,7 @@ export async function deserializeAws_json1_1ListLunaClientsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListLunaClientsResponse(
-    data.ListLunaClientsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListLunaClientsResponse(data, context);
   const response: ListLunaClientsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListLunaClientsResponse",
@@ -1641,10 +1596,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(
-    data.ListTagsForResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
@@ -1709,10 +1661,7 @@ export async function deserializeAws_json1_1ModifyHapgCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ModifyHapgResponse(
-    data.ModifyHapgResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ModifyHapgResponse(data, context);
   const response: ModifyHapgCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ModifyHapgResponse",
@@ -1777,10 +1726,7 @@ export async function deserializeAws_json1_1ModifyHsmCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ModifyHsmResponse(
-    data.ModifyHsmResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ModifyHsmResponse(data, context);
   const response: ModifyHsmCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ModifyHsmResponse",
@@ -1845,10 +1791,7 @@ export async function deserializeAws_json1_1ModifyLunaClientCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ModifyLunaClientResponse(
-    data.ModifyLunaClientResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ModifyLunaClientResponse(data, context);
   const response: ModifyLunaClientCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ModifyLunaClientResponse",
@@ -1903,7 +1846,7 @@ export async function deserializeAws_json1_1RemoveTagsFromResourceCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1RemoveTagsFromResourceResponse(
-    data.RemoveTagsFromResourceResponse,
+    data,
     context
   );
   const response: RemoveTagsFromResourceCommandOutput = {

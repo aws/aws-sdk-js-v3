@@ -1,20 +1,20 @@
 import {
   GameLiftClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../GameLiftClient";
 import {
   DescribeGameSessionQueuesInput,
-  DescribeGameSessionQueuesOutput
+  DescribeGameSessionQueuesOutput,
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeGameSessionQueuesCommand,
-  serializeAws_json1_1DescribeGameSessionQueuesCommand
+  serializeAws_json1_1DescribeGameSessionQueuesCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DescribeGameSessionQueuesCommandInput = DescribeGameSessionQueuesInput;
 export type DescribeGameSessionQueuesCommandOutput = DescribeGameSessionQueuesOutput;
 
-export class DescribeGameSessionQueuesCommand extends $Command<
-  DescribeGameSessionQueuesCommandInput,
-  DescribeGameSessionQueuesCommandOutput,
-  GameLiftClientResolvedConfig
-> {
+export class DescribeGameSessionQueuesCommand extends $Command<DescribeGameSessionQueuesCommandInput, DescribeGameSessionQueuesCommandOutput, GameLiftClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class DescribeGameSessionQueuesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeGameSessionQueuesCommandInput,
-    DescribeGameSessionQueuesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeGameSessionQueuesCommandInput, DescribeGameSessionQueuesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -79,10 +70,7 @@ export class DescribeGameSessionQueuesCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeGameSessionQueuesCommandOutput> {
-    return deserializeAws_json1_1DescribeGameSessionQueuesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeGameSessionQueuesCommand(output, context);
   }
 
   // Start section: command_body_extra

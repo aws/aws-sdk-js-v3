@@ -1,17 +1,20 @@
 import {
   MachineLearningClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../MachineLearningClient";
-import { UpdateMLModelInput, UpdateMLModelOutput } from "../models/index";
+import {
+  UpdateMLModelInput,
+  UpdateMLModelOutput,
+} from "../models/index";
 import {
   deserializeAws_json1_1UpdateMLModelCommand,
-  serializeAws_json1_1UpdateMLModelCommand
+  serializeAws_json1_1UpdateMLModelCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type UpdateMLModelCommandInput = UpdateMLModelInput;
 export type UpdateMLModelCommandOutput = UpdateMLModelOutput;
 
-export class UpdateMLModelCommand extends $Command<
-  UpdateMLModelCommandInput,
-  UpdateMLModelCommandOutput,
-  MachineLearningClientResolvedConfig
-> {
+export class UpdateMLModelCommand extends $Command<UpdateMLModelCommandInput, UpdateMLModelCommandOutput, MachineLearningClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class UpdateMLModelCommand extends $Command<
     configuration: MachineLearningClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateMLModelCommandInput, UpdateMLModelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

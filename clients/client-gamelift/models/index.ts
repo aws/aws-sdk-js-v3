@@ -48,7 +48,7 @@ export namespace AcceptMatchOutput {
   }
 }
 
-export type AcceptanceType = "ACCEPT" | "REJECT";
+export type AcceptanceType = "ACCEPT" | "REJECT"
 
 /**
  *
@@ -233,7 +233,7 @@ export namespace AwsCredentials {
 
 export enum BackfillMode {
   AUTOMATIC = "AUTOMATIC",
-  MANUAL = "MANUAL"
+  MANUAL = "MANUAL",
 }
 
 /**
@@ -354,7 +354,7 @@ export namespace Build {
 export enum BuildStatus {
   FAILED = "FAILED",
   INITIALIZED = "INITIALIZED",
-  READY = "READY"
+  READY = "READY",
 }
 
 export interface CertificateConfiguration {
@@ -370,14 +370,14 @@ export namespace CertificateConfiguration {
 
 export enum CertificateType {
   Disabled = "DISABLED",
-  Generated = "GENERATED"
+  Generated = "GENERATED",
 }
 
 export enum ComparisonOperatorType {
   GreaterThanOrEqualToThreshold = "GreaterThanOrEqualToThreshold",
   GreaterThanThreshold = "GreaterThanThreshold",
   LessThanOrEqualToThreshold = "LessThanOrEqualToThreshold",
-  LessThanThreshold = "LessThanThreshold"
+  LessThanThreshold = "LessThanThreshold",
 }
 
 /**
@@ -387,9 +387,7 @@ export enum ComparisonOperatorType {
  *             request.</p>
  *
  */
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConflictException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ConflictException";
   $fault: "client";
   Message?: string;
@@ -2582,8 +2580,7 @@ export namespace DescribeMatchmakingConfigurationsInput {
  *         <p>Represents the returned data in response to a request action.</p>
  *
  */
-export interface DescribeMatchmakingConfigurationsOutput
-  extends $MetadataBearer {
+export interface DescribeMatchmakingConfigurationsOutput extends $MetadataBearer {
   __type?: "DescribeMatchmakingConfigurationsOutput";
   /**
    *
@@ -3017,8 +3014,7 @@ export namespace DescribeVpcPeeringAuthorizationsInput {
   }
 }
 
-export interface DescribeVpcPeeringAuthorizationsOutput
-  extends $MetadataBearer {
+export interface DescribeVpcPeeringAuthorizationsOutput extends $MetadataBearer {
   __type?: "DescribeVpcPeeringAuthorizationsOutput";
   /**
    *
@@ -3312,65 +3308,7 @@ export namespace EC2InstanceLimit {
   }
 }
 
-export type EC2InstanceType =
-  | "c3.2xlarge"
-  | "c3.4xlarge"
-  | "c3.8xlarge"
-  | "c3.large"
-  | "c3.xlarge"
-  | "c4.2xlarge"
-  | "c4.4xlarge"
-  | "c4.8xlarge"
-  | "c4.large"
-  | "c4.xlarge"
-  | "c5.12xlarge"
-  | "c5.18xlarge"
-  | "c5.24xlarge"
-  | "c5.2xlarge"
-  | "c5.4xlarge"
-  | "c5.9xlarge"
-  | "c5.large"
-  | "c5.xlarge"
-  | "m3.2xlarge"
-  | "m3.large"
-  | "m3.medium"
-  | "m3.xlarge"
-  | "m4.10xlarge"
-  | "m4.2xlarge"
-  | "m4.4xlarge"
-  | "m4.large"
-  | "m4.xlarge"
-  | "m5.12xlarge"
-  | "m5.16xlarge"
-  | "m5.24xlarge"
-  | "m5.2xlarge"
-  | "m5.4xlarge"
-  | "m5.8xlarge"
-  | "m5.large"
-  | "m5.xlarge"
-  | "r3.2xlarge"
-  | "r3.4xlarge"
-  | "r3.8xlarge"
-  | "r3.large"
-  | "r3.xlarge"
-  | "r4.16xlarge"
-  | "r4.2xlarge"
-  | "r4.4xlarge"
-  | "r4.8xlarge"
-  | "r4.large"
-  | "r4.xlarge"
-  | "r5.12xlarge"
-  | "r5.16xlarge"
-  | "r5.24xlarge"
-  | "r5.2xlarge"
-  | "r5.4xlarge"
-  | "r5.8xlarge"
-  | "r5.large"
-  | "r5.xlarge"
-  | "t2.large"
-  | "t2.medium"
-  | "t2.micro"
-  | "t2.small";
+export type EC2InstanceType = "c3.2xlarge" | "c3.4xlarge" | "c3.8xlarge" | "c3.large" | "c3.xlarge" | "c4.2xlarge" | "c4.4xlarge" | "c4.8xlarge" | "c4.large" | "c4.xlarge" | "c5.12xlarge" | "c5.18xlarge" | "c5.24xlarge" | "c5.2xlarge" | "c5.4xlarge" | "c5.9xlarge" | "c5.large" | "c5.xlarge" | "m3.2xlarge" | "m3.large" | "m3.medium" | "m3.xlarge" | "m4.10xlarge" | "m4.2xlarge" | "m4.4xlarge" | "m4.large" | "m4.xlarge" | "m5.12xlarge" | "m5.16xlarge" | "m5.24xlarge" | "m5.2xlarge" | "m5.4xlarge" | "m5.8xlarge" | "m5.large" | "m5.xlarge" | "r3.2xlarge" | "r3.4xlarge" | "r3.8xlarge" | "r3.large" | "r3.xlarge" | "r4.16xlarge" | "r4.2xlarge" | "r4.4xlarge" | "r4.8xlarge" | "r4.large" | "r4.xlarge" | "r5.12xlarge" | "r5.16xlarge" | "r5.24xlarge" | "r5.2xlarge" | "r5.4xlarge" | "r5.8xlarge" | "r5.large" | "r5.xlarge" | "t2.large" | "t2.medium" | "t2.micro" | "t2.small"
 
 /**
  *
@@ -3598,11 +3536,11 @@ export enum EventCode {
   SERVER_PROCESS_PROCESS_EXIT_TIMEOUT = "SERVER_PROCESS_PROCESS_EXIT_TIMEOUT",
   SERVER_PROCESS_PROCESS_READY_TIMEOUT = "SERVER_PROCESS_PROCESS_READY_TIMEOUT",
   SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT = "SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT",
-  SERVER_PROCESS_TERMINATED_UNHEALTHY = "SERVER_PROCESS_TERMINATED_UNHEALTHY"
+  SERVER_PROCESS_TERMINATED_UNHEALTHY = "SERVER_PROCESS_TERMINATED_UNHEALTHY",
 }
 
 export enum FleetAction {
-  AutoScaling = "AUTO_SCALING"
+  AutoScaling = "AUTO_SCALING",
 }
 
 /**
@@ -4074,9 +4012,7 @@ export namespace FleetCapacity {
  *             or after a waiting period.</p>
  *
  */
-export interface FleetCapacityExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface FleetCapacityExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "FleetCapacityExceededException";
   $fault: "client";
   Message?: string;
@@ -4097,12 +4033,12 @@ export enum FleetStatus {
   ERROR = "ERROR",
   NEW = "NEW",
   TERMINATED = "TERMINATED",
-  VALIDATING = "VALIDATING"
+  VALIDATING = "VALIDATING",
 }
 
 export enum FleetType {
   OnDemand = "ON_DEMAND",
-  Spot = "SPOT"
+  Spot = "SPOT",
 }
 
 /**
@@ -4582,9 +4518,7 @@ export namespace GameSessionDetail {
  *             join. Clients can retry such requests immediately or after a waiting period.</p>
  *
  */
-export interface GameSessionFullException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface GameSessionFullException extends _smithy.SmithyException, $MetadataBearer {
   __type: "GameSessionFullException";
   $fault: "client";
   Message?: string;
@@ -4799,7 +4733,7 @@ export enum GameSessionPlacementState {
   FAILED = "FAILED",
   FULFILLED = "FULFILLED",
   PENDING = "PENDING",
-  TIMED_OUT = "TIMED_OUT"
+  TIMED_OUT = "TIMED_OUT",
 }
 
 /**
@@ -4950,11 +4884,11 @@ export enum GameSessionStatus {
   ACTIVE = "ACTIVE",
   ERROR = "ERROR",
   TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING"
+  TERMINATING = "TERMINATING",
 }
 
 export enum GameSessionStatusReason {
-  INTERRUPTED = "INTERRUPTED"
+  INTERRUPTED = "INTERRUPTED",
 }
 
 /**
@@ -5062,9 +4996,7 @@ export namespace GetInstanceAccessOutput {
  *             this conflict before retrying this request.</p>
  *
  */
-export interface IdempotentParameterMismatchException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface IdempotentParameterMismatchException extends _smithy.SmithyException, $MetadataBearer {
   __type: "IdempotentParameterMismatchException";
   $fault: "client";
   Message?: string;
@@ -5247,7 +5179,7 @@ export namespace InstanceCredentials {
 export enum InstanceStatus {
   ACTIVE = "ACTIVE",
   PENDING = "PENDING",
-  TERMINATING = "TERMINATING"
+  TERMINATING = "TERMINATING",
 }
 
 /**
@@ -5257,9 +5189,7 @@ export enum InstanceStatus {
  *             period.</p>
  *
  */
-export interface InternalServiceException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServiceException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServiceException";
   $fault: "server";
   Message?: string;
@@ -5278,9 +5208,7 @@ export namespace InternalServiceException {
  *             retrying.</p>
  *
  */
-export interface InvalidFleetStatusException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidFleetStatusException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidFleetStatusException";
   $fault: "client";
   Message?: string;
@@ -5299,9 +5227,7 @@ export namespace InvalidFleetStatusException {
  *             retrying.</p>
  *
  */
-export interface InvalidGameSessionStatusException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidGameSessionStatusException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidGameSessionStatusException";
   $fault: "client";
   Message?: string;
@@ -5319,9 +5245,7 @@ export namespace InvalidGameSessionStatusException {
  *             parameter values before retrying.</p>
  *
  */
-export interface InvalidRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRequestException";
   $fault: "client";
   Message?: string;
@@ -5385,7 +5309,7 @@ export namespace IpPermission {
 
 export enum IpProtocol {
   TCP = "TCP",
-  UDP = "UDP"
+  UDP = "UDP",
 }
 
 /**
@@ -5394,9 +5318,7 @@ export enum IpProtocol {
  *             limit. Resolve the issue before retrying.</p>
  *
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -5858,15 +5780,7 @@ export namespace MatchmakingConfiguration {
   }
 }
 
-export type MatchmakingConfigurationStatus =
-  | "CANCELLED"
-  | "COMPLETED"
-  | "FAILED"
-  | "PLACING"
-  | "QUEUED"
-  | "REQUIRES_ACCEPTANCE"
-  | "SEARCHING"
-  | "TIMED_OUT";
+export type MatchmakingConfigurationStatus = "CANCELLED" | "COMPLETED" | "FAILED" | "PLACING" | "QUEUED" | "REQUIRES_ACCEPTANCE" | "SEARCHING" | "TIMED_OUT"
 
 /**
  *
@@ -6091,18 +6005,7 @@ export namespace MatchmakingTicket {
   }
 }
 
-export type MetricName =
-  | "ActivatingGameSessions"
-  | "ActiveGameSessions"
-  | "ActiveInstances"
-  | "AvailableGameSessions"
-  | "AvailablePlayerSessions"
-  | "CurrentPlayerSessions"
-  | "IdleInstances"
-  | "PercentAvailableGameSessions"
-  | "PercentIdleInstances"
-  | "QueueDepth"
-  | "WaitTime";
+export type MetricName = "ActivatingGameSessions" | "ActiveGameSessions" | "ActiveInstances" | "AvailableGameSessions" | "AvailablePlayerSessions" | "CurrentPlayerSessions" | "IdleInstances" | "PercentAvailableGameSessions" | "PercentIdleInstances" | "QueueDepth" | "WaitTime"
 
 /**
  *
@@ -6110,9 +6013,7 @@ export type MetricName =
  *             not retry such requests.</p>
  *
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   Message?: string;
@@ -6127,7 +6028,7 @@ export namespace NotFoundException {
 export enum OperatingSystem {
   AMAZON_LINUX = "AMAZON_LINUX",
   AMAZON_LINUX_2 = "AMAZON_LINUX_2",
-  WINDOWS_2012 = "WINDOWS_2012"
+  WINDOWS_2012 = "WINDOWS_2012",
 }
 
 /**
@@ -6506,24 +6407,24 @@ export namespace PlayerSession {
 
 export enum PlayerSessionCreationPolicy {
   ACCEPT_ALL = "ACCEPT_ALL",
-  DENY_ALL = "DENY_ALL"
+  DENY_ALL = "DENY_ALL",
 }
 
 export enum PlayerSessionStatus {
   ACTIVE = "ACTIVE",
   COMPLETED = "COMPLETED",
   RESERVED = "RESERVED",
-  TIMEDOUT = "TIMEDOUT"
+  TIMEDOUT = "TIMEDOUT",
 }
 
 export enum PolicyType {
   RuleBased = "RuleBased",
-  TargetBased = "TargetBased"
+  TargetBased = "TargetBased",
 }
 
 export enum ProtectionPolicy {
   FullProtection = "FullProtection",
-  NoProtection = "NoProtection"
+  NoProtection = "NoProtection",
 }
 
 /**
@@ -6941,7 +6842,7 @@ export namespace RoutingStrategy {
 
 export enum RoutingStrategyType {
   SIMPLE = "SIMPLE",
-  TERMINAL = "TERMINAL"
+  TERMINAL = "TERMINAL",
 }
 
 /**
@@ -7146,7 +7047,7 @@ export namespace S3Location {
 export enum ScalingAdjustmentType {
   ChangeInCapacity = "ChangeInCapacity",
   ExactCapacity = "ExactCapacity",
-  PercentChangeInCapacity = "PercentChangeInCapacity"
+  PercentChangeInCapacity = "PercentChangeInCapacity",
 }
 
 /**
@@ -7430,7 +7331,7 @@ export enum ScalingStatusType {
   DELETING = "DELETING",
   ERROR = "ERROR",
   UPDATE_REQUESTED = "UPDATE_REQUESTED",
-  UPDATING = "UPDATING"
+  UPDATING = "UPDATING",
 }
 
 /**
@@ -8224,9 +8125,7 @@ export namespace TargetConfiguration {
  *         </p>
  *
  */
-export interface TerminalRoutingStrategyException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TerminalRoutingStrategyException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TerminalRoutingStrategyException";
   $fault: "client";
   Message?: string;
@@ -8243,9 +8142,7 @@ export namespace TerminalRoutingStrategyException {
  *         <p>The client failed authentication. Clients should not retry such requests.</p>
  *
  */
-export interface UnauthorizedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnauthorizedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "UnauthorizedException";
   $fault: "client";
   Message?: string;
@@ -8262,9 +8159,7 @@ export namespace UnauthorizedException {
  *         <p>The requested operation is not supported in the region specified.</p>
  *
  */
-export interface UnsupportedRegionException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnsupportedRegionException extends _smithy.SmithyException, $MetadataBearer {
   __type: "UnsupportedRegionException";
   $fault: "client";
   Message?: string;

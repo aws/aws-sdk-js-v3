@@ -1,17 +1,20 @@
 import {
   IoTSecureTunnelingClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../IoTSecureTunnelingClient";
-import { CloseTunnelRequest, CloseTunnelResponse } from "../models/index";
+import {
+  CloseTunnelRequest,
+  CloseTunnelResponse,
+} from "../models/index";
 import {
   deserializeAws_json1_1CloseTunnelCommand,
-  serializeAws_json1_1CloseTunnelCommand
+  serializeAws_json1_1CloseTunnelCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type CloseTunnelCommandInput = CloseTunnelRequest;
 export type CloseTunnelCommandOutput = CloseTunnelResponse;
 
-export class CloseTunnelCommand extends $Command<
-  CloseTunnelCommandInput,
-  CloseTunnelCommandOutput,
-  IoTSecureTunnelingClientResolvedConfig
-> {
+export class CloseTunnelCommand extends $Command<CloseTunnelCommandInput, CloseTunnelCommandOutput, IoTSecureTunnelingClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class CloseTunnelCommand extends $Command<
     configuration: IoTSecureTunnelingClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CloseTunnelCommandInput, CloseTunnelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

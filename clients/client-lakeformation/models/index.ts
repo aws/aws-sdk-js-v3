@@ -217,7 +217,7 @@ export enum DataLakeResourceType {
   CATALOG = "CATALOG",
   DATABASE = "DATABASE",
   DATA_LOCATION = "DATA_LOCATION",
-  TABLE = "TABLE"
+  TABLE = "TABLE",
 }
 
 /**
@@ -424,8 +424,7 @@ export namespace GetEffectivePermissionsForPathRequest {
   }
 }
 
-export interface GetEffectivePermissionsForPathResponse
-  extends $MetadataBearer {
+export interface GetEffectivePermissionsForPathResponse extends $MetadataBearer {
   __type?: "GetEffectivePermissionsForPathResponse";
   /**
    *
@@ -640,7 +639,7 @@ export enum Permission {
   DELETE = "DELETE",
   DROP = "DROP",
   INSERT = "INSERT",
-  SELECT = "SELECT"
+  SELECT = "SELECT",
 }
 
 /**
@@ -999,9 +998,7 @@ export namespace UpdateResourceResponse {
  *          <p>A resource to be created or added already exists.</p>
  *
  */
-export interface AlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AlreadyExistsException";
   $fault: "client";
   /**
@@ -1023,9 +1020,7 @@ export namespace AlreadyExistsException {
  *          <p>Two processes are trying to modify a resource simultaneously.</p>
  *
  */
-export interface ConcurrentModificationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ConcurrentModificationException";
   $fault: "client";
   /**
@@ -1047,9 +1042,7 @@ export namespace ConcurrentModificationException {
  *          <p>A specified entity does not exist</p>
  *
  */
-export interface EntityNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface EntityNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "EntityNotFoundException";
   $fault: "client";
   /**
@@ -1099,9 +1092,7 @@ export namespace ErrorDetail {
  *          <p>An internal service error occurred.</p>
  *
  */
-export interface InternalServiceException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServiceException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServiceException";
   $fault: "server";
   /**
@@ -1123,9 +1114,7 @@ export namespace InternalServiceException {
  *          <p>The input provided was not valid.</p>
  *
  */
-export interface InvalidInputException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidInputException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidInputException";
   $fault: "client";
   /**
@@ -1147,9 +1136,7 @@ export namespace InvalidInputException {
  *          <p>The operation timed out.</p>
  *
  */
-export interface OperationTimeoutException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface OperationTimeoutException extends _smithy.SmithyException, $MetadataBearer {
   __type: "OperationTimeoutException";
   $fault: "client";
   /**
@@ -1177,13 +1164,13 @@ export enum ComparisonOperator {
   LE = "LE",
   LT = "LT",
   NE = "NE",
-  NOT_CONTAINS = "NOT_CONTAINS"
+  NOT_CONTAINS = "NOT_CONTAINS",
 }
 
 export enum FieldNameString {
   LAST_MODIFIED = "LAST_MODIFIED",
   RESOURCE_ARN = "RESOURCE_ARN",
-  ROLE_ARN = "ROLE_ARN"
+  ROLE_ARN = "ROLE_ARN",
 }
 
 /**

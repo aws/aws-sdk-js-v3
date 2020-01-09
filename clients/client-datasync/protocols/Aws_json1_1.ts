@@ -848,10 +848,7 @@ export async function deserializeAws_json1_1CancelTaskExecutionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CancelTaskExecutionResponse(
-    data.CancelTaskExecutionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CancelTaskExecutionResponse(data, context);
   const response: CancelTaskExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CancelTaskExecutionResponse",
@@ -909,10 +906,7 @@ export async function deserializeAws_json1_1CreateAgentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateAgentResponse(
-    data.CreateAgentResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateAgentResponse(data, context);
   const response: CreateAgentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateAgentResponse",
@@ -970,10 +964,7 @@ export async function deserializeAws_json1_1CreateLocationEfsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateLocationEfsResponse(
-    data.CreateLocationEfsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateLocationEfsResponse(data, context);
   const response: CreateLocationEfsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateLocationEfsResponse",
@@ -1031,10 +1022,7 @@ export async function deserializeAws_json1_1CreateLocationNfsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateLocationNfsResponse(
-    data.CreateLocationNfsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateLocationNfsResponse(data, context);
   const response: CreateLocationNfsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateLocationNfsResponse",
@@ -1092,10 +1080,7 @@ export async function deserializeAws_json1_1CreateLocationS3Command(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateLocationS3Response(
-    data.CreateLocationS3Response,
-    context
-  );
+  contents = deserializeAws_json1_1CreateLocationS3Response(data, context);
   const response: CreateLocationS3CommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateLocationS3Response",
@@ -1153,10 +1138,7 @@ export async function deserializeAws_json1_1CreateLocationSmbCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateLocationSmbResponse(
-    data.CreateLocationSmbResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateLocationSmbResponse(data, context);
   const response: CreateLocationSmbCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateLocationSmbResponse",
@@ -1214,10 +1196,7 @@ export async function deserializeAws_json1_1CreateTaskCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateTaskResponse(
-    data.CreateTaskResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateTaskResponse(data, context);
   const response: CreateTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateTaskResponse",
@@ -1275,10 +1254,7 @@ export async function deserializeAws_json1_1DeleteAgentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteAgentResponse(
-    data.DeleteAgentResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteAgentResponse(data, context);
   const response: DeleteAgentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteAgentResponse",
@@ -1336,10 +1312,7 @@ export async function deserializeAws_json1_1DeleteLocationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteLocationResponse(
-    data.DeleteLocationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteLocationResponse(data, context);
   const response: DeleteLocationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteLocationResponse",
@@ -1397,10 +1370,7 @@ export async function deserializeAws_json1_1DeleteTaskCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteTaskResponse(
-    data.DeleteTaskResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteTaskResponse(data, context);
   const response: DeleteTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteTaskResponse",
@@ -1458,10 +1428,7 @@ export async function deserializeAws_json1_1DescribeAgentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAgentResponse(
-    data.DescribeAgentResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeAgentResponse(data, context);
   const response: DescribeAgentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeAgentResponse",
@@ -1522,10 +1489,7 @@ export async function deserializeAws_json1_1DescribeLocationEfsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeLocationEfsResponse(
-    data.DescribeLocationEfsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeLocationEfsResponse(data, context);
   const response: DescribeLocationEfsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeLocationEfsResponse",
@@ -1586,10 +1550,7 @@ export async function deserializeAws_json1_1DescribeLocationNfsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeLocationNfsResponse(
-    data.DescribeLocationNfsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeLocationNfsResponse(data, context);
   const response: DescribeLocationNfsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeLocationNfsResponse",
@@ -1650,10 +1611,7 @@ export async function deserializeAws_json1_1DescribeLocationS3Command(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeLocationS3Response(
-    data.DescribeLocationS3Response,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeLocationS3Response(data, context);
   const response: DescribeLocationS3CommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeLocationS3Response",
@@ -1714,10 +1672,7 @@ export async function deserializeAws_json1_1DescribeLocationSmbCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeLocationSmbResponse(
-    data.DescribeLocationSmbResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeLocationSmbResponse(data, context);
   const response: DescribeLocationSmbCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeLocationSmbResponse",
@@ -1775,10 +1730,7 @@ export async function deserializeAws_json1_1DescribeTaskCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTaskResponse(
-    data.DescribeTaskResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeTaskResponse(data, context);
   const response: DescribeTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTaskResponse",
@@ -1839,10 +1791,7 @@ export async function deserializeAws_json1_1DescribeTaskExecutionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTaskExecutionResponse(
-    data.DescribeTaskExecutionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeTaskExecutionResponse(data, context);
   const response: DescribeTaskExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTaskExecutionResponse",
@@ -1900,10 +1849,7 @@ export async function deserializeAws_json1_1ListAgentsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAgentsResponse(
-    data.ListAgentsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListAgentsResponse(data, context);
   const response: ListAgentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAgentsResponse",
@@ -1961,10 +1907,7 @@ export async function deserializeAws_json1_1ListLocationsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListLocationsResponse(
-    data.ListLocationsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListLocationsResponse(data, context);
   const response: ListLocationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListLocationsResponse",
@@ -2025,10 +1968,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(
-    data.ListTagsForResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
@@ -2089,10 +2029,7 @@ export async function deserializeAws_json1_1ListTaskExecutionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTaskExecutionsResponse(
-    data.ListTaskExecutionsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTaskExecutionsResponse(data, context);
   const response: ListTaskExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTaskExecutionsResponse",
@@ -2150,10 +2087,7 @@ export async function deserializeAws_json1_1ListTasksCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTasksResponse(
-    data.ListTasksResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTasksResponse(data, context);
   const response: ListTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTasksResponse",
@@ -2214,10 +2148,7 @@ export async function deserializeAws_json1_1StartTaskExecutionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartTaskExecutionResponse(
-    data.StartTaskExecutionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartTaskExecutionResponse(data, context);
   const response: StartTaskExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartTaskExecutionResponse",
@@ -2275,10 +2206,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(
-    data.TagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
@@ -2336,10 +2264,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(
-    data.UntagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
@@ -2397,10 +2322,7 @@ export async function deserializeAws_json1_1UpdateAgentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateAgentResponse(
-    data.UpdateAgentResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateAgentResponse(data, context);
   const response: UpdateAgentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateAgentResponse",
@@ -2458,10 +2380,7 @@ export async function deserializeAws_json1_1UpdateTaskCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateTaskResponse(
-    data.UpdateTaskResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateTaskResponse(data, context);
   const response: UpdateTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateTaskResponse",

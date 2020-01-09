@@ -6,9 +6,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>Exception that indicates the specified <code>AttackId</code> does not exist, or the requester does not have the appropriate permissions to access the <code>AttackId</code>.</p>
  *
  */
-export interface AccessDeniedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   message?: string;
@@ -25,9 +23,7 @@ export namespace AccessDeniedException {
  *          <p>In order to grant the necessary access to the DDoS Response Team, the user submitting  <code>AssociateDRTRole</code> must have the <code>iam:PassRole</code> permission. This error indicates the user did not have the appropriate permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting a User Permissions to Pass a Role to an AWS Service</a>. </p>
  *
  */
-export interface AccessDeniedForDependencyException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedForDependencyException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AccessDeniedForDependencyException";
   $fault: "client";
   message?: string;
@@ -165,7 +161,7 @@ export namespace AttackDetail {
 
 export enum AttackLayer {
   APPLICATION = "APPLICATION",
-  NETWORK = "NETWORK"
+  NETWORK = "NETWORK",
 }
 
 /**
@@ -229,7 +225,7 @@ export enum AttackPropertyIdentifier {
   SOURCE_IP_ADDRESS = "SOURCE_IP_ADDRESS",
   SOURCE_USER_AGENT = "SOURCE_USER_AGENT",
   WORDPRESS_PINGBACK_REFLECTOR = "WORDPRESS_PINGBACK_REFLECTOR",
-  WORDPRESS_PINGBACK_SOURCE = "WORDPRESS_PINGBACK_SOURCE"
+  WORDPRESS_PINGBACK_SOURCE = "WORDPRESS_PINGBACK_SOURCE",
 }
 
 /**
@@ -360,7 +356,7 @@ export namespace AttackVectorDescription {
 
 export enum AutoRenew {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 /**
@@ -608,8 +604,7 @@ export namespace DescribeEmergencyContactSettingsRequest {
   }
 }
 
-export interface DescribeEmergencyContactSettingsResponse
-  extends $MetadataBearer {
+export interface DescribeEmergencyContactSettingsResponse extends $MetadataBearer {
   __type?: "DescribeEmergencyContactSettingsResponse";
   /**
    *
@@ -791,9 +786,7 @@ export namespace GetSubscriptionStateResponse {
  *          can retry the request.</p>
  *
  */
-export interface InternalErrorException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalErrorException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalErrorException";
   $fault: "server";
   message?: string;
@@ -810,9 +803,7 @@ export namespace InternalErrorException {
  *          <p>Exception that indicates that the operation would not cause any change to occur.</p>
  *
  */
-export interface InvalidOperationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidOperationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidOperationException";
   $fault: "client";
   message?: string;
@@ -829,9 +820,7 @@ export namespace InvalidOperationException {
  *          <p>Exception that indicates that the NextToken specified in the request is invalid. Submit the request using the NextToken value that was returned in the response.</p>
  *
  */
-export interface InvalidPaginationTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidPaginationTokenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidPaginationTokenException";
   $fault: "client";
   message?: string;
@@ -848,9 +837,7 @@ export namespace InvalidPaginationTokenException {
  *          <p>Exception that indicates that the parameters passed to the API are invalid. </p>
  *
  */
-export interface InvalidParameterException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -867,9 +854,7 @@ export namespace InvalidParameterException {
  *          <p>Exception that indicates that the resource is invalid. You might not have access to the resource, or the resource might not exist.</p>
  *
  */
-export interface InvalidResourceException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidResourceException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidResourceException";
   $fault: "client";
   message?: string;
@@ -918,9 +903,7 @@ export namespace Limit {
  *             <code>Limit</code> is the threshold that would be exceeded.</p>
  *
  */
-export interface LimitsExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitsExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitsExceededException";
   $fault: "client";
   Limit?: number;
@@ -1061,9 +1044,7 @@ export namespace ListProtectionsResponse {
  *          <p>You are trying to update a subscription that has not yet completed the 1-year commitment. You can change the <code>AutoRenew</code> parameter during the last 30 days of your subscription. This exception indicates that you are attempting to change <code>AutoRenew</code> prior to that period.</p>
  *
  */
-export interface LockedSubscriptionException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LockedSubscriptionException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LockedSubscriptionException";
   $fault: "client";
   message?: string;
@@ -1101,9 +1082,7 @@ export namespace Mitigation {
  *          <p>The ARN of the role that you specifed does not exist.</p>
  *
  */
-export interface NoAssociatedRoleException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NoAssociatedRoleException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NoAssociatedRoleException";
   $fault: "client";
   message?: string;
@@ -1121,9 +1100,7 @@ export namespace NoAssociatedRoleException {
  *          client. You can retry the request.</p>
  *
  */
-export interface OptimisticLockException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface OptimisticLockException extends _smithy.SmithyException, $MetadataBearer {
   __type: "OptimisticLockException";
   $fault: "client";
   message?: string;
@@ -1175,9 +1152,7 @@ export namespace Protection {
  *          <p>Exception indicating the specified resource already exists.</p>
  *
  */
-export interface ResourceAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -1194,9 +1169,7 @@ export namespace ResourceAlreadyExistsException {
  *          <p>Exception indicating the specified resource does not exist.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -1252,7 +1225,7 @@ export namespace SubResourceSummary {
 
 export enum SubResourceType {
   IP = "IP",
-  URL = "URL"
+  URL = "URL",
 }
 
 /**
@@ -1307,7 +1280,7 @@ export namespace Subscription {
 
 export enum SubscriptionState {
   ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE"
+  INACTIVE = "INACTIVE",
 }
 
 /**
@@ -1426,7 +1399,7 @@ export enum Unit {
   BITS = "BITS",
   BYTES = "BYTES",
   PACKETS = "PACKETS",
-  REQUESTS = "REQUESTS"
+  REQUESTS = "REQUESTS",
 }
 
 export interface UpdateEmergencyContactSettingsRequest {
@@ -1445,8 +1418,7 @@ export namespace UpdateEmergencyContactSettingsRequest {
   }
 }
 
-export interface UpdateEmergencyContactSettingsResponse
-  extends $MetadataBearer {
+export interface UpdateEmergencyContactSettingsResponse extends $MetadataBearer {
   __type?: "UpdateEmergencyContactSettingsResponse";
 }
 

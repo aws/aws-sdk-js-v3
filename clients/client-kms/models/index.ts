@@ -4,7 +4,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export enum AlgorithmSpec {
   RSAES_OAEP_SHA_1 = "RSAES_OAEP_SHA_1",
   RSAES_OAEP_SHA_256 = "RSAES_OAEP_SHA_256",
-  RSAES_PKCS1_V1_5 = "RSAES_PKCS1_V1_5"
+  RSAES_PKCS1_V1_5 = "RSAES_PKCS1_V1_5",
 }
 
 /**
@@ -48,9 +48,7 @@ export namespace AliasListEntry {
  *       exists.</p>
  *
  */
-export interface AlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -117,9 +115,7 @@ export namespace CancelKeyDeletionResponse {
  *       cluster certificate of a cluster, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a> operation.</p>
  *
  */
-export interface CloudHsmClusterInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CloudHsmClusterInUseException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CloudHsmClusterInUseException";
   $fault: "client";
   message?: string;
@@ -168,18 +164,14 @@ export namespace CloudHsmClusterInUseException {
  *             </i>. </p>
  *
  */
-export interface CloudHsmClusterInvalidConfigurationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CloudHsmClusterInvalidConfigurationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CloudHsmClusterInvalidConfigurationException";
   $fault: "client";
   message?: string;
 }
 
 export namespace CloudHsmClusterInvalidConfigurationException {
-  export function isa(
-    o: any
-  ): o is CloudHsmClusterInvalidConfigurationException {
+  export function isa(o: any): o is CloudHsmClusterInvalidConfigurationException {
     return _smithy.isa(o, "CloudHsmClusterInvalidConfigurationException");
   }
 }
@@ -191,9 +183,7 @@ export namespace CloudHsmClusterInvalidConfigurationException {
  *       detailed instructions, see <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html">Getting Started</a> in the <i>AWS CloudHSM User Guide</i>.</p>
  *
  */
-export interface CloudHsmClusterNotActiveException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CloudHsmClusterNotActiveException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CloudHsmClusterNotActiveException";
   $fault: "client";
   message?: string;
@@ -211,9 +201,7 @@ export namespace CloudHsmClusterNotActiveException {
  *       cluster ID. Retry the request with a different cluster ID.</p>
  *
  */
-export interface CloudHsmClusterNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CloudHsmClusterNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CloudHsmClusterNotFoundException";
   $fault: "client";
   message?: string;
@@ -237,9 +225,7 @@ export namespace CloudHsmClusterNotFoundException {
  *       cluster certificate of a cluster, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a> operation.</p>
  *
  */
-export interface CloudHsmClusterNotRelatedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CloudHsmClusterNotRelatedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CloudHsmClusterNotRelatedException";
   $fault: "client";
   message?: string;
@@ -284,7 +270,7 @@ export enum ConnectionErrorCodeType {
   INTERNAL_ERROR = "INTERNAL_ERROR",
   INVALID_CREDENTIALS = "INVALID_CREDENTIALS",
   NETWORK_ERRORS = "NETWORK_ERRORS",
-  USER_LOCKED_OUT = "USER_LOCKED_OUT"
+  USER_LOCKED_OUT = "USER_LOCKED_OUT",
 }
 
 export enum ConnectionStateType {
@@ -292,7 +278,7 @@ export enum ConnectionStateType {
   CONNECTING = "CONNECTING",
   DISCONNECTED = "DISCONNECTED",
   DISCONNECTING = "DISCONNECTING",
-  FAILED = "FAILED"
+  FAILED = "FAILED",
 }
 
 export interface CreateAliasRequest {
@@ -745,9 +731,7 @@ export namespace CreateKeyResponse {
  *       can delete the custom key store.</p>
  *
  */
-export interface CustomKeyStoreHasCMKsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CustomKeyStoreHasCMKsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CustomKeyStoreHasCMKsException";
   $fault: "client";
   message?: string;
@@ -784,9 +768,7 @@ export namespace CustomKeyStoreHasCMKsException {
  *          </ul>
  *
  */
-export interface CustomKeyStoreInvalidStateException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CustomKeyStoreInvalidStateException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CustomKeyStoreInvalidStateException";
   $fault: "client";
   message?: string;
@@ -805,9 +787,7 @@ export namespace CustomKeyStoreInvalidStateException {
  *       unique in the account.</p>
  *
  */
-export interface CustomKeyStoreNameInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CustomKeyStoreNameInUseException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CustomKeyStoreNameInUseException";
   $fault: "client";
   message?: string;
@@ -825,9 +805,7 @@ export namespace CustomKeyStoreNameInUseException {
  *       key store name or ID.</p>
  *
  */
-export interface CustomKeyStoreNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CustomKeyStoreNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CustomKeyStoreNotFoundException";
   $fault: "client";
   message?: string;
@@ -961,7 +939,7 @@ export enum CustomerMasterKeySpec {
   RSA_2048 = "RSA_2048",
   RSA_3072 = "RSA_3072",
   RSA_4096 = "RSA_4096",
-  SYMMETRIC_DEFAULT = "SYMMETRIC_DEFAULT"
+  SYMMETRIC_DEFAULT = "SYMMETRIC_DEFAULT",
 }
 
 export enum DataKeyPairSpec {
@@ -971,12 +949,12 @@ export enum DataKeyPairSpec {
   ECC_SECG_P256K1 = "ECC_SECG_P256K1",
   RSA_2048 = "RSA_2048",
   RSA_3072 = "RSA_3072",
-  RSA_4096 = "RSA_4096"
+  RSA_4096 = "RSA_4096",
 }
 
 export enum DataKeySpec {
   AES_128 = "AES_128",
-  AES_256 = "AES_256"
+  AES_256 = "AES_256",
 }
 
 export interface DecryptRequest {
@@ -1172,9 +1150,7 @@ export namespace DeleteImportedKeyMaterialRequest {
  *       retried.</p>
  *
  */
-export interface DependencyTimeoutException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DependencyTimeoutException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DependencyTimeoutException";
   $fault: "server";
   message?: string;
@@ -1401,9 +1377,7 @@ export namespace DisableKeyRotationRequest {
  *          <p>The request was rejected because the specified CMK is not enabled.</p>
  *
  */
-export interface DisabledException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DisabledException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DisabledException";
   $fault: "client";
   message?: string;
@@ -1609,12 +1583,12 @@ export namespace EncryptResponse {
 export enum EncryptionAlgorithmSpec {
   RSAES_OAEP_SHA_1 = "RSAES_OAEP_SHA_1",
   RSAES_OAEP_SHA_256 = "RSAES_OAEP_SHA_256",
-  SYMMETRIC_DEFAULT = "SYMMETRIC_DEFAULT"
+  SYMMETRIC_DEFAULT = "SYMMETRIC_DEFAULT",
 }
 
 export enum ExpirationModelType {
   KEY_MATERIAL_DOES_NOT_EXPIRE = "KEY_MATERIAL_DOES_NOT_EXPIRE",
-  KEY_MATERIAL_EXPIRES = "KEY_MATERIAL_EXPIRES"
+  KEY_MATERIAL_EXPIRES = "KEY_MATERIAL_EXPIRES",
 }
 
 /**
@@ -1623,9 +1597,7 @@ export enum ExpirationModelType {
  *       public key to encrypt the key material, and then try the request again.</p>
  *
  */
-export interface ExpiredImportTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ExpiredImportTokenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ExpiredImportTokenException";
   $fault: "client";
   message?: string;
@@ -1815,8 +1787,7 @@ export namespace GenerateDataKeyPairWithoutPlaintextRequest {
   }
 }
 
-export interface GenerateDataKeyPairWithoutPlaintextResponse
-  extends $MetadataBearer {
+export interface GenerateDataKeyPairWithoutPlaintextResponse extends $MetadataBearer {
   __type?: "GenerateDataKeyPairWithoutPlaintextResponse";
   /**
    *
@@ -1870,9 +1841,7 @@ export interface GenerateDataKeyPairWithoutPlaintextResponse
 }
 
 export namespace GenerateDataKeyPairWithoutPlaintextResponse {
-  export function isa(
-    o: any
-  ): o is GenerateDataKeyPairWithoutPlaintextResponse {
+  export function isa(o: any): o is GenerateDataKeyPairWithoutPlaintextResponse {
     return _smithy.isa(o, "GenerateDataKeyPairWithoutPlaintextResponse");
   }
 }
@@ -2062,8 +2031,7 @@ export namespace GenerateDataKeyWithoutPlaintextRequest {
   }
 }
 
-export interface GenerateDataKeyWithoutPlaintextResponse
-  extends $MetadataBearer {
+export interface GenerateDataKeyWithoutPlaintextResponse extends $MetadataBearer {
   __type?: "GenerateDataKeyWithoutPlaintextResponse";
   /**
    *
@@ -2593,7 +2561,7 @@ export enum GrantOperation {
   ReEncryptTo = "ReEncryptTo",
   RetireGrant = "RetireGrant",
   Sign = "Sign",
-  Verify = "Verify"
+  Verify = "Verify",
 }
 
 export interface ImportKeyMaterialRequest {
@@ -2682,9 +2650,7 @@ export namespace ImportKeyMaterialResponse {
  *       the ciphertext.</p>
  *
  */
-export interface IncorrectKeyException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface IncorrectKeyException extends _smithy.SmithyException, $MetadataBearer {
   __type: "IncorrectKeyException";
   $fault: "client";
   message?: string;
@@ -2703,9 +2669,7 @@ export namespace IncorrectKeyException {
  *       (CMK).</p>
  *
  */
-export interface IncorrectKeyMaterialException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface IncorrectKeyMaterialException extends _smithy.SmithyException, $MetadataBearer {
   __type: "IncorrectKeyMaterialException";
   $fault: "client";
   message?: string;
@@ -2725,9 +2689,7 @@ export namespace IncorrectKeyMaterialException {
  *       <code>customerCA.crt</code> file.</p>
  *
  */
-export interface IncorrectTrustAnchorException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface IncorrectTrustAnchorException extends _smithy.SmithyException, $MetadataBearer {
   __type: "IncorrectTrustAnchorException";
   $fault: "client";
   message?: string;
@@ -2744,9 +2706,7 @@ export namespace IncorrectTrustAnchorException {
  *          <p>The request was rejected because the specified alias name is not valid.</p>
  *
  */
-export interface InvalidAliasNameException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidAliasNameException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidAliasNameException";
   $fault: "client";
   message?: string;
@@ -2764,9 +2724,7 @@ export namespace InvalidAliasNameException {
  *       valid.</p>
  *
  */
-export interface InvalidArnException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidArnException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidArnException";
   $fault: "client";
   message?: string;
@@ -2788,9 +2746,7 @@ export namespace InvalidArnException {
  *
  *
  */
-export interface InvalidCiphertextException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidCiphertextException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidCiphertextException";
   $fault: "client";
   message?: string;
@@ -2807,9 +2763,7 @@ export namespace InvalidCiphertextException {
  *          <p>The request was rejected because the specified <code>GrantId</code> is not valid.</p>
  *
  */
-export interface InvalidGrantIdException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidGrantIdException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidGrantIdException";
   $fault: "client";
   message?: string;
@@ -2826,9 +2780,7 @@ export namespace InvalidGrantIdException {
  *          <p>The request was rejected because the specified grant token is not valid.</p>
  *
  */
-export interface InvalidGrantTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidGrantTokenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidGrantTokenException";
   $fault: "client";
   message?: string;
@@ -2846,9 +2798,7 @@ export namespace InvalidGrantTokenException {
  *       with a different customer master key (CMK).</p>
  *
  */
-export interface InvalidImportTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidImportTokenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidImportTokenException";
   $fault: "client";
   message?: string;
@@ -2878,9 +2828,7 @@ export namespace InvalidImportTokenException {
  *          <p>To find the encryption or signing algorithms supported for a particular CMK, use the <a>DescribeKey</a> operation.</p>
  *
  */
-export interface InvalidKeyUsageException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidKeyUsageException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidKeyUsageException";
   $fault: "client";
   message?: string;
@@ -2898,9 +2846,7 @@ export namespace InvalidKeyUsageException {
  *       begin is not valid.</p>
  *
  */
-export interface InvalidMarkerException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidMarkerException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidMarkerException";
   $fault: "client";
   message?: string;
@@ -2918,9 +2864,7 @@ export namespace InvalidMarkerException {
  *       retried.</p>
  *
  */
-export interface KMSInternalException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface KMSInternalException extends _smithy.SmithyException, $MetadataBearer {
   __type: "KMSInternalException";
   $fault: "server";
   message?: string;
@@ -2942,9 +2886,7 @@ export namespace KMSInternalException {
  *             </i>.</p>
  *
  */
-export interface KMSInvalidStateException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface KMSInvalidStateException extends _smithy.SmithyException, $MetadataBearer {
   __type: "KMSInvalidStateException";
   $fault: "client";
   message?: string;
@@ -2986,7 +2928,7 @@ export namespace KeyListEntry {
 
 export enum KeyManagerType {
   AWS = "AWS",
-  CUSTOMER = "CUSTOMER"
+  CUSTOMER = "CUSTOMER",
 }
 
 /**
@@ -3157,7 +3099,7 @@ export enum KeyState {
   Enabled = "Enabled",
   PendingDeletion = "PendingDeletion",
   PendingImport = "PendingImport",
-  Unavailable = "Unavailable"
+  Unavailable = "Unavailable",
 }
 
 /**
@@ -3166,9 +3108,7 @@ export enum KeyState {
  *       request.</p>
  *
  */
-export interface KeyUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface KeyUnavailableException extends _smithy.SmithyException, $MetadataBearer {
   __type: "KeyUnavailableException";
   $fault: "server";
   message?: string;
@@ -3182,7 +3122,7 @@ export namespace KeyUnavailableException {
 
 export enum KeyUsageType {
   ENCRYPT_DECRYPT = "ENCRYPT_DECRYPT",
-  SIGN_VERIFY = "SIGN_VERIFY"
+  SIGN_VERIFY = "SIGN_VERIFY",
 }
 
 /**
@@ -3191,9 +3131,7 @@ export enum KeyUsageType {
  *       <i>AWS Key Management Service Developer Guide</i>.</p>
  *
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -3646,9 +3584,7 @@ export namespace ListRetirableGrantsRequest {
  *       correct.</p>
  *
  */
-export interface MalformedPolicyDocumentException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MalformedPolicyDocumentException extends _smithy.SmithyException, $MetadataBearer {
   __type: "MalformedPolicyDocumentException";
   $fault: "client";
   message?: string;
@@ -3662,7 +3598,7 @@ export namespace MalformedPolicyDocumentException {
 
 export enum MessageType {
   DIGEST = "DIGEST",
-  RAW = "RAW"
+  RAW = "RAW",
 }
 
 /**
@@ -3671,9 +3607,7 @@ export enum MessageType {
  *       found.</p>
  *
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   message?: string;
@@ -3688,7 +3622,7 @@ export namespace NotFoundException {
 export enum OriginType {
   AWS_CLOUDHSM = "AWS_CLOUDHSM",
   AWS_KMS = "AWS_KMS",
-  EXTERNAL = "EXTERNAL"
+  EXTERNAL = "EXTERNAL",
 }
 
 export interface PutKeyPolicyRequest {
@@ -4215,7 +4149,7 @@ export enum SigningAlgorithmSpec {
   RSASSA_PKCS1_V1_5_SHA_512 = "RSASSA_PKCS1_V1_5_SHA_512",
   RSASSA_PSS_SHA_256 = "RSASSA_PSS_SHA_256",
   RSASSA_PSS_SHA_384 = "RSASSA_PSS_SHA_384",
-  RSASSA_PSS_SHA_512 = "RSASSA_PSS_SHA_512"
+  RSASSA_PSS_SHA_512 = "RSASSA_PSS_SHA_512",
 }
 
 /**
@@ -4308,9 +4242,7 @@ export namespace TagResourceRequest {
  *       resource is not valid for this operation.</p>
  *
  */
-export interface UnsupportedOperationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnsupportedOperationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "UnsupportedOperationException";
   $fault: "client";
   message?: string;
@@ -4616,5 +4548,5 @@ export namespace VerifyResponse {
 }
 
 export enum WrappingKeySpec {
-  RSA_2048 = "RSA_2048"
+  RSA_2048 = "RSA_2048",
 }

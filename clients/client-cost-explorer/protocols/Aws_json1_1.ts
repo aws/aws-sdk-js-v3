@@ -689,7 +689,7 @@ export async function deserializeAws_json1_1CreateCostCategoryDefinitionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateCostCategoryDefinitionResponse(
-    data.CreateCostCategoryDefinitionResponse,
+    data,
     context
   );
   const response: CreateCostCategoryDefinitionCommandOutput = {
@@ -753,7 +753,7 @@ export async function deserializeAws_json1_1DeleteCostCategoryDefinitionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteCostCategoryDefinitionResponse(
-    data.DeleteCostCategoryDefinitionResponse,
+    data,
     context
   );
   const response: DeleteCostCategoryDefinitionCommandOutput = {
@@ -817,7 +817,7 @@ export async function deserializeAws_json1_1DescribeCostCategoryDefinitionComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeCostCategoryDefinitionResponse(
-    data.DescribeCostCategoryDefinitionResponse,
+    data,
     context
   );
   const response: DescribeCostCategoryDefinitionCommandOutput = {
@@ -877,10 +877,7 @@ export async function deserializeAws_json1_1GetCostAndUsageCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCostAndUsageResponse(
-    data.GetCostAndUsageResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetCostAndUsageResponse(data, context);
   const response: GetCostAndUsageCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetCostAndUsageResponse",
@@ -963,7 +960,7 @@ export async function deserializeAws_json1_1GetCostAndUsageWithResourcesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetCostAndUsageWithResourcesResponse(
-    data.GetCostAndUsageWithResourcesResponse,
+    data,
     context
   );
   const response: GetCostAndUsageWithResourcesCommandOutput = {
@@ -1044,10 +1041,7 @@ export async function deserializeAws_json1_1GetCostForecastCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCostForecastResponse(
-    data.GetCostForecastResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetCostForecastResponse(data, context);
   const response: GetCostForecastCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetCostForecastResponse",
@@ -1108,10 +1102,7 @@ export async function deserializeAws_json1_1GetDimensionValuesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDimensionValuesResponse(
-    data.GetDimensionValuesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetDimensionValuesResponse(data, context);
   const response: GetDimensionValuesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDimensionValuesResponse",
@@ -1194,7 +1185,7 @@ export async function deserializeAws_json1_1GetReservationCoverageCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetReservationCoverageResponse(
-    data.GetReservationCoverageResponse,
+    data,
     context
   );
   const response: GetReservationCoverageCommandOutput = {
@@ -1265,7 +1256,7 @@ export async function deserializeAws_json1_1GetReservationPurchaseRecommendation
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetReservationPurchaseRecommendationResponse(
-    data.GetReservationPurchaseRecommendationResponse,
+    data,
     context
   );
   const response: GetReservationPurchaseRecommendationCommandOutput = {
@@ -1336,7 +1327,7 @@ export async function deserializeAws_json1_1GetReservationUtilizationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetReservationUtilizationResponse(
-    data.GetReservationUtilizationResponse,
+    data,
     context
   );
   const response: GetReservationUtilizationCommandOutput = {
@@ -1407,7 +1398,7 @@ export async function deserializeAws_json1_1GetRightsizingRecommendationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetRightsizingRecommendationResponse(
-    data.GetRightsizingRecommendationResponse,
+    data,
     context
   );
   const response: GetRightsizingRecommendationCommandOutput = {
@@ -1471,7 +1462,7 @@ export async function deserializeAws_json1_1GetSavingsPlansCoverageCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetSavingsPlansCoverageResponse(
-    data.GetSavingsPlansCoverageResponse,
+    data,
     context
   );
   const response: GetSavingsPlansCoverageCommandOutput = {
@@ -1542,7 +1533,7 @@ export async function deserializeAws_json1_1GetSavingsPlansPurchaseRecommendatio
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationResponse(
-    data.GetSavingsPlansPurchaseRecommendationResponse,
+    data,
     context
   );
   const response: GetSavingsPlansPurchaseRecommendationCommandOutput = {
@@ -1606,7 +1597,7 @@ export async function deserializeAws_json1_1GetSavingsPlansUtilizationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetSavingsPlansUtilizationResponse(
-    data.GetSavingsPlansUtilizationResponse,
+    data,
     context
   );
   const response: GetSavingsPlansUtilizationCommandOutput = {
@@ -1670,7 +1661,7 @@ export async function deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCom
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetSavingsPlansUtilizationDetailsResponse(
-    data.GetSavingsPlansUtilizationDetailsResponse,
+    data,
     context
   );
   const response: GetSavingsPlansUtilizationDetailsCommandOutput = {
@@ -1737,10 +1728,7 @@ export async function deserializeAws_json1_1GetTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetTagsResponse(
-    data.GetTagsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetTagsResponse(data, context);
   const response: GetTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetTagsResponse",
@@ -1819,10 +1807,7 @@ export async function deserializeAws_json1_1GetUsageForecastCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetUsageForecastResponse(
-    data.GetUsageForecastResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetUsageForecastResponse(data, context);
   const response: GetUsageForecastCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetUsageForecastResponse",
@@ -1891,7 +1876,7 @@ export async function deserializeAws_json1_1ListCostCategoryDefinitionsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListCostCategoryDefinitionsResponse(
-    data.ListCostCategoryDefinitionsResponse,
+    data,
     context
   );
   const response: ListCostCategoryDefinitionsCommandOutput = {
@@ -1948,7 +1933,7 @@ export async function deserializeAws_json1_1UpdateCostCategoryDefinitionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateCostCategoryDefinitionResponse(
-    data.UpdateCostCategoryDefinitionResponse,
+    data,
     context
   );
   const response: UpdateCostCategoryDefinitionCommandOutput = {

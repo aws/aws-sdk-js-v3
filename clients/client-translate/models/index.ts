@@ -55,9 +55,7 @@ export namespace DeleteTerminologyRequest {
  * </p>
  *
  */
-export interface DetectedLanguageLowConfidenceException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DetectedLanguageLowConfidenceException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DetectedLanguageLowConfidenceException";
   $fault: "client";
   /**
@@ -105,7 +103,7 @@ export namespace EncryptionKey {
 }
 
 export enum EncryptionKeyType {
-  KMS = "KMS"
+  KMS = "KMS",
 }
 
 export interface GetTerminologyRequest {
@@ -219,9 +217,7 @@ export namespace ImportTerminologyResponse {
  *          <p> An internal server error occurred. Retry your request.</p>
  *
  */
-export interface InternalServerException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerException";
   $fault: "server";
   Message?: string;
@@ -238,9 +234,7 @@ export namespace InternalServerException {
  *          <p>The value of the parameter is invalid. Review the value of the parameter you are using to correct it, and then retry your operation.</p>
  *
  */
-export interface InvalidParameterValueException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterValueException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidParameterValueException";
   $fault: "client";
   Message?: string;
@@ -258,9 +252,7 @@ export namespace InvalidParameterValueException {
  * </p>
  *
  */
-export interface InvalidRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRequestException";
   $fault: "client";
   Message?: string;
@@ -277,9 +269,7 @@ export namespace InvalidRequestException {
  *          <p>The specified limit has been exceeded. Review your request and retry it with a quantity below the stated limit.</p>
  *
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -338,7 +328,7 @@ export namespace ListTerminologiesResponse {
 }
 
 export enum MergeStrategy {
-  OVERWRITE = "OVERWRITE"
+  OVERWRITE = "OVERWRITE",
 }
 
 /**
@@ -346,9 +336,7 @@ export enum MergeStrategy {
  *          <p>The resource you are looking for has not been found. Review the resource you're looking for and see if a different resource will accomplish your needs before retrying the revised request. .</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -365,9 +353,7 @@ export namespace ResourceNotFoundException {
  *          <p>The Amazon Translate service is temporarily unavailable. Please wait a bit and then retry your request.</p>
  *
  */
-export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
@@ -437,7 +423,7 @@ export namespace TerminologyData {
 
 export enum TerminologyDataFormat {
   CSV = "CSV",
-  TMX = "TMX"
+  TMX = "TMX",
 }
 
 /**
@@ -558,9 +544,7 @@ export namespace TerminologyProperties {
  *  </p>
  *
  */
-export interface TextSizeLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TextSizeLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TextSizeLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -577,9 +561,7 @@ export namespace TextSizeLimitExceededException {
  *          <p> You have made too many requests within a short period of time. Wait for a short time and then try your request again.</p>
  *
  */
-export interface TooManyRequestsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
@@ -676,9 +658,7 @@ export namespace TranslateTextResponse {
  *       more information, see <a>how-to-error-msg</a>. </p>
  *
  */
-export interface UnsupportedLanguagePairException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnsupportedLanguagePairException extends _smithy.SmithyException, $MetadataBearer {
   __type: "UnsupportedLanguagePairException";
   $fault: "client";
   Message?: string;

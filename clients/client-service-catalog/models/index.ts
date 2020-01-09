@@ -154,8 +154,7 @@ export namespace DisassociateTagOptionFromResourceInput {
   }
 }
 
-export interface DisassociateTagOptionFromResourceOutput
-  extends $MetadataBearer {
+export interface DisassociateTagOptionFromResourceOutput extends $MetadataBearer {
   __type?: "DisassociateTagOptionFromResourceOutput";
 }
 
@@ -577,13 +576,13 @@ export namespace AccessLevelFilter {
 export enum AccessLevelFilterKey {
   ACCOUNT = "Account",
   ROLE = "Role",
-  USER = "User"
+  USER = "User",
 }
 
 export enum AccessStatus {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
-  UNDER_CHANGE = "UNDER_CHANGE"
+  UNDER_CHANGE = "UNDER_CHANGE",
 }
 
 export interface AssociateBudgetWithResourceInput {
@@ -787,29 +786,18 @@ export interface AssociateServiceActionWithProvisioningArtifactInput {
 }
 
 export namespace AssociateServiceActionWithProvisioningArtifactInput {
-  export function isa(
-    o: any
-  ): o is AssociateServiceActionWithProvisioningArtifactInput {
-    return _smithy.isa(
-      o,
-      "AssociateServiceActionWithProvisioningArtifactInput"
-    );
+  export function isa(o: any): o is AssociateServiceActionWithProvisioningArtifactInput {
+    return _smithy.isa(o, "AssociateServiceActionWithProvisioningArtifactInput");
   }
 }
 
-export interface AssociateServiceActionWithProvisioningArtifactOutput
-  extends $MetadataBearer {
+export interface AssociateServiceActionWithProvisioningArtifactOutput extends $MetadataBearer {
   __type?: "AssociateServiceActionWithProvisioningArtifactOutput";
 }
 
 export namespace AssociateServiceActionWithProvisioningArtifactOutput {
-  export function isa(
-    o: any
-  ): o is AssociateServiceActionWithProvisioningArtifactOutput {
-    return _smithy.isa(
-      o,
-      "AssociateServiceActionWithProvisioningArtifactOutput"
-    );
+  export function isa(o: any): o is AssociateServiceActionWithProvisioningArtifactOutput {
+    return _smithy.isa(o, "AssociateServiceActionWithProvisioningArtifactOutput");
   }
 }
 
@@ -845,18 +833,12 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactInput {
 }
 
 export namespace BatchAssociateServiceActionWithProvisioningArtifactInput {
-  export function isa(
-    o: any
-  ): o is BatchAssociateServiceActionWithProvisioningArtifactInput {
-    return _smithy.isa(
-      o,
-      "BatchAssociateServiceActionWithProvisioningArtifactInput"
-    );
+  export function isa(o: any): o is BatchAssociateServiceActionWithProvisioningArtifactInput {
+    return _smithy.isa(o, "BatchAssociateServiceActionWithProvisioningArtifactInput");
   }
 }
 
-export interface BatchAssociateServiceActionWithProvisioningArtifactOutput
-  extends $MetadataBearer {
+export interface BatchAssociateServiceActionWithProvisioningArtifactOutput extends $MetadataBearer {
   __type?: "BatchAssociateServiceActionWithProvisioningArtifactOutput";
   /**
    *
@@ -867,13 +849,8 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactOutput
 }
 
 export namespace BatchAssociateServiceActionWithProvisioningArtifactOutput {
-  export function isa(
-    o: any
-  ): o is BatchAssociateServiceActionWithProvisioningArtifactOutput {
-    return _smithy.isa(
-      o,
-      "BatchAssociateServiceActionWithProvisioningArtifactOutput"
-    );
+  export function isa(o: any): o is BatchAssociateServiceActionWithProvisioningArtifactOutput {
+    return _smithy.isa(o, "BatchAssociateServiceActionWithProvisioningArtifactOutput");
   }
 }
 
@@ -909,18 +886,12 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactInput {
 }
 
 export namespace BatchDisassociateServiceActionFromProvisioningArtifactInput {
-  export function isa(
-    o: any
-  ): o is BatchDisassociateServiceActionFromProvisioningArtifactInput {
-    return _smithy.isa(
-      o,
-      "BatchDisassociateServiceActionFromProvisioningArtifactInput"
-    );
+  export function isa(o: any): o is BatchDisassociateServiceActionFromProvisioningArtifactInput {
+    return _smithy.isa(o, "BatchDisassociateServiceActionFromProvisioningArtifactInput");
   }
 }
 
-export interface BatchDisassociateServiceActionFromProvisioningArtifactOutput
-  extends $MetadataBearer {
+export interface BatchDisassociateServiceActionFromProvisioningArtifactOutput extends $MetadataBearer {
   __type?: "BatchDisassociateServiceActionFromProvisioningArtifactOutput";
   /**
    *
@@ -931,13 +902,8 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactOutput
 }
 
 export namespace BatchDisassociateServiceActionFromProvisioningArtifactOutput {
-  export function isa(
-    o: any
-  ): o is BatchDisassociateServiceActionFromProvisioningArtifactOutput {
-    return _smithy.isa(
-      o,
-      "BatchDisassociateServiceActionFromProvisioningArtifactOutput"
-    );
+  export function isa(o: any): o is BatchDisassociateServiceActionFromProvisioningArtifactOutput {
+    return _smithy.isa(o, "BatchDisassociateServiceActionFromProvisioningArtifactOutput");
   }
 }
 
@@ -965,7 +931,7 @@ export namespace BudgetDetail {
 export enum ChangeAction {
   ADD = "ADD",
   MODIFY = "MODIFY",
-  REMOVE = "REMOVE"
+  REMOVE = "REMOVE",
 }
 
 /**
@@ -1100,7 +1066,7 @@ export namespace ConstraintSummary {
 }
 
 export enum CopyOption {
-  CopyTags = "CopyTags"
+  CopyTags = "CopyTags",
 }
 
 export interface CopyProductInput {
@@ -1197,7 +1163,7 @@ export namespace CopyProductOutput {
 export enum CopyProductStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED"
+  SUCCEEDED = "SUCCEEDED",
 }
 
 export interface CreateConstraintInput {
@@ -3252,23 +3218,18 @@ export interface DescribeServiceActionExecutionParametersInput {
 }
 
 export namespace DescribeServiceActionExecutionParametersInput {
-  export function isa(
-    o: any
-  ): o is DescribeServiceActionExecutionParametersInput {
+  export function isa(o: any): o is DescribeServiceActionExecutionParametersInput {
     return _smithy.isa(o, "DescribeServiceActionExecutionParametersInput");
   }
 }
 
-export interface DescribeServiceActionExecutionParametersOutput
-  extends $MetadataBearer {
+export interface DescribeServiceActionExecutionParametersOutput extends $MetadataBearer {
   __type?: "DescribeServiceActionExecutionParametersOutput";
   ServiceActionParameters?: Array<ExecutionParameter>;
 }
 
 export namespace DescribeServiceActionExecutionParametersOutput {
-  export function isa(
-    o: any
-  ): o is DescribeServiceActionExecutionParametersOutput {
+  export function isa(o: any): o is DescribeServiceActionExecutionParametersOutput {
     return _smithy.isa(o, "DescribeServiceActionExecutionParametersOutput");
   }
 }
@@ -3423,8 +3384,7 @@ export namespace DisassociatePrincipalFromPortfolioInput {
   }
 }
 
-export interface DisassociatePrincipalFromPortfolioOutput
-  extends $MetadataBearer {
+export interface DisassociatePrincipalFromPortfolioOutput extends $MetadataBearer {
   __type?: "DisassociatePrincipalFromPortfolioOutput";
 }
 
@@ -3478,8 +3438,7 @@ export namespace DisassociateProductFromPortfolioInput {
   }
 }
 
-export interface DisassociateProductFromPortfolioOutput
-  extends $MetadataBearer {
+export interface DisassociateProductFromPortfolioOutput extends $MetadataBearer {
   __type?: "DisassociateProductFromPortfolioOutput";
 }
 
@@ -3535,29 +3494,18 @@ export interface DisassociateServiceActionFromProvisioningArtifactInput {
 }
 
 export namespace DisassociateServiceActionFromProvisioningArtifactInput {
-  export function isa(
-    o: any
-  ): o is DisassociateServiceActionFromProvisioningArtifactInput {
-    return _smithy.isa(
-      o,
-      "DisassociateServiceActionFromProvisioningArtifactInput"
-    );
+  export function isa(o: any): o is DisassociateServiceActionFromProvisioningArtifactInput {
+    return _smithy.isa(o, "DisassociateServiceActionFromProvisioningArtifactInput");
   }
 }
 
-export interface DisassociateServiceActionFromProvisioningArtifactOutput
-  extends $MetadataBearer {
+export interface DisassociateServiceActionFromProvisioningArtifactOutput extends $MetadataBearer {
   __type?: "DisassociateServiceActionFromProvisioningArtifactOutput";
 }
 
 export namespace DisassociateServiceActionFromProvisioningArtifactOutput {
-  export function isa(
-    o: any
-  ): o is DisassociateServiceActionFromProvisioningArtifactOutput {
-    return _smithy.isa(
-      o,
-      "DisassociateServiceActionFromProvisioningArtifactOutput"
-    );
+  export function isa(o: any): o is DisassociateServiceActionFromProvisioningArtifactOutput {
+    return _smithy.isa(o, "DisassociateServiceActionFromProvisioningArtifactOutput");
   }
 }
 
@@ -3566,9 +3514,7 @@ export namespace DisassociateServiceActionFromProvisioningArtifactOutput {
  *          <p>The specified resource is a duplicate.</p>
  *
  */
-export interface DuplicateResourceException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DuplicateResourceException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DuplicateResourceException";
   $fault: "client";
   Message?: string;
@@ -3602,7 +3548,7 @@ export namespace EnableAWSOrganizationsAccessOutput {
 
 export enum EvaluationType {
   DYNAMIC = "DYNAMIC",
-  STATIC = "STATIC"
+  STATIC = "STATIC",
 }
 
 export interface ExecuteProvisionedProductPlanInput {
@@ -3713,15 +3659,12 @@ export interface ExecuteProvisionedProductServiceActionInput {
 }
 
 export namespace ExecuteProvisionedProductServiceActionInput {
-  export function isa(
-    o: any
-  ): o is ExecuteProvisionedProductServiceActionInput {
+  export function isa(o: any): o is ExecuteProvisionedProductServiceActionInput {
     return _smithy.isa(o, "ExecuteProvisionedProductServiceActionInput");
   }
 }
 
-export interface ExecuteProvisionedProductServiceActionOutput
-  extends $MetadataBearer {
+export interface ExecuteProvisionedProductServiceActionOutput extends $MetadataBearer {
   __type?: "ExecuteProvisionedProductServiceActionOutput";
   /**
    *
@@ -3732,9 +3675,7 @@ export interface ExecuteProvisionedProductServiceActionOutput
 }
 
 export namespace ExecuteProvisionedProductServiceActionOutput {
-  export function isa(
-    o: any
-  ): o is ExecuteProvisionedProductServiceActionOutput {
+  export function isa(o: any): o is ExecuteProvisionedProductServiceActionOutput {
     return _smithy.isa(o, "ExecuteProvisionedProductServiceActionOutput");
   }
 }
@@ -3832,9 +3773,7 @@ export namespace GetAWSOrganizationsAccessStatusOutput {
  *          <p>One or more parameters provided to the operation are not valid.</p>
  *
  */
-export interface InvalidParametersException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidParametersException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidParametersException";
   $fault: "client";
   Message?: string;
@@ -3852,9 +3791,7 @@ export namespace InvalidParametersException {
  *          Check your resources to ensure that they are in valid states before retrying the operation.</p>
  *
  */
-export interface InvalidStateException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidStateException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidStateException";
   $fault: "client";
   Message?: string;
@@ -3914,9 +3851,7 @@ export namespace LaunchPathSummary {
  *          resource use or increase your service limits and retry the operation.</p>
  *
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -4742,15 +4677,12 @@ export interface ListProvisioningArtifactsForServiceActionInput {
 }
 
 export namespace ListProvisioningArtifactsForServiceActionInput {
-  export function isa(
-    o: any
-  ): o is ListProvisioningArtifactsForServiceActionInput {
+  export function isa(o: any): o is ListProvisioningArtifactsForServiceActionInput {
     return _smithy.isa(o, "ListProvisioningArtifactsForServiceActionInput");
   }
 }
 
-export interface ListProvisioningArtifactsForServiceActionOutput
-  extends $MetadataBearer {
+export interface ListProvisioningArtifactsForServiceActionOutput extends $MetadataBearer {
   __type?: "ListProvisioningArtifactsForServiceActionOutput";
   /**
    *
@@ -4768,9 +4700,7 @@ export interface ListProvisioningArtifactsForServiceActionOutput
 }
 
 export namespace ListProvisioningArtifactsForServiceActionOutput {
-  export function isa(
-    o: any
-  ): o is ListProvisioningArtifactsForServiceActionOutput {
+  export function isa(o: any): o is ListProvisioningArtifactsForServiceActionOutput {
     return _smithy.isa(o, "ListProvisioningArtifactsForServiceActionOutput");
   }
 }
@@ -5007,15 +4937,12 @@ export interface ListServiceActionsForProvisioningArtifactInput {
 }
 
 export namespace ListServiceActionsForProvisioningArtifactInput {
-  export function isa(
-    o: any
-  ): o is ListServiceActionsForProvisioningArtifactInput {
+  export function isa(o: any): o is ListServiceActionsForProvisioningArtifactInput {
     return _smithy.isa(o, "ListServiceActionsForProvisioningArtifactInput");
   }
 }
 
-export interface ListServiceActionsForProvisioningArtifactOutput
-  extends $MetadataBearer {
+export interface ListServiceActionsForProvisioningArtifactOutput extends $MetadataBearer {
   __type?: "ListServiceActionsForProvisioningArtifactOutput";
   /**
    *
@@ -5033,9 +4960,7 @@ export interface ListServiceActionsForProvisioningArtifactOutput
 }
 
 export namespace ListServiceActionsForProvisioningArtifactOutput {
-  export function isa(
-    o: any
-  ): o is ListServiceActionsForProvisioningArtifactOutput {
+  export function isa(o: any): o is ListServiceActionsForProvisioningArtifactOutput {
     return _smithy.isa(o, "ListServiceActionsForProvisioningArtifactOutput");
   }
 }
@@ -5153,15 +5078,12 @@ export interface ListStackInstancesForProvisionedProductInput {
 }
 
 export namespace ListStackInstancesForProvisionedProductInput {
-  export function isa(
-    o: any
-  ): o is ListStackInstancesForProvisionedProductInput {
+  export function isa(o: any): o is ListStackInstancesForProvisionedProductInput {
     return _smithy.isa(o, "ListStackInstancesForProvisionedProductInput");
   }
 }
 
-export interface ListStackInstancesForProvisionedProductOutput
-  extends $MetadataBearer {
+export interface ListStackInstancesForProvisionedProductOutput extends $MetadataBearer {
   __type?: "ListStackInstancesForProvisionedProductOutput";
   /**
    *
@@ -5179,9 +5101,7 @@ export interface ListStackInstancesForProvisionedProductOutput
 }
 
 export namespace ListStackInstancesForProvisionedProductOutput {
-  export function isa(
-    o: any
-  ): o is ListStackInstancesForProvisionedProductOutput {
+  export function isa(o: any): o is ListStackInstancesForProvisionedProductOutput {
     return _smithy.isa(o, "ListStackInstancesForProvisionedProductOutput");
   }
 }
@@ -5191,9 +5111,7 @@ export namespace ListStackInstancesForProvisionedProductOutput {
  *          <p>The operation is not supported.</p>
  *
  */
-export interface OperationNotSupportedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface OperationNotSupportedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "OperationNotSupportedException";
   $fault: "client";
   Message?: string;
@@ -5236,7 +5154,7 @@ export namespace OrganizationNode {
 export enum OrganizationNodeType {
   ACCOUNT = "ACCOUNT",
   ORGANIZATION = "ORGANIZATION",
-  ORGANIZATIONAL_UNIT = "ORGANIZATIONAL_UNIT"
+  ORGANIZATIONAL_UNIT = "ORGANIZATIONAL_UNIT",
 }
 
 /**
@@ -5319,7 +5237,7 @@ export namespace PortfolioDetail {
 export enum PortfolioShareType {
   AWS_ORGANIZATIONS = "AWS_ORGANIZATIONS",
   AWS_SERVICECATALOG = "AWS_SERVICECATALOG",
-  IMPORTED = "IMPORTED"
+  IMPORTED = "IMPORTED",
 }
 
 /**
@@ -5351,16 +5269,16 @@ export namespace Principal {
 }
 
 export enum PrincipalType {
-  IAM = "IAM"
+  IAM = "IAM",
 }
 
 export enum ProductSource {
-  ACCOUNT = "ACCOUNT"
+  ACCOUNT = "ACCOUNT",
 }
 
 export enum ProductType {
   CLOUD_FORMATION_TEMPLATE = "CLOUD_FORMATION_TEMPLATE",
-  MARKETPLACE = "MARKETPLACE"
+  MARKETPLACE = "MARKETPLACE",
 }
 
 /**
@@ -5452,13 +5370,13 @@ export enum ProductViewFilterBy {
   FullTextSearch = "FullTextSearch",
   Owner = "Owner",
   ProductType = "ProductType",
-  SourceProductId = "SourceProductId"
+  SourceProductId = "SourceProductId",
 }
 
 export enum ProductViewSortBy {
   CreationDate = "CreationDate",
   Title = "Title",
-  VersionCount = "VersionCount"
+  VersionCount = "VersionCount",
 }
 
 /**
@@ -5561,7 +5479,7 @@ export namespace ProductViewSummary {
 }
 
 export enum PropertyKey {
-  Owner = "OWNER"
+  Owner = "OWNER",
 }
 
 export interface ProvisionProductInput {
@@ -6075,7 +5993,7 @@ export enum ProvisionedProductPlanStatus {
   CREATE_SUCCESS = "CREATE_SUCCESS",
   EXECUTE_FAILED = "EXECUTE_FAILED",
   EXECUTE_IN_PROGRESS = "EXECUTE_IN_PROGRESS",
-  EXECUTE_SUCCESS = "EXECUTE_SUCCESS"
+  EXECUTE_SUCCESS = "EXECUTE_SUCCESS",
 }
 
 /**
@@ -6135,7 +6053,7 @@ export namespace ProvisionedProductPlanSummary {
 }
 
 export enum ProvisionedProductPlanType {
-  CLOUDFORMATION = "CLOUDFORMATION"
+  CLOUDFORMATION = "CLOUDFORMATION",
 }
 
 export enum ProvisionedProductStatus {
@@ -6143,11 +6061,11 @@ export enum ProvisionedProductStatus {
   ERROR = "ERROR",
   PLAN_IN_PROGRESS = "PLAN_IN_PROGRESS",
   TAINTED = "TAINTED",
-  UNDER_CHANGE = "UNDER_CHANGE"
+  UNDER_CHANGE = "UNDER_CHANGE",
 }
 
 export enum ProvisionedProductViewFilterBy {
-  SearchQuery = "SearchQuery"
+  SearchQuery = "SearchQuery",
 }
 
 /**
@@ -6278,7 +6196,7 @@ export namespace ProvisioningArtifactDetail {
 
 export enum ProvisioningArtifactGuidance {
   DEFAULT = "DEFAULT",
-  DEPRECATED = "DEPRECATED"
+  DEPRECATED = "DEPRECATED",
 }
 
 /**
@@ -6436,7 +6354,7 @@ export namespace ProvisioningArtifactProperties {
 }
 
 export enum ProvisioningArtifactPropertyName {
-  Id = "Id"
+  Id = "Id",
 }
 
 /**
@@ -6491,7 +6409,7 @@ export namespace ProvisioningArtifactSummary {
 export enum ProvisioningArtifactType {
   CLOUD_FORMATION_TEMPLATE = "CLOUD_FORMATION_TEMPLATE",
   MARKETPLACE_AMI = "MARKETPLACE_AMI",
-  MARKETPLACE_CAR = "MARKETPLACE_CAR"
+  MARKETPLACE_CAR = "MARKETPLACE_CAR",
 }
 
 /**
@@ -6840,7 +6758,7 @@ export enum RecordStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
   IN_PROGRESS_IN_ERROR = "IN_PROGRESS_IN_ERROR",
-  SUCCEEDED = "SUCCEEDED"
+  SUCCEEDED = "SUCCEEDED",
 }
 
 /**
@@ -6945,13 +6863,13 @@ export namespace RejectPortfolioShareOutput {
 export enum Replacement {
   CONDITIONAL = "CONDITIONAL",
   FALSE = "FALSE",
-  TRUE = "TRUE"
+  TRUE = "TRUE",
 }
 
 export enum RequiresRecreation {
   ALWAYS = "ALWAYS",
   CONDITIONALLY = "CONDITIONALLY",
-  NEVER = "NEVER"
+  NEVER = "NEVER",
 }
 
 export enum ResourceAttribute {
@@ -6960,7 +6878,7 @@ export enum ResourceAttribute {
   METADATA = "METADATA",
   PROPERTIES = "PROPERTIES",
   TAGS = "TAGS",
-  UPDATEPOLICY = "UPDATEPOLICY"
+  UPDATEPOLICY = "UPDATEPOLICY",
 }
 
 /**
@@ -7068,9 +6986,7 @@ export namespace ResourceChangeDetail {
  *          <p>A resource that is currently in use. Ensure that the resource is not in use and retry the operation.</p>
  *
  */
-export interface ResourceInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   Message?: string;
@@ -7087,9 +7003,7 @@ export namespace ResourceInUseException {
  *          <p>The specified resource was not found.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -7395,9 +7309,7 @@ export interface SearchProductsOutput extends $MetadataBearer {
    *          <p>The product view aggregations.</p>
    *
    */
-  ProductViewAggregations?: {
-    [key: string]: Array<ProductViewAggregationValue>;
-  };
+  ProductViewAggregations?: { [key: string]: Array<ProductViewAggregationValue> };
 
   /**
    *
@@ -7563,18 +7475,18 @@ export enum ServiceActionAssociationErrorCode {
   InternalFailure = "INTERNAL_FAILURE",
   LimitExceededException = "LIMIT_EXCEEDED",
   ResourceNotFoundException = "RESOURCE_NOT_FOUND",
-  ThrottlingException = "THROTTLING"
+  ThrottlingException = "THROTTLING",
 }
 
 export enum ServiceActionDefinitionKey {
   AssumeRole = "AssumeRole",
   Name = "Name",
   Parameters = "Parameters",
-  Version = "Version"
+  Version = "Version",
 }
 
 export enum ServiceActionDefinitionType {
-  SsmAutomation = "SSM_AUTOMATION"
+  SsmAutomation = "SSM_AUTOMATION",
 }
 
 /**
@@ -7715,12 +7627,12 @@ export enum ShareStatus {
   COMPLETED_WITH_ERRORS = "COMPLETED_WITH_ERRORS",
   ERROR = "ERROR",
   IN_PROGRESS = "IN_PROGRESS",
-  NOT_STARTED = "NOT_STARTED"
+  NOT_STARTED = "NOT_STARTED",
 }
 
 export enum SortOrder {
   ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING"
+  DESCENDING = "DESCENDING",
 }
 
 /**
@@ -7777,15 +7689,15 @@ export namespace StackInstance {
 export enum StackInstanceStatus {
   CURRENT = "CURRENT",
   INOPERABLE = "INOPERABLE",
-  OUTDATED = "OUTDATED"
+  OUTDATED = "OUTDATED",
 }
 
-export type StackSetOperationType = "CREATE" | "DELETE" | "UPDATE";
+export type StackSetOperationType = "CREATE" | "DELETE" | "UPDATE"
 
 export enum Status {
   AVAILABLE = "AVAILABLE",
   CREATING = "CREATING",
-  FAILED = "FAILED"
+  FAILED = "FAILED",
 }
 
 /**
@@ -7824,9 +7736,7 @@ export namespace Tag {
  *          process before retrying the operation.</p>
  *
  */
-export interface TagOptionNotMigratedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TagOptionNotMigratedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TagOptionNotMigratedException";
   $fault: "client";
   Message?: string;
@@ -8459,8 +8369,7 @@ export namespace UpdateProvisionedProductPropertiesInput {
   }
 }
 
-export interface UpdateProvisionedProductPropertiesOutput
-  extends $MetadataBearer {
+export interface UpdateProvisionedProductPropertiesOutput extends $MetadataBearer {
   __type?: "UpdateProvisionedProductPropertiesOutput";
   /**
    *

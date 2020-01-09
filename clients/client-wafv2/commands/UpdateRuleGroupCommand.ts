@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  WAFV2ClientResolvedConfig
+  WAFV2ClientResolvedConfig,
 } from "../WAFV2Client";
 import {
   UpdateRuleGroupRequest,
-  UpdateRuleGroupResponse
+  UpdateRuleGroupResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1UpdateRuleGroupCommand,
-  serializeAws_json1_1UpdateRuleGroupCommand
+  serializeAws_json1_1UpdateRuleGroupCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type UpdateRuleGroupCommandInput = UpdateRuleGroupRequest;
 export type UpdateRuleGroupCommandOutput = UpdateRuleGroupResponse;
 
-export class UpdateRuleGroupCommand extends $Command<
-  UpdateRuleGroupCommandInput,
-  UpdateRuleGroupCommandOutput,
-  WAFV2ClientResolvedConfig
-> {
+export class UpdateRuleGroupCommand extends $Command<UpdateRuleGroupCommandInput, UpdateRuleGroupCommandOutput, WAFV2ClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,15 +44,13 @@ export class UpdateRuleGroupCommand extends $Command<
     configuration: WAFV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateRuleGroupCommandInput, UpdateRuleGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

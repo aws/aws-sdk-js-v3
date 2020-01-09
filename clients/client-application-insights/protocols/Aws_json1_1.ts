@@ -840,10 +840,7 @@ export async function deserializeAws_json1_1CreateApplicationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateApplicationResponse(
-    data.CreateApplicationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateApplicationResponse(data, context);
   const response: CreateApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateApplicationResponse",
@@ -922,10 +919,7 @@ export async function deserializeAws_json1_1CreateComponentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateComponentResponse(
-    data.CreateComponentResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateComponentResponse(data, context);
   const response: CreateComponentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateComponentResponse",
@@ -997,10 +991,7 @@ export async function deserializeAws_json1_1CreateLogPatternCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateLogPatternResponse(
-    data.CreateLogPatternResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateLogPatternResponse(data, context);
   const response: CreateLogPatternCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateLogPatternResponse",
@@ -1072,10 +1063,7 @@ export async function deserializeAws_json1_1DeleteApplicationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteApplicationResponse(
-    data.DeleteApplicationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteApplicationResponse(data, context);
   const response: DeleteApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteApplicationResponse",
@@ -1147,10 +1135,7 @@ export async function deserializeAws_json1_1DeleteComponentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteComponentResponse(
-    data.DeleteComponentResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteComponentResponse(data, context);
   const response: DeleteComponentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteComponentResponse",
@@ -1215,10 +1200,7 @@ export async function deserializeAws_json1_1DeleteLogPatternCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteLogPatternResponse(
-    data.DeleteLogPatternResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteLogPatternResponse(data, context);
   const response: DeleteLogPatternCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteLogPatternResponse",
@@ -1293,10 +1275,7 @@ export async function deserializeAws_json1_1DescribeApplicationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeApplicationResponse(
-    data.DescribeApplicationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeApplicationResponse(data, context);
   const response: DescribeApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeApplicationResponse",
@@ -1361,10 +1340,7 @@ export async function deserializeAws_json1_1DescribeComponentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeComponentResponse(
-    data.DescribeComponentResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeComponentResponse(data, context);
   const response: DescribeComponentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeComponentResponse",
@@ -1433,7 +1409,7 @@ export async function deserializeAws_json1_1DescribeComponentConfigurationComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeComponentConfigurationResponse(
-    data.DescribeComponentConfigurationResponse,
+    data,
     context
   );
   const response: DescribeComponentConfigurationCommandOutput = {
@@ -1504,7 +1480,7 @@ export async function deserializeAws_json1_1DescribeComponentConfigurationRecomm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeComponentConfigurationRecommendationResponse(
-    data.DescribeComponentConfigurationRecommendationResponse,
+    data,
     context
   );
   const response: DescribeComponentConfigurationRecommendationCommandOutput = {
@@ -1574,10 +1550,7 @@ export async function deserializeAws_json1_1DescribeLogPatternCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeLogPatternResponse(
-    data.DescribeLogPatternResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeLogPatternResponse(data, context);
   const response: DescribeLogPatternCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeLogPatternResponse",
@@ -1645,10 +1618,7 @@ export async function deserializeAws_json1_1DescribeObservationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeObservationResponse(
-    data.DescribeObservationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeObservationResponse(data, context);
   const response: DescribeObservationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeObservationResponse",
@@ -1713,10 +1683,7 @@ export async function deserializeAws_json1_1DescribeProblemCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeProblemResponse(
-    data.DescribeProblemResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeProblemResponse(data, context);
   const response: DescribeProblemCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeProblemResponse",
@@ -1785,7 +1752,7 @@ export async function deserializeAws_json1_1DescribeProblemObservationsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeProblemObservationsResponse(
-    data.DescribeProblemObservationsResponse,
+    data,
     context
   );
   const response: DescribeProblemObservationsCommandOutput = {
@@ -1852,10 +1819,7 @@ export async function deserializeAws_json1_1ListApplicationsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListApplicationsResponse(
-    data.ListApplicationsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListApplicationsResponse(data, context);
   const response: ListApplicationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListApplicationsResponse",
@@ -1913,10 +1877,7 @@ export async function deserializeAws_json1_1ListComponentsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListComponentsResponse(
-    data.ListComponentsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListComponentsResponse(data, context);
   const response: ListComponentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListComponentsResponse",
@@ -1984,10 +1945,7 @@ export async function deserializeAws_json1_1ListLogPatternSetsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListLogPatternSetsResponse(
-    data.ListLogPatternSetsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListLogPatternSetsResponse(data, context);
   const response: ListLogPatternSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListLogPatternSetsResponse",
@@ -2052,10 +2010,7 @@ export async function deserializeAws_json1_1ListLogPatternsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListLogPatternsResponse(
-    data.ListLogPatternsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListLogPatternsResponse(data, context);
   const response: ListLogPatternsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListLogPatternsResponse",
@@ -2120,10 +2075,7 @@ export async function deserializeAws_json1_1ListProblemsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListProblemsResponse(
-    data.ListProblemsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListProblemsResponse(data, context);
   const response: ListProblemsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListProblemsResponse",
@@ -2191,10 +2143,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(
-    data.ListTagsForResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
@@ -2252,10 +2201,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(
-    data.TagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
@@ -2320,10 +2266,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(
-    data.UntagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
@@ -2381,10 +2324,7 @@ export async function deserializeAws_json1_1UpdateApplicationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateApplicationResponse(
-    data.UpdateApplicationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateApplicationResponse(data, context);
   const response: UpdateApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateApplicationResponse",
@@ -2449,10 +2389,7 @@ export async function deserializeAws_json1_1UpdateComponentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateComponentResponse(
-    data.UpdateComponentResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateComponentResponse(data, context);
   const response: UpdateComponentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateComponentResponse",
@@ -2528,7 +2465,7 @@ export async function deserializeAws_json1_1UpdateComponentConfigurationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateComponentConfigurationResponse(
-    data.UpdateComponentConfigurationResponse,
+    data,
     context
   );
   const response: UpdateComponentConfigurationCommandOutput = {
@@ -2595,10 +2532,7 @@ export async function deserializeAws_json1_1UpdateLogPatternCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateLogPatternResponse(
-    data.UpdateLogPatternResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateLogPatternResponse(data, context);
   const response: UpdateLogPatternCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateLogPatternResponse",

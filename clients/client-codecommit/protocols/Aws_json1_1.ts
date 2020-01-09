@@ -2659,7 +2659,7 @@ export async function deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWi
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesOutput(
-    data.BatchAssociateApprovalRuleTemplateWithRepositoriesOutput,
+    data,
     context
   );
   const response: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput = {
@@ -2779,7 +2779,7 @@ export async function deserializeAws_json1_1BatchDescribeMergeConflictsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1BatchDescribeMergeConflictsOutput(
-    data.BatchDescribeMergeConflictsOutput,
+    data,
     context
   );
   const response: BatchDescribeMergeConflictsCommandOutput = {
@@ -2976,7 +2976,7 @@ export async function deserializeAws_json1_1BatchDisassociateApprovalRuleTemplat
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput(
-    data.BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput,
+    data,
     context
   );
   const response: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput = {
@@ -3092,10 +3092,7 @@ export async function deserializeAws_json1_1BatchGetCommitsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetCommitsOutput(
-    data.BatchGetCommitsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1BatchGetCommitsOutput(data, context);
   const response: BatchGetCommitsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetCommitsOutput",
@@ -3212,10 +3209,7 @@ export async function deserializeAws_json1_1BatchGetRepositoriesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetRepositoriesOutput(
-    data.BatchGetRepositoriesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1BatchGetRepositoriesOutput(data, context);
   const response: BatchGetRepositoriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetRepositoriesOutput",
@@ -3319,7 +3313,7 @@ export async function deserializeAws_json1_1CreateApprovalRuleTemplateCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateApprovalRuleTemplateOutput(
-    data.CreateApprovalRuleTemplateOutput,
+    data,
     context
   );
   const response: CreateApprovalRuleTemplateCommandOutput = {
@@ -3551,10 +3545,7 @@ export async function deserializeAws_json1_1CreateCommitCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateCommitOutput(
-    data.CreateCommitOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateCommitOutput(data, context);
   const response: CreateCommitCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateCommitOutput",
@@ -3864,10 +3855,7 @@ export async function deserializeAws_json1_1CreatePullRequestCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreatePullRequestOutput(
-    data.CreatePullRequestOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreatePullRequestOutput(data, context);
   const response: CreatePullRequestCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreatePullRequestOutput",
@@ -4090,7 +4078,7 @@ export async function deserializeAws_json1_1CreatePullRequestApprovalRuleCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreatePullRequestApprovalRuleOutput(
-    data.CreatePullRequestApprovalRuleOutput,
+    data,
     context
   );
   const response: CreatePullRequestApprovalRuleCommandOutput = {
@@ -4241,10 +4229,7 @@ export async function deserializeAws_json1_1CreateRepositoryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateRepositoryOutput(
-    data.CreateRepositoryOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateRepositoryOutput(data, context);
   const response: CreateRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateRepositoryOutput",
@@ -4390,7 +4375,7 @@ export async function deserializeAws_json1_1CreateUnreferencedMergeCommitCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateUnreferencedMergeCommitOutput(
-    data.CreateUnreferencedMergeCommitOutput,
+    data,
     context
   );
   const response: CreateUnreferencedMergeCommitCommandOutput = {
@@ -4692,7 +4677,7 @@ export async function deserializeAws_json1_1DeleteApprovalRuleTemplateCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteApprovalRuleTemplateOutput(
-    data.DeleteApprovalRuleTemplateOutput,
+    data,
     context
   );
   const response: DeleteApprovalRuleTemplateCommandOutput = {
@@ -4759,10 +4744,7 @@ export async function deserializeAws_json1_1DeleteBranchCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteBranchOutput(
-    data.DeleteBranchOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteBranchOutput(data, context);
   const response: DeleteBranchCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteBranchOutput",
@@ -4886,10 +4868,7 @@ export async function deserializeAws_json1_1DeleteCommentContentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteCommentContentOutput(
-    data.DeleteCommentContentOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteCommentContentOutput(data, context);
   const response: DeleteCommentContentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteCommentContentOutput",
@@ -4961,10 +4940,7 @@ export async function deserializeAws_json1_1DeleteFileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteFileOutput(
-    data.DeleteFileOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteFileOutput(data, context);
   const response: DeleteFileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteFileOutput",
@@ -5166,7 +5142,7 @@ export async function deserializeAws_json1_1DeletePullRequestApprovalRuleCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeletePullRequestApprovalRuleOutput(
-    data.DeletePullRequestApprovalRuleOutput,
+    data,
     context
   );
   const response: DeletePullRequestApprovalRuleCommandOutput = {
@@ -5296,10 +5272,7 @@ export async function deserializeAws_json1_1DeleteRepositoryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteRepositoryOutput(
-    data.DeleteRepositoryOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteRepositoryOutput(data, context);
   const response: DeleteRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteRepositoryOutput",
@@ -5395,10 +5368,7 @@ export async function deserializeAws_json1_1DescribeMergeConflictsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeMergeConflictsOutput(
-    data.DescribeMergeConflictsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeMergeConflictsOutput(data, context);
   const response: DescribeMergeConflictsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeMergeConflictsOutput",
@@ -5607,7 +5577,7 @@ export async function deserializeAws_json1_1DescribePullRequestEventsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribePullRequestEventsOutput(
-    data.DescribePullRequestEventsOutput,
+    data,
     context
   );
   const response: DescribePullRequestEventsCommandOutput = {
@@ -5867,7 +5837,7 @@ export async function deserializeAws_json1_1EvaluatePullRequestApprovalRulesComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1EvaluatePullRequestApprovalRulesOutput(
-    data.EvaluatePullRequestApprovalRulesOutput,
+    data,
     context
   );
   const response: EvaluatePullRequestApprovalRulesCommandOutput = {
@@ -5993,10 +5963,7 @@ export async function deserializeAws_json1_1GetApprovalRuleTemplateCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetApprovalRuleTemplateOutput(
-    data.GetApprovalRuleTemplateOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetApprovalRuleTemplateOutput(data, context);
   const response: GetApprovalRuleTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetApprovalRuleTemplateOutput",
@@ -6061,7 +6028,7 @@ export async function deserializeAws_json1_1GetBlobCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetBlobOutput(data.GetBlobOutput, context);
+  contents = deserializeAws_json1_1GetBlobOutput(data, context);
   const response: GetBlobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetBlobOutput",
@@ -6189,10 +6156,7 @@ export async function deserializeAws_json1_1GetBranchCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetBranchOutput(
-    data.GetBranchOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetBranchOutput(data, context);
   const response: GetBranchCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetBranchOutput",
@@ -6313,10 +6277,7 @@ export async function deserializeAws_json1_1GetCommentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCommentOutput(
-    data.GetCommentOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetCommentOutput(data, context);
   const response: GetCommentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetCommentOutput",
@@ -6392,7 +6353,7 @@ export async function deserializeAws_json1_1GetCommentsForComparedCommitCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetCommentsForComparedCommitOutput(
-    data.GetCommentsForComparedCommitOutput,
+    data,
     context
   );
   const response: GetCommentsForComparedCommitCommandOutput = {
@@ -6533,7 +6494,7 @@ export async function deserializeAws_json1_1GetCommentsForPullRequestCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetCommentsForPullRequestOutput(
-    data.GetCommentsForPullRequestOutput,
+    data,
     context
   );
   const response: GetCommentsForPullRequestCommandOutput = {
@@ -6698,10 +6659,7 @@ export async function deserializeAws_json1_1GetCommitCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCommitOutput(
-    data.GetCommitOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetCommitOutput(data, context);
   const response: GetCommitCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetCommitOutput",
@@ -6822,10 +6780,7 @@ export async function deserializeAws_json1_1GetDifferencesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDifferencesOutput(
-    data.GetDifferencesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetDifferencesOutput(data, context);
   const response: GetDifferencesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDifferencesOutput",
@@ -6981,7 +6936,7 @@ export async function deserializeAws_json1_1GetFileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetFileOutput(data.GetFileOutput, context);
+  contents = deserializeAws_json1_1GetFileOutput(data, context);
   const response: GetFileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetFileOutput",
@@ -7123,10 +7078,7 @@ export async function deserializeAws_json1_1GetFolderCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetFolderOutput(
-    data.GetFolderOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetFolderOutput(data, context);
   const response: GetFolderCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetFolderOutput",
@@ -7261,10 +7213,7 @@ export async function deserializeAws_json1_1GetMergeCommitCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetMergeCommitOutput(
-    data.GetMergeCommitOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetMergeCommitOutput(data, context);
   const response: GetMergeCommitCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetMergeCommitOutput",
@@ -7399,10 +7348,7 @@ export async function deserializeAws_json1_1GetMergeConflictsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetMergeConflictsOutput(
-    data.GetMergeConflictsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetMergeConflictsOutput(data, context);
   const response: GetMergeConflictsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetMergeConflictsOutput",
@@ -7600,10 +7546,7 @@ export async function deserializeAws_json1_1GetMergeOptionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetMergeOptionsOutput(
-    data.GetMergeOptionsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetMergeOptionsOutput(data, context);
   const response: GetMergeOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetMergeOptionsOutput",
@@ -7759,10 +7702,7 @@ export async function deserializeAws_json1_1GetPullRequestCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetPullRequestOutput(
-    data.GetPullRequestOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetPullRequestOutput(data, context);
   const response: GetPullRequestCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetPullRequestOutput",
@@ -7866,7 +7806,7 @@ export async function deserializeAws_json1_1GetPullRequestApprovalStatesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetPullRequestApprovalStatesOutput(
-    data.GetPullRequestApprovalStatesOutput,
+    data,
     context
   );
   const response: GetPullRequestApprovalStatesCommandOutput = {
@@ -7986,7 +7926,7 @@ export async function deserializeAws_json1_1GetPullRequestOverrideStateCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetPullRequestOverrideStateOutput(
-    data.GetPullRequestOverrideStateOutput,
+    data,
     context
   );
   const response: GetPullRequestOverrideStateCommandOutput = {
@@ -8102,10 +8042,7 @@ export async function deserializeAws_json1_1GetRepositoryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetRepositoryOutput(
-    data.GetRepositoryOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetRepositoryOutput(data, context);
   const response: GetRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetRepositoryOutput",
@@ -8208,10 +8145,7 @@ export async function deserializeAws_json1_1GetRepositoryTriggersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetRepositoryTriggersOutput(
-    data.GetRepositoryTriggersOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetRepositoryTriggersOutput(data, context);
   const response: GetRepositoryTriggersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetRepositoryTriggersOutput",
@@ -8315,7 +8249,7 @@ export async function deserializeAws_json1_1ListApprovalRuleTemplatesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListApprovalRuleTemplatesOutput(
-    data.ListApprovalRuleTemplatesOutput,
+    data,
     context
   );
   const response: ListApprovalRuleTemplatesCommandOutput = {
@@ -8379,7 +8313,7 @@ export async function deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesF
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryOutput(
-    data.ListAssociatedApprovalRuleTemplatesForRepositoryOutput,
+    data,
     context
   );
   const response: ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput = {
@@ -8495,10 +8429,7 @@ export async function deserializeAws_json1_1ListBranchesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListBranchesOutput(
-    data.ListBranchesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListBranchesOutput(data, context);
   const response: ListBranchesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListBranchesOutput",
@@ -8605,10 +8536,7 @@ export async function deserializeAws_json1_1ListPullRequestsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPullRequestsOutput(
-    data.ListPullRequestsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListPullRequestsOutput(data, context);
   const response: ListPullRequestsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListPullRequestsOutput",
@@ -8743,10 +8671,7 @@ export async function deserializeAws_json1_1ListRepositoriesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListRepositoriesOutput(
-    data.ListRepositoriesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListRepositoriesOutput(data, context);
   const response: ListRepositoriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListRepositoriesOutput",
@@ -8815,7 +8740,7 @@ export async function deserializeAws_json1_1ListRepositoriesForApprovalRuleTempl
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateOutput(
-    data.ListRepositoriesForApprovalRuleTemplateOutput,
+    data,
     context
   );
   const response: ListRepositoriesForApprovalRuleTemplateCommandOutput = {
@@ -8934,10 +8859,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceOutput(
-    data.ListTagsForResourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceOutput(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceOutput",
@@ -9013,7 +8935,7 @@ export async function deserializeAws_json1_1MergeBranchesByFastForwardCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1MergeBranchesByFastForwardOutput(
-    data.MergeBranchesByFastForwardOutput,
+    data,
     context
   );
   const response: MergeBranchesByFastForwardCommandOutput = {
@@ -9195,10 +9117,7 @@ export async function deserializeAws_json1_1MergeBranchesBySquashCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1MergeBranchesBySquashOutput(
-    data.MergeBranchesBySquashOutput,
-    context
-  );
+  contents = deserializeAws_json1_1MergeBranchesBySquashOutput(data, context);
   const response: MergeBranchesBySquashCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "MergeBranchesBySquashOutput",
@@ -9518,10 +9437,7 @@ export async function deserializeAws_json1_1MergeBranchesByThreeWayCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1MergeBranchesByThreeWayOutput(
-    data.MergeBranchesByThreeWayOutput,
-    context
-  );
+  contents = deserializeAws_json1_1MergeBranchesByThreeWayOutput(data, context);
   const response: MergeBranchesByThreeWayCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "MergeBranchesByThreeWayOutput",
@@ -9842,7 +9758,7 @@ export async function deserializeAws_json1_1MergePullRequestByFastForwardCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1MergePullRequestByFastForwardOutput(
-    data.MergePullRequestByFastForwardOutput,
+    data,
     context
   );
   const response: MergePullRequestByFastForwardCommandOutput = {
@@ -10025,7 +9941,7 @@ export async function deserializeAws_json1_1MergePullRequestBySquashCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1MergePullRequestBySquashOutput(
-    data.MergePullRequestBySquashOutput,
+    data,
     context
   );
   const response: MergePullRequestBySquashCommandOutput = {
@@ -10341,7 +10257,7 @@ export async function deserializeAws_json1_1MergePullRequestByThreeWayCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1MergePullRequestByThreeWayOutput(
-    data.MergePullRequestByThreeWayOutput,
+    data,
     context
   );
   const response: MergePullRequestByThreeWayCommandOutput = {
@@ -10804,7 +10720,7 @@ export async function deserializeAws_json1_1PostCommentForComparedCommitCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PostCommentForComparedCommitOutput(
-    data.PostCommentForComparedCommitOutput,
+    data,
     context
   );
   const response: PostCommentForComparedCommitCommandOutput = {
@@ -11015,7 +10931,7 @@ export async function deserializeAws_json1_1PostCommentForPullRequestCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PostCommentForPullRequestOutput(
-    data.PostCommentForPullRequestOutput,
+    data,
     context
   );
   const response: PostCommentForPullRequestCommandOutput = {
@@ -11250,10 +11166,7 @@ export async function deserializeAws_json1_1PostCommentReplyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PostCommentReplyOutput(
-    data.PostCommentReplyOutput,
-    context
-  );
+  contents = deserializeAws_json1_1PostCommentReplyOutput(data, context);
   const response: PostCommentReplyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PostCommentReplyOutput",
@@ -11353,7 +11266,7 @@ export async function deserializeAws_json1_1PutFileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutFileOutput(data.PutFileOutput, context);
+  contents = deserializeAws_json1_1PutFileOutput(data, context);
   const response: PutFileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutFileOutput",
@@ -11610,10 +11523,7 @@ export async function deserializeAws_json1_1PutRepositoryTriggersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutRepositoryTriggersOutput(
-    data.PutRepositoryTriggersOutput,
-    context
-  );
+  contents = deserializeAws_json1_1PutRepositoryTriggersOutput(data, context);
   const response: PutRepositoryTriggersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutRepositoryTriggersOutput",
@@ -11909,10 +11819,7 @@ export async function deserializeAws_json1_1TestRepositoryTriggersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TestRepositoryTriggersOutput(
-    data.TestRepositoryTriggersOutput,
-    context
-  );
+  contents = deserializeAws_json1_1TestRepositoryTriggersOutput(data, context);
   const response: TestRepositoryTriggersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TestRepositoryTriggersOutput",
@@ -12209,7 +12116,7 @@ export async function deserializeAws_json1_1UpdateApprovalRuleTemplateContentCom
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateApprovalRuleTemplateContentOutput(
-    data.UpdateApprovalRuleTemplateContentOutput,
+    data,
     context
   );
   const response: UpdateApprovalRuleTemplateContentCommandOutput = {
@@ -12301,7 +12208,7 @@ export async function deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptio
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionOutput(
-    data.UpdateApprovalRuleTemplateDescriptionOutput,
+    data,
     context
   );
   const response: UpdateApprovalRuleTemplateDescriptionCommandOutput = {
@@ -12379,7 +12286,7 @@ export async function deserializeAws_json1_1UpdateApprovalRuleTemplateNameComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateApprovalRuleTemplateNameOutput(
-    data.UpdateApprovalRuleTemplateNameOutput,
+    data,
     context
   );
   const response: UpdateApprovalRuleTemplateNameCommandOutput = {
@@ -12453,10 +12360,7 @@ export async function deserializeAws_json1_1UpdateCommentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateCommentOutput(
-    data.UpdateCommentOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateCommentOutput(data, context);
   const response: UpdateCommentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateCommentOutput",
@@ -12672,7 +12576,7 @@ export async function deserializeAws_json1_1UpdatePullRequestApprovalRuleContent
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdatePullRequestApprovalRuleContentOutput(
-    data.UpdatePullRequestApprovalRuleContentOutput,
+    data,
     context
   );
   const response: UpdatePullRequestApprovalRuleContentCommandOutput = {
@@ -12988,7 +12892,7 @@ export async function deserializeAws_json1_1UpdatePullRequestDescriptionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdatePullRequestDescriptionOutput(
-    data.UpdatePullRequestDescriptionOutput,
+    data,
     context
   );
   const response: UpdatePullRequestDescriptionCommandOutput = {
@@ -13072,10 +12976,7 @@ export async function deserializeAws_json1_1UpdatePullRequestStatusCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdatePullRequestStatusOutput(
-    data.UpdatePullRequestStatusOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdatePullRequestStatusOutput(data, context);
   const response: UpdatePullRequestStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdatePullRequestStatusOutput",
@@ -13199,10 +13100,7 @@ export async function deserializeAws_json1_1UpdatePullRequestTitleCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdatePullRequestTitleOutput(
-    data.UpdatePullRequestTitleOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdatePullRequestTitleOutput(data, context);
   const response: UpdatePullRequestTitleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdatePullRequestTitleOutput",
