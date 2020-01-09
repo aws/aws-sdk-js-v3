@@ -800,7 +800,7 @@ async function deserializeAws_json1_1CreateDatasetCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -817,7 +817,6 @@ async function deserializeAws_json1_1CreateDatasetCommandError(
       response = await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.seer.service#${errorCode}`,
         $fault: "client",
@@ -855,7 +854,7 @@ async function deserializeAws_json1_1CreateDatasetGroupCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -880,7 +879,6 @@ async function deserializeAws_json1_1CreateDatasetGroupCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.seer.service#${errorCode}`,
         $fault: "client",
@@ -918,7 +916,7 @@ async function deserializeAws_json1_1CreateDatasetImportJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -943,7 +941,6 @@ async function deserializeAws_json1_1CreateDatasetImportJobCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.seer.service#${errorCode}`,
         $fault: "client",
@@ -981,7 +978,7 @@ async function deserializeAws_json1_1CreateForecastCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1006,7 +1003,6 @@ async function deserializeAws_json1_1CreateForecastCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.seer.service#${errorCode}`,
         $fault: "client",
@@ -1044,7 +1040,7 @@ async function deserializeAws_json1_1CreateForecastExportJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1069,7 +1065,6 @@ async function deserializeAws_json1_1CreateForecastExportJobCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.seer.service#${errorCode}`,
         $fault: "client",
@@ -1107,7 +1102,7 @@ async function deserializeAws_json1_1CreatePredictorCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1132,7 +1127,6 @@ async function deserializeAws_json1_1CreatePredictorCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.seer.service#${errorCode}`,
         $fault: "client",
@@ -1165,7 +1159,7 @@ async function deserializeAws_json1_1DeleteDatasetCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1182,7 +1176,6 @@ async function deserializeAws_json1_1DeleteDatasetCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.seer.service#${errorCode}`,
         $fault: "client",
@@ -1215,7 +1208,7 @@ async function deserializeAws_json1_1DeleteDatasetGroupCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1232,7 +1225,6 @@ async function deserializeAws_json1_1DeleteDatasetGroupCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.seer.service#${errorCode}`,
         $fault: "client",
@@ -1265,7 +1257,7 @@ async function deserializeAws_json1_1DeleteDatasetImportJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1282,7 +1274,6 @@ async function deserializeAws_json1_1DeleteDatasetImportJobCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.seer.service#${errorCode}`,
         $fault: "client",
@@ -1315,7 +1306,7 @@ async function deserializeAws_json1_1DeleteForecastCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1332,7 +1323,6 @@ async function deserializeAws_json1_1DeleteForecastCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.seer.service#${errorCode}`,
         $fault: "client",
@@ -1365,7 +1355,7 @@ async function deserializeAws_json1_1DeleteForecastExportJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1382,7 +1372,6 @@ async function deserializeAws_json1_1DeleteForecastExportJobCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.seer.service#${errorCode}`,
         $fault: "client",
@@ -1415,7 +1404,7 @@ async function deserializeAws_json1_1DeletePredictorCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1432,7 +1421,6 @@ async function deserializeAws_json1_1DeletePredictorCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.seer.service#${errorCode}`,
         $fault: "client",
@@ -1470,7 +1458,7 @@ async function deserializeAws_json1_1DescribeDatasetCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1483,7 +1471,6 @@ async function deserializeAws_json1_1DescribeDatasetCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.seer.service#${errorCode}`,
         $fault: "client",
@@ -1521,7 +1508,7 @@ async function deserializeAws_json1_1DescribeDatasetGroupCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1534,7 +1521,6 @@ async function deserializeAws_json1_1DescribeDatasetGroupCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.seer.service#${errorCode}`,
         $fault: "client",
@@ -1572,7 +1558,7 @@ async function deserializeAws_json1_1DescribeDatasetImportJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1585,7 +1571,6 @@ async function deserializeAws_json1_1DescribeDatasetImportJobCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.seer.service#${errorCode}`,
         $fault: "client",
@@ -1623,7 +1608,7 @@ async function deserializeAws_json1_1DescribeForecastCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1636,7 +1621,6 @@ async function deserializeAws_json1_1DescribeForecastCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.seer.service#${errorCode}`,
         $fault: "client",
@@ -1674,7 +1658,7 @@ async function deserializeAws_json1_1DescribeForecastExportJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1687,7 +1671,6 @@ async function deserializeAws_json1_1DescribeForecastExportJobCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.seer.service#${errorCode}`,
         $fault: "client",
@@ -1725,7 +1708,7 @@ async function deserializeAws_json1_1DescribePredictorCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1738,7 +1721,6 @@ async function deserializeAws_json1_1DescribePredictorCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.seer.service#${errorCode}`,
         $fault: "client",
@@ -1776,7 +1758,7 @@ async function deserializeAws_json1_1GetAccuracyMetricsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1793,7 +1775,6 @@ async function deserializeAws_json1_1GetAccuracyMetricsCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.seer.service#${errorCode}`,
         $fault: "client",
@@ -1831,7 +1812,7 @@ async function deserializeAws_json1_1ListDatasetGroupsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1840,7 +1821,6 @@ async function deserializeAws_json1_1ListDatasetGroupsCommandError(
       response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.seer.service#${errorCode}`,
         $fault: "client",
@@ -1878,7 +1858,7 @@ async function deserializeAws_json1_1ListDatasetImportJobsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1891,7 +1871,6 @@ async function deserializeAws_json1_1ListDatasetImportJobsCommandError(
       response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.seer.service#${errorCode}`,
         $fault: "client",
@@ -1929,7 +1908,7 @@ async function deserializeAws_json1_1ListDatasetsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1938,7 +1917,6 @@ async function deserializeAws_json1_1ListDatasetsCommandError(
       response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.seer.service#${errorCode}`,
         $fault: "client",
@@ -1976,7 +1954,7 @@ async function deserializeAws_json1_1ListForecastExportJobsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1989,7 +1967,6 @@ async function deserializeAws_json1_1ListForecastExportJobsCommandError(
       response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.seer.service#${errorCode}`,
         $fault: "client",
@@ -2027,7 +2004,7 @@ async function deserializeAws_json1_1ListForecastsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2040,7 +2017,6 @@ async function deserializeAws_json1_1ListForecastsCommandError(
       response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.seer.service#${errorCode}`,
         $fault: "client",
@@ -2078,7 +2054,7 @@ async function deserializeAws_json1_1ListPredictorsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2091,7 +2067,6 @@ async function deserializeAws_json1_1ListPredictorsCommandError(
       response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.seer.service#${errorCode}`,
         $fault: "client",
@@ -2129,7 +2104,7 @@ async function deserializeAws_json1_1UpdateDatasetGroupCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2146,7 +2121,6 @@ async function deserializeAws_json1_1UpdateDatasetGroupCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.seer.service#${errorCode}`,
         $fault: "client",

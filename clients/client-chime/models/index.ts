@@ -6,9 +6,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>You don't have permissions to perform the requested operation.</p>
  *
  */
-export interface AccessDeniedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   Code?: ErrorCode | string;
@@ -123,7 +121,7 @@ export enum AccountType {
   EnterpriseDirectory = "EnterpriseDirectory",
   EnterpriseLWA = "EnterpriseLWA",
   EnterpriseOIDC = "EnterpriseOIDC",
-  Team = "Team"
+  Team = "Team",
 }
 
 export interface AssociatePhoneNumberWithUserRequest {
@@ -191,18 +189,12 @@ export interface AssociatePhoneNumbersWithVoiceConnectorGroupRequest {
 }
 
 export namespace AssociatePhoneNumbersWithVoiceConnectorGroupRequest {
-  export function isa(
-    o: any
-  ): o is AssociatePhoneNumbersWithVoiceConnectorGroupRequest {
-    return _smithy.isa(
-      o,
-      "AssociatePhoneNumbersWithVoiceConnectorGroupRequest"
-    );
+  export function isa(o: any): o is AssociatePhoneNumbersWithVoiceConnectorGroupRequest {
+    return _smithy.isa(o, "AssociatePhoneNumbersWithVoiceConnectorGroupRequest");
   }
 }
 
-export interface AssociatePhoneNumbersWithVoiceConnectorGroupResponse
-  extends $MetadataBearer {
+export interface AssociatePhoneNumbersWithVoiceConnectorGroupResponse extends $MetadataBearer {
   __type?: "AssociatePhoneNumbersWithVoiceConnectorGroupResponse";
   /**
    *
@@ -213,13 +205,8 @@ export interface AssociatePhoneNumbersWithVoiceConnectorGroupResponse
 }
 
 export namespace AssociatePhoneNumbersWithVoiceConnectorGroupResponse {
-  export function isa(
-    o: any
-  ): o is AssociatePhoneNumbersWithVoiceConnectorGroupResponse {
-    return _smithy.isa(
-      o,
-      "AssociatePhoneNumbersWithVoiceConnectorGroupResponse"
-    );
+  export function isa(o: any): o is AssociatePhoneNumbersWithVoiceConnectorGroupResponse {
+    return _smithy.isa(o, "AssociatePhoneNumbersWithVoiceConnectorGroupResponse");
   }
 }
 
@@ -248,15 +235,12 @@ export interface AssociatePhoneNumbersWithVoiceConnectorRequest {
 }
 
 export namespace AssociatePhoneNumbersWithVoiceConnectorRequest {
-  export function isa(
-    o: any
-  ): o is AssociatePhoneNumbersWithVoiceConnectorRequest {
+  export function isa(o: any): o is AssociatePhoneNumbersWithVoiceConnectorRequest {
     return _smithy.isa(o, "AssociatePhoneNumbersWithVoiceConnectorRequest");
   }
 }
 
-export interface AssociatePhoneNumbersWithVoiceConnectorResponse
-  extends $MetadataBearer {
+export interface AssociatePhoneNumbersWithVoiceConnectorResponse extends $MetadataBearer {
   __type?: "AssociatePhoneNumbersWithVoiceConnectorResponse";
   /**
    *
@@ -267,9 +251,7 @@ export interface AssociatePhoneNumbersWithVoiceConnectorResponse
 }
 
 export namespace AssociatePhoneNumbersWithVoiceConnectorResponse {
-  export function isa(
-    o: any
-  ): o is AssociatePhoneNumbersWithVoiceConnectorResponse {
+  export function isa(o: any): o is AssociatePhoneNumbersWithVoiceConnectorResponse {
     return _smithy.isa(o, "AssociatePhoneNumbersWithVoiceConnectorResponse");
   }
 }
@@ -317,9 +299,7 @@ export namespace Attendee {
  *          <p>The input parameters don't match the service's restrictions.</p>
  *
  */
-export interface BadRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BadRequestException";
   $fault: "client";
   Code?: ErrorCode | string;
@@ -545,9 +525,7 @@ export interface BatchUpdatePhoneNumberRequest {
    *          <p>The request containing the phone number IDs and product types or calling names to update.</p>
    *
    */
-  UpdatePhoneNumberRequestItems:
-    | Array<UpdatePhoneNumberRequestItem>
-    | undefined;
+  UpdatePhoneNumberRequestItems: Array<UpdatePhoneNumberRequestItem> | undefined;
 }
 
 export namespace BatchUpdatePhoneNumberRequest {
@@ -691,7 +669,7 @@ export namespace Bot {
 }
 
 export enum BotType {
-  ChatBot = "ChatBot"
+  ChatBot = "ChatBot",
 }
 
 /**
@@ -720,7 +698,7 @@ export enum CallingNameStatus {
   Unassigned = "Unassigned",
   UpdateFailed = "UpdateFailed",
   UpdateInProgress = "UpdateInProgress",
-  UpdateSucceeded = "UpdateSucceeded"
+  UpdateSucceeded = "UpdateSucceeded",
 }
 
 /**
@@ -729,9 +707,7 @@ export enum CallingNameStatus {
  *        resource.</p>
  *
  */
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConflictException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ConflictException";
   $fault: "client";
   Code?: ErrorCode | string;
@@ -1438,9 +1414,7 @@ export interface DeleteVoiceConnectorStreamingConfigurationRequest {
 }
 
 export namespace DeleteVoiceConnectorStreamingConfigurationRequest {
-  export function isa(
-    o: any
-  ): o is DeleteVoiceConnectorStreamingConfigurationRequest {
+  export function isa(o: any): o is DeleteVoiceConnectorStreamingConfigurationRequest {
     return _smithy.isa(o, "DeleteVoiceConnectorStreamingConfigurationRequest");
   }
 }
@@ -1463,9 +1437,7 @@ export interface DeleteVoiceConnectorTerminationCredentialsRequest {
 }
 
 export namespace DeleteVoiceConnectorTerminationCredentialsRequest {
-  export function isa(
-    o: any
-  ): o is DeleteVoiceConnectorTerminationCredentialsRequest {
+  export function isa(o: any): o is DeleteVoiceConnectorTerminationCredentialsRequest {
     return _smithy.isa(o, "DeleteVoiceConnectorTerminationCredentialsRequest");
   }
 }
@@ -1509,8 +1481,7 @@ export namespace DisassociatePhoneNumberFromUserRequest {
   }
 }
 
-export interface DisassociatePhoneNumberFromUserResponse
-  extends $MetadataBearer {
+export interface DisassociatePhoneNumberFromUserResponse extends $MetadataBearer {
   __type?: "DisassociatePhoneNumberFromUserResponse";
 }
 
@@ -1538,18 +1509,12 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorGroupRequest {
 }
 
 export namespace DisassociatePhoneNumbersFromVoiceConnectorGroupRequest {
-  export function isa(
-    o: any
-  ): o is DisassociatePhoneNumbersFromVoiceConnectorGroupRequest {
-    return _smithy.isa(
-      o,
-      "DisassociatePhoneNumbersFromVoiceConnectorGroupRequest"
-    );
+  export function isa(o: any): o is DisassociatePhoneNumbersFromVoiceConnectorGroupRequest {
+    return _smithy.isa(o, "DisassociatePhoneNumbersFromVoiceConnectorGroupRequest");
   }
 }
 
-export interface DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
-  extends $MetadataBearer {
+export interface DisassociatePhoneNumbersFromVoiceConnectorGroupResponse extends $MetadataBearer {
   __type?: "DisassociatePhoneNumbersFromVoiceConnectorGroupResponse";
   /**
    *
@@ -1560,13 +1525,8 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
 }
 
 export namespace DisassociatePhoneNumbersFromVoiceConnectorGroupResponse {
-  export function isa(
-    o: any
-  ): o is DisassociatePhoneNumbersFromVoiceConnectorGroupResponse {
-    return _smithy.isa(
-      o,
-      "DisassociatePhoneNumbersFromVoiceConnectorGroupResponse"
-    );
+  export function isa(o: any): o is DisassociatePhoneNumbersFromVoiceConnectorGroupResponse {
+    return _smithy.isa(o, "DisassociatePhoneNumbersFromVoiceConnectorGroupResponse");
   }
 }
 
@@ -1588,15 +1548,12 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorRequest {
 }
 
 export namespace DisassociatePhoneNumbersFromVoiceConnectorRequest {
-  export function isa(
-    o: any
-  ): o is DisassociatePhoneNumbersFromVoiceConnectorRequest {
+  export function isa(o: any): o is DisassociatePhoneNumbersFromVoiceConnectorRequest {
     return _smithy.isa(o, "DisassociatePhoneNumbersFromVoiceConnectorRequest");
   }
 }
 
-export interface DisassociatePhoneNumbersFromVoiceConnectorResponse
-  extends $MetadataBearer {
+export interface DisassociatePhoneNumbersFromVoiceConnectorResponse extends $MetadataBearer {
   __type?: "DisassociatePhoneNumbersFromVoiceConnectorResponse";
   /**
    *
@@ -1607,9 +1564,7 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorResponse
 }
 
 export namespace DisassociatePhoneNumbersFromVoiceConnectorResponse {
-  export function isa(
-    o: any
-  ): o is DisassociatePhoneNumbersFromVoiceConnectorResponse {
+  export function isa(o: any): o is DisassociatePhoneNumbersFromVoiceConnectorResponse {
     return _smithy.isa(o, "DisassociatePhoneNumbersFromVoiceConnectorResponse");
   }
 }
@@ -1617,7 +1572,7 @@ export namespace DisassociatePhoneNumbersFromVoiceConnectorResponse {
 export enum EmailStatus {
   Failed = "Failed",
   NotSent = "NotSent",
-  Sent = "Sent"
+  Sent = "Sent",
 }
 
 export enum ErrorCode {
@@ -1634,7 +1589,7 @@ export enum ErrorCode {
   Throttled = "Throttled",
   Unauthorized = "Unauthorized",
   Unprocessable = "Unprocessable",
-  VoiceConnectorGroupAssociationsExist = "VoiceConnectorGroupAssociationsExist"
+  VoiceConnectorGroupAssociationsExist = "VoiceConnectorGroupAssociationsExist",
 }
 
 /**
@@ -1678,9 +1633,7 @@ export namespace EventsConfiguration {
  *         tries to create an account from an unsupported Region.</p>
  *
  */
-export interface ForbiddenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ForbiddenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ForbiddenException";
   $fault: "client";
   Code?: ErrorCode | string;
@@ -2176,15 +2129,12 @@ export interface GetVoiceConnectorLoggingConfigurationRequest {
 }
 
 export namespace GetVoiceConnectorLoggingConfigurationRequest {
-  export function isa(
-    o: any
-  ): o is GetVoiceConnectorLoggingConfigurationRequest {
+  export function isa(o: any): o is GetVoiceConnectorLoggingConfigurationRequest {
     return _smithy.isa(o, "GetVoiceConnectorLoggingConfigurationRequest");
   }
 }
 
-export interface GetVoiceConnectorLoggingConfigurationResponse
-  extends $MetadataBearer {
+export interface GetVoiceConnectorLoggingConfigurationResponse extends $MetadataBearer {
   __type?: "GetVoiceConnectorLoggingConfigurationResponse";
   /**
    *
@@ -2195,9 +2145,7 @@ export interface GetVoiceConnectorLoggingConfigurationResponse
 }
 
 export namespace GetVoiceConnectorLoggingConfigurationResponse {
-  export function isa(
-    o: any
-  ): o is GetVoiceConnectorLoggingConfigurationResponse {
+  export function isa(o: any): o is GetVoiceConnectorLoggingConfigurationResponse {
     return _smithy.isa(o, "GetVoiceConnectorLoggingConfigurationResponse");
   }
 }
@@ -2277,15 +2225,12 @@ export interface GetVoiceConnectorStreamingConfigurationRequest {
 }
 
 export namespace GetVoiceConnectorStreamingConfigurationRequest {
-  export function isa(
-    o: any
-  ): o is GetVoiceConnectorStreamingConfigurationRequest {
+  export function isa(o: any): o is GetVoiceConnectorStreamingConfigurationRequest {
     return _smithy.isa(o, "GetVoiceConnectorStreamingConfigurationRequest");
   }
 }
 
-export interface GetVoiceConnectorStreamingConfigurationResponse
-  extends $MetadataBearer {
+export interface GetVoiceConnectorStreamingConfigurationResponse extends $MetadataBearer {
   __type?: "GetVoiceConnectorStreamingConfigurationResponse";
   /**
    *
@@ -2296,9 +2241,7 @@ export interface GetVoiceConnectorStreamingConfigurationResponse
 }
 
 export namespace GetVoiceConnectorStreamingConfigurationResponse {
-  export function isa(
-    o: any
-  ): o is GetVoiceConnectorStreamingConfigurationResponse {
+  export function isa(o: any): o is GetVoiceConnectorStreamingConfigurationResponse {
     return _smithy.isa(o, "GetVoiceConnectorStreamingConfigurationResponse");
   }
 }
@@ -2319,8 +2262,7 @@ export namespace GetVoiceConnectorTerminationHealthRequest {
   }
 }
 
-export interface GetVoiceConnectorTerminationHealthResponse
-  extends $MetadataBearer {
+export interface GetVoiceConnectorTerminationHealthResponse extends $MetadataBearer {
   __type?: "GetVoiceConnectorTerminationHealthResponse";
   /**
    *
@@ -2414,7 +2356,7 @@ export namespace Invite {
 export enum InviteStatus {
   Accepted = "Accepted",
   Failed = "Failed",
-  Pending = "Pending"
+  Pending = "Pending",
 }
 
 export interface InviteUsersRequest {
@@ -2460,7 +2402,7 @@ export enum License {
   Basic = "Basic",
   Plus = "Plus",
   Pro = "Pro",
-  ProTrial = "ProTrial"
+  ProTrial = "ProTrial",
 }
 
 export interface ListAccountsRequest {
@@ -3032,15 +2974,12 @@ export interface ListVoiceConnectorTerminationCredentialsRequest {
 }
 
 export namespace ListVoiceConnectorTerminationCredentialsRequest {
-  export function isa(
-    o: any
-  ): o is ListVoiceConnectorTerminationCredentialsRequest {
+  export function isa(o: any): o is ListVoiceConnectorTerminationCredentialsRequest {
     return _smithy.isa(o, "ListVoiceConnectorTerminationCredentialsRequest");
   }
 }
 
-export interface ListVoiceConnectorTerminationCredentialsResponse
-  extends $MetadataBearer {
+export interface ListVoiceConnectorTerminationCredentialsResponse extends $MetadataBearer {
   __type?: "ListVoiceConnectorTerminationCredentialsResponse";
   /**
    *
@@ -3051,9 +2990,7 @@ export interface ListVoiceConnectorTerminationCredentialsResponse
 }
 
 export namespace ListVoiceConnectorTerminationCredentialsResponse {
-  export function isa(
-    o: any
-  ): o is ListVoiceConnectorTerminationCredentialsResponse {
+  export function isa(o: any): o is ListVoiceConnectorTerminationCredentialsResponse {
     return _smithy.isa(o, "ListVoiceConnectorTerminationCredentialsResponse");
   }
 }
@@ -3364,7 +3301,7 @@ export namespace MemberError {
 export enum MemberType {
   Bot = "Bot",
   User = "User",
-  Webhook = "Webhook"
+  Webhook = "Webhook",
 }
 
 /**
@@ -3400,9 +3337,7 @@ export namespace MembershipItem {
  *          <p>One or more of the resources in the request does not exist in the system.</p>
  *
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   Code?: ErrorCode | string;
@@ -3446,7 +3381,7 @@ export namespace OrderedPhoneNumber {
 export enum OrderedPhoneNumberStatus {
   Acquired = "Acquired",
   Failed = "Failed",
-  Processing = "Processing"
+  Processing = "Processing",
 }
 
 /**
@@ -3535,7 +3470,7 @@ export namespace OriginationRoute {
 
 export enum OriginationRouteProtocol {
   TCP = "TCP",
-  UDP = "UDP"
+  UDP = "UDP",
 }
 
 /**
@@ -3678,7 +3613,7 @@ export enum PhoneNumberAssociationName {
   AccountId = "AccountId",
   UserId = "UserId",
   VoiceConnectorGroupId = "VoiceConnectorGroupId",
-  VoiceConnectorId = "VoiceConnectorId"
+  VoiceConnectorId = "VoiceConnectorId",
 }
 
 /**
@@ -3835,12 +3770,12 @@ export enum PhoneNumberOrderStatus {
   Failed = "Failed",
   Partial = "Partial",
   Processing = "Processing",
-  Successful = "Successful"
+  Successful = "Successful",
 }
 
 export enum PhoneNumberProductType {
   BusinessCalling = "BusinessCalling",
-  VoiceConnector = "VoiceConnector"
+  VoiceConnector = "VoiceConnector",
 }
 
 export enum PhoneNumberStatus {
@@ -3851,12 +3786,12 @@ export enum PhoneNumberStatus {
   DeleteInProgress = "DeleteInProgress",
   ReleaseFailed = "ReleaseFailed",
   ReleaseInProgress = "ReleaseInProgress",
-  Unassigned = "Unassigned"
+  Unassigned = "Unassigned",
 }
 
 export enum PhoneNumberType {
   Local = "Local",
-  TollFree = "TollFree"
+  TollFree = "TollFree",
 }
 
 export interface PutEventsConfigurationRequest {
@@ -3930,15 +3865,12 @@ export interface PutVoiceConnectorLoggingConfigurationRequest {
 }
 
 export namespace PutVoiceConnectorLoggingConfigurationRequest {
-  export function isa(
-    o: any
-  ): o is PutVoiceConnectorLoggingConfigurationRequest {
+  export function isa(o: any): o is PutVoiceConnectorLoggingConfigurationRequest {
     return _smithy.isa(o, "PutVoiceConnectorLoggingConfigurationRequest");
   }
 }
 
-export interface PutVoiceConnectorLoggingConfigurationResponse
-  extends $MetadataBearer {
+export interface PutVoiceConnectorLoggingConfigurationResponse extends $MetadataBearer {
   __type?: "PutVoiceConnectorLoggingConfigurationResponse";
   /**
    *
@@ -3949,9 +3881,7 @@ export interface PutVoiceConnectorLoggingConfigurationResponse
 }
 
 export namespace PutVoiceConnectorLoggingConfigurationResponse {
-  export function isa(
-    o: any
-  ): o is PutVoiceConnectorLoggingConfigurationResponse {
+  export function isa(o: any): o is PutVoiceConnectorLoggingConfigurationResponse {
     return _smithy.isa(o, "PutVoiceConnectorLoggingConfigurationResponse");
   }
 }
@@ -4013,15 +3943,12 @@ export interface PutVoiceConnectorStreamingConfigurationRequest {
 }
 
 export namespace PutVoiceConnectorStreamingConfigurationRequest {
-  export function isa(
-    o: any
-  ): o is PutVoiceConnectorStreamingConfigurationRequest {
+  export function isa(o: any): o is PutVoiceConnectorStreamingConfigurationRequest {
     return _smithy.isa(o, "PutVoiceConnectorStreamingConfigurationRequest");
   }
 }
 
-export interface PutVoiceConnectorStreamingConfigurationResponse
-  extends $MetadataBearer {
+export interface PutVoiceConnectorStreamingConfigurationResponse extends $MetadataBearer {
   __type?: "PutVoiceConnectorStreamingConfigurationResponse";
   /**
    *
@@ -4032,9 +3959,7 @@ export interface PutVoiceConnectorStreamingConfigurationResponse
 }
 
 export namespace PutVoiceConnectorStreamingConfigurationResponse {
-  export function isa(
-    o: any
-  ): o is PutVoiceConnectorStreamingConfigurationResponse {
+  export function isa(o: any): o is PutVoiceConnectorStreamingConfigurationResponse {
     return _smithy.isa(o, "PutVoiceConnectorStreamingConfigurationResponse");
   }
 }
@@ -4057,9 +3982,7 @@ export interface PutVoiceConnectorTerminationCredentialsRequest {
 }
 
 export namespace PutVoiceConnectorTerminationCredentialsRequest {
-  export function isa(
-    o: any
-  ): o is PutVoiceConnectorTerminationCredentialsRequest {
+  export function isa(o: any): o is PutVoiceConnectorTerminationCredentialsRequest {
     return _smithy.isa(o, "PutVoiceConnectorTerminationCredentialsRequest");
   }
 }
@@ -4145,7 +4068,7 @@ export namespace RegenerateSecurityTokenResponse {
 export enum RegistrationStatus {
   Registered = "Registered",
   Suspended = "Suspended",
-  Unregistered = "Unregistered"
+  Unregistered = "Unregistered",
 }
 
 export interface ResetPersonalPINRequest {
@@ -4192,9 +4115,7 @@ export namespace ResetPersonalPINResponse {
  *          <p>The request exceeds the resource limit.</p>
  *
  */
-export interface ResourceLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceLimitExceededException";
   $fault: "client";
   Code?: ErrorCode | string;
@@ -4346,7 +4267,7 @@ export namespace RoomMembership {
 
 export enum RoomMembershipRole {
   Administrator = "Administrator",
-  Member = "Member"
+  Member = "Member",
 }
 
 export interface SearchAvailablePhoneNumbersRequest {
@@ -4428,9 +4349,7 @@ export namespace SearchAvailablePhoneNumbersResponse {
  *          <p>The service encountered an unexpected error.</p>
  *
  */
-export interface ServiceFailureException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceFailureException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceFailureException";
   $fault: "server";
   Code?: ErrorCode | string;
@@ -4448,9 +4367,7 @@ export namespace ServiceFailureException {
  *          <p>The service is currently unavailable.</p>
  *
  */
-export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceUnavailableException";
   $fault: "server";
   Code?: ErrorCode | string;
@@ -4612,9 +4529,7 @@ export namespace TerminationHealth {
  *          <p>The client exceeded its request rate limit.</p>
  *
  */
-export interface ThrottledClientException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ThrottledClientException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ThrottledClientException";
   $fault: "client";
   Code?: ErrorCode | string;
@@ -4632,9 +4547,7 @@ export namespace ThrottledClientException {
  *          <p>The client is not currently authorized to make the request.</p>
  *
  */
-export interface UnauthorizedClientException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnauthorizedClientException extends _smithy.SmithyException, $MetadataBearer {
   __type: "UnauthorizedClientException";
   $fault: "client";
   Code?: ErrorCode | string;
@@ -4652,9 +4565,7 @@ export namespace UnauthorizedClientException {
  *          <p>The request was well-formed but was unable to be followed due to semantic errors.</p>
  *
  */
-export interface UnprocessableEntityException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnprocessableEntityException extends _smithy.SmithyException, $MetadataBearer {
   __type: "UnprocessableEntityException";
   $fault: "client";
   Code?: ErrorCode | string;
@@ -5417,7 +5328,7 @@ export namespace VoiceConnector {
 
 export enum VoiceConnectorAwsRegion {
   US_EAST_1 = "us-east-1",
-  US_WEST_2 = "us-west-2"
+  US_WEST_2 = "us-west-2",
 }
 
 /**

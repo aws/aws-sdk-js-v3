@@ -27,5 +27,5 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   runtime: "node",
   signingName: "medialive",
   credentialDefaultProvider,
-  regionDefaultProvider
+  regionDefaultProvider,
 };

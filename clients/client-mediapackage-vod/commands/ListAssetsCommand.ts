@@ -1,17 +1,20 @@
 import {
   MediaPackageVodClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../MediaPackageVodClient";
-import { ListAssetsRequest, ListAssetsResponse } from "../models/index";
+import {
+  ListAssetsRequest,
+  ListAssetsResponse,
+} from "../models/index";
 import {
   deserializeAws_restJson1_1ListAssetsCommand,
-  serializeAws_restJson1_1ListAssetsCommand
+  serializeAws_restJson1_1ListAssetsCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type ListAssetsCommandInput = ListAssetsRequest;
 export type ListAssetsCommandOutput = ListAssetsResponse;
 
-export class ListAssetsCommand extends $Command<
-  ListAssetsCommandInput,
-  ListAssetsCommandOutput,
-  MediaPackageVodClientResolvedConfig
-> {
+export class ListAssetsCommand extends $Command<ListAssetsCommandInput, ListAssetsCommandOutput, MediaPackageVodClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class ListAssetsCommand extends $Command<
     configuration: MediaPackageVodClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListAssetsCommandInput, ListAssetsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

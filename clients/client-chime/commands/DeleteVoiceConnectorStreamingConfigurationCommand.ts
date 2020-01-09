@@ -1,17 +1,17 @@
 import {
   ChimeClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ChimeClient";
 import { DeleteVoiceConnectorStreamingConfigurationRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteVoiceConnectorStreamingConfigurationCommand,
-  serializeAws_restJson1_1DeleteVoiceConnectorStreamingConfigurationCommand
+  serializeAws_restJson1_1DeleteVoiceConnectorStreamingConfigurationCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,23 +21,17 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
 } from "@aws-sdk/types";
 
 export type DeleteVoiceConnectorStreamingConfigurationCommandInput = DeleteVoiceConnectorStreamingConfigurationRequest;
-export type DeleteVoiceConnectorStreamingConfigurationCommandOutput = __MetadataBearer;
+export type DeleteVoiceConnectorStreamingConfigurationCommandOutput = __MetadataBearer
 
-export class DeleteVoiceConnectorStreamingConfigurationCommand extends $Command<
-  DeleteVoiceConnectorStreamingConfigurationCommandInput,
-  DeleteVoiceConnectorStreamingConfigurationCommandOutput,
-  ChimeClientResolvedConfig
-> {
+export class DeleteVoiceConnectorStreamingConfigurationCommand extends $Command<DeleteVoiceConnectorStreamingConfigurationCommandInput, DeleteVoiceConnectorStreamingConfigurationCommandOutput, ChimeClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DeleteVoiceConnectorStreamingConfigurationCommandInput
-  ) {
+  constructor(readonly input: DeleteVoiceConnectorStreamingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -47,19 +41,14 @@ export class DeleteVoiceConnectorStreamingConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteVoiceConnectorStreamingConfigurationCommandInput,
-    DeleteVoiceConnectorStreamingConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteVoiceConnectorStreamingConfigurationCommandInput, DeleteVoiceConnectorStreamingConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +61,14 @@ export class DeleteVoiceConnectorStreamingConfigurationCommand extends $Command<
     input: DeleteVoiceConnectorStreamingConfigurationCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteVoiceConnectorStreamingConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteVoiceConnectorStreamingConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DeleteVoiceConnectorStreamingConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1DeleteVoiceConnectorStreamingConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteVoiceConnectorStreamingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

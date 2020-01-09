@@ -1,20 +1,20 @@
 import {
   ApplicationDiscoveryServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
 import {
   DisassociateConfigurationItemsFromApplicationRequest,
-  DisassociateConfigurationItemsFromApplicationResponse
+  DisassociateConfigurationItemsFromApplicationResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand,
-  serializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand
+  serializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,23 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DisassociateConfigurationItemsFromApplicationCommandInput = DisassociateConfigurationItemsFromApplicationRequest;
 export type DisassociateConfigurationItemsFromApplicationCommandOutput = DisassociateConfigurationItemsFromApplicationResponse;
 
-export class DisassociateConfigurationItemsFromApplicationCommand extends $Command<
-  DisassociateConfigurationItemsFromApplicationCommandInput,
-  DisassociateConfigurationItemsFromApplicationCommandOutput,
-  ApplicationDiscoveryServiceClientResolvedConfig
-> {
+export class DisassociateConfigurationItemsFromApplicationCommand extends $Command<DisassociateConfigurationItemsFromApplicationCommandInput, DisassociateConfigurationItemsFromApplicationCommandOutput, ApplicationDiscoveryServiceClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DisassociateConfigurationItemsFromApplicationCommandInput
-  ) {
+  constructor(readonly input: DisassociateConfigurationItemsFromApplicationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -49,19 +43,14 @@ export class DisassociateConfigurationItemsFromApplicationCommand extends $Comma
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateConfigurationItemsFromApplicationCommandInput,
-    DisassociateConfigurationItemsFromApplicationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateConfigurationItemsFromApplicationCommandInput, DisassociateConfigurationItemsFromApplicationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -74,20 +63,14 @@ export class DisassociateConfigurationItemsFromApplicationCommand extends $Comma
     input: DisassociateConfigurationItemsFromApplicationCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DisassociateConfigurationItemsFromApplicationCommandOutput> {
-    return deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

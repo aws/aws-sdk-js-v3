@@ -1,20 +1,20 @@
 import {
   BatchClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../BatchClient";
 import {
   RegisterJobDefinitionRequest,
-  RegisterJobDefinitionResponse
+  RegisterJobDefinitionResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1RegisterJobDefinitionCommand,
-  serializeAws_restJson1_1RegisterJobDefinitionCommand
+  serializeAws_restJson1_1RegisterJobDefinitionCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type RegisterJobDefinitionCommandInput = RegisterJobDefinitionRequest;
 export type RegisterJobDefinitionCommandOutput = RegisterJobDefinitionResponse;
 
-export class RegisterJobDefinitionCommand extends $Command<
-  RegisterJobDefinitionCommandInput,
-  RegisterJobDefinitionCommandOutput,
-  BatchClientResolvedConfig
-> {
+export class RegisterJobDefinitionCommand extends $Command<RegisterJobDefinitionCommandInput, RegisterJobDefinitionCommandOutput, BatchClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class RegisterJobDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BatchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RegisterJobDefinitionCommandInput,
-    RegisterJobDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RegisterJobDefinitionCommandInput, RegisterJobDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -79,10 +70,7 @@ export class RegisterJobDefinitionCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<RegisterJobDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1RegisterJobDefinitionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RegisterJobDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

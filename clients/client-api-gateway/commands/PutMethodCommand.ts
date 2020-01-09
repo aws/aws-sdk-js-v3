@@ -1,17 +1,20 @@
 import {
   APIGatewayClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../APIGatewayClient";
-import { Method, PutMethodRequest } from "../models/index";
+import {
+  Method,
+  PutMethodRequest,
+} from "../models/index";
 import {
   deserializeAws_restJson1_1PutMethodCommand,
-  serializeAws_restJson1_1PutMethodCommand
+  serializeAws_restJson1_1PutMethodCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type PutMethodCommandInput = PutMethodRequest;
 export type PutMethodCommandOutput = Method;
 
-export class PutMethodCommand extends $Command<
-  PutMethodCommandInput,
-  PutMethodCommandOutput,
-  APIGatewayClientResolvedConfig
-> {
+export class PutMethodCommand extends $Command<PutMethodCommandInput, PutMethodCommandOutput, APIGatewayClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class PutMethodCommand extends $Command<
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutMethodCommandInput, PutMethodCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

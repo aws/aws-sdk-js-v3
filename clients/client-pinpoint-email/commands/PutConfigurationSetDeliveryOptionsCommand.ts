@@ -1,20 +1,20 @@
 import {
   PinpointEmailClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../PinpointEmailClient";
 import {
   PutConfigurationSetDeliveryOptionsRequest,
-  PutConfigurationSetDeliveryOptionsResponse
+  PutConfigurationSetDeliveryOptionsResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1PutConfigurationSetDeliveryOptionsCommand,
-  serializeAws_restJson1_1PutConfigurationSetDeliveryOptionsCommand
+  serializeAws_restJson1_1PutConfigurationSetDeliveryOptionsCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type PutConfigurationSetDeliveryOptionsCommandInput = PutConfigurationSetDeliveryOptionsRequest;
 export type PutConfigurationSetDeliveryOptionsCommandOutput = PutConfigurationSetDeliveryOptionsResponse;
 
-export class PutConfigurationSetDeliveryOptionsCommand extends $Command<
-  PutConfigurationSetDeliveryOptionsCommandInput,
-  PutConfigurationSetDeliveryOptionsCommandOutput,
-  PinpointEmailClientResolvedConfig
-> {
+export class PutConfigurationSetDeliveryOptionsCommand extends $Command<PutConfigurationSetDeliveryOptionsCommandInput, PutConfigurationSetDeliveryOptionsCommandOutput, PinpointEmailClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class PutConfigurationSetDeliveryOptionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutConfigurationSetDeliveryOptionsCommandInput,
-    PutConfigurationSetDeliveryOptionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutConfigurationSetDeliveryOptionsCommandInput, PutConfigurationSetDeliveryOptionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class PutConfigurationSetDeliveryOptionsCommand extends $Command<
     input: PutConfigurationSetDeliveryOptionsCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutConfigurationSetDeliveryOptionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1PutConfigurationSetDeliveryOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<PutConfigurationSetDeliveryOptionsCommandOutput> {
-    return deserializeAws_restJson1_1PutConfigurationSetDeliveryOptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutConfigurationSetDeliveryOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

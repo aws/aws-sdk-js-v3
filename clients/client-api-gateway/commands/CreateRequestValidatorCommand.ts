@@ -1,20 +1,20 @@
 import {
   APIGatewayClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../APIGatewayClient";
 import {
   CreateRequestValidatorRequest,
-  RequestValidator
+  RequestValidator,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateRequestValidatorCommand,
-  serializeAws_restJson1_1CreateRequestValidatorCommand
+  serializeAws_restJson1_1CreateRequestValidatorCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type CreateRequestValidatorCommandInput = CreateRequestValidatorRequest;
 export type CreateRequestValidatorCommandOutput = RequestValidator;
 
-export class CreateRequestValidatorCommand extends $Command<
-  CreateRequestValidatorCommandInput,
-  CreateRequestValidatorCommandOutput,
-  APIGatewayClientResolvedConfig
-> {
+export class CreateRequestValidatorCommand extends $Command<CreateRequestValidatorCommandInput, CreateRequestValidatorCommandOutput, APIGatewayClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class CreateRequestValidatorCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateRequestValidatorCommandInput,
-    CreateRequestValidatorCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateRequestValidatorCommandInput, CreateRequestValidatorCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class CreateRequestValidatorCommand extends $Command<
     input: CreateRequestValidatorCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateRequestValidatorCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateRequestValidatorCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<CreateRequestValidatorCommandOutput> {
-    return deserializeAws_restJson1_1CreateRequestValidatorCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateRequestValidatorCommand(output, context);
   }
 
   // Start section: command_body_extra

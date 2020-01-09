@@ -65,9 +65,7 @@ export namespace DescribeStreamOutput {
  *       action.</p>
  *
  */
-export interface ExpiredIteratorException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ExpiredIteratorException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ExpiredIteratorException";
   $fault: "client";
   /**
@@ -328,7 +326,7 @@ export namespace ListStreamsOutput {
   }
 }
 
-export type OperationType = "INSERT" | "MODIFY" | "REMOVE";
+export type OperationType = "INSERT" | "MODIFY" | "REMOVE"
 
 /**
  *
@@ -483,11 +481,7 @@ export namespace Shard {
   }
 }
 
-export type ShardIteratorType =
-  | "AFTER_SEQUENCE_NUMBER"
-  | "AT_SEQUENCE_NUMBER"
-  | "LATEST"
-  | "TRIM_HORIZON";
+export type ShardIteratorType = "AFTER_SEQUENCE_NUMBER" | "AT_SEQUENCE_NUMBER" | "LATEST" | "TRIM_HORIZON"
 
 /**
  *
@@ -753,7 +747,7 @@ export namespace StreamRecord {
   }
 }
 
-export type StreamStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING";
+export type StreamStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING"
 
 /**
  *
@@ -771,9 +765,7 @@ export type StreamStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING";
  *          </ul>
  *
  */
-export interface TrimmedDataAccessException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TrimmedDataAccessException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TrimmedDataAccessException";
   $fault: "client";
   /**
@@ -880,9 +872,7 @@ export namespace AttributeValue {
  *          <p>An error occurred on the server side.</p>
  *
  */
-export interface InternalServerError
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerError extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerError";
   $fault: "server";
   /**
@@ -939,7 +929,7 @@ export namespace KeySchemaElement {
   }
 }
 
-export type KeyType = "HASH" | "RANGE";
+export type KeyType = "HASH" | "RANGE"
 
 /**
  *
@@ -950,9 +940,7 @@ export type KeyType = "HASH" | "RANGE";
  *         Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  *
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   /**
@@ -974,9 +962,7 @@ export namespace LimitExceededException {
  *          <p>The operation tried to access a nonexistent stream.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -993,8 +979,4 @@ export namespace ResourceNotFoundException {
   }
 }
 
-export type StreamViewType =
-  | "KEYS_ONLY"
-  | "NEW_AND_OLD_IMAGES"
-  | "NEW_IMAGE"
-  | "OLD_IMAGE";
+export type StreamViewType = "KEYS_ONLY" | "NEW_AND_OLD_IMAGES" | "NEW_IMAGE" | "OLD_IMAGE"

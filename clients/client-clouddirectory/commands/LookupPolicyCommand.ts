@@ -1,17 +1,20 @@
 import {
   CloudDirectoryClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CloudDirectoryClient";
-import { LookupPolicyRequest, LookupPolicyResponse } from "../models/index";
+import {
+  LookupPolicyRequest,
+  LookupPolicyResponse,
+} from "../models/index";
 import {
   deserializeAws_restJson1_1LookupPolicyCommand,
-  serializeAws_restJson1_1LookupPolicyCommand
+  serializeAws_restJson1_1LookupPolicyCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type LookupPolicyCommandInput = LookupPolicyRequest;
 export type LookupPolicyCommandOutput = LookupPolicyResponse;
 
-export class LookupPolicyCommand extends $Command<
-  LookupPolicyCommandInput,
-  LookupPolicyCommandOutput,
-  CloudDirectoryClientResolvedConfig
-> {
+export class LookupPolicyCommand extends $Command<LookupPolicyCommandInput, LookupPolicyCommandOutput, CloudDirectoryClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class LookupPolicyCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<LookupPolicyCommandInput, LookupPolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

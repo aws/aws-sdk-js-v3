@@ -1,20 +1,20 @@
 import {
   QLDBClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../QLDBClient";
 import {
   ExportJournalToS3Request,
-  ExportJournalToS3Response
+  ExportJournalToS3Response,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1ExportJournalToS3Command,
-  serializeAws_restJson1_1ExportJournalToS3Command
+  serializeAws_restJson1_1ExportJournalToS3Command,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type ExportJournalToS3CommandInput = ExportJournalToS3Request;
 export type ExportJournalToS3CommandOutput = ExportJournalToS3Response;
 
-export class ExportJournalToS3Command extends $Command<
-  ExportJournalToS3CommandInput,
-  ExportJournalToS3CommandOutput,
-  QLDBClientResolvedConfig
-> {
+export class ExportJournalToS3Command extends $Command<ExportJournalToS3CommandInput, ExportJournalToS3CommandOutput, QLDBClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,15 +44,13 @@ export class ExportJournalToS3Command extends $Command<
     configuration: QLDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ExportJournalToS3CommandInput, ExportJournalToS3CommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

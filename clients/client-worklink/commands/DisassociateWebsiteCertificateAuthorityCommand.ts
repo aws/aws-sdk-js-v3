@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  WorkLinkClientResolvedConfig
+  WorkLinkClientResolvedConfig,
 } from "../WorkLinkClient";
 import {
   DisassociateWebsiteCertificateAuthorityRequest,
-  DisassociateWebsiteCertificateAuthorityResponse
+  DisassociateWebsiteCertificateAuthorityResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1DisassociateWebsiteCertificateAuthorityCommand,
-  serializeAws_restJson1_1DisassociateWebsiteCertificateAuthorityCommand
+  serializeAws_restJson1_1DisassociateWebsiteCertificateAuthorityCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,23 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DisassociateWebsiteCertificateAuthorityCommandInput = DisassociateWebsiteCertificateAuthorityRequest;
 export type DisassociateWebsiteCertificateAuthorityCommandOutput = DisassociateWebsiteCertificateAuthorityResponse;
 
-export class DisassociateWebsiteCertificateAuthorityCommand extends $Command<
-  DisassociateWebsiteCertificateAuthorityCommandInput,
-  DisassociateWebsiteCertificateAuthorityCommandOutput,
-  WorkLinkClientResolvedConfig
-> {
+export class DisassociateWebsiteCertificateAuthorityCommand extends $Command<DisassociateWebsiteCertificateAuthorityCommandInput, DisassociateWebsiteCertificateAuthorityCommandOutput, WorkLinkClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DisassociateWebsiteCertificateAuthorityCommandInput
-  ) {
+  constructor(readonly input: DisassociateWebsiteCertificateAuthorityCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -49,19 +43,14 @@ export class DisassociateWebsiteCertificateAuthorityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateWebsiteCertificateAuthorityCommandInput,
-    DisassociateWebsiteCertificateAuthorityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateWebsiteCertificateAuthorityCommandInput, DisassociateWebsiteCertificateAuthorityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -74,20 +63,14 @@ export class DisassociateWebsiteCertificateAuthorityCommand extends $Command<
     input: DisassociateWebsiteCertificateAuthorityCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DisassociateWebsiteCertificateAuthorityCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DisassociateWebsiteCertificateAuthorityCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DisassociateWebsiteCertificateAuthorityCommandOutput> {
-    return deserializeAws_restJson1_1DisassociateWebsiteCertificateAuthorityCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DisassociateWebsiteCertificateAuthorityCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -637,7 +637,7 @@ export enum DetectorModelVersionStatus {
   DRAFT = "DRAFT",
   FAILED = "FAILED",
   INACTIVE = "INACTIVE",
-  PAUSED = "PAUSED"
+  PAUSED = "PAUSED",
 }
 
 /**
@@ -714,7 +714,7 @@ export namespace DetectorModelVersionSummary {
 
 export enum EvaluationMethod {
   BATCH = "BATCH",
-  SERIAL = "SERIAL"
+  SERIAL = "SERIAL",
 }
 
 /**
@@ -898,7 +898,7 @@ export enum InputStatus {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
   DELETING = "DELETING",
-  UPDATING = "UPDATING"
+  UPDATING = "UPDATING",
 }
 
 /**
@@ -1205,7 +1205,7 @@ export namespace ListTagsForResourceResponse {
 export enum LoggingLevel {
   DEBUG = "DEBUG",
   ERROR = "ERROR",
-  INFO = "INFO"
+  INFO = "INFO",
 }
 
 /**
@@ -1766,9 +1766,7 @@ export namespace UpdateInputResponse {
  *          <p>An internal failure occurred.</p>
  *
  */
-export interface InternalFailureException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalFailureException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalFailureException";
   $fault: "server";
   /**
@@ -1790,9 +1788,7 @@ export namespace InternalFailureException {
  *          <p>The request was invalid.</p>
  *
  */
-export interface InvalidRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRequestException";
   $fault: "client";
   /**
@@ -1814,9 +1810,7 @@ export namespace InvalidRequestException {
  *          <p>A limit was exceeded.</p>
  *
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   /**
@@ -1838,9 +1832,7 @@ export namespace LimitExceededException {
  *          <p>The resource already exists.</p>
  *
  */
-export interface ResourceAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
   $fault: "client";
   /**
@@ -1876,9 +1868,7 @@ export namespace ResourceAlreadyExistsException {
  *          <p>The resource is in use.</p>
  *
  */
-export interface ResourceInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   /**
@@ -1900,9 +1890,7 @@ export namespace ResourceInUseException {
  *          <p>The resource was not found.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -1924,9 +1912,7 @@ export namespace ResourceNotFoundException {
  *          <p>The service is currently unavailable.</p>
  *
  */
-export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceUnavailableException";
   $fault: "server";
   /**
@@ -1948,9 +1934,7 @@ export namespace ServiceUnavailableException {
  *          <p>The request could not be completed due to throttling.</p>
  *
  */
-export interface ThrottlingException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ThrottlingException";
   $fault: "client";
   /**
@@ -1972,9 +1956,7 @@ export namespace ThrottlingException {
  *          <p>The requested operation is not supported.</p>
  *
  */
-export interface UnsupportedOperationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnsupportedOperationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "UnsupportedOperationException";
   $fault: "server";
   /**

@@ -1,17 +1,20 @@
 import {
   CodeBuildClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CodeBuildClient";
-import { ListReportsInput, ListReportsOutput } from "../models/index";
+import {
+  ListReportsInput,
+  ListReportsOutput,
+} from "../models/index";
 import {
   deserializeAws_json1_1ListReportsCommand,
-  serializeAws_json1_1ListReportsCommand
+  serializeAws_json1_1ListReportsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type ListReportsCommandInput = ListReportsInput;
 export type ListReportsCommandOutput = ListReportsOutput;
 
-export class ListReportsCommand extends $Command<
-  ListReportsCommandInput,
-  ListReportsCommandOutput,
-  CodeBuildClientResolvedConfig
-> {
+export class ListReportsCommand extends $Command<ListReportsCommandInput, ListReportsCommandOutput, CodeBuildClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class ListReportsCommand extends $Command<
     configuration: CodeBuildClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListReportsCommandInput, ListReportsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

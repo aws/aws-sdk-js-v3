@@ -2,32 +2,32 @@ import { TextractClient } from "./TextractClient";
 import {
   AnalyzeDocumentCommand,
   AnalyzeDocumentCommandInput,
-  AnalyzeDocumentCommandOutput
+  AnalyzeDocumentCommandOutput,
 } from "./commands/AnalyzeDocumentCommand";
 import {
   DetectDocumentTextCommand,
   DetectDocumentTextCommandInput,
-  DetectDocumentTextCommandOutput
+  DetectDocumentTextCommandOutput,
 } from "./commands/DetectDocumentTextCommand";
 import {
   GetDocumentAnalysisCommand,
   GetDocumentAnalysisCommandInput,
-  GetDocumentAnalysisCommandOutput
+  GetDocumentAnalysisCommandOutput,
 } from "./commands/GetDocumentAnalysisCommand";
 import {
   GetDocumentTextDetectionCommand,
   GetDocumentTextDetectionCommandInput,
-  GetDocumentTextDetectionCommandOutput
+  GetDocumentTextDetectionCommandOutput,
 } from "./commands/GetDocumentTextDetectionCommand";
 import {
   StartDocumentAnalysisCommand,
   StartDocumentAnalysisCommandInput,
-  StartDocumentAnalysisCommandOutput
+  StartDocumentAnalysisCommandOutput,
 } from "./commands/StartDocumentAnalysisCommand";
 import {
   StartDocumentTextDetectionCommand,
   StartDocumentTextDetectionCommandInput,
-  StartDocumentTextDetectionCommandOutput
+  StartDocumentTextDetectionCommandOutput,
 } from "./commands/StartDocumentTextDetectionCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -78,7 +78,7 @@ export class Textract extends TextractClient {
    */
   public analyzeDocument(
     args: AnalyzeDocumentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<AnalyzeDocumentCommandOutput>;
   public analyzeDocument(
     args: AnalyzeDocumentCommandInput,
@@ -91,18 +91,16 @@ export class Textract extends TextractClient {
   ): void;
   public analyzeDocument(
     args: AnalyzeDocumentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AnalyzeDocumentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AnalyzeDocumentCommandOutput) => void),
     cb?: (err: any, data?: AnalyzeDocumentCommandOutput) => void
   ): Promise<AnalyzeDocumentCommandOutput> | void {
     const command = new AnalyzeDocumentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -126,7 +124,7 @@ export class Textract extends TextractClient {
    */
   public detectDocumentText(
     args: DetectDocumentTextCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DetectDocumentTextCommandOutput>;
   public detectDocumentText(
     args: DetectDocumentTextCommandInput,
@@ -139,18 +137,16 @@ export class Textract extends TextractClient {
   ): void;
   public detectDocumentText(
     args: DetectDocumentTextCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetectDocumentTextCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectDocumentTextCommandOutput) => void),
     cb?: (err: any, data?: DetectDocumentTextCommandOutput) => void
   ): Promise<DetectDocumentTextCommandOutput> | void {
     const command = new DetectDocumentTextCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -208,7 +204,7 @@ export class Textract extends TextractClient {
    */
   public getDocumentAnalysis(
     args: GetDocumentAnalysisCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetDocumentAnalysisCommandOutput>;
   public getDocumentAnalysis(
     args: GetDocumentAnalysisCommandInput,
@@ -221,18 +217,16 @@ export class Textract extends TextractClient {
   ): void;
   public getDocumentAnalysis(
     args: GetDocumentAnalysisCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDocumentAnalysisCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDocumentAnalysisCommandOutput) => void),
     cb?: (err: any, data?: GetDocumentAnalysisCommandOutput) => void
   ): Promise<GetDocumentAnalysisCommandOutput> | void {
     const command = new GetDocumentAnalysisCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -271,7 +265,7 @@ export class Textract extends TextractClient {
    */
   public getDocumentTextDetection(
     args: GetDocumentTextDetectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetDocumentTextDetectionCommandOutput>;
   public getDocumentTextDetection(
     args: GetDocumentTextDetectionCommandInput,
@@ -284,18 +278,16 @@ export class Textract extends TextractClient {
   ): void;
   public getDocumentTextDetection(
     args: GetDocumentTextDetectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDocumentTextDetectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDocumentTextDetectionCommandOutput) => void),
     cb?: (err: any, data?: GetDocumentTextDetectionCommandOutput) => void
   ): Promise<GetDocumentTextDetectionCommandOutput> | void {
     const command = new GetDocumentTextDetectionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -327,7 +319,7 @@ export class Textract extends TextractClient {
    */
   public startDocumentAnalysis(
     args: StartDocumentAnalysisCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<StartDocumentAnalysisCommandOutput>;
   public startDocumentAnalysis(
     args: StartDocumentAnalysisCommandInput,
@@ -340,18 +332,16 @@ export class Textract extends TextractClient {
   ): void;
   public startDocumentAnalysis(
     args: StartDocumentAnalysisCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartDocumentAnalysisCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartDocumentAnalysisCommandOutput) => void),
     cb?: (err: any, data?: StartDocumentAnalysisCommandOutput) => void
   ): Promise<StartDocumentAnalysisCommandOutput> | void {
     const command = new StartDocumentAnalysisCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -383,7 +373,7 @@ export class Textract extends TextractClient {
    */
   public startDocumentTextDetection(
     args: StartDocumentTextDetectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<StartDocumentTextDetectionCommandOutput>;
   public startDocumentTextDetection(
     args: StartDocumentTextDetectionCommandInput,
@@ -396,20 +386,19 @@ export class Textract extends TextractClient {
   ): void;
   public startDocumentTextDetection(
     args: StartDocumentTextDetectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartDocumentTextDetectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartDocumentTextDetectionCommandOutput) => void),
     cb?: (err: any, data?: StartDocumentTextDetectionCommandOutput) => void
   ): Promise<StartDocumentTextDetectionCommandOutput> | void {
     const command = new StartDocumentTextDetectionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

@@ -1,7 +1,7 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export type AMITypes = "AL2_x86_64" | "AL2_x86_64_GPU";
+export type AMITypes = "AL2_x86_64" | "AL2_x86_64_GPU"
 
 /**
  *
@@ -30,9 +30,7 @@ export namespace AutoScalingGroup {
  *             meaning will depend on the API, and will be documented in the error message.</p>
  *
  */
-export interface BadRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BadRequestException";
   $fault: "client";
   message?: string;
@@ -75,9 +73,7 @@ export namespace Certificate {
  *             or resource or specifying an identifier that is not valid.</p>
  *
  */
-export interface ClientException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ClientException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ClientException";
   $fault: "client";
   /**
@@ -225,12 +221,7 @@ export namespace Cluster {
   }
 }
 
-export type ClusterStatus =
-  | "ACTIVE"
-  | "CREATING"
-  | "DELETING"
-  | "FAILED"
-  | "UPDATING";
+export type ClusterStatus = "ACTIVE" | "CREATING" | "DELETING" | "FAILED" | "UPDATING"
 
 export interface CreateClusterRequest {
   __type?: "CreateClusterRequest";
@@ -840,7 +831,7 @@ export enum ErrorCode {
   SECURITY_GROUP_NOT_FOUND = "SecurityGroupNotFound",
   SUBNET_NOT_FOUND = "SubnetNotFound",
   UNKNOWN = "Unknown",
-  VPC_ID_NOT_FOUND = "VpcIdNotFound"
+  VPC_ID_NOT_FOUND = "VpcIdNotFound",
 }
 
 /**
@@ -1027,12 +1018,7 @@ export namespace FargateProfileSelector {
   }
 }
 
-export type FargateProfileStatus =
-  | "ACTIVE"
-  | "CREATE_FAILED"
-  | "CREATING"
-  | "DELETE_FAILED"
-  | "DELETING";
+export type FargateProfileStatus = "ACTIVE" | "CREATE_FAILED" | "CREATING" | "DELETE_FAILED" | "DELETING"
 
 /**
  *
@@ -1062,9 +1048,7 @@ export namespace Identity {
  *             request.</p>
  *
  */
-export interface InvalidParameterException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidParameterException";
   $fault: "client";
   /**
@@ -1102,9 +1086,7 @@ export namespace InvalidParameterException {
  *             and the associated operations.</p>
  *
  */
-export interface InvalidRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRequestException";
   $fault: "client";
   /**
@@ -1586,7 +1568,7 @@ export enum LogType {
   AUDIT = "audit",
   AUTHENTICATOR = "authenticator",
   CONTROLLER_MANAGER = "controllerManager",
-  SCHEDULER = "scheduler"
+  SCHEDULER = "scheduler",
 }
 
 /**
@@ -1818,7 +1800,7 @@ export enum NodegroupIssueCode {
   IAM_NODE_ROLE_NOT_FOUND = "IamNodeRoleNotFound",
   INSTANCE_LIMIT_EXCEEDED = "InstanceLimitExceeded",
   INSUFFICIENT_FREE_ADDRESSES = "InsufficientFreeAddresses",
-  INTERNAL_FAILURE = "InternalFailure"
+  INTERNAL_FAILURE = "InternalFailure",
 }
 
 /**
@@ -1889,14 +1871,7 @@ export namespace NodegroupScalingConfig {
   }
 }
 
-export type NodegroupStatus =
-  | "ACTIVE"
-  | "CREATE_FAILED"
-  | "CREATING"
-  | "DEGRADED"
-  | "DELETE_FAILED"
-  | "DELETING"
-  | "UPDATING";
+export type NodegroupStatus = "ACTIVE" | "CREATE_FAILED" | "CREATING" | "DEGRADED" | "DELETE_FAILED" | "DELETING" | "UPDATING"
 
 /**
  *
@@ -1904,9 +1879,7 @@ export type NodegroupStatus =
  *             retry such requests.</p>
  *
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   message?: string;
@@ -1980,9 +1953,7 @@ export namespace RemoteAccessConfig {
  *         <p>The specified resource is in use.</p>
  *
  */
-export interface ResourceInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   /**
@@ -2012,9 +1983,7 @@ export namespace ResourceInUseException {
  *         <p>You have encountered a service limit on the specified resource.</p>
  *
  */
-export interface ResourceLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceLimitExceededException";
   $fault: "client";
   /**
@@ -2046,9 +2015,7 @@ export namespace ResourceLimitExceededException {
  *             with <a>ListNodegroups</a>. Amazon EKS clusters and node groups are Region-specific.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -2085,9 +2052,7 @@ export namespace ResourceNotFoundException {
  *         <p>These errors are usually caused by a server-side issue.</p>
  *
  */
-export interface ServerException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServerException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServerException";
   $fault: "server";
   /**
@@ -2117,9 +2082,7 @@ export namespace ServerException {
  *         <p>The service is unavailable. Back off and retry the operation.</p>
  *
  */
-export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceUnavailableException";
   $fault: "server";
   message?: string;
@@ -2172,9 +2135,7 @@ export namespace TagResourceResponse {
  *             your account, from which you can choose subnets for your cluster.</p>
  *
  */
-export interface UnsupportedAvailabilityZoneException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnsupportedAvailabilityZoneException extends _smithy.SmithyException, $MetadataBearer {
   __type: "UnsupportedAvailabilityZoneException";
   $fault: "client";
   /**
@@ -2614,21 +2575,21 @@ export enum UpdateParamType {
   MIN_SIZE = "MinSize",
   PLATFORM_VERSION = "PlatformVersion",
   RELEASE_VERSION = "ReleaseVersion",
-  VERSION = "Version"
+  VERSION = "Version",
 }
 
 export enum UpdateStatus {
   CANCELLED = "Cancelled",
   FAILED = "Failed",
   IN_PROGRESS = "InProgress",
-  SUCCESSFUL = "Successful"
+  SUCCESSFUL = "Successful",
 }
 
 export enum UpdateType {
   CONFIG_UPDATE = "ConfigUpdate",
   ENDPOINT_ACCESS_UPDATE = "EndpointAccessUpdate",
   LOGGING_UPDATE = "LoggingUpdate",
-  VERSION_UPDATE = "VersionUpdate"
+  VERSION_UPDATE = "VersionUpdate",
 }
 
 /**

@@ -1,20 +1,20 @@
 import {
   PollyClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../PollyClient";
 import {
   ListSpeechSynthesisTasksInput,
-  ListSpeechSynthesisTasksOutput
+  ListSpeechSynthesisTasksOutput,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1ListSpeechSynthesisTasksCommand,
-  serializeAws_restJson1_1ListSpeechSynthesisTasksCommand
+  serializeAws_restJson1_1ListSpeechSynthesisTasksCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type ListSpeechSynthesisTasksCommandInput = ListSpeechSynthesisTasksInput;
 export type ListSpeechSynthesisTasksCommandOutput = ListSpeechSynthesisTasksOutput;
 
-export class ListSpeechSynthesisTasksCommand extends $Command<
-  ListSpeechSynthesisTasksCommandInput,
-  ListSpeechSynthesisTasksCommandOutput,
-  PollyClientResolvedConfig
-> {
+export class ListSpeechSynthesisTasksCommand extends $Command<ListSpeechSynthesisTasksCommandInput, ListSpeechSynthesisTasksCommandOutput, PollyClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class ListSpeechSynthesisTasksCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PollyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListSpeechSynthesisTasksCommandInput,
-    ListSpeechSynthesisTasksCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListSpeechSynthesisTasksCommandInput, ListSpeechSynthesisTasksCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class ListSpeechSynthesisTasksCommand extends $Command<
     input: ListSpeechSynthesisTasksCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListSpeechSynthesisTasksCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListSpeechSynthesisTasksCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListSpeechSynthesisTasksCommandOutput> {
-    return deserializeAws_restJson1_1ListSpeechSynthesisTasksCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListSpeechSynthesisTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

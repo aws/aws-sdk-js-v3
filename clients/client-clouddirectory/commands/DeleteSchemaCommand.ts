@@ -1,17 +1,20 @@
 import {
   CloudDirectoryClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CloudDirectoryClient";
-import { DeleteSchemaRequest, DeleteSchemaResponse } from "../models/index";
+import {
+  DeleteSchemaRequest,
+  DeleteSchemaResponse,
+} from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteSchemaCommand,
-  serializeAws_restJson1_1DeleteSchemaCommand
+  serializeAws_restJson1_1DeleteSchemaCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DeleteSchemaCommandInput = DeleteSchemaRequest;
 export type DeleteSchemaCommandOutput = DeleteSchemaResponse;
 
-export class DeleteSchemaCommand extends $Command<
-  DeleteSchemaCommandInput,
-  DeleteSchemaCommandOutput,
-  CloudDirectoryClientResolvedConfig
-> {
+export class DeleteSchemaCommand extends $Command<DeleteSchemaCommandInput, DeleteSchemaCommandOutput, CloudDirectoryClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class DeleteSchemaCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteSchemaCommandInput, DeleteSchemaCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

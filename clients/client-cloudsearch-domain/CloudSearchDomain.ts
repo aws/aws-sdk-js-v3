@@ -2,17 +2,17 @@ import { CloudSearchDomainClient } from "./CloudSearchDomainClient";
 import {
   SearchCommand,
   SearchCommandInput,
-  SearchCommandOutput
+  SearchCommandOutput,
 } from "./commands/SearchCommand";
 import {
   SuggestCommand,
   SuggestCommandInput,
-  SuggestCommandOutput
+  SuggestCommandOutput,
 } from "./commands/SuggestCommand";
 import {
   UploadDocumentsCommand,
   UploadDocumentsCommandInput,
-  UploadDocumentsCommandOutput
+  UploadDocumentsCommandOutput,
 } from "./commands/UploadDocumentsCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -41,7 +41,7 @@ export class CloudSearchDomain extends CloudSearchDomainClient {
    */
   public search(
     args: SearchCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<SearchCommandOutput>;
   public search(
     args: SearchCommandInput,
@@ -54,18 +54,16 @@ export class CloudSearchDomain extends CloudSearchDomainClient {
   ): void;
   public search(
     args: SearchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SearchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchCommandOutput) => void),
     cb?: (err: any, data?: SearchCommandOutput) => void
   ): Promise<SearchCommandOutput> | void {
     const command = new SearchCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -83,7 +81,7 @@ export class CloudSearchDomain extends CloudSearchDomainClient {
    */
   public suggest(
     args: SuggestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<SuggestCommandOutput>;
   public suggest(
     args: SuggestCommandInput,
@@ -96,18 +94,16 @@ export class CloudSearchDomain extends CloudSearchDomainClient {
   ): void;
   public suggest(
     args: SuggestCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SuggestCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SuggestCommandOutput) => void),
     cb?: (err: any, data?: SuggestCommandOutput) => void
   ): Promise<SuggestCommandOutput> | void {
     const command = new SuggestCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -123,7 +119,7 @@ export class CloudSearchDomain extends CloudSearchDomainClient {
    */
   public uploadDocuments(
     args: UploadDocumentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UploadDocumentsCommandOutput>;
   public uploadDocuments(
     args: UploadDocumentsCommandInput,
@@ -136,20 +132,19 @@ export class CloudSearchDomain extends CloudSearchDomainClient {
   ): void;
   public uploadDocuments(
     args: UploadDocumentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UploadDocumentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UploadDocumentsCommandOutput) => void),
     cb?: (err: any, data?: UploadDocumentsCommandOutput) => void
   ): Promise<UploadDocumentsCommandOutput> | void {
     const command = new UploadDocumentsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

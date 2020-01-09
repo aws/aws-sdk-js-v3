@@ -1,30 +1,30 @@
 import {
   DeletePlaybackConfigurationCommandInput,
-  DeletePlaybackConfigurationCommandOutput
+  DeletePlaybackConfigurationCommandOutput,
 } from "../commands/DeletePlaybackConfigurationCommand";
 import {
   GetPlaybackConfigurationCommandInput,
-  GetPlaybackConfigurationCommandOutput
+  GetPlaybackConfigurationCommandOutput,
 } from "../commands/GetPlaybackConfigurationCommand";
 import {
   ListPlaybackConfigurationsCommandInput,
-  ListPlaybackConfigurationsCommandOutput
+  ListPlaybackConfigurationsCommandOutput,
 } from "../commands/ListPlaybackConfigurationsCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import {
   PutPlaybackConfigurationCommandInput,
-  PutPlaybackConfigurationCommandOutput
+  PutPlaybackConfigurationCommandOutput,
 } from "../commands/PutPlaybackConfigurationCommand";
 import {
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "../commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "../commands/UntagResourceCommand";
 import {
   BadRequestException,
@@ -33,18 +33,18 @@ import {
   DashConfigurationForPut,
   HlsConfiguration,
   LivePreRollConfiguration,
-  PlaybackConfiguration
+  PlaybackConfiguration,
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export async function serializeAws_restJson1_1DeletePlaybackConfigurationCommand(
@@ -52,23 +52,23 @@ export async function serializeAws_restJson1_1DeletePlaybackConfigurationCommand
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/playbackConfiguration/{Name}";
   if (input.Name !== undefined) {
     const labelValue: any = input.Name.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
+      throw new Error('Empty value provided for input HTTP label: Name.');
     }
-    resolvedPath = resolvedPath.replace("{Name}", labelValue);
+    resolvedPath = resolvedPath.replace('{Name}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: Name.");
+    throw new Error('No value provided for input HTTP label: Name.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -77,23 +77,23 @@ export async function serializeAws_restJson1_1GetPlaybackConfigurationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/playbackConfiguration/{Name}";
   if (input.Name !== undefined) {
     const labelValue: any = input.Name.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
+      throw new Error('Empty value provided for input HTTP label: Name.');
     }
-    resolvedPath = resolvedPath.replace("{Name}", labelValue);
+    resolvedPath = resolvedPath.replace('{Name}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: Name.");
+    throw new Error('No value provided for input HTTP label: Name.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -102,14 +102,14 @@ export async function serializeAws_restJson1_1ListPlaybackConfigurationsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/playbackConfigurations";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query['MaxResults'] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query['NextToken'] = input.NextToken.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -117,7 +117,7 @@ export async function serializeAws_restJson1_1ListPlaybackConfigurationsCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -126,25 +126,23 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: any = input.ResourceArn.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error('Empty value provided for input HTTP label: ResourceArn.');
     }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace('{ResourceArn}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: ResourceArn.");
+    throw new Error('No value provided for input HTTP label: ResourceArn.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -153,52 +151,36 @@ export async function serializeAws_restJson1_1PutPlaybackConfigurationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/playbackConfiguration";
   let body: any = {};
   const bodyParams: any = {};
   if (input.AdDecisionServerUrl !== undefined) {
-    bodyParams["AdDecisionServerUrl"] = input.AdDecisionServerUrl;
+    bodyParams['AdDecisionServerUrl'] = input.AdDecisionServerUrl;
   }
   if (input.CdnConfiguration !== undefined) {
-    bodyParams["CdnConfiguration"] = serializeAws_restJson1_1CdnConfiguration(
-      input.CdnConfiguration,
-      context
-    );
+    bodyParams['CdnConfiguration'] = serializeAws_restJson1_1CdnConfiguration(input.CdnConfiguration, context);
   }
   if (input.DashConfiguration !== undefined) {
-    bodyParams[
-      "DashConfiguration"
-    ] = serializeAws_restJson1_1DashConfigurationForPut(
-      input.DashConfiguration,
-      context
-    );
+    bodyParams['DashConfiguration'] = serializeAws_restJson1_1DashConfigurationForPut(input.DashConfiguration, context);
   }
   if (input.LivePreRollConfiguration !== undefined) {
-    bodyParams[
-      "LivePreRollConfiguration"
-    ] = serializeAws_restJson1_1LivePreRollConfiguration(
-      input.LivePreRollConfiguration,
-      context
-    );
+    bodyParams['LivePreRollConfiguration'] = serializeAws_restJson1_1LivePreRollConfiguration(input.LivePreRollConfiguration, context);
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.SlateAdUrl !== undefined) {
-    bodyParams["SlateAdUrl"] = input.SlateAdUrl;
+    bodyParams['SlateAdUrl'] = input.SlateAdUrl;
   }
   if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1__mapOf__string(
-      input.Tags,
-      context
-    );
+    bodyParams['tags'] = serializeAws_restJson1_1__mapOf__string(input.Tags, context);
   }
   if (input.TranscodeProfileName !== undefined) {
-    bodyParams["TranscodeProfileName"] = input.TranscodeProfileName;
+    bodyParams['TranscodeProfileName'] = input.TranscodeProfileName;
   }
   if (input.VideoContentSourceUrl !== undefined) {
-    bodyParams["VideoContentSourceUrl"] = input.VideoContentSourceUrl;
+    bodyParams['VideoContentSourceUrl'] = input.VideoContentSourceUrl;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -207,7 +189,7 @@ export async function serializeAws_restJson1_1PutPlaybackConfigurationCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -216,26 +198,21 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: any = input.ResourceArn.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error('Empty value provided for input HTTP label: ResourceArn.');
     }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace('{ResourceArn}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: ResourceArn.");
+    throw new Error('No value provided for input HTTP label: ResourceArn.');
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1__mapOf__string(
-      input.Tags,
-      context
-    );
+    bodyParams['tags'] = serializeAws_restJson1_1__mapOf__string(input.Tags, context);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -244,7 +221,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -253,22 +230,20 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: any = input.ResourceArn.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error('Empty value provided for input HTTP label: ResourceArn.');
     }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace('{ResourceArn}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: ResourceArn.");
+    throw new Error('No value provided for input HTTP label: ResourceArn.');
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query["tagKeys"] = input.TagKeys;
+    query['tagKeys'] = input.TagKeys;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -276,7 +251,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -285,35 +260,31 @@ export async function deserializeAws_restJson1_1DeletePlaybackConfigurationComma
   context: __SerdeContext
 ): Promise<DeletePlaybackConfigurationCommandOutput> {
   if (output.statusCode !== 204) {
-    return deserializeAws_restJson1_1DeletePlaybackConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeletePlaybackConfigurationCommandError(output, context);
   }
   const contents: DeletePlaybackConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeletePlaybackConfigurationResponse"
+    __type: "DeletePlaybackConfigurationResponse",
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DeletePlaybackConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeletePlaybackConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediatailor#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -324,10 +295,7 @@ export async function deserializeAws_restJson1_1GetPlaybackConfigurationCommand(
   context: __SerdeContext
 ): Promise<GetPlaybackConfigurationCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetPlaybackConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetPlaybackConfigurationCommandError(output, context);
   }
   const contents: GetPlaybackConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -344,35 +312,23 @@ export async function deserializeAws_restJson1_1GetPlaybackConfigurationCommand(
     SlateAdUrl: undefined,
     Tags: undefined,
     TranscodeProfileName: undefined,
-    VideoContentSourceUrl: undefined
+    VideoContentSourceUrl: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.AdDecisionServerUrl !== undefined) {
     contents.AdDecisionServerUrl = data.AdDecisionServerUrl;
   }
   if (data.CdnConfiguration !== undefined) {
-    contents.CdnConfiguration = deserializeAws_restJson1_1CdnConfiguration(
-      data.CdnConfiguration,
-      context
-    );
+    contents.CdnConfiguration = deserializeAws_restJson1_1CdnConfiguration(data.CdnConfiguration, context);
   }
   if (data.DashConfiguration !== undefined) {
-    contents.DashConfiguration = deserializeAws_restJson1_1DashConfiguration(
-      data.DashConfiguration,
-      context
-    );
+    contents.DashConfiguration = deserializeAws_restJson1_1DashConfiguration(data.DashConfiguration, context);
   }
   if (data.HlsConfiguration !== undefined) {
-    contents.HlsConfiguration = deserializeAws_restJson1_1HlsConfiguration(
-      data.HlsConfiguration,
-      context
-    );
+    contents.HlsConfiguration = deserializeAws_restJson1_1HlsConfiguration(data.HlsConfiguration, context);
   }
   if (data.LivePreRollConfiguration !== undefined) {
-    contents.LivePreRollConfiguration = deserializeAws_restJson1_1LivePreRollConfiguration(
-      data.LivePreRollConfiguration,
-      context
-    );
+    contents.LivePreRollConfiguration = deserializeAws_restJson1_1LivePreRollConfiguration(data.LivePreRollConfiguration, context);
   }
   if (data.Name !== undefined) {
     contents.Name = data.Name;
@@ -384,17 +340,13 @@ export async function deserializeAws_restJson1_1GetPlaybackConfigurationCommand(
     contents.PlaybackEndpointPrefix = data.PlaybackEndpointPrefix;
   }
   if (data.SessionInitializationEndpointPrefix !== undefined) {
-    contents.SessionInitializationEndpointPrefix =
-      data.SessionInitializationEndpointPrefix;
+    contents.SessionInitializationEndpointPrefix = data.SessionInitializationEndpointPrefix;
   }
   if (data.SlateAdUrl !== undefined) {
     contents.SlateAdUrl = data.SlateAdUrl;
   }
   if (data.tags !== undefined) {
-    contents.Tags = deserializeAws_restJson1_1__mapOf__string(
-      data.tags,
-      context
-    );
+    contents.Tags = deserializeAws_restJson1_1__mapOf__string(data.tags, context);
   }
   if (data.TranscodeProfileName !== undefined) {
     contents.TranscodeProfileName = data.TranscodeProfileName;
@@ -407,21 +359,20 @@ export async function deserializeAws_restJson1_1GetPlaybackConfigurationCommand(
 
 async function deserializeAws_restJson1_1GetPlaybackConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetPlaybackConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediatailor#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -432,23 +383,17 @@ export async function deserializeAws_restJson1_1ListPlaybackConfigurationsComman
   context: __SerdeContext
 ): Promise<ListPlaybackConfigurationsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListPlaybackConfigurationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListPlaybackConfigurationsCommandError(output, context);
   }
   const contents: ListPlaybackConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListPlaybackConfigurationsResponse",
     Items: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Items !== undefined) {
-    contents.Items = deserializeAws_restJson1_1__listOfPlaybackConfigurations(
-      data.Items,
-      context
-    );
+    contents.Items = deserializeAws_restJson1_1__listOfPlaybackConfigurations(data.Items, context);
   }
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
@@ -458,21 +403,20 @@ export async function deserializeAws_restJson1_1ListPlaybackConfigurationsComman
 
 async function deserializeAws_restJson1_1ListPlaybackConfigurationsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListPlaybackConfigurationsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediatailor#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -483,54 +427,44 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
-    Tags: undefined
+    Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.tags !== undefined) {
-    contents.Tags = deserializeAws_restJson1_1__mapOf__string(
-      data.tags,
-      context
-    );
+    contents.Tags = deserializeAws_restJson1_1__mapOf__string(data.tags, context);
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListTagsForResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediatailor#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediatailor#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -541,10 +475,7 @@ export async function deserializeAws_restJson1_1PutPlaybackConfigurationCommand(
   context: __SerdeContext
 ): Promise<PutPlaybackConfigurationCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1PutPlaybackConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutPlaybackConfigurationCommandError(output, context);
   }
   const contents: PutPlaybackConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -561,35 +492,23 @@ export async function deserializeAws_restJson1_1PutPlaybackConfigurationCommand(
     SlateAdUrl: undefined,
     Tags: undefined,
     TranscodeProfileName: undefined,
-    VideoContentSourceUrl: undefined
+    VideoContentSourceUrl: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.AdDecisionServerUrl !== undefined) {
     contents.AdDecisionServerUrl = data.AdDecisionServerUrl;
   }
   if (data.CdnConfiguration !== undefined) {
-    contents.CdnConfiguration = deserializeAws_restJson1_1CdnConfiguration(
-      data.CdnConfiguration,
-      context
-    );
+    contents.CdnConfiguration = deserializeAws_restJson1_1CdnConfiguration(data.CdnConfiguration, context);
   }
   if (data.DashConfiguration !== undefined) {
-    contents.DashConfiguration = deserializeAws_restJson1_1DashConfiguration(
-      data.DashConfiguration,
-      context
-    );
+    contents.DashConfiguration = deserializeAws_restJson1_1DashConfiguration(data.DashConfiguration, context);
   }
   if (data.HlsConfiguration !== undefined) {
-    contents.HlsConfiguration = deserializeAws_restJson1_1HlsConfiguration(
-      data.HlsConfiguration,
-      context
-    );
+    contents.HlsConfiguration = deserializeAws_restJson1_1HlsConfiguration(data.HlsConfiguration, context);
   }
   if (data.LivePreRollConfiguration !== undefined) {
-    contents.LivePreRollConfiguration = deserializeAws_restJson1_1LivePreRollConfiguration(
-      data.LivePreRollConfiguration,
-      context
-    );
+    contents.LivePreRollConfiguration = deserializeAws_restJson1_1LivePreRollConfiguration(data.LivePreRollConfiguration, context);
   }
   if (data.Name !== undefined) {
     contents.Name = data.Name;
@@ -601,17 +520,13 @@ export async function deserializeAws_restJson1_1PutPlaybackConfigurationCommand(
     contents.PlaybackEndpointPrefix = data.PlaybackEndpointPrefix;
   }
   if (data.SessionInitializationEndpointPrefix !== undefined) {
-    contents.SessionInitializationEndpointPrefix =
-      data.SessionInitializationEndpointPrefix;
+    contents.SessionInitializationEndpointPrefix = data.SessionInitializationEndpointPrefix;
   }
   if (data.SlateAdUrl !== undefined) {
     contents.SlateAdUrl = data.SlateAdUrl;
   }
   if (data.tags !== undefined) {
-    contents.Tags = deserializeAws_restJson1_1__mapOf__string(
-      data.tags,
-      context
-    );
+    contents.Tags = deserializeAws_restJson1_1__mapOf__string(data.tags, context);
   }
   if (data.TranscodeProfileName !== undefined) {
     contents.TranscodeProfileName = data.TranscodeProfileName;
@@ -624,21 +539,20 @@ export async function deserializeAws_restJson1_1PutPlaybackConfigurationCommand(
 
 async function deserializeAws_restJson1_1PutPlaybackConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<PutPlaybackConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediatailor#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -652,39 +566,35 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<TagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediatailor#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediatailor#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -698,39 +608,35 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UntagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.mediatailor#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediatailor#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -744,7 +650,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -759,13 +665,13 @@ const serializeAws_restJson1_1CdnConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.AdSegmentUrlPrefix !== undefined) {
-    bodyParams["AdSegmentUrlPrefix"] = input.AdSegmentUrlPrefix;
+    bodyParams['AdSegmentUrlPrefix'] = input.AdSegmentUrlPrefix;
   }
   if (input.ContentSegmentUrlPrefix !== undefined) {
-    bodyParams["ContentSegmentUrlPrefix"] = input.ContentSegmentUrlPrefix;
+    bodyParams['ContentSegmentUrlPrefix'] = input.ContentSegmentUrlPrefix;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1DashConfigurationForPut = (
   input: DashConfigurationForPut,
@@ -773,13 +679,13 @@ const serializeAws_restJson1_1DashConfigurationForPut = (
 ): any => {
   let bodyParams: any = {};
   if (input.MpdLocation !== undefined) {
-    bodyParams["MpdLocation"] = input.MpdLocation;
+    bodyParams['MpdLocation'] = input.MpdLocation;
   }
   if (input.OriginManifestType !== undefined) {
-    bodyParams["OriginManifestType"] = input.OriginManifestType;
+    bodyParams['OriginManifestType'] = input.OriginManifestType;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1LivePreRollConfiguration = (
   input: LivePreRollConfiguration,
@@ -787,13 +693,13 @@ const serializeAws_restJson1_1LivePreRollConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.AdDecisionServerUrl !== undefined) {
-    bodyParams["AdDecisionServerUrl"] = input.AdDecisionServerUrl;
+    bodyParams['AdDecisionServerUrl'] = input.AdDecisionServerUrl;
   }
   if (input.MaxDurationSeconds !== undefined) {
-    bodyParams["MaxDurationSeconds"] = input.MaxDurationSeconds;
+    bodyParams['MaxDurationSeconds'] = input.MaxDurationSeconds;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1__mapOf__string = (
   input: { [key: string]: string },
@@ -804,7 +710,7 @@ const serializeAws_restJson1_1__mapOf__string = (
     mapParams[key] = input[key];
   });
   return mapParams;
-};
+}
 
 const deserializeAws_restJson1_1CdnConfiguration = (
   output: any,
@@ -813,7 +719,7 @@ const deserializeAws_restJson1_1CdnConfiguration = (
   let contents: any = {
     __type: "CdnConfiguration",
     AdSegmentUrlPrefix: undefined,
-    ContentSegmentUrlPrefix: undefined
+    ContentSegmentUrlPrefix: undefined,
   };
   if (output.AdSegmentUrlPrefix !== undefined) {
     contents.AdSegmentUrlPrefix = output.AdSegmentUrlPrefix;
@@ -822,7 +728,7 @@ const deserializeAws_restJson1_1CdnConfiguration = (
     contents.ContentSegmentUrlPrefix = output.ContentSegmentUrlPrefix;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1DashConfiguration = (
   output: any,
@@ -832,7 +738,7 @@ const deserializeAws_restJson1_1DashConfiguration = (
     __type: "DashConfiguration",
     ManifestEndpointPrefix: undefined,
     MpdLocation: undefined,
-    OriginManifestType: undefined
+    OriginManifestType: undefined,
   };
   if (output.ManifestEndpointPrefix !== undefined) {
     contents.ManifestEndpointPrefix = output.ManifestEndpointPrefix;
@@ -844,7 +750,7 @@ const deserializeAws_restJson1_1DashConfiguration = (
     contents.OriginManifestType = output.OriginManifestType;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1HlsConfiguration = (
   output: any,
@@ -852,13 +758,13 @@ const deserializeAws_restJson1_1HlsConfiguration = (
 ): HlsConfiguration => {
   let contents: any = {
     __type: "HlsConfiguration",
-    ManifestEndpointPrefix: undefined
+    ManifestEndpointPrefix: undefined,
   };
   if (output.ManifestEndpointPrefix !== undefined) {
     contents.ManifestEndpointPrefix = output.ManifestEndpointPrefix;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1LivePreRollConfiguration = (
   output: any,
@@ -867,7 +773,7 @@ const deserializeAws_restJson1_1LivePreRollConfiguration = (
   let contents: any = {
     __type: "LivePreRollConfiguration",
     AdDecisionServerUrl: undefined,
-    MaxDurationSeconds: undefined
+    MaxDurationSeconds: undefined,
   };
   if (output.AdDecisionServerUrl !== undefined) {
     contents.AdDecisionServerUrl = output.AdDecisionServerUrl;
@@ -876,7 +782,7 @@ const deserializeAws_restJson1_1LivePreRollConfiguration = (
     contents.MaxDurationSeconds = output.MaxDurationSeconds;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1PlaybackConfiguration = (
   output: any,
@@ -895,28 +801,19 @@ const deserializeAws_restJson1_1PlaybackConfiguration = (
     SlateAdUrl: undefined,
     Tags: undefined,
     TranscodeProfileName: undefined,
-    VideoContentSourceUrl: undefined
+    VideoContentSourceUrl: undefined,
   };
   if (output.AdDecisionServerUrl !== undefined) {
     contents.AdDecisionServerUrl = output.AdDecisionServerUrl;
   }
   if (output.CdnConfiguration !== undefined) {
-    contents.CdnConfiguration = deserializeAws_restJson1_1CdnConfiguration(
-      output.CdnConfiguration,
-      context
-    );
+    contents.CdnConfiguration = deserializeAws_restJson1_1CdnConfiguration(output.CdnConfiguration, context);
   }
   if (output.DashConfiguration !== undefined) {
-    contents.DashConfiguration = deserializeAws_restJson1_1DashConfiguration(
-      output.DashConfiguration,
-      context
-    );
+    contents.DashConfiguration = deserializeAws_restJson1_1DashConfiguration(output.DashConfiguration, context);
   }
   if (output.HlsConfiguration !== undefined) {
-    contents.HlsConfiguration = deserializeAws_restJson1_1HlsConfiguration(
-      output.HlsConfiguration,
-      context
-    );
+    contents.HlsConfiguration = deserializeAws_restJson1_1HlsConfiguration(output.HlsConfiguration, context);
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -928,17 +825,13 @@ const deserializeAws_restJson1_1PlaybackConfiguration = (
     contents.PlaybackEndpointPrefix = output.PlaybackEndpointPrefix;
   }
   if (output.SessionInitializationEndpointPrefix !== undefined) {
-    contents.SessionInitializationEndpointPrefix =
-      output.SessionInitializationEndpointPrefix;
+    contents.SessionInitializationEndpointPrefix = output.SessionInitializationEndpointPrefix;
   }
   if (output.SlateAdUrl !== undefined) {
     contents.SlateAdUrl = output.SlateAdUrl;
   }
   if (output.tags !== undefined) {
-    contents.Tags = deserializeAws_restJson1_1__mapOf__string(
-      output.tags,
-      context
-    );
+    contents.Tags = deserializeAws_restJson1_1__mapOf__string(output.tags, context);
   }
   if (output.TranscodeProfileName !== undefined) {
     contents.TranscodeProfileName = output.TranscodeProfileName;
@@ -947,7 +840,7 @@ const deserializeAws_restJson1_1PlaybackConfiguration = (
     contents.VideoContentSourceUrl = output.VideoContentSourceUrl;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1__listOfPlaybackConfigurations = (
   output: any,
@@ -956,7 +849,7 @@ const deserializeAws_restJson1_1__listOfPlaybackConfigurations = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PlaybackConfiguration(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1__mapOf__string = (
   output: any,
@@ -967,7 +860,7 @@ const deserializeAws_restJson1_1__mapOf__string = (
     mapParams[key] = output[key];
   });
   return mapParams;
-};
+}
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

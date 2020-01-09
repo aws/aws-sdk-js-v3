@@ -1,20 +1,20 @@
 import {
   BackupClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../BackupClient";
 import {
   DescribeRecoveryPointInput,
-  DescribeRecoveryPointOutput
+  DescribeRecoveryPointOutput,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeRecoveryPointCommand,
-  serializeAws_restJson1_1DescribeRecoveryPointCommand
+  serializeAws_restJson1_1DescribeRecoveryPointCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DescribeRecoveryPointCommandInput = DescribeRecoveryPointInput;
 export type DescribeRecoveryPointCommandOutput = DescribeRecoveryPointOutput;
 
-export class DescribeRecoveryPointCommand extends $Command<
-  DescribeRecoveryPointCommandInput,
-  DescribeRecoveryPointCommandOutput,
-  BackupClientResolvedConfig
-> {
+export class DescribeRecoveryPointCommand extends $Command<DescribeRecoveryPointCommandInput, DescribeRecoveryPointCommandOutput, BackupClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class DescribeRecoveryPointCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeRecoveryPointCommandInput,
-    DescribeRecoveryPointCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeRecoveryPointCommandInput, DescribeRecoveryPointCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -79,10 +70,7 @@ export class DescribeRecoveryPointCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeRecoveryPointCommandOutput> {
-    return deserializeAws_restJson1_1DescribeRecoveryPointCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeRecoveryPointCommand(output, context);
   }
 
   // Start section: command_body_extra

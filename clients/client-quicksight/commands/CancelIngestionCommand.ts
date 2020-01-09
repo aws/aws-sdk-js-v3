@@ -1,20 +1,20 @@
 import {
   QuickSightClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../QuickSightClient";
 import {
   CancelIngestionRequest,
-  CancelIngestionResponse
+  CancelIngestionResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1CancelIngestionCommand,
-  serializeAws_restJson1_1CancelIngestionCommand
+  serializeAws_restJson1_1CancelIngestionCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type CancelIngestionCommandInput = CancelIngestionRequest;
 export type CancelIngestionCommandOutput = CancelIngestionResponse;
 
-export class CancelIngestionCommand extends $Command<
-  CancelIngestionCommandInput,
-  CancelIngestionCommandOutput,
-  QuickSightClientResolvedConfig
-> {
+export class CancelIngestionCommand extends $Command<CancelIngestionCommandInput, CancelIngestionCommandOutput, QuickSightClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,15 +44,13 @@ export class CancelIngestionCommand extends $Command<
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CancelIngestionCommandInput, CancelIngestionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -1,20 +1,20 @@
 import {
   LambdaClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../LambdaClient";
 import {
   GetLayerVersionRequest,
-  GetLayerVersionResponse
+  GetLayerVersionResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1GetLayerVersionCommand,
-  serializeAws_restJson1_1GetLayerVersionCommand
+  serializeAws_restJson1_1GetLayerVersionCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type GetLayerVersionCommandInput = GetLayerVersionRequest;
 export type GetLayerVersionCommandOutput = GetLayerVersionResponse;
 
-export class GetLayerVersionCommand extends $Command<
-  GetLayerVersionCommandInput,
-  GetLayerVersionCommandOutput,
-  LambdaClientResolvedConfig
-> {
+export class GetLayerVersionCommand extends $Command<GetLayerVersionCommandInput, GetLayerVersionCommandOutput, LambdaClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,15 +44,13 @@ export class GetLayerVersionCommand extends $Command<
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetLayerVersionCommandInput, GetLayerVersionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

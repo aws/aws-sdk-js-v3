@@ -26,5 +26,5 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   runtime: "browser",
   signingName: "iotanalytics",
   credentialDefaultProvider: invalidFunction("Credential is missing") as any,
-  regionDefaultProvider: invalidFunction("Region is missing") as any
+  regionDefaultProvider: invalidFunction("Region is missing") as any,
 };

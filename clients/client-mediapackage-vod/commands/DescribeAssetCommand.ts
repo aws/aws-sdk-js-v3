@@ -1,17 +1,20 @@
 import {
   MediaPackageVodClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../MediaPackageVodClient";
-import { DescribeAssetRequest, DescribeAssetResponse } from "../models/index";
+import {
+  DescribeAssetRequest,
+  DescribeAssetResponse,
+} from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeAssetCommand,
-  serializeAws_restJson1_1DescribeAssetCommand
+  serializeAws_restJson1_1DescribeAssetCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DescribeAssetCommandInput = DescribeAssetRequest;
 export type DescribeAssetCommandOutput = DescribeAssetResponse;
 
-export class DescribeAssetCommand extends $Command<
-  DescribeAssetCommandInput,
-  DescribeAssetCommandOutput,
-  MediaPackageVodClientResolvedConfig
-> {
+export class DescribeAssetCommand extends $Command<DescribeAssetCommandInput, DescribeAssetCommandOutput, MediaPackageVodClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class DescribeAssetCommand extends $Command<
     configuration: MediaPackageVodClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeAssetCommandInput, DescribeAssetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

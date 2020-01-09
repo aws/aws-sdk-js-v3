@@ -1,20 +1,20 @@
 import {
   PinpointClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../PinpointClient";
 import {
   DeleteGcmChannelRequest,
-  DeleteGcmChannelResponse
+  DeleteGcmChannelResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteGcmChannelCommand,
-  serializeAws_restJson1_1DeleteGcmChannelCommand
+  serializeAws_restJson1_1DeleteGcmChannelCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DeleteGcmChannelCommandInput = DeleteGcmChannelRequest;
 export type DeleteGcmChannelCommandOutput = DeleteGcmChannelResponse;
 
-export class DeleteGcmChannelCommand extends $Command<
-  DeleteGcmChannelCommandInput,
-  DeleteGcmChannelCommandOutput,
-  PinpointClientResolvedConfig
-> {
+export class DeleteGcmChannelCommand extends $Command<DeleteGcmChannelCommandInput, DeleteGcmChannelCommandOutput, PinpointClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,15 +44,13 @@ export class DeleteGcmChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteGcmChannelCommandInput, DeleteGcmChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

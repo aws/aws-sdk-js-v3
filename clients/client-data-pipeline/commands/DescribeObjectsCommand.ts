@@ -1,17 +1,20 @@
 import {
   DataPipelineClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DataPipelineClient";
-import { DescribeObjectsInput, DescribeObjectsOutput } from "../models/index";
+import {
+  DescribeObjectsInput,
+  DescribeObjectsOutput,
+} from "../models/index";
 import {
   deserializeAws_json1_1DescribeObjectsCommand,
-  serializeAws_json1_1DescribeObjectsCommand
+  serializeAws_json1_1DescribeObjectsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DescribeObjectsCommandInput = DescribeObjectsInput;
 export type DescribeObjectsCommandOutput = DescribeObjectsOutput;
 
-export class DescribeObjectsCommand extends $Command<
-  DescribeObjectsCommandInput,
-  DescribeObjectsCommandOutput,
-  DataPipelineClientResolvedConfig
-> {
+export class DescribeObjectsCommand extends $Command<DescribeObjectsCommandInput, DescribeObjectsCommandOutput, DataPipelineClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class DescribeObjectsCommand extends $Command<
     configuration: DataPipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeObjectsCommandInput, DescribeObjectsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

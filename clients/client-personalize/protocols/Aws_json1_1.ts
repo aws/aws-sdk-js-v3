@@ -1174,7 +1174,7 @@ async function deserializeAws_json1_1CreateBatchInferenceJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1199,7 +1199,6 @@ async function deserializeAws_json1_1CreateBatchInferenceJobCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -1237,7 +1236,7 @@ async function deserializeAws_json1_1CreateCampaignCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1262,7 +1261,6 @@ async function deserializeAws_json1_1CreateCampaignCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -1300,7 +1298,7 @@ async function deserializeAws_json1_1CreateDatasetCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1325,7 +1323,6 @@ async function deserializeAws_json1_1CreateDatasetCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -1363,7 +1360,7 @@ async function deserializeAws_json1_1CreateDatasetGroupCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1380,7 +1377,6 @@ async function deserializeAws_json1_1CreateDatasetGroupCommandError(
       response = await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -1418,7 +1414,7 @@ async function deserializeAws_json1_1CreateDatasetImportJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1443,7 +1439,6 @@ async function deserializeAws_json1_1CreateDatasetImportJobCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -1481,7 +1476,7 @@ async function deserializeAws_json1_1CreateEventTrackerCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1506,7 +1501,6 @@ async function deserializeAws_json1_1CreateEventTrackerCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -1544,7 +1538,7 @@ async function deserializeAws_json1_1CreateSchemaCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1561,7 +1555,6 @@ async function deserializeAws_json1_1CreateSchemaCommandError(
       response = await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -1599,7 +1592,7 @@ async function deserializeAws_json1_1CreateSolutionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1624,7 +1617,6 @@ async function deserializeAws_json1_1CreateSolutionCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -1662,7 +1654,7 @@ async function deserializeAws_json1_1CreateSolutionVersionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1679,7 +1671,6 @@ async function deserializeAws_json1_1CreateSolutionVersionCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -1712,7 +1703,7 @@ async function deserializeAws_json1_1DeleteCampaignCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1729,7 +1720,6 @@ async function deserializeAws_json1_1DeleteCampaignCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -1762,7 +1752,7 @@ async function deserializeAws_json1_1DeleteDatasetCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1779,7 +1769,6 @@ async function deserializeAws_json1_1DeleteDatasetCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -1812,7 +1801,7 @@ async function deserializeAws_json1_1DeleteDatasetGroupCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1829,7 +1818,6 @@ async function deserializeAws_json1_1DeleteDatasetGroupCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -1862,7 +1850,7 @@ async function deserializeAws_json1_1DeleteEventTrackerCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1879,7 +1867,6 @@ async function deserializeAws_json1_1DeleteEventTrackerCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -1912,7 +1899,7 @@ async function deserializeAws_json1_1DeleteSchemaCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1929,7 +1916,6 @@ async function deserializeAws_json1_1DeleteSchemaCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -1962,7 +1948,7 @@ async function deserializeAws_json1_1DeleteSolutionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1979,7 +1965,6 @@ async function deserializeAws_json1_1DeleteSolutionCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -2017,7 +2002,7 @@ async function deserializeAws_json1_1DescribeAlgorithmCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2030,7 +2015,6 @@ async function deserializeAws_json1_1DescribeAlgorithmCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -2068,7 +2052,7 @@ async function deserializeAws_json1_1DescribeBatchInferenceJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2081,7 +2065,6 @@ async function deserializeAws_json1_1DescribeBatchInferenceJobCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -2119,7 +2102,7 @@ async function deserializeAws_json1_1DescribeCampaignCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2132,7 +2115,6 @@ async function deserializeAws_json1_1DescribeCampaignCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -2170,7 +2152,7 @@ async function deserializeAws_json1_1DescribeDatasetCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2183,7 +2165,6 @@ async function deserializeAws_json1_1DescribeDatasetCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -2221,7 +2202,7 @@ async function deserializeAws_json1_1DescribeDatasetGroupCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2234,7 +2215,6 @@ async function deserializeAws_json1_1DescribeDatasetGroupCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -2272,7 +2252,7 @@ async function deserializeAws_json1_1DescribeDatasetImportJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2285,7 +2265,6 @@ async function deserializeAws_json1_1DescribeDatasetImportJobCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -2323,7 +2302,7 @@ async function deserializeAws_json1_1DescribeEventTrackerCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2336,7 +2315,6 @@ async function deserializeAws_json1_1DescribeEventTrackerCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -2374,7 +2352,7 @@ async function deserializeAws_json1_1DescribeFeatureTransformationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2387,7 +2365,6 @@ async function deserializeAws_json1_1DescribeFeatureTransformationCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -2425,7 +2402,7 @@ async function deserializeAws_json1_1DescribeRecipeCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2438,7 +2415,6 @@ async function deserializeAws_json1_1DescribeRecipeCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -2476,7 +2452,7 @@ async function deserializeAws_json1_1DescribeSchemaCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2489,7 +2465,6 @@ async function deserializeAws_json1_1DescribeSchemaCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -2527,7 +2502,7 @@ async function deserializeAws_json1_1DescribeSolutionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2540,7 +2515,6 @@ async function deserializeAws_json1_1DescribeSolutionCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -2578,7 +2552,7 @@ async function deserializeAws_json1_1DescribeSolutionVersionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2591,7 +2565,6 @@ async function deserializeAws_json1_1DescribeSolutionVersionCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -2629,7 +2602,7 @@ async function deserializeAws_json1_1GetSolutionMetricsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2646,7 +2619,6 @@ async function deserializeAws_json1_1GetSolutionMetricsCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -2684,7 +2656,7 @@ async function deserializeAws_json1_1ListBatchInferenceJobsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2697,7 +2669,6 @@ async function deserializeAws_json1_1ListBatchInferenceJobsCommandError(
       response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -2735,7 +2706,7 @@ async function deserializeAws_json1_1ListCampaignsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2748,7 +2719,6 @@ async function deserializeAws_json1_1ListCampaignsCommandError(
       response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -2786,7 +2756,7 @@ async function deserializeAws_json1_1ListDatasetGroupsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2795,7 +2765,6 @@ async function deserializeAws_json1_1ListDatasetGroupsCommandError(
       response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -2833,7 +2802,7 @@ async function deserializeAws_json1_1ListDatasetImportJobsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2846,7 +2815,6 @@ async function deserializeAws_json1_1ListDatasetImportJobsCommandError(
       response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -2884,7 +2852,7 @@ async function deserializeAws_json1_1ListDatasetsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2897,7 +2865,6 @@ async function deserializeAws_json1_1ListDatasetsCommandError(
       response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -2935,7 +2902,7 @@ async function deserializeAws_json1_1ListEventTrackersCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2948,7 +2915,6 @@ async function deserializeAws_json1_1ListEventTrackersCommandError(
       response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -2986,7 +2952,7 @@ async function deserializeAws_json1_1ListRecipesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2995,7 +2961,6 @@ async function deserializeAws_json1_1ListRecipesCommandError(
       response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -3033,7 +2998,7 @@ async function deserializeAws_json1_1ListSchemasCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3042,7 +3007,6 @@ async function deserializeAws_json1_1ListSchemasCommandError(
       response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -3080,7 +3044,7 @@ async function deserializeAws_json1_1ListSolutionVersionsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3097,7 +3061,6 @@ async function deserializeAws_json1_1ListSolutionVersionsCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -3135,7 +3098,7 @@ async function deserializeAws_json1_1ListSolutionsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3148,7 +3111,6 @@ async function deserializeAws_json1_1ListSolutionsCommandError(
       response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",
@@ -3186,7 +3148,7 @@ async function deserializeAws_json1_1UpdateCampaignCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3203,7 +3165,6 @@ async function deserializeAws_json1_1UpdateCampaignCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize#${errorCode}`,
         $fault: "client",

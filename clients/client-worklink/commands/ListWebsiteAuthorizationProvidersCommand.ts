@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  WorkLinkClientResolvedConfig
+  WorkLinkClientResolvedConfig,
 } from "../WorkLinkClient";
 import {
   ListWebsiteAuthorizationProvidersRequest,
-  ListWebsiteAuthorizationProvidersResponse
+  ListWebsiteAuthorizationProvidersResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1ListWebsiteAuthorizationProvidersCommand,
-  serializeAws_restJson1_1ListWebsiteAuthorizationProvidersCommand
+  serializeAws_restJson1_1ListWebsiteAuthorizationProvidersCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type ListWebsiteAuthorizationProvidersCommandInput = ListWebsiteAuthorizationProvidersRequest;
 export type ListWebsiteAuthorizationProvidersCommandOutput = ListWebsiteAuthorizationProvidersResponse;
 
-export class ListWebsiteAuthorizationProvidersCommand extends $Command<
-  ListWebsiteAuthorizationProvidersCommandInput,
-  ListWebsiteAuthorizationProvidersCommandOutput,
-  WorkLinkClientResolvedConfig
-> {
+export class ListWebsiteAuthorizationProvidersCommand extends $Command<ListWebsiteAuthorizationProvidersCommandInput, ListWebsiteAuthorizationProvidersCommandOutput, WorkLinkClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class ListWebsiteAuthorizationProvidersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListWebsiteAuthorizationProvidersCommandInput,
-    ListWebsiteAuthorizationProvidersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListWebsiteAuthorizationProvidersCommandInput, ListWebsiteAuthorizationProvidersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class ListWebsiteAuthorizationProvidersCommand extends $Command<
     input: ListWebsiteAuthorizationProvidersCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListWebsiteAuthorizationProvidersCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListWebsiteAuthorizationProvidersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListWebsiteAuthorizationProvidersCommandOutput> {
-    return deserializeAws_restJson1_1ListWebsiteAuthorizationProvidersCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListWebsiteAuthorizationProvidersCommand(output, context);
   }
 
   // Start section: command_body_extra

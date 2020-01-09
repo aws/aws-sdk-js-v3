@@ -1,50 +1,50 @@
 import {
   CancelSigningProfileCommandInput,
-  CancelSigningProfileCommandOutput
+  CancelSigningProfileCommandOutput,
 } from "../commands/CancelSigningProfileCommand";
 import {
   DescribeSigningJobCommandInput,
-  DescribeSigningJobCommandOutput
+  DescribeSigningJobCommandOutput,
 } from "../commands/DescribeSigningJobCommand";
 import {
   GetSigningPlatformCommandInput,
-  GetSigningPlatformCommandOutput
+  GetSigningPlatformCommandOutput,
 } from "../commands/GetSigningPlatformCommand";
 import {
   GetSigningProfileCommandInput,
-  GetSigningProfileCommandOutput
+  GetSigningProfileCommandOutput,
 } from "../commands/GetSigningProfileCommand";
 import {
   ListSigningJobsCommandInput,
-  ListSigningJobsCommandOutput
+  ListSigningJobsCommandOutput,
 } from "../commands/ListSigningJobsCommand";
 import {
   ListSigningPlatformsCommandInput,
-  ListSigningPlatformsCommandOutput
+  ListSigningPlatformsCommandOutput,
 } from "../commands/ListSigningPlatformsCommand";
 import {
   ListSigningProfilesCommandInput,
-  ListSigningProfilesCommandOutput
+  ListSigningProfilesCommandOutput,
 } from "../commands/ListSigningProfilesCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import {
   PutSigningProfileCommandInput,
-  PutSigningProfileCommandOutput
+  PutSigningProfileCommandOutput,
 } from "../commands/PutSigningProfileCommand";
 import {
   StartSigningJobCommandInput,
-  StartSigningJobCommandOutput
+  StartSigningJobCommandOutput,
 } from "../commands/StartSigningJobCommand";
 import {
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "../commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "../commands/UntagResourceCommand";
 import {
   AccessDeniedException,
@@ -72,18 +72,18 @@ import {
   SigningProfile,
   Source,
   ThrottlingException,
-  ValidationException
+  ValidationException,
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export async function serializeAws_restJson1_1CancelSigningProfileCommand(
@@ -91,25 +91,23 @@ export async function serializeAws_restJson1_1CancelSigningProfileCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/signing-profiles/{profileName}";
   if (input.profileName !== undefined) {
     const labelValue: any = input.profileName.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: profileName."
-      );
+      throw new Error('Empty value provided for input HTTP label: profileName.');
     }
-    resolvedPath = resolvedPath.replace("{profileName}", labelValue);
+    resolvedPath = resolvedPath.replace('{profileName}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: profileName.");
+    throw new Error('No value provided for input HTTP label: profileName.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -118,23 +116,23 @@ export async function serializeAws_restJson1_1DescribeSigningJobCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/signing-jobs/{jobId}";
   if (input.jobId !== undefined) {
     const labelValue: any = input.jobId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: jobId.");
+      throw new Error('Empty value provided for input HTTP label: jobId.');
     }
-    resolvedPath = resolvedPath.replace("{jobId}", labelValue);
+    resolvedPath = resolvedPath.replace('{jobId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: jobId.");
+    throw new Error('No value provided for input HTTP label: jobId.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -143,23 +141,23 @@ export async function serializeAws_restJson1_1GetSigningPlatformCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/signing-platforms/{platformId}";
   if (input.platformId !== undefined) {
     const labelValue: any = input.platformId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: platformId.");
+      throw new Error('Empty value provided for input HTTP label: platformId.');
     }
-    resolvedPath = resolvedPath.replace("{platformId}", labelValue);
+    resolvedPath = resolvedPath.replace('{platformId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: platformId.");
+    throw new Error('No value provided for input HTTP label: platformId.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -168,25 +166,23 @@ export async function serializeAws_restJson1_1GetSigningProfileCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/signing-profiles/{profileName}";
   if (input.profileName !== undefined) {
     const labelValue: any = input.profileName.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: profileName."
-      );
+      throw new Error('Empty value provided for input HTTP label: profileName.');
     }
-    resolvedPath = resolvedPath.replace("{profileName}", labelValue);
+    resolvedPath = resolvedPath.replace('{profileName}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: profileName.");
+    throw new Error('No value provided for input HTTP label: profileName.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -195,23 +191,23 @@ export async function serializeAws_restJson1_1ListSigningJobsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/signing-jobs";
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query['maxResults'] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query['nextToken'] = input.nextToken.toString();
   }
   if (input.platformId !== undefined) {
-    query["platformId"] = input.platformId.toString();
+    query['platformId'] = input.platformId.toString();
   }
   if (input.requestedBy !== undefined) {
-    query["requestedBy"] = input.requestedBy.toString();
+    query['requestedBy'] = input.requestedBy.toString();
   }
   if (input.status !== undefined) {
-    query["status"] = input.status.toString();
+    query['status'] = input.status.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -219,7 +215,7 @@ export async function serializeAws_restJson1_1ListSigningJobsCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -228,23 +224,23 @@ export async function serializeAws_restJson1_1ListSigningPlatformsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/signing-platforms";
   const query: any = {};
   if (input.category !== undefined) {
-    query["category"] = input.category.toString();
+    query['category'] = input.category.toString();
   }
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query['maxResults'] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query['nextToken'] = input.nextToken.toString();
   }
   if (input.partner !== undefined) {
-    query["partner"] = input.partner.toString();
+    query['partner'] = input.partner.toString();
   }
   if (input.target !== undefined) {
-    query["target"] = input.target.toString();
+    query['target'] = input.target.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -252,7 +248,7 @@ export async function serializeAws_restJson1_1ListSigningPlatformsCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -261,17 +257,17 @@ export async function serializeAws_restJson1_1ListSigningProfilesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/signing-profiles";
   const query: any = {};
   if (input.includeCanceled !== undefined) {
-    query["includeCanceled"] = input.includeCanceled.toString();
+    query['includeCanceled'] = input.includeCanceled.toString();
   }
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query['maxResults'] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query['nextToken'] = input.nextToken.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -279,7 +275,7 @@ export async function serializeAws_restJson1_1ListSigningProfilesCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -288,25 +284,23 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: any = input.resourceArn.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: resourceArn."
-      );
+      throw new Error('Empty value provided for input HTTP label: resourceArn.');
     }
-    resolvedPath = resolvedPath.replace("{resourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace('{resourceArn}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: resourceArn.");
+    throw new Error('No value provided for input HTTP label: resourceArn.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -315,44 +309,33 @@ export async function serializeAws_restJson1_1PutSigningProfileCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/signing-profiles/{profileName}";
   if (input.profileName !== undefined) {
     const labelValue: any = input.profileName.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: profileName."
-      );
+      throw new Error('Empty value provided for input HTTP label: profileName.');
     }
-    resolvedPath = resolvedPath.replace("{profileName}", labelValue);
+    resolvedPath = resolvedPath.replace('{profileName}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: profileName.");
+    throw new Error('No value provided for input HTTP label: profileName.');
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.overrides !== undefined) {
-    bodyParams["overrides"] = serializeAws_restJson1_1SigningPlatformOverrides(
-      input.overrides,
-      context
-    );
+    bodyParams['overrides'] = serializeAws_restJson1_1SigningPlatformOverrides(input.overrides, context);
   }
   if (input.platformId !== undefined) {
-    bodyParams["platformId"] = input.platformId;
+    bodyParams['platformId'] = input.platformId;
   }
   if (input.signingMaterial !== undefined) {
-    bodyParams["signingMaterial"] = serializeAws_restJson1_1SigningMaterial(
-      input.signingMaterial,
-      context
-    );
+    bodyParams['signingMaterial'] = serializeAws_restJson1_1SigningMaterial(input.signingMaterial, context);
   }
   if (input.signingParameters !== undefined) {
-    bodyParams["signingParameters"] = serializeAws_restJson1_1SigningParameters(
-      input.signingParameters,
-      context
-    );
+    bodyParams['signingParameters'] = serializeAws_restJson1_1SigningParameters(input.signingParameters, context);
   }
   if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
+    bodyParams['tags'] = serializeAws_restJson1_1TagMap(input.tags, context);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -361,7 +344,7 @@ export async function serializeAws_restJson1_1PutSigningProfileCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -370,27 +353,21 @@ export async function serializeAws_restJson1_1StartSigningJobCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/signing-jobs";
   let body: any = {};
   const bodyParams: any = {};
   if (input.clientRequestToken !== undefined) {
-    bodyParams["clientRequestToken"] = input.clientRequestToken;
+    bodyParams['clientRequestToken'] = input.clientRequestToken;
   }
   if (input.destination !== undefined) {
-    bodyParams["destination"] = serializeAws_restJson1_1Destination(
-      input.destination,
-      context
-    );
+    bodyParams['destination'] = serializeAws_restJson1_1Destination(input.destination, context);
   }
   if (input.profileName !== undefined) {
-    bodyParams["profileName"] = input.profileName;
+    bodyParams['profileName'] = input.profileName;
   }
   if (input.source !== undefined) {
-    bodyParams["source"] = serializeAws_restJson1_1Source(
-      input.source,
-      context
-    );
+    bodyParams['source'] = serializeAws_restJson1_1Source(input.source, context);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -399,7 +376,7 @@ export async function serializeAws_restJson1_1StartSigningJobCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -408,23 +385,21 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: any = input.resourceArn.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: resourceArn."
-      );
+      throw new Error('Empty value provided for input HTTP label: resourceArn.');
     }
-    resolvedPath = resolvedPath.replace("{resourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace('{resourceArn}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: resourceArn.");
+    throw new Error('No value provided for input HTTP label: resourceArn.');
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
+    bodyParams['tags'] = serializeAws_restJson1_1TagMap(input.tags, context);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -433,7 +408,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -442,22 +417,20 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: any = input.resourceArn.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: resourceArn."
-      );
+      throw new Error('Empty value provided for input HTTP label: resourceArn.');
     }
-    resolvedPath = resolvedPath.replace("{resourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace('{resourceArn}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: resourceArn.");
+    throw new Error('No value provided for input HTTP label: resourceArn.');
   }
   const query: any = {};
   if (input.tagKeys !== undefined) {
-    query["tagKeys"] = input.tagKeys;
+    query['tagKeys'] = input.tagKeys;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -465,7 +438,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -474,66 +447,50 @@ export async function deserializeAws_restJson1_1CancelSigningProfileCommand(
   context: __SerdeContext
 ): Promise<CancelSigningProfileCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1CancelSigningProfileCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CancelSigningProfileCommandError(output, context);
   }
   const contents: CancelSigningProfileCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1CancelSigningProfileCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CancelSigningProfileCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wallaby#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.wallaby#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.wallaby#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.wallaby#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wallaby#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -544,10 +501,7 @@ export async function deserializeAws_restJson1_1DescribeSigningJobCommand(
   context: __SerdeContext
 ): Promise<DescribeSigningJobCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeSigningJobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeSigningJobCommandError(output, context);
   }
   const contents: DescribeSigningJobCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -564,31 +518,20 @@ export async function deserializeAws_restJson1_1DescribeSigningJobCommand(
     signingParameters: undefined,
     source: undefined,
     status: undefined,
-    statusReason: undefined
+    statusReason: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.completedAt !== undefined) {
-    contents.completedAt = new Date(
-      data.completedAt % 1 != 0
-        ? Math.round(data.completedAt * 1000)
-        : data.completedAt
-    );
+    contents.completedAt = new Date(data.completedAt % 1 != 0 ? Math.round(data.completedAt * 1000) : data.completedAt);
   }
   if (data.createdAt !== undefined) {
-    contents.createdAt = new Date(
-      data.createdAt % 1 != 0
-        ? Math.round(data.createdAt * 1000)
-        : data.createdAt
-    );
+    contents.createdAt = new Date(data.createdAt % 1 != 0 ? Math.round(data.createdAt * 1000) : data.createdAt);
   }
   if (data.jobId !== undefined) {
     contents.jobId = data.jobId;
   }
   if (data.overrides !== undefined) {
-    contents.overrides = deserializeAws_restJson1_1SigningPlatformOverrides(
-      data.overrides,
-      context
-    );
+    contents.overrides = deserializeAws_restJson1_1SigningPlatformOverrides(data.overrides, context);
   }
   if (data.platformId !== undefined) {
     contents.platformId = data.platformId;
@@ -600,22 +543,13 @@ export async function deserializeAws_restJson1_1DescribeSigningJobCommand(
     contents.requestedBy = data.requestedBy;
   }
   if (data.signedObject !== undefined) {
-    contents.signedObject = deserializeAws_restJson1_1SignedObject(
-      data.signedObject,
-      context
-    );
+    contents.signedObject = deserializeAws_restJson1_1SignedObject(data.signedObject, context);
   }
   if (data.signingMaterial !== undefined) {
-    contents.signingMaterial = deserializeAws_restJson1_1SigningMaterial(
-      data.signingMaterial,
-      context
-    );
+    contents.signingMaterial = deserializeAws_restJson1_1SigningMaterial(data.signingMaterial, context);
   }
   if (data.signingParameters !== undefined) {
-    contents.signingParameters = deserializeAws_restJson1_1SigningParameters(
-      data.signingParameters,
-      context
-    );
+    contents.signingParameters = deserializeAws_restJson1_1SigningParameters(data.signingParameters, context);
   }
   if (data.source !== undefined) {
     contents.source = deserializeAws_restJson1_1Source(data.source, context);
@@ -631,46 +565,36 @@ export async function deserializeAws_restJson1_1DescribeSigningJobCommand(
 
 async function deserializeAws_restJson1_1DescribeSigningJobCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeSigningJobCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wallaby#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.wallaby#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.wallaby#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wallaby#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -681,10 +605,7 @@ export async function deserializeAws_restJson1_1GetSigningPlatformCommand(
   context: __SerdeContext
 ): Promise<GetSigningPlatformCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetSigningPlatformCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetSigningPlatformCommandError(output, context);
   }
   const contents: GetSigningPlatformCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -696,7 +617,7 @@ export async function deserializeAws_restJson1_1GetSigningPlatformCommand(
     platformId: undefined,
     signingConfiguration: undefined,
     signingImageFormat: undefined,
-    target: undefined
+    target: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.category !== undefined) {
@@ -715,16 +636,10 @@ export async function deserializeAws_restJson1_1GetSigningPlatformCommand(
     contents.platformId = data.platformId;
   }
   if (data.signingConfiguration !== undefined) {
-    contents.signingConfiguration = deserializeAws_restJson1_1SigningConfiguration(
-      data.signingConfiguration,
-      context
-    );
+    contents.signingConfiguration = deserializeAws_restJson1_1SigningConfiguration(data.signingConfiguration, context);
   }
   if (data.signingImageFormat !== undefined) {
-    contents.signingImageFormat = deserializeAws_restJson1_1SigningImageFormat(
-      data.signingImageFormat,
-      context
-    );
+    contents.signingImageFormat = deserializeAws_restJson1_1SigningImageFormat(data.signingImageFormat, context);
   }
   if (data.target !== undefined) {
     contents.target = data.target;
@@ -734,46 +649,36 @@ export async function deserializeAws_restJson1_1GetSigningPlatformCommand(
 
 async function deserializeAws_restJson1_1GetSigningPlatformCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetSigningPlatformCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wallaby#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.wallaby#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.wallaby#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wallaby#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -784,10 +689,7 @@ export async function deserializeAws_restJson1_1GetSigningProfileCommand(
   context: __SerdeContext
 ): Promise<GetSigningProfileCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetSigningProfileCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetSigningProfileCommandError(output, context);
   }
   const contents: GetSigningProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -799,17 +701,14 @@ export async function deserializeAws_restJson1_1GetSigningProfileCommand(
     signingMaterial: undefined,
     signingParameters: undefined,
     status: undefined,
-    tags: undefined
+    tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined) {
     contents.arn = data.arn;
   }
   if (data.overrides !== undefined) {
-    contents.overrides = deserializeAws_restJson1_1SigningPlatformOverrides(
-      data.overrides,
-      context
-    );
+    contents.overrides = deserializeAws_restJson1_1SigningPlatformOverrides(data.overrides, context);
   }
   if (data.platformId !== undefined) {
     contents.platformId = data.platformId;
@@ -818,16 +717,10 @@ export async function deserializeAws_restJson1_1GetSigningProfileCommand(
     contents.profileName = data.profileName;
   }
   if (data.signingMaterial !== undefined) {
-    contents.signingMaterial = deserializeAws_restJson1_1SigningMaterial(
-      data.signingMaterial,
-      context
-    );
+    contents.signingMaterial = deserializeAws_restJson1_1SigningMaterial(data.signingMaterial, context);
   }
   if (data.signingParameters !== undefined) {
-    contents.signingParameters = deserializeAws_restJson1_1SigningParameters(
-      data.signingParameters,
-      context
-    );
+    contents.signingParameters = deserializeAws_restJson1_1SigningParameters(data.signingParameters, context);
   }
   if (data.status !== undefined) {
     contents.status = data.status;
@@ -840,53 +733,40 @@ export async function deserializeAws_restJson1_1GetSigningProfileCommand(
 
 async function deserializeAws_restJson1_1GetSigningProfileCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetSigningProfileCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wallaby#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.wallaby#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.wallaby#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.wallaby#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wallaby#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -897,16 +777,13 @@ export async function deserializeAws_restJson1_1ListSigningJobsCommand(
   context: __SerdeContext
 ): Promise<ListSigningJobsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListSigningJobsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListSigningJobsCommandError(output, context);
   }
   const contents: ListSigningJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListSigningJobsResponse",
     jobs: undefined,
-    nextToken: undefined
+    nextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.jobs !== undefined) {
@@ -920,53 +797,40 @@ export async function deserializeAws_restJson1_1ListSigningJobsCommand(
 
 async function deserializeAws_restJson1_1ListSigningJobsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListSigningJobsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wallaby#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.wallaby#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.wallaby#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.wallaby#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wallaby#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -977,79 +841,60 @@ export async function deserializeAws_restJson1_1ListSigningPlatformsCommand(
   context: __SerdeContext
 ): Promise<ListSigningPlatformsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListSigningPlatformsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListSigningPlatformsCommandError(output, context);
   }
   const contents: ListSigningPlatformsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListSigningPlatformsResponse",
     nextToken: undefined,
-    platforms: undefined
+    platforms: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined) {
     contents.nextToken = data.nextToken;
   }
   if (data.platforms !== undefined) {
-    contents.platforms = deserializeAws_restJson1_1SigningPlatforms(
-      data.platforms,
-      context
-    );
+    contents.platforms = deserializeAws_restJson1_1SigningPlatforms(data.platforms, context);
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1ListSigningPlatformsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListSigningPlatformsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wallaby#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.wallaby#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.wallaby#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.wallaby#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wallaby#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1060,72 +905,56 @@ export async function deserializeAws_restJson1_1ListSigningProfilesCommand(
   context: __SerdeContext
 ): Promise<ListSigningProfilesCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListSigningProfilesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListSigningProfilesCommandError(output, context);
   }
   const contents: ListSigningProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListSigningProfilesResponse",
     nextToken: undefined,
-    profiles: undefined
+    profiles: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined) {
     contents.nextToken = data.nextToken;
   }
   if (data.profiles !== undefined) {
-    contents.profiles = deserializeAws_restJson1_1SigningProfiles(
-      data.profiles,
-      context
-    );
+    contents.profiles = deserializeAws_restJson1_1SigningProfiles(data.profiles, context);
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1ListSigningProfilesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListSigningProfilesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wallaby#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.wallaby#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.wallaby#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wallaby#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1136,15 +965,12 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
-    tags: undefined
+    tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.tags !== undefined) {
@@ -1155,46 +981,36 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
 
 async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListTagsForResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.wallaby#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.wallaby#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.wallaby#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wallaby#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1205,15 +1021,12 @@ export async function deserializeAws_restJson1_1PutSigningProfileCommand(
   context: __SerdeContext
 ): Promise<PutSigningProfileCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1PutSigningProfileCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutSigningProfileCommandError(output, context);
   }
   const contents: PutSigningProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutSigningProfileResponse",
-    arn: undefined
+    arn: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined) {
@@ -1224,60 +1037,44 @@ export async function deserializeAws_restJson1_1PutSigningProfileCommand(
 
 async function deserializeAws_restJson1_1PutSigningProfileCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<PutSigningProfileCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wallaby#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.wallaby#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.wallaby#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.wallaby#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.wallaby#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wallaby#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1288,15 +1085,12 @@ export async function deserializeAws_restJson1_1StartSigningJobCommand(
   context: __SerdeContext
 ): Promise<StartSigningJobCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1StartSigningJobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1StartSigningJobCommandError(output, context);
   }
   const contents: StartSigningJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartSigningJobResponse",
-    jobId: undefined
+    jobId: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.jobId !== undefined) {
@@ -1307,60 +1101,44 @@ export async function deserializeAws_restJson1_1StartSigningJobCommand(
 
 async function deserializeAws_restJson1_1StartSigningJobCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<StartSigningJobCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wallaby#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.wallaby#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.wallaby#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.wallaby#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.wallaby#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wallaby#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1375,53 +1153,43 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse"
+    __type: "TagResourceResponse",
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<TagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.wallaby#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.wallaby#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.wallaby#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wallaby#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1436,53 +1204,43 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse"
+    __type: "UntagResourceResponse",
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UntagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.wallaby#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.wallaby#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.wallaby#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wallaby#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1496,7 +1254,7 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined
+    message: undefined,
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -1513,7 +1271,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined
+    message: undefined,
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -1530,7 +1288,7 @@ const deserializeAws_restJson1_1InternalServiceErrorExceptionResponse = async (
     __type: "InternalServiceErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    message: undefined
+    message: undefined,
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -1547,7 +1305,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined
+    message: undefined,
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -1564,7 +1322,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined
+    message: undefined,
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -1581,7 +1339,7 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
     __type: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined
+    message: undefined,
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -1598,7 +1356,7 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
     __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined
+    message: undefined,
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -1613,10 +1371,10 @@ const serializeAws_restJson1_1Destination = (
 ): any => {
   let bodyParams: any = {};
   if (input.s3 !== undefined) {
-    bodyParams["s3"] = serializeAws_restJson1_1S3Destination(input.s3, context);
+    bodyParams['s3'] = serializeAws_restJson1_1S3Destination(input.s3, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1S3Destination = (
   input: S3Destination,
@@ -1624,13 +1382,13 @@ const serializeAws_restJson1_1S3Destination = (
 ): any => {
   let bodyParams: any = {};
   if (input.bucketName !== undefined) {
-    bodyParams["bucketName"] = input.bucketName;
+    bodyParams['bucketName'] = input.bucketName;
   }
   if (input.prefix !== undefined) {
-    bodyParams["prefix"] = input.prefix;
+    bodyParams['prefix'] = input.prefix;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1S3Source = (
   input: S3Source,
@@ -1638,16 +1396,16 @@ const serializeAws_restJson1_1S3Source = (
 ): any => {
   let bodyParams: any = {};
   if (input.bucketName !== undefined) {
-    bodyParams["bucketName"] = input.bucketName;
+    bodyParams['bucketName'] = input.bucketName;
   }
   if (input.key !== undefined) {
-    bodyParams["key"] = input.key;
+    bodyParams['key'] = input.key;
   }
   if (input.version !== undefined) {
-    bodyParams["version"] = input.version;
+    bodyParams['version'] = input.version;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1SigningConfigurationOverrides = (
   input: SigningConfigurationOverrides,
@@ -1655,13 +1413,13 @@ const serializeAws_restJson1_1SigningConfigurationOverrides = (
 ): any => {
   let bodyParams: any = {};
   if (input.encryptionAlgorithm !== undefined) {
-    bodyParams["encryptionAlgorithm"] = input.encryptionAlgorithm;
+    bodyParams['encryptionAlgorithm'] = input.encryptionAlgorithm;
   }
   if (input.hashAlgorithm !== undefined) {
-    bodyParams["hashAlgorithm"] = input.hashAlgorithm;
+    bodyParams['hashAlgorithm'] = input.hashAlgorithm;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1SigningMaterial = (
   input: SigningMaterial,
@@ -1669,10 +1427,10 @@ const serializeAws_restJson1_1SigningMaterial = (
 ): any => {
   let bodyParams: any = {};
   if (input.certificateArn !== undefined) {
-    bodyParams["certificateArn"] = input.certificateArn;
+    bodyParams['certificateArn'] = input.certificateArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1SigningParameters = (
   input: { [key: string]: string },
@@ -1683,7 +1441,7 @@ const serializeAws_restJson1_1SigningParameters = (
     mapParams[key] = input[key];
   });
   return mapParams;
-};
+}
 
 const serializeAws_restJson1_1SigningPlatformOverrides = (
   input: SigningPlatformOverrides,
@@ -1691,15 +1449,10 @@ const serializeAws_restJson1_1SigningPlatformOverrides = (
 ): any => {
   let bodyParams: any = {};
   if (input.signingConfiguration !== undefined) {
-    bodyParams[
-      "signingConfiguration"
-    ] = serializeAws_restJson1_1SigningConfigurationOverrides(
-      input.signingConfiguration,
-      context
-    );
+    bodyParams['signingConfiguration'] = serializeAws_restJson1_1SigningConfigurationOverrides(input.signingConfiguration, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1Source = (
   input: Source,
@@ -1707,10 +1460,10 @@ const serializeAws_restJson1_1Source = (
 ): any => {
   let bodyParams: any = {};
   if (input.s3 !== undefined) {
-    bodyParams["s3"] = serializeAws_restJson1_1S3Source(input.s3, context);
+    bodyParams['s3'] = serializeAws_restJson1_1S3Source(input.s3, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1TagMap = (
   input: { [key: string]: string },
@@ -1721,7 +1474,7 @@ const serializeAws_restJson1_1TagMap = (
     mapParams[key] = input[key];
   });
   return mapParams;
-};
+}
 
 const deserializeAws_restJson1_1EncryptionAlgorithmOptions = (
   output: any,
@@ -1730,26 +1483,25 @@ const deserializeAws_restJson1_1EncryptionAlgorithmOptions = (
   let contents: any = {
     __type: "EncryptionAlgorithmOptions",
     allowedValues: undefined,
-    defaultValue: undefined
+    defaultValue: undefined,
   };
   if (output.allowedValues !== undefined) {
-    contents.allowedValues = deserializeAws_restJson1_1EncryptionAlgorithms(
-      output.allowedValues,
-      context
-    );
+    contents.allowedValues = deserializeAws_restJson1_1EncryptionAlgorithms(output.allowedValues, context);
   }
   if (output.defaultValue !== undefined) {
     contents.defaultValue = output.defaultValue;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1EncryptionAlgorithms = (
   output: any,
   context: __SerdeContext
 ): Array<EncryptionAlgorithm | string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_restJson1_1HashAlgorithmOptions = (
   output: any,
@@ -1758,33 +1510,34 @@ const deserializeAws_restJson1_1HashAlgorithmOptions = (
   let contents: any = {
     __type: "HashAlgorithmOptions",
     allowedValues: undefined,
-    defaultValue: undefined
+    defaultValue: undefined,
   };
   if (output.allowedValues !== undefined) {
-    contents.allowedValues = deserializeAws_restJson1_1HashAlgorithms(
-      output.allowedValues,
-      context
-    );
+    contents.allowedValues = deserializeAws_restJson1_1HashAlgorithms(output.allowedValues, context);
   }
   if (output.defaultValue !== undefined) {
     contents.defaultValue = output.defaultValue;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1HashAlgorithms = (
   output: any,
   context: __SerdeContext
 ): Array<HashAlgorithm | string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_restJson1_1ImageFormats = (
   output: any,
   context: __SerdeContext
 ): Array<ImageFormat | string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_restJson1_1S3SignedObject = (
   output: any,
@@ -1793,7 +1546,7 @@ const deserializeAws_restJson1_1S3SignedObject = (
   let contents: any = {
     __type: "S3SignedObject",
     bucketName: undefined,
-    key: undefined
+    key: undefined,
   };
   if (output.bucketName !== undefined) {
     contents.bucketName = output.bucketName;
@@ -1802,7 +1555,7 @@ const deserializeAws_restJson1_1S3SignedObject = (
     contents.key = output.key;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1S3Source = (
   output: any,
@@ -1812,7 +1565,7 @@ const deserializeAws_restJson1_1S3Source = (
     __type: "S3Source",
     bucketName: undefined,
     key: undefined,
-    version: undefined
+    version: undefined,
   };
   if (output.bucketName !== undefined) {
     contents.bucketName = output.bucketName;
@@ -1824,7 +1577,7 @@ const deserializeAws_restJson1_1S3Source = (
     contents.version = output.version;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1SignedObject = (
   output: any,
@@ -1832,13 +1585,13 @@ const deserializeAws_restJson1_1SignedObject = (
 ): SignedObject => {
   let contents: any = {
     __type: "SignedObject",
-    s3: undefined
+    s3: undefined,
   };
   if (output.s3 !== undefined) {
     contents.s3 = deserializeAws_restJson1_1S3SignedObject(output.s3, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1SigningConfiguration = (
   output: any,
@@ -1847,22 +1600,16 @@ const deserializeAws_restJson1_1SigningConfiguration = (
   let contents: any = {
     __type: "SigningConfiguration",
     encryptionAlgorithmOptions: undefined,
-    hashAlgorithmOptions: undefined
+    hashAlgorithmOptions: undefined,
   };
   if (output.encryptionAlgorithmOptions !== undefined) {
-    contents.encryptionAlgorithmOptions = deserializeAws_restJson1_1EncryptionAlgorithmOptions(
-      output.encryptionAlgorithmOptions,
-      context
-    );
+    contents.encryptionAlgorithmOptions = deserializeAws_restJson1_1EncryptionAlgorithmOptions(output.encryptionAlgorithmOptions, context);
   }
   if (output.hashAlgorithmOptions !== undefined) {
-    contents.hashAlgorithmOptions = deserializeAws_restJson1_1HashAlgorithmOptions(
-      output.hashAlgorithmOptions,
-      context
-    );
+    contents.hashAlgorithmOptions = deserializeAws_restJson1_1HashAlgorithmOptions(output.hashAlgorithmOptions, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1SigningConfigurationOverrides = (
   output: any,
@@ -1871,7 +1618,7 @@ const deserializeAws_restJson1_1SigningConfigurationOverrides = (
   let contents: any = {
     __type: "SigningConfigurationOverrides",
     encryptionAlgorithm: undefined,
-    hashAlgorithm: undefined
+    hashAlgorithm: undefined,
   };
   if (output.encryptionAlgorithm !== undefined) {
     contents.encryptionAlgorithm = output.encryptionAlgorithm;
@@ -1880,7 +1627,7 @@ const deserializeAws_restJson1_1SigningConfigurationOverrides = (
     contents.hashAlgorithm = output.hashAlgorithm;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1SigningImageFormat = (
   output: any,
@@ -1889,19 +1636,16 @@ const deserializeAws_restJson1_1SigningImageFormat = (
   let contents: any = {
     __type: "SigningImageFormat",
     defaultFormat: undefined,
-    supportedFormats: undefined
+    supportedFormats: undefined,
   };
   if (output.defaultFormat !== undefined) {
     contents.defaultFormat = output.defaultFormat;
   }
   if (output.supportedFormats !== undefined) {
-    contents.supportedFormats = deserializeAws_restJson1_1ImageFormats(
-      output.supportedFormats,
-      context
-    );
+    contents.supportedFormats = deserializeAws_restJson1_1ImageFormats(output.supportedFormats, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1SigningJob = (
   output: any,
@@ -1914,29 +1658,19 @@ const deserializeAws_restJson1_1SigningJob = (
     signedObject: undefined,
     signingMaterial: undefined,
     source: undefined,
-    status: undefined
+    status: undefined,
   };
   if (output.createdAt !== undefined) {
-    contents.createdAt = new Date(
-      output.createdAt % 1 != 0
-        ? Math.round(output.createdAt * 1000)
-        : output.createdAt
-    );
+    contents.createdAt = new Date(output.createdAt % 1 != 0 ? Math.round(output.createdAt * 1000) : output.createdAt);
   }
   if (output.jobId !== undefined) {
     contents.jobId = output.jobId;
   }
   if (output.signedObject !== undefined) {
-    contents.signedObject = deserializeAws_restJson1_1SignedObject(
-      output.signedObject,
-      context
-    );
+    contents.signedObject = deserializeAws_restJson1_1SignedObject(output.signedObject, context);
   }
   if (output.signingMaterial !== undefined) {
-    contents.signingMaterial = deserializeAws_restJson1_1SigningMaterial(
-      output.signingMaterial,
-      context
-    );
+    contents.signingMaterial = deserializeAws_restJson1_1SigningMaterial(output.signingMaterial, context);
   }
   if (output.source !== undefined) {
     contents.source = deserializeAws_restJson1_1Source(output.source, context);
@@ -1945,7 +1679,7 @@ const deserializeAws_restJson1_1SigningJob = (
     contents.status = output.status;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1SigningJobs = (
   output: any,
@@ -1954,7 +1688,7 @@ const deserializeAws_restJson1_1SigningJobs = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SigningJob(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1SigningMaterial = (
   output: any,
@@ -1962,13 +1696,13 @@ const deserializeAws_restJson1_1SigningMaterial = (
 ): SigningMaterial => {
   let contents: any = {
     __type: "SigningMaterial",
-    certificateArn: undefined
+    certificateArn: undefined,
   };
   if (output.certificateArn !== undefined) {
     contents.certificateArn = output.certificateArn;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1SigningParameters = (
   output: any,
@@ -1979,7 +1713,7 @@ const deserializeAws_restJson1_1SigningParameters = (
     mapParams[key] = output[key];
   });
   return mapParams;
-};
+}
 
 const deserializeAws_restJson1_1SigningPlatform = (
   output: any,
@@ -1994,7 +1728,7 @@ const deserializeAws_restJson1_1SigningPlatform = (
     platformId: undefined,
     signingConfiguration: undefined,
     signingImageFormat: undefined,
-    target: undefined
+    target: undefined,
   };
   if (output.category !== undefined) {
     contents.category = output.category;
@@ -2012,22 +1746,16 @@ const deserializeAws_restJson1_1SigningPlatform = (
     contents.platformId = output.platformId;
   }
   if (output.signingConfiguration !== undefined) {
-    contents.signingConfiguration = deserializeAws_restJson1_1SigningConfiguration(
-      output.signingConfiguration,
-      context
-    );
+    contents.signingConfiguration = deserializeAws_restJson1_1SigningConfiguration(output.signingConfiguration, context);
   }
   if (output.signingImageFormat !== undefined) {
-    contents.signingImageFormat = deserializeAws_restJson1_1SigningImageFormat(
-      output.signingImageFormat,
-      context
-    );
+    contents.signingImageFormat = deserializeAws_restJson1_1SigningImageFormat(output.signingImageFormat, context);
   }
   if (output.target !== undefined) {
     contents.target = output.target;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1SigningPlatformOverrides = (
   output: any,
@@ -2035,16 +1763,13 @@ const deserializeAws_restJson1_1SigningPlatformOverrides = (
 ): SigningPlatformOverrides => {
   let contents: any = {
     __type: "SigningPlatformOverrides",
-    signingConfiguration: undefined
+    signingConfiguration: undefined,
   };
   if (output.signingConfiguration !== undefined) {
-    contents.signingConfiguration = deserializeAws_restJson1_1SigningConfigurationOverrides(
-      output.signingConfiguration,
-      context
-    );
+    contents.signingConfiguration = deserializeAws_restJson1_1SigningConfigurationOverrides(output.signingConfiguration, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1SigningPlatforms = (
   output: any,
@@ -2053,7 +1778,7 @@ const deserializeAws_restJson1_1SigningPlatforms = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SigningPlatform(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1SigningProfile = (
   output: any,
@@ -2067,7 +1792,7 @@ const deserializeAws_restJson1_1SigningProfile = (
     signingMaterial: undefined,
     signingParameters: undefined,
     status: undefined,
-    tags: undefined
+    tags: undefined,
   };
   if (output.arn !== undefined) {
     contents.arn = output.arn;
@@ -2079,16 +1804,10 @@ const deserializeAws_restJson1_1SigningProfile = (
     contents.profileName = output.profileName;
   }
   if (output.signingMaterial !== undefined) {
-    contents.signingMaterial = deserializeAws_restJson1_1SigningMaterial(
-      output.signingMaterial,
-      context
-    );
+    contents.signingMaterial = deserializeAws_restJson1_1SigningMaterial(output.signingMaterial, context);
   }
   if (output.signingParameters !== undefined) {
-    contents.signingParameters = deserializeAws_restJson1_1SigningParameters(
-      output.signingParameters,
-      context
-    );
+    contents.signingParameters = deserializeAws_restJson1_1SigningParameters(output.signingParameters, context);
   }
   if (output.status !== undefined) {
     contents.status = output.status;
@@ -2097,7 +1816,7 @@ const deserializeAws_restJson1_1SigningProfile = (
     contents.tags = deserializeAws_restJson1_1TagMap(output.tags, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1SigningProfiles = (
   output: any,
@@ -2106,7 +1825,7 @@ const deserializeAws_restJson1_1SigningProfiles = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SigningProfile(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1Source = (
   output: any,
@@ -2114,13 +1833,13 @@ const deserializeAws_restJson1_1Source = (
 ): Source => {
   let contents: any = {
     __type: "Source",
-    s3: undefined
+    s3: undefined,
   };
   if (output.s3 !== undefined) {
     contents.s3 = deserializeAws_restJson1_1S3Source(output.s3, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1TagMap = (
   output: any,
@@ -2131,7 +1850,7 @@ const deserializeAws_restJson1_1TagMap = (
     mapParams[key] = output[key];
   });
   return mapParams;
-};
+}
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

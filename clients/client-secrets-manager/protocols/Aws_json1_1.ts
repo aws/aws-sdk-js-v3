@@ -557,7 +557,7 @@ async function deserializeAws_json1_1CancelRotateSecretCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -578,7 +578,6 @@ async function deserializeAws_json1_1CancelRotateSecretCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
@@ -616,7 +615,7 @@ async function deserializeAws_json1_1CreateSecretCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -657,7 +656,6 @@ async function deserializeAws_json1_1CreateSecretCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
@@ -695,7 +693,7 @@ async function deserializeAws_json1_1DeleteResourcePolicyCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -712,7 +710,6 @@ async function deserializeAws_json1_1DeleteResourcePolicyCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
@@ -750,7 +747,7 @@ async function deserializeAws_json1_1DeleteSecretCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -771,7 +768,6 @@ async function deserializeAws_json1_1DeleteSecretCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
@@ -809,7 +805,7 @@ async function deserializeAws_json1_1DescribeSecretCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -822,7 +818,6 @@ async function deserializeAws_json1_1DescribeSecretCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
@@ -860,7 +855,7 @@ async function deserializeAws_json1_1GetRandomPasswordCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -877,7 +872,6 @@ async function deserializeAws_json1_1GetRandomPasswordCommandError(
       response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
@@ -915,7 +909,7 @@ async function deserializeAws_json1_1GetResourcePolicyCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -932,7 +926,6 @@ async function deserializeAws_json1_1GetResourcePolicyCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
@@ -970,7 +963,7 @@ async function deserializeAws_json1_1GetSecretValueCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -995,7 +988,6 @@ async function deserializeAws_json1_1GetSecretValueCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
@@ -1033,7 +1025,7 @@ async function deserializeAws_json1_1ListSecretVersionIdsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1050,7 +1042,6 @@ async function deserializeAws_json1_1ListSecretVersionIdsCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
@@ -1088,7 +1079,7 @@ async function deserializeAws_json1_1ListSecretsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1105,7 +1096,6 @@ async function deserializeAws_json1_1ListSecretsCommandError(
       response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
@@ -1143,7 +1133,7 @@ async function deserializeAws_json1_1PutResourcePolicyCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1168,7 +1158,6 @@ async function deserializeAws_json1_1PutResourcePolicyCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
@@ -1206,7 +1195,7 @@ async function deserializeAws_json1_1PutSecretValueCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1239,7 +1228,6 @@ async function deserializeAws_json1_1PutSecretValueCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
@@ -1277,7 +1265,7 @@ async function deserializeAws_json1_1RestoreSecretCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1298,7 +1286,6 @@ async function deserializeAws_json1_1RestoreSecretCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
@@ -1336,7 +1323,7 @@ async function deserializeAws_json1_1RotateSecretCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1357,7 +1344,6 @@ async function deserializeAws_json1_1RotateSecretCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
@@ -1390,7 +1376,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1411,7 +1397,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
@@ -1444,7 +1429,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1465,7 +1450,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
@@ -1503,7 +1487,7 @@ async function deserializeAws_json1_1UpdateSecretCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1544,7 +1528,6 @@ async function deserializeAws_json1_1UpdateSecretCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",
@@ -1582,7 +1565,7 @@ async function deserializeAws_json1_1UpdateSecretVersionStageCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1607,7 +1590,6 @@ async function deserializeAws_json1_1UpdateSecretVersionStageCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.AWSMimirService#${errorCode}`,
         $fault: "client",

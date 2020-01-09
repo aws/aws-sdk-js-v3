@@ -1,17 +1,17 @@
 import {
   ACMPCAClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ACMPCAClient";
 import { TagCertificateAuthorityRequest } from "../models/index";
 import {
   deserializeAws_json1_1TagCertificateAuthorityCommand,
-  serializeAws_json1_1TagCertificateAuthorityCommand
+  serializeAws_json1_1TagCertificateAuthorityCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,17 +21,13 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
 } from "@aws-sdk/types";
 
 export type TagCertificateAuthorityCommandInput = TagCertificateAuthorityRequest;
-export type TagCertificateAuthorityCommandOutput = __MetadataBearer;
+export type TagCertificateAuthorityCommandOutput = __MetadataBearer
 
-export class TagCertificateAuthorityCommand extends $Command<
-  TagCertificateAuthorityCommandInput,
-  TagCertificateAuthorityCommandOutput,
-  ACMPCAClientResolvedConfig
-> {
+export class TagCertificateAuthorityCommand extends $Command<TagCertificateAuthorityCommandInput, TagCertificateAuthorityCommandOutput, ACMPCAClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,19 +41,14 @@ export class TagCertificateAuthorityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ACMPCAClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    TagCertificateAuthorityCommandInput,
-    TagCertificateAuthorityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<TagCertificateAuthorityCommandInput, TagCertificateAuthorityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -77,10 +68,7 @@ export class TagCertificateAuthorityCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<TagCertificateAuthorityCommandOutput> {
-    return deserializeAws_json1_1TagCertificateAuthorityCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1TagCertificateAuthorityCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -361,9 +361,7 @@ export namespace AliasRoutingConfiguration {
  *          </p>
  *
  */
-export interface CodeStorageExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CodeStorageExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CodeStorageExceededException";
   $fault: "client";
   /**
@@ -1056,9 +1054,7 @@ export namespace DestinationConfig {
  *          <p>Need additional permissions to configure VPC settings.</p>
  *
  */
-export interface EC2AccessDeniedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface EC2AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "EC2AccessDeniedException";
   $fault: "server";
   Message?: string;
@@ -1077,9 +1073,7 @@ export namespace EC2AccessDeniedException {
  *       for the Lambda function.</p>
  *
  */
-export interface EC2ThrottledException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface EC2ThrottledException extends _smithy.SmithyException, $MetadataBearer {
   __type: "EC2ThrottledException";
   $fault: "server";
   Message?: string;
@@ -1097,9 +1091,7 @@ export namespace EC2ThrottledException {
  *          <p>AWS Lambda received an unexpected EC2 client exception while setting up for the Lambda function.</p>
  *
  */
-export interface EC2UnexpectedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface EC2UnexpectedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "EC2UnexpectedException";
   $fault: "server";
   EC2ErrorCode?: string;
@@ -1119,9 +1111,7 @@ export namespace EC2UnexpectedException {
  *       function configuration, because the limit for network interfaces has been reached.</p>
  *
  */
-export interface ENILimitReachedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ENILimitReachedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ENILimitReachedException";
   $fault: "server";
   Message?: string;
@@ -1331,7 +1321,7 @@ export namespace EventSourceMappingConfiguration {
 export enum EventSourcePosition {
   AT_TIMESTAMP = "AT_TIMESTAMP",
   LATEST = "LATEST",
-  TRIM_HORIZON = "TRIM_HORIZON"
+  TRIM_HORIZON = "TRIM_HORIZON",
 }
 
 /**
@@ -1672,7 +1662,7 @@ export namespace FunctionEventInvokeConfig {
 }
 
 export enum FunctionVersion {
-  ALL = "ALL"
+  ALL = "ALL",
 }
 
 export interface GetAccountSettingsRequest {
@@ -2238,8 +2228,7 @@ export namespace GetProvisionedConcurrencyConfigRequest {
   }
 }
 
-export interface GetProvisionedConcurrencyConfigResponse
-  extends $MetadataBearer {
+export interface GetProvisionedConcurrencyConfigResponse extends $MetadataBearer {
   __type?: "GetProvisionedConcurrencyConfigResponse";
   /**
    *
@@ -2295,9 +2284,7 @@ export namespace GetProvisionedConcurrencyConfigResponse {
  *          <p>One of the parameters in the request is invalid.</p>
  *
  */
-export interface InvalidParameterValueException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterValueException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidParameterValueException";
   $fault: "client";
   /**
@@ -2326,9 +2313,7 @@ export namespace InvalidParameterValueException {
  *          <p>The request body could not be parsed as JSON.</p>
  *
  */
-export interface InvalidRequestContentException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestContentException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRequestContentException";
   $fault: "client";
   /**
@@ -2357,9 +2342,7 @@ export namespace InvalidRequestContentException {
  *          <p>The runtime or runtime version specified is not supported.</p>
  *
  */
-export interface InvalidRuntimeException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRuntimeException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRuntimeException";
   $fault: "server";
   Message?: string;
@@ -2377,9 +2360,7 @@ export namespace InvalidRuntimeException {
  *          <p>The Security Group ID provided in the Lambda function VPC configuration is invalid.</p>
  *
  */
-export interface InvalidSecurityGroupIDException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidSecurityGroupIDException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidSecurityGroupIDException";
   $fault: "server";
   Message?: string;
@@ -2397,9 +2378,7 @@ export namespace InvalidSecurityGroupIDException {
  *          <p>The Subnet ID provided in the Lambda function VPC configuration is invalid.</p>
  *
  */
-export interface InvalidSubnetIDException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidSubnetIDException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidSubnetIDException";
   $fault: "server";
   Message?: string;
@@ -2417,9 +2396,7 @@ export namespace InvalidSubnetIDException {
  *          <p>AWS Lambda could not unzip the deployment package.</p>
  *
  */
-export interface InvalidZipFileException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidZipFileException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidZipFileException";
   $fault: "server";
   Message?: string;
@@ -2575,7 +2552,7 @@ export namespace InvocationResponse {
 export enum InvocationType {
   DryRun = "DryRun",
   Event = "Event",
-  RequestResponse = "RequestResponse"
+  RequestResponse = "RequestResponse",
 }
 
 export interface InvokeAsyncRequest {
@@ -2641,9 +2618,7 @@ export namespace InvokeAsyncResponse {
  *       function's KMS permissions.</p>
  *
  */
-export interface KMSAccessDeniedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface KMSAccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "KMSAccessDeniedException";
   $fault: "server";
   Message?: string;
@@ -2662,9 +2637,7 @@ export namespace KMSAccessDeniedException {
  *       function's KMS key settings.</p>
  *
  */
-export interface KMSDisabledException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface KMSDisabledException extends _smithy.SmithyException, $MetadataBearer {
   __type: "KMSDisabledException";
   $fault: "server";
   Message?: string;
@@ -2683,9 +2656,7 @@ export namespace KMSDisabledException {
  *       Decrypt. Check the function's KMS key settings.</p>
  *
  */
-export interface KMSInvalidStateException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface KMSInvalidStateException extends _smithy.SmithyException, $MetadataBearer {
   __type: "KMSInvalidStateException";
   $fault: "server";
   Message?: string;
@@ -2704,9 +2675,7 @@ export namespace KMSInvalidStateException {
  *       KMS key settings. </p>
  *
  */
-export interface KMSNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface KMSNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "KMSNotFoundException";
   $fault: "server";
   Message?: string;
@@ -2722,14 +2691,14 @@ export namespace KMSNotFoundException {
 export enum LastUpdateStatus {
   Failed = "Failed",
   InProgress = "InProgress",
-  Successful = "Successful"
+  Successful = "Successful",
 }
 
 export enum LastUpdateStatusReasonCode {
   EniLimitExceeded = "EniLimitExceeded",
   InsufficientRolePermissions = "InsufficientRolePermissions",
   InternalError = "InternalError",
-  InvalidConfiguration = "InvalidConfiguration"
+  InvalidConfiguration = "InvalidConfiguration",
 }
 
 /**
@@ -3160,8 +3129,7 @@ export namespace ListFunctionEventInvokeConfigsRequest {
   }
 }
 
-export interface ListFunctionEventInvokeConfigsResponse
-  extends $MetadataBearer {
+export interface ListFunctionEventInvokeConfigsResponse extends $MetadataBearer {
   __type?: "ListFunctionEventInvokeConfigsResponse";
   /**
    *
@@ -3412,8 +3380,7 @@ export namespace ListProvisionedConcurrencyConfigsRequest {
   }
 }
 
-export interface ListProvisionedConcurrencyConfigsResponse
-  extends $MetadataBearer {
+export interface ListProvisionedConcurrencyConfigsResponse extends $MetadataBearer {
   __type?: "ListProvisionedConcurrencyConfigsResponse";
   /**
    *
@@ -3542,7 +3509,7 @@ export namespace ListVersionsByFunctionResponse {
 
 export enum LogType {
   None = "None",
-  Tail = "Tail"
+  Tail = "Tail",
 }
 
 /**
@@ -3593,9 +3560,7 @@ export namespace OnSuccess {
  *          </p>
  *
  */
-export interface PolicyLengthExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface PolicyLengthExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "PolicyLengthExceededException";
   $fault: "client";
   Type?: string;
@@ -3615,9 +3580,7 @@ export namespace PolicyLengthExceededException {
  *       resource.</p>
  *
  */
-export interface PreconditionFailedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface PreconditionFailedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "PreconditionFailedException";
   $fault: "client";
   /**
@@ -3709,9 +3672,7 @@ export namespace ProvisionedConcurrencyConfigListItem {
  *          <p>The specified configuration does not exist.</p>
  *
  */
-export interface ProvisionedConcurrencyConfigNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ProvisionedConcurrencyConfigNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ProvisionedConcurrencyConfigNotFoundException";
   $fault: "client";
   Type?: string;
@@ -3719,9 +3680,7 @@ export interface ProvisionedConcurrencyConfigNotFoundException
 }
 
 export namespace ProvisionedConcurrencyConfigNotFoundException {
-  export function isa(
-    o: any
-  ): o is ProvisionedConcurrencyConfigNotFoundException {
+  export function isa(o: any): o is ProvisionedConcurrencyConfigNotFoundException {
     return _smithy.isa(o, "ProvisionedConcurrencyConfigNotFoundException");
   }
 }
@@ -3729,7 +3688,7 @@ export namespace ProvisionedConcurrencyConfigNotFoundException {
 export enum ProvisionedConcurrencyStatusEnum {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
-  READY = "READY"
+  READY = "READY",
 }
 
 export interface PublishLayerVersionRequest {
@@ -4089,8 +4048,7 @@ export namespace PutProvisionedConcurrencyConfigRequest {
   }
 }
 
-export interface PutProvisionedConcurrencyConfigResponse
-  extends $MetadataBearer {
+export interface PutProvisionedConcurrencyConfigResponse extends $MetadataBearer {
   __type?: "PutProvisionedConcurrencyConfigResponse";
   /**
    *
@@ -4242,9 +4200,7 @@ export namespace RemovePermissionRequest {
  *         <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">Limits</a>. </p>
  *
  */
-export interface RequestTooLargeException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface RequestTooLargeException extends _smithy.SmithyException, $MetadataBearer {
   __type: "RequestTooLargeException";
   $fault: "client";
   Type?: string;
@@ -4262,9 +4218,7 @@ export namespace RequestTooLargeException {
  *          <p>The resource already exists, or another operation is in progress.</p>
  *
  */
-export interface ResourceConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceConflictException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceConflictException";
   $fault: "client";
   /**
@@ -4294,9 +4248,7 @@ export namespace ResourceConflictException {
  *       Mapping in CREATING, or tried to delete a EventSource mapping currently in the UPDATING state. </p>
  *
  */
-export interface ResourceInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   Message?: string;
@@ -4314,9 +4266,7 @@ export namespace ResourceInUseException {
  *          <p>The resource specified in the request does not exist.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -4335,9 +4285,7 @@ export namespace ResourceNotFoundException {
  *       reestablish and try again.</p>
  *
  */
-export interface ResourceNotReadyException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotReadyException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotReadyException";
   $fault: "server";
   /**
@@ -4380,7 +4328,7 @@ export enum Runtime {
   python36 = "python3.6",
   python37 = "python3.7",
   python38 = "python3.8",
-  ruby25 = "ruby2.5"
+  ruby25 = "ruby2.5",
 }
 
 /**
@@ -4388,9 +4336,7 @@ export enum Runtime {
  *          <p>The AWS Lambda service encountered an internal error.</p>
  *
  */
-export interface ServiceException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceException";
   $fault: "server";
   Message?: string;
@@ -4407,7 +4353,7 @@ export enum State {
   Active = "Active",
   Failed = "Failed",
   Inactive = "Inactive",
-  Pending = "Pending"
+  Pending = "Pending",
 }
 
 export enum StateReasonCode {
@@ -4418,7 +4364,7 @@ export enum StateReasonCode {
   InternalError = "InternalError",
   InvalidConfiguration = "InvalidConfiguration",
   Restoring = "Restoring",
-  SubnetOutOfIPAddresses = "SubnetOutOfIPAddresses"
+  SubnetOutOfIPAddresses = "SubnetOutOfIPAddresses",
 }
 
 /**
@@ -4427,9 +4373,7 @@ export enum StateReasonCode {
  *       has no available IP addresses.</p>
  *
  */
-export interface SubnetIPAddressLimitReachedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface SubnetIPAddressLimitReachedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "SubnetIPAddressLimitReachedException";
   $fault: "server";
   Message?: string;
@@ -4470,7 +4414,7 @@ export enum ThrottleReason {
   ConcurrentInvocationLimitExceeded = "ConcurrentInvocationLimitExceeded",
   FunctionInvocationRateLimitExceeded = "FunctionInvocationRateLimitExceeded",
   ReservedFunctionConcurrentInvocationLimitExceeded = "ReservedFunctionConcurrentInvocationLimitExceeded",
-  ReservedFunctionInvocationRateLimitExceeded = "ReservedFunctionInvocationRateLimitExceeded"
+  ReservedFunctionInvocationRateLimitExceeded = "ReservedFunctionInvocationRateLimitExceeded",
 }
 
 /**
@@ -4478,9 +4422,7 @@ export enum ThrottleReason {
  *          <p>The request throughput limit was exceeded.</p>
  *
  */
-export interface TooManyRequestsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TooManyRequestsException";
   $fault: "client";
   Reason?: ThrottleReason | string;
@@ -4544,7 +4486,7 @@ export namespace TracingConfigResponse {
 
 export enum TracingMode {
   Active = "Active",
-  PassThrough = "PassThrough"
+  PassThrough = "PassThrough",
 }
 
 /**
@@ -4552,9 +4494,7 @@ export enum TracingMode {
  *          <p>The content type of the <code>Invoke</code> request body is not JSON.</p>
  *
  */
-export interface UnsupportedMediaTypeException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnsupportedMediaTypeException extends _smithy.SmithyException, $MetadataBearer {
   __type: "UnsupportedMediaTypeException";
   $fault: "client";
   Type?: string;

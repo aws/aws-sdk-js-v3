@@ -97,7 +97,7 @@ async function deserializeAws_json1_1GenerateDataSetCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -106,7 +106,6 @@ async function deserializeAws_json1_1GenerateDataSetCommandError(
       response = await deserializeAws_json1_1MarketplaceCommerceAnalyticsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.marketplace.businessintelligenceservice.v20150701#${errorCode}`,
         $fault: "client",
@@ -144,7 +143,7 @@ async function deserializeAws_json1_1StartSupportDataExportCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -153,7 +152,6 @@ async function deserializeAws_json1_1StartSupportDataExportCommandError(
       response = await deserializeAws_json1_1MarketplaceCommerceAnalyticsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.marketplace.businessintelligenceservice.v20150701#${errorCode}`,
         $fault: "client",

@@ -121,9 +121,7 @@ export namespace AmiDistributionConfiguration {
  *          <p>You have exceeded the permitted request rate for the specific operation.</p>
  *
  */
-export interface CallRateLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CallRateLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CallRateLimitExceededException";
   $fault: "client";
   message?: string;
@@ -197,9 +195,7 @@ export namespace CancelImageCreationResponse {
  *          <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an invalid resource identifier.</p>
  *
  */
-export interface ClientException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ClientException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ClientException";
   $fault: "client";
   message?: string;
@@ -356,7 +352,7 @@ export namespace ComponentConfiguration {
 }
 
 export enum ComponentFormat {
-  SHELL = "SHELL"
+  SHELL = "SHELL",
 }
 
 /**
@@ -445,7 +441,7 @@ export namespace ComponentSummary {
 
 export enum ComponentType {
   BUILD = "BUILD",
-  TEST = "TEST"
+  TEST = "TEST",
 }
 
 /**
@@ -699,8 +695,7 @@ export namespace CreateDistributionConfigurationRequest {
   }
 }
 
-export interface CreateDistributionConfigurationResponse
-  extends $MetadataBearer {
+export interface CreateDistributionConfigurationResponse extends $MetadataBearer {
   __type?: "CreateDistributionConfigurationResponse";
   /**
    *
@@ -1252,8 +1247,7 @@ export namespace CreateInfrastructureConfigurationRequest {
   }
 }
 
-export interface CreateInfrastructureConfigurationResponse
-  extends $MetadataBearer {
+export interface CreateInfrastructureConfigurationResponse extends $MetadataBearer {
   __type?: "CreateInfrastructureConfigurationResponse";
   /**
    *
@@ -1359,8 +1353,7 @@ export namespace DeleteDistributionConfigurationRequest {
   }
 }
 
-export interface DeleteDistributionConfigurationResponse
-  extends $MetadataBearer {
+export interface DeleteDistributionConfigurationResponse extends $MetadataBearer {
   __type?: "DeleteDistributionConfigurationResponse";
   /**
    *
@@ -1552,8 +1545,7 @@ export namespace DeleteInfrastructureConfigurationRequest {
   }
 }
 
-export interface DeleteInfrastructureConfigurationResponse
-  extends $MetadataBearer {
+export interface DeleteInfrastructureConfigurationResponse extends $MetadataBearer {
   __type?: "DeleteInfrastructureConfigurationResponse";
   /**
    *
@@ -1821,7 +1813,7 @@ export enum EbsVolumeType {
   IO1 = "io1",
   SC1 = "sc1",
   ST1 = "st1",
-  STANDARD = "standard"
+  STANDARD = "standard",
 }
 
 /**
@@ -1863,9 +1855,7 @@ export namespace Filter {
  *          <p>You are not authorized to perform the requested operation.</p>
  *
  */
-export interface ForbiddenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ForbiddenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ForbiddenException";
   $fault: "client";
   message?: string;
@@ -2296,8 +2286,7 @@ export namespace GetInfrastructureConfigurationRequest {
  *     </p>
  *
  */
-export interface GetInfrastructureConfigurationResponse
-  extends $MetadataBearer {
+export interface GetInfrastructureConfigurationResponse extends $MetadataBearer {
   __type?: "GetInfrastructureConfigurationResponse";
   /**
    *
@@ -2331,9 +2320,7 @@ export namespace GetInfrastructureConfigurationResponse {
  *          <p>You have specified an client token for an operation using parameter values that differ from a previous request that used the same client token.</p>
  *
  */
-export interface IdempotentParameterMismatchException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface IdempotentParameterMismatchException extends _smithy.SmithyException, $MetadataBearer {
   __type: "IdempotentParameterMismatchException";
   $fault: "client";
   message?: string;
@@ -2781,7 +2768,7 @@ export enum ImageStatus {
   FAILED = "FAILED",
   INTEGRATING = "INTEGRATING",
   PENDING = "PENDING",
-  TESTING = "TESTING"
+  TESTING = "TESTING",
 }
 
 /**
@@ -3355,9 +3342,7 @@ export namespace InstanceBlockDeviceMapping {
  *          <p>You have provided an invalid pagination token in your request.</p>
  *
  */
-export interface InvalidPaginationTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidPaginationTokenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidPaginationTokenException";
   $fault: "client";
   message?: string;
@@ -3374,9 +3359,7 @@ export namespace InvalidPaginationTokenException {
  *          <p>You have specified two or more mutually exclusive parameters. Review the error message for details.</p>
  *
  */
-export interface InvalidParameterCombinationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterCombinationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidParameterCombinationException";
   $fault: "client";
   message?: string;
@@ -3393,9 +3376,7 @@ export namespace InvalidParameterCombinationException {
  *          <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
  *
  */
-export interface InvalidParameterException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -3412,9 +3393,7 @@ export namespace InvalidParameterException {
  *          <p>The value that you provided for the specified parameter is invalid.</p>
  *
  */
-export interface InvalidParameterValueException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterValueException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidParameterValueException";
   $fault: "client";
   message?: string;
@@ -3431,9 +3410,7 @@ export namespace InvalidParameterValueException {
  *          <p>You have made a request for an action that is not supported by the service.</p>
  *
  */
-export interface InvalidRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRequestException";
   $fault: "client";
   message?: string;
@@ -3450,9 +3427,7 @@ export namespace InvalidRequestException {
  *          <p>Your version number is out of bounds or does not follow the required syntax.</p>
  *
  */
-export interface InvalidVersionNumberException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidVersionNumberException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidVersionNumberException";
   $fault: "client";
   message?: string;
@@ -3699,8 +3674,7 @@ export namespace ListDistributionConfigurationsRequest {
   }
 }
 
-export interface ListDistributionConfigurationsResponse
-  extends $MetadataBearer {
+export interface ListDistributionConfigurationsResponse extends $MetadataBearer {
   __type?: "ListDistributionConfigurationsResponse";
   /**
    *
@@ -3709,9 +3683,7 @@ export interface ListDistributionConfigurationsResponse
    *     </p>
    *
    */
-  distributionConfigurationSummaryList?: Array<
-    DistributionConfigurationSummary
-  >;
+  distributionConfigurationSummaryList?: Array<DistributionConfigurationSummary>;
 
   /**
    *
@@ -4170,8 +4142,7 @@ export namespace ListInfrastructureConfigurationsRequest {
   }
 }
 
-export interface ListInfrastructureConfigurationsResponse
-  extends $MetadataBearer {
+export interface ListInfrastructureConfigurationsResponse extends $MetadataBearer {
   __type?: "ListInfrastructureConfigurationsResponse";
   /**
    *
@@ -4180,9 +4151,7 @@ export interface ListInfrastructureConfigurationsResponse
    *     </p>
    *
    */
-  infrastructureConfigurationSummaryList?: Array<
-    InfrastructureConfigurationSummary
-  >;
+  infrastructureConfigurationSummaryList?: Array<InfrastructureConfigurationSummary>;
 
   /**
    *
@@ -4293,22 +4262,22 @@ export namespace OutputResources {
 export enum Ownership {
   AMAZON = "Amazon",
   SELF = "Self",
-  SHARED = "Shared"
+  SHARED = "Shared",
 }
 
 export enum PipelineExecutionStartCondition {
   EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE = "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE",
-  EXPRESSION_MATCH_ONLY = "EXPRESSION_MATCH_ONLY"
+  EXPRESSION_MATCH_ONLY = "EXPRESSION_MATCH_ONLY",
 }
 
 export enum PipelineStatus {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum Platform {
   LINUX = "Linux",
-  WINDOWS = "Windows"
+  WINDOWS = "Windows",
 }
 
 export interface PutComponentPolicyRequest {
@@ -4478,9 +4447,7 @@ export namespace PutImageRecipePolicyResponse {
  *          <p>The resource that you are trying to create already exists.</p>
  *
  */
-export interface ResourceAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -4497,9 +4464,7 @@ export namespace ResourceAlreadyExistsException {
  *          <p>You have attempted to mutate or delete a resource with a dependency that is prohibitting this action. See the error message for more details.</p>
  *
  */
-export interface ResourceDependencyException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceDependencyException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceDependencyException";
   $fault: "client";
   message?: string;
@@ -4516,9 +4481,7 @@ export namespace ResourceDependencyException {
  *          <p>The resource that you are trying to operate on is currently in use. Review the message details, and retry later.</p>
  *
  */
-export interface ResourceInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   message?: string;
@@ -4535,9 +4498,7 @@ export namespace ResourceInUseException {
  *          <p>At least one of the resources referenced by your request does not exist.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -4619,9 +4580,7 @@ export namespace Schedule {
  *          <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
  *
  */
-export interface ServiceException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceException";
   $fault: "server";
   message?: string;
@@ -4638,9 +4597,7 @@ export namespace ServiceException {
  *          <p>The service is unable to process your request at this time.</p>
  *
  */
-export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceUnavailableException";
   $fault: "server";
   message?: string;
@@ -4831,8 +4788,7 @@ export namespace UpdateDistributionConfigurationRequest {
   }
 }
 
-export interface UpdateDistributionConfigurationResponse
-  extends $MetadataBearer {
+export interface UpdateDistributionConfigurationResponse extends $MetadataBearer {
   __type?: "UpdateDistributionConfigurationResponse";
   /**
    *
@@ -5102,8 +5058,7 @@ export namespace UpdateInfrastructureConfigurationRequest {
   }
 }
 
-export interface UpdateInfrastructureConfigurationResponse
-  extends $MetadataBearer {
+export interface UpdateInfrastructureConfigurationResponse extends $MetadataBearer {
   __type?: "UpdateInfrastructureConfigurationResponse";
   /**
    *

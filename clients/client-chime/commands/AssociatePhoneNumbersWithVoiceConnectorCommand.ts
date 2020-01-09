@@ -1,20 +1,20 @@
 import {
   ChimeClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ChimeClient";
 import {
   AssociatePhoneNumbersWithVoiceConnectorRequest,
-  AssociatePhoneNumbersWithVoiceConnectorResponse
+  AssociatePhoneNumbersWithVoiceConnectorResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnectorCommand,
-  serializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnectorCommand
+  serializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnectorCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,23 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type AssociatePhoneNumbersWithVoiceConnectorCommandInput = AssociatePhoneNumbersWithVoiceConnectorRequest;
 export type AssociatePhoneNumbersWithVoiceConnectorCommandOutput = AssociatePhoneNumbersWithVoiceConnectorResponse;
 
-export class AssociatePhoneNumbersWithVoiceConnectorCommand extends $Command<
-  AssociatePhoneNumbersWithVoiceConnectorCommandInput,
-  AssociatePhoneNumbersWithVoiceConnectorCommandOutput,
-  ChimeClientResolvedConfig
-> {
+export class AssociatePhoneNumbersWithVoiceConnectorCommand extends $Command<AssociatePhoneNumbersWithVoiceConnectorCommandInput, AssociatePhoneNumbersWithVoiceConnectorCommandOutput, ChimeClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: AssociatePhoneNumbersWithVoiceConnectorCommandInput
-  ) {
+  constructor(readonly input: AssociatePhoneNumbersWithVoiceConnectorCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -49,19 +43,14 @@ export class AssociatePhoneNumbersWithVoiceConnectorCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociatePhoneNumbersWithVoiceConnectorCommandInput,
-    AssociatePhoneNumbersWithVoiceConnectorCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociatePhoneNumbersWithVoiceConnectorCommandInput, AssociatePhoneNumbersWithVoiceConnectorCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -74,20 +63,14 @@ export class AssociatePhoneNumbersWithVoiceConnectorCommand extends $Command<
     input: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnectorCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnectorCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<AssociatePhoneNumbersWithVoiceConnectorCommandOutput> {
-    return deserializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnectorCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnectorCommand(output, context);
   }
 
   // Start section: command_body_extra

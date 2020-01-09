@@ -1,20 +1,20 @@
 import {
   ConfigServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ConfigServiceClient";
 import {
   DescribeConfigurationRecordersRequest,
-  DescribeConfigurationRecordersResponse
+  DescribeConfigurationRecordersResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeConfigurationRecordersCommand,
-  serializeAws_json1_1DescribeConfigurationRecordersCommand
+  serializeAws_json1_1DescribeConfigurationRecordersCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DescribeConfigurationRecordersCommandInput = DescribeConfigurationRecordersRequest;
 export type DescribeConfigurationRecordersCommandOutput = DescribeConfigurationRecordersResponse;
 
-export class DescribeConfigurationRecordersCommand extends $Command<
-  DescribeConfigurationRecordersCommandInput,
-  DescribeConfigurationRecordersCommandOutput,
-  ConfigServiceClientResolvedConfig
-> {
+export class DescribeConfigurationRecordersCommand extends $Command<DescribeConfigurationRecordersCommandInput, DescribeConfigurationRecordersCommandOutput, ConfigServiceClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class DescribeConfigurationRecordersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeConfigurationRecordersCommandInput,
-    DescribeConfigurationRecordersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeConfigurationRecordersCommandInput, DescribeConfigurationRecordersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class DescribeConfigurationRecordersCommand extends $Command<
     input: DescribeConfigurationRecordersCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConfigurationRecordersCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeConfigurationRecordersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeConfigurationRecordersCommandOutput> {
-    return deserializeAws_json1_1DescribeConfigurationRecordersCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeConfigurationRecordersCommand(output, context);
   }
 
   // Start section: command_body_extra

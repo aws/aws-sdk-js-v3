@@ -1,17 +1,17 @@
 import {
   ApiGatewayManagementApiClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ApiGatewayManagementApiClient";
 import { PostToConnectionRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1PostToConnectionCommand,
-  serializeAws_restJson1_1PostToConnectionCommand
+  serializeAws_restJson1_1PostToConnectionCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,17 +21,13 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
 } from "@aws-sdk/types";
 
 export type PostToConnectionCommandInput = PostToConnectionRequest;
-export type PostToConnectionCommandOutput = __MetadataBearer;
+export type PostToConnectionCommandOutput = __MetadataBearer
 
-export class PostToConnectionCommand extends $Command<
-  PostToConnectionCommandInput,
-  PostToConnectionCommandOutput,
-  ApiGatewayManagementApiClientResolvedConfig
-> {
+export class PostToConnectionCommand extends $Command<PostToConnectionCommandInput, PostToConnectionCommandOutput, ApiGatewayManagementApiClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,15 +42,13 @@ export class PostToConnectionCommand extends $Command<
     configuration: ApiGatewayManagementApiClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PostToConnectionCommandInput, PostToConnectionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

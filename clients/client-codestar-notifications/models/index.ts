@@ -7,9 +7,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *       permissions.</p>
  *
  */
-export interface AccessDeniedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -27,9 +25,7 @@ export namespace AccessDeniedException {
  *       another process. Wait a few minutes and try again.</p>
  *
  */
-export interface ConcurrentModificationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ConcurrentModificationException";
   $fault: "client";
   Message?: string;
@@ -46,9 +42,7 @@ export namespace ConcurrentModificationException {
  *         <p>Some or all of the configuration is incomplete, missing, or not valid.</p>
  *
  */
-export interface ConfigurationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConfigurationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ConfigurationException";
   $fault: "client";
   Message?: string;
@@ -331,7 +325,7 @@ export namespace DescribeNotificationRuleResult {
 
 export enum DetailType {
   BASIC = "BASIC",
-  FULL = "FULL"
+  FULL = "FULL",
 }
 
 /**
@@ -381,9 +375,7 @@ export namespace EventTypeSummary {
  *          <p>The value for the enumeration token used in the request to return the next batch of the results is not valid. </p>
  *
  */
-export interface InvalidNextTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -402,9 +394,7 @@ export namespace InvalidNextTokenException {
  *             information, see Limits.</p>
  *
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -448,7 +438,7 @@ export namespace ListEventTypesFilter {
 
 export enum ListEventTypesFilterName {
   RESOURCE_TYPE = "RESOURCE_TYPE",
-  SERVICE_NAME = "SERVICE_NAME"
+  SERVICE_NAME = "SERVICE_NAME",
 }
 
 export interface ListEventTypesRequest {
@@ -541,7 +531,7 @@ export enum ListNotificationRulesFilterName {
   CREATED_BY = "CREATED_BY",
   EVENT_TYPE_ID = "EVENT_TYPE_ID",
   RESOURCE = "RESOURCE",
-  TARGET_ADDRESS = "TARGET_ADDRESS"
+  TARGET_ADDRESS = "TARGET_ADDRESS",
 }
 
 export interface ListNotificationRulesRequest {
@@ -673,7 +663,7 @@ export namespace ListTargetsFilter {
 export enum ListTargetsFilterName {
   TARGET_ADDRESS = "TARGET_ADDRESS",
   TARGET_STATUS = "TARGET_STATUS",
-  TARGET_TYPE = "TARGET_TYPE"
+  TARGET_TYPE = "TARGET_TYPE",
 }
 
 export interface ListTargetsRequest {
@@ -738,7 +728,7 @@ export namespace ListTargetsResult {
 
 export enum NotificationRuleStatus {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 /**
@@ -775,9 +765,7 @@ export namespace NotificationRuleSummary {
  *             unique in your AWS account.</p>
  *
  */
-export interface ResourceAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -794,9 +782,7 @@ export namespace ResourceAlreadyExistsException {
  *          <p>AWS CodeStar Notifications can't find a resource that matches the provided ARN. </p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -928,7 +914,7 @@ export enum TargetStatus {
   DEACTIVATED = "DEACTIVATED",
   INACTIVE = "INACTIVE",
   PENDING = "PENDING",
-  UNREACHABLE = "UNREACHABLE"
+  UNREACHABLE = "UNREACHABLE",
 }
 
 /**
@@ -1109,9 +1095,7 @@ export namespace UpdateNotificationRuleResult {
  *          <p>One or more parameter values are not valid.</p>
  *
  */
-export interface ValidationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ValidationException";
   $fault: "client";
   Message?: string;

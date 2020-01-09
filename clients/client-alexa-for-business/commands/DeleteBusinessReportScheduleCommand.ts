@@ -1,20 +1,20 @@
 import {
   AlexaForBusinessClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../AlexaForBusinessClient";
 import {
   DeleteBusinessReportScheduleRequest,
-  DeleteBusinessReportScheduleResponse
+  DeleteBusinessReportScheduleResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1DeleteBusinessReportScheduleCommand,
-  serializeAws_json1_1DeleteBusinessReportScheduleCommand
+  serializeAws_json1_1DeleteBusinessReportScheduleCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DeleteBusinessReportScheduleCommandInput = DeleteBusinessReportScheduleRequest;
 export type DeleteBusinessReportScheduleCommandOutput = DeleteBusinessReportScheduleResponse;
 
-export class DeleteBusinessReportScheduleCommand extends $Command<
-  DeleteBusinessReportScheduleCommandInput,
-  DeleteBusinessReportScheduleCommandOutput,
-  AlexaForBusinessClientResolvedConfig
-> {
+export class DeleteBusinessReportScheduleCommand extends $Command<DeleteBusinessReportScheduleCommandInput, DeleteBusinessReportScheduleCommandOutput, AlexaForBusinessClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class DeleteBusinessReportScheduleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteBusinessReportScheduleCommandInput,
-    DeleteBusinessReportScheduleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteBusinessReportScheduleCommandInput, DeleteBusinessReportScheduleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class DeleteBusinessReportScheduleCommand extends $Command<
     input: DeleteBusinessReportScheduleCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteBusinessReportScheduleCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeleteBusinessReportScheduleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DeleteBusinessReportScheduleCommandOutput> {
-    return deserializeAws_json1_1DeleteBusinessReportScheduleCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteBusinessReportScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

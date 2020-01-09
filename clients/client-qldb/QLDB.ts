@@ -2,77 +2,77 @@ import { QLDBClient } from "./QLDBClient";
 import {
   CreateLedgerCommand,
   CreateLedgerCommandInput,
-  CreateLedgerCommandOutput
+  CreateLedgerCommandOutput,
 } from "./commands/CreateLedgerCommand";
 import {
   DeleteLedgerCommand,
   DeleteLedgerCommandInput,
-  DeleteLedgerCommandOutput
+  DeleteLedgerCommandOutput,
 } from "./commands/DeleteLedgerCommand";
 import {
   DescribeJournalS3ExportCommand,
   DescribeJournalS3ExportCommandInput,
-  DescribeJournalS3ExportCommandOutput
+  DescribeJournalS3ExportCommandOutput,
 } from "./commands/DescribeJournalS3ExportCommand";
 import {
   DescribeLedgerCommand,
   DescribeLedgerCommandInput,
-  DescribeLedgerCommandOutput
+  DescribeLedgerCommandOutput,
 } from "./commands/DescribeLedgerCommand";
 import {
   ExportJournalToS3Command,
   ExportJournalToS3CommandInput,
-  ExportJournalToS3CommandOutput
+  ExportJournalToS3CommandOutput,
 } from "./commands/ExportJournalToS3Command";
 import {
   GetBlockCommand,
   GetBlockCommandInput,
-  GetBlockCommandOutput
+  GetBlockCommandOutput,
 } from "./commands/GetBlockCommand";
 import {
   GetDigestCommand,
   GetDigestCommandInput,
-  GetDigestCommandOutput
+  GetDigestCommandOutput,
 } from "./commands/GetDigestCommand";
 import {
   GetRevisionCommand,
   GetRevisionCommandInput,
-  GetRevisionCommandOutput
+  GetRevisionCommandOutput,
 } from "./commands/GetRevisionCommand";
 import {
   ListJournalS3ExportsCommand,
   ListJournalS3ExportsCommandInput,
-  ListJournalS3ExportsCommandOutput
+  ListJournalS3ExportsCommandOutput,
 } from "./commands/ListJournalS3ExportsCommand";
 import {
   ListJournalS3ExportsForLedgerCommand,
   ListJournalS3ExportsForLedgerCommandInput,
-  ListJournalS3ExportsForLedgerCommandOutput
+  ListJournalS3ExportsForLedgerCommandOutput,
 } from "./commands/ListJournalS3ExportsForLedgerCommand";
 import {
   ListLedgersCommand,
   ListLedgersCommandInput,
-  ListLedgersCommandOutput
+  ListLedgersCommandOutput,
 } from "./commands/ListLedgersCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateLedgerCommand,
   UpdateLedgerCommandInput,
-  UpdateLedgerCommandOutput
+  UpdateLedgerCommandOutput,
 } from "./commands/UpdateLedgerCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -89,7 +89,7 @@ export class QLDB extends QLDBClient {
    */
   public createLedger(
     args: CreateLedgerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateLedgerCommandOutput>;
   public createLedger(
     args: CreateLedgerCommandInput,
@@ -102,18 +102,16 @@ export class QLDB extends QLDBClient {
   ): void;
   public createLedger(
     args: CreateLedgerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLedgerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLedgerCommandOutput) => void),
     cb?: (err: any, data?: CreateLedgerCommandOutput) => void
   ): Promise<CreateLedgerCommandOutput> | void {
     const command = new CreateLedgerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -130,7 +128,7 @@ export class QLDB extends QLDBClient {
    */
   public deleteLedger(
     args: DeleteLedgerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteLedgerCommandOutput>;
   public deleteLedger(
     args: DeleteLedgerCommandInput,
@@ -143,18 +141,16 @@ export class QLDB extends QLDBClient {
   ): void;
   public deleteLedger(
     args: DeleteLedgerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLedgerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLedgerCommandOutput) => void),
     cb?: (err: any, data?: DeleteLedgerCommandOutput) => void
   ): Promise<DeleteLedgerCommandOutput> | void {
     const command = new DeleteLedgerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -172,7 +168,7 @@ export class QLDB extends QLDBClient {
    */
   public describeJournalS3Export(
     args: DescribeJournalS3ExportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeJournalS3ExportCommandOutput>;
   public describeJournalS3Export(
     args: DescribeJournalS3ExportCommandInput,
@@ -185,18 +181,16 @@ export class QLDB extends QLDBClient {
   ): void;
   public describeJournalS3Export(
     args: DescribeJournalS3ExportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeJournalS3ExportCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeJournalS3ExportCommandOutput) => void),
     cb?: (err: any, data?: DescribeJournalS3ExportCommandOutput) => void
   ): Promise<DescribeJournalS3ExportCommandOutput> | void {
     const command = new DescribeJournalS3ExportCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -209,7 +203,7 @@ export class QLDB extends QLDBClient {
    */
   public describeLedger(
     args: DescribeLedgerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeLedgerCommandOutput>;
   public describeLedger(
     args: DescribeLedgerCommandInput,
@@ -222,18 +216,16 @@ export class QLDB extends QLDBClient {
   ): void;
   public describeLedger(
     args: DescribeLedgerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLedgerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLedgerCommandOutput) => void),
     cb?: (err: any, data?: DescribeLedgerCommandOutput) => void
   ): Promise<DescribeLedgerCommandOutput> | void {
     const command = new DescribeLedgerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -253,7 +245,7 @@ export class QLDB extends QLDBClient {
    */
   public exportJournalToS3(
     args: ExportJournalToS3CommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ExportJournalToS3CommandOutput>;
   public exportJournalToS3(
     args: ExportJournalToS3CommandInput,
@@ -266,18 +258,16 @@ export class QLDB extends QLDBClient {
   ): void;
   public exportJournalToS3(
     args: ExportJournalToS3CommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ExportJournalToS3CommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExportJournalToS3CommandOutput) => void),
     cb?: (err: any, data?: ExportJournalToS3CommandOutput) => void
   ): Promise<ExportJournalToS3CommandOutput> | void {
     const command = new ExportJournalToS3Command(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -298,7 +288,7 @@ export class QLDB extends QLDBClient {
    */
   public getBlock(
     args: GetBlockCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetBlockCommandOutput>;
   public getBlock(
     args: GetBlockCommandInput,
@@ -311,18 +301,16 @@ export class QLDB extends QLDBClient {
   ): void;
   public getBlock(
     args: GetBlockCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBlockCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBlockCommandOutput) => void),
     cb?: (err: any, data?: GetBlockCommandOutput) => void
   ): Promise<GetBlockCommandOutput> | void {
     const command = new GetBlockCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -336,7 +324,7 @@ export class QLDB extends QLDBClient {
    */
   public getDigest(
     args: GetDigestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetDigestCommandOutput>;
   public getDigest(
     args: GetDigestCommandInput,
@@ -349,18 +337,16 @@ export class QLDB extends QLDBClient {
   ): void;
   public getDigest(
     args: GetDigestCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDigestCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDigestCommandOutput) => void),
     cb?: (err: any, data?: GetDigestCommandOutput) => void
   ): Promise<GetDigestCommandOutput> | void {
     const command = new GetDigestCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -375,7 +361,7 @@ export class QLDB extends QLDBClient {
    */
   public getRevision(
     args: GetRevisionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetRevisionCommandOutput>;
   public getRevision(
     args: GetRevisionCommandInput,
@@ -388,18 +374,16 @@ export class QLDB extends QLDBClient {
   ): void;
   public getRevision(
     args: GetRevisionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRevisionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRevisionCommandOutput) => void),
     cb?: (err: any, data?: GetRevisionCommandOutput) => void
   ): Promise<GetRevisionCommandOutput> | void {
     const command = new GetRevisionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -416,7 +400,7 @@ export class QLDB extends QLDBClient {
    */
   public listJournalS3Exports(
     args: ListJournalS3ExportsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListJournalS3ExportsCommandOutput>;
   public listJournalS3Exports(
     args: ListJournalS3ExportsCommandInput,
@@ -429,18 +413,16 @@ export class QLDB extends QLDBClient {
   ): void;
   public listJournalS3Exports(
     args: ListJournalS3ExportsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJournalS3ExportsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJournalS3ExportsCommandOutput) => void),
     cb?: (err: any, data?: ListJournalS3ExportsCommandOutput) => void
   ): Promise<ListJournalS3ExportsCommandOutput> | void {
     const command = new ListJournalS3ExportsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -456,7 +438,7 @@ export class QLDB extends QLDBClient {
    */
   public listJournalS3ExportsForLedger(
     args: ListJournalS3ExportsForLedgerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListJournalS3ExportsForLedgerCommandOutput>;
   public listJournalS3ExportsForLedger(
     args: ListJournalS3ExportsForLedgerCommandInput,
@@ -469,18 +451,16 @@ export class QLDB extends QLDBClient {
   ): void;
   public listJournalS3ExportsForLedger(
     args: ListJournalS3ExportsForLedgerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJournalS3ExportsForLedgerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJournalS3ExportsForLedgerCommandOutput) => void),
     cb?: (err: any, data?: ListJournalS3ExportsForLedgerCommandOutput) => void
   ): Promise<ListJournalS3ExportsForLedgerCommandOutput> | void {
     const command = new ListJournalS3ExportsForLedgerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -496,7 +476,7 @@ export class QLDB extends QLDBClient {
    */
   public listLedgers(
     args: ListLedgersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListLedgersCommandOutput>;
   public listLedgers(
     args: ListLedgersCommandInput,
@@ -509,18 +489,16 @@ export class QLDB extends QLDBClient {
   ): void;
   public listLedgers(
     args: ListLedgersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListLedgersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLedgersCommandOutput) => void),
     cb?: (err: any, data?: ListLedgersCommandOutput) => void
   ): Promise<ListLedgersCommandOutput> | void {
     const command = new ListLedgersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -533,7 +511,7 @@ export class QLDB extends QLDBClient {
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListTagsForResourceCommandOutput>;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -546,18 +524,16 @@ export class QLDB extends QLDBClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -572,7 +548,7 @@ export class QLDB extends QLDBClient {
    */
   public tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<TagResourceCommandOutput>;
   public tagResource(
     args: TagResourceCommandInput,
@@ -585,18 +561,16 @@ export class QLDB extends QLDBClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -610,7 +584,7 @@ export class QLDB extends QLDBClient {
    */
   public untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UntagResourceCommandOutput>;
   public untagResource(
     args: UntagResourceCommandInput,
@@ -623,18 +597,16 @@ export class QLDB extends QLDBClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -647,7 +619,7 @@ export class QLDB extends QLDBClient {
    */
   public updateLedger(
     args: UpdateLedgerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateLedgerCommandOutput>;
   public updateLedger(
     args: UpdateLedgerCommandInput,
@@ -660,20 +632,19 @@ export class QLDB extends QLDBClient {
   ): void;
   public updateLedger(
     args: UpdateLedgerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateLedgerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLedgerCommandOutput) => void),
     cb?: (err: any, data?: UpdateLedgerCommandOutput) => void
   ): Promise<UpdateLedgerCommandOutput> | void {
     const command = new UpdateLedgerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

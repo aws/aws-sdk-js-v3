@@ -1,23 +1,23 @@
 import {
   InvokeEndpointCommandInput,
-  InvokeEndpointCommandOutput
+  InvokeEndpointCommandOutput,
 } from "../commands/InvokeEndpointCommand";
 import {
   InternalFailure,
   ModelError,
   ServiceUnavailable,
-  ValidationError
+  ValidationError,
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export async function serializeAws_restJson1_1InvokeEndpointCommand(
@@ -25,7 +25,7 @@ export async function serializeAws_restJson1_1InvokeEndpointCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/octet-stream";
+  headers['Content-Type'] = "application/octet-stream";
   if (input.Accept !== undefined) {
     headers["Accept"] = input.Accept.toString();
   }
@@ -33,9 +33,7 @@ export async function serializeAws_restJson1_1InvokeEndpointCommand(
     headers["Content-Type"] = input.ContentType.toString();
   }
   if (input.CustomAttributes !== undefined) {
-    headers[
-      "X-Amzn-SageMaker-Custom-Attributes"
-    ] = input.CustomAttributes.toString();
+    headers["X-Amzn-SageMaker-Custom-Attributes"] = input.CustomAttributes.toString();
   }
   if (input.TargetModel !== undefined) {
     headers["X-Amzn-SageMaker-Target-Model"] = input.TargetModel.toString();
@@ -44,13 +42,11 @@ export async function serializeAws_restJson1_1InvokeEndpointCommand(
   if (input.EndpointName !== undefined) {
     const labelValue: any = input.EndpointName.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: EndpointName."
-      );
+      throw new Error('Empty value provided for input HTTP label: EndpointName.');
     }
-    resolvedPath = resolvedPath.replace("{EndpointName}", labelValue);
+    resolvedPath = resolvedPath.replace('{EndpointName}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: EndpointName.");
+    throw new Error('No value provided for input HTTP label: EndpointName.');
   }
   let body: any = {};
   if (input.Body !== undefined) {
@@ -62,7 +58,7 @@ export async function serializeAws_restJson1_1InvokeEndpointCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -71,10 +67,7 @@ export async function deserializeAws_restJson1_1InvokeEndpointCommand(
   context: __SerdeContext
 ): Promise<InvokeEndpointCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1InvokeEndpointCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1InvokeEndpointCommandError(output, context);
   }
   const contents: InvokeEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -82,18 +75,16 @@ export async function deserializeAws_restJson1_1InvokeEndpointCommand(
     Body: undefined,
     ContentType: undefined,
     CustomAttributes: undefined,
-    InvokedProductionVariant: undefined
+    InvokedProductionVariant: undefined,
   };
   if (output.headers["Content-Type"] !== undefined) {
-    contents.ContentType = output.headers["Content-Type"];
+    contents.ContentType = output.headers['Content-Type'];
   }
   if (output.headers["X-Amzn-SageMaker-Custom-Attributes"] !== undefined) {
-    contents.CustomAttributes =
-      output.headers["X-Amzn-SageMaker-Custom-Attributes"];
+    contents.CustomAttributes = output.headers['X-Amzn-SageMaker-Custom-Attributes'];
   }
   if (output.headers["x-Amzn-Invoked-Production-Variant"] !== undefined) {
-    contents.InvokedProductionVariant =
-      output.headers["x-Amzn-Invoked-Production-Variant"];
+    contents.InvokedProductionVariant = output.headers['x-Amzn-Invoked-Production-Variant'];
   }
   const data: any = await parseBody(output.body, context);
   contents.Body = data;
@@ -102,53 +93,40 @@ export async function deserializeAws_restJson1_1InvokeEndpointCommand(
 
 async function deserializeAws_restJson1_1InvokeEndpointCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<InvokeEndpointCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalFailure":
     case "com.amazonaws.sagemaker.runtime#InternalFailure":
-      response = await deserializeAws_restJson1_1InternalFailureResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalFailureResponse(parsedOutput, context);
       break;
     case "ModelError":
     case "com.amazonaws.sagemaker.runtime#ModelError":
-      response = await deserializeAws_restJson1_1ModelErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ModelErrorResponse(parsedOutput, context);
       break;
     case "ServiceUnavailable":
     case "com.amazonaws.sagemaker.runtime#ServiceUnavailable":
-      response = await deserializeAws_restJson1_1ServiceUnavailableResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ServiceUnavailableResponse(parsedOutput, context);
       break;
     case "ValidationError":
     case "com.amazonaws.sagemaker.runtime#ValidationError":
-      response = await deserializeAws_restJson1_1ValidationErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ValidationErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.runtime#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -162,7 +140,7 @@ const deserializeAws_restJson1_1InternalFailureResponse = async (
     __type: "InternalFailure",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -182,7 +160,7 @@ const deserializeAws_restJson1_1ModelErrorResponse = async (
     LogStreamArn: undefined,
     Message: undefined,
     OriginalMessage: undefined,
-    OriginalStatusCode: undefined
+    OriginalStatusCode: undefined,
   };
   const data: any = output.body;
   if (data.LogStreamArn !== undefined) {
@@ -208,7 +186,7 @@ const deserializeAws_restJson1_1ServiceUnavailableResponse = async (
     __type: "ServiceUnavailable",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -225,7 +203,7 @@ const deserializeAws_restJson1_1ValidationErrorResponse = async (
     __type: "ValidationError",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {

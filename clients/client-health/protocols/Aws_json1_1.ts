@@ -225,7 +225,7 @@ async function deserializeAws_json1_1DescribeAffectedEntitiesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -238,7 +238,6 @@ async function deserializeAws_json1_1DescribeAffectedEntitiesCommandError(
       response = await deserializeAws_json1_1UnsupportedLocaleResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
@@ -272,12 +271,11 @@ async function deserializeAws_json1_1DescribeEntityAggregatesCommandError(
 ): Promise<DescribeEntityAggregatesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
@@ -315,7 +313,7 @@ async function deserializeAws_json1_1DescribeEventAggregatesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -324,7 +322,6 @@ async function deserializeAws_json1_1DescribeEventAggregatesCommandError(
       response = await deserializeAws_json1_1InvalidPaginationTokenResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
@@ -362,7 +359,7 @@ async function deserializeAws_json1_1DescribeEventDetailsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -371,7 +368,6 @@ async function deserializeAws_json1_1DescribeEventDetailsCommandError(
       response = await deserializeAws_json1_1UnsupportedLocaleResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
@@ -409,7 +405,7 @@ async function deserializeAws_json1_1DescribeEventTypesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -422,7 +418,6 @@ async function deserializeAws_json1_1DescribeEventTypesCommandError(
       response = await deserializeAws_json1_1UnsupportedLocaleResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
@@ -460,7 +455,7 @@ async function deserializeAws_json1_1DescribeEventsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -473,7 +468,6 @@ async function deserializeAws_json1_1DescribeEventsCommandError(
       response = await deserializeAws_json1_1UnsupportedLocaleResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",

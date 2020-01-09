@@ -837,7 +837,7 @@ async function deserializeAws_json1_1AddTagsToStreamCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -858,7 +858,6 @@ async function deserializeAws_json1_1AddTagsToStreamCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
@@ -891,7 +890,7 @@ async function deserializeAws_json1_1CreateStreamCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -908,7 +907,6 @@ async function deserializeAws_json1_1CreateStreamCommandError(
       response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
@@ -941,7 +939,7 @@ async function deserializeAws_json1_1DecreaseStreamRetentionPeriodCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -962,7 +960,6 @@ async function deserializeAws_json1_1DecreaseStreamRetentionPeriodCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
@@ -995,7 +992,7 @@ async function deserializeAws_json1_1DeleteStreamCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1012,7 +1009,6 @@ async function deserializeAws_json1_1DeleteStreamCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
@@ -1045,7 +1041,7 @@ async function deserializeAws_json1_1DeregisterStreamConsumerCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1062,7 +1058,6 @@ async function deserializeAws_json1_1DeregisterStreamConsumerCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
@@ -1100,7 +1095,7 @@ async function deserializeAws_json1_1DescribeLimitsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1109,7 +1104,6 @@ async function deserializeAws_json1_1DescribeLimitsCommandError(
       response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
@@ -1147,7 +1141,7 @@ async function deserializeAws_json1_1DescribeStreamCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1160,7 +1154,6 @@ async function deserializeAws_json1_1DescribeStreamCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
@@ -1198,7 +1191,7 @@ async function deserializeAws_json1_1DescribeStreamConsumerCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1215,7 +1208,6 @@ async function deserializeAws_json1_1DescribeStreamConsumerCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
@@ -1253,7 +1245,7 @@ async function deserializeAws_json1_1DescribeStreamSummaryCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1266,7 +1258,6 @@ async function deserializeAws_json1_1DescribeStreamSummaryCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
@@ -1304,7 +1295,7 @@ async function deserializeAws_json1_1DisableEnhancedMonitoringCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1325,7 +1316,6 @@ async function deserializeAws_json1_1DisableEnhancedMonitoringCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
@@ -1363,7 +1353,7 @@ async function deserializeAws_json1_1EnableEnhancedMonitoringCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1384,7 +1374,6 @@ async function deserializeAws_json1_1EnableEnhancedMonitoringCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
@@ -1422,7 +1411,7 @@ async function deserializeAws_json1_1GetRecordsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1467,7 +1456,6 @@ async function deserializeAws_json1_1GetRecordsCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
@@ -1505,7 +1493,7 @@ async function deserializeAws_json1_1GetShardIteratorCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1522,7 +1510,6 @@ async function deserializeAws_json1_1GetShardIteratorCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
@@ -1555,7 +1542,7 @@ async function deserializeAws_json1_1IncreaseStreamRetentionPeriodCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1576,7 +1563,6 @@ async function deserializeAws_json1_1IncreaseStreamRetentionPeriodCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
@@ -1614,7 +1600,7 @@ async function deserializeAws_json1_1ListShardsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1639,7 +1625,6 @@ async function deserializeAws_json1_1ListShardsCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
@@ -1677,7 +1662,7 @@ async function deserializeAws_json1_1ListStreamConsumersCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1702,7 +1687,6 @@ async function deserializeAws_json1_1ListStreamConsumersCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
@@ -1740,7 +1724,7 @@ async function deserializeAws_json1_1ListStreamsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1749,7 +1733,6 @@ async function deserializeAws_json1_1ListStreamsCommandError(
       response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
@@ -1787,7 +1770,7 @@ async function deserializeAws_json1_1ListTagsForStreamCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1804,7 +1787,6 @@ async function deserializeAws_json1_1ListTagsForStreamCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
@@ -1837,7 +1819,7 @@ async function deserializeAws_json1_1MergeShardsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1858,7 +1840,6 @@ async function deserializeAws_json1_1MergeShardsCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
@@ -1896,7 +1877,7 @@ async function deserializeAws_json1_1PutRecordCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1937,7 +1918,6 @@ async function deserializeAws_json1_1PutRecordCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
@@ -1975,7 +1955,7 @@ async function deserializeAws_json1_1PutRecordsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2016,7 +1996,6 @@ async function deserializeAws_json1_1PutRecordsCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
@@ -2054,7 +2033,7 @@ async function deserializeAws_json1_1RegisterStreamConsumerCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2075,7 +2054,6 @@ async function deserializeAws_json1_1RegisterStreamConsumerCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
@@ -2108,7 +2086,7 @@ async function deserializeAws_json1_1RemoveTagsFromStreamCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2129,7 +2107,6 @@ async function deserializeAws_json1_1RemoveTagsFromStreamCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
@@ -2162,7 +2139,7 @@ async function deserializeAws_json1_1SplitShardCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2183,7 +2160,6 @@ async function deserializeAws_json1_1SplitShardCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
@@ -2216,7 +2192,7 @@ async function deserializeAws_json1_1StartStreamEncryptionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2261,7 +2237,6 @@ async function deserializeAws_json1_1StartStreamEncryptionCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
@@ -2294,7 +2269,7 @@ async function deserializeAws_json1_1StopStreamEncryptionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2315,7 +2290,6 @@ async function deserializeAws_json1_1StopStreamEncryptionCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
@@ -2353,7 +2327,7 @@ async function deserializeAws_json1_1SubscribeToShardCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2374,7 +2348,6 @@ async function deserializeAws_json1_1SubscribeToShardCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
@@ -2412,7 +2385,7 @@ async function deserializeAws_json1_1UpdateShardCountCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2433,7 +2406,6 @@ async function deserializeAws_json1_1UpdateShardCountCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",

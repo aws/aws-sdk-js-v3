@@ -1,20 +1,20 @@
 import {
   IoT1ClickProjectsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient";
 import {
   AssociateDeviceWithPlacementRequest,
-  AssociateDeviceWithPlacementResponse
+  AssociateDeviceWithPlacementResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1AssociateDeviceWithPlacementCommand,
-  serializeAws_restJson1_1AssociateDeviceWithPlacementCommand
+  serializeAws_restJson1_1AssociateDeviceWithPlacementCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type AssociateDeviceWithPlacementCommandInput = AssociateDeviceWithPlacementRequest;
 export type AssociateDeviceWithPlacementCommandOutput = AssociateDeviceWithPlacementResponse;
 
-export class AssociateDeviceWithPlacementCommand extends $Command<
-  AssociateDeviceWithPlacementCommandInput,
-  AssociateDeviceWithPlacementCommandOutput,
-  IoT1ClickProjectsClientResolvedConfig
-> {
+export class AssociateDeviceWithPlacementCommand extends $Command<AssociateDeviceWithPlacementCommandInput, AssociateDeviceWithPlacementCommandOutput, IoT1ClickProjectsClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class AssociateDeviceWithPlacementCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoT1ClickProjectsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateDeviceWithPlacementCommandInput,
-    AssociateDeviceWithPlacementCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateDeviceWithPlacementCommandInput, AssociateDeviceWithPlacementCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class AssociateDeviceWithPlacementCommand extends $Command<
     input: AssociateDeviceWithPlacementCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AssociateDeviceWithPlacementCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1AssociateDeviceWithPlacementCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<AssociateDeviceWithPlacementCommandOutput> {
-    return deserializeAws_restJson1_1AssociateDeviceWithPlacementCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AssociateDeviceWithPlacementCommand(output, context);
   }
 
   // Start section: command_body_extra

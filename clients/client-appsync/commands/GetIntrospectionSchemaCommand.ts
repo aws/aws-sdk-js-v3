@@ -1,20 +1,20 @@
 import {
   AppSyncClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../AppSyncClient";
 import {
   GetIntrospectionSchemaRequest,
-  GetIntrospectionSchemaResponse
+  GetIntrospectionSchemaResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1GetIntrospectionSchemaCommand,
-  serializeAws_restJson1_1GetIntrospectionSchemaCommand
+  serializeAws_restJson1_1GetIntrospectionSchemaCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type GetIntrospectionSchemaCommandInput = GetIntrospectionSchemaRequest;
 export type GetIntrospectionSchemaCommandOutput = GetIntrospectionSchemaResponse;
 
-export class GetIntrospectionSchemaCommand extends $Command<
-  GetIntrospectionSchemaCommandInput,
-  GetIntrospectionSchemaCommandOutput,
-  AppSyncClientResolvedConfig
-> {
+export class GetIntrospectionSchemaCommand extends $Command<GetIntrospectionSchemaCommandInput, GetIntrospectionSchemaCommandOutput, AppSyncClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class GetIntrospectionSchemaCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetIntrospectionSchemaCommandInput,
-    GetIntrospectionSchemaCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetIntrospectionSchemaCommandInput, GetIntrospectionSchemaCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class GetIntrospectionSchemaCommand extends $Command<
     input: GetIntrospectionSchemaCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetIntrospectionSchemaCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetIntrospectionSchemaCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<GetIntrospectionSchemaCommandOutput> {
-    return deserializeAws_restJson1_1GetIntrospectionSchemaCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetIntrospectionSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

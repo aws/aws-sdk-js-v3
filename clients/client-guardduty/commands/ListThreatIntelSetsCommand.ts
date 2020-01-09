@@ -1,20 +1,20 @@
 import {
   GuardDutyClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../GuardDutyClient";
 import {
   ListThreatIntelSetsRequest,
-  ListThreatIntelSetsResponse
+  ListThreatIntelSetsResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1ListThreatIntelSetsCommand,
-  serializeAws_restJson1_1ListThreatIntelSetsCommand
+  serializeAws_restJson1_1ListThreatIntelSetsCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type ListThreatIntelSetsCommandInput = ListThreatIntelSetsRequest;
 export type ListThreatIntelSetsCommandOutput = ListThreatIntelSetsResponse;
 
-export class ListThreatIntelSetsCommand extends $Command<
-  ListThreatIntelSetsCommandInput,
-  ListThreatIntelSetsCommandOutput,
-  GuardDutyClientResolvedConfig
-> {
+export class ListThreatIntelSetsCommand extends $Command<ListThreatIntelSetsCommandInput, ListThreatIntelSetsCommandOutput, GuardDutyClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class ListThreatIntelSetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListThreatIntelSetsCommandInput,
-    ListThreatIntelSetsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListThreatIntelSetsCommandInput, ListThreatIntelSetsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -79,10 +70,7 @@ export class ListThreatIntelSetsCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListThreatIntelSetsCommandOutput> {
-    return deserializeAws_restJson1_1ListThreatIntelSetsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListThreatIntelSetsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -27,5 +27,5 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   runtime: "node",
   signingName: "tagging",
   credentialDefaultProvider,
-  regionDefaultProvider
+  regionDefaultProvider,
 };

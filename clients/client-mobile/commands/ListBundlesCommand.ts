@@ -1,17 +1,20 @@
 import {
   MobileClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../MobileClient";
-import { ListBundlesRequest, ListBundlesResult } from "../models/index";
+import {
+  ListBundlesRequest,
+  ListBundlesResult,
+} from "../models/index";
 import {
   deserializeAws_restJson1_1ListBundlesCommand,
-  serializeAws_restJson1_1ListBundlesCommand
+  serializeAws_restJson1_1ListBundlesCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type ListBundlesCommandInput = ListBundlesRequest;
 export type ListBundlesCommandOutput = ListBundlesResult;
 
-export class ListBundlesCommand extends $Command<
-  ListBundlesCommandInput,
-  ListBundlesCommandOutput,
-  MobileClientResolvedConfig
-> {
+export class ListBundlesCommand extends $Command<ListBundlesCommandInput, ListBundlesCommandOutput, MobileClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class ListBundlesCommand extends $Command<
     configuration: MobileClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListBundlesCommandInput, ListBundlesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

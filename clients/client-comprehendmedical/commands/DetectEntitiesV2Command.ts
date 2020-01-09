@@ -1,20 +1,20 @@
 import {
   ComprehendMedicalClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
 import {
   DetectEntitiesV2Request,
-  DetectEntitiesV2Response
+  DetectEntitiesV2Response,
 } from "../models/index";
 import {
   deserializeAws_json1_1DetectEntitiesV2Command,
-  serializeAws_json1_1DetectEntitiesV2Command
+  serializeAws_json1_1DetectEntitiesV2Command,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DetectEntitiesV2CommandInput = DetectEntitiesV2Request;
 export type DetectEntitiesV2CommandOutput = DetectEntitiesV2Response;
 
-export class DetectEntitiesV2Command extends $Command<
-  DetectEntitiesV2CommandInput,
-  DetectEntitiesV2CommandOutput,
-  ComprehendMedicalClientResolvedConfig
-> {
+export class DetectEntitiesV2Command extends $Command<DetectEntitiesV2CommandInput, DetectEntitiesV2CommandOutput, ComprehendMedicalClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,15 +44,13 @@ export class DetectEntitiesV2Command extends $Command<
     configuration: ComprehendMedicalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DetectEntitiesV2CommandInput, DetectEntitiesV2CommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

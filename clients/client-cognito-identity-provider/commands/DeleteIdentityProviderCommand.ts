@@ -1,17 +1,17 @@
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { DeleteIdentityProviderRequest } from "../models/index";
 import {
   deserializeAws_json1_1DeleteIdentityProviderCommand,
-  serializeAws_json1_1DeleteIdentityProviderCommand
+  serializeAws_json1_1DeleteIdentityProviderCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,17 +21,13 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
 } from "@aws-sdk/types";
 
 export type DeleteIdentityProviderCommandInput = DeleteIdentityProviderRequest;
-export type DeleteIdentityProviderCommandOutput = __MetadataBearer;
+export type DeleteIdentityProviderCommandOutput = __MetadataBearer
 
-export class DeleteIdentityProviderCommand extends $Command<
-  DeleteIdentityProviderCommandInput,
-  DeleteIdentityProviderCommandOutput,
-  CognitoIdentityProviderClientResolvedConfig
-> {
+export class DeleteIdentityProviderCommand extends $Command<DeleteIdentityProviderCommandInput, DeleteIdentityProviderCommandOutput, CognitoIdentityProviderClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,19 +41,14 @@ export class DeleteIdentityProviderCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteIdentityProviderCommandInput,
-    DeleteIdentityProviderCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteIdentityProviderCommandInput, DeleteIdentityProviderCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

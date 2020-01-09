@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  WorkDocsClientResolvedConfig
+  WorkDocsClientResolvedConfig,
 } from "../WorkDocsClient";
 import {
   DescribeNotificationSubscriptionsRequest,
-  DescribeNotificationSubscriptionsResponse
+  DescribeNotificationSubscriptionsResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeNotificationSubscriptionsCommand,
-  serializeAws_restJson1_1DescribeNotificationSubscriptionsCommand
+  serializeAws_restJson1_1DescribeNotificationSubscriptionsCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DescribeNotificationSubscriptionsCommandInput = DescribeNotificationSubscriptionsRequest;
 export type DescribeNotificationSubscriptionsCommandOutput = DescribeNotificationSubscriptionsResponse;
 
-export class DescribeNotificationSubscriptionsCommand extends $Command<
-  DescribeNotificationSubscriptionsCommandInput,
-  DescribeNotificationSubscriptionsCommandOutput,
-  WorkDocsClientResolvedConfig
-> {
+export class DescribeNotificationSubscriptionsCommand extends $Command<DescribeNotificationSubscriptionsCommandInput, DescribeNotificationSubscriptionsCommandOutput, WorkDocsClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class DescribeNotificationSubscriptionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeNotificationSubscriptionsCommandInput,
-    DescribeNotificationSubscriptionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeNotificationSubscriptionsCommandInput, DescribeNotificationSubscriptionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class DescribeNotificationSubscriptionsCommand extends $Command<
     input: DescribeNotificationSubscriptionsCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeNotificationSubscriptionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeNotificationSubscriptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeNotificationSubscriptionsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeNotificationSubscriptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeNotificationSubscriptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

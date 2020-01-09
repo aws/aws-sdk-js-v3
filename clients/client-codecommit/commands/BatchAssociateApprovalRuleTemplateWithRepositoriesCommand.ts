@@ -1,20 +1,20 @@
 import {
   CodeCommitClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CodeCommitClient";
 import {
   BatchAssociateApprovalRuleTemplateWithRepositoriesInput,
-  BatchAssociateApprovalRuleTemplateWithRepositoriesOutput
+  BatchAssociateApprovalRuleTemplateWithRepositoriesOutput,
 } from "../models/index";
 import {
   deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommand,
-  serializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommand
+  serializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,23 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput = BatchAssociateApprovalRuleTemplateWithRepositoriesInput;
 export type BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput = BatchAssociateApprovalRuleTemplateWithRepositoriesOutput;
 
-export class BatchAssociateApprovalRuleTemplateWithRepositoriesCommand extends $Command<
-  BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput,
-  BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput,
-  CodeCommitClientResolvedConfig
-> {
+export class BatchAssociateApprovalRuleTemplateWithRepositoriesCommand extends $Command<BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput, BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput, CodeCommitClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput
-  ) {
+  constructor(readonly input: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -49,19 +43,14 @@ export class BatchAssociateApprovalRuleTemplateWithRepositoriesCommand extends $
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput,
-    BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput, BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -74,20 +63,14 @@ export class BatchAssociateApprovalRuleTemplateWithRepositoriesCommand extends $
     input: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput> {
-    return deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

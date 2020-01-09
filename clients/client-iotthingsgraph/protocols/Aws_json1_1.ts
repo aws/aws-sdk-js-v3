@@ -1046,7 +1046,7 @@ async function deserializeAws_json1_1AssociateEntityToThingCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1067,7 +1067,6 @@ async function deserializeAws_json1_1AssociateEntityToThingCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -1105,7 +1104,7 @@ async function deserializeAws_json1_1CreateFlowTemplateCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1130,7 +1129,6 @@ async function deserializeAws_json1_1CreateFlowTemplateCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -1168,7 +1166,7 @@ async function deserializeAws_json1_1CreateSystemInstanceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1193,7 +1191,6 @@ async function deserializeAws_json1_1CreateSystemInstanceCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -1231,7 +1228,7 @@ async function deserializeAws_json1_1CreateSystemTemplateCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1252,7 +1249,6 @@ async function deserializeAws_json1_1CreateSystemTemplateCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -1290,7 +1286,7 @@ async function deserializeAws_json1_1DeleteFlowTemplateCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1311,7 +1307,6 @@ async function deserializeAws_json1_1DeleteFlowTemplateCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -1349,7 +1344,7 @@ async function deserializeAws_json1_1DeleteNamespaceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1362,7 +1357,6 @@ async function deserializeAws_json1_1DeleteNamespaceCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -1400,7 +1394,7 @@ async function deserializeAws_json1_1DeleteSystemInstanceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1421,7 +1415,6 @@ async function deserializeAws_json1_1DeleteSystemInstanceCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -1459,7 +1452,7 @@ async function deserializeAws_json1_1DeleteSystemTemplateCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1480,7 +1473,6 @@ async function deserializeAws_json1_1DeleteSystemTemplateCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -1518,7 +1510,7 @@ async function deserializeAws_json1_1DeploySystemInstanceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1543,7 +1535,6 @@ async function deserializeAws_json1_1DeploySystemInstanceCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -1581,7 +1572,7 @@ async function deserializeAws_json1_1DeprecateFlowTemplateCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1602,7 +1593,6 @@ async function deserializeAws_json1_1DeprecateFlowTemplateCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -1640,7 +1630,7 @@ async function deserializeAws_json1_1DeprecateSystemTemplateCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1661,7 +1651,6 @@ async function deserializeAws_json1_1DeprecateSystemTemplateCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -1699,7 +1688,7 @@ async function deserializeAws_json1_1DescribeNamespaceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1720,7 +1709,6 @@ async function deserializeAws_json1_1DescribeNamespaceCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -1758,7 +1746,7 @@ async function deserializeAws_json1_1DissociateEntityFromThingCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1779,7 +1767,6 @@ async function deserializeAws_json1_1DissociateEntityFromThingCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -1817,7 +1804,7 @@ async function deserializeAws_json1_1GetEntitiesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1838,7 +1825,6 @@ async function deserializeAws_json1_1GetEntitiesCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -1876,7 +1862,7 @@ async function deserializeAws_json1_1GetFlowTemplateCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1897,7 +1883,6 @@ async function deserializeAws_json1_1GetFlowTemplateCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -1935,7 +1920,7 @@ async function deserializeAws_json1_1GetFlowTemplateRevisionsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1956,7 +1941,6 @@ async function deserializeAws_json1_1GetFlowTemplateRevisionsCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -1994,7 +1978,7 @@ async function deserializeAws_json1_1GetNamespaceDeletionStatusCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2011,7 +1995,6 @@ async function deserializeAws_json1_1GetNamespaceDeletionStatusCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -2049,7 +2032,7 @@ async function deserializeAws_json1_1GetSystemInstanceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2070,7 +2053,6 @@ async function deserializeAws_json1_1GetSystemInstanceCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -2108,7 +2090,7 @@ async function deserializeAws_json1_1GetSystemTemplateCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2129,7 +2111,6 @@ async function deserializeAws_json1_1GetSystemTemplateCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -2167,7 +2148,7 @@ async function deserializeAws_json1_1GetSystemTemplateRevisionsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2188,7 +2169,6 @@ async function deserializeAws_json1_1GetSystemTemplateRevisionsCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -2226,7 +2206,7 @@ async function deserializeAws_json1_1GetUploadStatusCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2247,7 +2227,6 @@ async function deserializeAws_json1_1GetUploadStatusCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -2285,7 +2264,7 @@ async function deserializeAws_json1_1ListFlowExecutionMessagesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2306,7 +2285,6 @@ async function deserializeAws_json1_1ListFlowExecutionMessagesCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -2344,7 +2322,7 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2365,7 +2343,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -2403,7 +2380,7 @@ async function deserializeAws_json1_1SearchEntitiesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2420,7 +2397,6 @@ async function deserializeAws_json1_1SearchEntitiesCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -2458,7 +2434,7 @@ async function deserializeAws_json1_1SearchFlowExecutionsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2479,7 +2455,6 @@ async function deserializeAws_json1_1SearchFlowExecutionsCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -2517,7 +2492,7 @@ async function deserializeAws_json1_1SearchFlowTemplatesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2534,7 +2509,6 @@ async function deserializeAws_json1_1SearchFlowTemplatesCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -2572,7 +2546,7 @@ async function deserializeAws_json1_1SearchSystemInstancesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2589,7 +2563,6 @@ async function deserializeAws_json1_1SearchSystemInstancesCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -2627,7 +2600,7 @@ async function deserializeAws_json1_1SearchSystemTemplatesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2644,7 +2617,6 @@ async function deserializeAws_json1_1SearchSystemTemplatesCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -2682,7 +2654,7 @@ async function deserializeAws_json1_1SearchThingsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2703,7 +2675,6 @@ async function deserializeAws_json1_1SearchThingsCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -2741,7 +2712,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2762,7 +2733,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -2800,7 +2770,7 @@ async function deserializeAws_json1_1UndeploySystemInstanceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2825,7 +2795,6 @@ async function deserializeAws_json1_1UndeploySystemInstanceCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -2863,7 +2832,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2884,7 +2853,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -2922,7 +2890,7 @@ async function deserializeAws_json1_1UpdateFlowTemplateCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2943,7 +2911,6 @@ async function deserializeAws_json1_1UpdateFlowTemplateCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -2981,7 +2948,7 @@ async function deserializeAws_json1_1UpdateSystemTemplateCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3002,7 +2969,6 @@ async function deserializeAws_json1_1UpdateSystemTemplateCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",
@@ -3040,7 +3006,7 @@ async function deserializeAws_json1_1UploadEntityDefinitionsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3057,7 +3023,6 @@ async function deserializeAws_json1_1UploadEntityDefinitionsCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.thingsgraph#${errorCode}`,
         $fault: "client",

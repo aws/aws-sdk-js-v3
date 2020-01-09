@@ -180,9 +180,7 @@ export namespace CodeSource {
  *       your change.</p>
  *
  */
-export interface ConcurrentModificationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ConcurrentModificationException";
   $fault: "server";
   message?: string;
@@ -750,9 +748,7 @@ export namespace GitHubCodeDestination {
  *          <p>The next token is not valid.</p>
  *
  */
-export interface InvalidNextTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidNextTokenException";
   $fault: "client";
   message?: string;
@@ -769,9 +765,7 @@ export namespace InvalidNextTokenException {
  *          <p>The service role is not valid.</p>
  *
  */
-export interface InvalidServiceRoleException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidServiceRoleException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidServiceRoleException";
   $fault: "client";
   message?: string;
@@ -788,9 +782,7 @@ export namespace InvalidServiceRoleException {
  *          <p>A resource limit has been exceeded.</p>
  *
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -1067,9 +1059,7 @@ export namespace ListUserProfilesResult {
  *       AWS CodeStar project IDs must be unique within a region for the AWS account.</p>
  *
  */
-export interface ProjectAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ProjectAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ProjectAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -1086,9 +1076,7 @@ export namespace ProjectAlreadyExistsException {
  *          <p>Project configuration information is required but not specified.</p>
  *
  */
-export interface ProjectConfigurationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ProjectConfigurationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ProjectConfigurationException";
   $fault: "client";
   message?: string;
@@ -1106,9 +1094,7 @@ export namespace ProjectConfigurationException {
  *       during project creation. The project could not be created in AWS CodeStar.</p>
  *
  */
-export interface ProjectCreationFailedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ProjectCreationFailedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ProjectCreationFailedException";
   $fault: "client";
   message?: string;
@@ -1125,9 +1111,7 @@ export namespace ProjectCreationFailedException {
  *          <p>The specified AWS CodeStar project was not found.</p>
  *
  */
-export interface ProjectNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ProjectNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ProjectNotFoundException";
   $fault: "client";
   message?: string;
@@ -1331,9 +1315,7 @@ export namespace TeamMember {
  *          <p>The team member is already associated with a role in this project.</p>
  *
  */
-export interface TeamMemberAlreadyAssociatedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TeamMemberAlreadyAssociatedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TeamMemberAlreadyAssociatedException";
   $fault: "client";
   message?: string;
@@ -1350,9 +1332,7 @@ export namespace TeamMemberAlreadyAssociatedException {
  *          <p>The specified team member was not found.</p>
  *
  */
-export interface TeamMemberNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TeamMemberNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TeamMemberNotFoundException";
   $fault: "client";
   message?: string;
@@ -1674,9 +1654,7 @@ export namespace UpdateUserProfileResult {
  *       CodeStar user profile names must be unique within a region for the AWS account. </p>
  *
  */
-export interface UserProfileAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UserProfileAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "UserProfileAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -1693,9 +1671,7 @@ export namespace UserProfileAlreadyExistsException {
  *          <p>The user profile was not found.</p>
  *
  */
-export interface UserProfileNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UserProfileNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "UserProfileNotFoundException";
   $fault: "client";
   message?: string;
@@ -1763,9 +1739,7 @@ export namespace UserProfileSummary {
  *          <p>The specified input is either not valid, or it could not be validated.</p>
  *
  */
-export interface ValidationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ValidationException";
   $fault: "client";
   message?: string;

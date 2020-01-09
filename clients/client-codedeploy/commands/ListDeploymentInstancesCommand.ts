@@ -1,20 +1,20 @@
 import {
   CodeDeployClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CodeDeployClient";
 import {
   ListDeploymentInstancesInput,
-  ListDeploymentInstancesOutput
+  ListDeploymentInstancesOutput,
 } from "../models/index";
 import {
   deserializeAws_json1_1ListDeploymentInstancesCommand,
-  serializeAws_json1_1ListDeploymentInstancesCommand
+  serializeAws_json1_1ListDeploymentInstancesCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type ListDeploymentInstancesCommandInput = ListDeploymentInstancesInput;
 export type ListDeploymentInstancesCommandOutput = ListDeploymentInstancesOutput;
 
-export class ListDeploymentInstancesCommand extends $Command<
-  ListDeploymentInstancesCommandInput,
-  ListDeploymentInstancesCommandOutput,
-  CodeDeployClientResolvedConfig
-> {
+export class ListDeploymentInstancesCommand extends $Command<ListDeploymentInstancesCommandInput, ListDeploymentInstancesCommandOutput, CodeDeployClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class ListDeploymentInstancesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListDeploymentInstancesCommandInput,
-    ListDeploymentInstancesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListDeploymentInstancesCommandInput, ListDeploymentInstancesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -79,10 +70,7 @@ export class ListDeploymentInstancesCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListDeploymentInstancesCommandOutput> {
-    return deserializeAws_json1_1ListDeploymentInstancesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListDeploymentInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

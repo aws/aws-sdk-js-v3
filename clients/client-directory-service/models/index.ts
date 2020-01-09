@@ -38,9 +38,7 @@ export namespace AcceptSharedDirectoryResult {
  *          <p>You do not have sufficient access to perform this action.</p>
  *
  */
-export interface AccessDeniedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   /**
@@ -235,9 +233,7 @@ export namespace Attribute {
  *         <p>An authentication error occurred.</p>
  *
  */
-export interface AuthenticationFailedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AuthenticationFailedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AuthenticationFailedException";
   $fault: "client";
   /**
@@ -355,9 +351,7 @@ export namespace Certificate {
  *          <p>The certificate has already been registered into the system.</p>
  *
  */
-export interface CertificateAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CertificateAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CertificateAlreadyExistsException";
   $fault: "client";
   /**
@@ -386,9 +380,7 @@ export namespace CertificateAlreadyExistsException {
  *          <p>The certificate is not present in the system for describe or deregister activities.</p>
  *
  */
-export interface CertificateDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CertificateDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CertificateDoesNotExistException";
   $fault: "client";
   /**
@@ -418,9 +410,7 @@ export namespace CertificateDoesNotExistException {
  *       without disabling LDAP security.</p>
  *
  */
-export interface CertificateInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CertificateInUseException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CertificateInUseException";
   $fault: "client";
   /**
@@ -484,9 +474,7 @@ export namespace CertificateInfo {
  *          <p>The certificate could not be added because the certificate limit has been reached.</p>
  *
  */
-export interface CertificateLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CertificateLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CertificateLimitExceededException";
   $fault: "client";
   /**
@@ -516,7 +504,7 @@ export enum CertificateState {
   DEREGISTER_FAILED = "DeregisterFailed",
   REGISTERED = "Registered",
   REGISTERING = "Registering",
-  REGISTER_FAILED = "RegisterFailed"
+  REGISTER_FAILED = "RegisterFailed",
 }
 
 /**
@@ -524,9 +512,7 @@ export enum CertificateState {
  *         <p>A client exception has occurred.</p>
  *
  */
-export interface ClientException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ClientException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ClientException";
   $fault: "client";
   /**
@@ -2066,9 +2052,7 @@ export namespace DescribeTrustsResult {
  *          <p>The specified directory has already been shared with this AWS account.</p>
  *
  */
-export interface DirectoryAlreadySharedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DirectoryAlreadySharedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DirectoryAlreadySharedException";
   $fault: "client";
   /**
@@ -2406,9 +2390,7 @@ export namespace DirectoryDescription {
  *          <p>The specified directory does not exist in the system.</p>
  *
  */
-export interface DirectoryDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DirectoryDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DirectoryDoesNotExistException";
   $fault: "client";
   /**
@@ -2434,7 +2416,7 @@ export namespace DirectoryDoesNotExistException {
 
 export enum DirectoryEdition {
   ENTERPRISE = "Enterprise",
-  STANDARD = "Standard"
+  STANDARD = "Standard",
 }
 
 /**
@@ -2444,9 +2426,7 @@ export enum DirectoryEdition {
  *             region.</p>
  *
  */
-export interface DirectoryLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DirectoryLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DirectoryLimitExceededException";
   $fault: "client";
   /**
@@ -2552,9 +2532,7 @@ export namespace DirectoryLimits {
  *          <p>The specified directory has not been shared with this AWS account.</p>
  *
  */
-export interface DirectoryNotSharedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DirectoryNotSharedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DirectoryNotSharedException";
   $fault: "client";
   /**
@@ -2580,7 +2558,7 @@ export namespace DirectoryNotSharedException {
 
 export enum DirectorySize {
   LARGE = "Large",
-  SMALL = "Small"
+  SMALL = "Small",
 }
 
 export enum DirectoryStage {
@@ -2594,14 +2572,14 @@ export enum DirectoryStage {
   INOPERABLE = "Inoperable",
   REQUESTED = "Requested",
   RESTOREFAILED = "RestoreFailed",
-  RESTORING = "Restoring"
+  RESTORING = "Restoring",
 }
 
 export enum DirectoryType {
   AD_CONNECTOR = "ADConnector",
   MICROSOFT_AD = "MicrosoftAD",
   SHARED_MICROSOFT_AD = "SharedMicrosoftAD",
-  SIMPLE_AD = "SimpleAD"
+  SIMPLE_AD = "SimpleAD",
 }
 
 /**
@@ -2609,9 +2587,7 @@ export enum DirectoryType {
  *         <p>The specified directory is unavailable or could not be found.</p>
  *
  */
-export interface DirectoryUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DirectoryUnavailableException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DirectoryUnavailableException";
   $fault: "client";
   /**
@@ -2919,9 +2895,7 @@ export namespace DomainController {
  *          <p>The maximum allowed number of domain controllers per directory was exceeded. The default limit per directory is 20 domain controllers.</p>
  *
  */
-export interface DomainControllerLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DomainControllerLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DomainControllerLimitExceededException";
   $fault: "client";
   /**
@@ -2952,7 +2926,7 @@ export enum DomainControllerStatus {
   DELETING = "Deleting",
   FAILED = "Failed",
   IMPAIRED = "Impaired",
-  RESTORING = "Restoring"
+  RESTORING = "Restoring",
 }
 
 export interface EnableLDAPSRequest {
@@ -3092,9 +3066,7 @@ export namespace EnableSsoResult {
  *         <p>The specified entity already exists.</p>
  *
  */
-export interface EntityAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface EntityAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "EntityAlreadyExistsException";
   $fault: "client";
   /**
@@ -3123,9 +3095,7 @@ export namespace EntityAlreadyExistsException {
  *         <p>The specified entity could not be found.</p>
  *
  */
-export interface EntityDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface EntityDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "EntityDoesNotExistException";
   $fault: "client";
   /**
@@ -3283,9 +3253,7 @@ export namespace GetSnapshotLimitsResult {
  *         <p>The account does not have sufficient permission to perform the operation.</p>
  *
  */
-export interface InsufficientPermissionsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InsufficientPermissionsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InsufficientPermissionsException";
   $fault: "client";
   /**
@@ -3314,9 +3282,7 @@ export namespace InsufficientPermissionsException {
  *          <p>The certificate PEM that was provided has incorrect encoding.</p>
  *
  */
-export interface InvalidCertificateException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidCertificateException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidCertificateException";
   $fault: "client";
   /**
@@ -3346,9 +3312,7 @@ export namespace InvalidCertificateException {
  *       status.</p>
  *
  */
-export interface InvalidLDAPSStatusException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidLDAPSStatusException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidLDAPSStatusException";
   $fault: "client";
   /**
@@ -3377,9 +3341,7 @@ export namespace InvalidLDAPSStatusException {
  *         <p>The <code>NextToken</code> value is not valid.</p>
  *
  */
-export interface InvalidNextTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidNextTokenException";
   $fault: "client";
   /**
@@ -3408,9 +3370,7 @@ export namespace InvalidNextTokenException {
  *         <p>One or more parameters are not valid.</p>
  *
  */
-export interface InvalidParameterException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidParameterException";
   $fault: "client";
   /**
@@ -3439,9 +3399,7 @@ export namespace InvalidParameterException {
  *          <p>The new password provided by the user does not meet the password complexity requirements defined in your directory.</p>
  *
  */
-export interface InvalidPasswordException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidPasswordException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidPasswordException";
   $fault: "client";
   /**
@@ -3470,9 +3428,7 @@ export namespace InvalidPasswordException {
  *          <p>The specified shared target is not valid.</p>
  *
  */
-export interface InvalidTargetException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidTargetException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidTargetException";
   $fault: "client";
   /**
@@ -3585,9 +3541,7 @@ export namespace IpRouteInfo {
  *          <p>The maximum allowed number of IP addresses was exceeded. The default limit is 100 IP address blocks.</p>
  *
  */
-export interface IpRouteLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface IpRouteLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "IpRouteLimitExceededException";
   $fault: "client";
   /**
@@ -3617,7 +3571,7 @@ export enum IpRouteStatusMsg {
   ADD_FAILED = "AddFailed",
   REMOVED = "Removed",
   REMOVE_FAILED = "RemoveFailed",
-  REMOVING = "Removing"
+  REMOVING = "Removing",
 }
 
 /**
@@ -3659,11 +3613,11 @@ export enum LDAPSStatus {
   DISABLED = "Disabled",
   ENABLED = "Enabled",
   ENABLE_FAILED = "EnableFailed",
-  ENABLING = "Enabling"
+  ENABLING = "Enabling",
 }
 
 export enum LDAPSType {
-  CLIENT = "Client"
+  CLIENT = "Client",
 }
 
 export interface ListCertificatesRequest {
@@ -3982,9 +3936,7 @@ export namespace LogSubscription {
  *       registered with the system.</p>
  *
  */
-export interface NoAvailableCertificateException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NoAvailableCertificateException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NoAvailableCertificateException";
   $fault: "client";
   /**
@@ -4013,9 +3965,7 @@ export namespace NoAvailableCertificateException {
  *          <p>Exception encountered while trying to access your AWS organization.</p>
  *
  */
-export interface OrganizationsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface OrganizationsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "OrganizationsException";
   $fault: "client";
   /**
@@ -4099,7 +4049,7 @@ export enum RadiusAuthenticationProtocol {
   CHAP = "CHAP",
   MSCHAPV1 = "MS-CHAPv1",
   MSCHAPV2 = "MS-CHAPv2",
-  PAP = "PAP"
+  PAP = "PAP",
 }
 
 /**
@@ -4175,7 +4125,7 @@ export namespace RadiusSettings {
 export enum RadiusStatus {
   COMPLETED = "Completed",
   CREATING = "Creating",
-  FAILED = "Failed"
+  FAILED = "Failed",
 }
 
 export interface RegisterCertificateRequest {
@@ -4359,7 +4309,7 @@ export namespace RemoveTagsFromResourceResult {
 }
 
 export enum ReplicationScope {
-  Domain = "Domain"
+  Domain = "Domain",
 }
 
 export interface ResetUserPasswordRequest {
@@ -4510,12 +4460,12 @@ export enum SchemaExtensionStatus {
   INITIALIZING = "Initializing",
   REPLICATING = "Replicating",
   ROLLBACK_IN_PROGRESS = "RollbackInProgress",
-  UPDATING_SCHEMA = "UpdatingSchema"
+  UPDATING_SCHEMA = "UpdatingSchema",
 }
 
 export enum SelectiveAuth {
   DISABLED = "Disabled",
-  ENABLED = "Enabled"
+  ENABLED = "Enabled",
 }
 
 /**
@@ -4523,9 +4473,7 @@ export enum SelectiveAuth {
  *         <p>An exception has occurred in AWS Directory Service.</p>
  *
  */
-export interface ServiceException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceException";
   $fault: "server";
   /**
@@ -4612,9 +4560,7 @@ export namespace ShareDirectoryResult {
  *          <p>The maximum number of AWS accounts that you can share with this directory has been reached.</p>
  *
  */
-export interface ShareLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ShareLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ShareLimitExceededException";
   $fault: "client";
   /**
@@ -4640,7 +4586,7 @@ export namespace ShareLimitExceededException {
 
 export enum ShareMethod {
   HANDSHAKE = "HANDSHAKE",
-  ORGANIZATIONS = "ORGANIZATIONS"
+  ORGANIZATIONS = "ORGANIZATIONS",
 }
 
 export enum ShareStatus {
@@ -4652,7 +4598,7 @@ export enum ShareStatus {
   REJECT_FAILED = "RejectFailed",
   SHARED = "Shared",
   SHARE_FAILED = "ShareFailed",
-  SHARING = "Sharing"
+  SHARING = "Sharing",
 }
 
 /**
@@ -4828,9 +4774,7 @@ export namespace Snapshot {
  *       directory.</p>
  *
  */
-export interface SnapshotLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface SnapshotLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "SnapshotLimitExceededException";
   $fault: "client";
   /**
@@ -4892,12 +4836,12 @@ export namespace SnapshotLimits {
 export enum SnapshotStatus {
   COMPLETED = "Completed",
   CREATING = "Creating",
-  FAILED = "Failed"
+  FAILED = "Failed",
 }
 
 export enum SnapshotType {
   AUTO = "Auto",
-  MANUAL = "Manual"
+  MANUAL = "Manual",
 }
 
 export interface StartSchemaExtensionRequest {
@@ -4986,9 +4930,7 @@ export namespace Tag {
  *          <p>The maximum allowed number of tags was exceeded.</p>
  *
  */
-export interface TagLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TagLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TagLimitExceededException";
   $fault: "client";
   /**
@@ -5013,14 +4955,14 @@ export namespace TagLimitExceededException {
 }
 
 export enum TargetType {
-  ACCOUNT = "ACCOUNT"
+  ACCOUNT = "ACCOUNT",
 }
 
 export enum TopicStatus {
   DELETED = "Deleted",
   FAILED = "Failed",
   REGISTERED = "Registered",
-  TOPIC_NOT_FOUND = "Topic not found"
+  TOPIC_NOT_FOUND = "Topic not found",
 }
 
 /**
@@ -5117,7 +5059,7 @@ export namespace Trust {
 export enum TrustDirection {
   ONE_WAY_INCOMING = "One-Way: Incoming",
   ONE_WAY_OUTGOING = "One-Way: Outgoing",
-  TWO_WAY = "Two-Way"
+  TWO_WAY = "Two-Way",
 }
 
 export enum TrustState {
@@ -5131,12 +5073,12 @@ export enum TrustState {
   UPDATING = "Updating",
   VERIFIED = "Verified",
   VERIFYING = "Verifying",
-  VERIFY_FAILED = "VerifyFailed"
+  VERIFY_FAILED = "VerifyFailed",
 }
 
 export enum TrustType {
   EXTERNAL = "External",
-  FOREST = "Forest"
+  FOREST = "Forest",
 }
 
 export interface UnshareDirectoryRequest {
@@ -5211,9 +5153,7 @@ export namespace UnshareTarget {
  *         <p>The operation is not supported.</p>
  *
  */
-export interface UnsupportedOperationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnsupportedOperationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "UnsupportedOperationException";
   $fault: "client";
   /**
@@ -5414,9 +5354,7 @@ export namespace UpdateTrustResult {
  *          <p>The user provided a username that does not exist in your directory.</p>
  *
  */
-export interface UserDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UserDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "UserDoesNotExistException";
   $fault: "client";
   /**

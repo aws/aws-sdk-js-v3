@@ -2,82 +2,82 @@ import { IoTEventsClient } from "./IoTEventsClient";
 import {
   CreateDetectorModelCommand,
   CreateDetectorModelCommandInput,
-  CreateDetectorModelCommandOutput
+  CreateDetectorModelCommandOutput,
 } from "./commands/CreateDetectorModelCommand";
 import {
   CreateInputCommand,
   CreateInputCommandInput,
-  CreateInputCommandOutput
+  CreateInputCommandOutput,
 } from "./commands/CreateInputCommand";
 import {
   DeleteDetectorModelCommand,
   DeleteDetectorModelCommandInput,
-  DeleteDetectorModelCommandOutput
+  DeleteDetectorModelCommandOutput,
 } from "./commands/DeleteDetectorModelCommand";
 import {
   DeleteInputCommand,
   DeleteInputCommandInput,
-  DeleteInputCommandOutput
+  DeleteInputCommandOutput,
 } from "./commands/DeleteInputCommand";
 import {
   DescribeDetectorModelCommand,
   DescribeDetectorModelCommandInput,
-  DescribeDetectorModelCommandOutput
+  DescribeDetectorModelCommandOutput,
 } from "./commands/DescribeDetectorModelCommand";
 import {
   DescribeInputCommand,
   DescribeInputCommandInput,
-  DescribeInputCommandOutput
+  DescribeInputCommandOutput,
 } from "./commands/DescribeInputCommand";
 import {
   DescribeLoggingOptionsCommand,
   DescribeLoggingOptionsCommandInput,
-  DescribeLoggingOptionsCommandOutput
+  DescribeLoggingOptionsCommandOutput,
 } from "./commands/DescribeLoggingOptionsCommand";
 import {
   ListDetectorModelVersionsCommand,
   ListDetectorModelVersionsCommandInput,
-  ListDetectorModelVersionsCommandOutput
+  ListDetectorModelVersionsCommandOutput,
 } from "./commands/ListDetectorModelVersionsCommand";
 import {
   ListDetectorModelsCommand,
   ListDetectorModelsCommandInput,
-  ListDetectorModelsCommandOutput
+  ListDetectorModelsCommandOutput,
 } from "./commands/ListDetectorModelsCommand";
 import {
   ListInputsCommand,
   ListInputsCommandInput,
-  ListInputsCommandOutput
+  ListInputsCommandOutput,
 } from "./commands/ListInputsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   PutLoggingOptionsCommand,
   PutLoggingOptionsCommandInput,
-  PutLoggingOptionsCommandOutput
+  PutLoggingOptionsCommandOutput,
 } from "./commands/PutLoggingOptionsCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateDetectorModelCommand,
   UpdateDetectorModelCommandInput,
-  UpdateDetectorModelCommandOutput
+  UpdateDetectorModelCommandOutput,
 } from "./commands/UpdateDetectorModelCommand";
 import {
   UpdateInputCommand,
   UpdateInputCommandInput,
-  UpdateInputCommandOutput
+  UpdateInputCommandOutput,
 } from "./commands/UpdateInputCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -96,7 +96,7 @@ export class IoTEvents extends IoTEventsClient {
    */
   public createDetectorModel(
     args: CreateDetectorModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateDetectorModelCommandOutput>;
   public createDetectorModel(
     args: CreateDetectorModelCommandInput,
@@ -109,18 +109,16 @@ export class IoTEvents extends IoTEventsClient {
   ): void;
   public createDetectorModel(
     args: CreateDetectorModelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDetectorModelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDetectorModelCommandOutput) => void),
     cb?: (err: any, data?: CreateDetectorModelCommandOutput) => void
   ): Promise<CreateDetectorModelCommandOutput> | void {
     const command = new CreateDetectorModelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -133,7 +131,7 @@ export class IoTEvents extends IoTEventsClient {
    */
   public createInput(
     args: CreateInputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateInputCommandOutput>;
   public createInput(
     args: CreateInputCommandInput,
@@ -146,18 +144,16 @@ export class IoTEvents extends IoTEventsClient {
   ): void;
   public createInput(
     args: CreateInputCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateInputCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateInputCommandOutput) => void),
     cb?: (err: any, data?: CreateInputCommandOutput) => void
   ): Promise<CreateInputCommandOutput> | void {
     const command = new CreateInputCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -171,7 +167,7 @@ export class IoTEvents extends IoTEventsClient {
    */
   public deleteDetectorModel(
     args: DeleteDetectorModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteDetectorModelCommandOutput>;
   public deleteDetectorModel(
     args: DeleteDetectorModelCommandInput,
@@ -184,18 +180,16 @@ export class IoTEvents extends IoTEventsClient {
   ): void;
   public deleteDetectorModel(
     args: DeleteDetectorModelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDetectorModelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDetectorModelCommandOutput) => void),
     cb?: (err: any, data?: DeleteDetectorModelCommandOutput) => void
   ): Promise<DeleteDetectorModelCommandOutput> | void {
     const command = new DeleteDetectorModelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -208,7 +202,7 @@ export class IoTEvents extends IoTEventsClient {
    */
   public deleteInput(
     args: DeleteInputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteInputCommandOutput>;
   public deleteInput(
     args: DeleteInputCommandInput,
@@ -221,18 +215,16 @@ export class IoTEvents extends IoTEventsClient {
   ): void;
   public deleteInput(
     args: DeleteInputCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteInputCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInputCommandOutput) => void),
     cb?: (err: any, data?: DeleteInputCommandOutput) => void
   ): Promise<DeleteInputCommandOutput> | void {
     const command = new DeleteInputCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -246,7 +238,7 @@ export class IoTEvents extends IoTEventsClient {
    */
   public describeDetectorModel(
     args: DescribeDetectorModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeDetectorModelCommandOutput>;
   public describeDetectorModel(
     args: DescribeDetectorModelCommandInput,
@@ -259,18 +251,16 @@ export class IoTEvents extends IoTEventsClient {
   ): void;
   public describeDetectorModel(
     args: DescribeDetectorModelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDetectorModelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDetectorModelCommandOutput) => void),
     cb?: (err: any, data?: DescribeDetectorModelCommandOutput) => void
   ): Promise<DescribeDetectorModelCommandOutput> | void {
     const command = new DescribeDetectorModelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -283,7 +273,7 @@ export class IoTEvents extends IoTEventsClient {
    */
   public describeInput(
     args: DescribeInputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeInputCommandOutput>;
   public describeInput(
     args: DescribeInputCommandInput,
@@ -296,18 +286,16 @@ export class IoTEvents extends IoTEventsClient {
   ): void;
   public describeInput(
     args: DescribeInputCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeInputCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInputCommandOutput) => void),
     cb?: (err: any, data?: DescribeInputCommandOutput) => void
   ): Promise<DescribeInputCommandOutput> | void {
     const command = new DescribeInputCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -320,7 +308,7 @@ export class IoTEvents extends IoTEventsClient {
    */
   public describeLoggingOptions(
     args: DescribeLoggingOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeLoggingOptionsCommandOutput>;
   public describeLoggingOptions(
     args: DescribeLoggingOptionsCommandInput,
@@ -333,18 +321,16 @@ export class IoTEvents extends IoTEventsClient {
   ): void;
   public describeLoggingOptions(
     args: DescribeLoggingOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLoggingOptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLoggingOptionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeLoggingOptionsCommandOutput) => void
   ): Promise<DescribeLoggingOptionsCommandOutput> | void {
     const command = new DescribeLoggingOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -358,7 +344,7 @@ export class IoTEvents extends IoTEventsClient {
    */
   public listDetectorModelVersions(
     args: ListDetectorModelVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListDetectorModelVersionsCommandOutput>;
   public listDetectorModelVersions(
     args: ListDetectorModelVersionsCommandInput,
@@ -371,18 +357,16 @@ export class IoTEvents extends IoTEventsClient {
   ): void;
   public listDetectorModelVersions(
     args: ListDetectorModelVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDetectorModelVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDetectorModelVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListDetectorModelVersionsCommandOutput) => void
   ): Promise<ListDetectorModelVersionsCommandOutput> | void {
     const command = new ListDetectorModelVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -396,7 +380,7 @@ export class IoTEvents extends IoTEventsClient {
    */
   public listDetectorModels(
     args: ListDetectorModelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListDetectorModelsCommandOutput>;
   public listDetectorModels(
     args: ListDetectorModelsCommandInput,
@@ -409,18 +393,16 @@ export class IoTEvents extends IoTEventsClient {
   ): void;
   public listDetectorModels(
     args: ListDetectorModelsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDetectorModelsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDetectorModelsCommandOutput) => void),
     cb?: (err: any, data?: ListDetectorModelsCommandOutput) => void
   ): Promise<ListDetectorModelsCommandOutput> | void {
     const command = new ListDetectorModelsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -433,7 +415,7 @@ export class IoTEvents extends IoTEventsClient {
    */
   public listInputs(
     args: ListInputsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListInputsCommandOutput>;
   public listInputs(
     args: ListInputsCommandInput,
@@ -446,18 +428,16 @@ export class IoTEvents extends IoTEventsClient {
   ): void;
   public listInputs(
     args: ListInputsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListInputsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInputsCommandOutput) => void),
     cb?: (err: any, data?: ListInputsCommandOutput) => void
   ): Promise<ListInputsCommandOutput> | void {
     const command = new ListInputsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -470,7 +450,7 @@ export class IoTEvents extends IoTEventsClient {
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListTagsForResourceCommandOutput>;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -483,18 +463,16 @@ export class IoTEvents extends IoTEventsClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -511,7 +489,7 @@ export class IoTEvents extends IoTEventsClient {
    */
   public putLoggingOptions(
     args: PutLoggingOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<PutLoggingOptionsCommandOutput>;
   public putLoggingOptions(
     args: PutLoggingOptionsCommandInput,
@@ -524,18 +502,16 @@ export class IoTEvents extends IoTEventsClient {
   ): void;
   public putLoggingOptions(
     args: PutLoggingOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutLoggingOptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutLoggingOptionsCommandOutput) => void),
     cb?: (err: any, data?: PutLoggingOptionsCommandOutput) => void
   ): Promise<PutLoggingOptionsCommandOutput> | void {
     const command = new PutLoggingOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -549,7 +525,7 @@ export class IoTEvents extends IoTEventsClient {
    */
   public tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<TagResourceCommandOutput>;
   public tagResource(
     args: TagResourceCommandInput,
@@ -562,18 +538,16 @@ export class IoTEvents extends IoTEventsClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -586,7 +560,7 @@ export class IoTEvents extends IoTEventsClient {
    */
   public untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UntagResourceCommandOutput>;
   public untagResource(
     args: UntagResourceCommandInput,
@@ -599,18 +573,16 @@ export class IoTEvents extends IoTEventsClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -624,7 +596,7 @@ export class IoTEvents extends IoTEventsClient {
    */
   public updateDetectorModel(
     args: UpdateDetectorModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateDetectorModelCommandOutput>;
   public updateDetectorModel(
     args: UpdateDetectorModelCommandInput,
@@ -637,18 +609,16 @@ export class IoTEvents extends IoTEventsClient {
   ): void;
   public updateDetectorModel(
     args: UpdateDetectorModelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDetectorModelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDetectorModelCommandOutput) => void),
     cb?: (err: any, data?: UpdateDetectorModelCommandOutput) => void
   ): Promise<UpdateDetectorModelCommandOutput> | void {
     const command = new UpdateDetectorModelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -661,7 +631,7 @@ export class IoTEvents extends IoTEventsClient {
    */
   public updateInput(
     args: UpdateInputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateInputCommandOutput>;
   public updateInput(
     args: UpdateInputCommandInput,
@@ -674,20 +644,19 @@ export class IoTEvents extends IoTEventsClient {
   ): void;
   public updateInput(
     args: UpdateInputCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateInputCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateInputCommandOutput) => void),
     cb?: (err: any, data?: UpdateInputCommandOutput) => void
   ): Promise<UpdateInputCommandOutput> | void {
     const command = new UpdateInputCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

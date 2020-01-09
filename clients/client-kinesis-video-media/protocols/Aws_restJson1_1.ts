@@ -1,6 +1,6 @@
 import {
   GetMediaCommandInput,
-  GetMediaCommandOutput
+  GetMediaCommandOutput,
 } from "../commands/GetMediaCommand";
 import {
   ClientLimitExceededException,
@@ -9,18 +9,18 @@ import {
   InvalidEndpointException,
   NotAuthorizedException,
   ResourceNotFoundException,
-  StartSelector
+  StartSelector,
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export async function serializeAws_restJson1_1GetMediaCommand(
@@ -28,21 +28,18 @@ export async function serializeAws_restJson1_1GetMediaCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/getMedia";
   let body: any = {};
   const bodyParams: any = {};
   if (input.StartSelector !== undefined) {
-    bodyParams["StartSelector"] = serializeAws_restJson1_1StartSelector(
-      input.StartSelector,
-      context
-    );
+    bodyParams['StartSelector'] = serializeAws_restJson1_1StartSelector(input.StartSelector, context);
   }
   if (input.StreamARN !== undefined) {
-    bodyParams["StreamARN"] = input.StreamARN;
+    bodyParams['StreamARN'] = input.StreamARN;
   }
   if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
+    bodyParams['StreamName'] = input.StreamName;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -51,7 +48,7 @@ export async function serializeAws_restJson1_1GetMediaCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -66,10 +63,10 @@ export async function deserializeAws_restJson1_1GetMediaCommand(
     $metadata: deserializeMetadata(output),
     __type: "GetMediaOutput",
     ContentType: undefined,
-    Payload: undefined
+    Payload: undefined,
   };
   if (output.headers["Content-Type"] !== undefined) {
-    contents.ContentType = output.headers["Content-Type"];
+    contents.ContentType = output.headers['Content-Type'];
   }
   const data: any = output.body;
   contents.Payload = data;
@@ -78,67 +75,48 @@ export async function deserializeAws_restJson1_1GetMediaCommand(
 
 async function deserializeAws_restJson1_1GetMediaCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetMediaCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
-      response = await deserializeAws_restJson1_1ClientLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ClientLimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "ConnectionLimitExceededException":
     case "com.amazon.kinesis.video.v20170930#ConnectionLimitExceededException":
-      response = await deserializeAws_restJson1_1ConnectionLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ConnectionLimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "InvalidArgumentException":
     case "com.amazon.kinesis.video.v20170930#InvalidArgumentException":
-      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     case "InvalidEndpointException":
     case "com.amazon.kinesis.video.v20170930#InvalidEndpointException":
-      response = await deserializeAws_restJson1_1InvalidEndpointExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidEndpointExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazon.kinesis.video.v20170930#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazon.kinesis.video.v20170930#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.acuity.ats.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -152,7 +130,7 @@ const deserializeAws_restJson1_1ClientLimitExceededExceptionResponse = async (
     __type: "ClientLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -169,7 +147,7 @@ const deserializeAws_restJson1_1ConnectionLimitExceededExceptionResponse = async
     __type: "ConnectionLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -186,7 +164,7 @@ const deserializeAws_restJson1_1InvalidArgumentExceptionResponse = async (
     __type: "InvalidArgumentException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -203,7 +181,7 @@ const deserializeAws_restJson1_1InvalidEndpointExceptionResponse = async (
     __type: "InvalidEndpointException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -220,7 +198,7 @@ const deserializeAws_restJson1_1NotAuthorizedExceptionResponse = async (
     __type: "NotAuthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -237,7 +215,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -252,21 +230,19 @@ const serializeAws_restJson1_1StartSelector = (
 ): any => {
   let bodyParams: any = {};
   if (input.AfterFragmentNumber !== undefined) {
-    bodyParams["AfterFragmentNumber"] = input.AfterFragmentNumber;
+    bodyParams['AfterFragmentNumber'] = input.AfterFragmentNumber;
   }
   if (input.ContinuationToken !== undefined) {
-    bodyParams["ContinuationToken"] = input.ContinuationToken;
+    bodyParams['ContinuationToken'] = input.ContinuationToken;
   }
   if (input.StartSelectorType !== undefined) {
-    bodyParams["StartSelectorType"] = input.StartSelectorType;
+    bodyParams['StartSelectorType'] = input.StartSelectorType;
   }
   if (input.StartTimestamp !== undefined) {
-    bodyParams["StartTimestamp"] = Math.round(
-      input.StartTimestamp.getTime() / 1000
-    );
+    bodyParams['StartTimestamp'] = Math.round(input.StartTimestamp.getTime() / 1000);
   }
   return bodyParams;
-};
+}
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

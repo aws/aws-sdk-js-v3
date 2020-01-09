@@ -1,20 +1,20 @@
 import {
   ComputeOptimizerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ComputeOptimizerClient";
 import {
   GetEnrollmentStatusRequest,
-  GetEnrollmentStatusResponse
+  GetEnrollmentStatusResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_0GetEnrollmentStatusCommand,
-  serializeAws_json1_0GetEnrollmentStatusCommand
+  serializeAws_json1_0GetEnrollmentStatusCommand,
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type GetEnrollmentStatusCommandInput = GetEnrollmentStatusRequest;
 export type GetEnrollmentStatusCommandOutput = GetEnrollmentStatusResponse;
 
-export class GetEnrollmentStatusCommand extends $Command<
-  GetEnrollmentStatusCommandInput,
-  GetEnrollmentStatusCommandOutput,
-  ComputeOptimizerClientResolvedConfig
-> {
+export class GetEnrollmentStatusCommand extends $Command<GetEnrollmentStatusCommandInput, GetEnrollmentStatusCommandOutput, ComputeOptimizerClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class GetEnrollmentStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComputeOptimizerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetEnrollmentStatusCommandInput,
-    GetEnrollmentStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetEnrollmentStatusCommandInput, GetEnrollmentStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -1,20 +1,20 @@
 import {
   CostExplorerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CostExplorerClient";
 import {
   GetDimensionValuesRequest,
-  GetDimensionValuesResponse
+  GetDimensionValuesResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1GetDimensionValuesCommand,
-  serializeAws_json1_1GetDimensionValuesCommand
+  serializeAws_json1_1GetDimensionValuesCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type GetDimensionValuesCommandInput = GetDimensionValuesRequest;
 export type GetDimensionValuesCommandOutput = GetDimensionValuesResponse;
 
-export class GetDimensionValuesCommand extends $Command<
-  GetDimensionValuesCommandInput,
-  GetDimensionValuesCommandOutput,
-  CostExplorerClientResolvedConfig
-> {
+export class GetDimensionValuesCommand extends $Command<GetDimensionValuesCommandInput, GetDimensionValuesCommandOutput, CostExplorerClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,15 +44,13 @@ export class GetDimensionValuesCommand extends $Command<
     configuration: CostExplorerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDimensionValuesCommandInput, GetDimensionValuesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

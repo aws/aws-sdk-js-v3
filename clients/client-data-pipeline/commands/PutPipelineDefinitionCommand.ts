@@ -1,20 +1,20 @@
 import {
   DataPipelineClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DataPipelineClient";
 import {
   PutPipelineDefinitionInput,
-  PutPipelineDefinitionOutput
+  PutPipelineDefinitionOutput,
 } from "../models/index";
 import {
   deserializeAws_json1_1PutPipelineDefinitionCommand,
-  serializeAws_json1_1PutPipelineDefinitionCommand
+  serializeAws_json1_1PutPipelineDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type PutPipelineDefinitionCommandInput = PutPipelineDefinitionInput;
 export type PutPipelineDefinitionCommandOutput = PutPipelineDefinitionOutput;
 
-export class PutPipelineDefinitionCommand extends $Command<
-  PutPipelineDefinitionCommandInput,
-  PutPipelineDefinitionCommandOutput,
-  DataPipelineClientResolvedConfig
-> {
+export class PutPipelineDefinitionCommand extends $Command<PutPipelineDefinitionCommandInput, PutPipelineDefinitionCommandOutput, DataPipelineClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class PutPipelineDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataPipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutPipelineDefinitionCommandInput,
-    PutPipelineDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutPipelineDefinitionCommandInput, PutPipelineDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

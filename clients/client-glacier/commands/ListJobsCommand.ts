@@ -1,17 +1,20 @@
 import {
   GlacierClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../GlacierClient";
-import { ListJobsInput, ListJobsOutput } from "../models/index";
+import {
+  ListJobsInput,
+  ListJobsOutput,
+} from "../models/index";
 import {
   deserializeAws_restJson1_1ListJobsCommand,
-  serializeAws_restJson1_1ListJobsCommand
+  serializeAws_restJson1_1ListJobsCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type ListJobsCommandInput = ListJobsInput;
 export type ListJobsCommandOutput = ListJobsOutput;
 
-export class ListJobsCommand extends $Command<
-  ListJobsCommandInput,
-  ListJobsCommandOutput,
-  GlacierClientResolvedConfig
-> {
+export class ListJobsCommand extends $Command<ListJobsCommandInput, ListJobsCommandOutput, GlacierClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class ListJobsCommand extends $Command<
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListJobsCommandInput, ListJobsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

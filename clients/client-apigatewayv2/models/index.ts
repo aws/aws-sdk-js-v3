@@ -129,7 +129,7 @@ export namespace ApiMapping {
 export enum AuthorizationType {
   AWS_IAM = "AWS_IAM",
   CUSTOM = "CUSTOM",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 /**
@@ -223,16 +223,14 @@ export namespace Authorizer {
 }
 
 export enum AuthorizerType {
-  REQUEST = "REQUEST"
+  REQUEST = "REQUEST",
 }
 
 /**
  * <p>The request is not valid, for example, the input is incomplete or incorrect. See
  *  the accompanying error message for details.</p>
  */
-export interface BadRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BadRequestException";
   $fault: "client";
   /**
@@ -252,9 +250,7 @@ export namespace BadRequestException {
  *  resource associated with the request. Resolve the conflict before retrying this
  *  request. See the accompanying error message for details.</p>
  */
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConflictException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ConflictException";
   $fault: "client";
   /**
@@ -271,12 +267,12 @@ export namespace ConflictException {
 
 export enum ConnectionType {
   INTERNET = "INTERNET",
-  VPC_LINK = "VPC_LINK"
+  VPC_LINK = "VPC_LINK",
 }
 
 export enum ContentHandlingStrategy {
   CONVERT_TO_BINARY = "CONVERT_TO_BINARY",
-  CONVERT_TO_TEXT = "CONVERT_TO_TEXT"
+  CONVERT_TO_TEXT = "CONVERT_TO_TEXT",
 }
 
 export interface CreateApiMappingRequest {
@@ -1795,7 +1791,7 @@ export namespace Deployment {
 export enum DeploymentStatus {
   DEPLOYED = "DEPLOYED",
   FAILED = "FAILED",
-  PENDING = "PENDING"
+  PENDING = "PENDING",
 }
 
 /**
@@ -1887,12 +1883,12 @@ export namespace DomainNameConfiguration {
 
 export enum DomainNameStatus {
   AVAILABLE = "AVAILABLE",
-  UPDATING = "UPDATING"
+  UPDATING = "UPDATING",
 }
 
 export enum EndpointType {
   EDGE = "EDGE",
-  REGIONAL = "REGIONAL"
+  REGIONAL = "REGIONAL",
 }
 
 export interface GetApiMappingRequest {
@@ -3493,13 +3489,13 @@ export enum IntegrationType {
   AWS_PROXY = "AWS_PROXY",
   HTTP = "HTTP",
   HTTP_PROXY = "HTTP_PROXY",
-  MOCK = "MOCK"
+  MOCK = "MOCK",
 }
 
 export enum LoggingLevel {
   ERROR = "ERROR",
   INFO = "INFO",
-  false = "false"
+  false = "false",
 }
 
 /**
@@ -3545,9 +3541,7 @@ export namespace Model {
  * <p>The resource specified in the request was not found. See the message
  *  field for more information.</p>
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   /**
@@ -3588,11 +3582,11 @@ export namespace ParameterConstraints {
 export enum PassthroughBehavior {
   NEVER = "NEVER",
   WHEN_NO_MATCH = "WHEN_NO_MATCH",
-  WHEN_NO_TEMPLATES = "WHEN_NO_TEMPLATES"
+  WHEN_NO_TEMPLATES = "WHEN_NO_TEMPLATES",
 }
 
 export enum ProtocolType {
-  WEBSOCKET = "WEBSOCKET"
+  WEBSOCKET = "WEBSOCKET",
 }
 
 /**
@@ -3759,7 +3753,7 @@ export namespace RouteSettings {
 
 export enum SecurityPolicy {
   TLS_1_0 = "TLS_1_0",
-  TLS_1_2 = "TLS_1_2"
+  TLS_1_2 = "TLS_1_2",
 }
 
 /**
@@ -3830,9 +3824,7 @@ export namespace Stage {
 /**
  * <p>A limit has been exceeded. See the accompanying error message for details.</p>
  */
-export interface TooManyRequestsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TooManyRequestsException";
   $fault: "client";
   /**

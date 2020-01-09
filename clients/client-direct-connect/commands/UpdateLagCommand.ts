@@ -1,17 +1,20 @@
 import {
   DirectConnectClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DirectConnectClient";
-import { Lag, UpdateLagRequest } from "../models/index";
+import {
+  Lag,
+  UpdateLagRequest,
+} from "../models/index";
 import {
   deserializeAws_json1_1UpdateLagCommand,
-  serializeAws_json1_1UpdateLagCommand
+  serializeAws_json1_1UpdateLagCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type UpdateLagCommandInput = UpdateLagRequest;
 export type UpdateLagCommandOutput = Lag;
 
-export class UpdateLagCommand extends $Command<
-  UpdateLagCommandInput,
-  UpdateLagCommandOutput,
-  DirectConnectClientResolvedConfig
-> {
+export class UpdateLagCommand extends $Command<UpdateLagCommandInput, UpdateLagCommandOutput, DirectConnectClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class UpdateLagCommand extends $Command<
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateLagCommandInput, UpdateLagCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

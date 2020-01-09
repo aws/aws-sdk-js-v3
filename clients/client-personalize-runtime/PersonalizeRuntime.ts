@@ -2,12 +2,12 @@ import { PersonalizeRuntimeClient } from "./PersonalizeRuntimeClient";
 import {
   GetPersonalizedRankingCommand,
   GetPersonalizedRankingCommandInput,
-  GetPersonalizedRankingCommandOutput
+  GetPersonalizedRankingCommandOutput,
 } from "./commands/GetPersonalizedRankingCommand";
 import {
   GetRecommendationsCommand,
   GetRecommendationsCommandInput,
-  GetRecommendationsCommandOutput
+  GetRecommendationsCommandOutput,
 } from "./commands/GetRecommendationsCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -31,7 +31,7 @@ export class PersonalizeRuntime extends PersonalizeRuntimeClient {
    */
   public getPersonalizedRanking(
     args: GetPersonalizedRankingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetPersonalizedRankingCommandOutput>;
   public getPersonalizedRanking(
     args: GetPersonalizedRankingCommandInput,
@@ -44,18 +44,16 @@ export class PersonalizeRuntime extends PersonalizeRuntimeClient {
   ): void;
   public getPersonalizedRanking(
     args: GetPersonalizedRankingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPersonalizedRankingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPersonalizedRankingCommandOutput) => void),
     cb?: (err: any, data?: GetPersonalizedRankingCommandOutput) => void
   ): Promise<GetPersonalizedRankingCommandOutput> | void {
     const command = new GetPersonalizedRankingCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -83,7 +81,7 @@ export class PersonalizeRuntime extends PersonalizeRuntimeClient {
    */
   public getRecommendations(
     args: GetRecommendationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetRecommendationsCommandOutput>;
   public getRecommendations(
     args: GetRecommendationsCommandInput,
@@ -96,20 +94,19 @@ export class PersonalizeRuntime extends PersonalizeRuntimeClient {
   ): void;
   public getRecommendations(
     args: GetRecommendationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRecommendationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRecommendationsCommandOutput) => void),
     cb?: (err: any, data?: GetRecommendationsCommandOutput) => void
   ): Promise<GetRecommendationsCommandOutput> | void {
     const command = new GetRecommendationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

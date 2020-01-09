@@ -1,20 +1,20 @@
 import {
   CostandUsageReportServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CostandUsageReportServiceClient";
 import {
   PutReportDefinitionRequest,
-  PutReportDefinitionResponse
+  PutReportDefinitionResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1PutReportDefinitionCommand,
-  serializeAws_json1_1PutReportDefinitionCommand
+  serializeAws_json1_1PutReportDefinitionCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type PutReportDefinitionCommandInput = PutReportDefinitionRequest;
 export type PutReportDefinitionCommandOutput = PutReportDefinitionResponse;
 
-export class PutReportDefinitionCommand extends $Command<
-  PutReportDefinitionCommandInput,
-  PutReportDefinitionCommandOutput,
-  CostandUsageReportServiceClientResolvedConfig
-> {
+export class PutReportDefinitionCommand extends $Command<PutReportDefinitionCommandInput, PutReportDefinitionCommandOutput, CostandUsageReportServiceClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class PutReportDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostandUsageReportServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutReportDefinitionCommandInput,
-    PutReportDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutReportDefinitionCommandInput, PutReportDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

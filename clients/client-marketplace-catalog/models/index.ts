@@ -6,9 +6,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *         <p>Access is denied.</p>
  *
  */
-export interface AccessDeniedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -180,7 +178,7 @@ export enum ChangeStatus {
   CANCELLED = "CANCELLED",
   FAILED = "FAILED",
   PREPARING = "PREPARING",
-  SUCCEEDED = "SUCCEEDED"
+  SUCCEEDED = "SUCCEEDED",
 }
 
 /**
@@ -588,9 +586,7 @@ export namespace Filter {
  *         <p>There was an internal service exception.</p>
  *
  */
-export interface InternalServiceException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServiceException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServiceException";
   $fault: "server";
   Message?: string;
@@ -758,9 +754,7 @@ export namespace ListEntitiesResponse {
  *         <p>The resource is currently in use.</p>
  *
  */
-export interface ResourceInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   Message?: string;
@@ -777,9 +771,7 @@ export namespace ResourceInUseException {
  *         <p>The specified resource wasn't found.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -796,9 +788,7 @@ export namespace ResourceNotFoundException {
  *         <p>Currently, the specified resource is not supported.</p>
  *
  */
-export interface ResourceNotSupportedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotSupportedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotSupportedException";
   $fault: "client";
   Message?: string;
@@ -815,9 +805,7 @@ export namespace ResourceNotSupportedException {
  *         <p>The maximum number of open requests per account has been exceeded.</p>
  *
  */
-export interface ServiceQuotaExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceQuotaExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceQuotaExceededException";
   $fault: "client";
   Message?: string;
@@ -866,7 +854,7 @@ export namespace Sort {
 
 export enum SortOrder {
   ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING"
+  DESCENDING = "DESCENDING",
 }
 
 export interface StartChangeSetRequest {
@@ -936,9 +924,7 @@ export namespace StartChangeSetResponse {
  *         <p>Too many requests.</p>
  *
  */
-export interface ThrottlingException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ThrottlingException";
   $fault: "client";
   Message?: string;
@@ -955,9 +941,7 @@ export namespace ThrottlingException {
  *         <p>An error occurred during validation.</p>
  *
  */
-export interface ValidationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ValidationException";
   $fault: "client";
   Message?: string;

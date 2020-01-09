@@ -82,9 +82,7 @@ export namespace AccountSettings {
  *         <p>An invalid argument was specified.</p>
  *
  */
-export interface ArgumentException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ArgumentException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ArgumentException";
   $fault: "client";
   /**
@@ -242,7 +240,7 @@ export namespace Artifact {
 export enum ArtifactCategory {
   FILE = "FILE",
   LOG = "LOG",
-  SCREENSHOT = "SCREENSHOT"
+  SCREENSHOT = "SCREENSHOT",
 }
 
 export enum ArtifactType {
@@ -273,12 +271,12 @@ export enum ArtifactType {
   VIDEO = "VIDEO",
   VIDEO_LOG = "VIDEO_LOG",
   WEBKIT_LOG = "WEBKIT_LOG",
-  XCTEST_LOG = "XCTEST_LOG"
+  XCTEST_LOG = "XCTEST_LOG",
 }
 
 export enum BillingMethod {
   METERED = "METERED",
-  UNMETERED = "UNMETERED"
+  UNMETERED = "UNMETERED",
 }
 
 /**
@@ -1094,7 +1092,7 @@ export namespace CreateVPCEConfigurationResult {
 }
 
 export enum CurrencyCode {
-  USD = "USD"
+  USD = "USD",
 }
 
 /**
@@ -1597,14 +1595,14 @@ export enum DeviceAttribute {
   OS_VERSION = "OS_VERSION",
   PLATFORM = "PLATFORM",
   REMOTE_ACCESS_ENABLED = "REMOTE_ACCESS_ENABLED",
-  REMOTE_DEBUG_ENABLED = "REMOTE_DEBUG_ENABLED"
+  REMOTE_DEBUG_ENABLED = "REMOTE_DEBUG_ENABLED",
 }
 
 export enum DeviceAvailability {
   AVAILABLE = "AVAILABLE",
   BUSY = "BUSY",
   HIGHLY_AVAILABLE = "HIGHLY_AVAILABLE",
-  TEMPORARY_NOT_AVAILABLE = "TEMPORARY_NOT_AVAILABLE"
+  TEMPORARY_NOT_AVAILABLE = "TEMPORARY_NOT_AVAILABLE",
 }
 
 /**
@@ -1789,12 +1787,12 @@ export enum DeviceFilterAttribute {
   OS_VERSION = "OS_VERSION",
   PLATFORM = "PLATFORM",
   REMOTE_ACCESS_ENABLED = "REMOTE_ACCESS_ENABLED",
-  REMOTE_DEBUG_ENABLED = "REMOTE_DEBUG_ENABLED"
+  REMOTE_DEBUG_ENABLED = "REMOTE_DEBUG_ENABLED",
 }
 
 export enum DeviceFormFactor {
   PHONE = "PHONE",
-  TABLET = "TABLET"
+  TABLET = "TABLET",
 }
 
 /**
@@ -1892,7 +1890,7 @@ export namespace DeviceMinutes {
 
 export enum DevicePlatform {
   ANDROID = "ANDROID",
-  IOS = "IOS"
+  IOS = "IOS",
 }
 
 /**
@@ -2002,7 +2000,7 @@ export namespace DevicePoolCompatibilityResult {
 
 export enum DevicePoolType {
   CURATED = "CURATED",
-  PRIVATE = "PRIVATE"
+  PRIVATE = "PRIVATE",
 }
 
 /**
@@ -2242,12 +2240,12 @@ export enum ExecutionResult {
   PENDING = "PENDING",
   SKIPPED = "SKIPPED",
   STOPPED = "STOPPED",
-  WARNED = "WARNED"
+  WARNED = "WARNED",
 }
 
 export enum ExecutionResultCode {
   PARSING_FAILED = "PARSING_FAILED",
-  VPC_ENDPOINT_SETUP_FAILED = "VPC_ENDPOINT_SETUP_FAILED"
+  VPC_ENDPOINT_SETUP_FAILED = "VPC_ENDPOINT_SETUP_FAILED",
 }
 
 export enum ExecutionStatus {
@@ -2259,7 +2257,7 @@ export enum ExecutionStatus {
   PROCESSING = "PROCESSING",
   RUNNING = "RUNNING",
   SCHEDULING = "SCHEDULING",
-  STOPPING = "STOPPING"
+  STOPPING = "STOPPING",
 }
 
 /**
@@ -3005,9 +3003,7 @@ export namespace GetVPCEConfigurationResult {
  *         <p>An entity with the same name already exists.</p>
  *
  */
-export interface IdempotencyException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface IdempotencyException extends _smithy.SmithyException, $MetadataBearer {
   __type: "IdempotencyException";
   $fault: "client";
   /**
@@ -3190,13 +3186,13 @@ export enum InstanceStatus {
   AVAILABLE = "AVAILABLE",
   IN_USE = "IN_USE",
   NOT_AVAILABLE = "NOT_AVAILABLE",
-  PREPARING = "PREPARING"
+  PREPARING = "PREPARING",
 }
 
 export enum InteractionMode {
   INTERACTIVE = "INTERACTIVE",
   NO_VIDEO = "NO_VIDEO",
-  VIDEO_ONLY = "VIDEO_ONLY"
+  VIDEO_ONLY = "VIDEO_ONLY",
 }
 
 /**
@@ -3205,9 +3201,7 @@ export enum InteractionMode {
  *             endpoint configuration.</p>
  *
  */
-export interface InvalidOperationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidOperationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidOperationException";
   $fault: "client";
   message?: string;
@@ -3455,9 +3449,7 @@ export namespace Job {
  *         <p>A limit was exceeded.</p>
  *
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   /**
@@ -4982,7 +4974,7 @@ export namespace NetworkProfile {
 
 export enum NetworkProfileType {
   CURATED = "CURATED",
-  PRIVATE = "PRIVATE"
+  PRIVATE = "PRIVATE",
 }
 
 /**
@@ -4990,9 +4982,7 @@ export enum NetworkProfileType {
  *         <p>Exception gets thrown when a user is not eligible to perform the specified transaction.</p>
  *
  */
-export interface NotEligibleException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotEligibleException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NotEligibleException";
   $fault: "client";
   /**
@@ -5014,9 +5004,7 @@ export namespace NotEligibleException {
  *         <p>The specified entity was not found.</p>
  *
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   /**
@@ -5204,11 +5192,11 @@ export namespace OfferingTransaction {
 export enum OfferingTransactionType {
   PURCHASE = "PURCHASE",
   RENEW = "RENEW",
-  SYSTEM = "SYSTEM"
+  SYSTEM = "SYSTEM",
 }
 
 export enum OfferingType {
-  RECURRING = "RECURRING"
+  RECURRING = "RECURRING",
 }
 
 /**
@@ -5497,7 +5485,7 @@ export namespace RecurringCharge {
 }
 
 export enum RecurringChargeFrequency {
-  MONTHLY = "MONTHLY"
+  MONTHLY = "MONTHLY",
 }
 
 /**
@@ -5982,7 +5970,7 @@ export enum RuleOperator {
   IN = "IN",
   LESS_THAN = "LESS_THAN",
   LESS_THAN_OR_EQUALS = "LESS_THAN_OR_EQUALS",
-  NOT_IN = "NOT_IN"
+  NOT_IN = "NOT_IN",
 }
 
 /**
@@ -6458,7 +6446,7 @@ export enum SampleType {
   RX_RATE = "RX_RATE",
   THREADS = "THREADS",
   TX = "TX",
-  TX_RATE = "TX_RATE"
+  TX_RATE = "TX_RATE",
 }
 
 /**
@@ -6873,9 +6861,7 @@ export namespace ScheduleRunTest {
  *         <p>There was a problem with the service account.</p>
  *
  */
-export interface ServiceAccountException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceAccountException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceAccountException";
   $fault: "client";
   /**
@@ -7250,9 +7236,7 @@ export namespace Tag {
  *         <p>The operation was not successful. Try again.</p>
  *
  */
-export interface TagOperationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TagOperationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TagOperationException";
   $fault: "client";
   message?: string;
@@ -7271,9 +7255,7 @@ export namespace TagOperationException {
  *             request and then retry it.</p>
  *
  */
-export interface TagPolicyException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TagPolicyException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TagPolicyException";
   $fault: "client";
   message?: string;
@@ -7547,7 +7529,7 @@ export enum TestType {
   UIAUTOMATOR = "UIAUTOMATOR",
   WEB_PERFORMANCE_PROFILE = "WEB_PERFORMANCE_PROFILE",
   XCTEST = "XCTEST",
-  XCTEST_UI = "XCTEST_UI"
+  XCTEST_UI = "XCTEST_UI",
 }
 
 /**
@@ -7556,9 +7538,7 @@ export enum TestType {
  *             repository is 50. </p>
  *
  */
-export interface TooManyTagsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TooManyTagsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TooManyTagsException";
   $fault: "client";
   message?: string;
@@ -8367,14 +8347,14 @@ export namespace Upload {
 
 export enum UploadCategory {
   CURATED = "CURATED",
-  PRIVATE = "PRIVATE"
+  PRIVATE = "PRIVATE",
 }
 
 export enum UploadStatus {
   FAILED = "FAILED",
   INITIALIZED = "INITIALIZED",
   PROCESSING = "PROCESSING",
-  SUCCEEDED = "SUCCEEDED"
+  SUCCEEDED = "SUCCEEDED",
 }
 
 export enum UploadType {
@@ -8409,7 +8389,7 @@ export enum UploadType {
   WEB_APP = "WEB_APP",
   XCTEST_TEST_PACKAGE = "XCTEST_TEST_PACKAGE",
   XCTEST_UI_TEST_PACKAGE = "XCTEST_UI_TEST_PACKAGE",
-  XCTEST_UI_TEST_SPEC = "XCTEST_UI_TEST_SPEC"
+  XCTEST_UI_TEST_SPEC = "XCTEST_UI_TEST_SPEC",
 }
 
 /**

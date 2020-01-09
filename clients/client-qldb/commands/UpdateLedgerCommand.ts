@@ -1,17 +1,20 @@
 import {
   QLDBClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../QLDBClient";
-import { UpdateLedgerRequest, UpdateLedgerResponse } from "../models/index";
+import {
+  UpdateLedgerRequest,
+  UpdateLedgerResponse,
+} from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateLedgerCommand,
-  serializeAws_restJson1_1UpdateLedgerCommand
+  serializeAws_restJson1_1UpdateLedgerCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type UpdateLedgerCommandInput = UpdateLedgerRequest;
 export type UpdateLedgerCommandOutput = UpdateLedgerResponse;
 
-export class UpdateLedgerCommand extends $Command<
-  UpdateLedgerCommandInput,
-  UpdateLedgerCommandOutput,
-  QLDBClientResolvedConfig
-> {
+export class UpdateLedgerCommand extends $Command<UpdateLedgerCommandInput, UpdateLedgerCommandOutput, QLDBClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class UpdateLedgerCommand extends $Command<
     configuration: QLDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateLedgerCommandInput, UpdateLedgerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -166,7 +166,7 @@ export namespace ColumnInfo {
 export enum ColumnNullable {
   NOT_NULL = "NOT_NULL",
   NULLABLE = "NULLABLE",
-  UNKNOWN = "UNKNOWN"
+  UNKNOWN = "UNKNOWN",
 }
 
 export interface CreateNamedQueryInput {
@@ -411,7 +411,7 @@ export namespace EncryptionConfiguration {
 export enum EncryptionOption {
   CSE_KMS = "CSE_KMS",
   SSE_KMS = "SSE_KMS",
-  SSE_S3 = "SSE_S3"
+  SSE_S3 = "SSE_S3",
 }
 
 export interface GetNamedQueryInput {
@@ -576,9 +576,7 @@ export namespace GetWorkGroupOutput {
  *          <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
  *
  */
-export interface InternalServerException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerException";
   $fault: "server";
   Message?: string;
@@ -595,9 +593,7 @@ export namespace InternalServerException {
  *          <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
  *
  */
-export interface InvalidRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRequestException";
   $fault: "client";
   /**
@@ -982,7 +978,7 @@ export enum QueryExecutionState {
   FAILED = "FAILED",
   QUEUED = "QUEUED",
   RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED"
+  SUCCEEDED = "SUCCEEDED",
 }
 
 /**
@@ -1101,9 +1097,7 @@ export namespace QueryExecutionStatus {
  *          <p>A resource, such as a workgroup, was not found.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1348,7 +1342,7 @@ export namespace StartQueryExecutionOutput {
 export enum StatementType {
   DDL = "DDL",
   DML = "DML",
-  UTILITY = "UTILITY"
+  UTILITY = "UTILITY",
 }
 
 export interface StopQueryExecutionInput {
@@ -1446,7 +1440,7 @@ export namespace TagResourceOutput {
 }
 
 export enum ThrottleReason {
-  CONCURRENT_QUERY_LIMIT_EXCEEDED = "CONCURRENT_QUERY_LIMIT_EXCEEDED"
+  CONCURRENT_QUERY_LIMIT_EXCEEDED = "CONCURRENT_QUERY_LIMIT_EXCEEDED",
 }
 
 /**
@@ -1454,9 +1448,7 @@ export enum ThrottleReason {
  *          <p>Indicates that the request was throttled.</p>
  *
  */
-export interface TooManyRequestsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
@@ -1809,7 +1801,7 @@ export namespace WorkGroupConfigurationUpdates {
 
 export enum WorkGroupState {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 /**

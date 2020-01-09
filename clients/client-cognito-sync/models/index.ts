@@ -6,9 +6,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>An exception thrown when a bulk publish operation is requested less than 24 hours after a previous bulk publish operation completed successfully.</p>
  *
  */
-export interface AlreadyStreamedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AlreadyStreamedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AlreadyStreamedException";
   $fault: "client";
   /**
@@ -71,7 +69,7 @@ export enum BulkPublishStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
   NOT_STARTED = "NOT_STARTED",
-  SUCCEEDED = "SUCCEEDED"
+  SUCCEEDED = "SUCCEEDED",
 }
 
 /**
@@ -129,9 +127,7 @@ export namespace CognitoStreams {
  *          <p>Thrown if there are parallel requests to modify a resource.</p>
  *
  */
-export interface ConcurrentModificationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ConcurrentModificationException";
   $fault: "client";
   /**
@@ -439,9 +435,7 @@ export namespace DescribeIdentityUsageResponse {
  *          <p>An exception thrown when there is an IN_PROGRESS bulk publish operation for the given identity pool.</p>
  *
  */
-export interface DuplicateRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DuplicateRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DuplicateRequestException";
   $fault: "client";
   /**
@@ -739,9 +733,7 @@ export namespace IdentityUsage {
  *          <p>Indicates an internal service error.</p>
  *
  */
-export interface InternalErrorException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalErrorException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalErrorException";
   $fault: "server";
   /**
@@ -763,9 +755,7 @@ export namespace InternalErrorException {
  *          <p>This exception is thrown when Amazon Cognito detects an invalid configuration.</p>
  *
  */
-export interface InvalidConfigurationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidConfigurationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidConfigurationException";
   $fault: "client";
   /**
@@ -787,9 +777,7 @@ export namespace InvalidConfigurationException {
  *          <p>The AWS Lambda function returned invalid output or an exception.</p>
  *
  */
-export interface InvalidLambdaFunctionOutputException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidLambdaFunctionOutputException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidLambdaFunctionOutputException";
   $fault: "client";
   /**
@@ -811,9 +799,7 @@ export namespace InvalidLambdaFunctionOutputException {
  *          <p>Thrown when a request parameter does not comply with the associated constraints.</p>
  *
  */
-export interface InvalidParameterException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidParameterException";
   $fault: "client";
   /**
@@ -837,9 +823,7 @@ export namespace InvalidParameterException {
  *         Cognito Events</a>.</p>
  *
  */
-export interface LambdaSocketTimeoutException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LambdaSocketTimeoutException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LambdaSocketTimeoutException";
   $fault: "client";
   message: string | undefined;
@@ -856,9 +840,7 @@ export namespace LambdaSocketTimeoutException {
  *          <p>AWS Lambda throttled your account, please contact AWS Support</p>
  *
  */
-export interface LambdaThrottledException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LambdaThrottledException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LambdaThrottledException";
   $fault: "client";
   /**
@@ -880,9 +862,7 @@ export namespace LambdaThrottledException {
  *          <p>Thrown when the limit on the number of objects or operations has been exceeded.</p>
  *
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   /**
@@ -1191,9 +1171,7 @@ export namespace ListRecordsResponse {
  *          <p>Thrown when a user is not authorized to access the requested resource.</p>
  *
  */
-export interface NotAuthorizedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotAuthorizedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NotAuthorizedException";
   $fault: "client";
   /**
@@ -1210,9 +1188,9 @@ export namespace NotAuthorizedException {
   }
 }
 
-export type Operation = "remove" | "replace";
+export type Operation = "remove" | "replace"
 
-export type Platform = "ADM" | "APNS" | "APNS_SANDBOX" | "GCM";
+export type Platform = "ADM" | "APNS" | "APNS_SANDBOX" | "GCM"
 
 /**
  *
@@ -1415,9 +1393,7 @@ export namespace RegisterDeviceResponse {
  *          <p>Thrown if an update can't be applied because the resource was changed by another call and this would result in a conflict.</p>
  *
  */
-export interface ResourceConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceConflictException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceConflictException";
   $fault: "client";
   /**
@@ -1439,9 +1415,7 @@ export namespace ResourceConflictException {
  *          <p>Thrown if the resource doesn't exist.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -1556,7 +1530,7 @@ export namespace SetIdentityPoolConfigurationResponse {
   }
 }
 
-export type StreamingStatus = "DISABLED" | "ENABLED";
+export type StreamingStatus = "DISABLED" | "ENABLED"
 
 /**
  *
@@ -1620,9 +1594,7 @@ export namespace SubscribeToDatasetResponse {
  *          <p>Thrown if the request is throttled.</p>
  *
  */
-export interface TooManyRequestsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TooManyRequestsException";
   $fault: "client";
   /**

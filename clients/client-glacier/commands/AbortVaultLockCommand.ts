@@ -1,17 +1,17 @@
 import {
   GlacierClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../GlacierClient";
 import { AbortVaultLockInput } from "../models/index";
 import {
   deserializeAws_restJson1_1AbortVaultLockCommand,
-  serializeAws_restJson1_1AbortVaultLockCommand
+  serializeAws_restJson1_1AbortVaultLockCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,17 +21,13 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
 } from "@aws-sdk/types";
 
 export type AbortVaultLockCommandInput = AbortVaultLockInput;
-export type AbortVaultLockCommandOutput = __MetadataBearer;
+export type AbortVaultLockCommandOutput = __MetadataBearer
 
-export class AbortVaultLockCommand extends $Command<
-  AbortVaultLockCommandInput,
-  AbortVaultLockCommandOutput,
-  GlacierClientResolvedConfig
-> {
+export class AbortVaultLockCommand extends $Command<AbortVaultLockCommandInput, AbortVaultLockCommandOutput, GlacierClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,15 +42,13 @@ export class AbortVaultLockCommand extends $Command<
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AbortVaultLockCommandInput, AbortVaultLockCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

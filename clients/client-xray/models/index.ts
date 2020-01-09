@@ -495,12 +495,12 @@ export namespace EncryptionConfig {
 
 export enum EncryptionStatus {
   ACTIVE = "ACTIVE",
-  UPDATING = "UPDATING"
+  UPDATING = "UPDATING",
 }
 
 export enum EncryptionType {
   KMS = "KMS",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 /**
@@ -1535,9 +1535,7 @@ export namespace InstanceIdDetail {
  *          <p>The request is missing required parameters or has invalid parameters.</p>
  *
  */
-export interface InvalidRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRequestException";
   $fault: "client";
   Message?: string;
@@ -1858,9 +1856,7 @@ export namespace RootCauseException {
  *          <p>You have reached the maximum number of sampling rules.</p>
  *
  */
-export interface RuleLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface RuleLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "RuleLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -2254,7 +2250,7 @@ export namespace SamplingStrategy {
 
 export enum SamplingStrategyName {
   FixedRate = "FixedRate",
-  PartialScan = "PartialScan"
+  PartialScan = "PartialScan",
 }
 
 /**
@@ -2626,9 +2622,7 @@ export namespace TelemetryRecord {
  *          <p>The request exceeds the maximum number of requests per second.</p>
  *
  */
-export interface ThrottledException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ThrottledException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ThrottledException";
   $fault: "client";
   Message?: string;
@@ -2642,7 +2636,7 @@ export namespace ThrottledException {
 
 export enum TimeRangeType {
   Event = "Event",
-  TraceId = "TraceId"
+  TraceId = "TraceId",
 }
 
 /**

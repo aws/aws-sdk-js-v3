@@ -2,377 +2,377 @@ import { StorageGatewayClient } from "./StorageGatewayClient";
 import {
   ActivateGatewayCommand,
   ActivateGatewayCommandInput,
-  ActivateGatewayCommandOutput
+  ActivateGatewayCommandOutput,
 } from "./commands/ActivateGatewayCommand";
 import {
   AddCacheCommand,
   AddCacheCommandInput,
-  AddCacheCommandOutput
+  AddCacheCommandOutput,
 } from "./commands/AddCacheCommand";
 import {
   AddTagsToResourceCommand,
   AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput
+  AddTagsToResourceCommandOutput,
 } from "./commands/AddTagsToResourceCommand";
 import {
   AddUploadBufferCommand,
   AddUploadBufferCommandInput,
-  AddUploadBufferCommandOutput
+  AddUploadBufferCommandOutput,
 } from "./commands/AddUploadBufferCommand";
 import {
   AddWorkingStorageCommand,
   AddWorkingStorageCommandInput,
-  AddWorkingStorageCommandOutput
+  AddWorkingStorageCommandOutput,
 } from "./commands/AddWorkingStorageCommand";
 import {
   AssignTapePoolCommand,
   AssignTapePoolCommandInput,
-  AssignTapePoolCommandOutput
+  AssignTapePoolCommandOutput,
 } from "./commands/AssignTapePoolCommand";
 import {
   AttachVolumeCommand,
   AttachVolumeCommandInput,
-  AttachVolumeCommandOutput
+  AttachVolumeCommandOutput,
 } from "./commands/AttachVolumeCommand";
 import {
   CancelArchivalCommand,
   CancelArchivalCommandInput,
-  CancelArchivalCommandOutput
+  CancelArchivalCommandOutput,
 } from "./commands/CancelArchivalCommand";
 import {
   CancelRetrievalCommand,
   CancelRetrievalCommandInput,
-  CancelRetrievalCommandOutput
+  CancelRetrievalCommandOutput,
 } from "./commands/CancelRetrievalCommand";
 import {
   CreateCachediSCSIVolumeCommand,
   CreateCachediSCSIVolumeCommandInput,
-  CreateCachediSCSIVolumeCommandOutput
+  CreateCachediSCSIVolumeCommandOutput,
 } from "./commands/CreateCachediSCSIVolumeCommand";
 import {
   CreateNFSFileShareCommand,
   CreateNFSFileShareCommandInput,
-  CreateNFSFileShareCommandOutput
+  CreateNFSFileShareCommandOutput,
 } from "./commands/CreateNFSFileShareCommand";
 import {
   CreateSMBFileShareCommand,
   CreateSMBFileShareCommandInput,
-  CreateSMBFileShareCommandOutput
+  CreateSMBFileShareCommandOutput,
 } from "./commands/CreateSMBFileShareCommand";
 import {
   CreateSnapshotCommand,
   CreateSnapshotCommandInput,
-  CreateSnapshotCommandOutput
+  CreateSnapshotCommandOutput,
 } from "./commands/CreateSnapshotCommand";
 import {
   CreateSnapshotFromVolumeRecoveryPointCommand,
   CreateSnapshotFromVolumeRecoveryPointCommandInput,
-  CreateSnapshotFromVolumeRecoveryPointCommandOutput
+  CreateSnapshotFromVolumeRecoveryPointCommandOutput,
 } from "./commands/CreateSnapshotFromVolumeRecoveryPointCommand";
 import {
   CreateStorediSCSIVolumeCommand,
   CreateStorediSCSIVolumeCommandInput,
-  CreateStorediSCSIVolumeCommandOutput
+  CreateStorediSCSIVolumeCommandOutput,
 } from "./commands/CreateStorediSCSIVolumeCommand";
 import {
   CreateTapeWithBarcodeCommand,
   CreateTapeWithBarcodeCommandInput,
-  CreateTapeWithBarcodeCommandOutput
+  CreateTapeWithBarcodeCommandOutput,
 } from "./commands/CreateTapeWithBarcodeCommand";
 import {
   CreateTapesCommand,
   CreateTapesCommandInput,
-  CreateTapesCommandOutput
+  CreateTapesCommandOutput,
 } from "./commands/CreateTapesCommand";
 import {
   DeleteBandwidthRateLimitCommand,
   DeleteBandwidthRateLimitCommandInput,
-  DeleteBandwidthRateLimitCommandOutput
+  DeleteBandwidthRateLimitCommandOutput,
 } from "./commands/DeleteBandwidthRateLimitCommand";
 import {
   DeleteChapCredentialsCommand,
   DeleteChapCredentialsCommandInput,
-  DeleteChapCredentialsCommandOutput
+  DeleteChapCredentialsCommandOutput,
 } from "./commands/DeleteChapCredentialsCommand";
 import {
   DeleteFileShareCommand,
   DeleteFileShareCommandInput,
-  DeleteFileShareCommandOutput
+  DeleteFileShareCommandOutput,
 } from "./commands/DeleteFileShareCommand";
 import {
   DeleteGatewayCommand,
   DeleteGatewayCommandInput,
-  DeleteGatewayCommandOutput
+  DeleteGatewayCommandOutput,
 } from "./commands/DeleteGatewayCommand";
 import {
   DeleteSnapshotScheduleCommand,
   DeleteSnapshotScheduleCommandInput,
-  DeleteSnapshotScheduleCommandOutput
+  DeleteSnapshotScheduleCommandOutput,
 } from "./commands/DeleteSnapshotScheduleCommand";
 import {
   DeleteTapeArchiveCommand,
   DeleteTapeArchiveCommandInput,
-  DeleteTapeArchiveCommandOutput
+  DeleteTapeArchiveCommandOutput,
 } from "./commands/DeleteTapeArchiveCommand";
 import {
   DeleteTapeCommand,
   DeleteTapeCommandInput,
-  DeleteTapeCommandOutput
+  DeleteTapeCommandOutput,
 } from "./commands/DeleteTapeCommand";
 import {
   DeleteVolumeCommand,
   DeleteVolumeCommandInput,
-  DeleteVolumeCommandOutput
+  DeleteVolumeCommandOutput,
 } from "./commands/DeleteVolumeCommand";
 import {
   DescribeAvailabilityMonitorTestCommand,
   DescribeAvailabilityMonitorTestCommandInput,
-  DescribeAvailabilityMonitorTestCommandOutput
+  DescribeAvailabilityMonitorTestCommandOutput,
 } from "./commands/DescribeAvailabilityMonitorTestCommand";
 import {
   DescribeBandwidthRateLimitCommand,
   DescribeBandwidthRateLimitCommandInput,
-  DescribeBandwidthRateLimitCommandOutput
+  DescribeBandwidthRateLimitCommandOutput,
 } from "./commands/DescribeBandwidthRateLimitCommand";
 import {
   DescribeCacheCommand,
   DescribeCacheCommandInput,
-  DescribeCacheCommandOutput
+  DescribeCacheCommandOutput,
 } from "./commands/DescribeCacheCommand";
 import {
   DescribeCachediSCSIVolumesCommand,
   DescribeCachediSCSIVolumesCommandInput,
-  DescribeCachediSCSIVolumesCommandOutput
+  DescribeCachediSCSIVolumesCommandOutput,
 } from "./commands/DescribeCachediSCSIVolumesCommand";
 import {
   DescribeChapCredentialsCommand,
   DescribeChapCredentialsCommandInput,
-  DescribeChapCredentialsCommandOutput
+  DescribeChapCredentialsCommandOutput,
 } from "./commands/DescribeChapCredentialsCommand";
 import {
   DescribeGatewayInformationCommand,
   DescribeGatewayInformationCommandInput,
-  DescribeGatewayInformationCommandOutput
+  DescribeGatewayInformationCommandOutput,
 } from "./commands/DescribeGatewayInformationCommand";
 import {
   DescribeMaintenanceStartTimeCommand,
   DescribeMaintenanceStartTimeCommandInput,
-  DescribeMaintenanceStartTimeCommandOutput
+  DescribeMaintenanceStartTimeCommandOutput,
 } from "./commands/DescribeMaintenanceStartTimeCommand";
 import {
   DescribeNFSFileSharesCommand,
   DescribeNFSFileSharesCommandInput,
-  DescribeNFSFileSharesCommandOutput
+  DescribeNFSFileSharesCommandOutput,
 } from "./commands/DescribeNFSFileSharesCommand";
 import {
   DescribeSMBFileSharesCommand,
   DescribeSMBFileSharesCommandInput,
-  DescribeSMBFileSharesCommandOutput
+  DescribeSMBFileSharesCommandOutput,
 } from "./commands/DescribeSMBFileSharesCommand";
 import {
   DescribeSMBSettingsCommand,
   DescribeSMBSettingsCommandInput,
-  DescribeSMBSettingsCommandOutput
+  DescribeSMBSettingsCommandOutput,
 } from "./commands/DescribeSMBSettingsCommand";
 import {
   DescribeSnapshotScheduleCommand,
   DescribeSnapshotScheduleCommandInput,
-  DescribeSnapshotScheduleCommandOutput
+  DescribeSnapshotScheduleCommandOutput,
 } from "./commands/DescribeSnapshotScheduleCommand";
 import {
   DescribeStorediSCSIVolumesCommand,
   DescribeStorediSCSIVolumesCommandInput,
-  DescribeStorediSCSIVolumesCommandOutput
+  DescribeStorediSCSIVolumesCommandOutput,
 } from "./commands/DescribeStorediSCSIVolumesCommand";
 import {
   DescribeTapeArchivesCommand,
   DescribeTapeArchivesCommandInput,
-  DescribeTapeArchivesCommandOutput
+  DescribeTapeArchivesCommandOutput,
 } from "./commands/DescribeTapeArchivesCommand";
 import {
   DescribeTapeRecoveryPointsCommand,
   DescribeTapeRecoveryPointsCommandInput,
-  DescribeTapeRecoveryPointsCommandOutput
+  DescribeTapeRecoveryPointsCommandOutput,
 } from "./commands/DescribeTapeRecoveryPointsCommand";
 import {
   DescribeTapesCommand,
   DescribeTapesCommandInput,
-  DescribeTapesCommandOutput
+  DescribeTapesCommandOutput,
 } from "./commands/DescribeTapesCommand";
 import {
   DescribeUploadBufferCommand,
   DescribeUploadBufferCommandInput,
-  DescribeUploadBufferCommandOutput
+  DescribeUploadBufferCommandOutput,
 } from "./commands/DescribeUploadBufferCommand";
 import {
   DescribeVTLDevicesCommand,
   DescribeVTLDevicesCommandInput,
-  DescribeVTLDevicesCommandOutput
+  DescribeVTLDevicesCommandOutput,
 } from "./commands/DescribeVTLDevicesCommand";
 import {
   DescribeWorkingStorageCommand,
   DescribeWorkingStorageCommandInput,
-  DescribeWorkingStorageCommandOutput
+  DescribeWorkingStorageCommandOutput,
 } from "./commands/DescribeWorkingStorageCommand";
 import {
   DetachVolumeCommand,
   DetachVolumeCommandInput,
-  DetachVolumeCommandOutput
+  DetachVolumeCommandOutput,
 } from "./commands/DetachVolumeCommand";
 import {
   DisableGatewayCommand,
   DisableGatewayCommandInput,
-  DisableGatewayCommandOutput
+  DisableGatewayCommandOutput,
 } from "./commands/DisableGatewayCommand";
 import {
   JoinDomainCommand,
   JoinDomainCommandInput,
-  JoinDomainCommandOutput
+  JoinDomainCommandOutput,
 } from "./commands/JoinDomainCommand";
 import {
   ListFileSharesCommand,
   ListFileSharesCommandInput,
-  ListFileSharesCommandOutput
+  ListFileSharesCommandOutput,
 } from "./commands/ListFileSharesCommand";
 import {
   ListGatewaysCommand,
   ListGatewaysCommandInput,
-  ListGatewaysCommandOutput
+  ListGatewaysCommandOutput,
 } from "./commands/ListGatewaysCommand";
 import {
   ListLocalDisksCommand,
   ListLocalDisksCommandInput,
-  ListLocalDisksCommandOutput
+  ListLocalDisksCommandOutput,
 } from "./commands/ListLocalDisksCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   ListTapesCommand,
   ListTapesCommandInput,
-  ListTapesCommandOutput
+  ListTapesCommandOutput,
 } from "./commands/ListTapesCommand";
 import {
   ListVolumeInitiatorsCommand,
   ListVolumeInitiatorsCommandInput,
-  ListVolumeInitiatorsCommandOutput
+  ListVolumeInitiatorsCommandOutput,
 } from "./commands/ListVolumeInitiatorsCommand";
 import {
   ListVolumeRecoveryPointsCommand,
   ListVolumeRecoveryPointsCommandInput,
-  ListVolumeRecoveryPointsCommandOutput
+  ListVolumeRecoveryPointsCommandOutput,
 } from "./commands/ListVolumeRecoveryPointsCommand";
 import {
   ListVolumesCommand,
   ListVolumesCommandInput,
-  ListVolumesCommandOutput
+  ListVolumesCommandOutput,
 } from "./commands/ListVolumesCommand";
 import {
   NotifyWhenUploadedCommand,
   NotifyWhenUploadedCommandInput,
-  NotifyWhenUploadedCommandOutput
+  NotifyWhenUploadedCommandOutput,
 } from "./commands/NotifyWhenUploadedCommand";
 import {
   RefreshCacheCommand,
   RefreshCacheCommandInput,
-  RefreshCacheCommandOutput
+  RefreshCacheCommandOutput,
 } from "./commands/RefreshCacheCommand";
 import {
   RemoveTagsFromResourceCommand,
   RemoveTagsFromResourceCommandInput,
-  RemoveTagsFromResourceCommandOutput
+  RemoveTagsFromResourceCommandOutput,
 } from "./commands/RemoveTagsFromResourceCommand";
 import {
   ResetCacheCommand,
   ResetCacheCommandInput,
-  ResetCacheCommandOutput
+  ResetCacheCommandOutput,
 } from "./commands/ResetCacheCommand";
 import {
   RetrieveTapeArchiveCommand,
   RetrieveTapeArchiveCommandInput,
-  RetrieveTapeArchiveCommandOutput
+  RetrieveTapeArchiveCommandOutput,
 } from "./commands/RetrieveTapeArchiveCommand";
 import {
   RetrieveTapeRecoveryPointCommand,
   RetrieveTapeRecoveryPointCommandInput,
-  RetrieveTapeRecoveryPointCommandOutput
+  RetrieveTapeRecoveryPointCommandOutput,
 } from "./commands/RetrieveTapeRecoveryPointCommand";
 import {
   SetLocalConsolePasswordCommand,
   SetLocalConsolePasswordCommandInput,
-  SetLocalConsolePasswordCommandOutput
+  SetLocalConsolePasswordCommandOutput,
 } from "./commands/SetLocalConsolePasswordCommand";
 import {
   SetSMBGuestPasswordCommand,
   SetSMBGuestPasswordCommandInput,
-  SetSMBGuestPasswordCommandOutput
+  SetSMBGuestPasswordCommandOutput,
 } from "./commands/SetSMBGuestPasswordCommand";
 import {
   ShutdownGatewayCommand,
   ShutdownGatewayCommandInput,
-  ShutdownGatewayCommandOutput
+  ShutdownGatewayCommandOutput,
 } from "./commands/ShutdownGatewayCommand";
 import {
   StartAvailabilityMonitorTestCommand,
   StartAvailabilityMonitorTestCommandInput,
-  StartAvailabilityMonitorTestCommandOutput
+  StartAvailabilityMonitorTestCommandOutput,
 } from "./commands/StartAvailabilityMonitorTestCommand";
 import {
   StartGatewayCommand,
   StartGatewayCommandInput,
-  StartGatewayCommandOutput
+  StartGatewayCommandOutput,
 } from "./commands/StartGatewayCommand";
 import {
   UpdateBandwidthRateLimitCommand,
   UpdateBandwidthRateLimitCommandInput,
-  UpdateBandwidthRateLimitCommandOutput
+  UpdateBandwidthRateLimitCommandOutput,
 } from "./commands/UpdateBandwidthRateLimitCommand";
 import {
   UpdateChapCredentialsCommand,
   UpdateChapCredentialsCommandInput,
-  UpdateChapCredentialsCommandOutput
+  UpdateChapCredentialsCommandOutput,
 } from "./commands/UpdateChapCredentialsCommand";
 import {
   UpdateGatewayInformationCommand,
   UpdateGatewayInformationCommandInput,
-  UpdateGatewayInformationCommandOutput
+  UpdateGatewayInformationCommandOutput,
 } from "./commands/UpdateGatewayInformationCommand";
 import {
   UpdateGatewaySoftwareNowCommand,
   UpdateGatewaySoftwareNowCommandInput,
-  UpdateGatewaySoftwareNowCommandOutput
+  UpdateGatewaySoftwareNowCommandOutput,
 } from "./commands/UpdateGatewaySoftwareNowCommand";
 import {
   UpdateMaintenanceStartTimeCommand,
   UpdateMaintenanceStartTimeCommandInput,
-  UpdateMaintenanceStartTimeCommandOutput
+  UpdateMaintenanceStartTimeCommandOutput,
 } from "./commands/UpdateMaintenanceStartTimeCommand";
 import {
   UpdateNFSFileShareCommand,
   UpdateNFSFileShareCommandInput,
-  UpdateNFSFileShareCommandOutput
+  UpdateNFSFileShareCommandOutput,
 } from "./commands/UpdateNFSFileShareCommand";
 import {
   UpdateSMBFileShareCommand,
   UpdateSMBFileShareCommandInput,
-  UpdateSMBFileShareCommandOutput
+  UpdateSMBFileShareCommandOutput,
 } from "./commands/UpdateSMBFileShareCommand";
 import {
   UpdateSMBSecurityStrategyCommand,
   UpdateSMBSecurityStrategyCommandInput,
-  UpdateSMBSecurityStrategyCommandOutput
+  UpdateSMBSecurityStrategyCommandOutput,
 } from "./commands/UpdateSMBSecurityStrategyCommand";
 import {
   UpdateSnapshotScheduleCommand,
   UpdateSnapshotScheduleCommandInput,
-  UpdateSnapshotScheduleCommandOutput
+  UpdateSnapshotScheduleCommandOutput,
 } from "./commands/UpdateSnapshotScheduleCommand";
 import {
   UpdateVTLDeviceTypeCommand,
   UpdateVTLDeviceTypeCommandInput,
-  UpdateVTLDeviceTypeCommandOutput
+  UpdateVTLDeviceTypeCommandOutput,
 } from "./commands/UpdateVTLDeviceTypeCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -459,7 +459,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public activateGateway(
     args: ActivateGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ActivateGatewayCommandOutput>;
   public activateGateway(
     args: ActivateGatewayCommandInput,
@@ -472,18 +472,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public activateGateway(
     args: ActivateGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ActivateGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ActivateGatewayCommandOutput) => void),
     cb?: (err: any, data?: ActivateGatewayCommandOutput) => void
   ): Promise<ActivateGatewayCommandOutput> | void {
     const command = new ActivateGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -500,7 +498,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public addCache(
     args: AddCacheCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<AddCacheCommandOutput>;
   public addCache(
     args: AddCacheCommandInput,
@@ -513,18 +511,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public addCache(
     args: AddCacheCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddCacheCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddCacheCommandOutput) => void),
     cb?: (err: any, data?: AddCacheCommandOutput) => void
   ): Promise<AddCacheCommandOutput> | void {
     const command = new AddCacheCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -558,7 +554,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public addTagsToResource(
     args: AddTagsToResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<AddTagsToResourceCommandOutput>;
   public addTagsToResource(
     args: AddTagsToResourceCommandInput,
@@ -571,18 +567,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public addTagsToResource(
     args: AddTagsToResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddTagsToResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsToResourceCommandOutput) => void),
     cb?: (err: any, data?: AddTagsToResourceCommandOutput) => void
   ): Promise<AddTagsToResourceCommandOutput> | void {
     const command = new AddTagsToResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -600,7 +594,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public addUploadBuffer(
     args: AddUploadBufferCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<AddUploadBufferCommandOutput>;
   public addUploadBuffer(
     args: AddUploadBufferCommandInput,
@@ -613,18 +607,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public addUploadBuffer(
     args: AddUploadBufferCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddUploadBufferCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddUploadBufferCommandOutput) => void),
     cb?: (err: any, data?: AddUploadBufferCommandOutput) => void
   ): Promise<AddUploadBufferCommandOutput> | void {
     const command = new AddUploadBufferCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -648,7 +640,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public addWorkingStorage(
     args: AddWorkingStorageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<AddWorkingStorageCommandOutput>;
   public addWorkingStorage(
     args: AddWorkingStorageCommandInput,
@@ -661,18 +653,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public addWorkingStorage(
     args: AddWorkingStorageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddWorkingStorageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddWorkingStorageCommandOutput) => void),
     cb?: (err: any, data?: AddWorkingStorageCommandOutput) => void
   ): Promise<AddWorkingStorageCommandOutput> | void {
     const command = new AddWorkingStorageCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -690,7 +680,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public assignTapePool(
     args: AssignTapePoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<AssignTapePoolCommandOutput>;
   public assignTapePool(
     args: AssignTapePoolCommandInput,
@@ -703,18 +693,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public assignTapePool(
     args: AssignTapePoolCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssignTapePoolCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssignTapePoolCommandOutput) => void),
     cb?: (err: any, data?: AssignTapePoolCommandOutput) => void
   ): Promise<AssignTapePoolCommandOutput> | void {
     const command = new AssignTapePoolCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -733,7 +721,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public attachVolume(
     args: AttachVolumeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<AttachVolumeCommandOutput>;
   public attachVolume(
     args: AttachVolumeCommandInput,
@@ -746,18 +734,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public attachVolume(
     args: AttachVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AttachVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachVolumeCommandOutput) => void),
     cb?: (err: any, data?: AttachVolumeCommandOutput) => void
   ): Promise<AttachVolumeCommandOutput> | void {
     const command = new AttachVolumeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -772,7 +758,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public cancelArchival(
     args: CancelArchivalCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CancelArchivalCommandOutput>;
   public cancelArchival(
     args: CancelArchivalCommandInput,
@@ -785,18 +771,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public cancelArchival(
     args: CancelArchivalCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelArchivalCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelArchivalCommandOutput) => void),
     cb?: (err: any, data?: CancelArchivalCommandOutput) => void
   ): Promise<CancelArchivalCommandOutput> | void {
     const command = new CancelArchivalCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -811,7 +795,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public cancelRetrieval(
     args: CancelRetrievalCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CancelRetrievalCommandOutput>;
   public cancelRetrieval(
     args: CancelRetrievalCommandInput,
@@ -824,18 +808,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public cancelRetrieval(
     args: CancelRetrievalCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelRetrievalCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelRetrievalCommandOutput) => void),
     cb?: (err: any, data?: CancelRetrievalCommandOutput) => void
   ): Promise<CancelRetrievalCommandOutput> | void {
     const command = new CancelRetrievalCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -866,7 +848,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public createCachediSCSIVolume(
     args: CreateCachediSCSIVolumeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateCachediSCSIVolumeCommandOutput>;
   public createCachediSCSIVolume(
     args: CreateCachediSCSIVolumeCommandInput,
@@ -879,18 +861,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public createCachediSCSIVolume(
     args: CreateCachediSCSIVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCachediSCSIVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCachediSCSIVolumeCommandOutput) => void),
     cb?: (err: any, data?: CreateCachediSCSIVolumeCommandOutput) => void
   ): Promise<CreateCachediSCSIVolumeCommandOutput> | void {
     const command = new CreateCachediSCSIVolumeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -920,7 +900,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public createNFSFileShare(
     args: CreateNFSFileShareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateNFSFileShareCommandOutput>;
   public createNFSFileShare(
     args: CreateNFSFileShareCommandInput,
@@ -933,18 +913,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public createNFSFileShare(
     args: CreateNFSFileShareCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateNFSFileShareCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNFSFileShareCommandOutput) => void),
     cb?: (err: any, data?: CreateNFSFileShareCommandOutput) => void
   ): Promise<CreateNFSFileShareCommandOutput> | void {
     const command = new CreateNFSFileShareCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -976,7 +954,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public createSMBFileShare(
     args: CreateSMBFileShareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateSMBFileShareCommandOutput>;
   public createSMBFileShare(
     args: CreateSMBFileShareCommandInput,
@@ -989,18 +967,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public createSMBFileShare(
     args: CreateSMBFileShareCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSMBFileShareCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSMBFileShareCommandOutput) => void),
     cb?: (err: any, data?: CreateSMBFileShareCommandOutput) => void
   ): Promise<CreateSMBFileShareCommandOutput> | void {
     const command = new CreateSMBFileShareCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1037,7 +1013,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public createSnapshot(
     args: CreateSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateSnapshotCommandOutput>;
   public createSnapshot(
     args: CreateSnapshotCommandInput,
@@ -1050,18 +1026,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public createSnapshot(
     args: CreateSnapshotCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSnapshotCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSnapshotCommandOutput) => void),
     cb?: (err: any, data?: CreateSnapshotCommandOutput) => void
   ): Promise<CreateSnapshotCommandOutput> | void {
     const command = new CreateSnapshotCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1091,43 +1065,29 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public createSnapshotFromVolumeRecoveryPoint(
     args: CreateSnapshotFromVolumeRecoveryPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateSnapshotFromVolumeRecoveryPointCommandOutput>;
   public createSnapshotFromVolumeRecoveryPoint(
     args: CreateSnapshotFromVolumeRecoveryPointCommandInput,
-    cb: (
-      err: any,
-      data?: CreateSnapshotFromVolumeRecoveryPointCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateSnapshotFromVolumeRecoveryPointCommandOutput) => void
   ): void;
   public createSnapshotFromVolumeRecoveryPoint(
     args: CreateSnapshotFromVolumeRecoveryPointCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateSnapshotFromVolumeRecoveryPointCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateSnapshotFromVolumeRecoveryPointCommandOutput) => void
   ): void;
   public createSnapshotFromVolumeRecoveryPoint(
     args: CreateSnapshotFromVolumeRecoveryPointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateSnapshotFromVolumeRecoveryPointCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateSnapshotFromVolumeRecoveryPointCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSnapshotFromVolumeRecoveryPointCommandOutput) => void),
+    cb?: (err: any, data?: CreateSnapshotFromVolumeRecoveryPointCommandOutput) => void
   ): Promise<CreateSnapshotFromVolumeRecoveryPointCommandOutput> | void {
     const command = new CreateSnapshotFromVolumeRecoveryPointCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1150,7 +1110,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public createStorediSCSIVolume(
     args: CreateStorediSCSIVolumeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateStorediSCSIVolumeCommandOutput>;
   public createStorediSCSIVolume(
     args: CreateStorediSCSIVolumeCommandInput,
@@ -1163,18 +1123,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public createStorediSCSIVolume(
     args: CreateStorediSCSIVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateStorediSCSIVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStorediSCSIVolumeCommandOutput) => void),
     cb?: (err: any, data?: CreateStorediSCSIVolumeCommandOutput) => void
   ): Promise<CreateStorediSCSIVolumeCommandOutput> | void {
     const command = new CreateStorediSCSIVolumeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1199,7 +1157,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public createTapeWithBarcode(
     args: CreateTapeWithBarcodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateTapeWithBarcodeCommandOutput>;
   public createTapeWithBarcode(
     args: CreateTapeWithBarcodeCommandInput,
@@ -1212,18 +1170,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public createTapeWithBarcode(
     args: CreateTapeWithBarcodeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTapeWithBarcodeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTapeWithBarcodeCommandOutput) => void),
     cb?: (err: any, data?: CreateTapeWithBarcodeCommandOutput) => void
   ): Promise<CreateTapeWithBarcodeCommandOutput> | void {
     const command = new CreateTapeWithBarcodeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1243,7 +1199,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public createTapes(
     args: CreateTapesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateTapesCommandOutput>;
   public createTapes(
     args: CreateTapesCommandInput,
@@ -1256,18 +1212,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public createTapes(
     args: CreateTapesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTapesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTapesCommandOutput) => void),
     cb?: (err: any, data?: CreateTapesCommandOutput) => void
   ): Promise<CreateTapesCommandOutput> | void {
     const command = new CreateTapesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1284,7 +1238,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public deleteBandwidthRateLimit(
     args: DeleteBandwidthRateLimitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteBandwidthRateLimitCommandOutput>;
   public deleteBandwidthRateLimit(
     args: DeleteBandwidthRateLimitCommandInput,
@@ -1297,18 +1251,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public deleteBandwidthRateLimit(
     args: DeleteBandwidthRateLimitCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBandwidthRateLimitCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBandwidthRateLimitCommandOutput) => void),
     cb?: (err: any, data?: DeleteBandwidthRateLimitCommandOutput) => void
   ): Promise<DeleteBandwidthRateLimitCommandOutput> | void {
     const command = new DeleteBandwidthRateLimitCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1323,7 +1275,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public deleteChapCredentials(
     args: DeleteChapCredentialsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteChapCredentialsCommandOutput>;
   public deleteChapCredentials(
     args: DeleteChapCredentialsCommandInput,
@@ -1336,18 +1288,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public deleteChapCredentials(
     args: DeleteChapCredentialsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteChapCredentialsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChapCredentialsCommandOutput) => void),
     cb?: (err: any, data?: DeleteChapCredentialsCommandOutput) => void
   ): Promise<DeleteChapCredentialsCommandOutput> | void {
     const command = new DeleteChapCredentialsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1362,7 +1312,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public deleteFileShare(
     args: DeleteFileShareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteFileShareCommandOutput>;
   public deleteFileShare(
     args: DeleteFileShareCommandInput,
@@ -1375,18 +1325,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public deleteFileShare(
     args: DeleteFileShareCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFileShareCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFileShareCommandOutput) => void),
     cb?: (err: any, data?: DeleteFileShareCommandOutput) => void
   ): Promise<DeleteFileShareCommandOutput> | void {
     const command = new DeleteFileShareCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1415,7 +1363,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public deleteGateway(
     args: DeleteGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteGatewayCommandOutput>;
   public deleteGateway(
     args: DeleteGatewayCommandInput,
@@ -1428,18 +1376,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public deleteGateway(
     args: DeleteGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGatewayCommandOutput) => void),
     cb?: (err: any, data?: DeleteGatewayCommandOutput) => void
   ): Promise<DeleteGatewayCommandOutput> | void {
     const command = new DeleteGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1463,7 +1409,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public deleteSnapshotSchedule(
     args: DeleteSnapshotScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteSnapshotScheduleCommandOutput>;
   public deleteSnapshotSchedule(
     args: DeleteSnapshotScheduleCommandInput,
@@ -1476,18 +1422,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public deleteSnapshotSchedule(
     args: DeleteSnapshotScheduleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSnapshotScheduleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSnapshotScheduleCommandOutput) => void),
     cb?: (err: any, data?: DeleteSnapshotScheduleCommandOutput) => void
   ): Promise<DeleteSnapshotScheduleCommandOutput> | void {
     const command = new DeleteSnapshotScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1502,7 +1446,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public deleteTape(
     args: DeleteTapeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteTapeCommandOutput>;
   public deleteTape(
     args: DeleteTapeCommandInput,
@@ -1515,18 +1459,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public deleteTape(
     args: DeleteTapeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTapeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTapeCommandOutput) => void),
     cb?: (err: any, data?: DeleteTapeCommandOutput) => void
   ): Promise<DeleteTapeCommandOutput> | void {
     const command = new DeleteTapeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1540,7 +1482,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public deleteTapeArchive(
     args: DeleteTapeArchiveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteTapeArchiveCommandOutput>;
   public deleteTapeArchive(
     args: DeleteTapeArchiveCommandInput,
@@ -1553,18 +1495,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public deleteTapeArchive(
     args: DeleteTapeArchiveCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTapeArchiveCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTapeArchiveCommandOutput) => void),
     cb?: (err: any, data?: DeleteTapeArchiveCommandOutput) => void
   ): Promise<DeleteTapeArchiveCommandOutput> | void {
     const command = new DeleteTapeArchiveCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1588,7 +1528,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public deleteVolume(
     args: DeleteVolumeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteVolumeCommandOutput>;
   public deleteVolume(
     args: DeleteVolumeCommandInput,
@@ -1601,18 +1541,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public deleteVolume(
     args: DeleteVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVolumeCommandOutput) => void),
     cb?: (err: any, data?: DeleteVolumeCommandOutput) => void
   ): Promise<DeleteVolumeCommandOutput> | void {
     const command = new DeleteVolumeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1627,7 +1565,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public describeAvailabilityMonitorTest(
     args: DescribeAvailabilityMonitorTestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeAvailabilityMonitorTestCommandOutput>;
   public describeAvailabilityMonitorTest(
     args: DescribeAvailabilityMonitorTestCommandInput,
@@ -1640,21 +1578,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public describeAvailabilityMonitorTest(
     args: DescribeAvailabilityMonitorTestCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeAvailabilityMonitorTestCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAvailabilityMonitorTestCommandOutput) => void),
     cb?: (err: any, data?: DescribeAvailabilityMonitorTestCommandOutput) => void
   ): Promise<DescribeAvailabilityMonitorTestCommandOutput> | void {
     const command = new DescribeAvailabilityMonitorTestCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1673,7 +1606,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public describeBandwidthRateLimit(
     args: DescribeBandwidthRateLimitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeBandwidthRateLimitCommandOutput>;
   public describeBandwidthRateLimit(
     args: DescribeBandwidthRateLimitCommandInput,
@@ -1686,18 +1619,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public describeBandwidthRateLimit(
     args: DescribeBandwidthRateLimitCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeBandwidthRateLimitCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBandwidthRateLimitCommandOutput) => void),
     cb?: (err: any, data?: DescribeBandwidthRateLimitCommandOutput) => void
   ): Promise<DescribeBandwidthRateLimitCommandOutput> | void {
     const command = new DescribeBandwidthRateLimitCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1714,7 +1645,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public describeCache(
     args: DescribeCacheCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeCacheCommandOutput>;
   public describeCache(
     args: DescribeCacheCommandInput,
@@ -1727,18 +1658,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public describeCache(
     args: DescribeCacheCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCacheCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCacheCommandOutput) => void),
     cb?: (err: any, data?: DescribeCacheCommandOutput) => void
   ): Promise<DescribeCacheCommandOutput> | void {
     const command = new DescribeCacheCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1756,7 +1685,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public describeCachediSCSIVolumes(
     args: DescribeCachediSCSIVolumesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeCachediSCSIVolumesCommandOutput>;
   public describeCachediSCSIVolumes(
     args: DescribeCachediSCSIVolumesCommandInput,
@@ -1769,18 +1698,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public describeCachediSCSIVolumes(
     args: DescribeCachediSCSIVolumesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCachediSCSIVolumesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCachediSCSIVolumesCommandOutput) => void),
     cb?: (err: any, data?: DescribeCachediSCSIVolumesCommandOutput) => void
   ): Promise<DescribeCachediSCSIVolumesCommandOutput> | void {
     const command = new DescribeCachediSCSIVolumesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1796,7 +1723,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public describeChapCredentials(
     args: DescribeChapCredentialsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeChapCredentialsCommandOutput>;
   public describeChapCredentials(
     args: DescribeChapCredentialsCommandInput,
@@ -1809,18 +1736,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public describeChapCredentials(
     args: DescribeChapCredentialsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeChapCredentialsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeChapCredentialsCommandOutput) => void),
     cb?: (err: any, data?: DescribeChapCredentialsCommandOutput) => void
   ): Promise<DescribeChapCredentialsCommandOutput> | void {
     const command = new DescribeChapCredentialsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1836,7 +1761,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public describeGatewayInformation(
     args: DescribeGatewayInformationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeGatewayInformationCommandOutput>;
   public describeGatewayInformation(
     args: DescribeGatewayInformationCommandInput,
@@ -1849,18 +1774,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public describeGatewayInformation(
     args: DescribeGatewayInformationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeGatewayInformationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeGatewayInformationCommandOutput) => void),
     cb?: (err: any, data?: DescribeGatewayInformationCommandOutput) => void
   ): Promise<DescribeGatewayInformationCommandOutput> | void {
     const command = new DescribeGatewayInformationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1875,7 +1798,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public describeMaintenanceStartTime(
     args: DescribeMaintenanceStartTimeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeMaintenanceStartTimeCommandOutput>;
   public describeMaintenanceStartTime(
     args: DescribeMaintenanceStartTimeCommandInput,
@@ -1888,18 +1811,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public describeMaintenanceStartTime(
     args: DescribeMaintenanceStartTimeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeMaintenanceStartTimeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMaintenanceStartTimeCommandOutput) => void),
     cb?: (err: any, data?: DescribeMaintenanceStartTimeCommandOutput) => void
   ): Promise<DescribeMaintenanceStartTimeCommandOutput> | void {
     const command = new DescribeMaintenanceStartTimeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1914,7 +1835,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public describeNFSFileShares(
     args: DescribeNFSFileSharesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeNFSFileSharesCommandOutput>;
   public describeNFSFileShares(
     args: DescribeNFSFileSharesCommandInput,
@@ -1927,18 +1848,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public describeNFSFileShares(
     args: DescribeNFSFileSharesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeNFSFileSharesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeNFSFileSharesCommandOutput) => void),
     cb?: (err: any, data?: DescribeNFSFileSharesCommandOutput) => void
   ): Promise<DescribeNFSFileSharesCommandOutput> | void {
     const command = new DescribeNFSFileSharesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1953,7 +1872,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public describeSMBFileShares(
     args: DescribeSMBFileSharesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeSMBFileSharesCommandOutput>;
   public describeSMBFileShares(
     args: DescribeSMBFileSharesCommandInput,
@@ -1966,18 +1885,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public describeSMBFileShares(
     args: DescribeSMBFileSharesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSMBFileSharesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSMBFileSharesCommandOutput) => void),
     cb?: (err: any, data?: DescribeSMBFileSharesCommandOutput) => void
   ): Promise<DescribeSMBFileSharesCommandOutput> | void {
     const command = new DescribeSMBFileSharesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1991,7 +1908,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public describeSMBSettings(
     args: DescribeSMBSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeSMBSettingsCommandOutput>;
   public describeSMBSettings(
     args: DescribeSMBSettingsCommandInput,
@@ -2004,18 +1921,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public describeSMBSettings(
     args: DescribeSMBSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSMBSettingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSMBSettingsCommandOutput) => void),
     cb?: (err: any, data?: DescribeSMBSettingsCommandOutput) => void
   ): Promise<DescribeSMBSettingsCommandOutput> | void {
     const command = new DescribeSMBSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2032,7 +1947,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public describeSnapshotSchedule(
     args: DescribeSnapshotScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeSnapshotScheduleCommandOutput>;
   public describeSnapshotSchedule(
     args: DescribeSnapshotScheduleCommandInput,
@@ -2045,18 +1960,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public describeSnapshotSchedule(
     args: DescribeSnapshotScheduleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeSnapshotScheduleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSnapshotScheduleCommandOutput) => void),
     cb?: (err: any, data?: DescribeSnapshotScheduleCommandOutput) => void
   ): Promise<DescribeSnapshotScheduleCommandOutput> | void {
     const command = new DescribeSnapshotScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2073,7 +1986,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public describeStorediSCSIVolumes(
     args: DescribeStorediSCSIVolumesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeStorediSCSIVolumesCommandOutput>;
   public describeStorediSCSIVolumes(
     args: DescribeStorediSCSIVolumesCommandInput,
@@ -2086,18 +1999,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public describeStorediSCSIVolumes(
     args: DescribeStorediSCSIVolumesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStorediSCSIVolumesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStorediSCSIVolumesCommandOutput) => void),
     cb?: (err: any, data?: DescribeStorediSCSIVolumesCommandOutput) => void
   ): Promise<DescribeStorediSCSIVolumesCommandOutput> | void {
     const command = new DescribeStorediSCSIVolumesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2116,7 +2027,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public describeTapeArchives(
     args: DescribeTapeArchivesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeTapeArchivesCommandOutput>;
   public describeTapeArchives(
     args: DescribeTapeArchivesCommandInput,
@@ -2129,18 +2040,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public describeTapeArchives(
     args: DescribeTapeArchivesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTapeArchivesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTapeArchivesCommandOutput) => void),
     cb?: (err: any, data?: DescribeTapeArchivesCommandOutput) => void
   ): Promise<DescribeTapeArchivesCommandOutput> | void {
     const command = new DescribeTapeArchivesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2159,7 +2068,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public describeTapeRecoveryPoints(
     args: DescribeTapeRecoveryPointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeTapeRecoveryPointsCommandOutput>;
   public describeTapeRecoveryPoints(
     args: DescribeTapeRecoveryPointsCommandInput,
@@ -2172,18 +2081,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public describeTapeRecoveryPoints(
     args: DescribeTapeRecoveryPointsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTapeRecoveryPointsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTapeRecoveryPointsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTapeRecoveryPointsCommandOutput) => void
   ): Promise<DescribeTapeRecoveryPointsCommandOutput> | void {
     const command = new DescribeTapeRecoveryPointsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2201,7 +2108,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public describeTapes(
     args: DescribeTapesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeTapesCommandOutput>;
   public describeTapes(
     args: DescribeTapesCommandInput,
@@ -2214,18 +2121,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public describeTapes(
     args: DescribeTapesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTapesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTapesCommandOutput) => void),
     cb?: (err: any, data?: DescribeTapesCommandOutput) => void
   ): Promise<DescribeTapesCommandOutput> | void {
     const command = new DescribeTapesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2242,7 +2147,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public describeUploadBuffer(
     args: DescribeUploadBufferCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeUploadBufferCommandOutput>;
   public describeUploadBuffer(
     args: DescribeUploadBufferCommandInput,
@@ -2255,18 +2160,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public describeUploadBuffer(
     args: DescribeUploadBufferCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeUploadBufferCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUploadBufferCommandOutput) => void),
     cb?: (err: any, data?: DescribeUploadBufferCommandOutput) => void
   ): Promise<DescribeUploadBufferCommandOutput> | void {
     const command = new DescribeUploadBufferCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2283,7 +2186,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public describeVTLDevices(
     args: DescribeVTLDevicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeVTLDevicesCommandOutput>;
   public describeVTLDevices(
     args: DescribeVTLDevicesCommandInput,
@@ -2296,18 +2199,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public describeVTLDevices(
     args: DescribeVTLDevicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVTLDevicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVTLDevicesCommandOutput) => void),
     cb?: (err: any, data?: DescribeVTLDevicesCommandOutput) => void
   ): Promise<DescribeVTLDevicesCommandOutput> | void {
     const command = new DescribeVTLDevicesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2330,7 +2231,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public describeWorkingStorage(
     args: DescribeWorkingStorageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeWorkingStorageCommandOutput>;
   public describeWorkingStorage(
     args: DescribeWorkingStorageCommandInput,
@@ -2343,18 +2244,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public describeWorkingStorage(
     args: DescribeWorkingStorageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeWorkingStorageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeWorkingStorageCommandOutput) => void),
     cb?: (err: any, data?: DescribeWorkingStorageCommandOutput) => void
   ): Promise<DescribeWorkingStorageCommandOutput> | void {
     const command = new DescribeWorkingStorageCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2373,7 +2272,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public detachVolume(
     args: DetachVolumeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DetachVolumeCommandOutput>;
   public detachVolume(
     args: DetachVolumeCommandInput,
@@ -2386,18 +2285,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public detachVolume(
     args: DetachVolumeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetachVolumeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachVolumeCommandOutput) => void),
     cb?: (err: any, data?: DetachVolumeCommandOutput) => void
   ): Promise<DetachVolumeCommandOutput> | void {
     const command = new DetachVolumeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2417,7 +2314,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public disableGateway(
     args: DisableGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DisableGatewayCommandOutput>;
   public disableGateway(
     args: DisableGatewayCommandInput,
@@ -2430,18 +2327,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public disableGateway(
     args: DisableGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableGatewayCommandOutput) => void),
     cb?: (err: any, data?: DisableGatewayCommandOutput) => void
   ): Promise<DisableGatewayCommandOutput> | void {
     const command = new DisableGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2455,7 +2350,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public joinDomain(
     args: JoinDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<JoinDomainCommandOutput>;
   public joinDomain(
     args: JoinDomainCommandInput,
@@ -2468,18 +2363,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public joinDomain(
     args: JoinDomainCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: JoinDomainCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: JoinDomainCommandOutput) => void),
     cb?: (err: any, data?: JoinDomainCommandOutput) => void
   ): Promise<JoinDomainCommandOutput> | void {
     const command = new JoinDomainCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2495,7 +2388,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public listFileShares(
     args: ListFileSharesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListFileSharesCommandOutput>;
   public listFileShares(
     args: ListFileSharesCommandInput,
@@ -2508,18 +2401,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public listFileShares(
     args: ListFileSharesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFileSharesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFileSharesCommandOutput) => void),
     cb?: (err: any, data?: ListFileSharesCommandOutput) => void
   ): Promise<ListFileSharesCommandOutput> | void {
     const command = new ListFileSharesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2540,7 +2431,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public listGateways(
     args: ListGatewaysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListGatewaysCommandOutput>;
   public listGateways(
     args: ListGatewaysCommandInput,
@@ -2553,18 +2444,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public listGateways(
     args: ListGatewaysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGatewaysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGatewaysCommandOutput) => void),
     cb?: (err: any, data?: ListGatewaysCommandOutput) => void
   ): Promise<ListGatewaysCommandOutput> | void {
     const command = new ListGatewaysCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2585,7 +2474,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public listLocalDisks(
     args: ListLocalDisksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListLocalDisksCommandOutput>;
   public listLocalDisks(
     args: ListLocalDisksCommandInput,
@@ -2598,18 +2487,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public listLocalDisks(
     args: ListLocalDisksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListLocalDisksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLocalDisksCommandOutput) => void),
     cb?: (err: any, data?: ListLocalDisksCommandOutput) => void
   ): Promise<ListLocalDisksCommandOutput> | void {
     const command = new ListLocalDisksCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2623,7 +2510,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListTagsForResourceCommandOutput>;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2636,18 +2523,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2670,7 +2555,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public listTapes(
     args: ListTapesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListTapesCommandOutput>;
   public listTapes(
     args: ListTapesCommandInput,
@@ -2683,18 +2568,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public listTapes(
     args: ListTapesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTapesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTapesCommandOutput) => void),
     cb?: (err: any, data?: ListTapesCommandOutput) => void
   ): Promise<ListTapesCommandOutput> | void {
     const command = new ListTapesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2711,7 +2594,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public listVolumeInitiators(
     args: ListVolumeInitiatorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListVolumeInitiatorsCommandOutput>;
   public listVolumeInitiators(
     args: ListVolumeInitiatorsCommandInput,
@@ -2724,18 +2607,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public listVolumeInitiators(
     args: ListVolumeInitiatorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListVolumeInitiatorsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVolumeInitiatorsCommandOutput) => void),
     cb?: (err: any, data?: ListVolumeInitiatorsCommandOutput) => void
   ): Promise<ListVolumeInitiatorsCommandOutput> | void {
     const command = new ListVolumeInitiatorsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2754,7 +2635,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public listVolumeRecoveryPoints(
     args: ListVolumeRecoveryPointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListVolumeRecoveryPointsCommandOutput>;
   public listVolumeRecoveryPoints(
     args: ListVolumeRecoveryPointsCommandInput,
@@ -2767,18 +2648,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public listVolumeRecoveryPoints(
     args: ListVolumeRecoveryPointsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListVolumeRecoveryPointsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVolumeRecoveryPointsCommandOutput) => void),
     cb?: (err: any, data?: ListVolumeRecoveryPointsCommandOutput) => void
   ): Promise<ListVolumeRecoveryPointsCommandOutput> | void {
     const command = new ListVolumeRecoveryPointsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2802,7 +2681,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public listVolumes(
     args: ListVolumesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListVolumesCommandOutput>;
   public listVolumes(
     args: ListVolumesCommandInput,
@@ -2815,18 +2694,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public listVolumes(
     args: ListVolumesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListVolumesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVolumesCommandOutput) => void),
     cb?: (err: any, data?: ListVolumesCommandOutput) => void
   ): Promise<ListVolumesCommandOutput> | void {
     const command = new ListVolumesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2852,7 +2729,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public notifyWhenUploaded(
     args: NotifyWhenUploadedCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<NotifyWhenUploadedCommandOutput>;
   public notifyWhenUploaded(
     args: NotifyWhenUploadedCommandInput,
@@ -2865,18 +2742,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public notifyWhenUploaded(
     args: NotifyWhenUploadedCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: NotifyWhenUploadedCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: NotifyWhenUploadedCommandOutput) => void),
     cb?: (err: any, data?: NotifyWhenUploadedCommandOutput) => void
   ): Promise<NotifyWhenUploadedCommandOutput> | void {
     const command = new NotifyWhenUploadedCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2910,7 +2785,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public refreshCache(
     args: RefreshCacheCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<RefreshCacheCommandOutput>;
   public refreshCache(
     args: RefreshCacheCommandInput,
@@ -2923,18 +2798,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public refreshCache(
     args: RefreshCacheCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RefreshCacheCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RefreshCacheCommandOutput) => void),
     cb?: (err: any, data?: RefreshCacheCommandOutput) => void
   ): Promise<RefreshCacheCommandOutput> | void {
     const command = new RefreshCacheCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2948,7 +2821,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<RemoveTagsFromResourceCommandOutput>;
   public removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
@@ -2961,18 +2834,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveTagsFromResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTagsFromResourceCommandOutput) => void),
     cb?: (err: any, data?: RemoveTagsFromResourceCommandOutput) => void
   ): Promise<RemoveTagsFromResourceCommandOutput> | void {
     const command = new RemoveTagsFromResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2996,7 +2867,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public resetCache(
     args: ResetCacheCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ResetCacheCommandOutput>;
   public resetCache(
     args: ResetCacheCommandInput,
@@ -3009,18 +2880,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public resetCache(
     args: ResetCacheCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResetCacheCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetCacheCommandOutput) => void),
     cb?: (err: any, data?: ResetCacheCommandOutput) => void
   ): Promise<ResetCacheCommandOutput> | void {
     const command = new ResetCacheCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3041,7 +2910,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public retrieveTapeArchive(
     args: RetrieveTapeArchiveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<RetrieveTapeArchiveCommandOutput>;
   public retrieveTapeArchive(
     args: RetrieveTapeArchiveCommandInput,
@@ -3054,18 +2923,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public retrieveTapeArchive(
     args: RetrieveTapeArchiveCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RetrieveTapeArchiveCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RetrieveTapeArchiveCommandOutput) => void),
     cb?: (err: any, data?: RetrieveTapeArchiveCommandOutput) => void
   ): Promise<RetrieveTapeArchiveCommandOutput> | void {
     const command = new RetrieveTapeArchiveCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3087,7 +2954,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public retrieveTapeRecoveryPoint(
     args: RetrieveTapeRecoveryPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<RetrieveTapeRecoveryPointCommandOutput>;
   public retrieveTapeRecoveryPoint(
     args: RetrieveTapeRecoveryPointCommandInput,
@@ -3100,18 +2967,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public retrieveTapeRecoveryPoint(
     args: RetrieveTapeRecoveryPointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RetrieveTapeRecoveryPointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RetrieveTapeRecoveryPointCommandOutput) => void),
     cb?: (err: any, data?: RetrieveTapeRecoveryPointCommandOutput) => void
   ): Promise<RetrieveTapeRecoveryPointCommandOutput> | void {
     const command = new RetrieveTapeRecoveryPointCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3127,7 +2992,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public setLocalConsolePassword(
     args: SetLocalConsolePasswordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<SetLocalConsolePasswordCommandOutput>;
   public setLocalConsolePassword(
     args: SetLocalConsolePasswordCommandInput,
@@ -3140,18 +3005,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public setLocalConsolePassword(
     args: SetLocalConsolePasswordCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetLocalConsolePasswordCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetLocalConsolePasswordCommandOutput) => void),
     cb?: (err: any, data?: SetLocalConsolePasswordCommandOutput) => void
   ): Promise<SetLocalConsolePasswordCommandOutput> | void {
     const command = new SetLocalConsolePasswordCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3166,7 +3029,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public setSMBGuestPassword(
     args: SetSMBGuestPasswordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<SetSMBGuestPasswordCommandOutput>;
   public setSMBGuestPassword(
     args: SetSMBGuestPasswordCommandInput,
@@ -3179,18 +3042,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public setSMBGuestPassword(
     args: SetSMBGuestPasswordCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetSMBGuestPasswordCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetSMBGuestPasswordCommandOutput) => void),
     cb?: (err: any, data?: SetSMBGuestPasswordCommandOutput) => void
   ): Promise<SetSMBGuestPasswordCommandOutput> | void {
     const command = new SetSMBGuestPasswordCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3222,7 +3083,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public shutdownGateway(
     args: ShutdownGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ShutdownGatewayCommandOutput>;
   public shutdownGateway(
     args: ShutdownGatewayCommandInput,
@@ -3235,18 +3096,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public shutdownGateway(
     args: ShutdownGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ShutdownGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ShutdownGatewayCommandOutput) => void),
     cb?: (err: any, data?: ShutdownGatewayCommandOutput) => void
   ): Promise<ShutdownGatewayCommandOutput> | void {
     const command = new ShutdownGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3266,7 +3125,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public startAvailabilityMonitorTest(
     args: StartAvailabilityMonitorTestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<StartAvailabilityMonitorTestCommandOutput>;
   public startAvailabilityMonitorTest(
     args: StartAvailabilityMonitorTestCommandInput,
@@ -3279,18 +3138,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public startAvailabilityMonitorTest(
     args: StartAvailabilityMonitorTestCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartAvailabilityMonitorTestCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartAvailabilityMonitorTestCommandOutput) => void),
     cb?: (err: any, data?: StartAvailabilityMonitorTestCommandOutput) => void
   ): Promise<StartAvailabilityMonitorTestCommandOutput> | void {
     const command = new StartAvailabilityMonitorTestCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3313,7 +3170,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public startGateway(
     args: StartGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<StartGatewayCommandOutput>;
   public startGateway(
     args: StartGatewayCommandInput,
@@ -3326,18 +3183,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public startGateway(
     args: StartGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartGatewayCommandOutput) => void),
     cb?: (err: any, data?: StartGatewayCommandOutput) => void
   ): Promise<StartGatewayCommandOutput> | void {
     const command = new StartGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3358,7 +3213,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public updateBandwidthRateLimit(
     args: UpdateBandwidthRateLimitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateBandwidthRateLimitCommandOutput>;
   public updateBandwidthRateLimit(
     args: UpdateBandwidthRateLimitCommandInput,
@@ -3371,18 +3226,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public updateBandwidthRateLimit(
     args: UpdateBandwidthRateLimitCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateBandwidthRateLimitCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateBandwidthRateLimitCommandOutput) => void),
     cb?: (err: any, data?: UpdateBandwidthRateLimitCommandOutput) => void
   ): Promise<UpdateBandwidthRateLimitCommandOutput> | void {
     const command = new UpdateBandwidthRateLimitCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3403,7 +3256,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public updateChapCredentials(
     args: UpdateChapCredentialsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateChapCredentialsCommandOutput>;
   public updateChapCredentials(
     args: UpdateChapCredentialsCommandInput,
@@ -3416,18 +3269,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public updateChapCredentials(
     args: UpdateChapCredentialsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateChapCredentialsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateChapCredentialsCommandOutput) => void),
     cb?: (err: any, data?: UpdateChapCredentialsCommandOutput) => void
   ): Promise<UpdateChapCredentialsCommandOutput> | void {
     const command = new UpdateChapCredentialsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3448,7 +3299,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public updateGatewayInformation(
     args: UpdateGatewayInformationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateGatewayInformationCommandOutput>;
   public updateGatewayInformation(
     args: UpdateGatewayInformationCommandInput,
@@ -3461,18 +3312,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public updateGatewayInformation(
     args: UpdateGatewayInformationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGatewayInformationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGatewayInformationCommandOutput) => void),
     cb?: (err: any, data?: UpdateGatewayInformationCommandOutput) => void
   ): Promise<UpdateGatewayInformationCommandOutput> | void {
     const command = new UpdateGatewayInformationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3499,7 +3348,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public updateGatewaySoftwareNow(
     args: UpdateGatewaySoftwareNowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateGatewaySoftwareNowCommandOutput>;
   public updateGatewaySoftwareNow(
     args: UpdateGatewaySoftwareNowCommandInput,
@@ -3512,18 +3361,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public updateGatewaySoftwareNow(
     args: UpdateGatewaySoftwareNowCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGatewaySoftwareNowCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGatewaySoftwareNowCommandOutput) => void),
     cb?: (err: any, data?: UpdateGatewaySoftwareNowCommandOutput) => void
   ): Promise<UpdateGatewaySoftwareNowCommandOutput> | void {
     const command = new UpdateGatewaySoftwareNowCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3538,7 +3385,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public updateMaintenanceStartTime(
     args: UpdateMaintenanceStartTimeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateMaintenanceStartTimeCommandOutput>;
   public updateMaintenanceStartTime(
     args: UpdateMaintenanceStartTimeCommandInput,
@@ -3551,18 +3398,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public updateMaintenanceStartTime(
     args: UpdateMaintenanceStartTimeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateMaintenanceStartTimeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMaintenanceStartTimeCommandOutput) => void),
     cb?: (err: any, data?: UpdateMaintenanceStartTimeCommandOutput) => void
   ): Promise<UpdateMaintenanceStartTimeCommandOutput> | void {
     const command = new UpdateMaintenanceStartTimeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3606,7 +3451,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public updateNFSFileShare(
     args: UpdateNFSFileShareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateNFSFileShareCommandOutput>;
   public updateNFSFileShare(
     args: UpdateNFSFileShareCommandInput,
@@ -3619,18 +3464,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public updateNFSFileShare(
     args: UpdateNFSFileShareCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateNFSFileShareCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateNFSFileShareCommandOutput) => void),
     cb?: (err: any, data?: UpdateNFSFileShareCommandOutput) => void
   ): Promise<UpdateNFSFileShareCommandOutput> | void {
     const command = new UpdateNFSFileShareCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3662,7 +3505,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public updateSMBFileShare(
     args: UpdateSMBFileShareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateSMBFileShareCommandOutput>;
   public updateSMBFileShare(
     args: UpdateSMBFileShareCommandInput,
@@ -3675,18 +3518,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public updateSMBFileShare(
     args: UpdateSMBFileShareCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSMBFileShareCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSMBFileShareCommandOutput) => void),
     cb?: (err: any, data?: UpdateSMBFileShareCommandOutput) => void
   ): Promise<UpdateSMBFileShareCommandOutput> | void {
     const command = new UpdateSMBFileShareCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3703,7 +3544,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public updateSMBSecurityStrategy(
     args: UpdateSMBSecurityStrategyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateSMBSecurityStrategyCommandOutput>;
   public updateSMBSecurityStrategy(
     args: UpdateSMBSecurityStrategyCommandInput,
@@ -3716,18 +3557,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public updateSMBSecurityStrategy(
     args: UpdateSMBSecurityStrategyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSMBSecurityStrategyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSMBSecurityStrategyCommandOutput) => void),
     cb?: (err: any, data?: UpdateSMBSecurityStrategyCommandOutput) => void
   ): Promise<UpdateSMBSecurityStrategyCommandOutput> | void {
     const command = new UpdateSMBSecurityStrategyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3748,7 +3587,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public updateSnapshotSchedule(
     args: UpdateSnapshotScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateSnapshotScheduleCommandOutput>;
   public updateSnapshotSchedule(
     args: UpdateSnapshotScheduleCommandInput,
@@ -3761,18 +3600,16 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public updateSnapshotSchedule(
     args: UpdateSnapshotScheduleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSnapshotScheduleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSnapshotScheduleCommandOutput) => void),
     cb?: (err: any, data?: UpdateSnapshotScheduleCommandOutput) => void
   ): Promise<UpdateSnapshotScheduleCommandOutput> | void {
     const command = new UpdateSnapshotScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3788,7 +3625,7 @@ export class StorageGateway extends StorageGatewayClient {
    */
   public updateVTLDeviceType(
     args: UpdateVTLDeviceTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateVTLDeviceTypeCommandOutput>;
   public updateVTLDeviceType(
     args: UpdateVTLDeviceTypeCommandInput,
@@ -3801,20 +3638,19 @@ export class StorageGateway extends StorageGatewayClient {
   ): void;
   public updateVTLDeviceType(
     args: UpdateVTLDeviceTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateVTLDeviceTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVTLDeviceTypeCommandOutput) => void),
     cb?: (err: any, data?: UpdateVTLDeviceTypeCommandOutput) => void
   ): Promise<UpdateVTLDeviceTypeCommandOutput> | void {
     const command = new UpdateVTLDeviceTypeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

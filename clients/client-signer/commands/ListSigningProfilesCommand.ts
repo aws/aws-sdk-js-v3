@@ -1,20 +1,20 @@
 import {
   ListSigningProfilesRequest,
-  ListSigningProfilesResponse
+  ListSigningProfilesResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1ListSigningProfilesCommand,
-  serializeAws_restJson1_1ListSigningProfilesCommand
+  serializeAws_restJson1_1ListSigningProfilesCommand,
 } from "../protocols/Aws_restJson1_1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  signerClientResolvedConfig
+  signerClientResolvedConfig,
 } from "../signerClient";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type ListSigningProfilesCommandInput = ListSigningProfilesRequest;
 export type ListSigningProfilesCommandOutput = ListSigningProfilesResponse;
 
-export class ListSigningProfilesCommand extends $Command<
-  ListSigningProfilesCommandInput,
-  ListSigningProfilesCommandOutput,
-  signerClientResolvedConfig
-> {
+export class ListSigningProfilesCommand extends $Command<ListSigningProfilesCommandInput, ListSigningProfilesCommandOutput, signerClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class ListSigningProfilesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: signerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListSigningProfilesCommandInput,
-    ListSigningProfilesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListSigningProfilesCommandInput, ListSigningProfilesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -79,10 +70,7 @@ export class ListSigningProfilesCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListSigningProfilesCommandOutput> {
-    return deserializeAws_restJson1_1ListSigningProfilesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListSigningProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

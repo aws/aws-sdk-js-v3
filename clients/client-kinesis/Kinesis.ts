@@ -2,142 +2,142 @@ import { KinesisClient } from "./KinesisClient";
 import {
   AddTagsToStreamCommand,
   AddTagsToStreamCommandInput,
-  AddTagsToStreamCommandOutput
+  AddTagsToStreamCommandOutput,
 } from "./commands/AddTagsToStreamCommand";
 import {
   CreateStreamCommand,
   CreateStreamCommandInput,
-  CreateStreamCommandOutput
+  CreateStreamCommandOutput,
 } from "./commands/CreateStreamCommand";
 import {
   DecreaseStreamRetentionPeriodCommand,
   DecreaseStreamRetentionPeriodCommandInput,
-  DecreaseStreamRetentionPeriodCommandOutput
+  DecreaseStreamRetentionPeriodCommandOutput,
 } from "./commands/DecreaseStreamRetentionPeriodCommand";
 import {
   DeleteStreamCommand,
   DeleteStreamCommandInput,
-  DeleteStreamCommandOutput
+  DeleteStreamCommandOutput,
 } from "./commands/DeleteStreamCommand";
 import {
   DeregisterStreamConsumerCommand,
   DeregisterStreamConsumerCommandInput,
-  DeregisterStreamConsumerCommandOutput
+  DeregisterStreamConsumerCommandOutput,
 } from "./commands/DeregisterStreamConsumerCommand";
 import {
   DescribeLimitsCommand,
   DescribeLimitsCommandInput,
-  DescribeLimitsCommandOutput
+  DescribeLimitsCommandOutput,
 } from "./commands/DescribeLimitsCommand";
 import {
   DescribeStreamCommand,
   DescribeStreamCommandInput,
-  DescribeStreamCommandOutput
+  DescribeStreamCommandOutput,
 } from "./commands/DescribeStreamCommand";
 import {
   DescribeStreamConsumerCommand,
   DescribeStreamConsumerCommandInput,
-  DescribeStreamConsumerCommandOutput
+  DescribeStreamConsumerCommandOutput,
 } from "./commands/DescribeStreamConsumerCommand";
 import {
   DescribeStreamSummaryCommand,
   DescribeStreamSummaryCommandInput,
-  DescribeStreamSummaryCommandOutput
+  DescribeStreamSummaryCommandOutput,
 } from "./commands/DescribeStreamSummaryCommand";
 import {
   DisableEnhancedMonitoringCommand,
   DisableEnhancedMonitoringCommandInput,
-  DisableEnhancedMonitoringCommandOutput
+  DisableEnhancedMonitoringCommandOutput,
 } from "./commands/DisableEnhancedMonitoringCommand";
 import {
   EnableEnhancedMonitoringCommand,
   EnableEnhancedMonitoringCommandInput,
-  EnableEnhancedMonitoringCommandOutput
+  EnableEnhancedMonitoringCommandOutput,
 } from "./commands/EnableEnhancedMonitoringCommand";
 import {
   GetRecordsCommand,
   GetRecordsCommandInput,
-  GetRecordsCommandOutput
+  GetRecordsCommandOutput,
 } from "./commands/GetRecordsCommand";
 import {
   GetShardIteratorCommand,
   GetShardIteratorCommandInput,
-  GetShardIteratorCommandOutput
+  GetShardIteratorCommandOutput,
 } from "./commands/GetShardIteratorCommand";
 import {
   IncreaseStreamRetentionPeriodCommand,
   IncreaseStreamRetentionPeriodCommandInput,
-  IncreaseStreamRetentionPeriodCommandOutput
+  IncreaseStreamRetentionPeriodCommandOutput,
 } from "./commands/IncreaseStreamRetentionPeriodCommand";
 import {
   ListShardsCommand,
   ListShardsCommandInput,
-  ListShardsCommandOutput
+  ListShardsCommandOutput,
 } from "./commands/ListShardsCommand";
 import {
   ListStreamConsumersCommand,
   ListStreamConsumersCommandInput,
-  ListStreamConsumersCommandOutput
+  ListStreamConsumersCommandOutput,
 } from "./commands/ListStreamConsumersCommand";
 import {
   ListStreamsCommand,
   ListStreamsCommandInput,
-  ListStreamsCommandOutput
+  ListStreamsCommandOutput,
 } from "./commands/ListStreamsCommand";
 import {
   ListTagsForStreamCommand,
   ListTagsForStreamCommandInput,
-  ListTagsForStreamCommandOutput
+  ListTagsForStreamCommandOutput,
 } from "./commands/ListTagsForStreamCommand";
 import {
   MergeShardsCommand,
   MergeShardsCommandInput,
-  MergeShardsCommandOutput
+  MergeShardsCommandOutput,
 } from "./commands/MergeShardsCommand";
 import {
   PutRecordCommand,
   PutRecordCommandInput,
-  PutRecordCommandOutput
+  PutRecordCommandOutput,
 } from "./commands/PutRecordCommand";
 import {
   PutRecordsCommand,
   PutRecordsCommandInput,
-  PutRecordsCommandOutput
+  PutRecordsCommandOutput,
 } from "./commands/PutRecordsCommand";
 import {
   RegisterStreamConsumerCommand,
   RegisterStreamConsumerCommandInput,
-  RegisterStreamConsumerCommandOutput
+  RegisterStreamConsumerCommandOutput,
 } from "./commands/RegisterStreamConsumerCommand";
 import {
   RemoveTagsFromStreamCommand,
   RemoveTagsFromStreamCommandInput,
-  RemoveTagsFromStreamCommandOutput
+  RemoveTagsFromStreamCommandOutput,
 } from "./commands/RemoveTagsFromStreamCommand";
 import {
   SplitShardCommand,
   SplitShardCommandInput,
-  SplitShardCommandOutput
+  SplitShardCommandOutput,
 } from "./commands/SplitShardCommand";
 import {
   StartStreamEncryptionCommand,
   StartStreamEncryptionCommandInput,
-  StartStreamEncryptionCommandOutput
+  StartStreamEncryptionCommandOutput,
 } from "./commands/StartStreamEncryptionCommand";
 import {
   StopStreamEncryptionCommand,
   StopStreamEncryptionCommandInput,
-  StopStreamEncryptionCommandOutput
+  StopStreamEncryptionCommandOutput,
 } from "./commands/StopStreamEncryptionCommand";
 import {
   SubscribeToShardCommand,
   SubscribeToShardCommandInput,
-  SubscribeToShardCommandOutput
+  SubscribeToShardCommandOutput,
 } from "./commands/SubscribeToShardCommand";
 import {
   UpdateShardCountCommand,
   UpdateShardCountCommandInput,
-  UpdateShardCountCommandOutput
+  UpdateShardCountCommandOutput,
 } from "./commands/UpdateShardCountCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -165,7 +165,7 @@ export class Kinesis extends KinesisClient {
    */
   public addTagsToStream(
     args: AddTagsToStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<AddTagsToStreamCommandOutput>;
   public addTagsToStream(
     args: AddTagsToStreamCommandInput,
@@ -178,18 +178,16 @@ export class Kinesis extends KinesisClient {
   ): void;
   public addTagsToStream(
     args: AddTagsToStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddTagsToStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsToStreamCommandOutput) => void),
     cb?: (err: any, data?: AddTagsToStreamCommandOutput) => void
   ): Promise<AddTagsToStreamCommandOutput> | void {
     const command = new AddTagsToStreamCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -241,7 +239,7 @@ export class Kinesis extends KinesisClient {
    */
   public createStream(
     args: CreateStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateStreamCommandOutput>;
   public createStream(
     args: CreateStreamCommandInput,
@@ -254,18 +252,16 @@ export class Kinesis extends KinesisClient {
   ): void;
   public createStream(
     args: CreateStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStreamCommandOutput) => void),
     cb?: (err: any, data?: CreateStreamCommandOutput) => void
   ): Promise<CreateStreamCommandOutput> | void {
     const command = new CreateStreamCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -282,7 +278,7 @@ export class Kinesis extends KinesisClient {
    */
   public decreaseStreamRetentionPeriod(
     args: DecreaseStreamRetentionPeriodCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DecreaseStreamRetentionPeriodCommandOutput>;
   public decreaseStreamRetentionPeriod(
     args: DecreaseStreamRetentionPeriodCommandInput,
@@ -295,18 +291,16 @@ export class Kinesis extends KinesisClient {
   ): void;
   public decreaseStreamRetentionPeriod(
     args: DecreaseStreamRetentionPeriodCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DecreaseStreamRetentionPeriodCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DecreaseStreamRetentionPeriodCommandOutput) => void),
     cb?: (err: any, data?: DecreaseStreamRetentionPeriodCommandOutput) => void
   ): Promise<DecreaseStreamRetentionPeriodCommandOutput> | void {
     const command = new DecreaseStreamRetentionPeriodCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -337,7 +331,7 @@ export class Kinesis extends KinesisClient {
    */
   public deleteStream(
     args: DeleteStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteStreamCommandOutput>;
   public deleteStream(
     args: DeleteStreamCommandInput,
@@ -350,18 +344,16 @@ export class Kinesis extends KinesisClient {
   ): void;
   public deleteStream(
     args: DeleteStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteStreamCommandOutput) => void),
     cb?: (err: any, data?: DeleteStreamCommandOutput) => void
   ): Promise<DeleteStreamCommandOutput> | void {
     const command = new DeleteStreamCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -381,7 +373,7 @@ export class Kinesis extends KinesisClient {
    */
   public deregisterStreamConsumer(
     args: DeregisterStreamConsumerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeregisterStreamConsumerCommandOutput>;
   public deregisterStreamConsumer(
     args: DeregisterStreamConsumerCommandInput,
@@ -394,18 +386,16 @@ export class Kinesis extends KinesisClient {
   ): void;
   public deregisterStreamConsumer(
     args: DeregisterStreamConsumerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterStreamConsumerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterStreamConsumerCommandOutput) => void),
     cb?: (err: any, data?: DeregisterStreamConsumerCommandOutput) => void
   ): Promise<DeregisterStreamConsumerCommandOutput> | void {
     const command = new DeregisterStreamConsumerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -421,7 +411,7 @@ export class Kinesis extends KinesisClient {
    */
   public describeLimits(
     args: DescribeLimitsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeLimitsCommandOutput>;
   public describeLimits(
     args: DescribeLimitsCommandInput,
@@ -434,18 +424,16 @@ export class Kinesis extends KinesisClient {
   ): void;
   public describeLimits(
     args: DescribeLimitsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLimitsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLimitsCommandOutput) => void),
     cb?: (err: any, data?: DescribeLimitsCommandOutput) => void
   ): Promise<DescribeLimitsCommandOutput> | void {
     const command = new DescribeLimitsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -474,7 +462,7 @@ export class Kinesis extends KinesisClient {
    */
   public describeStream(
     args: DescribeStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeStreamCommandOutput>;
   public describeStream(
     args: DescribeStreamCommandInput,
@@ -487,18 +475,16 @@ export class Kinesis extends KinesisClient {
   ): void;
   public describeStream(
     args: DescribeStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStreamCommandOutput) => void),
     cb?: (err: any, data?: DescribeStreamCommandOutput) => void
   ): Promise<DescribeStreamCommandOutput> | void {
     const command = new DescribeStreamCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -518,7 +504,7 @@ export class Kinesis extends KinesisClient {
    */
   public describeStreamConsumer(
     args: DescribeStreamConsumerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeStreamConsumerCommandOutput>;
   public describeStreamConsumer(
     args: DescribeStreamConsumerCommandInput,
@@ -531,18 +517,16 @@ export class Kinesis extends KinesisClient {
   ): void;
   public describeStreamConsumer(
     args: DescribeStreamConsumerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStreamConsumerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStreamConsumerCommandOutput) => void),
     cb?: (err: any, data?: DescribeStreamConsumerCommandOutput) => void
   ): Promise<DescribeStreamConsumerCommandOutput> | void {
     const command = new DescribeStreamConsumerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -558,7 +542,7 @@ export class Kinesis extends KinesisClient {
    */
   public describeStreamSummary(
     args: DescribeStreamSummaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeStreamSummaryCommandOutput>;
   public describeStreamSummary(
     args: DescribeStreamSummaryCommandInput,
@@ -571,18 +555,16 @@ export class Kinesis extends KinesisClient {
   ): void;
   public describeStreamSummary(
     args: DescribeStreamSummaryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStreamSummaryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStreamSummaryCommandOutput) => void),
     cb?: (err: any, data?: DescribeStreamSummaryCommandOutput) => void
   ): Promise<DescribeStreamSummaryCommandOutput> | void {
     const command = new DescribeStreamSummaryCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -596,7 +578,7 @@ export class Kinesis extends KinesisClient {
    */
   public disableEnhancedMonitoring(
     args: DisableEnhancedMonitoringCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DisableEnhancedMonitoringCommandOutput>;
   public disableEnhancedMonitoring(
     args: DisableEnhancedMonitoringCommandInput,
@@ -609,18 +591,16 @@ export class Kinesis extends KinesisClient {
   ): void;
   public disableEnhancedMonitoring(
     args: DisableEnhancedMonitoringCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisableEnhancedMonitoringCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableEnhancedMonitoringCommandOutput) => void),
     cb?: (err: any, data?: DisableEnhancedMonitoringCommandOutput) => void
   ): Promise<DisableEnhancedMonitoringCommandOutput> | void {
     const command = new DisableEnhancedMonitoringCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -634,7 +614,7 @@ export class Kinesis extends KinesisClient {
    */
   public enableEnhancedMonitoring(
     args: EnableEnhancedMonitoringCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<EnableEnhancedMonitoringCommandOutput>;
   public enableEnhancedMonitoring(
     args: EnableEnhancedMonitoringCommandInput,
@@ -647,18 +627,16 @@ export class Kinesis extends KinesisClient {
   ): void;
   public enableEnhancedMonitoring(
     args: EnableEnhancedMonitoringCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EnableEnhancedMonitoringCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableEnhancedMonitoringCommandOutput) => void),
     cb?: (err: any, data?: EnableEnhancedMonitoringCommandOutput) => void
   ): Promise<EnableEnhancedMonitoringCommandOutput> | void {
     const command = new EnableEnhancedMonitoringCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -718,7 +696,7 @@ export class Kinesis extends KinesisClient {
    */
   public getRecords(
     args: GetRecordsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetRecordsCommandOutput>;
   public getRecords(
     args: GetRecordsCommandInput,
@@ -731,18 +709,16 @@ export class Kinesis extends KinesisClient {
   ): void;
   public getRecords(
     args: GetRecordsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRecordsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRecordsCommandOutput) => void),
     cb?: (err: any, data?: GetRecordsCommandOutput) => void
   ): Promise<GetRecordsCommandOutput> | void {
     const command = new GetRecordsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -786,7 +762,7 @@ export class Kinesis extends KinesisClient {
    */
   public getShardIterator(
     args: GetShardIteratorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetShardIteratorCommandOutput>;
   public getShardIterator(
     args: GetShardIteratorCommandInput,
@@ -799,18 +775,16 @@ export class Kinesis extends KinesisClient {
   ): void;
   public getShardIterator(
     args: GetShardIteratorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetShardIteratorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetShardIteratorCommandOutput) => void),
     cb?: (err: any, data?: GetShardIteratorCommandOutput) => void
   ): Promise<GetShardIteratorCommandOutput> | void {
     const command = new GetShardIteratorCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -832,7 +806,7 @@ export class Kinesis extends KinesisClient {
    */
   public increaseStreamRetentionPeriod(
     args: IncreaseStreamRetentionPeriodCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<IncreaseStreamRetentionPeriodCommandOutput>;
   public increaseStreamRetentionPeriod(
     args: IncreaseStreamRetentionPeriodCommandInput,
@@ -845,18 +819,16 @@ export class Kinesis extends KinesisClient {
   ): void;
   public increaseStreamRetentionPeriod(
     args: IncreaseStreamRetentionPeriodCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: IncreaseStreamRetentionPeriodCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: IncreaseStreamRetentionPeriodCommandOutput) => void),
     cb?: (err: any, data?: IncreaseStreamRetentionPeriodCommandOutput) => void
   ): Promise<IncreaseStreamRetentionPeriodCommandOutput> | void {
     const command = new IncreaseStreamRetentionPeriodCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -878,7 +850,7 @@ export class Kinesis extends KinesisClient {
    */
   public listShards(
     args: ListShardsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListShardsCommandOutput>;
   public listShards(
     args: ListShardsCommandInput,
@@ -891,18 +863,16 @@ export class Kinesis extends KinesisClient {
   ): void;
   public listShards(
     args: ListShardsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListShardsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListShardsCommandOutput) => void),
     cb?: (err: any, data?: ListShardsCommandOutput) => void
   ): Promise<ListShardsCommandOutput> | void {
     const command = new ListShardsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -917,7 +887,7 @@ export class Kinesis extends KinesisClient {
    */
   public listStreamConsumers(
     args: ListStreamConsumersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListStreamConsumersCommandOutput>;
   public listStreamConsumers(
     args: ListStreamConsumersCommandInput,
@@ -930,18 +900,16 @@ export class Kinesis extends KinesisClient {
   ): void;
   public listStreamConsumers(
     args: ListStreamConsumersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListStreamConsumersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStreamConsumersCommandOutput) => void),
     cb?: (err: any, data?: ListStreamConsumersCommandOutput) => void
   ): Promise<ListStreamConsumersCommandOutput> | void {
     const command = new ListStreamConsumersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -970,7 +938,7 @@ export class Kinesis extends KinesisClient {
    */
   public listStreams(
     args: ListStreamsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListStreamsCommandOutput>;
   public listStreams(
     args: ListStreamsCommandInput,
@@ -983,18 +951,16 @@ export class Kinesis extends KinesisClient {
   ): void;
   public listStreams(
     args: ListStreamsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListStreamsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStreamsCommandOutput) => void),
     cb?: (err: any, data?: ListStreamsCommandOutput) => void
   ): Promise<ListStreamsCommandOutput> | void {
     const command = new ListStreamsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1009,7 +975,7 @@ export class Kinesis extends KinesisClient {
    */
   public listTagsForStream(
     args: ListTagsForStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListTagsForStreamCommandOutput>;
   public listTagsForStream(
     args: ListTagsForStreamCommandInput,
@@ -1022,18 +988,16 @@ export class Kinesis extends KinesisClient {
   ): void;
   public listTagsForStream(
     args: ListTagsForStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForStreamCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForStreamCommandOutput) => void
   ): Promise<ListTagsForStreamCommandOutput> | void {
     const command = new ListTagsForStreamCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1082,7 +1046,7 @@ export class Kinesis extends KinesisClient {
    */
   public mergeShards(
     args: MergeShardsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<MergeShardsCommandOutput>;
   public mergeShards(
     args: MergeShardsCommandInput,
@@ -1095,18 +1059,16 @@ export class Kinesis extends KinesisClient {
   ): void;
   public mergeShards(
     args: MergeShardsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: MergeShardsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MergeShardsCommandOutput) => void),
     cb?: (err: any, data?: MergeShardsCommandOutput) => void
   ): Promise<MergeShardsCommandOutput> | void {
     const command = new MergeShardsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1150,7 +1112,7 @@ export class Kinesis extends KinesisClient {
    */
   public putRecord(
     args: PutRecordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<PutRecordCommandOutput>;
   public putRecord(
     args: PutRecordCommandInput,
@@ -1163,18 +1125,16 @@ export class Kinesis extends KinesisClient {
   ): void;
   public putRecord(
     args: PutRecordCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutRecordCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRecordCommandOutput) => void),
     cb?: (err: any, data?: PutRecordCommandOutput) => void
   ): Promise<PutRecordCommandOutput> | void {
     const command = new PutRecordCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1233,7 +1193,7 @@ export class Kinesis extends KinesisClient {
    */
   public putRecords(
     args: PutRecordsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<PutRecordsCommandOutput>;
   public putRecords(
     args: PutRecordsCommandInput,
@@ -1246,18 +1206,16 @@ export class Kinesis extends KinesisClient {
   ): void;
   public putRecords(
     args: PutRecordsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutRecordsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRecordsCommandOutput) => void),
     cb?: (err: any, data?: PutRecordsCommandOutput) => void
   ): Promise<PutRecordsCommandOutput> | void {
     const command = new PutRecordsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1276,7 +1234,7 @@ export class Kinesis extends KinesisClient {
    */
   public registerStreamConsumer(
     args: RegisterStreamConsumerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<RegisterStreamConsumerCommandOutput>;
   public registerStreamConsumer(
     args: RegisterStreamConsumerCommandInput,
@@ -1289,18 +1247,16 @@ export class Kinesis extends KinesisClient {
   ): void;
   public registerStreamConsumer(
     args: RegisterStreamConsumerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterStreamConsumerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterStreamConsumerCommandOutput) => void),
     cb?: (err: any, data?: RegisterStreamConsumerCommandOutput) => void
   ): Promise<RegisterStreamConsumerCommandOutput> | void {
     const command = new RegisterStreamConsumerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1319,7 +1275,7 @@ export class Kinesis extends KinesisClient {
    */
   public removeTagsFromStream(
     args: RemoveTagsFromStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<RemoveTagsFromStreamCommandOutput>;
   public removeTagsFromStream(
     args: RemoveTagsFromStreamCommandInput,
@@ -1332,18 +1288,16 @@ export class Kinesis extends KinesisClient {
   ): void;
   public removeTagsFromStream(
     args: RemoveTagsFromStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveTagsFromStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTagsFromStreamCommandOutput) => void),
     cb?: (err: any, data?: RemoveTagsFromStreamCommandOutput) => void
   ): Promise<RemoveTagsFromStreamCommandOutput> | void {
     const command = new RemoveTagsFromStreamCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1399,7 +1353,7 @@ export class Kinesis extends KinesisClient {
    */
   public splitShard(
     args: SplitShardCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<SplitShardCommandOutput>;
   public splitShard(
     args: SplitShardCommandInput,
@@ -1412,18 +1366,16 @@ export class Kinesis extends KinesisClient {
   ): void;
   public splitShard(
     args: SplitShardCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SplitShardCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SplitShardCommandOutput) => void),
     cb?: (err: any, data?: SplitShardCommandOutput) => void
   ): Promise<SplitShardCommandOutput> | void {
     const command = new SplitShardCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1452,7 +1404,7 @@ export class Kinesis extends KinesisClient {
    */
   public startStreamEncryption(
     args: StartStreamEncryptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<StartStreamEncryptionCommandOutput>;
   public startStreamEncryption(
     args: StartStreamEncryptionCommandInput,
@@ -1465,18 +1417,16 @@ export class Kinesis extends KinesisClient {
   ): void;
   public startStreamEncryption(
     args: StartStreamEncryptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartStreamEncryptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartStreamEncryptionCommandOutput) => void),
     cb?: (err: any, data?: StartStreamEncryptionCommandOutput) => void
   ): Promise<StartStreamEncryptionCommandOutput> | void {
     const command = new StartStreamEncryptionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1506,7 +1456,7 @@ export class Kinesis extends KinesisClient {
    */
   public stopStreamEncryption(
     args: StopStreamEncryptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<StopStreamEncryptionCommandOutput>;
   public stopStreamEncryption(
     args: StopStreamEncryptionCommandInput,
@@ -1519,18 +1469,16 @@ export class Kinesis extends KinesisClient {
   ): void;
   public stopStreamEncryption(
     args: StopStreamEncryptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopStreamEncryptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopStreamEncryptionCommandOutput) => void),
     cb?: (err: any, data?: StopStreamEncryptionCommandOutput) => void
   ): Promise<StopStreamEncryptionCommandOutput> | void {
     const command = new StopStreamEncryptionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1551,7 +1499,7 @@ export class Kinesis extends KinesisClient {
    */
   public subscribeToShard(
     args: SubscribeToShardCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<SubscribeToShardCommandOutput>;
   public subscribeToShard(
     args: SubscribeToShardCommandInput,
@@ -1564,18 +1512,16 @@ export class Kinesis extends KinesisClient {
   ): void;
   public subscribeToShard(
     args: SubscribeToShardCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SubscribeToShardCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SubscribeToShardCommandOutput) => void),
     cb?: (err: any, data?: SubscribeToShardCommandOutput) => void
   ): Promise<SubscribeToShardCommandOutput> | void {
     const command = new SubscribeToShardCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1626,7 +1572,7 @@ export class Kinesis extends KinesisClient {
    */
   public updateShardCount(
     args: UpdateShardCountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateShardCountCommandOutput>;
   public updateShardCount(
     args: UpdateShardCountCommandInput,
@@ -1639,20 +1585,19 @@ export class Kinesis extends KinesisClient {
   ): void;
   public updateShardCount(
     args: UpdateShardCountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateShardCountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateShardCountCommandOutput) => void),
     cb?: (err: any, data?: UpdateShardCountCommandOutput) => void
   ): Promise<UpdateShardCountCommandOutput> | void {
     const command = new UpdateShardCountCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

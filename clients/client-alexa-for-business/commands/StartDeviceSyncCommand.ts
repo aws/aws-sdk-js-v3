@@ -1,20 +1,20 @@
 import {
   AlexaForBusinessClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../AlexaForBusinessClient";
 import {
   StartDeviceSyncRequest,
-  StartDeviceSyncResponse
+  StartDeviceSyncResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1StartDeviceSyncCommand,
-  serializeAws_json1_1StartDeviceSyncCommand
+  serializeAws_json1_1StartDeviceSyncCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type StartDeviceSyncCommandInput = StartDeviceSyncRequest;
 export type StartDeviceSyncCommandOutput = StartDeviceSyncResponse;
 
-export class StartDeviceSyncCommand extends $Command<
-  StartDeviceSyncCommandInput,
-  StartDeviceSyncCommandOutput,
-  AlexaForBusinessClientResolvedConfig
-> {
+export class StartDeviceSyncCommand extends $Command<StartDeviceSyncCommandInput, StartDeviceSyncCommandOutput, AlexaForBusinessClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,15 +44,13 @@ export class StartDeviceSyncCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartDeviceSyncCommandInput, StartDeviceSyncCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -1,17 +1,20 @@
 import {
   ResourceGroupsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ResourceGroupsClient";
-import { ListGroupsInput, ListGroupsOutput } from "../models/index";
+import {
+  ListGroupsInput,
+  ListGroupsOutput,
+} from "../models/index";
 import {
   deserializeAws_restJson1_1ListGroupsCommand,
-  serializeAws_restJson1_1ListGroupsCommand
+  serializeAws_restJson1_1ListGroupsCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type ListGroupsCommandInput = ListGroupsInput;
 export type ListGroupsCommandOutput = ListGroupsOutput;
 
-export class ListGroupsCommand extends $Command<
-  ListGroupsCommandInput,
-  ListGroupsCommandOutput,
-  ResourceGroupsClientResolvedConfig
-> {
+export class ListGroupsCommand extends $Command<ListGroupsCommandInput, ListGroupsCommandOutput, ResourceGroupsClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class ListGroupsCommand extends $Command<
     configuration: ResourceGroupsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListGroupsCommandInput, ListGroupsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

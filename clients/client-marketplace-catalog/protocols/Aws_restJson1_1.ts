@@ -1,26 +1,26 @@
 import {
   CancelChangeSetCommandInput,
-  CancelChangeSetCommandOutput
+  CancelChangeSetCommandOutput,
 } from "../commands/CancelChangeSetCommand";
 import {
   DescribeChangeSetCommandInput,
-  DescribeChangeSetCommandOutput
+  DescribeChangeSetCommandOutput,
 } from "../commands/DescribeChangeSetCommand";
 import {
   DescribeEntityCommandInput,
-  DescribeEntityCommandOutput
+  DescribeEntityCommandOutput,
 } from "../commands/DescribeEntityCommand";
 import {
   ListChangeSetsCommandInput,
-  ListChangeSetsCommandOutput
+  ListChangeSetsCommandOutput,
 } from "../commands/ListChangeSetsCommand";
 import {
   ListEntitiesCommandInput,
-  ListEntitiesCommandOutput
+  ListEntitiesCommandOutput,
 } from "../commands/ListEntitiesCommand";
 import {
   StartChangeSetCommandInput,
-  StartChangeSetCommandOutput
+  StartChangeSetCommandOutput,
 } from "../commands/StartChangeSetCommand";
 import {
   AccessDeniedException,
@@ -38,18 +38,18 @@ import {
   ServiceQuotaExceededException,
   Sort,
   ThrottlingException,
-  ValidationException
+  ValidationException,
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export async function serializeAws_restJson1_1CancelChangeSetCommand(
@@ -57,14 +57,14 @@ export async function serializeAws_restJson1_1CancelChangeSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/CancelChangeSet";
   const query: any = {};
   if (input.Catalog !== undefined) {
-    query["catalog"] = input.Catalog.toString();
+    query['catalog'] = input.Catalog.toString();
   }
   if (input.ChangeSetId !== undefined) {
-    query["changeSetId"] = input.ChangeSetId.toString();
+    query['changeSetId'] = input.ChangeSetId.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -72,7 +72,7 @@ export async function serializeAws_restJson1_1CancelChangeSetCommand(
     method: "PATCH",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -81,14 +81,14 @@ export async function serializeAws_restJson1_1DescribeChangeSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/DescribeChangeSet";
   const query: any = {};
   if (input.Catalog !== undefined) {
-    query["catalog"] = input.Catalog.toString();
+    query['catalog'] = input.Catalog.toString();
   }
   if (input.ChangeSetId !== undefined) {
-    query["changeSetId"] = input.ChangeSetId.toString();
+    query['changeSetId'] = input.ChangeSetId.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -96,7 +96,7 @@ export async function serializeAws_restJson1_1DescribeChangeSetCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -105,14 +105,14 @@ export async function serializeAws_restJson1_1DescribeEntityCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/DescribeEntity";
   const query: any = {};
   if (input.Catalog !== undefined) {
-    query["catalog"] = input.Catalog.toString();
+    query['catalog'] = input.Catalog.toString();
   }
   if (input.EntityId !== undefined) {
-    query["entityId"] = input.EntityId.toString();
+    query['entityId'] = input.EntityId.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -120,7 +120,7 @@ export async function serializeAws_restJson1_1DescribeEntityCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -129,27 +129,24 @@ export async function serializeAws_restJson1_1ListChangeSetsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/ListChangeSets";
   let body: any = {};
   const bodyParams: any = {};
   if (input.Catalog !== undefined) {
-    bodyParams["Catalog"] = input.Catalog;
+    bodyParams['Catalog'] = input.Catalog;
   }
   if (input.FilterList !== undefined) {
-    bodyParams["FilterList"] = serializeAws_restJson1_1FilterList(
-      input.FilterList,
-      context
-    );
+    bodyParams['FilterList'] = serializeAws_restJson1_1FilterList(input.FilterList, context);
   }
   if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
+    bodyParams['MaxResults'] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.Sort !== undefined) {
-    bodyParams["Sort"] = serializeAws_restJson1_1Sort(input.Sort, context);
+    bodyParams['Sort'] = serializeAws_restJson1_1Sort(input.Sort, context);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -158,7 +155,7 @@ export async function serializeAws_restJson1_1ListChangeSetsCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -167,30 +164,27 @@ export async function serializeAws_restJson1_1ListEntitiesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/ListEntities";
   let body: any = {};
   const bodyParams: any = {};
   if (input.Catalog !== undefined) {
-    bodyParams["Catalog"] = input.Catalog;
+    bodyParams['Catalog'] = input.Catalog;
   }
   if (input.EntityType !== undefined) {
-    bodyParams["EntityType"] = input.EntityType;
+    bodyParams['EntityType'] = input.EntityType;
   }
   if (input.FilterList !== undefined) {
-    bodyParams["FilterList"] = serializeAws_restJson1_1FilterList(
-      input.FilterList,
-      context
-    );
+    bodyParams['FilterList'] = serializeAws_restJson1_1FilterList(input.FilterList, context);
   }
   if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
+    bodyParams['MaxResults'] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.Sort !== undefined) {
-    bodyParams["Sort"] = serializeAws_restJson1_1Sort(input.Sort, context);
+    bodyParams['Sort'] = serializeAws_restJson1_1Sort(input.Sort, context);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -199,7 +193,7 @@ export async function serializeAws_restJson1_1ListEntitiesCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -208,24 +202,21 @@ export async function serializeAws_restJson1_1StartChangeSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/StartChangeSet";
   let body: any = {};
   const bodyParams: any = {};
   if (input.Catalog !== undefined) {
-    bodyParams["Catalog"] = input.Catalog;
+    bodyParams['Catalog'] = input.Catalog;
   }
   if (input.ChangeSet !== undefined) {
-    bodyParams["ChangeSet"] = serializeAws_restJson1_1RequestedChangeList(
-      input.ChangeSet,
-      context
-    );
+    bodyParams['ChangeSet'] = serializeAws_restJson1_1RequestedChangeList(input.ChangeSet, context);
   }
   if (input.ChangeSetName !== undefined) {
-    bodyParams["ChangeSetName"] = input.ChangeSetName;
+    bodyParams['ChangeSetName'] = input.ChangeSetName;
   }
   if (input.ClientRequestToken !== undefined) {
-    bodyParams["ClientRequestToken"] = input.ClientRequestToken;
+    bodyParams['ClientRequestToken'] = input.ClientRequestToken;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -234,7 +225,7 @@ export async function serializeAws_restJson1_1StartChangeSetCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -243,16 +234,13 @@ export async function deserializeAws_restJson1_1CancelChangeSetCommand(
   context: __SerdeContext
 ): Promise<CancelChangeSetCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1CancelChangeSetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CancelChangeSetCommandError(output, context);
   }
   const contents: CancelChangeSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CancelChangeSetResponse",
     ChangeSetArn: undefined,
-    ChangeSetId: undefined
+    ChangeSetId: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.ChangeSetArn !== undefined) {
@@ -266,67 +254,48 @@ export async function deserializeAws_restJson1_1CancelChangeSetCommand(
 
 async function deserializeAws_restJson1_1CancelChangeSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CancelChangeSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.marketplace.seymour.model#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceException":
     case "com.amazonaws.marketplace.seymour.model#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "ResourceInUseException":
     case "com.amazonaws.marketplace.seymour.model#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.marketplace.seymour.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.marketplace.seymour.model#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.marketplace.seymour.model#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.marketplace.seymour.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -337,10 +306,7 @@ export async function deserializeAws_restJson1_1DescribeChangeSetCommand(
   context: __SerdeContext
 ): Promise<DescribeChangeSetCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeChangeSetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeChangeSetCommandError(output, context);
   }
   const contents: DescribeChangeSetCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -352,14 +318,11 @@ export async function deserializeAws_restJson1_1DescribeChangeSetCommand(
     EndTime: undefined,
     FailureDescription: undefined,
     StartTime: undefined,
-    Status: undefined
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.ChangeSet !== undefined) {
-    contents.ChangeSet = deserializeAws_restJson1_1ChangeSetDescription(
-      data.ChangeSet,
-      context
-    );
+    contents.ChangeSet = deserializeAws_restJson1_1ChangeSetDescription(data.ChangeSet, context);
   }
   if (data.ChangeSetArn !== undefined) {
     contents.ChangeSetArn = data.ChangeSetArn;
@@ -387,60 +350,44 @@ export async function deserializeAws_restJson1_1DescribeChangeSetCommand(
 
 async function deserializeAws_restJson1_1DescribeChangeSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeChangeSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.marketplace.seymour.model#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceException":
     case "com.amazonaws.marketplace.seymour.model#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.marketplace.seymour.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.marketplace.seymour.model#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.marketplace.seymour.model#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.marketplace.seymour.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -451,10 +398,7 @@ export async function deserializeAws_restJson1_1DescribeEntityCommand(
   context: __SerdeContext
 ): Promise<DescribeEntityCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeEntityCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeEntityCommandError(output, context);
   }
   const contents: DescribeEntityCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -463,7 +407,7 @@ export async function deserializeAws_restJson1_1DescribeEntityCommand(
     EntityArn: undefined,
     EntityIdentifier: undefined,
     EntityType: undefined,
-    LastModifiedDate: undefined
+    LastModifiedDate: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Details !== undefined) {
@@ -486,67 +430,48 @@ export async function deserializeAws_restJson1_1DescribeEntityCommand(
 
 async function deserializeAws_restJson1_1DescribeEntityCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeEntityCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.marketplace.seymour.model#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceException":
     case "com.amazonaws.marketplace.seymour.model#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.marketplace.seymour.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotSupportedException":
     case "com.amazonaws.marketplace.seymour.model#ResourceNotSupportedException":
-      response = await deserializeAws_restJson1_1ResourceNotSupportedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotSupportedExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.marketplace.seymour.model#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.marketplace.seymour.model#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.marketplace.seymour.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -557,23 +482,17 @@ export async function deserializeAws_restJson1_1ListChangeSetsCommand(
   context: __SerdeContext
 ): Promise<ListChangeSetsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListChangeSetsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListChangeSetsCommandError(output, context);
   }
   const contents: ListChangeSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListChangeSetsResponse",
     ChangeSetSummaryList: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.ChangeSetSummaryList !== undefined) {
-    contents.ChangeSetSummaryList = deserializeAws_restJson1_1ChangeSetSummaryList(
-      data.ChangeSetSummaryList,
-      context
-    );
+    contents.ChangeSetSummaryList = deserializeAws_restJson1_1ChangeSetSummaryList(data.ChangeSetSummaryList, context);
   }
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
@@ -583,53 +502,40 @@ export async function deserializeAws_restJson1_1ListChangeSetsCommand(
 
 async function deserializeAws_restJson1_1ListChangeSetsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListChangeSetsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.marketplace.seymour.model#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceException":
     case "com.amazonaws.marketplace.seymour.model#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.marketplace.seymour.model#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.marketplace.seymour.model#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.marketplace.seymour.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -646,14 +552,11 @@ export async function deserializeAws_restJson1_1ListEntitiesCommand(
     $metadata: deserializeMetadata(output),
     __type: "ListEntitiesResponse",
     EntitySummaryList: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.EntitySummaryList !== undefined) {
-    contents.EntitySummaryList = deserializeAws_restJson1_1EntitySummaryList(
-      data.EntitySummaryList,
-      context
-    );
+    contents.EntitySummaryList = deserializeAws_restJson1_1EntitySummaryList(data.EntitySummaryList, context);
   }
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
@@ -663,60 +566,44 @@ export async function deserializeAws_restJson1_1ListEntitiesCommand(
 
 async function deserializeAws_restJson1_1ListEntitiesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListEntitiesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.marketplace.seymour.model#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceException":
     case "com.amazonaws.marketplace.seymour.model#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.marketplace.seymour.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.marketplace.seymour.model#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.marketplace.seymour.model#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.marketplace.seymour.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -727,16 +614,13 @@ export async function deserializeAws_restJson1_1StartChangeSetCommand(
   context: __SerdeContext
 ): Promise<StartChangeSetCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1StartChangeSetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1StartChangeSetCommandError(output, context);
   }
   const contents: StartChangeSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartChangeSetResponse",
     ChangeSetArn: undefined,
-    ChangeSetId: undefined
+    ChangeSetId: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.ChangeSetArn !== undefined) {
@@ -750,74 +634,52 @@ export async function deserializeAws_restJson1_1StartChangeSetCommand(
 
 async function deserializeAws_restJson1_1StartChangeSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<StartChangeSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.marketplace.seymour.model#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceException":
     case "com.amazonaws.marketplace.seymour.model#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "ResourceInUseException":
     case "com.amazonaws.marketplace.seymour.model#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.marketplace.seymour.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ServiceQuotaExceededException":
     case "com.amazonaws.marketplace.seymour.model#ServiceQuotaExceededException":
-      response = await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.marketplace.seymour.model#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     case "ValidationException":
     case "com.amazonaws.marketplace.seymour.model#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.marketplace.seymour.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -831,7 +693,7 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -848,7 +710,7 @@ const deserializeAws_restJson1_1InternalServiceExceptionResponse = async (
     __type: "InternalServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -865,7 +727,7 @@ const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
     __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -882,7 +744,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -899,7 +761,7 @@ const deserializeAws_restJson1_1ResourceNotSupportedExceptionResponse = async (
     __type: "ResourceNotSupportedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -916,7 +778,7 @@ const deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse = async (
     __type: "ServiceQuotaExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -933,7 +795,7 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
     __type: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -950,7 +812,7 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
     __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -965,19 +827,16 @@ const serializeAws_restJson1_1Change = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeType !== undefined) {
-    bodyParams["ChangeType"] = input.ChangeType;
+    bodyParams['ChangeType'] = input.ChangeType;
   }
   if (input.Details !== undefined) {
-    bodyParams["Details"] = input.Details;
+    bodyParams['Details'] = input.Details;
   }
   if (input.Entity !== undefined) {
-    bodyParams["Entity"] = serializeAws_restJson1_1Entity(
-      input.Entity,
-      context
-    );
+    bodyParams['Entity'] = serializeAws_restJson1_1Entity(input.Entity, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1Entity = (
   input: Entity,
@@ -985,13 +844,13 @@ const serializeAws_restJson1_1Entity = (
 ): any => {
   let bodyParams: any = {};
   if (input.Identifier !== undefined) {
-    bodyParams["Identifier"] = input.Identifier;
+    bodyParams['Identifier'] = input.Identifier;
   }
   if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
+    bodyParams['Type'] = input.Type;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1Filter = (
   input: Filter,
@@ -999,16 +858,13 @@ const serializeAws_restJson1_1Filter = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.ValueList !== undefined) {
-    bodyParams["ValueList"] = serializeAws_restJson1_1ValueList(
-      input.ValueList,
-      context
-    );
+    bodyParams['ValueList'] = serializeAws_restJson1_1ValueList(input.ValueList, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1FilterList = (
   input: Array<Filter>,
@@ -1017,7 +873,7 @@ const serializeAws_restJson1_1FilterList = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1Filter(entry, context)
   );
-};
+}
 
 const serializeAws_restJson1_1RequestedChangeList = (
   input: Array<Change>,
@@ -1026,7 +882,7 @@ const serializeAws_restJson1_1RequestedChangeList = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1Change(entry, context)
   );
-};
+}
 
 const serializeAws_restJson1_1Sort = (
   input: Sort,
@@ -1034,20 +890,22 @@ const serializeAws_restJson1_1Sort = (
 ): any => {
   let bodyParams: any = {};
   if (input.SortBy !== undefined) {
-    bodyParams["SortBy"] = input.SortBy;
+    bodyParams['SortBy'] = input.SortBy;
   }
   if (input.SortOrder !== undefined) {
-    bodyParams["SortOrder"] = input.SortOrder;
+    bodyParams['SortOrder'] = input.SortOrder;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1ValueList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const deserializeAws_restJson1_1ChangeSetDescription = (
   output: any,
@@ -1056,7 +914,7 @@ const deserializeAws_restJson1_1ChangeSetDescription = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ChangeSummary(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1ChangeSetSummaryList = (
   output: any,
@@ -1065,7 +923,7 @@ const deserializeAws_restJson1_1ChangeSetSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ChangeSetSummaryListItem(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1ChangeSetSummaryListItem = (
   output: any,
@@ -1079,7 +937,7 @@ const deserializeAws_restJson1_1ChangeSetSummaryListItem = (
     EndTime: undefined,
     EntityIdList: undefined,
     StartTime: undefined,
-    Status: undefined
+    Status: undefined,
   };
   if (output.ChangeSetArn !== undefined) {
     contents.ChangeSetArn = output.ChangeSetArn;
@@ -1094,10 +952,7 @@ const deserializeAws_restJson1_1ChangeSetSummaryListItem = (
     contents.EndTime = output.EndTime;
   }
   if (output.EntityIdList !== undefined) {
-    contents.EntityIdList = deserializeAws_restJson1_1ResourceIdList(
-      output.EntityIdList,
-      context
-    );
+    contents.EntityIdList = deserializeAws_restJson1_1ResourceIdList(output.EntityIdList, context);
   }
   if (output.StartTime !== undefined) {
     contents.StartTime = output.StartTime;
@@ -1106,7 +961,7 @@ const deserializeAws_restJson1_1ChangeSetSummaryListItem = (
     contents.Status = output.Status;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1ChangeSummary = (
   output: any,
@@ -1116,7 +971,7 @@ const deserializeAws_restJson1_1ChangeSummary = (
     __type: "ChangeSummary",
     ChangeType: undefined,
     Entity: undefined,
-    ErrorDetailList: undefined
+    ErrorDetailList: undefined,
   };
   if (output.ChangeType !== undefined) {
     contents.ChangeType = output.ChangeType;
@@ -1125,13 +980,10 @@ const deserializeAws_restJson1_1ChangeSummary = (
     contents.Entity = deserializeAws_restJson1_1Entity(output.Entity, context);
   }
   if (output.ErrorDetailList !== undefined) {
-    contents.ErrorDetailList = deserializeAws_restJson1_1ErrorDetailList(
-      output.ErrorDetailList,
-      context
-    );
+    contents.ErrorDetailList = deserializeAws_restJson1_1ErrorDetailList(output.ErrorDetailList, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1Entity = (
   output: any,
@@ -1140,7 +992,7 @@ const deserializeAws_restJson1_1Entity = (
   let contents: any = {
     __type: "Entity",
     Identifier: undefined,
-    Type: undefined
+    Type: undefined,
   };
   if (output.Identifier !== undefined) {
     contents.Identifier = output.Identifier;
@@ -1149,7 +1001,7 @@ const deserializeAws_restJson1_1Entity = (
     contents.Type = output.Type;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1EntitySummary = (
   output: any,
@@ -1162,7 +1014,7 @@ const deserializeAws_restJson1_1EntitySummary = (
     EntityType: undefined,
     LastModifiedDate: undefined,
     Name: undefined,
-    Visibility: undefined
+    Visibility: undefined,
   };
   if (output.EntityArn !== undefined) {
     contents.EntityArn = output.EntityArn;
@@ -1183,7 +1035,7 @@ const deserializeAws_restJson1_1EntitySummary = (
     contents.Visibility = output.Visibility;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1EntitySummaryList = (
   output: any,
@@ -1192,7 +1044,7 @@ const deserializeAws_restJson1_1EntitySummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1EntitySummary(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1ErrorDetail = (
   output: any,
@@ -1201,7 +1053,7 @@ const deserializeAws_restJson1_1ErrorDetail = (
   let contents: any = {
     __type: "ErrorDetail",
     ErrorCode: undefined,
-    ErrorMessage: undefined
+    ErrorMessage: undefined,
   };
   if (output.ErrorCode !== undefined) {
     contents.ErrorCode = output.ErrorCode;
@@ -1210,7 +1062,7 @@ const deserializeAws_restJson1_1ErrorDetail = (
     contents.ErrorMessage = output.ErrorMessage;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1ErrorDetailList = (
   output: any,
@@ -1219,14 +1071,16 @@ const deserializeAws_restJson1_1ErrorDetailList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ErrorDetail(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1ResourceIdList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

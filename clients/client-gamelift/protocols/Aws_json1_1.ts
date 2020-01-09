@@ -2136,7 +2136,7 @@ async function deserializeAws_json1_1AcceptMatchCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2157,7 +2157,6 @@ async function deserializeAws_json1_1AcceptMatchCommandError(
       response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -2195,7 +2194,7 @@ async function deserializeAws_json1_1CreateAliasCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2220,7 +2219,6 @@ async function deserializeAws_json1_1CreateAliasCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -2258,7 +2256,7 @@ async function deserializeAws_json1_1CreateBuildCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2279,7 +2277,6 @@ async function deserializeAws_json1_1CreateBuildCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -2317,7 +2314,7 @@ async function deserializeAws_json1_1CreateFleetCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2346,7 +2343,6 @@ async function deserializeAws_json1_1CreateFleetCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -2384,7 +2380,7 @@ async function deserializeAws_json1_1CreateGameSessionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2429,7 +2425,6 @@ async function deserializeAws_json1_1CreateGameSessionCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -2467,7 +2462,7 @@ async function deserializeAws_json1_1CreateGameSessionQueueCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2488,7 +2483,6 @@ async function deserializeAws_json1_1CreateGameSessionQueueCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -2526,7 +2520,7 @@ async function deserializeAws_json1_1CreateMatchmakingConfigurationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2551,7 +2545,6 @@ async function deserializeAws_json1_1CreateMatchmakingConfigurationCommandError(
       response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -2589,7 +2582,7 @@ async function deserializeAws_json1_1CreateMatchmakingRuleSetCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2606,7 +2599,6 @@ async function deserializeAws_json1_1CreateMatchmakingRuleSetCommandError(
       response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -2644,7 +2636,7 @@ async function deserializeAws_json1_1CreatePlayerSessionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2677,7 +2669,6 @@ async function deserializeAws_json1_1CreatePlayerSessionCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -2715,7 +2706,7 @@ async function deserializeAws_json1_1CreatePlayerSessionsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2748,7 +2739,6 @@ async function deserializeAws_json1_1CreatePlayerSessionsCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -2786,7 +2776,7 @@ async function deserializeAws_json1_1CreateScriptCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2807,7 +2797,6 @@ async function deserializeAws_json1_1CreateScriptCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -2845,7 +2834,7 @@ async function deserializeAws_json1_1CreateVpcPeeringAuthorizationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2866,7 +2855,6 @@ async function deserializeAws_json1_1CreateVpcPeeringAuthorizationCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -2904,7 +2892,7 @@ async function deserializeAws_json1_1CreateVpcPeeringConnectionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2925,7 +2913,6 @@ async function deserializeAws_json1_1CreateVpcPeeringConnectionCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -2958,7 +2945,7 @@ async function deserializeAws_json1_1DeleteAliasCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2979,7 +2966,6 @@ async function deserializeAws_json1_1DeleteAliasCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -3012,7 +2998,7 @@ async function deserializeAws_json1_1DeleteBuildCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3033,7 +3019,6 @@ async function deserializeAws_json1_1DeleteBuildCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -3066,7 +3051,7 @@ async function deserializeAws_json1_1DeleteFleetCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3091,7 +3076,6 @@ async function deserializeAws_json1_1DeleteFleetCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -3129,7 +3113,7 @@ async function deserializeAws_json1_1DeleteGameSessionQueueCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3150,7 +3134,6 @@ async function deserializeAws_json1_1DeleteGameSessionQueueCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -3188,7 +3171,7 @@ async function deserializeAws_json1_1DeleteMatchmakingConfigurationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3209,7 +3192,6 @@ async function deserializeAws_json1_1DeleteMatchmakingConfigurationCommandError(
       response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -3247,7 +3229,7 @@ async function deserializeAws_json1_1DeleteMatchmakingRuleSetCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3268,7 +3250,6 @@ async function deserializeAws_json1_1DeleteMatchmakingRuleSetCommandError(
       response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -3301,7 +3282,7 @@ async function deserializeAws_json1_1DeleteScalingPolicyCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3322,7 +3303,6 @@ async function deserializeAws_json1_1DeleteScalingPolicyCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -3355,7 +3335,7 @@ async function deserializeAws_json1_1DeleteScriptCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3376,7 +3356,6 @@ async function deserializeAws_json1_1DeleteScriptCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -3414,7 +3393,7 @@ async function deserializeAws_json1_1DeleteVpcPeeringAuthorizationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3435,7 +3414,6 @@ async function deserializeAws_json1_1DeleteVpcPeeringAuthorizationCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -3473,7 +3451,7 @@ async function deserializeAws_json1_1DeleteVpcPeeringConnectionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3494,7 +3472,6 @@ async function deserializeAws_json1_1DeleteVpcPeeringConnectionCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -3532,7 +3509,7 @@ async function deserializeAws_json1_1DescribeAliasCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3553,7 +3530,6 @@ async function deserializeAws_json1_1DescribeAliasCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -3591,7 +3567,7 @@ async function deserializeAws_json1_1DescribeBuildCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3612,7 +3588,6 @@ async function deserializeAws_json1_1DescribeBuildCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -3650,7 +3625,7 @@ async function deserializeAws_json1_1DescribeEC2InstanceLimitsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3667,7 +3642,6 @@ async function deserializeAws_json1_1DescribeEC2InstanceLimitsCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -3705,7 +3679,7 @@ async function deserializeAws_json1_1DescribeFleetAttributesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3726,7 +3700,6 @@ async function deserializeAws_json1_1DescribeFleetAttributesCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -3764,7 +3737,7 @@ async function deserializeAws_json1_1DescribeFleetCapacityCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3785,7 +3758,6 @@ async function deserializeAws_json1_1DescribeFleetCapacityCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -3823,7 +3795,7 @@ async function deserializeAws_json1_1DescribeFleetEventsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3844,7 +3816,6 @@ async function deserializeAws_json1_1DescribeFleetEventsCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -3882,7 +3853,7 @@ async function deserializeAws_json1_1DescribeFleetPortSettingsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3903,7 +3874,6 @@ async function deserializeAws_json1_1DescribeFleetPortSettingsCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -3941,7 +3911,7 @@ async function deserializeAws_json1_1DescribeFleetUtilizationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3962,7 +3932,6 @@ async function deserializeAws_json1_1DescribeFleetUtilizationCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -4000,7 +3969,7 @@ async function deserializeAws_json1_1DescribeGameSessionDetailsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4025,7 +3994,6 @@ async function deserializeAws_json1_1DescribeGameSessionDetailsCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -4063,7 +4031,7 @@ async function deserializeAws_json1_1DescribeGameSessionPlacementCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4084,7 +4052,6 @@ async function deserializeAws_json1_1DescribeGameSessionPlacementCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -4122,7 +4089,7 @@ async function deserializeAws_json1_1DescribeGameSessionQueuesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4143,7 +4110,6 @@ async function deserializeAws_json1_1DescribeGameSessionQueuesCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -4181,7 +4147,7 @@ async function deserializeAws_json1_1DescribeGameSessionsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4206,7 +4172,6 @@ async function deserializeAws_json1_1DescribeGameSessionsCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -4244,7 +4209,7 @@ async function deserializeAws_json1_1DescribeInstancesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4265,7 +4230,6 @@ async function deserializeAws_json1_1DescribeInstancesCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -4303,7 +4267,7 @@ async function deserializeAws_json1_1DescribeMatchmakingCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4320,7 +4284,6 @@ async function deserializeAws_json1_1DescribeMatchmakingCommandError(
       response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -4358,7 +4321,7 @@ async function deserializeAws_json1_1DescribeMatchmakingConfigurationsCommandErr
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4375,7 +4338,6 @@ async function deserializeAws_json1_1DescribeMatchmakingConfigurationsCommandErr
       response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -4413,7 +4375,7 @@ async function deserializeAws_json1_1DescribeMatchmakingRuleSetsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4434,7 +4396,6 @@ async function deserializeAws_json1_1DescribeMatchmakingRuleSetsCommandError(
       response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -4472,7 +4433,7 @@ async function deserializeAws_json1_1DescribePlayerSessionsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4493,7 +4454,6 @@ async function deserializeAws_json1_1DescribePlayerSessionsCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -4531,7 +4491,7 @@ async function deserializeAws_json1_1DescribeRuntimeConfigurationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4552,7 +4512,6 @@ async function deserializeAws_json1_1DescribeRuntimeConfigurationCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -4590,7 +4549,7 @@ async function deserializeAws_json1_1DescribeScalingPoliciesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4611,7 +4570,6 @@ async function deserializeAws_json1_1DescribeScalingPoliciesCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -4649,7 +4607,7 @@ async function deserializeAws_json1_1DescribeScriptCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4670,7 +4628,6 @@ async function deserializeAws_json1_1DescribeScriptCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -4708,7 +4665,7 @@ async function deserializeAws_json1_1DescribeVpcPeeringAuthorizationsCommandErro
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4725,7 +4682,6 @@ async function deserializeAws_json1_1DescribeVpcPeeringAuthorizationsCommandErro
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -4763,7 +4719,7 @@ async function deserializeAws_json1_1DescribeVpcPeeringConnectionsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4784,7 +4740,6 @@ async function deserializeAws_json1_1DescribeVpcPeeringConnectionsCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -4822,7 +4777,7 @@ async function deserializeAws_json1_1GetGameSessionLogUrlCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4843,7 +4798,6 @@ async function deserializeAws_json1_1GetGameSessionLogUrlCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -4881,7 +4835,7 @@ async function deserializeAws_json1_1GetInstanceAccessCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4902,7 +4856,6 @@ async function deserializeAws_json1_1GetInstanceAccessCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -4940,7 +4893,7 @@ async function deserializeAws_json1_1ListAliasesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4957,7 +4910,6 @@ async function deserializeAws_json1_1ListAliasesCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -4995,7 +4947,7 @@ async function deserializeAws_json1_1ListBuildsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5012,7 +4964,6 @@ async function deserializeAws_json1_1ListBuildsCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -5050,7 +5001,7 @@ async function deserializeAws_json1_1ListFleetsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5071,7 +5022,6 @@ async function deserializeAws_json1_1ListFleetsCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -5109,7 +5059,7 @@ async function deserializeAws_json1_1ListScriptsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5126,7 +5076,6 @@ async function deserializeAws_json1_1ListScriptsCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -5164,7 +5113,7 @@ async function deserializeAws_json1_1PutScalingPolicyCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5185,7 +5134,6 @@ async function deserializeAws_json1_1PutScalingPolicyCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -5223,7 +5171,7 @@ async function deserializeAws_json1_1RequestUploadCredentialsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5244,7 +5192,6 @@ async function deserializeAws_json1_1RequestUploadCredentialsCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -5282,7 +5229,7 @@ async function deserializeAws_json1_1ResolveAliasCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5307,7 +5254,6 @@ async function deserializeAws_json1_1ResolveAliasCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -5345,7 +5291,7 @@ async function deserializeAws_json1_1SearchGameSessionsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5370,7 +5316,6 @@ async function deserializeAws_json1_1SearchGameSessionsCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -5408,7 +5353,7 @@ async function deserializeAws_json1_1StartFleetActionsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5429,7 +5374,6 @@ async function deserializeAws_json1_1StartFleetActionsCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -5467,7 +5411,7 @@ async function deserializeAws_json1_1StartGameSessionPlacementCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5488,7 +5432,6 @@ async function deserializeAws_json1_1StartGameSessionPlacementCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -5526,7 +5469,7 @@ async function deserializeAws_json1_1StartMatchBackfillCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5547,7 +5490,6 @@ async function deserializeAws_json1_1StartMatchBackfillCommandError(
       response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -5585,7 +5527,7 @@ async function deserializeAws_json1_1StartMatchmakingCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5606,7 +5548,6 @@ async function deserializeAws_json1_1StartMatchmakingCommandError(
       response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -5644,7 +5585,7 @@ async function deserializeAws_json1_1StopFleetActionsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5665,7 +5606,6 @@ async function deserializeAws_json1_1StopFleetActionsCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -5703,7 +5643,7 @@ async function deserializeAws_json1_1StopGameSessionPlacementCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5724,7 +5664,6 @@ async function deserializeAws_json1_1StopGameSessionPlacementCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -5762,7 +5701,7 @@ async function deserializeAws_json1_1StopMatchmakingCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5783,7 +5722,6 @@ async function deserializeAws_json1_1StopMatchmakingCommandError(
       response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -5821,7 +5759,7 @@ async function deserializeAws_json1_1UpdateAliasCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5842,7 +5780,6 @@ async function deserializeAws_json1_1UpdateAliasCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -5880,7 +5817,7 @@ async function deserializeAws_json1_1UpdateBuildCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5901,7 +5838,6 @@ async function deserializeAws_json1_1UpdateBuildCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -5939,7 +5875,7 @@ async function deserializeAws_json1_1UpdateFleetAttributesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5972,7 +5908,6 @@ async function deserializeAws_json1_1UpdateFleetAttributesCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -6010,7 +5945,7 @@ async function deserializeAws_json1_1UpdateFleetCapacityCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -6043,7 +5978,6 @@ async function deserializeAws_json1_1UpdateFleetCapacityCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -6081,7 +6015,7 @@ async function deserializeAws_json1_1UpdateFleetPortSettingsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -6114,7 +6048,6 @@ async function deserializeAws_json1_1UpdateFleetPortSettingsCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -6152,7 +6085,7 @@ async function deserializeAws_json1_1UpdateGameSessionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -6181,7 +6114,6 @@ async function deserializeAws_json1_1UpdateGameSessionCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -6219,7 +6151,7 @@ async function deserializeAws_json1_1UpdateGameSessionQueueCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -6240,7 +6172,6 @@ async function deserializeAws_json1_1UpdateGameSessionQueueCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -6278,7 +6209,7 @@ async function deserializeAws_json1_1UpdateMatchmakingConfigurationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -6299,7 +6230,6 @@ async function deserializeAws_json1_1UpdateMatchmakingConfigurationCommandError(
       response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -6337,7 +6267,7 @@ async function deserializeAws_json1_1UpdateRuntimeConfigurationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -6362,7 +6292,6 @@ async function deserializeAws_json1_1UpdateRuntimeConfigurationCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -6400,7 +6329,7 @@ async function deserializeAws_json1_1UpdateScriptCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -6421,7 +6350,6 @@ async function deserializeAws_json1_1UpdateScriptCommandError(
       response = await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",
@@ -6459,7 +6387,7 @@ async function deserializeAws_json1_1ValidateMatchmakingRuleSetCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -6476,7 +6404,6 @@ async function deserializeAws_json1_1ValidateMatchmakingRuleSetCommandError(
       response = await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gameliftapi.v20151001#${errorCode}`,
         $fault: "client",

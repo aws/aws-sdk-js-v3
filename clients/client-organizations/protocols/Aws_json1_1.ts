@@ -1384,7 +1384,7 @@ async function deserializeAws_json1_1AcceptHandshakeCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1433,7 +1433,6 @@ async function deserializeAws_json1_1AcceptHandshakeCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -1466,7 +1465,7 @@ async function deserializeAws_json1_1AttachPolicyCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1523,7 +1522,6 @@ async function deserializeAws_json1_1AttachPolicyCommandError(
       response = await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -1561,7 +1559,7 @@ async function deserializeAws_json1_1CancelHandshakeCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1598,7 +1596,6 @@ async function deserializeAws_json1_1CancelHandshakeCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -1636,7 +1633,7 @@ async function deserializeAws_json1_1CreateAccountCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1677,7 +1674,6 @@ async function deserializeAws_json1_1CreateAccountCommandError(
       response = await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -1715,7 +1711,7 @@ async function deserializeAws_json1_1CreateGovCloudAccountCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1756,7 +1752,6 @@ async function deserializeAws_json1_1CreateGovCloudAccountCommandError(
       response = await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -1794,7 +1789,7 @@ async function deserializeAws_json1_1CreateOrganizationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1831,7 +1826,6 @@ async function deserializeAws_json1_1CreateOrganizationCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -1869,7 +1863,7 @@ async function deserializeAws_json1_1CreateOrganizationalUnitCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1910,7 +1904,6 @@ async function deserializeAws_json1_1CreateOrganizationalUnitCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -1948,7 +1941,7 @@ async function deserializeAws_json1_1CreatePolicyCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1997,7 +1990,6 @@ async function deserializeAws_json1_1CreatePolicyCommandError(
       response = await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -2035,7 +2027,7 @@ async function deserializeAws_json1_1DeclineHandshakeCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2072,7 +2064,6 @@ async function deserializeAws_json1_1DeclineHandshakeCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -2105,7 +2096,7 @@ async function deserializeAws_json1_1DeleteOrganizationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2138,7 +2129,6 @@ async function deserializeAws_json1_1DeleteOrganizationCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -2171,7 +2161,7 @@ async function deserializeAws_json1_1DeleteOrganizationalUnitCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2208,7 +2198,6 @@ async function deserializeAws_json1_1DeleteOrganizationalUnitCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -2241,7 +2230,7 @@ async function deserializeAws_json1_1DeletePolicyCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2282,7 +2271,6 @@ async function deserializeAws_json1_1DeletePolicyCommandError(
       response = await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -2320,7 +2308,7 @@ async function deserializeAws_json1_1DescribeAccountCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2349,7 +2337,6 @@ async function deserializeAws_json1_1DescribeAccountCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -2387,7 +2374,7 @@ async function deserializeAws_json1_1DescribeCreateAccountStatusCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2420,7 +2407,6 @@ async function deserializeAws_json1_1DescribeCreateAccountStatusCommandError(
       response = await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -2458,7 +2444,7 @@ async function deserializeAws_json1_1DescribeEffectivePolicyCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2499,7 +2485,6 @@ async function deserializeAws_json1_1DescribeEffectivePolicyCommandError(
       response = await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -2537,7 +2522,7 @@ async function deserializeAws_json1_1DescribeHandshakeCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2566,7 +2551,6 @@ async function deserializeAws_json1_1DescribeHandshakeCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -2604,7 +2588,7 @@ async function deserializeAws_json1_1DescribeOrganizationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2629,7 +2613,6 @@ async function deserializeAws_json1_1DescribeOrganizationCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -2667,7 +2650,7 @@ async function deserializeAws_json1_1DescribeOrganizationalUnitCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2696,7 +2679,6 @@ async function deserializeAws_json1_1DescribeOrganizationalUnitCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -2734,7 +2716,7 @@ async function deserializeAws_json1_1DescribePolicyCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2767,7 +2749,6 @@ async function deserializeAws_json1_1DescribePolicyCommandError(
       response = await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -2800,7 +2781,7 @@ async function deserializeAws_json1_1DetachPolicyCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2853,7 +2834,6 @@ async function deserializeAws_json1_1DetachPolicyCommandError(
       response = await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -2886,7 +2866,7 @@ async function deserializeAws_json1_1DisableAWSServiceAccessCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2919,7 +2899,6 @@ async function deserializeAws_json1_1DisableAWSServiceAccessCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -2957,7 +2936,7 @@ async function deserializeAws_json1_1DisablePolicyTypeCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3006,7 +2985,6 @@ async function deserializeAws_json1_1DisablePolicyTypeCommandError(
       response = await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -3039,7 +3017,7 @@ async function deserializeAws_json1_1EnableAWSServiceAccessCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3072,7 +3050,6 @@ async function deserializeAws_json1_1EnableAWSServiceAccessCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -3110,7 +3087,7 @@ async function deserializeAws_json1_1EnableAllFeaturesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3143,7 +3120,6 @@ async function deserializeAws_json1_1EnableAllFeaturesCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -3181,7 +3157,7 @@ async function deserializeAws_json1_1EnablePolicyTypeCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3234,7 +3210,6 @@ async function deserializeAws_json1_1EnablePolicyTypeCommandError(
       response = await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -3272,7 +3247,7 @@ async function deserializeAws_json1_1InviteAccountToOrganizationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3317,7 +3292,6 @@ async function deserializeAws_json1_1InviteAccountToOrganizationCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -3350,7 +3324,7 @@ async function deserializeAws_json1_1LeaveOrganizationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3391,7 +3365,6 @@ async function deserializeAws_json1_1LeaveOrganizationCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -3429,7 +3402,7 @@ async function deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommandE
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3458,7 +3431,6 @@ async function deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommandE
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -3496,7 +3468,7 @@ async function deserializeAws_json1_1ListAccountsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3521,7 +3493,6 @@ async function deserializeAws_json1_1ListAccountsCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -3559,7 +3530,7 @@ async function deserializeAws_json1_1ListAccountsForParentCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3588,7 +3559,6 @@ async function deserializeAws_json1_1ListAccountsForParentCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -3626,7 +3596,7 @@ async function deserializeAws_json1_1ListChildrenCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3655,7 +3625,6 @@ async function deserializeAws_json1_1ListChildrenCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -3693,7 +3662,7 @@ async function deserializeAws_json1_1ListCreateAccountStatusCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3722,7 +3691,6 @@ async function deserializeAws_json1_1ListCreateAccountStatusCommandError(
       response = await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -3760,7 +3728,7 @@ async function deserializeAws_json1_1ListHandshakesForAccountCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3785,7 +3753,6 @@ async function deserializeAws_json1_1ListHandshakesForAccountCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -3823,7 +3790,7 @@ async function deserializeAws_json1_1ListHandshakesForOrganizationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3852,7 +3819,6 @@ async function deserializeAws_json1_1ListHandshakesForOrganizationCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -3890,7 +3856,7 @@ async function deserializeAws_json1_1ListOrganizationalUnitsForParentCommandErro
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3919,7 +3885,6 @@ async function deserializeAws_json1_1ListOrganizationalUnitsForParentCommandErro
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -3957,7 +3922,7 @@ async function deserializeAws_json1_1ListParentsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3986,7 +3951,6 @@ async function deserializeAws_json1_1ListParentsCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -4024,7 +3988,7 @@ async function deserializeAws_json1_1ListPoliciesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4053,7 +4017,6 @@ async function deserializeAws_json1_1ListPoliciesCommandError(
       response = await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -4091,7 +4054,7 @@ async function deserializeAws_json1_1ListPoliciesForTargetCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4124,7 +4087,6 @@ async function deserializeAws_json1_1ListPoliciesForTargetCommandError(
       response = await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -4162,7 +4124,7 @@ async function deserializeAws_json1_1ListRootsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4187,7 +4149,6 @@ async function deserializeAws_json1_1ListRootsCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -4225,7 +4186,7 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4254,7 +4215,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -4292,7 +4252,7 @@ async function deserializeAws_json1_1ListTargetsForPolicyCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4325,7 +4285,6 @@ async function deserializeAws_json1_1ListTargetsForPolicyCommandError(
       response = await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -4358,7 +4317,7 @@ async function deserializeAws_json1_1MoveAccountCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4403,7 +4362,6 @@ async function deserializeAws_json1_1MoveAccountCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -4436,7 +4394,7 @@ async function deserializeAws_json1_1RemoveAccountFromOrganizationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4477,7 +4435,6 @@ async function deserializeAws_json1_1RemoveAccountFromOrganizationCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -4510,7 +4467,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4547,7 +4504,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -4580,7 +4536,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4617,7 +4573,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -4655,7 +4610,7 @@ async function deserializeAws_json1_1UpdateOrganizationalUnitCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4692,7 +4647,6 @@ async function deserializeAws_json1_1UpdateOrganizationalUnitCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",
@@ -4730,7 +4684,7 @@ async function deserializeAws_json1_1UpdatePolicyCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4783,7 +4737,6 @@ async function deserializeAws_json1_1UpdatePolicyCommandError(
       response = await deserializeAws_json1_1UnsupportedAPIEndpointExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awsorganizations.v20161128#${errorCode}`,
         $fault: "client",

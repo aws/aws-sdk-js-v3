@@ -1,20 +1,20 @@
 import {
   ChimeClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ChimeClient";
 import {
   GetEventsConfigurationRequest,
-  GetEventsConfigurationResponse
+  GetEventsConfigurationResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1GetEventsConfigurationCommand,
-  serializeAws_restJson1_1GetEventsConfigurationCommand
+  serializeAws_restJson1_1GetEventsConfigurationCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type GetEventsConfigurationCommandInput = GetEventsConfigurationRequest;
 export type GetEventsConfigurationCommandOutput = GetEventsConfigurationResponse;
 
-export class GetEventsConfigurationCommand extends $Command<
-  GetEventsConfigurationCommandInput,
-  GetEventsConfigurationCommandOutput,
-  ChimeClientResolvedConfig
-> {
+export class GetEventsConfigurationCommand extends $Command<GetEventsConfigurationCommandInput, GetEventsConfigurationCommandOutput, ChimeClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class GetEventsConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetEventsConfigurationCommandInput,
-    GetEventsConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetEventsConfigurationCommandInput, GetEventsConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class GetEventsConfigurationCommand extends $Command<
     input: GetEventsConfigurationCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetEventsConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetEventsConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<GetEventsConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1GetEventsConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetEventsConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

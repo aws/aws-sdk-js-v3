@@ -1,20 +1,20 @@
 import {
   GlacierClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../GlacierClient";
 import {
   ArchiveCreationOutput,
-  CompleteMultipartUploadInput
+  CompleteMultipartUploadInput,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1CompleteMultipartUploadCommand,
-  serializeAws_restJson1_1CompleteMultipartUploadCommand
+  serializeAws_restJson1_1CompleteMultipartUploadCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type CompleteMultipartUploadCommandInput = CompleteMultipartUploadInput;
 export type CompleteMultipartUploadCommandOutput = ArchiveCreationOutput;
 
-export class CompleteMultipartUploadCommand extends $Command<
-  CompleteMultipartUploadCommandInput,
-  CompleteMultipartUploadCommandOutput,
-  GlacierClientResolvedConfig
-> {
+export class CompleteMultipartUploadCommand extends $Command<CompleteMultipartUploadCommandInput, CompleteMultipartUploadCommandOutput, GlacierClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class CompleteMultipartUploadCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CompleteMultipartUploadCommandInput,
-    CompleteMultipartUploadCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CompleteMultipartUploadCommandInput, CompleteMultipartUploadCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class CompleteMultipartUploadCommand extends $Command<
     input: CompleteMultipartUploadCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CompleteMultipartUploadCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CompleteMultipartUploadCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<CompleteMultipartUploadCommandOutput> {
-    return deserializeAws_restJson1_1CompleteMultipartUploadCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CompleteMultipartUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

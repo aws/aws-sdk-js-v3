@@ -1,17 +1,17 @@
 import {
   ChimeClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ChimeClient";
 import { DeleteVoiceConnectorGroupRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteVoiceConnectorGroupCommand,
-  serializeAws_restJson1_1DeleteVoiceConnectorGroupCommand
+  serializeAws_restJson1_1DeleteVoiceConnectorGroupCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,17 +21,13 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
 } from "@aws-sdk/types";
 
 export type DeleteVoiceConnectorGroupCommandInput = DeleteVoiceConnectorGroupRequest;
-export type DeleteVoiceConnectorGroupCommandOutput = __MetadataBearer;
+export type DeleteVoiceConnectorGroupCommandOutput = __MetadataBearer
 
-export class DeleteVoiceConnectorGroupCommand extends $Command<
-  DeleteVoiceConnectorGroupCommandInput,
-  DeleteVoiceConnectorGroupCommandOutput,
-  ChimeClientResolvedConfig
-> {
+export class DeleteVoiceConnectorGroupCommand extends $Command<DeleteVoiceConnectorGroupCommandInput, DeleteVoiceConnectorGroupCommandOutput, ChimeClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,19 +41,14 @@ export class DeleteVoiceConnectorGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteVoiceConnectorGroupCommandInput,
-    DeleteVoiceConnectorGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteVoiceConnectorGroupCommandInput, DeleteVoiceConnectorGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,20 +61,14 @@ export class DeleteVoiceConnectorGroupCommand extends $Command<
     input: DeleteVoiceConnectorGroupCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteVoiceConnectorGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteVoiceConnectorGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DeleteVoiceConnectorGroupCommandOutput> {
-    return deserializeAws_restJson1_1DeleteVoiceConnectorGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteVoiceConnectorGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

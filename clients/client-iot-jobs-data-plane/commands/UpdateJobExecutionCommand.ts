@@ -1,20 +1,20 @@
 import {
   IoTJobsDataPlaneClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../IoTJobsDataPlaneClient";
 import {
   UpdateJobExecutionRequest,
-  UpdateJobExecutionResponse
+  UpdateJobExecutionResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateJobExecutionCommand,
-  serializeAws_restJson1_1UpdateJobExecutionCommand
+  serializeAws_restJson1_1UpdateJobExecutionCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type UpdateJobExecutionCommandInput = UpdateJobExecutionRequest;
 export type UpdateJobExecutionCommandOutput = UpdateJobExecutionResponse;
 
-export class UpdateJobExecutionCommand extends $Command<
-  UpdateJobExecutionCommandInput,
-  UpdateJobExecutionCommandOutput,
-  IoTJobsDataPlaneClientResolvedConfig
-> {
+export class UpdateJobExecutionCommand extends $Command<UpdateJobExecutionCommandInput, UpdateJobExecutionCommandOutput, IoTJobsDataPlaneClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,15 +44,13 @@ export class UpdateJobExecutionCommand extends $Command<
     configuration: IoTJobsDataPlaneClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateJobExecutionCommandInput, UpdateJobExecutionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

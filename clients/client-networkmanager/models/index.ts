@@ -6,9 +6,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *         <p>You do not have sufficient access to perform this action.</p>
  *
  */
-export interface AccessDeniedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   Message: string | undefined;
@@ -154,9 +152,7 @@ export namespace Bandwidth {
  *             cause an inconsistent state.</p>
  *
  */
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConflictException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ConflictException";
   $fault: "client";
   Message: string | undefined;
@@ -513,7 +509,7 @@ export enum CustomerGatewayAssociationState {
   available = "AVAILABLE",
   deleted = "DELETED",
   deleting = "DELETING",
-  pending = "PENDING"
+  pending = "PENDING",
 }
 
 export interface DeleteDeviceRequest {
@@ -866,7 +862,7 @@ export enum DeviceState {
   available = "AVAILABLE",
   deleting = "DELETING",
   pending = "PENDING",
-  updating = "UPDATING"
+  updating = "UPDATING",
 }
 
 export interface DisassociateCustomerGatewayRequest {
@@ -993,8 +989,7 @@ export namespace GetCustomerGatewayAssociationsRequest {
   }
 }
 
-export interface GetCustomerGatewayAssociationsResponse
-  extends $MetadataBearer {
+export interface GetCustomerGatewayAssociationsResponse extends $MetadataBearer {
   __type?: "GetCustomerGatewayAssociationsResponse";
   /**
    *
@@ -1330,8 +1325,7 @@ export namespace GetTransitGatewayRegistrationsRequest {
   }
 }
 
-export interface GetTransitGatewayRegistrationsResponse
-  extends $MetadataBearer {
+export interface GetTransitGatewayRegistrationsResponse extends $MetadataBearer {
   __type?: "GetTransitGatewayRegistrationsResponse";
   /**
    *
@@ -1414,7 +1408,7 @@ export enum GlobalNetworkState {
   available = "AVAILABLE",
   deleting = "DELETING",
   pending = "PENDING",
-  updating = "UPDATING"
+  updating = "UPDATING",
 }
 
 /**
@@ -1422,9 +1416,7 @@ export enum GlobalNetworkState {
  *         <p>The request has failed due to an internal error.</p>
  *
  */
-export interface InternalServerException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerException";
   $fault: "server";
   Message: string | undefined;
@@ -1579,14 +1571,14 @@ export enum LinkAssociationState {
   available = "AVAILABLE",
   deleted = "DELETED",
   deleting = "DELETING",
-  pending = "PENDING"
+  pending = "PENDING",
 }
 
 export enum LinkState {
   available = "AVAILABLE",
   deleting = "DELETING",
   pending = "PENDING",
-  updating = "UPDATING"
+  updating = "UPDATING",
 }
 
 export interface ListTagsForResourceRequest {
@@ -1701,9 +1693,7 @@ export namespace RegisterTransitGatewayResponse {
  *         <p>The specified resource could not be found.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message: string | undefined;
@@ -1733,9 +1723,7 @@ export namespace ResourceNotFoundException {
  *         <p>A service limit was exceeded.</p>
  *
  */
-export interface ServiceQuotaExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceQuotaExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceQuotaExceededException";
   $fault: "client";
   /**
@@ -1854,7 +1842,7 @@ export enum SiteState {
   available = "AVAILABLE",
   deleting = "DELETING",
   pending = "PENDING",
-  updating = "UPDATING"
+  updating = "UPDATING",
 }
 
 /**
@@ -1925,9 +1913,7 @@ export namespace TagResourceResponse {
  *         <p>The request was denied due to request throttling.</p>
  *
  */
-export interface ThrottlingException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ThrottlingException";
   $fault: "client";
   Message: string | undefined;
@@ -1985,7 +1971,7 @@ export enum TransitGatewayRegistrationState {
   deleted = "DELETED",
   deleting = "DELETING",
   failed = "FAILED",
-  pending = "PENDING"
+  pending = "PENDING",
 }
 
 /**
@@ -2324,9 +2310,7 @@ export namespace UpdateSiteResponse {
  *         <p>The input fails to satisfy the constraints.</p>
  *
  */
-export interface ValidationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ValidationException";
   $fault: "client";
   /**
@@ -2383,5 +2367,5 @@ export enum ValidationExceptionReason {
   CANNOT_PARSE = "CannotParse",
   FIELD_VALIDATION_FAILED = "FieldValidationFailed",
   OTHER = "Other",
-  UNKNOWN_OPERATION = "UnknownOperation"
+  UNKNOWN_OPERATION = "UnknownOperation",
 }

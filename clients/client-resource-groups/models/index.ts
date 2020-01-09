@@ -6,9 +6,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>The request does not comply with validation rules that are defined for the request parameters.</p>
  *
  */
-export interface BadRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BadRequestException";
   $fault: "client";
   Message?: string;
@@ -128,9 +126,7 @@ export namespace DeleteGroupOutput {
  *          <p>The caller is not authorized to make the request.</p>
  *
  */
-export interface ForbiddenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ForbiddenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ForbiddenException";
   $fault: "client";
   Message?: string;
@@ -309,7 +305,7 @@ export namespace GroupFilter {
 }
 
 export enum GroupFilterName {
-  ResourceType = "resource-type"
+  ResourceType = "resource-type",
 }
 
 /**
@@ -373,9 +369,7 @@ export namespace GroupQuery {
  *          <p>An internal error occurred while processing the request.</p>
  *
  */
-export interface InternalServerErrorException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerErrorException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerErrorException";
   $fault: "server";
   Message?: string;
@@ -535,9 +529,7 @@ export namespace ListGroupsOutput {
  *          <p>The request uses an HTTP method which is not allowed for the specified resource.</p>
  *
  */
-export interface MethodNotAllowedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MethodNotAllowedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "MethodNotAllowedException";
   $fault: "client";
   Message?: string;
@@ -554,9 +546,7 @@ export namespace MethodNotAllowedException {
  *          <p>One or more resources specified in the request do not exist.</p>
  *
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   Message?: string;
@@ -607,12 +597,12 @@ export namespace QueryError {
 
 export enum QueryErrorCode {
   CLOUDFORMATION_STACK_INACTIVE = "CLOUDFORMATION_STACK_INACTIVE",
-  CLOUDFORMATION_STACK_NOT_EXISTING = "CLOUDFORMATION_STACK_NOT_EXISTING"
+  CLOUDFORMATION_STACK_NOT_EXISTING = "CLOUDFORMATION_STACK_NOT_EXISTING",
 }
 
 export enum QueryType {
   CLOUDFORMATION_STACK_1_0 = "CLOUDFORMATION_STACK_1_0",
-  TAG_FILTERS_1_0 = "TAG_FILTERS_1_0"
+  TAG_FILTERS_1_0 = "TAG_FILTERS_1_0",
 }
 
 /**
@@ -644,7 +634,7 @@ export namespace ResourceFilter {
 }
 
 export enum ResourceFilterName {
-  ResourceType = "resource-type"
+  ResourceType = "resource-type",
 }
 
 /**
@@ -852,9 +842,7 @@ export namespace TagOutput {
  *          <p>The caller has exceeded throttling limits.</p>
  *
  */
-export interface TooManyRequestsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
@@ -871,9 +859,7 @@ export namespace TooManyRequestsException {
  *          <p>The request has not been applied because it lacks valid authentication credentials for the target resource.</p>
  *
  */
-export interface UnauthorizedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnauthorizedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "UnauthorizedException";
   $fault: "client";
   Message?: string;

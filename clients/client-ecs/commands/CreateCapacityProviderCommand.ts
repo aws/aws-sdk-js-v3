@@ -1,20 +1,20 @@
 import {
   ECSClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ECSClient";
 import {
   CreateCapacityProviderRequest,
-  CreateCapacityProviderResponse
+  CreateCapacityProviderResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1CreateCapacityProviderCommand,
-  serializeAws_json1_1CreateCapacityProviderCommand
+  serializeAws_json1_1CreateCapacityProviderCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type CreateCapacityProviderCommandInput = CreateCapacityProviderRequest;
 export type CreateCapacityProviderCommandOutput = CreateCapacityProviderResponse;
 
-export class CreateCapacityProviderCommand extends $Command<
-  CreateCapacityProviderCommandInput,
-  CreateCapacityProviderCommandOutput,
-  ECSClientResolvedConfig
-> {
+export class CreateCapacityProviderCommand extends $Command<CreateCapacityProviderCommandInput, CreateCapacityProviderCommandOutput, ECSClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class CreateCapacityProviderCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateCapacityProviderCommandInput,
-    CreateCapacityProviderCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateCapacityProviderCommandInput, CreateCapacityProviderCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

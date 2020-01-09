@@ -849,7 +849,7 @@ async function deserializeAws_json1_1AddTagsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -874,7 +874,6 @@ async function deserializeAws_json1_1AddTagsCommandError(
       response = await deserializeAws_json1_1TagLimitExceededExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
@@ -912,7 +911,7 @@ async function deserializeAws_json1_1CreateBatchPredictionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -929,7 +928,6 @@ async function deserializeAws_json1_1CreateBatchPredictionCommandError(
       response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
@@ -967,7 +965,7 @@ async function deserializeAws_json1_1CreateDataSourceFromRDSCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -984,7 +982,6 @@ async function deserializeAws_json1_1CreateDataSourceFromRDSCommandError(
       response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
@@ -1022,7 +1019,7 @@ async function deserializeAws_json1_1CreateDataSourceFromRedshiftCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1039,7 +1036,6 @@ async function deserializeAws_json1_1CreateDataSourceFromRedshiftCommandError(
       response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
@@ -1077,7 +1073,7 @@ async function deserializeAws_json1_1CreateDataSourceFromS3CommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1094,7 +1090,6 @@ async function deserializeAws_json1_1CreateDataSourceFromS3CommandError(
       response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
@@ -1132,7 +1127,7 @@ async function deserializeAws_json1_1CreateEvaluationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1149,7 +1144,6 @@ async function deserializeAws_json1_1CreateEvaluationCommandError(
       response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
@@ -1187,7 +1181,7 @@ async function deserializeAws_json1_1CreateMLModelCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1204,7 +1198,6 @@ async function deserializeAws_json1_1CreateMLModelCommandError(
       response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
@@ -1242,7 +1235,7 @@ async function deserializeAws_json1_1CreateRealtimeEndpointCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1259,7 +1252,6 @@ async function deserializeAws_json1_1CreateRealtimeEndpointCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
@@ -1297,7 +1289,7 @@ async function deserializeAws_json1_1DeleteBatchPredictionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1314,7 +1306,6 @@ async function deserializeAws_json1_1DeleteBatchPredictionCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
@@ -1352,7 +1343,7 @@ async function deserializeAws_json1_1DeleteDataSourceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1369,7 +1360,6 @@ async function deserializeAws_json1_1DeleteDataSourceCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
@@ -1407,7 +1397,7 @@ async function deserializeAws_json1_1DeleteEvaluationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1424,7 +1414,6 @@ async function deserializeAws_json1_1DeleteEvaluationCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
@@ -1462,7 +1451,7 @@ async function deserializeAws_json1_1DeleteMLModelCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1479,7 +1468,6 @@ async function deserializeAws_json1_1DeleteMLModelCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
@@ -1517,7 +1505,7 @@ async function deserializeAws_json1_1DeleteRealtimeEndpointCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1534,7 +1522,6 @@ async function deserializeAws_json1_1DeleteRealtimeEndpointCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
@@ -1572,7 +1559,7 @@ async function deserializeAws_json1_1DeleteTagsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1593,7 +1580,6 @@ async function deserializeAws_json1_1DeleteTagsCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
@@ -1631,7 +1617,7 @@ async function deserializeAws_json1_1DescribeBatchPredictionsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1644,7 +1630,6 @@ async function deserializeAws_json1_1DescribeBatchPredictionsCommandError(
       response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
@@ -1682,7 +1667,7 @@ async function deserializeAws_json1_1DescribeDataSourcesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1695,7 +1680,6 @@ async function deserializeAws_json1_1DescribeDataSourcesCommandError(
       response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
@@ -1733,7 +1717,7 @@ async function deserializeAws_json1_1DescribeEvaluationsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1746,7 +1730,6 @@ async function deserializeAws_json1_1DescribeEvaluationsCommandError(
       response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
@@ -1784,7 +1767,7 @@ async function deserializeAws_json1_1DescribeMLModelsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1797,7 +1780,6 @@ async function deserializeAws_json1_1DescribeMLModelsCommandError(
       response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
@@ -1835,7 +1817,7 @@ async function deserializeAws_json1_1DescribeTagsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1852,7 +1834,6 @@ async function deserializeAws_json1_1DescribeTagsCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
@@ -1890,7 +1871,7 @@ async function deserializeAws_json1_1GetBatchPredictionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1907,7 +1888,6 @@ async function deserializeAws_json1_1GetBatchPredictionCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
@@ -1945,7 +1925,7 @@ async function deserializeAws_json1_1GetDataSourceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1962,7 +1942,6 @@ async function deserializeAws_json1_1GetDataSourceCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
@@ -2000,7 +1979,7 @@ async function deserializeAws_json1_1GetEvaluationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2017,7 +1996,6 @@ async function deserializeAws_json1_1GetEvaluationCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
@@ -2055,7 +2033,7 @@ async function deserializeAws_json1_1GetMLModelCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2072,7 +2050,6 @@ async function deserializeAws_json1_1GetMLModelCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
@@ -2110,7 +2087,7 @@ async function deserializeAws_json1_1PredictCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2135,7 +2112,6 @@ async function deserializeAws_json1_1PredictCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
@@ -2173,7 +2149,7 @@ async function deserializeAws_json1_1UpdateBatchPredictionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2190,7 +2166,6 @@ async function deserializeAws_json1_1UpdateBatchPredictionCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
@@ -2228,7 +2203,7 @@ async function deserializeAws_json1_1UpdateDataSourceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2245,7 +2220,6 @@ async function deserializeAws_json1_1UpdateDataSourceCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
@@ -2283,7 +2257,7 @@ async function deserializeAws_json1_1UpdateEvaluationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2300,7 +2274,6 @@ async function deserializeAws_json1_1UpdateEvaluationCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",
@@ -2338,7 +2311,7 @@ async function deserializeAws_json1_1UpdateMLModelCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2355,7 +2328,6 @@ async function deserializeAws_json1_1UpdateMLModelCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.eml.v20141212#${errorCode}`,
         $fault: "client",

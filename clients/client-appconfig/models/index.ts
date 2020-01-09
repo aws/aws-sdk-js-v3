@@ -60,9 +60,7 @@ export namespace Applications {
  *          <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
  */
-export interface BadRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BadRequestException";
   $fault: "client";
   Message?: string;
@@ -243,9 +241,7 @@ export namespace ConfigurationProfiles {
  *          resource.</p>
  *
  */
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConflictException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ConflictException";
   $fault: "client";
   Message?: string;
@@ -679,7 +675,7 @@ export enum DeploymentState {
   DEPLOYING = "DEPLOYING",
   ROLLED_BACK = "ROLLED_BACK",
   ROLLING_BACK = "ROLLING_BACK",
-  VALIDATING = "VALIDATING"
+  VALIDATING = "VALIDATING",
 }
 
 export interface DeploymentStrategies extends $MetadataBearer {
@@ -948,7 +944,7 @@ export enum EnvironmentState {
   DEPLOYING = "DEPLOYING",
   READY_FOR_DEPLOYMENT = "READY_FOR_DEPLOYMENT",
   ROLLED_BACK = "ROLLED_BACK",
-  ROLLING_BACK = "ROLLING_BACK"
+  ROLLING_BACK = "ROLLING_BACK",
 }
 
 export interface Environments extends $MetadataBearer {
@@ -1130,7 +1126,7 @@ export namespace GetEnvironmentRequest {
 }
 
 export enum GrowthType {
-  LINEAR = "LINEAR"
+  LINEAR = "LINEAR",
 }
 
 /**
@@ -1138,9 +1134,7 @@ export enum GrowthType {
  *          <p>There was an internal failure in the AppConfig service.</p>
  *
  */
-export interface InternalServerException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerException";
   $fault: "server";
   Message?: string;
@@ -1346,7 +1340,7 @@ export namespace Monitor {
 
 export enum ReplicateTo {
   NONE = "NONE",
-  SSM_DOCUMENT = "SSM_DOCUMENT"
+  SSM_DOCUMENT = "SSM_DOCUMENT",
 }
 
 /**
@@ -1354,9 +1348,7 @@ export enum ReplicateTo {
  *          <p>The requested resource could not be found.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1769,5 +1761,5 @@ export namespace Validator {
 
 export enum ValidatorType {
   JSON_SCHEMA = "JSON_SCHEMA",
-  LAMBDA = "LAMBDA"
+  LAMBDA = "LAMBDA",
 }

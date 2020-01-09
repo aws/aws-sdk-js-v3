@@ -1,20 +1,20 @@
 import {
   ApplicationDiscoveryServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
 import {
   DescribeContinuousExportsRequest,
-  DescribeContinuousExportsResponse
+  DescribeContinuousExportsResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeContinuousExportsCommand,
-  serializeAws_json1_1DescribeContinuousExportsCommand
+  serializeAws_json1_1DescribeContinuousExportsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DescribeContinuousExportsCommandInput = DescribeContinuousExportsRequest;
 export type DescribeContinuousExportsCommandOutput = DescribeContinuousExportsResponse;
 
-export class DescribeContinuousExportsCommand extends $Command<
-  DescribeContinuousExportsCommandInput,
-  DescribeContinuousExportsCommandOutput,
-  ApplicationDiscoveryServiceClientResolvedConfig
-> {
+export class DescribeContinuousExportsCommand extends $Command<DescribeContinuousExportsCommandInput, DescribeContinuousExportsCommandOutput, ApplicationDiscoveryServiceClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class DescribeContinuousExportsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeContinuousExportsCommandInput,
-    DescribeContinuousExportsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeContinuousExportsCommandInput, DescribeContinuousExportsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -79,10 +70,7 @@ export class DescribeContinuousExportsCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeContinuousExportsCommandOutput> {
-    return deserializeAws_json1_1DescribeContinuousExportsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeContinuousExportsCommand(output, context);
   }
 
   // Start section: command_body_extra

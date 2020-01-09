@@ -169,7 +169,7 @@ async function deserializeAws_json1_1BatchMeterUsageCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -202,7 +202,6 @@ async function deserializeAws_json1_1BatchMeterUsageCommandError(
       response = await deserializeAws_json1_1TimestampOutOfBoundsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.marketplace.metering#${errorCode}`,
         $fault: "client",
@@ -240,7 +239,7 @@ async function deserializeAws_json1_1MeterUsageCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -277,7 +276,6 @@ async function deserializeAws_json1_1MeterUsageCommandError(
       response = await deserializeAws_json1_1TimestampOutOfBoundsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.marketplace.metering#${errorCode}`,
         $fault: "client",
@@ -315,7 +313,7 @@ async function deserializeAws_json1_1RegisterUsageCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -352,7 +350,6 @@ async function deserializeAws_json1_1RegisterUsageCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.marketplace.metering#${errorCode}`,
         $fault: "client",
@@ -390,7 +387,7 @@ async function deserializeAws_json1_1ResolveCustomerCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -415,7 +412,6 @@ async function deserializeAws_json1_1ResolveCustomerCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.marketplace.metering#${errorCode}`,
         $fault: "client",

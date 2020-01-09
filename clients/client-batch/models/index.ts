@@ -3,7 +3,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum ArrayJobDependency {
   N_TO_N = "N_TO_N",
-  SEQUENTIAL = "SEQUENTIAL"
+  SEQUENTIAL = "SEQUENTIAL",
 }
 
 /**
@@ -200,7 +200,7 @@ export namespace AttemptDetail {
 
 export enum CEState {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum CEStatus {
@@ -209,23 +209,23 @@ export enum CEStatus {
   DELETING = "DELETING",
   INVALID = "INVALID",
   UPDATING = "UPDATING",
-  VALID = "VALID"
+  VALID = "VALID",
 }
 
 export enum CEType {
   MANAGED = "MANAGED",
-  UNMANAGED = "UNMANAGED"
+  UNMANAGED = "UNMANAGED",
 }
 
 export enum CRAllocationStrategy {
   BEST_FIT = "BEST_FIT",
   BEST_FIT_PROGRESSIVE = "BEST_FIT_PROGRESSIVE",
-  SPOT_CAPACITY_OPTIMIZED = "SPOT_CAPACITY_OPTIMIZED"
+  SPOT_CAPACITY_OPTIMIZED = "SPOT_CAPACITY_OPTIMIZED",
 }
 
 export enum CRType {
   EC2 = "EC2",
-  SPOT = "SPOT"
+  SPOT = "SPOT",
 }
 
 export interface CancelJobRequest {
@@ -269,9 +269,7 @@ export namespace CancelJobResponse {
  *    doesn't have permissions to use the action or resource, or specifying an identifier that is not valid.</p>
  *
  */
-export interface ClientException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ClientException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ClientException";
   $fault: "client";
   message?: string;
@@ -1549,7 +1547,7 @@ export namespace Device {
 export enum DeviceCgroupPermission {
   MKNOD = "MKNOD",
   READ = "READ",
-  WRITE = "WRITE"
+  WRITE = "WRITE",
 }
 
 /**
@@ -1581,7 +1579,7 @@ export namespace Host {
 
 export enum JQState {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum JQStatus {
@@ -1590,7 +1588,7 @@ export enum JQStatus {
   DELETING = "DELETING",
   INVALID = "INVALID",
   UPDATING = "UPDATING",
-  VALID = "VALID"
+  VALID = "VALID",
 }
 
 /**
@@ -1683,7 +1681,7 @@ export namespace JobDefinition {
 
 export enum JobDefinitionType {
   Container = "container",
-  Multinode = "multinode"
+  Multinode = "multinode",
 }
 
 /**
@@ -1935,7 +1933,7 @@ export enum JobStatus {
   RUNNING = "RUNNING",
   STARTING = "STARTING",
   SUBMITTED = "SUBMITTED",
-  SUCCEEDED = "SUCCEEDED"
+  SUCCEEDED = "SUCCEEDED",
 }
 
 /**
@@ -2643,7 +2641,7 @@ export namespace ResourceRequirement {
 }
 
 export enum ResourceType {
-  GPU = "GPU"
+  GPU = "GPU",
 }
 
 /**
@@ -2674,9 +2672,7 @@ export namespace RetryStrategy {
  *          <p>These errors are usually caused by a server issue.</p>
  *
  */
-export interface ServerException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServerException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServerException";
   $fault: "server";
   message?: string;

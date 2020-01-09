@@ -1,20 +1,20 @@
 import {
   ComprehendMedicalClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
 import {
   StopPHIDetectionJobRequest,
-  StopPHIDetectionJobResponse
+  StopPHIDetectionJobResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1StopPHIDetectionJobCommand,
-  serializeAws_json1_1StopPHIDetectionJobCommand
+  serializeAws_json1_1StopPHIDetectionJobCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type StopPHIDetectionJobCommandInput = StopPHIDetectionJobRequest;
 export type StopPHIDetectionJobCommandOutput = StopPHIDetectionJobResponse;
 
-export class StopPHIDetectionJobCommand extends $Command<
-  StopPHIDetectionJobCommandInput,
-  StopPHIDetectionJobCommandOutput,
-  ComprehendMedicalClientResolvedConfig
-> {
+export class StopPHIDetectionJobCommand extends $Command<StopPHIDetectionJobCommandInput, StopPHIDetectionJobCommandOutput, ComprehendMedicalClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class StopPHIDetectionJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendMedicalClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopPHIDetectionJobCommandInput,
-    StopPHIDetectionJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopPHIDetectionJobCommandInput, StopPHIDetectionJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

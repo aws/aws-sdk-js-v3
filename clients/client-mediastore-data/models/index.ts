@@ -6,9 +6,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>The specified container was not found for the specified account.</p>
  *
  */
-export interface ContainerNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ContainerNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ContainerNotFoundException";
   $fault: "client";
   Message?: string;
@@ -216,9 +214,7 @@ export namespace GetObjectResponse {
  *          <p>The service is temporarily unavailable.</p>
  *
  */
-export interface InternalServerError
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerError extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerError";
   $fault: "server";
   Message?: string;
@@ -288,7 +284,7 @@ export namespace Item {
 
 export enum ItemType {
   FOLDER = "FOLDER",
-  OBJECT = "OBJECT"
+  OBJECT = "OBJECT",
 }
 
 export interface ListItemsRequest {
@@ -366,9 +362,7 @@ export namespace ListItemsResponse {
  *          <p>Could not perform an operation on an object that does not exist.</p>
  *
  */
-export interface ObjectNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ObjectNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ObjectNotFoundException";
   $fault: "client";
   Message?: string;
@@ -483,9 +477,7 @@ export namespace PutObjectResponse {
  *          <p>The requested content range is not valid.</p>
  *
  */
-export interface RequestedRangeNotSatisfiableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface RequestedRangeNotSatisfiableException extends _smithy.SmithyException, $MetadataBearer {
   __type: "RequestedRangeNotSatisfiableException";
   $fault: "client";
   Message?: string;
@@ -498,5 +490,5 @@ export namespace RequestedRangeNotSatisfiableException {
 }
 
 export enum StorageClass {
-  TEMPORAL = "TEMPORAL"
+  TEMPORAL = "TEMPORAL",
 }

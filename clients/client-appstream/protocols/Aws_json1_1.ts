@@ -1,190 +1,190 @@
 import {
   AssociateFleetCommandInput,
-  AssociateFleetCommandOutput
+  AssociateFleetCommandOutput,
 } from "../commands/AssociateFleetCommand";
 import {
   BatchAssociateUserStackCommandInput,
-  BatchAssociateUserStackCommandOutput
+  BatchAssociateUserStackCommandOutput,
 } from "../commands/BatchAssociateUserStackCommand";
 import {
   BatchDisassociateUserStackCommandInput,
-  BatchDisassociateUserStackCommandOutput
+  BatchDisassociateUserStackCommandOutput,
 } from "../commands/BatchDisassociateUserStackCommand";
 import {
   CopyImageCommandInput,
-  CopyImageCommandOutput
+  CopyImageCommandOutput,
 } from "../commands/CopyImageCommand";
 import {
   CreateDirectoryConfigCommandInput,
-  CreateDirectoryConfigCommandOutput
+  CreateDirectoryConfigCommandOutput,
 } from "../commands/CreateDirectoryConfigCommand";
 import {
   CreateFleetCommandInput,
-  CreateFleetCommandOutput
+  CreateFleetCommandOutput,
 } from "../commands/CreateFleetCommand";
 import {
   CreateImageBuilderCommandInput,
-  CreateImageBuilderCommandOutput
+  CreateImageBuilderCommandOutput,
 } from "../commands/CreateImageBuilderCommand";
 import {
   CreateImageBuilderStreamingURLCommandInput,
-  CreateImageBuilderStreamingURLCommandOutput
+  CreateImageBuilderStreamingURLCommandOutput,
 } from "../commands/CreateImageBuilderStreamingURLCommand";
 import {
   CreateStackCommandInput,
-  CreateStackCommandOutput
+  CreateStackCommandOutput,
 } from "../commands/CreateStackCommand";
 import {
   CreateStreamingURLCommandInput,
-  CreateStreamingURLCommandOutput
+  CreateStreamingURLCommandOutput,
 } from "../commands/CreateStreamingURLCommand";
 import {
   CreateUsageReportSubscriptionCommandInput,
-  CreateUsageReportSubscriptionCommandOutput
+  CreateUsageReportSubscriptionCommandOutput,
 } from "../commands/CreateUsageReportSubscriptionCommand";
 import {
   CreateUserCommandInput,
-  CreateUserCommandOutput
+  CreateUserCommandOutput,
 } from "../commands/CreateUserCommand";
 import {
   DeleteDirectoryConfigCommandInput,
-  DeleteDirectoryConfigCommandOutput
+  DeleteDirectoryConfigCommandOutput,
 } from "../commands/DeleteDirectoryConfigCommand";
 import {
   DeleteFleetCommandInput,
-  DeleteFleetCommandOutput
+  DeleteFleetCommandOutput,
 } from "../commands/DeleteFleetCommand";
 import {
   DeleteImageBuilderCommandInput,
-  DeleteImageBuilderCommandOutput
+  DeleteImageBuilderCommandOutput,
 } from "../commands/DeleteImageBuilderCommand";
 import {
   DeleteImageCommandInput,
-  DeleteImageCommandOutput
+  DeleteImageCommandOutput,
 } from "../commands/DeleteImageCommand";
 import {
   DeleteImagePermissionsCommandInput,
-  DeleteImagePermissionsCommandOutput
+  DeleteImagePermissionsCommandOutput,
 } from "../commands/DeleteImagePermissionsCommand";
 import {
   DeleteStackCommandInput,
-  DeleteStackCommandOutput
+  DeleteStackCommandOutput,
 } from "../commands/DeleteStackCommand";
 import {
   DeleteUsageReportSubscriptionCommandInput,
-  DeleteUsageReportSubscriptionCommandOutput
+  DeleteUsageReportSubscriptionCommandOutput,
 } from "../commands/DeleteUsageReportSubscriptionCommand";
 import {
   DeleteUserCommandInput,
-  DeleteUserCommandOutput
+  DeleteUserCommandOutput,
 } from "../commands/DeleteUserCommand";
 import {
   DescribeDirectoryConfigsCommandInput,
-  DescribeDirectoryConfigsCommandOutput
+  DescribeDirectoryConfigsCommandOutput,
 } from "../commands/DescribeDirectoryConfigsCommand";
 import {
   DescribeFleetsCommandInput,
-  DescribeFleetsCommandOutput
+  DescribeFleetsCommandOutput,
 } from "../commands/DescribeFleetsCommand";
 import {
   DescribeImageBuildersCommandInput,
-  DescribeImageBuildersCommandOutput
+  DescribeImageBuildersCommandOutput,
 } from "../commands/DescribeImageBuildersCommand";
 import {
   DescribeImagePermissionsCommandInput,
-  DescribeImagePermissionsCommandOutput
+  DescribeImagePermissionsCommandOutput,
 } from "../commands/DescribeImagePermissionsCommand";
 import {
   DescribeImagesCommandInput,
-  DescribeImagesCommandOutput
+  DescribeImagesCommandOutput,
 } from "../commands/DescribeImagesCommand";
 import {
   DescribeSessionsCommandInput,
-  DescribeSessionsCommandOutput
+  DescribeSessionsCommandOutput,
 } from "../commands/DescribeSessionsCommand";
 import {
   DescribeStacksCommandInput,
-  DescribeStacksCommandOutput
+  DescribeStacksCommandOutput,
 } from "../commands/DescribeStacksCommand";
 import {
   DescribeUsageReportSubscriptionsCommandInput,
-  DescribeUsageReportSubscriptionsCommandOutput
+  DescribeUsageReportSubscriptionsCommandOutput,
 } from "../commands/DescribeUsageReportSubscriptionsCommand";
 import {
   DescribeUserStackAssociationsCommandInput,
-  DescribeUserStackAssociationsCommandOutput
+  DescribeUserStackAssociationsCommandOutput,
 } from "../commands/DescribeUserStackAssociationsCommand";
 import {
   DescribeUsersCommandInput,
-  DescribeUsersCommandOutput
+  DescribeUsersCommandOutput,
 } from "../commands/DescribeUsersCommand";
 import {
   DisableUserCommandInput,
-  DisableUserCommandOutput
+  DisableUserCommandOutput,
 } from "../commands/DisableUserCommand";
 import {
   DisassociateFleetCommandInput,
-  DisassociateFleetCommandOutput
+  DisassociateFleetCommandOutput,
 } from "../commands/DisassociateFleetCommand";
 import {
   EnableUserCommandInput,
-  EnableUserCommandOutput
+  EnableUserCommandOutput,
 } from "../commands/EnableUserCommand";
 import {
   ExpireSessionCommandInput,
-  ExpireSessionCommandOutput
+  ExpireSessionCommandOutput,
 } from "../commands/ExpireSessionCommand";
 import {
   ListAssociatedFleetsCommandInput,
-  ListAssociatedFleetsCommandOutput
+  ListAssociatedFleetsCommandOutput,
 } from "../commands/ListAssociatedFleetsCommand";
 import {
   ListAssociatedStacksCommandInput,
-  ListAssociatedStacksCommandOutput
+  ListAssociatedStacksCommandOutput,
 } from "../commands/ListAssociatedStacksCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import {
   StartFleetCommandInput,
-  StartFleetCommandOutput
+  StartFleetCommandOutput,
 } from "../commands/StartFleetCommand";
 import {
   StartImageBuilderCommandInput,
-  StartImageBuilderCommandOutput
+  StartImageBuilderCommandOutput,
 } from "../commands/StartImageBuilderCommand";
 import {
   StopFleetCommandInput,
-  StopFleetCommandOutput
+  StopFleetCommandOutput,
 } from "../commands/StopFleetCommand";
 import {
   StopImageBuilderCommandInput,
-  StopImageBuilderCommandOutput
+  StopImageBuilderCommandOutput,
 } from "../commands/StopImageBuilderCommand";
 import {
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "../commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "../commands/UntagResourceCommand";
 import {
   UpdateDirectoryConfigCommandInput,
-  UpdateDirectoryConfigCommandOutput
+  UpdateDirectoryConfigCommandOutput,
 } from "../commands/UpdateDirectoryConfigCommand";
 import {
   UpdateFleetCommandInput,
-  UpdateFleetCommandOutput
+  UpdateFleetCommandOutput,
 } from "../commands/UpdateFleetCommand";
 import {
   UpdateImagePermissionsCommandInput,
-  UpdateImagePermissionsCommandOutput
+  UpdateImagePermissionsCommandOutput,
 } from "../commands/UpdateImagePermissionsCommand";
 import {
   UpdateStackCommandInput,
-  UpdateStackCommandOutput
+  UpdateStackCommandOutput,
 } from "../commands/UpdateStackCommand";
 import {
   AccessEndpoint,
@@ -323,18 +323,18 @@ import {
   UserSetting,
   UserStackAssociation,
   UserStackAssociationError,
-  VpcConfig
+  VpcConfig,
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export async function serializeAws_json1_1AssociateFleetCommand(
@@ -342,14 +342,11 @@ export async function serializeAws_json1_1AssociateFleetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.AssociateFleet";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.AssociateFleet";
   let body: any = {};
   const wrappedBody: any = {
-    AssociateFleetRequest: serializeAws_json1_1AssociateFleetRequest(
-      input,
-      context
-    )
+    AssociateFleetRequest: serializeAws_json1_1AssociateFleetRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -358,7 +355,7 @@ export async function serializeAws_json1_1AssociateFleetCommand(
     method: "POST",
     path: "/AssociateFleet",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -367,14 +364,11 @@ export async function serializeAws_json1_1BatchAssociateUserStackCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.BatchAssociateUserStack";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.BatchAssociateUserStack";
   let body: any = {};
   const wrappedBody: any = {
-    BatchAssociateUserStackRequest: serializeAws_json1_1BatchAssociateUserStackRequest(
-      input,
-      context
-    )
+    BatchAssociateUserStackRequest: serializeAws_json1_1BatchAssociateUserStackRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -383,7 +377,7 @@ export async function serializeAws_json1_1BatchAssociateUserStackCommand(
     method: "POST",
     path: "/BatchAssociateUserStack",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -392,15 +386,11 @@ export async function serializeAws_json1_1BatchDisassociateUserStackCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "PhotonAdminProxyService.BatchDisassociateUserStack";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.BatchDisassociateUserStack";
   let body: any = {};
   const wrappedBody: any = {
-    BatchDisassociateUserStackRequest: serializeAws_json1_1BatchDisassociateUserStackRequest(
-      input,
-      context
-    )
+    BatchDisassociateUserStackRequest: serializeAws_json1_1BatchDisassociateUserStackRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -409,7 +399,7 @@ export async function serializeAws_json1_1BatchDisassociateUserStackCommand(
     method: "POST",
     path: "/BatchDisassociateUserStack",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -418,11 +408,11 @@ export async function serializeAws_json1_1CopyImageCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.CopyImage";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.CopyImage";
   let body: any = {};
   const wrappedBody: any = {
-    CopyImageRequest: serializeAws_json1_1CopyImageRequest(input, context)
+    CopyImageRequest: serializeAws_json1_1CopyImageRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -431,7 +421,7 @@ export async function serializeAws_json1_1CopyImageCommand(
     method: "POST",
     path: "/CopyImage",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -440,14 +430,11 @@ export async function serializeAws_json1_1CreateDirectoryConfigCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.CreateDirectoryConfig";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.CreateDirectoryConfig";
   let body: any = {};
   const wrappedBody: any = {
-    CreateDirectoryConfigRequest: serializeAws_json1_1CreateDirectoryConfigRequest(
-      input,
-      context
-    )
+    CreateDirectoryConfigRequest: serializeAws_json1_1CreateDirectoryConfigRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -456,7 +443,7 @@ export async function serializeAws_json1_1CreateDirectoryConfigCommand(
     method: "POST",
     path: "/CreateDirectoryConfig",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -465,11 +452,11 @@ export async function serializeAws_json1_1CreateFleetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.CreateFleet";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.CreateFleet";
   let body: any = {};
   const wrappedBody: any = {
-    CreateFleetRequest: serializeAws_json1_1CreateFleetRequest(input, context)
+    CreateFleetRequest: serializeAws_json1_1CreateFleetRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -478,7 +465,7 @@ export async function serializeAws_json1_1CreateFleetCommand(
     method: "POST",
     path: "/CreateFleet",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -487,14 +474,11 @@ export async function serializeAws_json1_1CreateImageBuilderCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.CreateImageBuilder";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.CreateImageBuilder";
   let body: any = {};
   const wrappedBody: any = {
-    CreateImageBuilderRequest: serializeAws_json1_1CreateImageBuilderRequest(
-      input,
-      context
-    )
+    CreateImageBuilderRequest: serializeAws_json1_1CreateImageBuilderRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -503,7 +487,7 @@ export async function serializeAws_json1_1CreateImageBuilderCommand(
     method: "POST",
     path: "/CreateImageBuilder",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -512,15 +496,11 @@ export async function serializeAws_json1_1CreateImageBuilderStreamingURLCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "PhotonAdminProxyService.CreateImageBuilderStreamingURL";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.CreateImageBuilderStreamingURL";
   let body: any = {};
   const wrappedBody: any = {
-    CreateImageBuilderStreamingURLRequest: serializeAws_json1_1CreateImageBuilderStreamingURLRequest(
-      input,
-      context
-    )
+    CreateImageBuilderStreamingURLRequest: serializeAws_json1_1CreateImageBuilderStreamingURLRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -529,7 +509,7 @@ export async function serializeAws_json1_1CreateImageBuilderStreamingURLCommand(
     method: "POST",
     path: "/CreateImageBuilderStreamingURL",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -538,11 +518,11 @@ export async function serializeAws_json1_1CreateStackCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.CreateStack";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.CreateStack";
   let body: any = {};
   const wrappedBody: any = {
-    CreateStackRequest: serializeAws_json1_1CreateStackRequest(input, context)
+    CreateStackRequest: serializeAws_json1_1CreateStackRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -551,7 +531,7 @@ export async function serializeAws_json1_1CreateStackCommand(
     method: "POST",
     path: "/CreateStack",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -560,14 +540,11 @@ export async function serializeAws_json1_1CreateStreamingURLCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.CreateStreamingURL";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.CreateStreamingURL";
   let body: any = {};
   const wrappedBody: any = {
-    CreateStreamingURLRequest: serializeAws_json1_1CreateStreamingURLRequest(
-      input,
-      context
-    )
+    CreateStreamingURLRequest: serializeAws_json1_1CreateStreamingURLRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -576,7 +553,7 @@ export async function serializeAws_json1_1CreateStreamingURLCommand(
     method: "POST",
     path: "/CreateStreamingURL",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -585,15 +562,11 @@ export async function serializeAws_json1_1CreateUsageReportSubscriptionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "PhotonAdminProxyService.CreateUsageReportSubscription";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.CreateUsageReportSubscription";
   let body: any = {};
   const wrappedBody: any = {
-    CreateUsageReportSubscriptionRequest: serializeAws_json1_1CreateUsageReportSubscriptionRequest(
-      input,
-      context
-    )
+    CreateUsageReportSubscriptionRequest: serializeAws_json1_1CreateUsageReportSubscriptionRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -602,7 +575,7 @@ export async function serializeAws_json1_1CreateUsageReportSubscriptionCommand(
     method: "POST",
     path: "/CreateUsageReportSubscription",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -611,11 +584,11 @@ export async function serializeAws_json1_1CreateUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.CreateUser";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.CreateUser";
   let body: any = {};
   const wrappedBody: any = {
-    CreateUserRequest: serializeAws_json1_1CreateUserRequest(input, context)
+    CreateUserRequest: serializeAws_json1_1CreateUserRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -624,7 +597,7 @@ export async function serializeAws_json1_1CreateUserCommand(
     method: "POST",
     path: "/CreateUser",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -633,14 +606,11 @@ export async function serializeAws_json1_1DeleteDirectoryConfigCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.DeleteDirectoryConfig";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.DeleteDirectoryConfig";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteDirectoryConfigRequest: serializeAws_json1_1DeleteDirectoryConfigRequest(
-      input,
-      context
-    )
+    DeleteDirectoryConfigRequest: serializeAws_json1_1DeleteDirectoryConfigRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -649,7 +619,7 @@ export async function serializeAws_json1_1DeleteDirectoryConfigCommand(
     method: "POST",
     path: "/DeleteDirectoryConfig",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -658,11 +628,11 @@ export async function serializeAws_json1_1DeleteFleetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.DeleteFleet";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.DeleteFleet";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteFleetRequest: serializeAws_json1_1DeleteFleetRequest(input, context)
+    DeleteFleetRequest: serializeAws_json1_1DeleteFleetRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -671,7 +641,7 @@ export async function serializeAws_json1_1DeleteFleetCommand(
     method: "POST",
     path: "/DeleteFleet",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -680,11 +650,11 @@ export async function serializeAws_json1_1DeleteImageCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.DeleteImage";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.DeleteImage";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteImageRequest: serializeAws_json1_1DeleteImageRequest(input, context)
+    DeleteImageRequest: serializeAws_json1_1DeleteImageRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -693,7 +663,7 @@ export async function serializeAws_json1_1DeleteImageCommand(
     method: "POST",
     path: "/DeleteImage",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -702,14 +672,11 @@ export async function serializeAws_json1_1DeleteImageBuilderCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.DeleteImageBuilder";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.DeleteImageBuilder";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteImageBuilderRequest: serializeAws_json1_1DeleteImageBuilderRequest(
-      input,
-      context
-    )
+    DeleteImageBuilderRequest: serializeAws_json1_1DeleteImageBuilderRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -718,7 +685,7 @@ export async function serializeAws_json1_1DeleteImageBuilderCommand(
     method: "POST",
     path: "/DeleteImageBuilder",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -727,14 +694,11 @@ export async function serializeAws_json1_1DeleteImagePermissionsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.DeleteImagePermissions";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.DeleteImagePermissions";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteImagePermissionsRequest: serializeAws_json1_1DeleteImagePermissionsRequest(
-      input,
-      context
-    )
+    DeleteImagePermissionsRequest: serializeAws_json1_1DeleteImagePermissionsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -743,7 +707,7 @@ export async function serializeAws_json1_1DeleteImagePermissionsCommand(
     method: "POST",
     path: "/DeleteImagePermissions",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -752,11 +716,11 @@ export async function serializeAws_json1_1DeleteStackCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.DeleteStack";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.DeleteStack";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteStackRequest: serializeAws_json1_1DeleteStackRequest(input, context)
+    DeleteStackRequest: serializeAws_json1_1DeleteStackRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -765,7 +729,7 @@ export async function serializeAws_json1_1DeleteStackCommand(
     method: "POST",
     path: "/DeleteStack",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -774,15 +738,11 @@ export async function serializeAws_json1_1DeleteUsageReportSubscriptionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "PhotonAdminProxyService.DeleteUsageReportSubscription";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.DeleteUsageReportSubscription";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteUsageReportSubscriptionRequest: serializeAws_json1_1DeleteUsageReportSubscriptionRequest(
-      input,
-      context
-    )
+    DeleteUsageReportSubscriptionRequest: serializeAws_json1_1DeleteUsageReportSubscriptionRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -791,7 +751,7 @@ export async function serializeAws_json1_1DeleteUsageReportSubscriptionCommand(
     method: "POST",
     path: "/DeleteUsageReportSubscription",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -800,11 +760,11 @@ export async function serializeAws_json1_1DeleteUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.DeleteUser";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.DeleteUser";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteUserRequest: serializeAws_json1_1DeleteUserRequest(input, context)
+    DeleteUserRequest: serializeAws_json1_1DeleteUserRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -813,7 +773,7 @@ export async function serializeAws_json1_1DeleteUserCommand(
     method: "POST",
     path: "/DeleteUser",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -822,14 +782,11 @@ export async function serializeAws_json1_1DescribeDirectoryConfigsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.DescribeDirectoryConfigs";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.DescribeDirectoryConfigs";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeDirectoryConfigsRequest: serializeAws_json1_1DescribeDirectoryConfigsRequest(
-      input,
-      context
-    )
+    DescribeDirectoryConfigsRequest: serializeAws_json1_1DescribeDirectoryConfigsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -838,7 +795,7 @@ export async function serializeAws_json1_1DescribeDirectoryConfigsCommand(
     method: "POST",
     path: "/DescribeDirectoryConfigs",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -847,14 +804,11 @@ export async function serializeAws_json1_1DescribeFleetsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.DescribeFleets";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.DescribeFleets";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeFleetsRequest: serializeAws_json1_1DescribeFleetsRequest(
-      input,
-      context
-    )
+    DescribeFleetsRequest: serializeAws_json1_1DescribeFleetsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -863,7 +817,7 @@ export async function serializeAws_json1_1DescribeFleetsCommand(
     method: "POST",
     path: "/DescribeFleets",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -872,14 +826,11 @@ export async function serializeAws_json1_1DescribeImageBuildersCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.DescribeImageBuilders";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.DescribeImageBuilders";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeImageBuildersRequest: serializeAws_json1_1DescribeImageBuildersRequest(
-      input,
-      context
-    )
+    DescribeImageBuildersRequest: serializeAws_json1_1DescribeImageBuildersRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -888,7 +839,7 @@ export async function serializeAws_json1_1DescribeImageBuildersCommand(
     method: "POST",
     path: "/DescribeImageBuilders",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -897,14 +848,11 @@ export async function serializeAws_json1_1DescribeImagePermissionsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.DescribeImagePermissions";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.DescribeImagePermissions";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeImagePermissionsRequest: serializeAws_json1_1DescribeImagePermissionsRequest(
-      input,
-      context
-    )
+    DescribeImagePermissionsRequest: serializeAws_json1_1DescribeImagePermissionsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -913,7 +861,7 @@ export async function serializeAws_json1_1DescribeImagePermissionsCommand(
     method: "POST",
     path: "/DescribeImagePermissions",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -922,14 +870,11 @@ export async function serializeAws_json1_1DescribeImagesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.DescribeImages";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.DescribeImages";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeImagesRequest: serializeAws_json1_1DescribeImagesRequest(
-      input,
-      context
-    )
+    DescribeImagesRequest: serializeAws_json1_1DescribeImagesRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -938,7 +883,7 @@ export async function serializeAws_json1_1DescribeImagesCommand(
     method: "POST",
     path: "/DescribeImages",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -947,14 +892,11 @@ export async function serializeAws_json1_1DescribeSessionsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.DescribeSessions";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.DescribeSessions";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeSessionsRequest: serializeAws_json1_1DescribeSessionsRequest(
-      input,
-      context
-    )
+    DescribeSessionsRequest: serializeAws_json1_1DescribeSessionsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -963,7 +905,7 @@ export async function serializeAws_json1_1DescribeSessionsCommand(
     method: "POST",
     path: "/DescribeSessions",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -972,14 +914,11 @@ export async function serializeAws_json1_1DescribeStacksCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.DescribeStacks";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.DescribeStacks";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeStacksRequest: serializeAws_json1_1DescribeStacksRequest(
-      input,
-      context
-    )
+    DescribeStacksRequest: serializeAws_json1_1DescribeStacksRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -988,7 +927,7 @@ export async function serializeAws_json1_1DescribeStacksCommand(
     method: "POST",
     path: "/DescribeStacks",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -997,15 +936,11 @@ export async function serializeAws_json1_1DescribeUsageReportSubscriptionsComman
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "PhotonAdminProxyService.DescribeUsageReportSubscriptions";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.DescribeUsageReportSubscriptions";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeUsageReportSubscriptionsRequest: serializeAws_json1_1DescribeUsageReportSubscriptionsRequest(
-      input,
-      context
-    )
+    DescribeUsageReportSubscriptionsRequest: serializeAws_json1_1DescribeUsageReportSubscriptionsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1014,7 +949,7 @@ export async function serializeAws_json1_1DescribeUsageReportSubscriptionsComman
     method: "POST",
     path: "/DescribeUsageReportSubscriptions",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1023,15 +958,11 @@ export async function serializeAws_json1_1DescribeUserStackAssociationsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "PhotonAdminProxyService.DescribeUserStackAssociations";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.DescribeUserStackAssociations";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeUserStackAssociationsRequest: serializeAws_json1_1DescribeUserStackAssociationsRequest(
-      input,
-      context
-    )
+    DescribeUserStackAssociationsRequest: serializeAws_json1_1DescribeUserStackAssociationsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1040,7 +971,7 @@ export async function serializeAws_json1_1DescribeUserStackAssociationsCommand(
     method: "POST",
     path: "/DescribeUserStackAssociations",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1049,14 +980,11 @@ export async function serializeAws_json1_1DescribeUsersCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.DescribeUsers";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.DescribeUsers";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeUsersRequest: serializeAws_json1_1DescribeUsersRequest(
-      input,
-      context
-    )
+    DescribeUsersRequest: serializeAws_json1_1DescribeUsersRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1065,7 +993,7 @@ export async function serializeAws_json1_1DescribeUsersCommand(
     method: "POST",
     path: "/DescribeUsers",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1074,11 +1002,11 @@ export async function serializeAws_json1_1DisableUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.DisableUser";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.DisableUser";
   let body: any = {};
   const wrappedBody: any = {
-    DisableUserRequest: serializeAws_json1_1DisableUserRequest(input, context)
+    DisableUserRequest: serializeAws_json1_1DisableUserRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1087,7 +1015,7 @@ export async function serializeAws_json1_1DisableUserCommand(
     method: "POST",
     path: "/DisableUser",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1096,14 +1024,11 @@ export async function serializeAws_json1_1DisassociateFleetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.DisassociateFleet";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.DisassociateFleet";
   let body: any = {};
   const wrappedBody: any = {
-    DisassociateFleetRequest: serializeAws_json1_1DisassociateFleetRequest(
-      input,
-      context
-    )
+    DisassociateFleetRequest: serializeAws_json1_1DisassociateFleetRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1112,7 +1037,7 @@ export async function serializeAws_json1_1DisassociateFleetCommand(
     method: "POST",
     path: "/DisassociateFleet",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1121,11 +1046,11 @@ export async function serializeAws_json1_1EnableUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.EnableUser";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.EnableUser";
   let body: any = {};
   const wrappedBody: any = {
-    EnableUserRequest: serializeAws_json1_1EnableUserRequest(input, context)
+    EnableUserRequest: serializeAws_json1_1EnableUserRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1134,7 +1059,7 @@ export async function serializeAws_json1_1EnableUserCommand(
     method: "POST",
     path: "/EnableUser",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1143,14 +1068,11 @@ export async function serializeAws_json1_1ExpireSessionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.ExpireSession";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.ExpireSession";
   let body: any = {};
   const wrappedBody: any = {
-    ExpireSessionRequest: serializeAws_json1_1ExpireSessionRequest(
-      input,
-      context
-    )
+    ExpireSessionRequest: serializeAws_json1_1ExpireSessionRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1159,7 +1081,7 @@ export async function serializeAws_json1_1ExpireSessionCommand(
     method: "POST",
     path: "/ExpireSession",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1168,14 +1090,11 @@ export async function serializeAws_json1_1ListAssociatedFleetsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.ListAssociatedFleets";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.ListAssociatedFleets";
   let body: any = {};
   const wrappedBody: any = {
-    ListAssociatedFleetsRequest: serializeAws_json1_1ListAssociatedFleetsRequest(
-      input,
-      context
-    )
+    ListAssociatedFleetsRequest: serializeAws_json1_1ListAssociatedFleetsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1184,7 +1103,7 @@ export async function serializeAws_json1_1ListAssociatedFleetsCommand(
     method: "POST",
     path: "/ListAssociatedFleets",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1193,14 +1112,11 @@ export async function serializeAws_json1_1ListAssociatedStacksCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.ListAssociatedStacks";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.ListAssociatedStacks";
   let body: any = {};
   const wrappedBody: any = {
-    ListAssociatedStacksRequest: serializeAws_json1_1ListAssociatedStacksRequest(
-      input,
-      context
-    )
+    ListAssociatedStacksRequest: serializeAws_json1_1ListAssociatedStacksRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1209,7 +1125,7 @@ export async function serializeAws_json1_1ListAssociatedStacksCommand(
     method: "POST",
     path: "/ListAssociatedStacks",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1218,14 +1134,11 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.ListTagsForResource";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.ListTagsForResource";
   let body: any = {};
   const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
-      input,
-      context
-    )
+    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1234,7 +1147,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     method: "POST",
     path: "/ListTagsForResource",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1243,11 +1156,11 @@ export async function serializeAws_json1_1StartFleetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.StartFleet";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.StartFleet";
   let body: any = {};
   const wrappedBody: any = {
-    StartFleetRequest: serializeAws_json1_1StartFleetRequest(input, context)
+    StartFleetRequest: serializeAws_json1_1StartFleetRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1256,7 +1169,7 @@ export async function serializeAws_json1_1StartFleetCommand(
     method: "POST",
     path: "/StartFleet",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1265,14 +1178,11 @@ export async function serializeAws_json1_1StartImageBuilderCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.StartImageBuilder";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.StartImageBuilder";
   let body: any = {};
   const wrappedBody: any = {
-    StartImageBuilderRequest: serializeAws_json1_1StartImageBuilderRequest(
-      input,
-      context
-    )
+    StartImageBuilderRequest: serializeAws_json1_1StartImageBuilderRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1281,7 +1191,7 @@ export async function serializeAws_json1_1StartImageBuilderCommand(
     method: "POST",
     path: "/StartImageBuilder",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1290,11 +1200,11 @@ export async function serializeAws_json1_1StopFleetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.StopFleet";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.StopFleet";
   let body: any = {};
   const wrappedBody: any = {
-    StopFleetRequest: serializeAws_json1_1StopFleetRequest(input, context)
+    StopFleetRequest: serializeAws_json1_1StopFleetRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1303,7 +1213,7 @@ export async function serializeAws_json1_1StopFleetCommand(
     method: "POST",
     path: "/StopFleet",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1312,14 +1222,11 @@ export async function serializeAws_json1_1StopImageBuilderCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.StopImageBuilder";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.StopImageBuilder";
   let body: any = {};
   const wrappedBody: any = {
-    StopImageBuilderRequest: serializeAws_json1_1StopImageBuilderRequest(
-      input,
-      context
-    )
+    StopImageBuilderRequest: serializeAws_json1_1StopImageBuilderRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1328,7 +1235,7 @@ export async function serializeAws_json1_1StopImageBuilderCommand(
     method: "POST",
     path: "/StopImageBuilder",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1337,11 +1244,11 @@ export async function serializeAws_json1_1TagResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.TagResource";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.TagResource";
   let body: any = {};
   const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
+    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1350,7 +1257,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     method: "POST",
     path: "/TagResource",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1359,14 +1266,11 @@ export async function serializeAws_json1_1UntagResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.UntagResource";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.UntagResource";
   let body: any = {};
   const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
-      input,
-      context
-    )
+    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1375,7 +1279,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     method: "POST",
     path: "/UntagResource",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1384,14 +1288,11 @@ export async function serializeAws_json1_1UpdateDirectoryConfigCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.UpdateDirectoryConfig";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.UpdateDirectoryConfig";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateDirectoryConfigRequest: serializeAws_json1_1UpdateDirectoryConfigRequest(
-      input,
-      context
-    )
+    UpdateDirectoryConfigRequest: serializeAws_json1_1UpdateDirectoryConfigRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1400,7 +1301,7 @@ export async function serializeAws_json1_1UpdateDirectoryConfigCommand(
     method: "POST",
     path: "/UpdateDirectoryConfig",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1409,11 +1310,11 @@ export async function serializeAws_json1_1UpdateFleetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.UpdateFleet";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.UpdateFleet";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateFleetRequest: serializeAws_json1_1UpdateFleetRequest(input, context)
+    UpdateFleetRequest: serializeAws_json1_1UpdateFleetRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1422,7 +1323,7 @@ export async function serializeAws_json1_1UpdateFleetCommand(
     method: "POST",
     path: "/UpdateFleet",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1431,14 +1332,11 @@ export async function serializeAws_json1_1UpdateImagePermissionsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.UpdateImagePermissions";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.UpdateImagePermissions";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateImagePermissionsRequest: serializeAws_json1_1UpdateImagePermissionsRequest(
-      input,
-      context
-    )
+    UpdateImagePermissionsRequest: serializeAws_json1_1UpdateImagePermissionsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1447,7 +1345,7 @@ export async function serializeAws_json1_1UpdateImagePermissionsCommand(
     method: "POST",
     path: "/UpdateImagePermissions",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1456,11 +1354,11 @@ export async function serializeAws_json1_1UpdateStackCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "PhotonAdminProxyService.UpdateStack";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "PhotonAdminProxyService.UpdateStack";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateStackRequest: serializeAws_json1_1UpdateStackRequest(input, context)
+    UpdateStackRequest: serializeAws_json1_1UpdateStackRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1469,7 +1367,7 @@ export async function serializeAws_json1_1UpdateStackCommand(
     method: "POST",
     path: "/UpdateStack",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1480,80 +1378,60 @@ export async function deserializeAws_json1_1AssociateFleetCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AssociateFleetCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1AssociateFleetResult(data, context);
   const response: AssociateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AssociateFleetResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AssociateFleetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AssociateFleetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.photon#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
       break;
     case "IncompatibleImageException":
     case "com.amazonaws.photon#IncompatibleImageException":
-      response = await deserializeAws_json1_1IncompatibleImageExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1IncompatibleImageExceptionResponse(parsedOutput, context);
       break;
     case "InvalidAccountStatusException":
     case "com.amazonaws.photon#InvalidAccountStatusException":
-      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.photon#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.photon#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1564,50 +1442,42 @@ export async function deserializeAws_json1_1BatchAssociateUserStackCommand(
   context: __SerdeContext
 ): Promise<BatchAssociateUserStackCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1BatchAssociateUserStackCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1BatchAssociateUserStackCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1BatchAssociateUserStackResult(data, context);
   const response: BatchAssociateUserStackCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchAssociateUserStackResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1BatchAssociateUserStackCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<BatchAssociateUserStackCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedException":
     case "com.amazonaws.photon#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1618,42 +1488,34 @@ export async function deserializeAws_json1_1BatchDisassociateUserStackCommand(
   context: __SerdeContext
 ): Promise<BatchDisassociateUserStackCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1BatchDisassociateUserStackCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1BatchDisassociateUserStackCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchDisassociateUserStackResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1BatchDisassociateUserStackResult(data, context);
   const response: BatchDisassociateUserStackCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchDisassociateUserStackResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1BatchDisassociateUserStackCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<BatchDisassociateUserStackCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1666,80 +1528,60 @@ export async function deserializeAws_json1_1CopyImageCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CopyImageCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1CopyImageResponse(data, context);
   const response: CopyImageCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CopyImageResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CopyImageCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CopyImageCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "IncompatibleImageException":
     case "com.amazonaws.photon#IncompatibleImageException":
-      response = await deserializeAws_json1_1IncompatibleImageExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1IncompatibleImageExceptionResponse(parsedOutput, context);
       break;
     case "InvalidAccountStatusException":
     case "com.amazonaws.photon#InvalidAccountStatusException":
-      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.photon#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.photon#ResourceAlreadyExistsException":
-      response = await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotAvailableException":
     case "com.amazonaws.photon#ResourceNotAvailableException":
-      response = await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1750,64 +1592,50 @@ export async function deserializeAws_json1_1CreateDirectoryConfigCommand(
   context: __SerdeContext
 ): Promise<CreateDirectoryConfigCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateDirectoryConfigCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateDirectoryConfigCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1CreateDirectoryConfigResult(data, context);
   const response: CreateDirectoryConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDirectoryConfigResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateDirectoryConfigCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateDirectoryConfigCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidAccountStatusException":
     case "com.amazonaws.photon#InvalidAccountStatusException":
-      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.photon#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.photon#ResourceAlreadyExistsException":
-      response = await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1820,108 +1648,76 @@ export async function deserializeAws_json1_1CreateFleetCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateFleetCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1CreateFleetResult(data, context);
   const response: CreateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateFleetResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateFleetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateFleetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.photon#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
       break;
     case "IncompatibleImageException":
     case "com.amazonaws.photon#IncompatibleImageException":
-      response = await deserializeAws_json1_1IncompatibleImageExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1IncompatibleImageExceptionResponse(parsedOutput, context);
       break;
     case "InvalidAccountStatusException":
     case "com.amazonaws.photon#InvalidAccountStatusException":
-      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterCombinationException":
     case "com.amazonaws.photon#InvalidParameterCombinationException":
-      response = await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRoleException":
     case "com.amazonaws.photon#InvalidRoleException":
-      response = await deserializeAws_json1_1InvalidRoleExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.photon#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.photon#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.photon#ResourceAlreadyExistsException":
-      response = await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotAvailableException":
     case "com.amazonaws.photon#ResourceNotAvailableException":
-      response = await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1932,113 +1728,78 @@ export async function deserializeAws_json1_1CreateImageBuilderCommand(
   context: __SerdeContext
 ): Promise<CreateImageBuilderCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateImageBuilderCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateImageBuilderCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1CreateImageBuilderResult(data, context);
   const response: CreateImageBuilderCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateImageBuilderResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateImageBuilderCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateImageBuilderCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.photon#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
       break;
     case "IncompatibleImageException":
     case "com.amazonaws.photon#IncompatibleImageException":
-      response = await deserializeAws_json1_1IncompatibleImageExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1IncompatibleImageExceptionResponse(parsedOutput, context);
       break;
     case "InvalidAccountStatusException":
     case "com.amazonaws.photon#InvalidAccountStatusException":
-      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterCombinationException":
     case "com.amazonaws.photon#InvalidParameterCombinationException":
-      response = await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRoleException":
     case "com.amazonaws.photon#InvalidRoleException":
-      response = await deserializeAws_json1_1InvalidRoleExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.photon#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.photon#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.photon#ResourceAlreadyExistsException":
-      response = await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotAvailableException":
     case "com.amazonaws.photon#ResourceNotAvailableException":
-      response = await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2049,60 +1810,46 @@ export async function deserializeAws_json1_1CreateImageBuilderStreamingURLComman
   context: __SerdeContext
 ): Promise<CreateImageBuilderStreamingURLCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateImageBuilderStreamingURLCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateImageBuilderStreamingURLCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateImageBuilderStreamingURLResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1CreateImageBuilderStreamingURLResult(data, context);
   const response: CreateImageBuilderStreamingURLCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateImageBuilderStreamingURLResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateImageBuilderStreamingURLCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateImageBuilderStreamingURLCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "OperationNotPermittedException":
     case "com.amazonaws.photon#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2115,87 +1862,64 @@ export async function deserializeAws_json1_1CreateStackCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateStackCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1CreateStackResult(data, context);
   const response: CreateStackCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateStackResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateStackCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateStackCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.photon#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
       break;
     case "InvalidAccountStatusException":
     case "com.amazonaws.photon#InvalidAccountStatusException":
-      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterCombinationException":
     case "com.amazonaws.photon#InvalidParameterCombinationException":
-      response = await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRoleException":
     case "com.amazonaws.photon#InvalidRoleException":
-      response = await deserializeAws_json1_1InvalidRoleExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.photon#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.photon#ResourceAlreadyExistsException":
-      response = await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2206,71 +1930,54 @@ export async function deserializeAws_json1_1CreateStreamingURLCommand(
   context: __SerdeContext
 ): Promise<CreateStreamingURLCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateStreamingURLCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateStreamingURLCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1CreateStreamingURLResult(data, context);
   const response: CreateStreamingURLCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateStreamingURLResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateStreamingURLCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateStreamingURLCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.photon#InvalidParameterCombinationException":
-      response = await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.photon#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotAvailableException":
     case "com.amazonaws.photon#ResourceNotAvailableException":
-      response = await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2281,67 +1988,50 @@ export async function deserializeAws_json1_1CreateUsageReportSubscriptionCommand
   context: __SerdeContext
 ): Promise<CreateUsageReportSubscriptionCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateUsageReportSubscriptionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateUsageReportSubscriptionCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateUsageReportSubscriptionResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1CreateUsageReportSubscriptionResult(data, context);
   const response: CreateUsageReportSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateUsageReportSubscriptionResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateUsageReportSubscriptionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateUsageReportSubscriptionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidAccountStatusException":
     case "com.amazonaws.photon#InvalidAccountStatusException":
-      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRoleException":
     case "com.amazonaws.photon#InvalidRoleException":
-      response = await deserializeAws_json1_1InvalidRoleExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.photon#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2354,73 +2044,56 @@ export async function deserializeAws_json1_1CreateUserCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateUserCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1CreateUserResult(data, context);
   const response: CreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateUserResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidAccountStatusException":
     case "com.amazonaws.photon#InvalidAccountStatusException":
-      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterCombinationException":
     case "com.amazonaws.photon#InvalidParameterCombinationException":
-      response = await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.photon#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.photon#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.photon#ResourceAlreadyExistsException":
-      response = await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2431,57 +2104,46 @@ export async function deserializeAws_json1_1DeleteDirectoryConfigCommand(
   context: __SerdeContext
 ): Promise<DeleteDirectoryConfigCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteDirectoryConfigCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteDirectoryConfigCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteDirectoryConfigResult(data, context);
   const response: DeleteDirectoryConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteDirectoryConfigResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteDirectoryConfigCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteDirectoryConfigCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceInUseException":
     case "com.amazonaws.photon#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2494,59 +2156,48 @@ export async function deserializeAws_json1_1DeleteFleetCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteFleetCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteFleetResult(data, context);
   const response: DeleteFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteFleetResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteFleetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteFleetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.photon#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
       break;
     case "ResourceInUseException":
     case "com.amazonaws.photon#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2559,66 +2210,52 @@ export async function deserializeAws_json1_1DeleteImageCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteImageCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteImageResult(data, context);
   const response: DeleteImageCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteImageResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteImageCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteImageCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.photon#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.photon#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceInUseException":
     case "com.amazonaws.photon#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2629,64 +2266,50 @@ export async function deserializeAws_json1_1DeleteImageBuilderCommand(
   context: __SerdeContext
 ): Promise<DeleteImageBuilderCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteImageBuilderCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteImageBuilderCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteImageBuilderResult(data, context);
   const response: DeleteImageBuilderCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteImageBuilderResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteImageBuilderCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteImageBuilderCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.photon#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.photon#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2697,57 +2320,46 @@ export async function deserializeAws_json1_1DeleteImagePermissionsCommand(
   context: __SerdeContext
 ): Promise<DeleteImagePermissionsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteImagePermissionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteImagePermissionsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteImagePermissionsResult(data, context);
   const response: DeleteImagePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteImagePermissionsResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteImagePermissionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteImagePermissionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotAvailableException":
     case "com.amazonaws.photon#ResourceNotAvailableException":
-      response = await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2760,59 +2372,48 @@ export async function deserializeAws_json1_1DeleteStackCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteStackCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteStackResult(data, context);
   const response: DeleteStackCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteStackResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteStackCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteStackCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.photon#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
       break;
     case "ResourceInUseException":
     case "com.amazonaws.photon#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2823,60 +2424,46 @@ export async function deserializeAws_json1_1DeleteUsageReportSubscriptionCommand
   context: __SerdeContext
 ): Promise<DeleteUsageReportSubscriptionCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteUsageReportSubscriptionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteUsageReportSubscriptionCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteUsageReportSubscriptionResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteUsageReportSubscriptionResult(data, context);
   const response: DeleteUsageReportSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteUsageReportSubscriptionResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteUsageReportSubscriptionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteUsageReportSubscriptionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidAccountStatusException":
     case "com.amazonaws.photon#InvalidAccountStatusException":
-      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2889,45 +2476,40 @@ export async function deserializeAws_json1_1DeleteUserCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteUserCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteUserResult(data, context);
   const response: DeleteUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteUserResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2938,53 +2520,42 @@ export async function deserializeAws_json1_1DescribeDirectoryConfigsCommand(
   context: __SerdeContext
 ): Promise<DescribeDirectoryConfigsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeDirectoryConfigsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeDirectoryConfigsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeDirectoryConfigsResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeDirectoryConfigsResult(data, context);
   const response: DescribeDirectoryConfigsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeDirectoryConfigsResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeDirectoryConfigsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeDirectoryConfigsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2997,45 +2568,40 @@ export async function deserializeAws_json1_1DescribeFleetsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeFleetsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeFleetsResult(data, context);
   const response: DescribeFleetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeFleetsResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeFleetsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeFleetsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3046,50 +2612,42 @@ export async function deserializeAws_json1_1DescribeImageBuildersCommand(
   context: __SerdeContext
 ): Promise<DescribeImageBuildersCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeImageBuildersCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeImageBuildersCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeImageBuildersResult(data, context);
   const response: DescribeImageBuildersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeImageBuildersResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeImageBuildersCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeImageBuildersCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3100,53 +2658,42 @@ export async function deserializeAws_json1_1DescribeImagePermissionsCommand(
   context: __SerdeContext
 ): Promise<DescribeImagePermissionsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeImagePermissionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeImagePermissionsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeImagePermissionsResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeImagePermissionsResult(data, context);
   const response: DescribeImagePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeImagePermissionsResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeImagePermissionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeImagePermissionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3159,52 +2706,44 @@ export async function deserializeAws_json1_1DescribeImagesCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeImagesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeImagesResult(data, context);
   const response: DescribeImagesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeImagesResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeImagesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeImagesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.photon#InvalidParameterCombinationException":
-      response = await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3217,45 +2756,40 @@ export async function deserializeAws_json1_1DescribeSessionsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeSessionsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeSessionsResult(data, context);
   const response: DescribeSessionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeSessionsResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeSessionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeSessionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.photon#InvalidParameterCombinationException":
-      response = await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3268,45 +2802,40 @@ export async function deserializeAws_json1_1DescribeStacksCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeStacksCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeStacksResult(data, context);
   const response: DescribeStacksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeStacksResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeStacksCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeStacksCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3317,60 +2846,46 @@ export async function deserializeAws_json1_1DescribeUsageReportSubscriptionsComm
   context: __SerdeContext
 ): Promise<DescribeUsageReportSubscriptionsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeUsageReportSubscriptionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeUsageReportSubscriptionsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeUsageReportSubscriptionsResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeUsageReportSubscriptionsResult(data, context);
   const response: DescribeUsageReportSubscriptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeUsageReportSubscriptionsResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeUsageReportSubscriptionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeUsageReportSubscriptionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidAccountStatusException":
     case "com.amazonaws.photon#InvalidAccountStatusException":
-      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3381,53 +2896,42 @@ export async function deserializeAws_json1_1DescribeUserStackAssociationsCommand
   context: __SerdeContext
 ): Promise<DescribeUserStackAssociationsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeUserStackAssociationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeUserStackAssociationsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeUserStackAssociationsResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeUserStackAssociationsResult(data, context);
   const response: DescribeUserStackAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeUserStackAssociationsResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeUserStackAssociationsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeUserStackAssociationsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.photon#InvalidParameterCombinationException":
-      response = await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3440,52 +2944,44 @@ export async function deserializeAws_json1_1DescribeUsersCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeUsersCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeUsersResult(data, context);
   const response: DescribeUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeUsersResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeUsersCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeUsersCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidParameterCombinationException":
     case "com.amazonaws.photon#InvalidParameterCombinationException":
-      response = await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3498,45 +2994,40 @@ export async function deserializeAws_json1_1DisableUserCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DisableUserCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1DisableUserResult(data, context);
   const response: DisableUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DisableUserResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DisableUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DisableUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3549,59 +3040,48 @@ export async function deserializeAws_json1_1DisassociateFleetCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DisassociateFleetCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1DisassociateFleetResult(data, context);
   const response: DisassociateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DisassociateFleetResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DisassociateFleetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DisassociateFleetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.photon#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
       break;
     case "ResourceInUseException":
     case "com.amazonaws.photon#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3614,52 +3094,44 @@ export async function deserializeAws_json1_1EnableUserCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1EnableUserCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1EnableUserResult(data, context);
   const response: EnableUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "EnableUserResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1EnableUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<EnableUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidAccountStatusException":
     case "com.amazonaws.photon#InvalidAccountStatusException":
-      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3672,34 +3144,32 @@ export async function deserializeAws_json1_1ExpireSessionCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ExpireSessionCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1ExpireSessionResult(data, context);
   const response: ExpireSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ExpireSessionResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ExpireSessionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ExpireSessionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3710,39 +3180,34 @@ export async function deserializeAws_json1_1ListAssociatedFleetsCommand(
   context: __SerdeContext
 ): Promise<ListAssociatedFleetsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListAssociatedFleetsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListAssociatedFleetsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1ListAssociatedFleetsResult(data, context);
   const response: ListAssociatedFleetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAssociatedFleetsResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListAssociatedFleetsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListAssociatedFleetsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3753,39 +3218,34 @@ export async function deserializeAws_json1_1ListAssociatedStacksCommand(
   context: __SerdeContext
 ): Promise<ListAssociatedStacksCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListAssociatedStacksCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListAssociatedStacksCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1ListAssociatedStacksResult(data, context);
   const response: ListAssociatedStacksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAssociatedStacksResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListAssociatedStacksCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListAssociatedStacksCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3796,50 +3256,42 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListTagsForResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3852,87 +3304,64 @@ export async function deserializeAws_json1_1StartFleetCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartFleetCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1StartFleetResult(data, context);
   const response: StartFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartFleetResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1StartFleetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<StartFleetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.photon#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
       break;
     case "InvalidAccountStatusException":
     case "com.amazonaws.photon#InvalidAccountStatusException":
-      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRoleException":
     case "com.amazonaws.photon#InvalidRoleException":
-      response = await deserializeAws_json1_1InvalidRoleExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.photon#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.photon#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotAvailableException":
     case "com.amazonaws.photon#ResourceNotAvailableException":
-      response = await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3945,73 +3374,56 @@ export async function deserializeAws_json1_1StartImageBuilderCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartImageBuilderCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1StartImageBuilderResult(data, context);
   const response: StartImageBuilderCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartImageBuilderResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1StartImageBuilderCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<StartImageBuilderCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.photon#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
       break;
     case "IncompatibleImageException":
     case "com.amazonaws.photon#IncompatibleImageException":
-      response = await deserializeAws_json1_1IncompatibleImageExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1IncompatibleImageExceptionResponse(parsedOutput, context);
       break;
     case "InvalidAccountStatusException":
     case "com.amazonaws.photon#InvalidAccountStatusException":
-      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotAvailableException":
     case "com.amazonaws.photon#ResourceNotAvailableException":
-      response = await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4024,52 +3436,44 @@ export async function deserializeAws_json1_1StopFleetCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StopFleetCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1StopFleetResult(data, context);
   const response: StopFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopFleetResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1StopFleetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<StopFleetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.photon#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4082,59 +3486,48 @@ export async function deserializeAws_json1_1StopImageBuilderCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StopImageBuilderCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1StopImageBuilderResult(data, context);
   const response: StopImageBuilderCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopImageBuilderResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1StopImageBuilderCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<StopImageBuilderCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.photon#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.photon#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4147,59 +3540,48 @@ export async function deserializeAws_json1_1TagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1TagResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<TagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidAccountStatusException":
     case "com.amazonaws.photon#InvalidAccountStatusException":
-      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.photon#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4212,45 +3594,40 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UntagResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UntagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4261,64 +3638,50 @@ export async function deserializeAws_json1_1UpdateDirectoryConfigCommand(
   context: __SerdeContext
 ): Promise<UpdateDirectoryConfigCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateDirectoryConfigCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateDirectoryConfigCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateDirectoryConfigResult(data, context);
   const response: UpdateDirectoryConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateDirectoryConfigResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateDirectoryConfigCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateDirectoryConfigCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.photon#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
       break;
     case "ResourceInUseException":
     case "com.amazonaws.photon#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4331,108 +3694,76 @@ export async function deserializeAws_json1_1UpdateFleetCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateFleetCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateFleetResult(data, context);
   const response: UpdateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateFleetResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateFleetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateFleetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.photon#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
       break;
     case "IncompatibleImageException":
     case "com.amazonaws.photon#IncompatibleImageException":
-      response = await deserializeAws_json1_1IncompatibleImageExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1IncompatibleImageExceptionResponse(parsedOutput, context);
       break;
     case "InvalidAccountStatusException":
     case "com.amazonaws.photon#InvalidAccountStatusException":
-      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterCombinationException":
     case "com.amazonaws.photon#InvalidParameterCombinationException":
-      response = await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRoleException":
     case "com.amazonaws.photon#InvalidRoleException":
-      response = await deserializeAws_json1_1InvalidRoleExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.photon#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.photon#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceInUseException":
     case "com.amazonaws.photon#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotAvailableException":
     case "com.amazonaws.photon#ResourceNotAvailableException":
-      response = await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4443,64 +3774,50 @@ export async function deserializeAws_json1_1UpdateImagePermissionsCommand(
   context: __SerdeContext
 ): Promise<UpdateImagePermissionsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateImagePermissionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateImagePermissionsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateImagePermissionsResult(data, context);
   const response: UpdateImagePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateImagePermissionsResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateImagePermissionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateImagePermissionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.photon#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotAvailableException":
     case "com.amazonaws.photon#ResourceNotAvailableException":
-      response = await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotAvailableExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4513,101 +3830,72 @@ export async function deserializeAws_json1_1UpdateStackCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateStackCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateStackResult(data, context);
   const response: UpdateStackCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateStackResult",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateStackCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateStackCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.photon#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
       break;
     case "IncompatibleImageException":
     case "com.amazonaws.photon#IncompatibleImageException":
-      response = await deserializeAws_json1_1IncompatibleImageExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1IncompatibleImageExceptionResponse(parsedOutput, context);
       break;
     case "InvalidAccountStatusException":
     case "com.amazonaws.photon#InvalidAccountStatusException":
-      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidAccountStatusExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterCombinationException":
     case "com.amazonaws.photon#InvalidParameterCombinationException":
-      response = await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRoleException":
     case "com.amazonaws.photon#InvalidRoleException":
-      response = await deserializeAws_json1_1InvalidRoleExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.photon#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "OperationNotPermittedException":
     case "com.amazonaws.photon#OperationNotPermittedException":
-      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceInUseException":
     case "com.amazonaws.photon#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.photon#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4617,15 +3905,12 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
-  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(output.body, context);
   const contents: ConcurrentModificationException = {
     __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -4634,15 +3919,12 @@ const deserializeAws_json1_1IncompatibleImageExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<IncompatibleImageException> => {
-  const deserialized: any = deserializeAws_json1_1IncompatibleImageException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1IncompatibleImageException(output.body, context);
   const contents: IncompatibleImageException = {
     __type: "IncompatibleImageException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -4651,15 +3933,12 @@ const deserializeAws_json1_1InvalidAccountStatusExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidAccountStatusException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidAccountStatusException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidAccountStatusException(output.body, context);
   const contents: InvalidAccountStatusException = {
     __type: "InvalidAccountStatusException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -4668,15 +3947,12 @@ const deserializeAws_json1_1InvalidParameterCombinationExceptionResponse = async
   output: any,
   context: __SerdeContext
 ): Promise<InvalidParameterCombinationException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidParameterCombinationException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidParameterCombinationException(output.body, context);
   const contents: InvalidParameterCombinationException = {
     __type: "InvalidParameterCombinationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -4685,15 +3961,12 @@ const deserializeAws_json1_1InvalidRoleExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidRoleException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidRoleException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidRoleException(output.body, context);
   const contents: InvalidRoleException = {
     __type: "InvalidRoleException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -4702,15 +3975,12 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1LimitExceededException(output.body, context);
   const contents: LimitExceededException = {
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -4719,15 +3989,12 @@ const deserializeAws_json1_1OperationNotPermittedExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<OperationNotPermittedException> => {
-  const deserialized: any = deserializeAws_json1_1OperationNotPermittedException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1OperationNotPermittedException(output.body, context);
   const contents: OperationNotPermittedException = {
     __type: "OperationNotPermittedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -4736,15 +4003,12 @@ const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ResourceAlreadyExistsException> => {
-  const deserialized: any = deserializeAws_json1_1ResourceAlreadyExistsException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceAlreadyExistsException(output.body, context);
   const contents: ResourceAlreadyExistsException = {
     __type: "ResourceAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -4753,15 +4017,12 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
-  const deserialized: any = deserializeAws_json1_1ResourceInUseException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceInUseException(output.body, context);
   const contents: ResourceInUseException = {
     __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -4770,15 +4031,12 @@ const deserializeAws_json1_1ResourceNotAvailableExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ResourceNotAvailableException> => {
-  const deserialized: any = deserializeAws_json1_1ResourceNotAvailableException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceNotAvailableException(output.body, context);
   const contents: ResourceNotAvailableException = {
     __type: "ResourceNotAvailableException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -4787,15 +4045,12 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(output.body, context);
   const contents: ResourceNotFoundException = {
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -4806,13 +4061,13 @@ const serializeAws_json1_1AccessEndpoint = (
 ): any => {
   let bodyParams: any = {};
   if (input.EndpointType !== undefined) {
-    bodyParams["EndpointType"] = input.EndpointType;
+    bodyParams['EndpointType'] = input.EndpointType;
   }
   if (input.VpceId !== undefined) {
-    bodyParams["VpceId"] = input.VpceId;
+    bodyParams['VpceId'] = input.VpceId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AccessEndpointList = (
   input: Array<AccessEndpoint>,
@@ -4821,7 +4076,7 @@ const serializeAws_json1_1AccessEndpointList = (
   return (input || []).map(entry =>
     serializeAws_json1_1AccessEndpoint(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1ApplicationSettings = (
   input: ApplicationSettings,
@@ -4829,20 +4084,22 @@ const serializeAws_json1_1ApplicationSettings = (
 ): any => {
   let bodyParams: any = {};
   if (input.Enabled !== undefined) {
-    bodyParams["Enabled"] = input.Enabled;
+    bodyParams['Enabled'] = input.Enabled;
   }
   if (input.SettingsGroup !== undefined) {
-    bodyParams["SettingsGroup"] = input.SettingsGroup;
+    bodyParams['SettingsGroup'] = input.SettingsGroup;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ArnList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1AssociateFleetRequest = (
   input: AssociateFleetRequest,
@@ -4850,20 +4107,22 @@ const serializeAws_json1_1AssociateFleetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.FleetName !== undefined) {
-    bodyParams["FleetName"] = input.FleetName;
+    bodyParams['FleetName'] = input.FleetName;
   }
   if (input.StackName !== undefined) {
-    bodyParams["StackName"] = input.StackName;
+    bodyParams['StackName'] = input.StackName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AwsAccountIdList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1BatchAssociateUserStackRequest = (
   input: BatchAssociateUserStackRequest,
@@ -4871,15 +4130,10 @@ const serializeAws_json1_1BatchAssociateUserStackRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.UserStackAssociations !== undefined) {
-    bodyParams[
-      "UserStackAssociations"
-    ] = serializeAws_json1_1UserStackAssociationList(
-      input.UserStackAssociations,
-      context
-    );
+    bodyParams['UserStackAssociations'] = serializeAws_json1_1UserStackAssociationList(input.UserStackAssociations, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1BatchDisassociateUserStackRequest = (
   input: BatchDisassociateUserStackRequest,
@@ -4887,15 +4141,10 @@ const serializeAws_json1_1BatchDisassociateUserStackRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.UserStackAssociations !== undefined) {
-    bodyParams[
-      "UserStackAssociations"
-    ] = serializeAws_json1_1UserStackAssociationList(
-      input.UserStackAssociations,
-      context
-    );
+    bodyParams['UserStackAssociations'] = serializeAws_json1_1UserStackAssociationList(input.UserStackAssociations, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ComputeCapacity = (
   input: ComputeCapacity,
@@ -4903,10 +4152,10 @@ const serializeAws_json1_1ComputeCapacity = (
 ): any => {
   let bodyParams: any = {};
   if (input.DesiredInstances !== undefined) {
-    bodyParams["DesiredInstances"] = input.DesiredInstances;
+    bodyParams['DesiredInstances'] = input.DesiredInstances;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CopyImageRequest = (
   input: CopyImageRequest,
@@ -4914,20 +4163,19 @@ const serializeAws_json1_1CopyImageRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.DestinationImageDescription !== undefined) {
-    bodyParams["DestinationImageDescription"] =
-      input.DestinationImageDescription;
+    bodyParams['DestinationImageDescription'] = input.DestinationImageDescription;
   }
   if (input.DestinationImageName !== undefined) {
-    bodyParams["DestinationImageName"] = input.DestinationImageName;
+    bodyParams['DestinationImageName'] = input.DestinationImageName;
   }
   if (input.DestinationRegion !== undefined) {
-    bodyParams["DestinationRegion"] = input.DestinationRegion;
+    bodyParams['DestinationRegion'] = input.DestinationRegion;
   }
   if (input.SourceImageName !== undefined) {
-    bodyParams["SourceImageName"] = input.SourceImageName;
+    bodyParams['SourceImageName'] = input.SourceImageName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateDirectoryConfigRequest = (
   input: CreateDirectoryConfigRequest,
@@ -4935,26 +4183,16 @@ const serializeAws_json1_1CreateDirectoryConfigRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.DirectoryName !== undefined) {
-    bodyParams["DirectoryName"] = input.DirectoryName;
+    bodyParams['DirectoryName'] = input.DirectoryName;
   }
   if (input.OrganizationalUnitDistinguishedNames !== undefined) {
-    bodyParams[
-      "OrganizationalUnitDistinguishedNames"
-    ] = serializeAws_json1_1OrganizationalUnitDistinguishedNamesList(
-      input.OrganizationalUnitDistinguishedNames,
-      context
-    );
+    bodyParams['OrganizationalUnitDistinguishedNames'] = serializeAws_json1_1OrganizationalUnitDistinguishedNamesList(input.OrganizationalUnitDistinguishedNames, context);
   }
   if (input.ServiceAccountCredentials !== undefined) {
-    bodyParams[
-      "ServiceAccountCredentials"
-    ] = serializeAws_json1_1ServiceAccountCredentials(
-      input.ServiceAccountCredentials,
-      context
-    );
+    bodyParams['ServiceAccountCredentials'] = serializeAws_json1_1ServiceAccountCredentials(input.ServiceAccountCredentials, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateFleetRequest = (
   input: CreateFleetRequest,
@@ -4962,66 +4200,55 @@ const serializeAws_json1_1CreateFleetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ComputeCapacity !== undefined) {
-    bodyParams["ComputeCapacity"] = serializeAws_json1_1ComputeCapacity(
-      input.ComputeCapacity,
-      context
-    );
+    bodyParams['ComputeCapacity'] = serializeAws_json1_1ComputeCapacity(input.ComputeCapacity, context);
   }
   if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
+    bodyParams['Description'] = input.Description;
   }
   if (input.DisconnectTimeoutInSeconds !== undefined) {
-    bodyParams["DisconnectTimeoutInSeconds"] = input.DisconnectTimeoutInSeconds;
+    bodyParams['DisconnectTimeoutInSeconds'] = input.DisconnectTimeoutInSeconds;
   }
   if (input.DisplayName !== undefined) {
-    bodyParams["DisplayName"] = input.DisplayName;
+    bodyParams['DisplayName'] = input.DisplayName;
   }
   if (input.DomainJoinInfo !== undefined) {
-    bodyParams["DomainJoinInfo"] = serializeAws_json1_1DomainJoinInfo(
-      input.DomainJoinInfo,
-      context
-    );
+    bodyParams['DomainJoinInfo'] = serializeAws_json1_1DomainJoinInfo(input.DomainJoinInfo, context);
   }
   if (input.EnableDefaultInternetAccess !== undefined) {
-    bodyParams["EnableDefaultInternetAccess"] =
-      input.EnableDefaultInternetAccess;
+    bodyParams['EnableDefaultInternetAccess'] = input.EnableDefaultInternetAccess;
   }
   if (input.FleetType !== undefined) {
-    bodyParams["FleetType"] = input.FleetType;
+    bodyParams['FleetType'] = input.FleetType;
   }
   if (input.IamRoleArn !== undefined) {
-    bodyParams["IamRoleArn"] = input.IamRoleArn;
+    bodyParams['IamRoleArn'] = input.IamRoleArn;
   }
   if (input.IdleDisconnectTimeoutInSeconds !== undefined) {
-    bodyParams["IdleDisconnectTimeoutInSeconds"] =
-      input.IdleDisconnectTimeoutInSeconds;
+    bodyParams['IdleDisconnectTimeoutInSeconds'] = input.IdleDisconnectTimeoutInSeconds;
   }
   if (input.ImageArn !== undefined) {
-    bodyParams["ImageArn"] = input.ImageArn;
+    bodyParams['ImageArn'] = input.ImageArn;
   }
   if (input.ImageName !== undefined) {
-    bodyParams["ImageName"] = input.ImageName;
+    bodyParams['ImageName'] = input.ImageName;
   }
   if (input.InstanceType !== undefined) {
-    bodyParams["InstanceType"] = input.InstanceType;
+    bodyParams['InstanceType'] = input.InstanceType;
   }
   if (input.MaxUserDurationInSeconds !== undefined) {
-    bodyParams["MaxUserDurationInSeconds"] = input.MaxUserDurationInSeconds;
+    bodyParams['MaxUserDurationInSeconds'] = input.MaxUserDurationInSeconds;
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
+    bodyParams['Tags'] = serializeAws_json1_1Tags(input.Tags, context);
   }
   if (input.VpcConfig !== undefined) {
-    bodyParams["VpcConfig"] = serializeAws_json1_1VpcConfig(
-      input.VpcConfig,
-      context
-    );
+    bodyParams['VpcConfig'] = serializeAws_json1_1VpcConfig(input.VpcConfig, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateImageBuilderRequest = (
   input: CreateImageBuilderRequest,
@@ -5029,56 +4256,46 @@ const serializeAws_json1_1CreateImageBuilderRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AccessEndpoints !== undefined) {
-    bodyParams["AccessEndpoints"] = serializeAws_json1_1AccessEndpointList(
-      input.AccessEndpoints,
-      context
-    );
+    bodyParams['AccessEndpoints'] = serializeAws_json1_1AccessEndpointList(input.AccessEndpoints, context);
   }
   if (input.AppstreamAgentVersion !== undefined) {
-    bodyParams["AppstreamAgentVersion"] = input.AppstreamAgentVersion;
+    bodyParams['AppstreamAgentVersion'] = input.AppstreamAgentVersion;
   }
   if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
+    bodyParams['Description'] = input.Description;
   }
   if (input.DisplayName !== undefined) {
-    bodyParams["DisplayName"] = input.DisplayName;
+    bodyParams['DisplayName'] = input.DisplayName;
   }
   if (input.DomainJoinInfo !== undefined) {
-    bodyParams["DomainJoinInfo"] = serializeAws_json1_1DomainJoinInfo(
-      input.DomainJoinInfo,
-      context
-    );
+    bodyParams['DomainJoinInfo'] = serializeAws_json1_1DomainJoinInfo(input.DomainJoinInfo, context);
   }
   if (input.EnableDefaultInternetAccess !== undefined) {
-    bodyParams["EnableDefaultInternetAccess"] =
-      input.EnableDefaultInternetAccess;
+    bodyParams['EnableDefaultInternetAccess'] = input.EnableDefaultInternetAccess;
   }
   if (input.IamRoleArn !== undefined) {
-    bodyParams["IamRoleArn"] = input.IamRoleArn;
+    bodyParams['IamRoleArn'] = input.IamRoleArn;
   }
   if (input.ImageArn !== undefined) {
-    bodyParams["ImageArn"] = input.ImageArn;
+    bodyParams['ImageArn'] = input.ImageArn;
   }
   if (input.ImageName !== undefined) {
-    bodyParams["ImageName"] = input.ImageName;
+    bodyParams['ImageName'] = input.ImageName;
   }
   if (input.InstanceType !== undefined) {
-    bodyParams["InstanceType"] = input.InstanceType;
+    bodyParams['InstanceType'] = input.InstanceType;
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
+    bodyParams['Tags'] = serializeAws_json1_1Tags(input.Tags, context);
   }
   if (input.VpcConfig !== undefined) {
-    bodyParams["VpcConfig"] = serializeAws_json1_1VpcConfig(
-      input.VpcConfig,
-      context
-    );
+    bodyParams['VpcConfig'] = serializeAws_json1_1VpcConfig(input.VpcConfig, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateImageBuilderStreamingURLRequest = (
   input: CreateImageBuilderStreamingURLRequest,
@@ -5086,13 +4303,13 @@ const serializeAws_json1_1CreateImageBuilderStreamingURLRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.Validity !== undefined) {
-    bodyParams["Validity"] = input.Validity;
+    bodyParams['Validity'] = input.Validity;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateStackRequest = (
   input: CreateStackRequest,
@@ -5100,55 +4317,40 @@ const serializeAws_json1_1CreateStackRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AccessEndpoints !== undefined) {
-    bodyParams["AccessEndpoints"] = serializeAws_json1_1AccessEndpointList(
-      input.AccessEndpoints,
-      context
-    );
+    bodyParams['AccessEndpoints'] = serializeAws_json1_1AccessEndpointList(input.AccessEndpoints, context);
   }
   if (input.ApplicationSettings !== undefined) {
-    bodyParams["ApplicationSettings"] = serializeAws_json1_1ApplicationSettings(
-      input.ApplicationSettings,
-      context
-    );
+    bodyParams['ApplicationSettings'] = serializeAws_json1_1ApplicationSettings(input.ApplicationSettings, context);
   }
   if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
+    bodyParams['Description'] = input.Description;
   }
   if (input.DisplayName !== undefined) {
-    bodyParams["DisplayName"] = input.DisplayName;
+    bodyParams['DisplayName'] = input.DisplayName;
   }
   if (input.EmbedHostDomains !== undefined) {
-    bodyParams["EmbedHostDomains"] = serializeAws_json1_1EmbedHostDomains(
-      input.EmbedHostDomains,
-      context
-    );
+    bodyParams['EmbedHostDomains'] = serializeAws_json1_1EmbedHostDomains(input.EmbedHostDomains, context);
   }
   if (input.FeedbackURL !== undefined) {
-    bodyParams["FeedbackURL"] = input.FeedbackURL;
+    bodyParams['FeedbackURL'] = input.FeedbackURL;
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.RedirectURL !== undefined) {
-    bodyParams["RedirectURL"] = input.RedirectURL;
+    bodyParams['RedirectURL'] = input.RedirectURL;
   }
   if (input.StorageConnectors !== undefined) {
-    bodyParams["StorageConnectors"] = serializeAws_json1_1StorageConnectorList(
-      input.StorageConnectors,
-      context
-    );
+    bodyParams['StorageConnectors'] = serializeAws_json1_1StorageConnectorList(input.StorageConnectors, context);
   }
   if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
+    bodyParams['Tags'] = serializeAws_json1_1Tags(input.Tags, context);
   }
   if (input.UserSettings !== undefined) {
-    bodyParams["UserSettings"] = serializeAws_json1_1UserSettingList(
-      input.UserSettings,
-      context
-    );
+    bodyParams['UserSettings'] = serializeAws_json1_1UserSettingList(input.UserSettings, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateStreamingURLRequest = (
   input: CreateStreamingURLRequest,
@@ -5156,25 +4358,25 @@ const serializeAws_json1_1CreateStreamingURLRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ApplicationId !== undefined) {
-    bodyParams["ApplicationId"] = input.ApplicationId;
+    bodyParams['ApplicationId'] = input.ApplicationId;
   }
   if (input.FleetName !== undefined) {
-    bodyParams["FleetName"] = input.FleetName;
+    bodyParams['FleetName'] = input.FleetName;
   }
   if (input.SessionContext !== undefined) {
-    bodyParams["SessionContext"] = input.SessionContext;
+    bodyParams['SessionContext'] = input.SessionContext;
   }
   if (input.StackName !== undefined) {
-    bodyParams["StackName"] = input.StackName;
+    bodyParams['StackName'] = input.StackName;
   }
   if (input.UserId !== undefined) {
-    bodyParams["UserId"] = input.UserId;
+    bodyParams['UserId'] = input.UserId;
   }
   if (input.Validity !== undefined) {
-    bodyParams["Validity"] = input.Validity;
+    bodyParams['Validity'] = input.Validity;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateUsageReportSubscriptionRequest = (
   input: CreateUsageReportSubscriptionRequest,
@@ -5182,7 +4384,7 @@ const serializeAws_json1_1CreateUsageReportSubscriptionRequest = (
 ): any => {
   let bodyParams: any = {};
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateUserRequest = (
   input: CreateUserRequest,
@@ -5190,22 +4392,22 @@ const serializeAws_json1_1CreateUserRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AuthenticationType !== undefined) {
-    bodyParams["AuthenticationType"] = input.AuthenticationType;
+    bodyParams['AuthenticationType'] = input.AuthenticationType;
   }
   if (input.FirstName !== undefined) {
-    bodyParams["FirstName"] = input.FirstName;
+    bodyParams['FirstName'] = input.FirstName;
   }
   if (input.LastName !== undefined) {
-    bodyParams["LastName"] = input.LastName;
+    bodyParams['LastName'] = input.LastName;
   }
   if (input.MessageAction !== undefined) {
-    bodyParams["MessageAction"] = input.MessageAction;
+    bodyParams['MessageAction'] = input.MessageAction;
   }
   if (input.UserName !== undefined) {
-    bodyParams["UserName"] = input.UserName;
+    bodyParams['UserName'] = input.UserName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteDirectoryConfigRequest = (
   input: DeleteDirectoryConfigRequest,
@@ -5213,10 +4415,10 @@ const serializeAws_json1_1DeleteDirectoryConfigRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.DirectoryName !== undefined) {
-    bodyParams["DirectoryName"] = input.DirectoryName;
+    bodyParams['DirectoryName'] = input.DirectoryName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteFleetRequest = (
   input: DeleteFleetRequest,
@@ -5224,10 +4426,10 @@ const serializeAws_json1_1DeleteFleetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteImageBuilderRequest = (
   input: DeleteImageBuilderRequest,
@@ -5235,10 +4437,10 @@ const serializeAws_json1_1DeleteImageBuilderRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteImagePermissionsRequest = (
   input: DeleteImagePermissionsRequest,
@@ -5246,13 +4448,13 @@ const serializeAws_json1_1DeleteImagePermissionsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.SharedAccountId !== undefined) {
-    bodyParams["SharedAccountId"] = input.SharedAccountId;
+    bodyParams['SharedAccountId'] = input.SharedAccountId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteImageRequest = (
   input: DeleteImageRequest,
@@ -5260,10 +4462,10 @@ const serializeAws_json1_1DeleteImageRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteStackRequest = (
   input: DeleteStackRequest,
@@ -5271,10 +4473,10 @@ const serializeAws_json1_1DeleteStackRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteUsageReportSubscriptionRequest = (
   input: DeleteUsageReportSubscriptionRequest,
@@ -5282,7 +4484,7 @@ const serializeAws_json1_1DeleteUsageReportSubscriptionRequest = (
 ): any => {
   let bodyParams: any = {};
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteUserRequest = (
   input: DeleteUserRequest,
@@ -5290,13 +4492,13 @@ const serializeAws_json1_1DeleteUserRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AuthenticationType !== undefined) {
-    bodyParams["AuthenticationType"] = input.AuthenticationType;
+    bodyParams['AuthenticationType'] = input.AuthenticationType;
   }
   if (input.UserName !== undefined) {
-    bodyParams["UserName"] = input.UserName;
+    bodyParams['UserName'] = input.UserName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeDirectoryConfigsRequest = (
   input: DescribeDirectoryConfigsRequest,
@@ -5304,19 +4506,16 @@ const serializeAws_json1_1DescribeDirectoryConfigsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.DirectoryNames !== undefined) {
-    bodyParams["DirectoryNames"] = serializeAws_json1_1DirectoryNameList(
-      input.DirectoryNames,
-      context
-    );
+    bodyParams['DirectoryNames'] = serializeAws_json1_1DirectoryNameList(input.DirectoryNames, context);
   }
   if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
+    bodyParams['MaxResults'] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeFleetsRequest = (
   input: DescribeFleetsRequest,
@@ -5324,13 +4523,13 @@ const serializeAws_json1_1DescribeFleetsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Names !== undefined) {
-    bodyParams["Names"] = serializeAws_json1_1StringList(input.Names, context);
+    bodyParams['Names'] = serializeAws_json1_1StringList(input.Names, context);
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeImageBuildersRequest = (
   input: DescribeImageBuildersRequest,
@@ -5338,16 +4537,16 @@ const serializeAws_json1_1DescribeImageBuildersRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
+    bodyParams['MaxResults'] = input.MaxResults;
   }
   if (input.Names !== undefined) {
-    bodyParams["Names"] = serializeAws_json1_1StringList(input.Names, context);
+    bodyParams['Names'] = serializeAws_json1_1StringList(input.Names, context);
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeImagePermissionsRequest = (
   input: DescribeImagePermissionsRequest,
@@ -5355,22 +4554,19 @@ const serializeAws_json1_1DescribeImagePermissionsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
+    bodyParams['MaxResults'] = input.MaxResults;
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.SharedAwsAccountIds !== undefined) {
-    bodyParams["SharedAwsAccountIds"] = serializeAws_json1_1AwsAccountIdList(
-      input.SharedAwsAccountIds,
-      context
-    );
+    bodyParams['SharedAwsAccountIds'] = serializeAws_json1_1AwsAccountIdList(input.SharedAwsAccountIds, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeImagesRequest = (
   input: DescribeImagesRequest,
@@ -5378,22 +4574,22 @@ const serializeAws_json1_1DescribeImagesRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Arns !== undefined) {
-    bodyParams["Arns"] = serializeAws_json1_1ArnList(input.Arns, context);
+    bodyParams['Arns'] = serializeAws_json1_1ArnList(input.Arns, context);
   }
   if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
+    bodyParams['MaxResults'] = input.MaxResults;
   }
   if (input.Names !== undefined) {
-    bodyParams["Names"] = serializeAws_json1_1StringList(input.Names, context);
+    bodyParams['Names'] = serializeAws_json1_1StringList(input.Names, context);
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
+    bodyParams['Type'] = input.Type;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeSessionsRequest = (
   input: DescribeSessionsRequest,
@@ -5401,25 +4597,25 @@ const serializeAws_json1_1DescribeSessionsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AuthenticationType !== undefined) {
-    bodyParams["AuthenticationType"] = input.AuthenticationType;
+    bodyParams['AuthenticationType'] = input.AuthenticationType;
   }
   if (input.FleetName !== undefined) {
-    bodyParams["FleetName"] = input.FleetName;
+    bodyParams['FleetName'] = input.FleetName;
   }
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.StackName !== undefined) {
-    bodyParams["StackName"] = input.StackName;
+    bodyParams['StackName'] = input.StackName;
   }
   if (input.UserId !== undefined) {
-    bodyParams["UserId"] = input.UserId;
+    bodyParams['UserId'] = input.UserId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeStacksRequest = (
   input: DescribeStacksRequest,
@@ -5427,13 +4623,13 @@ const serializeAws_json1_1DescribeStacksRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Names !== undefined) {
-    bodyParams["Names"] = serializeAws_json1_1StringList(input.Names, context);
+    bodyParams['Names'] = serializeAws_json1_1StringList(input.Names, context);
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeUsageReportSubscriptionsRequest = (
   input: DescribeUsageReportSubscriptionsRequest,
@@ -5441,13 +4637,13 @@ const serializeAws_json1_1DescribeUsageReportSubscriptionsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
+    bodyParams['MaxResults'] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeUserStackAssociationsRequest = (
   input: DescribeUserStackAssociationsRequest,
@@ -5455,22 +4651,22 @@ const serializeAws_json1_1DescribeUserStackAssociationsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AuthenticationType !== undefined) {
-    bodyParams["AuthenticationType"] = input.AuthenticationType;
+    bodyParams['AuthenticationType'] = input.AuthenticationType;
   }
   if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
+    bodyParams['MaxResults'] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.StackName !== undefined) {
-    bodyParams["StackName"] = input.StackName;
+    bodyParams['StackName'] = input.StackName;
   }
   if (input.UserName !== undefined) {
-    bodyParams["UserName"] = input.UserName;
+    bodyParams['UserName'] = input.UserName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeUsersRequest = (
   input: DescribeUsersRequest,
@@ -5478,23 +4674,25 @@ const serializeAws_json1_1DescribeUsersRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AuthenticationType !== undefined) {
-    bodyParams["AuthenticationType"] = input.AuthenticationType;
+    bodyParams['AuthenticationType'] = input.AuthenticationType;
   }
   if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
+    bodyParams['MaxResults'] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DirectoryNameList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1DisableUserRequest = (
   input: DisableUserRequest,
@@ -5502,13 +4700,13 @@ const serializeAws_json1_1DisableUserRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AuthenticationType !== undefined) {
-    bodyParams["AuthenticationType"] = input.AuthenticationType;
+    bodyParams['AuthenticationType'] = input.AuthenticationType;
   }
   if (input.UserName !== undefined) {
-    bodyParams["UserName"] = input.UserName;
+    bodyParams['UserName'] = input.UserName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DisassociateFleetRequest = (
   input: DisassociateFleetRequest,
@@ -5516,13 +4714,13 @@ const serializeAws_json1_1DisassociateFleetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.FleetName !== undefined) {
-    bodyParams["FleetName"] = input.FleetName;
+    bodyParams['FleetName'] = input.FleetName;
   }
   if (input.StackName !== undefined) {
-    bodyParams["StackName"] = input.StackName;
+    bodyParams['StackName'] = input.StackName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DomainJoinInfo = (
   input: DomainJoinInfo,
@@ -5530,28 +4728,31 @@ const serializeAws_json1_1DomainJoinInfo = (
 ): any => {
   let bodyParams: any = {};
   if (input.DirectoryName !== undefined) {
-    bodyParams["DirectoryName"] = input.DirectoryName;
+    bodyParams['DirectoryName'] = input.DirectoryName;
   }
   if (input.OrganizationalUnitDistinguishedName !== undefined) {
-    bodyParams["OrganizationalUnitDistinguishedName"] =
-      input.OrganizationalUnitDistinguishedName;
+    bodyParams['OrganizationalUnitDistinguishedName'] = input.OrganizationalUnitDistinguishedName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DomainList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1EmbedHostDomains = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1EnableUserRequest = (
   input: EnableUserRequest,
@@ -5559,13 +4760,13 @@ const serializeAws_json1_1EnableUserRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AuthenticationType !== undefined) {
-    bodyParams["AuthenticationType"] = input.AuthenticationType;
+    bodyParams['AuthenticationType'] = input.AuthenticationType;
   }
   if (input.UserName !== undefined) {
-    bodyParams["UserName"] = input.UserName;
+    bodyParams['UserName'] = input.UserName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ExpireSessionRequest = (
   input: ExpireSessionRequest,
@@ -5573,17 +4774,19 @@ const serializeAws_json1_1ExpireSessionRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.SessionId !== undefined) {
-    bodyParams["SessionId"] = input.SessionId;
+    bodyParams['SessionId'] = input.SessionId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1FleetAttributes = (
   input: Array<FleetAttribute | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1ImagePermissions = (
   input: ImagePermissions,
@@ -5591,13 +4794,13 @@ const serializeAws_json1_1ImagePermissions = (
 ): any => {
   let bodyParams: any = {};
   if (input.allowFleet !== undefined) {
-    bodyParams["allowFleet"] = input.allowFleet;
+    bodyParams['allowFleet'] = input.allowFleet;
   }
   if (input.allowImageBuilder !== undefined) {
-    bodyParams["allowImageBuilder"] = input.allowImageBuilder;
+    bodyParams['allowImageBuilder'] = input.allowImageBuilder;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListAssociatedFleetsRequest = (
   input: ListAssociatedFleetsRequest,
@@ -5605,13 +4808,13 @@ const serializeAws_json1_1ListAssociatedFleetsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.StackName !== undefined) {
-    bodyParams["StackName"] = input.StackName;
+    bodyParams['StackName'] = input.StackName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListAssociatedStacksRequest = (
   input: ListAssociatedStacksRequest,
@@ -5619,13 +4822,13 @@ const serializeAws_json1_1ListAssociatedStacksRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.FleetName !== undefined) {
-    bodyParams["FleetName"] = input.FleetName;
+    bodyParams['FleetName'] = input.FleetName;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
   input: ListTagsForResourceRequest,
@@ -5633,24 +4836,28 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
-    bodyParams["ResourceArn"] = input.ResourceArn;
+    bodyParams['ResourceArn'] = input.ResourceArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1OrganizationalUnitDistinguishedNamesList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1SecurityGroupIdList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1ServiceAccountCredentials = (
   input: ServiceAccountCredentials,
@@ -5658,20 +4865,22 @@ const serializeAws_json1_1ServiceAccountCredentials = (
 ): any => {
   let bodyParams: any = {};
   if (input.AccountName !== undefined) {
-    bodyParams["AccountName"] = input.AccountName;
+    bodyParams['AccountName'] = input.AccountName;
   }
   if (input.AccountPassword !== undefined) {
-    bodyParams["AccountPassword"] = input.AccountPassword;
+    bodyParams['AccountPassword'] = input.AccountPassword;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1StackAttributes = (
   input: Array<StackAttribute | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1StartFleetRequest = (
   input: StartFleetRequest,
@@ -5679,10 +4888,10 @@ const serializeAws_json1_1StartFleetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1StartImageBuilderRequest = (
   input: StartImageBuilderRequest,
@@ -5690,13 +4899,13 @@ const serializeAws_json1_1StartImageBuilderRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AppstreamAgentVersion !== undefined) {
-    bodyParams["AppstreamAgentVersion"] = input.AppstreamAgentVersion;
+    bodyParams['AppstreamAgentVersion'] = input.AppstreamAgentVersion;
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1StopFleetRequest = (
   input: StopFleetRequest,
@@ -5704,10 +4913,10 @@ const serializeAws_json1_1StopFleetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1StopImageBuilderRequest = (
   input: StopImageBuilderRequest,
@@ -5715,10 +4924,10 @@ const serializeAws_json1_1StopImageBuilderRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1StorageConnector = (
   input: StorageConnector,
@@ -5726,19 +4935,16 @@ const serializeAws_json1_1StorageConnector = (
 ): any => {
   let bodyParams: any = {};
   if (input.ConnectorType !== undefined) {
-    bodyParams["ConnectorType"] = input.ConnectorType;
+    bodyParams['ConnectorType'] = input.ConnectorType;
   }
   if (input.Domains !== undefined) {
-    bodyParams["Domains"] = serializeAws_json1_1DomainList(
-      input.Domains,
-      context
-    );
+    bodyParams['Domains'] = serializeAws_json1_1DomainList(input.Domains, context);
   }
   if (input.ResourceIdentifier !== undefined) {
-    bodyParams["ResourceIdentifier"] = input.ResourceIdentifier;
+    bodyParams['ResourceIdentifier'] = input.ResourceIdentifier;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1StorageConnectorList = (
   input: Array<StorageConnector>,
@@ -5747,28 +4953,34 @@ const serializeAws_json1_1StorageConnectorList = (
   return (input || []).map(entry =>
     serializeAws_json1_1StorageConnector(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1StringList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1SubnetIdList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1TagKeyList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1TagResourceRequest = (
   input: TagResourceRequest,
@@ -5776,13 +4988,13 @@ const serializeAws_json1_1TagResourceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
-    bodyParams["ResourceArn"] = input.ResourceArn;
+    bodyParams['ResourceArn'] = input.ResourceArn;
   }
   if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
+    bodyParams['Tags'] = serializeAws_json1_1Tags(input.Tags, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1Tags = (
   input: { [key: string]: string },
@@ -5793,7 +5005,7 @@ const serializeAws_json1_1Tags = (
     mapParams[key] = input[key];
   });
   return mapParams;
-};
+}
 
 const serializeAws_json1_1UntagResourceRequest = (
   input: UntagResourceRequest,
@@ -5801,16 +5013,13 @@ const serializeAws_json1_1UntagResourceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
-    bodyParams["ResourceArn"] = input.ResourceArn;
+    bodyParams['ResourceArn'] = input.ResourceArn;
   }
   if (input.TagKeys !== undefined) {
-    bodyParams["TagKeys"] = serializeAws_json1_1TagKeyList(
-      input.TagKeys,
-      context
-    );
+    bodyParams['TagKeys'] = serializeAws_json1_1TagKeyList(input.TagKeys, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateDirectoryConfigRequest = (
   input: UpdateDirectoryConfigRequest,
@@ -5818,26 +5027,16 @@ const serializeAws_json1_1UpdateDirectoryConfigRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.DirectoryName !== undefined) {
-    bodyParams["DirectoryName"] = input.DirectoryName;
+    bodyParams['DirectoryName'] = input.DirectoryName;
   }
   if (input.OrganizationalUnitDistinguishedNames !== undefined) {
-    bodyParams[
-      "OrganizationalUnitDistinguishedNames"
-    ] = serializeAws_json1_1OrganizationalUnitDistinguishedNamesList(
-      input.OrganizationalUnitDistinguishedNames,
-      context
-    );
+    bodyParams['OrganizationalUnitDistinguishedNames'] = serializeAws_json1_1OrganizationalUnitDistinguishedNamesList(input.OrganizationalUnitDistinguishedNames, context);
   }
   if (input.ServiceAccountCredentials !== undefined) {
-    bodyParams[
-      "ServiceAccountCredentials"
-    ] = serializeAws_json1_1ServiceAccountCredentials(
-      input.ServiceAccountCredentials,
-      context
-    );
+    bodyParams['ServiceAccountCredentials'] = serializeAws_json1_1ServiceAccountCredentials(input.ServiceAccountCredentials, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateFleetRequest = (
   input: UpdateFleetRequest,
@@ -5845,69 +5044,55 @@ const serializeAws_json1_1UpdateFleetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AttributesToDelete !== undefined) {
-    bodyParams["AttributesToDelete"] = serializeAws_json1_1FleetAttributes(
-      input.AttributesToDelete,
-      context
-    );
+    bodyParams['AttributesToDelete'] = serializeAws_json1_1FleetAttributes(input.AttributesToDelete, context);
   }
   if (input.ComputeCapacity !== undefined) {
-    bodyParams["ComputeCapacity"] = serializeAws_json1_1ComputeCapacity(
-      input.ComputeCapacity,
-      context
-    );
+    bodyParams['ComputeCapacity'] = serializeAws_json1_1ComputeCapacity(input.ComputeCapacity, context);
   }
   if (input.DeleteVpcConfig !== undefined) {
-    bodyParams["DeleteVpcConfig"] = input.DeleteVpcConfig;
+    bodyParams['DeleteVpcConfig'] = input.DeleteVpcConfig;
   }
   if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
+    bodyParams['Description'] = input.Description;
   }
   if (input.DisconnectTimeoutInSeconds !== undefined) {
-    bodyParams["DisconnectTimeoutInSeconds"] = input.DisconnectTimeoutInSeconds;
+    bodyParams['DisconnectTimeoutInSeconds'] = input.DisconnectTimeoutInSeconds;
   }
   if (input.DisplayName !== undefined) {
-    bodyParams["DisplayName"] = input.DisplayName;
+    bodyParams['DisplayName'] = input.DisplayName;
   }
   if (input.DomainJoinInfo !== undefined) {
-    bodyParams["DomainJoinInfo"] = serializeAws_json1_1DomainJoinInfo(
-      input.DomainJoinInfo,
-      context
-    );
+    bodyParams['DomainJoinInfo'] = serializeAws_json1_1DomainJoinInfo(input.DomainJoinInfo, context);
   }
   if (input.EnableDefaultInternetAccess !== undefined) {
-    bodyParams["EnableDefaultInternetAccess"] =
-      input.EnableDefaultInternetAccess;
+    bodyParams['EnableDefaultInternetAccess'] = input.EnableDefaultInternetAccess;
   }
   if (input.IamRoleArn !== undefined) {
-    bodyParams["IamRoleArn"] = input.IamRoleArn;
+    bodyParams['IamRoleArn'] = input.IamRoleArn;
   }
   if (input.IdleDisconnectTimeoutInSeconds !== undefined) {
-    bodyParams["IdleDisconnectTimeoutInSeconds"] =
-      input.IdleDisconnectTimeoutInSeconds;
+    bodyParams['IdleDisconnectTimeoutInSeconds'] = input.IdleDisconnectTimeoutInSeconds;
   }
   if (input.ImageArn !== undefined) {
-    bodyParams["ImageArn"] = input.ImageArn;
+    bodyParams['ImageArn'] = input.ImageArn;
   }
   if (input.ImageName !== undefined) {
-    bodyParams["ImageName"] = input.ImageName;
+    bodyParams['ImageName'] = input.ImageName;
   }
   if (input.InstanceType !== undefined) {
-    bodyParams["InstanceType"] = input.InstanceType;
+    bodyParams['InstanceType'] = input.InstanceType;
   }
   if (input.MaxUserDurationInSeconds !== undefined) {
-    bodyParams["MaxUserDurationInSeconds"] = input.MaxUserDurationInSeconds;
+    bodyParams['MaxUserDurationInSeconds'] = input.MaxUserDurationInSeconds;
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.VpcConfig !== undefined) {
-    bodyParams["VpcConfig"] = serializeAws_json1_1VpcConfig(
-      input.VpcConfig,
-      context
-    );
+    bodyParams['VpcConfig'] = serializeAws_json1_1VpcConfig(input.VpcConfig, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateImagePermissionsRequest = (
   input: UpdateImagePermissionsRequest,
@@ -5915,19 +5100,16 @@ const serializeAws_json1_1UpdateImagePermissionsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ImagePermissions !== undefined) {
-    bodyParams["ImagePermissions"] = serializeAws_json1_1ImagePermissions(
-      input.ImagePermissions,
-      context
-    );
+    bodyParams['ImagePermissions'] = serializeAws_json1_1ImagePermissions(input.ImagePermissions, context);
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.SharedAccountId !== undefined) {
-    bodyParams["SharedAccountId"] = input.SharedAccountId;
+    bodyParams['SharedAccountId'] = input.SharedAccountId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateStackRequest = (
   input: UpdateStackRequest,
@@ -5935,61 +5117,43 @@ const serializeAws_json1_1UpdateStackRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AccessEndpoints !== undefined) {
-    bodyParams["AccessEndpoints"] = serializeAws_json1_1AccessEndpointList(
-      input.AccessEndpoints,
-      context
-    );
+    bodyParams['AccessEndpoints'] = serializeAws_json1_1AccessEndpointList(input.AccessEndpoints, context);
   }
   if (input.ApplicationSettings !== undefined) {
-    bodyParams["ApplicationSettings"] = serializeAws_json1_1ApplicationSettings(
-      input.ApplicationSettings,
-      context
-    );
+    bodyParams['ApplicationSettings'] = serializeAws_json1_1ApplicationSettings(input.ApplicationSettings, context);
   }
   if (input.AttributesToDelete !== undefined) {
-    bodyParams["AttributesToDelete"] = serializeAws_json1_1StackAttributes(
-      input.AttributesToDelete,
-      context
-    );
+    bodyParams['AttributesToDelete'] = serializeAws_json1_1StackAttributes(input.AttributesToDelete, context);
   }
   if (input.DeleteStorageConnectors !== undefined) {
-    bodyParams["DeleteStorageConnectors"] = input.DeleteStorageConnectors;
+    bodyParams['DeleteStorageConnectors'] = input.DeleteStorageConnectors;
   }
   if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
+    bodyParams['Description'] = input.Description;
   }
   if (input.DisplayName !== undefined) {
-    bodyParams["DisplayName"] = input.DisplayName;
+    bodyParams['DisplayName'] = input.DisplayName;
   }
   if (input.EmbedHostDomains !== undefined) {
-    bodyParams["EmbedHostDomains"] = serializeAws_json1_1EmbedHostDomains(
-      input.EmbedHostDomains,
-      context
-    );
+    bodyParams['EmbedHostDomains'] = serializeAws_json1_1EmbedHostDomains(input.EmbedHostDomains, context);
   }
   if (input.FeedbackURL !== undefined) {
-    bodyParams["FeedbackURL"] = input.FeedbackURL;
+    bodyParams['FeedbackURL'] = input.FeedbackURL;
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.RedirectURL !== undefined) {
-    bodyParams["RedirectURL"] = input.RedirectURL;
+    bodyParams['RedirectURL'] = input.RedirectURL;
   }
   if (input.StorageConnectors !== undefined) {
-    bodyParams["StorageConnectors"] = serializeAws_json1_1StorageConnectorList(
-      input.StorageConnectors,
-      context
-    );
+    bodyParams['StorageConnectors'] = serializeAws_json1_1StorageConnectorList(input.StorageConnectors, context);
   }
   if (input.UserSettings !== undefined) {
-    bodyParams["UserSettings"] = serializeAws_json1_1UserSettingList(
-      input.UserSettings,
-      context
-    );
+    bodyParams['UserSettings'] = serializeAws_json1_1UserSettingList(input.UserSettings, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UserSetting = (
   input: UserSetting,
@@ -5997,13 +5161,13 @@ const serializeAws_json1_1UserSetting = (
 ): any => {
   let bodyParams: any = {};
   if (input.Action !== undefined) {
-    bodyParams["Action"] = input.Action;
+    bodyParams['Action'] = input.Action;
   }
   if (input.Permission !== undefined) {
-    bodyParams["Permission"] = input.Permission;
+    bodyParams['Permission'] = input.Permission;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UserSettingList = (
   input: Array<UserSetting>,
@@ -6012,7 +5176,7 @@ const serializeAws_json1_1UserSettingList = (
   return (input || []).map(entry =>
     serializeAws_json1_1UserSetting(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1UserStackAssociation = (
   input: UserStackAssociation,
@@ -6020,19 +5184,19 @@ const serializeAws_json1_1UserStackAssociation = (
 ): any => {
   let bodyParams: any = {};
   if (input.AuthenticationType !== undefined) {
-    bodyParams["AuthenticationType"] = input.AuthenticationType;
+    bodyParams['AuthenticationType'] = input.AuthenticationType;
   }
   if (input.SendEmailNotification !== undefined) {
-    bodyParams["SendEmailNotification"] = input.SendEmailNotification;
+    bodyParams['SendEmailNotification'] = input.SendEmailNotification;
   }
   if (input.StackName !== undefined) {
-    bodyParams["StackName"] = input.StackName;
+    bodyParams['StackName'] = input.StackName;
   }
   if (input.UserName !== undefined) {
-    bodyParams["UserName"] = input.UserName;
+    bodyParams['UserName'] = input.UserName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UserStackAssociationList = (
   input: Array<UserStackAssociation>,
@@ -6041,7 +5205,7 @@ const serializeAws_json1_1UserStackAssociationList = (
   return (input || []).map(entry =>
     serializeAws_json1_1UserStackAssociation(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1VpcConfig = (
   input: VpcConfig,
@@ -6049,19 +5213,13 @@ const serializeAws_json1_1VpcConfig = (
 ): any => {
   let bodyParams: any = {};
   if (input.SecurityGroupIds !== undefined) {
-    bodyParams["SecurityGroupIds"] = serializeAws_json1_1SecurityGroupIdList(
-      input.SecurityGroupIds,
-      context
-    );
+    bodyParams['SecurityGroupIds'] = serializeAws_json1_1SecurityGroupIdList(input.SecurityGroupIds, context);
   }
   if (input.SubnetIds !== undefined) {
-    bodyParams["SubnetIds"] = serializeAws_json1_1SubnetIdList(
-      input.SubnetIds,
-      context
-    );
+    bodyParams['SubnetIds'] = serializeAws_json1_1SubnetIdList(input.SubnetIds, context);
   }
   return bodyParams;
-};
+}
 
 const deserializeAws_json1_1AccessEndpoint = (
   output: any,
@@ -6070,7 +5228,7 @@ const deserializeAws_json1_1AccessEndpoint = (
   let contents: any = {
     __type: "AccessEndpoint",
     EndpointType: undefined,
-    VpceId: undefined
+    VpceId: undefined,
   };
   if (output.EndpointType !== undefined) {
     contents.EndpointType = output.EndpointType;
@@ -6079,7 +5237,7 @@ const deserializeAws_json1_1AccessEndpoint = (
     contents.VpceId = output.VpceId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AccessEndpointList = (
   output: any,
@@ -6088,7 +5246,7 @@ const deserializeAws_json1_1AccessEndpointList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AccessEndpoint(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1Application = (
   output: any,
@@ -6102,7 +5260,7 @@ const deserializeAws_json1_1Application = (
     LaunchParameters: undefined,
     LaunchPath: undefined,
     Metadata: undefined,
-    Name: undefined
+    Name: undefined,
   };
   if (output.DisplayName !== undefined) {
     contents.DisplayName = output.DisplayName;
@@ -6120,16 +5278,13 @@ const deserializeAws_json1_1Application = (
     contents.LaunchPath = output.LaunchPath;
   }
   if (output.Metadata !== undefined) {
-    contents.Metadata = deserializeAws_json1_1Metadata(
-      output.Metadata,
-      context
-    );
+    contents.Metadata = deserializeAws_json1_1Metadata(output.Metadata, context);
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ApplicationSettingsResponse = (
   output: any,
@@ -6139,7 +5294,7 @@ const deserializeAws_json1_1ApplicationSettingsResponse = (
     __type: "ApplicationSettingsResponse",
     Enabled: undefined,
     S3BucketName: undefined,
-    SettingsGroup: undefined
+    SettingsGroup: undefined,
   };
   if (output.Enabled !== undefined) {
     contents.Enabled = output.Enabled;
@@ -6151,7 +5306,7 @@ const deserializeAws_json1_1ApplicationSettingsResponse = (
     contents.SettingsGroup = output.SettingsGroup;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1Applications = (
   output: any,
@@ -6160,17 +5315,17 @@ const deserializeAws_json1_1Applications = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Application(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1AssociateFleetResult = (
   output: any,
   context: __SerdeContext
 ): AssociateFleetResult => {
   let contents: any = {
-    __type: "AssociateFleetResult"
+    __type: "AssociateFleetResult",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1BatchAssociateUserStackResult = (
   output: any,
@@ -6178,16 +5333,13 @@ const deserializeAws_json1_1BatchAssociateUserStackResult = (
 ): BatchAssociateUserStackResult => {
   let contents: any = {
     __type: "BatchAssociateUserStackResult",
-    errors: undefined
+    errors: undefined,
   };
   if (output.errors !== undefined) {
-    contents.errors = deserializeAws_json1_1UserStackAssociationErrorList(
-      output.errors,
-      context
-    );
+    contents.errors = deserializeAws_json1_1UserStackAssociationErrorList(output.errors, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1BatchDisassociateUserStackResult = (
   output: any,
@@ -6195,16 +5347,13 @@ const deserializeAws_json1_1BatchDisassociateUserStackResult = (
 ): BatchDisassociateUserStackResult => {
   let contents: any = {
     __type: "BatchDisassociateUserStackResult",
-    errors: undefined
+    errors: undefined,
   };
   if (output.errors !== undefined) {
-    contents.errors = deserializeAws_json1_1UserStackAssociationErrorList(
-      output.errors,
-      context
-    );
+    contents.errors = deserializeAws_json1_1UserStackAssociationErrorList(output.errors, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ComputeCapacityStatus = (
   output: any,
@@ -6215,7 +5364,7 @@ const deserializeAws_json1_1ComputeCapacityStatus = (
     Available: undefined,
     Desired: undefined,
     InUse: undefined,
-    Running: undefined
+    Running: undefined,
   };
   if (output.Available !== undefined) {
     contents.Available = output.Available;
@@ -6230,7 +5379,7 @@ const deserializeAws_json1_1ComputeCapacityStatus = (
     contents.Running = output.Running;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ConcurrentModificationException = (
   output: any,
@@ -6238,13 +5387,13 @@ const deserializeAws_json1_1ConcurrentModificationException = (
 ): ConcurrentModificationException => {
   let contents: any = {
     __type: "ConcurrentModificationException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CopyImageResponse = (
   output: any,
@@ -6252,13 +5401,13 @@ const deserializeAws_json1_1CopyImageResponse = (
 ): CopyImageResponse => {
   let contents: any = {
     __type: "CopyImageResponse",
-    DestinationImageName: undefined
+    DestinationImageName: undefined,
   };
   if (output.DestinationImageName !== undefined) {
     contents.DestinationImageName = output.DestinationImageName;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateDirectoryConfigResult = (
   output: any,
@@ -6266,16 +5415,13 @@ const deserializeAws_json1_1CreateDirectoryConfigResult = (
 ): CreateDirectoryConfigResult => {
   let contents: any = {
     __type: "CreateDirectoryConfigResult",
-    DirectoryConfig: undefined
+    DirectoryConfig: undefined,
   };
   if (output.DirectoryConfig !== undefined) {
-    contents.DirectoryConfig = deserializeAws_json1_1DirectoryConfig(
-      output.DirectoryConfig,
-      context
-    );
+    contents.DirectoryConfig = deserializeAws_json1_1DirectoryConfig(output.DirectoryConfig, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateFleetResult = (
   output: any,
@@ -6283,13 +5429,13 @@ const deserializeAws_json1_1CreateFleetResult = (
 ): CreateFleetResult => {
   let contents: any = {
     __type: "CreateFleetResult",
-    Fleet: undefined
+    Fleet: undefined,
   };
   if (output.Fleet !== undefined) {
     contents.Fleet = deserializeAws_json1_1Fleet(output.Fleet, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateImageBuilderResult = (
   output: any,
@@ -6297,16 +5443,13 @@ const deserializeAws_json1_1CreateImageBuilderResult = (
 ): CreateImageBuilderResult => {
   let contents: any = {
     __type: "CreateImageBuilderResult",
-    ImageBuilder: undefined
+    ImageBuilder: undefined,
   };
   if (output.ImageBuilder !== undefined) {
-    contents.ImageBuilder = deserializeAws_json1_1ImageBuilder(
-      output.ImageBuilder,
-      context
-    );
+    contents.ImageBuilder = deserializeAws_json1_1ImageBuilder(output.ImageBuilder, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateImageBuilderStreamingURLResult = (
   output: any,
@@ -6315,20 +5458,16 @@ const deserializeAws_json1_1CreateImageBuilderStreamingURLResult = (
   let contents: any = {
     __type: "CreateImageBuilderStreamingURLResult",
     Expires: undefined,
-    StreamingURL: undefined
+    StreamingURL: undefined,
   };
   if (output.Expires !== undefined) {
-    contents.Expires = new Date(
-      output.Expires % 1 != 0
-        ? Math.round(output.Expires * 1000)
-        : output.Expires
-    );
+    contents.Expires = new Date(output.Expires % 1 != 0 ? Math.round(output.Expires * 1000) : output.Expires);
   }
   if (output.StreamingURL !== undefined) {
     contents.StreamingURL = output.StreamingURL;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateStackResult = (
   output: any,
@@ -6336,13 +5475,13 @@ const deserializeAws_json1_1CreateStackResult = (
 ): CreateStackResult => {
   let contents: any = {
     __type: "CreateStackResult",
-    Stack: undefined
+    Stack: undefined,
   };
   if (output.Stack !== undefined) {
     contents.Stack = deserializeAws_json1_1Stack(output.Stack, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateStreamingURLResult = (
   output: any,
@@ -6351,20 +5490,16 @@ const deserializeAws_json1_1CreateStreamingURLResult = (
   let contents: any = {
     __type: "CreateStreamingURLResult",
     Expires: undefined,
-    StreamingURL: undefined
+    StreamingURL: undefined,
   };
   if (output.Expires !== undefined) {
-    contents.Expires = new Date(
-      output.Expires % 1 != 0
-        ? Math.round(output.Expires * 1000)
-        : output.Expires
-    );
+    contents.Expires = new Date(output.Expires % 1 != 0 ? Math.round(output.Expires * 1000) : output.Expires);
   }
   if (output.StreamingURL !== undefined) {
     contents.StreamingURL = output.StreamingURL;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateUsageReportSubscriptionResult = (
   output: any,
@@ -6373,7 +5508,7 @@ const deserializeAws_json1_1CreateUsageReportSubscriptionResult = (
   let contents: any = {
     __type: "CreateUsageReportSubscriptionResult",
     S3BucketName: undefined,
-    Schedule: undefined
+    Schedule: undefined,
   };
   if (output.S3BucketName !== undefined) {
     contents.S3BucketName = output.S3BucketName;
@@ -6382,37 +5517,37 @@ const deserializeAws_json1_1CreateUsageReportSubscriptionResult = (
     contents.Schedule = output.Schedule;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateUserResult = (
   output: any,
   context: __SerdeContext
 ): CreateUserResult => {
   let contents: any = {
-    __type: "CreateUserResult"
+    __type: "CreateUserResult",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeleteDirectoryConfigResult = (
   output: any,
   context: __SerdeContext
 ): DeleteDirectoryConfigResult => {
   let contents: any = {
-    __type: "DeleteDirectoryConfigResult"
+    __type: "DeleteDirectoryConfigResult",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeleteFleetResult = (
   output: any,
   context: __SerdeContext
 ): DeleteFleetResult => {
   let contents: any = {
-    __type: "DeleteFleetResult"
+    __type: "DeleteFleetResult",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeleteImageBuilderResult = (
   output: any,
@@ -6420,26 +5555,23 @@ const deserializeAws_json1_1DeleteImageBuilderResult = (
 ): DeleteImageBuilderResult => {
   let contents: any = {
     __type: "DeleteImageBuilderResult",
-    ImageBuilder: undefined
+    ImageBuilder: undefined,
   };
   if (output.ImageBuilder !== undefined) {
-    contents.ImageBuilder = deserializeAws_json1_1ImageBuilder(
-      output.ImageBuilder,
-      context
-    );
+    contents.ImageBuilder = deserializeAws_json1_1ImageBuilder(output.ImageBuilder, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeleteImagePermissionsResult = (
   output: any,
   context: __SerdeContext
 ): DeleteImagePermissionsResult => {
   let contents: any = {
-    __type: "DeleteImagePermissionsResult"
+    __type: "DeleteImagePermissionsResult",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeleteImageResult = (
   output: any,
@@ -6447,43 +5579,43 @@ const deserializeAws_json1_1DeleteImageResult = (
 ): DeleteImageResult => {
   let contents: any = {
     __type: "DeleteImageResult",
-    Image: undefined
+    Image: undefined,
   };
   if (output.Image !== undefined) {
     contents.Image = deserializeAws_json1_1Image(output.Image, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeleteStackResult = (
   output: any,
   context: __SerdeContext
 ): DeleteStackResult => {
   let contents: any = {
-    __type: "DeleteStackResult"
+    __type: "DeleteStackResult",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeleteUsageReportSubscriptionResult = (
   output: any,
   context: __SerdeContext
 ): DeleteUsageReportSubscriptionResult => {
   let contents: any = {
-    __type: "DeleteUsageReportSubscriptionResult"
+    __type: "DeleteUsageReportSubscriptionResult",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeleteUserResult = (
   output: any,
   context: __SerdeContext
 ): DeleteUserResult => {
   let contents: any = {
-    __type: "DeleteUserResult"
+    __type: "DeleteUserResult",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeDirectoryConfigsResult = (
   output: any,
@@ -6492,19 +5624,16 @@ const deserializeAws_json1_1DescribeDirectoryConfigsResult = (
   let contents: any = {
     __type: "DescribeDirectoryConfigsResult",
     DirectoryConfigs: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.DirectoryConfigs !== undefined) {
-    contents.DirectoryConfigs = deserializeAws_json1_1DirectoryConfigList(
-      output.DirectoryConfigs,
-      context
-    );
+    contents.DirectoryConfigs = deserializeAws_json1_1DirectoryConfigList(output.DirectoryConfigs, context);
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeFleetsResult = (
   output: any,
@@ -6513,7 +5642,7 @@ const deserializeAws_json1_1DescribeFleetsResult = (
   let contents: any = {
     __type: "DescribeFleetsResult",
     Fleets: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.Fleets !== undefined) {
     contents.Fleets = deserializeAws_json1_1FleetList(output.Fleets, context);
@@ -6522,7 +5651,7 @@ const deserializeAws_json1_1DescribeFleetsResult = (
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeImageBuildersResult = (
   output: any,
@@ -6531,19 +5660,16 @@ const deserializeAws_json1_1DescribeImageBuildersResult = (
   let contents: any = {
     __type: "DescribeImageBuildersResult",
     ImageBuilders: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.ImageBuilders !== undefined) {
-    contents.ImageBuilders = deserializeAws_json1_1ImageBuilderList(
-      output.ImageBuilders,
-      context
-    );
+    contents.ImageBuilders = deserializeAws_json1_1ImageBuilderList(output.ImageBuilders, context);
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeImagePermissionsResult = (
   output: any,
@@ -6553,7 +5679,7 @@ const deserializeAws_json1_1DescribeImagePermissionsResult = (
     __type: "DescribeImagePermissionsResult",
     Name: undefined,
     NextToken: undefined,
-    SharedImagePermissionsList: undefined
+    SharedImagePermissionsList: undefined,
   };
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -6562,13 +5688,10 @@ const deserializeAws_json1_1DescribeImagePermissionsResult = (
     contents.NextToken = output.NextToken;
   }
   if (output.SharedImagePermissionsList !== undefined) {
-    contents.SharedImagePermissionsList = deserializeAws_json1_1SharedImagePermissionsList(
-      output.SharedImagePermissionsList,
-      context
-    );
+    contents.SharedImagePermissionsList = deserializeAws_json1_1SharedImagePermissionsList(output.SharedImagePermissionsList, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeImagesResult = (
   output: any,
@@ -6577,7 +5700,7 @@ const deserializeAws_json1_1DescribeImagesResult = (
   let contents: any = {
     __type: "DescribeImagesResult",
     Images: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.Images !== undefined) {
     contents.Images = deserializeAws_json1_1ImageList(output.Images, context);
@@ -6586,7 +5709,7 @@ const deserializeAws_json1_1DescribeImagesResult = (
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeSessionsResult = (
   output: any,
@@ -6595,19 +5718,16 @@ const deserializeAws_json1_1DescribeSessionsResult = (
   let contents: any = {
     __type: "DescribeSessionsResult",
     NextToken: undefined,
-    Sessions: undefined
+    Sessions: undefined,
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   if (output.Sessions !== undefined) {
-    contents.Sessions = deserializeAws_json1_1SessionList(
-      output.Sessions,
-      context
-    );
+    contents.Sessions = deserializeAws_json1_1SessionList(output.Sessions, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeStacksResult = (
   output: any,
@@ -6616,7 +5736,7 @@ const deserializeAws_json1_1DescribeStacksResult = (
   let contents: any = {
     __type: "DescribeStacksResult",
     NextToken: undefined,
-    Stacks: undefined
+    Stacks: undefined,
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
@@ -6625,7 +5745,7 @@ const deserializeAws_json1_1DescribeStacksResult = (
     contents.Stacks = deserializeAws_json1_1StackList(output.Stacks, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeUsageReportSubscriptionsResult = (
   output: any,
@@ -6634,19 +5754,16 @@ const deserializeAws_json1_1DescribeUsageReportSubscriptionsResult = (
   let contents: any = {
     __type: "DescribeUsageReportSubscriptionsResult",
     NextToken: undefined,
-    UsageReportSubscriptions: undefined
+    UsageReportSubscriptions: undefined,
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   if (output.UsageReportSubscriptions !== undefined) {
-    contents.UsageReportSubscriptions = deserializeAws_json1_1UsageReportSubscriptionList(
-      output.UsageReportSubscriptions,
-      context
-    );
+    contents.UsageReportSubscriptions = deserializeAws_json1_1UsageReportSubscriptionList(output.UsageReportSubscriptions, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeUserStackAssociationsResult = (
   output: any,
@@ -6655,19 +5772,16 @@ const deserializeAws_json1_1DescribeUserStackAssociationsResult = (
   let contents: any = {
     __type: "DescribeUserStackAssociationsResult",
     NextToken: undefined,
-    UserStackAssociations: undefined
+    UserStackAssociations: undefined,
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   if (output.UserStackAssociations !== undefined) {
-    contents.UserStackAssociations = deserializeAws_json1_1UserStackAssociationList(
-      output.UserStackAssociations,
-      context
-    );
+    contents.UserStackAssociations = deserializeAws_json1_1UserStackAssociationList(output.UserStackAssociations, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeUsersResult = (
   output: any,
@@ -6676,7 +5790,7 @@ const deserializeAws_json1_1DescribeUsersResult = (
   let contents: any = {
     __type: "DescribeUsersResult",
     NextToken: undefined,
-    Users: undefined
+    Users: undefined,
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
@@ -6685,7 +5799,7 @@ const deserializeAws_json1_1DescribeUsersResult = (
     contents.Users = deserializeAws_json1_1UserList(output.Users, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DirectoryConfig = (
   output: any,
@@ -6696,32 +5810,22 @@ const deserializeAws_json1_1DirectoryConfig = (
     CreatedTime: undefined,
     DirectoryName: undefined,
     OrganizationalUnitDistinguishedNames: undefined,
-    ServiceAccountCredentials: undefined
+    ServiceAccountCredentials: undefined,
   };
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(
-      output.CreatedTime % 1 != 0
-        ? Math.round(output.CreatedTime * 1000)
-        : output.CreatedTime
-    );
+    contents.CreatedTime = new Date(output.CreatedTime % 1 != 0 ? Math.round(output.CreatedTime * 1000) : output.CreatedTime);
   }
   if (output.DirectoryName !== undefined) {
     contents.DirectoryName = output.DirectoryName;
   }
   if (output.OrganizationalUnitDistinguishedNames !== undefined) {
-    contents.OrganizationalUnitDistinguishedNames = deserializeAws_json1_1OrganizationalUnitDistinguishedNamesList(
-      output.OrganizationalUnitDistinguishedNames,
-      context
-    );
+    contents.OrganizationalUnitDistinguishedNames = deserializeAws_json1_1OrganizationalUnitDistinguishedNamesList(output.OrganizationalUnitDistinguishedNames, context);
   }
   if (output.ServiceAccountCredentials !== undefined) {
-    contents.ServiceAccountCredentials = deserializeAws_json1_1ServiceAccountCredentials(
-      output.ServiceAccountCredentials,
-      context
-    );
+    contents.ServiceAccountCredentials = deserializeAws_json1_1ServiceAccountCredentials(output.ServiceAccountCredentials, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DirectoryConfigList = (
   output: any,
@@ -6730,27 +5834,27 @@ const deserializeAws_json1_1DirectoryConfigList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DirectoryConfig(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1DisableUserResult = (
   output: any,
   context: __SerdeContext
 ): DisableUserResult => {
   let contents: any = {
-    __type: "DisableUserResult"
+    __type: "DisableUserResult",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1DisassociateFleetResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateFleetResult => {
   let contents: any = {
-    __type: "DisassociateFleetResult"
+    __type: "DisassociateFleetResult",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1DomainJoinInfo = (
   output: any,
@@ -6759,51 +5863,54 @@ const deserializeAws_json1_1DomainJoinInfo = (
   let contents: any = {
     __type: "DomainJoinInfo",
     DirectoryName: undefined,
-    OrganizationalUnitDistinguishedName: undefined
+    OrganizationalUnitDistinguishedName: undefined,
   };
   if (output.DirectoryName !== undefined) {
     contents.DirectoryName = output.DirectoryName;
   }
   if (output.OrganizationalUnitDistinguishedName !== undefined) {
-    contents.OrganizationalUnitDistinguishedName =
-      output.OrganizationalUnitDistinguishedName;
+    contents.OrganizationalUnitDistinguishedName = output.OrganizationalUnitDistinguishedName;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DomainList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1EmbedHostDomains = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1EnableUserResult = (
   output: any,
   context: __SerdeContext
 ): EnableUserResult => {
   let contents: any = {
-    __type: "EnableUserResult"
+    __type: "EnableUserResult",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1ExpireSessionResult = (
   output: any,
   context: __SerdeContext
 ): ExpireSessionResult => {
   let contents: any = {
-    __type: "ExpireSessionResult"
+    __type: "ExpireSessionResult",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1Fleet = (
   output: any,
@@ -6829,23 +5936,16 @@ const deserializeAws_json1_1Fleet = (
     MaxUserDurationInSeconds: undefined,
     Name: undefined,
     State: undefined,
-    VpcConfig: undefined
+    VpcConfig: undefined,
   };
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
   }
   if (output.ComputeCapacityStatus !== undefined) {
-    contents.ComputeCapacityStatus = deserializeAws_json1_1ComputeCapacityStatus(
-      output.ComputeCapacityStatus,
-      context
-    );
+    contents.ComputeCapacityStatus = deserializeAws_json1_1ComputeCapacityStatus(output.ComputeCapacityStatus, context);
   }
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(
-      output.CreatedTime % 1 != 0
-        ? Math.round(output.CreatedTime * 1000)
-        : output.CreatedTime
-    );
+    contents.CreatedTime = new Date(output.CreatedTime % 1 != 0 ? Math.round(output.CreatedTime * 1000) : output.CreatedTime);
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -6857,19 +5957,13 @@ const deserializeAws_json1_1Fleet = (
     contents.DisplayName = output.DisplayName;
   }
   if (output.DomainJoinInfo !== undefined) {
-    contents.DomainJoinInfo = deserializeAws_json1_1DomainJoinInfo(
-      output.DomainJoinInfo,
-      context
-    );
+    contents.DomainJoinInfo = deserializeAws_json1_1DomainJoinInfo(output.DomainJoinInfo, context);
   }
   if (output.EnableDefaultInternetAccess !== undefined) {
     contents.EnableDefaultInternetAccess = output.EnableDefaultInternetAccess;
   }
   if (output.FleetErrors !== undefined) {
-    contents.FleetErrors = deserializeAws_json1_1FleetErrors(
-      output.FleetErrors,
-      context
-    );
+    contents.FleetErrors = deserializeAws_json1_1FleetErrors(output.FleetErrors, context);
   }
   if (output.FleetType !== undefined) {
     contents.FleetType = output.FleetType;
@@ -6878,8 +5972,7 @@ const deserializeAws_json1_1Fleet = (
     contents.IamRoleArn = output.IamRoleArn;
   }
   if (output.IdleDisconnectTimeoutInSeconds !== undefined) {
-    contents.IdleDisconnectTimeoutInSeconds =
-      output.IdleDisconnectTimeoutInSeconds;
+    contents.IdleDisconnectTimeoutInSeconds = output.IdleDisconnectTimeoutInSeconds;
   }
   if (output.ImageArn !== undefined) {
     contents.ImageArn = output.ImageArn;
@@ -6900,13 +5993,10 @@ const deserializeAws_json1_1Fleet = (
     contents.State = output.State;
   }
   if (output.VpcConfig !== undefined) {
-    contents.VpcConfig = deserializeAws_json1_1VpcConfig(
-      output.VpcConfig,
-      context
-    );
+    contents.VpcConfig = deserializeAws_json1_1VpcConfig(output.VpcConfig, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1FleetError = (
   output: any,
@@ -6915,7 +6005,7 @@ const deserializeAws_json1_1FleetError = (
   let contents: any = {
     __type: "FleetError",
     ErrorCode: undefined,
-    ErrorMessage: undefined
+    ErrorMessage: undefined,
   };
   if (output.ErrorCode !== undefined) {
     contents.ErrorCode = output.ErrorCode;
@@ -6924,7 +6014,7 @@ const deserializeAws_json1_1FleetError = (
     contents.ErrorMessage = output.ErrorMessage;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1FleetErrors = (
   output: any,
@@ -6933,7 +6023,7 @@ const deserializeAws_json1_1FleetErrors = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FleetError(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1FleetList = (
   output: any,
@@ -6942,7 +6032,7 @@ const deserializeAws_json1_1FleetList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Fleet(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1Image = (
   output: any,
@@ -6965,13 +6055,10 @@ const deserializeAws_json1_1Image = (
     PublicBaseImageReleasedDate: undefined,
     State: undefined,
     StateChangeReason: undefined,
-    Visibility: undefined
+    Visibility: undefined,
   };
   if (output.Applications !== undefined) {
-    contents.Applications = deserializeAws_json1_1Applications(
-      output.Applications,
-      context
-    );
+    contents.Applications = deserializeAws_json1_1Applications(output.Applications, context);
   }
   if (output.AppstreamAgentVersion !== undefined) {
     contents.AppstreamAgentVersion = output.AppstreamAgentVersion;
@@ -6983,11 +6070,7 @@ const deserializeAws_json1_1Image = (
     contents.BaseImageArn = output.BaseImageArn;
   }
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(
-      output.CreatedTime % 1 != 0
-        ? Math.round(output.CreatedTime * 1000)
-        : output.CreatedTime
-    );
+    contents.CreatedTime = new Date(output.CreatedTime % 1 != 0 ? Math.round(output.CreatedTime * 1000) : output.CreatedTime);
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -7002,10 +6085,7 @@ const deserializeAws_json1_1Image = (
     contents.ImageBuilderSupported = output.ImageBuilderSupported;
   }
   if (output.ImagePermissions !== undefined) {
-    contents.ImagePermissions = deserializeAws_json1_1ImagePermissions(
-      output.ImagePermissions,
-      context
-    );
+    contents.ImagePermissions = deserializeAws_json1_1ImagePermissions(output.ImagePermissions, context);
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -7014,26 +6094,19 @@ const deserializeAws_json1_1Image = (
     contents.Platform = output.Platform;
   }
   if (output.PublicBaseImageReleasedDate !== undefined) {
-    contents.PublicBaseImageReleasedDate = new Date(
-      output.PublicBaseImageReleasedDate % 1 != 0
-        ? Math.round(output.PublicBaseImageReleasedDate * 1000)
-        : output.PublicBaseImageReleasedDate
-    );
+    contents.PublicBaseImageReleasedDate = new Date(output.PublicBaseImageReleasedDate % 1 != 0 ? Math.round(output.PublicBaseImageReleasedDate * 1000) : output.PublicBaseImageReleasedDate);
   }
   if (output.State !== undefined) {
     contents.State = output.State;
   }
   if (output.StateChangeReason !== undefined) {
-    contents.StateChangeReason = deserializeAws_json1_1ImageStateChangeReason(
-      output.StateChangeReason,
-      context
-    );
+    contents.StateChangeReason = deserializeAws_json1_1ImageStateChangeReason(output.StateChangeReason, context);
   }
   if (output.Visibility !== undefined) {
     contents.Visibility = output.Visibility;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ImageBuilder = (
   output: any,
@@ -7058,13 +6131,10 @@ const deserializeAws_json1_1ImageBuilder = (
     Platform: undefined,
     State: undefined,
     StateChangeReason: undefined,
-    VpcConfig: undefined
+    VpcConfig: undefined,
   };
   if (output.AccessEndpoints !== undefined) {
-    contents.AccessEndpoints = deserializeAws_json1_1AccessEndpointList(
-      output.AccessEndpoints,
-      context
-    );
+    contents.AccessEndpoints = deserializeAws_json1_1AccessEndpointList(output.AccessEndpoints, context);
   }
   if (output.AppstreamAgentVersion !== undefined) {
     contents.AppstreamAgentVersion = output.AppstreamAgentVersion;
@@ -7073,11 +6143,7 @@ const deserializeAws_json1_1ImageBuilder = (
     contents.Arn = output.Arn;
   }
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(
-      output.CreatedTime % 1 != 0
-        ? Math.round(output.CreatedTime * 1000)
-        : output.CreatedTime
-    );
+    contents.CreatedTime = new Date(output.CreatedTime % 1 != 0 ? Math.round(output.CreatedTime * 1000) : output.CreatedTime);
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -7086,10 +6152,7 @@ const deserializeAws_json1_1ImageBuilder = (
     contents.DisplayName = output.DisplayName;
   }
   if (output.DomainJoinInfo !== undefined) {
-    contents.DomainJoinInfo = deserializeAws_json1_1DomainJoinInfo(
-      output.DomainJoinInfo,
-      context
-    );
+    contents.DomainJoinInfo = deserializeAws_json1_1DomainJoinInfo(output.DomainJoinInfo, context);
   }
   if (output.EnableDefaultInternetAccess !== undefined) {
     contents.EnableDefaultInternetAccess = output.EnableDefaultInternetAccess;
@@ -7101,10 +6164,7 @@ const deserializeAws_json1_1ImageBuilder = (
     contents.ImageArn = output.ImageArn;
   }
   if (output.ImageBuilderErrors !== undefined) {
-    contents.ImageBuilderErrors = deserializeAws_json1_1ResourceErrors(
-      output.ImageBuilderErrors,
-      context
-    );
+    contents.ImageBuilderErrors = deserializeAws_json1_1ResourceErrors(output.ImageBuilderErrors, context);
   }
   if (output.InstanceType !== undefined) {
     contents.InstanceType = output.InstanceType;
@@ -7113,10 +6173,7 @@ const deserializeAws_json1_1ImageBuilder = (
     contents.Name = output.Name;
   }
   if (output.NetworkAccessConfiguration !== undefined) {
-    contents.NetworkAccessConfiguration = deserializeAws_json1_1NetworkAccessConfiguration(
-      output.NetworkAccessConfiguration,
-      context
-    );
+    contents.NetworkAccessConfiguration = deserializeAws_json1_1NetworkAccessConfiguration(output.NetworkAccessConfiguration, context);
   }
   if (output.Platform !== undefined) {
     contents.Platform = output.Platform;
@@ -7125,19 +6182,13 @@ const deserializeAws_json1_1ImageBuilder = (
     contents.State = output.State;
   }
   if (output.StateChangeReason !== undefined) {
-    contents.StateChangeReason = deserializeAws_json1_1ImageBuilderStateChangeReason(
-      output.StateChangeReason,
-      context
-    );
+    contents.StateChangeReason = deserializeAws_json1_1ImageBuilderStateChangeReason(output.StateChangeReason, context);
   }
   if (output.VpcConfig !== undefined) {
-    contents.VpcConfig = deserializeAws_json1_1VpcConfig(
-      output.VpcConfig,
-      context
-    );
+    contents.VpcConfig = deserializeAws_json1_1VpcConfig(output.VpcConfig, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ImageBuilderList = (
   output: any,
@@ -7146,7 +6197,7 @@ const deserializeAws_json1_1ImageBuilderList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ImageBuilder(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1ImageBuilderStateChangeReason = (
   output: any,
@@ -7155,7 +6206,7 @@ const deserializeAws_json1_1ImageBuilderStateChangeReason = (
   let contents: any = {
     __type: "ImageBuilderStateChangeReason",
     Code: undefined,
-    Message: undefined
+    Message: undefined,
   };
   if (output.Code !== undefined) {
     contents.Code = output.Code;
@@ -7164,7 +6215,7 @@ const deserializeAws_json1_1ImageBuilderStateChangeReason = (
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ImageList = (
   output: any,
@@ -7173,7 +6224,7 @@ const deserializeAws_json1_1ImageList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Image(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1ImagePermissions = (
   output: any,
@@ -7182,7 +6233,7 @@ const deserializeAws_json1_1ImagePermissions = (
   let contents: any = {
     __type: "ImagePermissions",
     allowFleet: undefined,
-    allowImageBuilder: undefined
+    allowImageBuilder: undefined,
   };
   if (output.allowFleet !== undefined) {
     contents.allowFleet = output.allowFleet;
@@ -7191,7 +6242,7 @@ const deserializeAws_json1_1ImagePermissions = (
     contents.allowImageBuilder = output.allowImageBuilder;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ImageStateChangeReason = (
   output: any,
@@ -7200,7 +6251,7 @@ const deserializeAws_json1_1ImageStateChangeReason = (
   let contents: any = {
     __type: "ImageStateChangeReason",
     Code: undefined,
-    Message: undefined
+    Message: undefined,
   };
   if (output.Code !== undefined) {
     contents.Code = output.Code;
@@ -7209,7 +6260,7 @@ const deserializeAws_json1_1ImageStateChangeReason = (
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1IncompatibleImageException = (
   output: any,
@@ -7217,13 +6268,13 @@ const deserializeAws_json1_1IncompatibleImageException = (
 ): IncompatibleImageException => {
   let contents: any = {
     __type: "IncompatibleImageException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InvalidAccountStatusException = (
   output: any,
@@ -7231,13 +6282,13 @@ const deserializeAws_json1_1InvalidAccountStatusException = (
 ): InvalidAccountStatusException => {
   let contents: any = {
     __type: "InvalidAccountStatusException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InvalidParameterCombinationException = (
   output: any,
@@ -7245,13 +6296,13 @@ const deserializeAws_json1_1InvalidParameterCombinationException = (
 ): InvalidParameterCombinationException => {
   let contents: any = {
     __type: "InvalidParameterCombinationException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InvalidRoleException = (
   output: any,
@@ -7259,13 +6310,13 @@ const deserializeAws_json1_1InvalidRoleException = (
 ): InvalidRoleException => {
   let contents: any = {
     __type: "InvalidRoleException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1LastReportGenerationExecutionError = (
   output: any,
@@ -7274,7 +6325,7 @@ const deserializeAws_json1_1LastReportGenerationExecutionError = (
   let contents: any = {
     __type: "LastReportGenerationExecutionError",
     ErrorCode: undefined,
-    ErrorMessage: undefined
+    ErrorMessage: undefined,
   };
   if (output.ErrorCode !== undefined) {
     contents.ErrorCode = output.ErrorCode;
@@ -7283,7 +6334,7 @@ const deserializeAws_json1_1LastReportGenerationExecutionError = (
     contents.ErrorMessage = output.ErrorMessage;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1LastReportGenerationExecutionErrors = (
   output: any,
@@ -7292,7 +6343,7 @@ const deserializeAws_json1_1LastReportGenerationExecutionErrors = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LastReportGenerationExecutionError(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1LimitExceededException = (
   output: any,
@@ -7300,13 +6351,13 @@ const deserializeAws_json1_1LimitExceededException = (
 ): LimitExceededException => {
   let contents: any = {
     __type: "LimitExceededException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListAssociatedFleetsResult = (
   output: any,
@@ -7315,7 +6366,7 @@ const deserializeAws_json1_1ListAssociatedFleetsResult = (
   let contents: any = {
     __type: "ListAssociatedFleetsResult",
     Names: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.Names !== undefined) {
     contents.Names = deserializeAws_json1_1StringList(output.Names, context);
@@ -7324,7 +6375,7 @@ const deserializeAws_json1_1ListAssociatedFleetsResult = (
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListAssociatedStacksResult = (
   output: any,
@@ -7333,7 +6384,7 @@ const deserializeAws_json1_1ListAssociatedStacksResult = (
   let contents: any = {
     __type: "ListAssociatedStacksResult",
     Names: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.Names !== undefined) {
     contents.Names = deserializeAws_json1_1StringList(output.Names, context);
@@ -7342,7 +6393,7 @@ const deserializeAws_json1_1ListAssociatedStacksResult = (
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListTagsForResourceResponse = (
   output: any,
@@ -7350,13 +6401,13 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 ): ListTagsForResourceResponse => {
   let contents: any = {
     __type: "ListTagsForResourceResponse",
-    Tags: undefined
+    Tags: undefined,
   };
   if (output.Tags !== undefined) {
     contents.Tags = deserializeAws_json1_1Tags(output.Tags, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1Metadata = (
   output: any,
@@ -7367,7 +6418,7 @@ const deserializeAws_json1_1Metadata = (
     mapParams[key] = output[key];
   });
   return mapParams;
-};
+}
 
 const deserializeAws_json1_1NetworkAccessConfiguration = (
   output: any,
@@ -7376,7 +6427,7 @@ const deserializeAws_json1_1NetworkAccessConfiguration = (
   let contents: any = {
     __type: "NetworkAccessConfiguration",
     EniId: undefined,
-    EniPrivateIpAddress: undefined
+    EniPrivateIpAddress: undefined,
   };
   if (output.EniId !== undefined) {
     contents.EniId = output.EniId;
@@ -7385,7 +6436,7 @@ const deserializeAws_json1_1NetworkAccessConfiguration = (
     contents.EniPrivateIpAddress = output.EniPrivateIpAddress;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1OperationNotPermittedException = (
   output: any,
@@ -7393,20 +6444,22 @@ const deserializeAws_json1_1OperationNotPermittedException = (
 ): OperationNotPermittedException => {
   let contents: any = {
     __type: "OperationNotPermittedException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1OrganizationalUnitDistinguishedNamesList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1ResourceAlreadyExistsException = (
   output: any,
@@ -7414,13 +6467,13 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
 ): ResourceAlreadyExistsException => {
   let contents: any = {
     __type: "ResourceAlreadyExistsException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ResourceError = (
   output: any,
@@ -7430,7 +6483,7 @@ const deserializeAws_json1_1ResourceError = (
     __type: "ResourceError",
     ErrorCode: undefined,
     ErrorMessage: undefined,
-    ErrorTimestamp: undefined
+    ErrorTimestamp: undefined,
   };
   if (output.ErrorCode !== undefined) {
     contents.ErrorCode = output.ErrorCode;
@@ -7439,14 +6492,10 @@ const deserializeAws_json1_1ResourceError = (
     contents.ErrorMessage = output.ErrorMessage;
   }
   if (output.ErrorTimestamp !== undefined) {
-    contents.ErrorTimestamp = new Date(
-      output.ErrorTimestamp % 1 != 0
-        ? Math.round(output.ErrorTimestamp * 1000)
-        : output.ErrorTimestamp
-    );
+    contents.ErrorTimestamp = new Date(output.ErrorTimestamp % 1 != 0 ? Math.round(output.ErrorTimestamp * 1000) : output.ErrorTimestamp);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ResourceErrors = (
   output: any,
@@ -7455,7 +6504,7 @@ const deserializeAws_json1_1ResourceErrors = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourceError(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1ResourceInUseException = (
   output: any,
@@ -7463,13 +6512,13 @@ const deserializeAws_json1_1ResourceInUseException = (
 ): ResourceInUseException => {
   let contents: any = {
     __type: "ResourceInUseException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ResourceNotAvailableException = (
   output: any,
@@ -7477,13 +6526,13 @@ const deserializeAws_json1_1ResourceNotAvailableException = (
 ): ResourceNotAvailableException => {
   let contents: any = {
     __type: "ResourceNotAvailableException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
@@ -7491,20 +6540,22 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   let contents: any = {
     __type: "ResourceNotFoundException",
-    Message: undefined
+    Message: undefined,
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1SecurityGroupIdList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1ServiceAccountCredentials = (
   output: any,
@@ -7513,7 +6564,7 @@ const deserializeAws_json1_1ServiceAccountCredentials = (
   let contents: any = {
     __type: "ServiceAccountCredentials",
     AccountName: undefined,
-    AccountPassword: undefined
+    AccountPassword: undefined,
   };
   if (output.AccountName !== undefined) {
     contents.AccountName = output.AccountName;
@@ -7522,7 +6573,7 @@ const deserializeAws_json1_1ServiceAccountCredentials = (
     contents.AccountPassword = output.AccountPassword;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1Session = (
   output: any,
@@ -7539,7 +6590,7 @@ const deserializeAws_json1_1Session = (
     StackName: undefined,
     StartTime: undefined,
     State: undefined,
-    UserId: undefined
+    UserId: undefined,
   };
   if (output.AuthenticationType !== undefined) {
     contents.AuthenticationType = output.AuthenticationType;
@@ -7554,27 +6605,16 @@ const deserializeAws_json1_1Session = (
     contents.Id = output.Id;
   }
   if (output.MaxExpirationTime !== undefined) {
-    contents.MaxExpirationTime = new Date(
-      output.MaxExpirationTime % 1 != 0
-        ? Math.round(output.MaxExpirationTime * 1000)
-        : output.MaxExpirationTime
-    );
+    contents.MaxExpirationTime = new Date(output.MaxExpirationTime % 1 != 0 ? Math.round(output.MaxExpirationTime * 1000) : output.MaxExpirationTime);
   }
   if (output.NetworkAccessConfiguration !== undefined) {
-    contents.NetworkAccessConfiguration = deserializeAws_json1_1NetworkAccessConfiguration(
-      output.NetworkAccessConfiguration,
-      context
-    );
+    contents.NetworkAccessConfiguration = deserializeAws_json1_1NetworkAccessConfiguration(output.NetworkAccessConfiguration, context);
   }
   if (output.StackName !== undefined) {
     contents.StackName = output.StackName;
   }
   if (output.StartTime !== undefined) {
-    contents.StartTime = new Date(
-      output.StartTime % 1 != 0
-        ? Math.round(output.StartTime * 1000)
-        : output.StartTime
-    );
+    contents.StartTime = new Date(output.StartTime % 1 != 0 ? Math.round(output.StartTime * 1000) : output.StartTime);
   }
   if (output.State !== undefined) {
     contents.State = output.State;
@@ -7583,7 +6623,7 @@ const deserializeAws_json1_1Session = (
     contents.UserId = output.UserId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1SessionList = (
   output: any,
@@ -7592,7 +6632,7 @@ const deserializeAws_json1_1SessionList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Session(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1SharedImagePermissions = (
   output: any,
@@ -7601,19 +6641,16 @@ const deserializeAws_json1_1SharedImagePermissions = (
   let contents: any = {
     __type: "SharedImagePermissions",
     imagePermissions: undefined,
-    sharedAccountId: undefined
+    sharedAccountId: undefined,
   };
   if (output.imagePermissions !== undefined) {
-    contents.imagePermissions = deserializeAws_json1_1ImagePermissions(
-      output.imagePermissions,
-      context
-    );
+    contents.imagePermissions = deserializeAws_json1_1ImagePermissions(output.imagePermissions, context);
   }
   if (output.sharedAccountId !== undefined) {
     contents.sharedAccountId = output.sharedAccountId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1SharedImagePermissionsList = (
   output: any,
@@ -7622,7 +6659,7 @@ const deserializeAws_json1_1SharedImagePermissionsList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SharedImagePermissions(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1Stack = (
   output: any,
@@ -7642,29 +6679,19 @@ const deserializeAws_json1_1Stack = (
     RedirectURL: undefined,
     StackErrors: undefined,
     StorageConnectors: undefined,
-    UserSettings: undefined
+    UserSettings: undefined,
   };
   if (output.AccessEndpoints !== undefined) {
-    contents.AccessEndpoints = deserializeAws_json1_1AccessEndpointList(
-      output.AccessEndpoints,
-      context
-    );
+    contents.AccessEndpoints = deserializeAws_json1_1AccessEndpointList(output.AccessEndpoints, context);
   }
   if (output.ApplicationSettings !== undefined) {
-    contents.ApplicationSettings = deserializeAws_json1_1ApplicationSettingsResponse(
-      output.ApplicationSettings,
-      context
-    );
+    contents.ApplicationSettings = deserializeAws_json1_1ApplicationSettingsResponse(output.ApplicationSettings, context);
   }
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
   }
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(
-      output.CreatedTime % 1 != 0
-        ? Math.round(output.CreatedTime * 1000)
-        : output.CreatedTime
-    );
+    contents.CreatedTime = new Date(output.CreatedTime % 1 != 0 ? Math.round(output.CreatedTime * 1000) : output.CreatedTime);
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -7673,10 +6700,7 @@ const deserializeAws_json1_1Stack = (
     contents.DisplayName = output.DisplayName;
   }
   if (output.EmbedHostDomains !== undefined) {
-    contents.EmbedHostDomains = deserializeAws_json1_1EmbedHostDomains(
-      output.EmbedHostDomains,
-      context
-    );
+    contents.EmbedHostDomains = deserializeAws_json1_1EmbedHostDomains(output.EmbedHostDomains, context);
   }
   if (output.FeedbackURL !== undefined) {
     contents.FeedbackURL = output.FeedbackURL;
@@ -7688,25 +6712,16 @@ const deserializeAws_json1_1Stack = (
     contents.RedirectURL = output.RedirectURL;
   }
   if (output.StackErrors !== undefined) {
-    contents.StackErrors = deserializeAws_json1_1StackErrors(
-      output.StackErrors,
-      context
-    );
+    contents.StackErrors = deserializeAws_json1_1StackErrors(output.StackErrors, context);
   }
   if (output.StorageConnectors !== undefined) {
-    contents.StorageConnectors = deserializeAws_json1_1StorageConnectorList(
-      output.StorageConnectors,
-      context
-    );
+    contents.StorageConnectors = deserializeAws_json1_1StorageConnectorList(output.StorageConnectors, context);
   }
   if (output.UserSettings !== undefined) {
-    contents.UserSettings = deserializeAws_json1_1UserSettingList(
-      output.UserSettings,
-      context
-    );
+    contents.UserSettings = deserializeAws_json1_1UserSettingList(output.UserSettings, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1StackError = (
   output: any,
@@ -7715,7 +6730,7 @@ const deserializeAws_json1_1StackError = (
   let contents: any = {
     __type: "StackError",
     ErrorCode: undefined,
-    ErrorMessage: undefined
+    ErrorMessage: undefined,
   };
   if (output.ErrorCode !== undefined) {
     contents.ErrorCode = output.ErrorCode;
@@ -7724,7 +6739,7 @@ const deserializeAws_json1_1StackError = (
     contents.ErrorMessage = output.ErrorMessage;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1StackErrors = (
   output: any,
@@ -7733,7 +6748,7 @@ const deserializeAws_json1_1StackErrors = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1StackError(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1StackList = (
   output: any,
@@ -7742,17 +6757,17 @@ const deserializeAws_json1_1StackList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Stack(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1StartFleetResult = (
   output: any,
   context: __SerdeContext
 ): StartFleetResult => {
   let contents: any = {
-    __type: "StartFleetResult"
+    __type: "StartFleetResult",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1StartImageBuilderResult = (
   output: any,
@@ -7760,26 +6775,23 @@ const deserializeAws_json1_1StartImageBuilderResult = (
 ): StartImageBuilderResult => {
   let contents: any = {
     __type: "StartImageBuilderResult",
-    ImageBuilder: undefined
+    ImageBuilder: undefined,
   };
   if (output.ImageBuilder !== undefined) {
-    contents.ImageBuilder = deserializeAws_json1_1ImageBuilder(
-      output.ImageBuilder,
-      context
-    );
+    contents.ImageBuilder = deserializeAws_json1_1ImageBuilder(output.ImageBuilder, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1StopFleetResult = (
   output: any,
   context: __SerdeContext
 ): StopFleetResult => {
   let contents: any = {
-    __type: "StopFleetResult"
+    __type: "StopFleetResult",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1StopImageBuilderResult = (
   output: any,
@@ -7787,16 +6799,13 @@ const deserializeAws_json1_1StopImageBuilderResult = (
 ): StopImageBuilderResult => {
   let contents: any = {
     __type: "StopImageBuilderResult",
-    ImageBuilder: undefined
+    ImageBuilder: undefined,
   };
   if (output.ImageBuilder !== undefined) {
-    contents.ImageBuilder = deserializeAws_json1_1ImageBuilder(
-      output.ImageBuilder,
-      context
-    );
+    contents.ImageBuilder = deserializeAws_json1_1ImageBuilder(output.ImageBuilder, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1StorageConnector = (
   output: any,
@@ -7806,22 +6815,19 @@ const deserializeAws_json1_1StorageConnector = (
     __type: "StorageConnector",
     ConnectorType: undefined,
     Domains: undefined,
-    ResourceIdentifier: undefined
+    ResourceIdentifier: undefined,
   };
   if (output.ConnectorType !== undefined) {
     contents.ConnectorType = output.ConnectorType;
   }
   if (output.Domains !== undefined) {
-    contents.Domains = deserializeAws_json1_1DomainList(
-      output.Domains,
-      context
-    );
+    contents.Domains = deserializeAws_json1_1DomainList(output.Domains, context);
   }
   if (output.ResourceIdentifier !== undefined) {
     contents.ResourceIdentifier = output.ResourceIdentifier;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1StorageConnectorList = (
   output: any,
@@ -7830,31 +6836,35 @@ const deserializeAws_json1_1StorageConnectorList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1StorageConnector(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1StringList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1SubnetIdList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1TagResourceResponse = (
   output: any,
   context: __SerdeContext
 ): TagResourceResponse => {
   let contents: any = {
-    __type: "TagResourceResponse"
+    __type: "TagResourceResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1Tags = (
   output: any,
@@ -7865,17 +6875,17 @@ const deserializeAws_json1_1Tags = (
     mapParams[key] = output[key];
   });
   return mapParams;
-};
+}
 
 const deserializeAws_json1_1UntagResourceResponse = (
   output: any,
   context: __SerdeContext
 ): UntagResourceResponse => {
   let contents: any = {
-    __type: "UntagResourceResponse"
+    __type: "UntagResourceResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateDirectoryConfigResult = (
   output: any,
@@ -7883,16 +6893,13 @@ const deserializeAws_json1_1UpdateDirectoryConfigResult = (
 ): UpdateDirectoryConfigResult => {
   let contents: any = {
     __type: "UpdateDirectoryConfigResult",
-    DirectoryConfig: undefined
+    DirectoryConfig: undefined,
   };
   if (output.DirectoryConfig !== undefined) {
-    contents.DirectoryConfig = deserializeAws_json1_1DirectoryConfig(
-      output.DirectoryConfig,
-      context
-    );
+    contents.DirectoryConfig = deserializeAws_json1_1DirectoryConfig(output.DirectoryConfig, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateFleetResult = (
   output: any,
@@ -7900,23 +6907,23 @@ const deserializeAws_json1_1UpdateFleetResult = (
 ): UpdateFleetResult => {
   let contents: any = {
     __type: "UpdateFleetResult",
-    Fleet: undefined
+    Fleet: undefined,
   };
   if (output.Fleet !== undefined) {
     contents.Fleet = deserializeAws_json1_1Fleet(output.Fleet, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateImagePermissionsResult = (
   output: any,
   context: __SerdeContext
 ): UpdateImagePermissionsResult => {
   let contents: any = {
-    __type: "UpdateImagePermissionsResult"
+    __type: "UpdateImagePermissionsResult",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateStackResult = (
   output: any,
@@ -7924,13 +6931,13 @@ const deserializeAws_json1_1UpdateStackResult = (
 ): UpdateStackResult => {
   let contents: any = {
     __type: "UpdateStackResult",
-    Stack: undefined
+    Stack: undefined,
   };
   if (output.Stack !== undefined) {
     contents.Stack = deserializeAws_json1_1Stack(output.Stack, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UsageReportSubscription = (
   output: any,
@@ -7941,14 +6948,10 @@ const deserializeAws_json1_1UsageReportSubscription = (
     LastGeneratedReportDate: undefined,
     S3BucketName: undefined,
     Schedule: undefined,
-    SubscriptionErrors: undefined
+    SubscriptionErrors: undefined,
   };
   if (output.LastGeneratedReportDate !== undefined) {
-    contents.LastGeneratedReportDate = new Date(
-      output.LastGeneratedReportDate % 1 != 0
-        ? Math.round(output.LastGeneratedReportDate * 1000)
-        : output.LastGeneratedReportDate
-    );
+    contents.LastGeneratedReportDate = new Date(output.LastGeneratedReportDate % 1 != 0 ? Math.round(output.LastGeneratedReportDate * 1000) : output.LastGeneratedReportDate);
   }
   if (output.S3BucketName !== undefined) {
     contents.S3BucketName = output.S3BucketName;
@@ -7957,13 +6960,10 @@ const deserializeAws_json1_1UsageReportSubscription = (
     contents.Schedule = output.Schedule;
   }
   if (output.SubscriptionErrors !== undefined) {
-    contents.SubscriptionErrors = deserializeAws_json1_1LastReportGenerationExecutionErrors(
-      output.SubscriptionErrors,
-      context
-    );
+    contents.SubscriptionErrors = deserializeAws_json1_1LastReportGenerationExecutionErrors(output.SubscriptionErrors, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UsageReportSubscriptionList = (
   output: any,
@@ -7972,7 +6972,7 @@ const deserializeAws_json1_1UsageReportSubscriptionList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1UsageReportSubscription(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1User = (
   output: any,
@@ -7987,7 +6987,7 @@ const deserializeAws_json1_1User = (
     FirstName: undefined,
     LastName: undefined,
     Status: undefined,
-    UserName: undefined
+    UserName: undefined,
   };
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
@@ -7996,11 +6996,7 @@ const deserializeAws_json1_1User = (
     contents.AuthenticationType = output.AuthenticationType;
   }
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(
-      output.CreatedTime % 1 != 0
-        ? Math.round(output.CreatedTime * 1000)
-        : output.CreatedTime
-    );
+    contents.CreatedTime = new Date(output.CreatedTime % 1 != 0 ? Math.round(output.CreatedTime * 1000) : output.CreatedTime);
   }
   if (output.Enabled !== undefined) {
     contents.Enabled = output.Enabled;
@@ -8018,7 +7014,7 @@ const deserializeAws_json1_1User = (
     contents.UserName = output.UserName;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UserList = (
   output: any,
@@ -8027,7 +7023,7 @@ const deserializeAws_json1_1UserList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1User(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1UserSetting = (
   output: any,
@@ -8036,7 +7032,7 @@ const deserializeAws_json1_1UserSetting = (
   let contents: any = {
     __type: "UserSetting",
     Action: undefined,
-    Permission: undefined
+    Permission: undefined,
   };
   if (output.Action !== undefined) {
     contents.Action = output.Action;
@@ -8045,7 +7041,7 @@ const deserializeAws_json1_1UserSetting = (
     contents.Permission = output.Permission;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UserSettingList = (
   output: any,
@@ -8054,7 +7050,7 @@ const deserializeAws_json1_1UserSettingList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1UserSetting(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1UserStackAssociation = (
   output: any,
@@ -8065,7 +7061,7 @@ const deserializeAws_json1_1UserStackAssociation = (
     AuthenticationType: undefined,
     SendEmailNotification: undefined,
     StackName: undefined,
-    UserName: undefined
+    UserName: undefined,
   };
   if (output.AuthenticationType !== undefined) {
     contents.AuthenticationType = output.AuthenticationType;
@@ -8080,7 +7076,7 @@ const deserializeAws_json1_1UserStackAssociation = (
     contents.UserName = output.UserName;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UserStackAssociationError = (
   output: any,
@@ -8090,7 +7086,7 @@ const deserializeAws_json1_1UserStackAssociationError = (
     __type: "UserStackAssociationError",
     ErrorCode: undefined,
     ErrorMessage: undefined,
-    UserStackAssociation: undefined
+    UserStackAssociation: undefined,
   };
   if (output.ErrorCode !== undefined) {
     contents.ErrorCode = output.ErrorCode;
@@ -8099,13 +7095,10 @@ const deserializeAws_json1_1UserStackAssociationError = (
     contents.ErrorMessage = output.ErrorMessage;
   }
   if (output.UserStackAssociation !== undefined) {
-    contents.UserStackAssociation = deserializeAws_json1_1UserStackAssociation(
-      output.UserStackAssociation,
-      context
-    );
+    contents.UserStackAssociation = deserializeAws_json1_1UserStackAssociation(output.UserStackAssociation, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UserStackAssociationErrorList = (
   output: any,
@@ -8114,7 +7107,7 @@ const deserializeAws_json1_1UserStackAssociationErrorList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1UserStackAssociationError(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1UserStackAssociationList = (
   output: any,
@@ -8123,7 +7116,7 @@ const deserializeAws_json1_1UserStackAssociationList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1UserStackAssociation(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1VpcConfig = (
   output: any,
@@ -8132,22 +7125,16 @@ const deserializeAws_json1_1VpcConfig = (
   let contents: any = {
     __type: "VpcConfig",
     SecurityGroupIds: undefined,
-    SubnetIds: undefined
+    SubnetIds: undefined,
   };
   if (output.SecurityGroupIds !== undefined) {
-    contents.SecurityGroupIds = deserializeAws_json1_1SecurityGroupIdList(
-      output.SecurityGroupIds,
-      context
-    );
+    contents.SecurityGroupIds = deserializeAws_json1_1SecurityGroupIdList(output.SecurityGroupIds, context);
   }
   if (output.SubnetIds !== undefined) {
-    contents.SubnetIds = deserializeAws_json1_1SubnetIdList(
-      output.SubnetIds,
-      context
-    );
+    contents.SubnetIds = deserializeAws_json1_1SubnetIdList(output.SubnetIds, context);
   }
   return contents;
-};
+}
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

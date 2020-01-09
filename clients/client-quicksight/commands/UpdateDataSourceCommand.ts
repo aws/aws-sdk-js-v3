@@ -1,20 +1,20 @@
 import {
   QuickSightClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../QuickSightClient";
 import {
   UpdateDataSourceRequest,
-  UpdateDataSourceResponse
+  UpdateDataSourceResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateDataSourceCommand,
-  serializeAws_restJson1_1UpdateDataSourceCommand
+  serializeAws_restJson1_1UpdateDataSourceCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type UpdateDataSourceCommandInput = UpdateDataSourceRequest;
 export type UpdateDataSourceCommandOutput = UpdateDataSourceResponse;
 
-export class UpdateDataSourceCommand extends $Command<
-  UpdateDataSourceCommandInput,
-  UpdateDataSourceCommandOutput,
-  QuickSightClientResolvedConfig
-> {
+export class UpdateDataSourceCommand extends $Command<UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput, QuickSightClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,15 +44,13 @@ export class UpdateDataSourceCommand extends $Command<
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

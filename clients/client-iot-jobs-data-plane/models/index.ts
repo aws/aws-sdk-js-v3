@@ -6,9 +6,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>The certificate is invalid.</p>
  *
  */
-export interface CertificateValidationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CertificateValidationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CertificateValidationException";
   $fault: "client";
   /**
@@ -30,9 +28,7 @@ export namespace CertificateValidationException {
  *          <p>The contents of the request were invalid. For example, this code is returned when an UpdateJobExecution request contains invalid status details. The message contains details about the error.</p>
  *
  */
-export interface InvalidRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRequestException";
   $fault: "client";
   /**
@@ -56,9 +52,7 @@ export namespace InvalidRequestException {
  *          case, the body of the error message also contains the executionState field.</p>
  *
  */
-export interface InvalidStateTransitionException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidStateTransitionException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidStateTransitionException";
   $fault: "client";
   message?: string;
@@ -75,9 +69,7 @@ export namespace InvalidStateTransitionException {
  *          <p>The specified resource does not exist.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -99,9 +91,7 @@ export namespace ResourceNotFoundException {
  *          <p>The service is temporarily unavailable.</p>
  *
  */
-export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceUnavailableException";
   $fault: "server";
   /**
@@ -123,9 +113,7 @@ export namespace ServiceUnavailableException {
  *          <p>The job is in a terminal state.</p>
  *
  */
-export interface TerminalStateException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TerminalStateException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TerminalStateException";
   $fault: "client";
   message?: string;
@@ -145,7 +133,7 @@ export enum JobExecutionStatus {
   REJECTED = "REJECTED",
   REMOVED = "REMOVED",
   SUCCEEDED = "SUCCEEDED",
-  TIMED_OUT = "TIMED_OUT"
+  TIMED_OUT = "TIMED_OUT",
 }
 
 /**
@@ -153,9 +141,7 @@ export enum JobExecutionStatus {
  *          <p>The rate exceeds the limit.</p>
  *
  */
-export interface ThrottlingException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ThrottlingException";
   $fault: "client";
   /**

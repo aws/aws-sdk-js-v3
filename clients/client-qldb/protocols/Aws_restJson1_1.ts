@@ -1,62 +1,62 @@
 import {
   CreateLedgerCommandInput,
-  CreateLedgerCommandOutput
+  CreateLedgerCommandOutput,
 } from "../commands/CreateLedgerCommand";
 import {
   DeleteLedgerCommandInput,
-  DeleteLedgerCommandOutput
+  DeleteLedgerCommandOutput,
 } from "../commands/DeleteLedgerCommand";
 import {
   DescribeJournalS3ExportCommandInput,
-  DescribeJournalS3ExportCommandOutput
+  DescribeJournalS3ExportCommandOutput,
 } from "../commands/DescribeJournalS3ExportCommand";
 import {
   DescribeLedgerCommandInput,
-  DescribeLedgerCommandOutput
+  DescribeLedgerCommandOutput,
 } from "../commands/DescribeLedgerCommand";
 import {
   ExportJournalToS3CommandInput,
-  ExportJournalToS3CommandOutput
+  ExportJournalToS3CommandOutput,
 } from "../commands/ExportJournalToS3Command";
 import {
   GetBlockCommandInput,
-  GetBlockCommandOutput
+  GetBlockCommandOutput,
 } from "../commands/GetBlockCommand";
 import {
   GetDigestCommandInput,
-  GetDigestCommandOutput
+  GetDigestCommandOutput,
 } from "../commands/GetDigestCommand";
 import {
   GetRevisionCommandInput,
-  GetRevisionCommandOutput
+  GetRevisionCommandOutput,
 } from "../commands/GetRevisionCommand";
 import {
   ListJournalS3ExportsCommandInput,
-  ListJournalS3ExportsCommandOutput
+  ListJournalS3ExportsCommandOutput,
 } from "../commands/ListJournalS3ExportsCommand";
 import {
   ListJournalS3ExportsForLedgerCommandInput,
-  ListJournalS3ExportsForLedgerCommandOutput
+  ListJournalS3ExportsForLedgerCommandOutput,
 } from "../commands/ListJournalS3ExportsForLedgerCommand";
 import {
   ListLedgersCommandInput,
-  ListLedgersCommandOutput
+  ListLedgersCommandOutput,
 } from "../commands/ListLedgersCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import {
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "../commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "../commands/UntagResourceCommand";
 import {
   UpdateLedgerCommandInput,
-  UpdateLedgerCommandOutput
+  UpdateLedgerCommandOutput,
 } from "../commands/UpdateLedgerCommand";
 import {
   InvalidParameterException,
@@ -69,18 +69,18 @@ import {
   ResourcePreconditionNotMetException,
   S3EncryptionConfiguration,
   S3ExportConfiguration,
-  ValueHolder
+  ValueHolder,
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export async function serializeAws_restJson1_1CreateLedgerCommand(
@@ -88,21 +88,21 @@ export async function serializeAws_restJson1_1CreateLedgerCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/ledgers";
   let body: any = {};
   const bodyParams: any = {};
   if (input.DeletionProtection !== undefined) {
-    bodyParams["DeletionProtection"] = input.DeletionProtection;
+    bodyParams['DeletionProtection'] = input.DeletionProtection;
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.PermissionsMode !== undefined) {
-    bodyParams["PermissionsMode"] = input.PermissionsMode;
+    bodyParams['PermissionsMode'] = input.PermissionsMode;
   }
   if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
+    bodyParams['Tags'] = serializeAws_restJson1_1Tags(input.Tags, context);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -111,7 +111,7 @@ export async function serializeAws_restJson1_1CreateLedgerCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -120,23 +120,23 @@ export async function serializeAws_restJson1_1DeleteLedgerCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/ledgers/{Name}";
   if (input.Name !== undefined) {
     const labelValue: any = input.Name.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
+      throw new Error('Empty value provided for input HTTP label: Name.');
     }
-    resolvedPath = resolvedPath.replace("{Name}", labelValue);
+    resolvedPath = resolvedPath.replace('{Name}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: Name.");
+    throw new Error('No value provided for input HTTP label: Name.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -145,32 +145,32 @@ export async function serializeAws_restJson1_1DescribeJournalS3ExportCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/ledgers/{Name}/journal-s3-exports/{ExportId}";
   if (input.ExportId !== undefined) {
     const labelValue: any = input.ExportId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ExportId.");
+      throw new Error('Empty value provided for input HTTP label: ExportId.');
     }
-    resolvedPath = resolvedPath.replace("{ExportId}", labelValue);
+    resolvedPath = resolvedPath.replace('{ExportId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: ExportId.");
+    throw new Error('No value provided for input HTTP label: ExportId.');
   }
   if (input.Name !== undefined) {
     const labelValue: any = input.Name.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
+      throw new Error('Empty value provided for input HTTP label: Name.');
     }
-    resolvedPath = resolvedPath.replace("{Name}", labelValue);
+    resolvedPath = resolvedPath.replace('{Name}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: Name.");
+    throw new Error('No value provided for input HTTP label: Name.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -179,23 +179,23 @@ export async function serializeAws_restJson1_1DescribeLedgerCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/ledgers/{Name}";
   if (input.Name !== undefined) {
     const labelValue: any = input.Name.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
+      throw new Error('Empty value provided for input HTTP label: Name.');
     }
-    resolvedPath = resolvedPath.replace("{Name}", labelValue);
+    resolvedPath = resolvedPath.replace('{Name}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: Name.");
+    throw new Error('No value provided for input HTTP label: Name.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -204,39 +204,30 @@ export async function serializeAws_restJson1_1ExportJournalToS3Command(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/ledgers/{Name}/journal-s3-exports";
   if (input.Name !== undefined) {
     const labelValue: any = input.Name.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
+      throw new Error('Empty value provided for input HTTP label: Name.');
     }
-    resolvedPath = resolvedPath.replace("{Name}", labelValue);
+    resolvedPath = resolvedPath.replace('{Name}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: Name.");
+    throw new Error('No value provided for input HTTP label: Name.');
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.ExclusiveEndTime !== undefined) {
-    bodyParams["ExclusiveEndTime"] = Math.round(
-      input.ExclusiveEndTime.getTime() / 1000
-    );
+    bodyParams['ExclusiveEndTime'] = Math.round(input.ExclusiveEndTime.getTime() / 1000);
   }
   if (input.InclusiveStartTime !== undefined) {
-    bodyParams["InclusiveStartTime"] = Math.round(
-      input.InclusiveStartTime.getTime() / 1000
-    );
+    bodyParams['InclusiveStartTime'] = Math.round(input.InclusiveStartTime.getTime() / 1000);
   }
   if (input.RoleArn !== undefined) {
-    bodyParams["RoleArn"] = input.RoleArn;
+    bodyParams['RoleArn'] = input.RoleArn;
   }
   if (input.S3ExportConfiguration !== undefined) {
-    bodyParams[
-      "S3ExportConfiguration"
-    ] = serializeAws_restJson1_1S3ExportConfiguration(
-      input.S3ExportConfiguration,
-      context
-    );
+    bodyParams['S3ExportConfiguration'] = serializeAws_restJson1_1S3ExportConfiguration(input.S3ExportConfiguration, context);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -245,7 +236,7 @@ export async function serializeAws_restJson1_1ExportJournalToS3Command(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -254,30 +245,24 @@ export async function serializeAws_restJson1_1GetBlockCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/ledgers/{Name}/block";
   if (input.Name !== undefined) {
     const labelValue: any = input.Name.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
+      throw new Error('Empty value provided for input HTTP label: Name.');
     }
-    resolvedPath = resolvedPath.replace("{Name}", labelValue);
+    resolvedPath = resolvedPath.replace('{Name}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: Name.");
+    throw new Error('No value provided for input HTTP label: Name.');
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.BlockAddress !== undefined) {
-    bodyParams["BlockAddress"] = serializeAws_restJson1_1ValueHolder(
-      input.BlockAddress,
-      context
-    );
+    bodyParams['BlockAddress'] = serializeAws_restJson1_1ValueHolder(input.BlockAddress, context);
   }
   if (input.DigestTipAddress !== undefined) {
-    bodyParams["DigestTipAddress"] = serializeAws_restJson1_1ValueHolder(
-      input.DigestTipAddress,
-      context
-    );
+    bodyParams['DigestTipAddress'] = serializeAws_restJson1_1ValueHolder(input.DigestTipAddress, context);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -286,7 +271,7 @@ export async function serializeAws_restJson1_1GetBlockCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -295,23 +280,23 @@ export async function serializeAws_restJson1_1GetDigestCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/ledgers/{Name}/digest";
   if (input.Name !== undefined) {
     const labelValue: any = input.Name.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
+      throw new Error('Empty value provided for input HTTP label: Name.');
     }
-    resolvedPath = resolvedPath.replace("{Name}", labelValue);
+    resolvedPath = resolvedPath.replace('{Name}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: Name.");
+    throw new Error('No value provided for input HTTP label: Name.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -320,33 +305,27 @@ export async function serializeAws_restJson1_1GetRevisionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/ledgers/{Name}/revision";
   if (input.Name !== undefined) {
     const labelValue: any = input.Name.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
+      throw new Error('Empty value provided for input HTTP label: Name.');
     }
-    resolvedPath = resolvedPath.replace("{Name}", labelValue);
+    resolvedPath = resolvedPath.replace('{Name}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: Name.");
+    throw new Error('No value provided for input HTTP label: Name.');
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.BlockAddress !== undefined) {
-    bodyParams["BlockAddress"] = serializeAws_restJson1_1ValueHolder(
-      input.BlockAddress,
-      context
-    );
+    bodyParams['BlockAddress'] = serializeAws_restJson1_1ValueHolder(input.BlockAddress, context);
   }
   if (input.DigestTipAddress !== undefined) {
-    bodyParams["DigestTipAddress"] = serializeAws_restJson1_1ValueHolder(
-      input.DigestTipAddress,
-      context
-    );
+    bodyParams['DigestTipAddress'] = serializeAws_restJson1_1ValueHolder(input.DigestTipAddress, context);
   }
   if (input.DocumentId !== undefined) {
-    bodyParams["DocumentId"] = input.DocumentId;
+    bodyParams['DocumentId'] = input.DocumentId;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -355,7 +334,7 @@ export async function serializeAws_restJson1_1GetRevisionCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -364,14 +343,14 @@ export async function serializeAws_restJson1_1ListJournalS3ExportsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/journal-s3-exports";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["max_results"] = input.MaxResults.toString();
+    query['max_results'] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["next_token"] = input.NextToken.toString();
+    query['next_token'] = input.NextToken.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -379,7 +358,7 @@ export async function serializeAws_restJson1_1ListJournalS3ExportsCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -388,23 +367,23 @@ export async function serializeAws_restJson1_1ListJournalS3ExportsForLedgerComma
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/ledgers/{Name}/journal-s3-exports";
   if (input.Name !== undefined) {
     const labelValue: any = input.Name.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
+      throw new Error('Empty value provided for input HTTP label: Name.');
     }
-    resolvedPath = resolvedPath.replace("{Name}", labelValue);
+    resolvedPath = resolvedPath.replace('{Name}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: Name.");
+    throw new Error('No value provided for input HTTP label: Name.');
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["max_results"] = input.MaxResults.toString();
+    query['max_results'] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["next_token"] = input.NextToken.toString();
+    query['next_token'] = input.NextToken.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -412,7 +391,7 @@ export async function serializeAws_restJson1_1ListJournalS3ExportsForLedgerComma
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -421,14 +400,14 @@ export async function serializeAws_restJson1_1ListLedgersCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/ledgers";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["max_results"] = input.MaxResults.toString();
+    query['max_results'] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["next_token"] = input.NextToken.toString();
+    query['next_token'] = input.NextToken.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -436,7 +415,7 @@ export async function serializeAws_restJson1_1ListLedgersCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -445,25 +424,23 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: any = input.ResourceArn.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error('Empty value provided for input HTTP label: ResourceArn.');
     }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace('{ResourceArn}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: ResourceArn.");
+    throw new Error('No value provided for input HTTP label: ResourceArn.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -472,23 +449,21 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: any = input.ResourceArn.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error('Empty value provided for input HTTP label: ResourceArn.');
     }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace('{ResourceArn}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: ResourceArn.");
+    throw new Error('No value provided for input HTTP label: ResourceArn.');
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
+    bodyParams['Tags'] = serializeAws_restJson1_1Tags(input.Tags, context);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -497,7 +472,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -506,22 +481,20 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: any = input.ResourceArn.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error('Empty value provided for input HTTP label: ResourceArn.');
     }
-    resolvedPath = resolvedPath.replace("{ResourceArn}", labelValue);
+    resolvedPath = resolvedPath.replace('{ResourceArn}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: ResourceArn.");
+    throw new Error('No value provided for input HTTP label: ResourceArn.');
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query["tagKeys"] = input.TagKeys;
+    query['tagKeys'] = input.TagKeys;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -529,7 +502,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -538,21 +511,21 @@ export async function serializeAws_restJson1_1UpdateLedgerCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/ledgers/{Name}";
   if (input.Name !== undefined) {
     const labelValue: any = input.Name.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
+      throw new Error('Empty value provided for input HTTP label: Name.');
     }
-    resolvedPath = resolvedPath.replace("{Name}", labelValue);
+    resolvedPath = resolvedPath.replace('{Name}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: Name.");
+    throw new Error('No value provided for input HTTP label: Name.');
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.DeletionProtection !== undefined) {
-    bodyParams["DeletionProtection"] = input.DeletionProtection;
+    bodyParams['DeletionProtection'] = input.DeletionProtection;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -561,7 +534,7 @@ export async function serializeAws_restJson1_1UpdateLedgerCommand(
     method: "PATCH",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -579,18 +552,14 @@ export async function deserializeAws_restJson1_1CreateLedgerCommand(
     CreationDateTime: undefined,
     DeletionProtection: undefined,
     Name: undefined,
-    State: undefined
+    State: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined) {
     contents.Arn = data.Arn;
   }
   if (data.CreationDateTime !== undefined) {
-    contents.CreationDateTime = new Date(
-      data.CreationDateTime % 1 != 0
-        ? Math.round(data.CreationDateTime * 1000)
-        : data.CreationDateTime
-    );
+    contents.CreationDateTime = new Date(data.CreationDateTime % 1 != 0 ? Math.round(data.CreationDateTime * 1000) : data.CreationDateTime);
   }
   if (data.DeletionProtection !== undefined) {
     contents.DeletionProtection = data.DeletionProtection;
@@ -606,53 +575,40 @@ export async function deserializeAws_restJson1_1CreateLedgerCommand(
 
 async function deserializeAws_restJson1_1CreateLedgerCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateLedgerCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.ledger.v20190102#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.ledger.v20190102#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
       break;
     case "ResourceInUseException":
     case "com.amazonaws.ledger.v20190102#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -666,60 +622,47 @@ export async function deserializeAws_restJson1_1DeleteLedgerCommand(
     return deserializeAws_restJson1_1DeleteLedgerCommandError(output, context);
   }
   const contents: DeleteLedgerCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DeleteLedgerCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteLedgerCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "ResourceInUseException":
     case "com.amazonaws.ledger.v20190102#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ResourcePreconditionNotMetException":
     case "com.amazonaws.ledger.v20190102#ResourcePreconditionNotMetException":
-      response = await deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -730,54 +673,44 @@ export async function deserializeAws_restJson1_1DescribeJournalS3ExportCommand(
   context: __SerdeContext
 ): Promise<DescribeJournalS3ExportCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeJournalS3ExportCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeJournalS3ExportCommandError(output, context);
   }
   const contents: DescribeJournalS3ExportCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeJournalS3ExportResponse",
-    ExportDescription: undefined
+    ExportDescription: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.ExportDescription !== undefined) {
-    contents.ExportDescription = deserializeAws_restJson1_1JournalS3ExportDescription(
-      data.ExportDescription,
-      context
-    );
+    contents.ExportDescription = deserializeAws_restJson1_1JournalS3ExportDescription(data.ExportDescription, context);
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DescribeJournalS3ExportCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeJournalS3ExportCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -788,10 +721,7 @@ export async function deserializeAws_restJson1_1DescribeLedgerCommand(
   context: __SerdeContext
 ): Promise<DescribeLedgerCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeLedgerCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeLedgerCommandError(output, context);
   }
   const contents: DescribeLedgerCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -800,18 +730,14 @@ export async function deserializeAws_restJson1_1DescribeLedgerCommand(
     CreationDateTime: undefined,
     DeletionProtection: undefined,
     Name: undefined,
-    State: undefined
+    State: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined) {
     contents.Arn = data.Arn;
   }
   if (data.CreationDateTime !== undefined) {
-    contents.CreationDateTime = new Date(
-      data.CreationDateTime % 1 != 0
-        ? Math.round(data.CreationDateTime * 1000)
-        : data.CreationDateTime
-    );
+    contents.CreationDateTime = new Date(data.CreationDateTime % 1 != 0 ? Math.round(data.CreationDateTime * 1000) : data.CreationDateTime);
   }
   if (data.DeletionProtection !== undefined) {
     contents.DeletionProtection = data.DeletionProtection;
@@ -827,39 +753,32 @@ export async function deserializeAws_restJson1_1DescribeLedgerCommand(
 
 async function deserializeAws_restJson1_1DescribeLedgerCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeLedgerCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -870,15 +789,12 @@ export async function deserializeAws_restJson1_1ExportJournalToS3Command(
   context: __SerdeContext
 ): Promise<ExportJournalToS3CommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ExportJournalToS3CommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ExportJournalToS3CommandError(output, context);
   }
   const contents: ExportJournalToS3CommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ExportJournalToS3Response",
-    ExportId: undefined
+    ExportId: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.ExportId !== undefined) {
@@ -889,39 +805,32 @@ export async function deserializeAws_restJson1_1ExportJournalToS3Command(
 
 async function deserializeAws_restJson1_1ExportJournalToS3CommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ExportJournalToS3CommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ResourcePreconditionNotMetException":
     case "com.amazonaws.ledger.v20190102#ResourcePreconditionNotMetException":
-      response = await deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -938,7 +847,7 @@ export async function deserializeAws_restJson1_1GetBlockCommand(
     $metadata: deserializeMetadata(output),
     __type: "GetBlockResponse",
     Block: undefined,
-    Proof: undefined
+    Proof: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Block !== undefined) {
@@ -952,46 +861,36 @@ export async function deserializeAws_restJson1_1GetBlockCommand(
 
 async function deserializeAws_restJson1_1GetBlockCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetBlockCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ResourcePreconditionNotMetException":
     case "com.amazonaws.ledger.v20190102#ResourcePreconditionNotMetException":
-      response = await deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1008,63 +907,50 @@ export async function deserializeAws_restJson1_1GetDigestCommand(
     $metadata: deserializeMetadata(output),
     __type: "GetDigestResponse",
     Digest: undefined,
-    DigestTipAddress: undefined
+    DigestTipAddress: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Digest !== undefined) {
     contents.Digest = context.base64Decoder(data.Digest);
   }
   if (data.DigestTipAddress !== undefined) {
-    contents.DigestTipAddress = deserializeAws_restJson1_1ValueHolder(
-      data.DigestTipAddress,
-      context
-    );
+    contents.DigestTipAddress = deserializeAws_restJson1_1ValueHolder(data.DigestTipAddress, context);
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1GetDigestCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetDigestCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ResourcePreconditionNotMetException":
     case "com.amazonaws.ledger.v20190102#ResourcePreconditionNotMetException":
-      response = await deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1081,63 +967,50 @@ export async function deserializeAws_restJson1_1GetRevisionCommand(
     $metadata: deserializeMetadata(output),
     __type: "GetRevisionResponse",
     Proof: undefined,
-    Revision: undefined
+    Revision: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Proof !== undefined) {
     contents.Proof = deserializeAws_restJson1_1ValueHolder(data.Proof, context);
   }
   if (data.Revision !== undefined) {
-    contents.Revision = deserializeAws_restJson1_1ValueHolder(
-      data.Revision,
-      context
-    );
+    contents.Revision = deserializeAws_restJson1_1ValueHolder(data.Revision, context);
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1GetRevisionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetRevisionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ResourcePreconditionNotMetException":
     case "com.amazonaws.ledger.v20190102#ResourcePreconditionNotMetException":
-      response = await deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1148,23 +1021,17 @@ export async function deserializeAws_restJson1_1ListJournalS3ExportsCommand(
   context: __SerdeContext
 ): Promise<ListJournalS3ExportsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListJournalS3ExportsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListJournalS3ExportsCommandError(output, context);
   }
   const contents: ListJournalS3ExportsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListJournalS3ExportsResponse",
     JournalS3Exports: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.JournalS3Exports !== undefined) {
-    contents.JournalS3Exports = deserializeAws_restJson1_1JournalS3ExportList(
-      data.JournalS3Exports,
-      context
-    );
+    contents.JournalS3Exports = deserializeAws_restJson1_1JournalS3ExportList(data.JournalS3Exports, context);
   }
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
@@ -1174,21 +1041,20 @@ export async function deserializeAws_restJson1_1ListJournalS3ExportsCommand(
 
 async function deserializeAws_restJson1_1ListJournalS3ExportsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListJournalS3ExportsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1199,23 +1065,17 @@ export async function deserializeAws_restJson1_1ListJournalS3ExportsForLedgerCom
   context: __SerdeContext
 ): Promise<ListJournalS3ExportsForLedgerCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListJournalS3ExportsForLedgerCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListJournalS3ExportsForLedgerCommandError(output, context);
   }
   const contents: ListJournalS3ExportsForLedgerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListJournalS3ExportsForLedgerResponse",
     JournalS3Exports: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.JournalS3Exports !== undefined) {
-    contents.JournalS3Exports = deserializeAws_restJson1_1JournalS3ExportList(
-      data.JournalS3Exports,
-      context
-    );
+    contents.JournalS3Exports = deserializeAws_restJson1_1JournalS3ExportList(data.JournalS3Exports, context);
   }
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
@@ -1225,21 +1085,20 @@ export async function deserializeAws_restJson1_1ListJournalS3ExportsForLedgerCom
 
 async function deserializeAws_restJson1_1ListJournalS3ExportsForLedgerCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListJournalS3ExportsForLedgerCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1256,14 +1115,11 @@ export async function deserializeAws_restJson1_1ListLedgersCommand(
     $metadata: deserializeMetadata(output),
     __type: "ListLedgersResponse",
     Ledgers: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Ledgers !== undefined) {
-    contents.Ledgers = deserializeAws_restJson1_1LedgerList(
-      data.Ledgers,
-      context
-    );
+    contents.Ledgers = deserializeAws_restJson1_1LedgerList(data.Ledgers, context);
   }
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
@@ -1273,21 +1129,20 @@ export async function deserializeAws_restJson1_1ListLedgersCommand(
 
 async function deserializeAws_restJson1_1ListLedgersCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListLedgersCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1298,15 +1153,12 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
-    Tags: undefined
+    Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Tags !== undefined) {
@@ -1317,39 +1169,32 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
 
 async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListTagsForResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1364,46 +1209,39 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse"
+    __type: "TagResourceResponse",
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<TagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1418,46 +1256,39 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse"
+    __type: "UntagResourceResponse",
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UntagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1477,18 +1308,14 @@ export async function deserializeAws_restJson1_1UpdateLedgerCommand(
     CreationDateTime: undefined,
     DeletionProtection: undefined,
     Name: undefined,
-    State: undefined
+    State: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined) {
     contents.Arn = data.Arn;
   }
   if (data.CreationDateTime !== undefined) {
-    contents.CreationDateTime = new Date(
-      data.CreationDateTime % 1 != 0
-        ? Math.round(data.CreationDateTime * 1000)
-        : data.CreationDateTime
-    );
+    contents.CreationDateTime = new Date(data.CreationDateTime % 1 != 0 ? Math.round(data.CreationDateTime * 1000) : data.CreationDateTime);
   }
   if (data.DeletionProtection !== undefined) {
     contents.DeletionProtection = data.DeletionProtection;
@@ -1504,39 +1331,32 @@ export async function deserializeAws_restJson1_1UpdateLedgerCommand(
 
 async function deserializeAws_restJson1_1UpdateLedgerCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateLedgerCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1551,7 +1371,7 @@ const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined,
-    ParameterName: undefined
+    ParameterName: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -1572,7 +1392,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Message: undefined,
-    ResourceType: undefined
+    ResourceType: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -1594,7 +1414,7 @@ const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined,
     ResourceName: undefined,
-    ResourceType: undefined
+    ResourceType: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -1619,7 +1439,7 @@ const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined,
     ResourceName: undefined,
-    ResourceType: undefined
+    ResourceType: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -1644,7 +1464,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     $metadata: deserializeMetadata(output),
     Message: undefined,
     ResourceName: undefined,
-    ResourceType: undefined
+    ResourceType: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -1669,7 +1489,7 @@ const deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse = as
     $metadata: deserializeMetadata(output),
     Message: undefined,
     ResourceName: undefined,
-    ResourceType: undefined
+    ResourceType: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -1690,13 +1510,13 @@ const serializeAws_restJson1_1S3EncryptionConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.KmsKeyArn !== undefined) {
-    bodyParams["KmsKeyArn"] = input.KmsKeyArn;
+    bodyParams['KmsKeyArn'] = input.KmsKeyArn;
   }
   if (input.ObjectEncryptionType !== undefined) {
-    bodyParams["ObjectEncryptionType"] = input.ObjectEncryptionType;
+    bodyParams['ObjectEncryptionType'] = input.ObjectEncryptionType;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1S3ExportConfiguration = (
   input: S3ExportConfiguration,
@@ -1704,21 +1524,16 @@ const serializeAws_restJson1_1S3ExportConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.Bucket !== undefined) {
-    bodyParams["Bucket"] = input.Bucket;
+    bodyParams['Bucket'] = input.Bucket;
   }
   if (input.EncryptionConfiguration !== undefined) {
-    bodyParams[
-      "EncryptionConfiguration"
-    ] = serializeAws_restJson1_1S3EncryptionConfiguration(
-      input.EncryptionConfiguration,
-      context
-    );
+    bodyParams['EncryptionConfiguration'] = serializeAws_restJson1_1S3EncryptionConfiguration(input.EncryptionConfiguration, context);
   }
   if (input.Prefix !== undefined) {
-    bodyParams["Prefix"] = input.Prefix;
+    bodyParams['Prefix'] = input.Prefix;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1Tags = (
   input: { [key: string]: string },
@@ -1729,7 +1544,7 @@ const serializeAws_restJson1_1Tags = (
     mapParams[key] = input[key];
   });
   return mapParams;
-};
+}
 
 const serializeAws_restJson1_1ValueHolder = (
   input: ValueHolder,
@@ -1737,10 +1552,10 @@ const serializeAws_restJson1_1ValueHolder = (
 ): any => {
   let bodyParams: any = {};
   if (input.IonText !== undefined) {
-    bodyParams["IonText"] = input.IonText;
+    bodyParams['IonText'] = input.IonText;
   }
   return bodyParams;
-};
+}
 
 const deserializeAws_restJson1_1JournalS3ExportDescription = (
   output: any,
@@ -1755,31 +1570,19 @@ const deserializeAws_restJson1_1JournalS3ExportDescription = (
     LedgerName: undefined,
     RoleArn: undefined,
     S3ExportConfiguration: undefined,
-    Status: undefined
+    Status: undefined,
   };
   if (output.ExclusiveEndTime !== undefined) {
-    contents.ExclusiveEndTime = new Date(
-      output.ExclusiveEndTime % 1 != 0
-        ? Math.round(output.ExclusiveEndTime * 1000)
-        : output.ExclusiveEndTime
-    );
+    contents.ExclusiveEndTime = new Date(output.ExclusiveEndTime % 1 != 0 ? Math.round(output.ExclusiveEndTime * 1000) : output.ExclusiveEndTime);
   }
   if (output.ExportCreationTime !== undefined) {
-    contents.ExportCreationTime = new Date(
-      output.ExportCreationTime % 1 != 0
-        ? Math.round(output.ExportCreationTime * 1000)
-        : output.ExportCreationTime
-    );
+    contents.ExportCreationTime = new Date(output.ExportCreationTime % 1 != 0 ? Math.round(output.ExportCreationTime * 1000) : output.ExportCreationTime);
   }
   if (output.ExportId !== undefined) {
     contents.ExportId = output.ExportId;
   }
   if (output.InclusiveStartTime !== undefined) {
-    contents.InclusiveStartTime = new Date(
-      output.InclusiveStartTime % 1 != 0
-        ? Math.round(output.InclusiveStartTime * 1000)
-        : output.InclusiveStartTime
-    );
+    contents.InclusiveStartTime = new Date(output.InclusiveStartTime % 1 != 0 ? Math.round(output.InclusiveStartTime * 1000) : output.InclusiveStartTime);
   }
   if (output.LedgerName !== undefined) {
     contents.LedgerName = output.LedgerName;
@@ -1788,16 +1591,13 @@ const deserializeAws_restJson1_1JournalS3ExportDescription = (
     contents.RoleArn = output.RoleArn;
   }
   if (output.S3ExportConfiguration !== undefined) {
-    contents.S3ExportConfiguration = deserializeAws_restJson1_1S3ExportConfiguration(
-      output.S3ExportConfiguration,
-      context
-    );
+    contents.S3ExportConfiguration = deserializeAws_restJson1_1S3ExportConfiguration(output.S3ExportConfiguration, context);
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1JournalS3ExportList = (
   output: any,
@@ -1806,7 +1606,7 @@ const deserializeAws_restJson1_1JournalS3ExportList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1JournalS3ExportDescription(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1LedgerList = (
   output: any,
@@ -1815,7 +1615,7 @@ const deserializeAws_restJson1_1LedgerList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1LedgerSummary(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1LedgerSummary = (
   output: any,
@@ -1825,14 +1625,10 @@ const deserializeAws_restJson1_1LedgerSummary = (
     __type: "LedgerSummary",
     CreationDateTime: undefined,
     Name: undefined,
-    State: undefined
+    State: undefined,
   };
   if (output.CreationDateTime !== undefined) {
-    contents.CreationDateTime = new Date(
-      output.CreationDateTime % 1 != 0
-        ? Math.round(output.CreationDateTime * 1000)
-        : output.CreationDateTime
-    );
+    contents.CreationDateTime = new Date(output.CreationDateTime % 1 != 0 ? Math.round(output.CreationDateTime * 1000) : output.CreationDateTime);
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -1841,7 +1637,7 @@ const deserializeAws_restJson1_1LedgerSummary = (
     contents.State = output.State;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1S3EncryptionConfiguration = (
   output: any,
@@ -1850,7 +1646,7 @@ const deserializeAws_restJson1_1S3EncryptionConfiguration = (
   let contents: any = {
     __type: "S3EncryptionConfiguration",
     KmsKeyArn: undefined,
-    ObjectEncryptionType: undefined
+    ObjectEncryptionType: undefined,
   };
   if (output.KmsKeyArn !== undefined) {
     contents.KmsKeyArn = output.KmsKeyArn;
@@ -1859,7 +1655,7 @@ const deserializeAws_restJson1_1S3EncryptionConfiguration = (
     contents.ObjectEncryptionType = output.ObjectEncryptionType;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1S3ExportConfiguration = (
   output: any,
@@ -1869,22 +1665,19 @@ const deserializeAws_restJson1_1S3ExportConfiguration = (
     __type: "S3ExportConfiguration",
     Bucket: undefined,
     EncryptionConfiguration: undefined,
-    Prefix: undefined
+    Prefix: undefined,
   };
   if (output.Bucket !== undefined) {
     contents.Bucket = output.Bucket;
   }
   if (output.EncryptionConfiguration !== undefined) {
-    contents.EncryptionConfiguration = deserializeAws_restJson1_1S3EncryptionConfiguration(
-      output.EncryptionConfiguration,
-      context
-    );
+    contents.EncryptionConfiguration = deserializeAws_restJson1_1S3EncryptionConfiguration(output.EncryptionConfiguration, context);
   }
   if (output.Prefix !== undefined) {
     contents.Prefix = output.Prefix;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1Tags = (
   output: any,
@@ -1895,7 +1688,7 @@ const deserializeAws_restJson1_1Tags = (
     mapParams[key] = output[key];
   });
   return mapParams;
-};
+}
 
 const deserializeAws_restJson1_1ValueHolder = (
   output: any,
@@ -1903,13 +1696,13 @@ const deserializeAws_restJson1_1ValueHolder = (
 ): ValueHolder => {
   let contents: any = {
     __type: "ValueHolder",
-    IonText: undefined
+    IonText: undefined,
   };
   if (output.IonText !== undefined) {
     contents.IonText = output.IonText;
   }
   return contents;
-};
+}
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

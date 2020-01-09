@@ -8,9 +8,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *         </p>
  *
  */
-export interface AccountActionRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AccountActionRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AccountActionRequiredException";
   $fault: "client";
   /**
@@ -37,9 +35,7 @@ export namespace AccountActionRequiredException {
  *         </p>
  *
  */
-export interface BadRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BadRequestException";
   $fault: "client";
   /**
@@ -532,9 +528,7 @@ export namespace ExportProjectResult {
  *         </p>
  *
  */
-export interface InternalFailureException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalFailureException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalFailureException";
   $fault: "server";
   /**
@@ -563,9 +557,7 @@ export namespace InternalFailureException {
  *         </p>
  *
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   /**
@@ -743,9 +735,7 @@ export namespace ListProjectsResult {
  *         </p>
  *
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   /**
@@ -771,7 +761,7 @@ export enum Platform {
   OBJC = "OBJC",
   OSX = "OSX",
   SWIFT = "SWIFT",
-  WINDOWS = "WINDOWS"
+  WINDOWS = "WINDOWS",
 }
 
 /**
@@ -865,7 +855,7 @@ export namespace ProjectDetails {
 export enum ProjectState {
   IMPORTING = "IMPORTING",
   NORMAL = "NORMAL",
-  SYNCING = "SYNCING"
+  SYNCING = "SYNCING",
 }
 
 /**
@@ -971,9 +961,7 @@ export namespace Resource {
  *         </p>
  *
  */
-export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceUnavailableException";
   $fault: "server";
   /**
@@ -1009,9 +997,7 @@ export namespace ServiceUnavailableException {
  *         </p>
  *
  */
-export interface TooManyRequestsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TooManyRequestsException";
   $fault: "client";
   /**
@@ -1046,9 +1032,7 @@ export namespace TooManyRequestsException {
  *         </p>
  *
  */
-export interface UnauthorizedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnauthorizedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "UnauthorizedException";
   $fault: "client";
   /**

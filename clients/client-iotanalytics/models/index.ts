@@ -6,9 +6,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>There was an internal failure.</p>
  *
  */
-export interface InternalFailureException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalFailureException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalFailureException";
   $fault: "server";
   message?: string;
@@ -25,9 +23,7 @@ export namespace InternalFailureException {
  *          <p>The request was not valid.</p>
  *
  */
-export interface InvalidRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRequestException";
   $fault: "client";
   message?: string;
@@ -44,9 +40,7 @@ export namespace InvalidRequestException {
  *          <p>The command caused an internal limit to be exceeded.</p>
  *
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -63,9 +57,7 @@ export namespace LimitExceededException {
  *          <p>A resource with the same name already exists.</p>
  *
  */
-export interface ResourceAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -95,9 +87,7 @@ export namespace ResourceAlreadyExistsException {
  *          <p>A resource with the specified name could not be found.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -114,9 +104,7 @@ export namespace ResourceNotFoundException {
  *          <p>The service is temporarily unavailable.</p>
  *
  */
-export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceUnavailableException";
   $fault: "server";
   message?: string;
@@ -133,9 +121,7 @@ export namespace ServiceUnavailableException {
  *          <p>The request was denied due to request throttling.</p>
  *
  */
-export interface ThrottlingException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ThrottlingException";
   $fault: "client";
   message?: string;
@@ -346,7 +332,7 @@ export namespace ChannelStatistics {
 export enum ChannelStatus {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
-  DELETING = "DELETING"
+  DELETING = "DELETING",
 }
 
 /**
@@ -462,7 +448,7 @@ export namespace ChannelSummary {
 
 export enum ComputeType {
   ACU_1 = "ACU_1",
-  ACU_2 = "ACU_2"
+  ACU_2 = "ACU_2",
 }
 
 /**
@@ -1160,7 +1146,7 @@ export namespace DatasetActionSummary {
 
 export enum DatasetActionType {
   CONTAINER = "CONTAINER",
-  QUERY = "QUERY"
+  QUERY = "QUERY",
 }
 
 /**
@@ -1222,7 +1208,7 @@ export namespace DatasetContentDeliveryRule {
 export enum DatasetContentState {
   CREATING = "CREATING",
   FAILED = "FAILED",
-  SUCCEEDED = "SUCCEEDED"
+  SUCCEEDED = "SUCCEEDED",
 }
 
 /**
@@ -1357,7 +1343,7 @@ export namespace DatasetEntry {
 export enum DatasetStatus {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
-  DELETING = "DELETING"
+  DELETING = "DELETING",
 }
 
 /**
@@ -1579,7 +1565,7 @@ export namespace DatastoreStatistics {
 export enum DatastoreStatus {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
-  DELETING = "DELETING"
+  DELETING = "DELETING",
 }
 
 /**
@@ -2624,7 +2610,7 @@ export namespace ListTagsForResourceResponse {
 }
 
 export enum LoggingLevel {
-  ERROR = "ERROR"
+  ERROR = "ERROR",
 }
 
 /**
@@ -2988,7 +2974,7 @@ export enum ReprocessingStatus {
   CANCELLED = "CANCELLED",
   FAILED = "FAILED",
   RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED"
+  SUCCEEDED = "SUCCEEDED",
 }
 
 /**

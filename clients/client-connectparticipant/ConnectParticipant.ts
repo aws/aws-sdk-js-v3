@@ -2,27 +2,27 @@ import { ConnectParticipantClient } from "./ConnectParticipantClient";
 import {
   CreateParticipantConnectionCommand,
   CreateParticipantConnectionCommandInput,
-  CreateParticipantConnectionCommandOutput
+  CreateParticipantConnectionCommandOutput,
 } from "./commands/CreateParticipantConnectionCommand";
 import {
   DisconnectParticipantCommand,
   DisconnectParticipantCommandInput,
-  DisconnectParticipantCommandOutput
+  DisconnectParticipantCommandOutput,
 } from "./commands/DisconnectParticipantCommand";
 import {
   GetTranscriptCommand,
   GetTranscriptCommandInput,
-  GetTranscriptCommandOutput
+  GetTranscriptCommandOutput,
 } from "./commands/GetTranscriptCommand";
 import {
   SendEventCommand,
   SendEventCommandInput,
-  SendEventCommandOutput
+  SendEventCommandOutput,
 } from "./commands/SendEventCommand";
 import {
   SendMessageCommand,
   SendMessageCommandInput,
-  SendMessageCommandOutput
+  SendMessageCommandOutput,
 } from "./commands/SendMessageCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -60,7 +60,7 @@ export class ConnectParticipant extends ConnectParticipantClient {
    */
   public createParticipantConnection(
     args: CreateParticipantConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateParticipantConnectionCommandOutput>;
   public createParticipantConnection(
     args: CreateParticipantConnectionCommandInput,
@@ -73,18 +73,16 @@ export class ConnectParticipant extends ConnectParticipantClient {
   ): void;
   public createParticipantConnection(
     args: CreateParticipantConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateParticipantConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateParticipantConnectionCommandOutput) => void),
     cb?: (err: any, data?: CreateParticipantConnectionCommandOutput) => void
   ): Promise<CreateParticipantConnectionCommandOutput> | void {
     const command = new CreateParticipantConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -98,7 +96,7 @@ export class ConnectParticipant extends ConnectParticipantClient {
    */
   public disconnectParticipant(
     args: DisconnectParticipantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DisconnectParticipantCommandOutput>;
   public disconnectParticipant(
     args: DisconnectParticipantCommandInput,
@@ -111,18 +109,16 @@ export class ConnectParticipant extends ConnectParticipantClient {
   ): void;
   public disconnectParticipant(
     args: DisconnectParticipantCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisconnectParticipantCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisconnectParticipantCommandOutput) => void),
     cb?: (err: any, data?: DisconnectParticipantCommandOutput) => void
   ): Promise<DisconnectParticipantCommandOutput> | void {
     const command = new DisconnectParticipantCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -136,7 +132,7 @@ export class ConnectParticipant extends ConnectParticipantClient {
    */
   public getTranscript(
     args: GetTranscriptCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetTranscriptCommandOutput>;
   public getTranscript(
     args: GetTranscriptCommandInput,
@@ -149,18 +145,16 @@ export class ConnectParticipant extends ConnectParticipantClient {
   ): void;
   public getTranscript(
     args: GetTranscriptCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTranscriptCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTranscriptCommandOutput) => void),
     cb?: (err: any, data?: GetTranscriptCommandOutput) => void
   ): Promise<GetTranscriptCommandOutput> | void {
     const command = new GetTranscriptCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -174,7 +168,7 @@ export class ConnectParticipant extends ConnectParticipantClient {
    */
   public sendEvent(
     args: SendEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<SendEventCommandOutput>;
   public sendEvent(
     args: SendEventCommandInput,
@@ -187,18 +181,16 @@ export class ConnectParticipant extends ConnectParticipantClient {
   ): void;
   public sendEvent(
     args: SendEventCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendEventCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendEventCommandOutput) => void),
     cb?: (err: any, data?: SendEventCommandOutput) => void
   ): Promise<SendEventCommandOutput> | void {
     const command = new SendEventCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -212,7 +204,7 @@ export class ConnectParticipant extends ConnectParticipantClient {
    */
   public sendMessage(
     args: SendMessageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<SendMessageCommandOutput>;
   public sendMessage(
     args: SendMessageCommandInput,
@@ -225,20 +217,19 @@ export class ConnectParticipant extends ConnectParticipantClient {
   ): void;
   public sendMessage(
     args: SendMessageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendMessageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendMessageCommandOutput) => void),
     cb?: (err: any, data?: SendMessageCommandOutput) => void
   ): Promise<SendMessageCommandOutput> | void {
     const command = new SendMessageCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

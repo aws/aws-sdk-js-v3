@@ -1,20 +1,20 @@
 import {
   ElasticsearchServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
 import {
   DescribeReservedElasticsearchInstancesRequest,
-  DescribeReservedElasticsearchInstancesResponse
+  DescribeReservedElasticsearchInstancesResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeReservedElasticsearchInstancesCommand,
-  serializeAws_restJson1_1DescribeReservedElasticsearchInstancesCommand
+  serializeAws_restJson1_1DescribeReservedElasticsearchInstancesCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,23 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DescribeReservedElasticsearchInstancesCommandInput = DescribeReservedElasticsearchInstancesRequest;
 export type DescribeReservedElasticsearchInstancesCommandOutput = DescribeReservedElasticsearchInstancesResponse;
 
-export class DescribeReservedElasticsearchInstancesCommand extends $Command<
-  DescribeReservedElasticsearchInstancesCommandInput,
-  DescribeReservedElasticsearchInstancesCommandOutput,
-  ElasticsearchServiceClientResolvedConfig
-> {
+export class DescribeReservedElasticsearchInstancesCommand extends $Command<DescribeReservedElasticsearchInstancesCommandInput, DescribeReservedElasticsearchInstancesCommandOutput, ElasticsearchServiceClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeReservedElasticsearchInstancesCommandInput
-  ) {
+  constructor(readonly input: DescribeReservedElasticsearchInstancesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -49,19 +43,14 @@ export class DescribeReservedElasticsearchInstancesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeReservedElasticsearchInstancesCommandInput,
-    DescribeReservedElasticsearchInstancesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeReservedElasticsearchInstancesCommandInput, DescribeReservedElasticsearchInstancesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -74,20 +63,14 @@ export class DescribeReservedElasticsearchInstancesCommand extends $Command<
     input: DescribeReservedElasticsearchInstancesCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeReservedElasticsearchInstancesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeReservedElasticsearchInstancesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeReservedElasticsearchInstancesCommandOutput> {
-    return deserializeAws_restJson1_1DescribeReservedElasticsearchInstancesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeReservedElasticsearchInstancesCommand(output, context);
   }
 
   // Start section: command_body_extra

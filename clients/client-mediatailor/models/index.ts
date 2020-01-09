@@ -4,9 +4,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 /**
  * <p>Invalid request parameters.</p>
  */
-export interface BadRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BadRequestException";
   $fault: "client";
   Message?: string;
@@ -313,7 +311,7 @@ export namespace LivePreRollConfiguration {
 
 export enum OriginManifestType {
   MULTI_PERIOD = "MULTI_PERIOD",
-  SINGLE_PERIOD = "SINGLE_PERIOD"
+  SINGLE_PERIOD = "SINGLE_PERIOD",
 }
 
 /**

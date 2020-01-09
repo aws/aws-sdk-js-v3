@@ -1,17 +1,17 @@
 import {
   SWFClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../SWFClient";
 import { UndeprecateDomainInput } from "../models/index";
 import {
   deserializeAws_json1_0UndeprecateDomainCommand,
-  serializeAws_json1_0UndeprecateDomainCommand
+  serializeAws_json1_0UndeprecateDomainCommand,
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,17 +21,13 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
 } from "@aws-sdk/types";
 
 export type UndeprecateDomainCommandInput = UndeprecateDomainInput;
-export type UndeprecateDomainCommandOutput = __MetadataBearer;
+export type UndeprecateDomainCommandOutput = __MetadataBearer
 
-export class UndeprecateDomainCommand extends $Command<
-  UndeprecateDomainCommandInput,
-  UndeprecateDomainCommandOutput,
-  SWFClientResolvedConfig
-> {
+export class UndeprecateDomainCommand extends $Command<UndeprecateDomainCommandInput, UndeprecateDomainCommandOutput, SWFClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,15 +42,13 @@ export class UndeprecateDomainCommand extends $Command<
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UndeprecateDomainCommandInput, UndeprecateDomainCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

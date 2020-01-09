@@ -1,54 +1,54 @@
 import {
   CreateApplicationCommandInput,
-  CreateApplicationCommandOutput
+  CreateApplicationCommandOutput,
 } from "../commands/CreateApplicationCommand";
 import {
   CreateApplicationVersionCommandInput,
-  CreateApplicationVersionCommandOutput
+  CreateApplicationVersionCommandOutput,
 } from "../commands/CreateApplicationVersionCommand";
 import {
   CreateCloudFormationChangeSetCommandInput,
-  CreateCloudFormationChangeSetCommandOutput
+  CreateCloudFormationChangeSetCommandOutput,
 } from "../commands/CreateCloudFormationChangeSetCommand";
 import {
   CreateCloudFormationTemplateCommandInput,
-  CreateCloudFormationTemplateCommandOutput
+  CreateCloudFormationTemplateCommandOutput,
 } from "../commands/CreateCloudFormationTemplateCommand";
 import {
   DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput
+  DeleteApplicationCommandOutput,
 } from "../commands/DeleteApplicationCommand";
 import {
   GetApplicationCommandInput,
-  GetApplicationCommandOutput
+  GetApplicationCommandOutput,
 } from "../commands/GetApplicationCommand";
 import {
   GetApplicationPolicyCommandInput,
-  GetApplicationPolicyCommandOutput
+  GetApplicationPolicyCommandOutput,
 } from "../commands/GetApplicationPolicyCommand";
 import {
   GetCloudFormationTemplateCommandInput,
-  GetCloudFormationTemplateCommandOutput
+  GetCloudFormationTemplateCommandOutput,
 } from "../commands/GetCloudFormationTemplateCommand";
 import {
   ListApplicationDependenciesCommandInput,
-  ListApplicationDependenciesCommandOutput
+  ListApplicationDependenciesCommandOutput,
 } from "../commands/ListApplicationDependenciesCommand";
 import {
   ListApplicationVersionsCommandInput,
-  ListApplicationVersionsCommandOutput
+  ListApplicationVersionsCommandOutput,
 } from "../commands/ListApplicationVersionsCommand";
 import {
   ListApplicationsCommandInput,
-  ListApplicationsCommandOutput
+  ListApplicationsCommandOutput,
 } from "../commands/ListApplicationsCommand";
 import {
   PutApplicationPolicyCommandInput,
-  PutApplicationPolicyCommandOutput
+  PutApplicationPolicyCommandOutput,
 } from "../commands/PutApplicationPolicyCommand";
 import {
   UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput
+  UpdateApplicationCommandOutput,
 } from "../commands/UpdateApplicationCommand";
 import {
   ApplicationDependencySummary,
@@ -67,18 +67,18 @@ import {
   Tag,
   TooManyRequestsException,
   Version,
-  VersionSummary
+  VersionSummary,
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export async function serializeAws_restJson1_1CreateApplicationCommand(
@@ -86,57 +86,54 @@ export async function serializeAws_restJson1_1CreateApplicationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/applications";
   let body: any = {};
   const bodyParams: any = {};
   if (input.Author !== undefined) {
-    bodyParams["author"] = input.Author;
+    bodyParams['author'] = input.Author;
   }
   if (input.Description !== undefined) {
-    bodyParams["description"] = input.Description;
+    bodyParams['description'] = input.Description;
   }
   if (input.HomePageUrl !== undefined) {
-    bodyParams["homePageUrl"] = input.HomePageUrl;
+    bodyParams['homePageUrl'] = input.HomePageUrl;
   }
   if (input.Labels !== undefined) {
-    bodyParams["labels"] = serializeAws_restJson1_1__listOf__string(
-      input.Labels,
-      context
-    );
+    bodyParams['labels'] = serializeAws_restJson1_1__listOf__string(input.Labels, context);
   }
   if (input.LicenseBody !== undefined) {
-    bodyParams["licenseBody"] = input.LicenseBody;
+    bodyParams['licenseBody'] = input.LicenseBody;
   }
   if (input.LicenseUrl !== undefined) {
-    bodyParams["licenseUrl"] = input.LicenseUrl;
+    bodyParams['licenseUrl'] = input.LicenseUrl;
   }
   if (input.Name !== undefined) {
-    bodyParams["name"] = input.Name;
+    bodyParams['name'] = input.Name;
   }
   if (input.ReadmeBody !== undefined) {
-    bodyParams["readmeBody"] = input.ReadmeBody;
+    bodyParams['readmeBody'] = input.ReadmeBody;
   }
   if (input.ReadmeUrl !== undefined) {
-    bodyParams["readmeUrl"] = input.ReadmeUrl;
+    bodyParams['readmeUrl'] = input.ReadmeUrl;
   }
   if (input.SemanticVersion !== undefined) {
-    bodyParams["semanticVersion"] = input.SemanticVersion;
+    bodyParams['semanticVersion'] = input.SemanticVersion;
   }
   if (input.SourceCodeArchiveUrl !== undefined) {
-    bodyParams["sourceCodeArchiveUrl"] = input.SourceCodeArchiveUrl;
+    bodyParams['sourceCodeArchiveUrl'] = input.SourceCodeArchiveUrl;
   }
   if (input.SourceCodeUrl !== undefined) {
-    bodyParams["sourceCodeUrl"] = input.SourceCodeUrl;
+    bodyParams['sourceCodeUrl'] = input.SourceCodeUrl;
   }
   if (input.SpdxLicenseId !== undefined) {
-    bodyParams["spdxLicenseId"] = input.SpdxLicenseId;
+    bodyParams['spdxLicenseId'] = input.SpdxLicenseId;
   }
   if (input.TemplateBody !== undefined) {
-    bodyParams["templateBody"] = input.TemplateBody;
+    bodyParams['templateBody'] = input.TemplateBody;
   }
   if (input.TemplateUrl !== undefined) {
-    bodyParams["templateUrl"] = input.TemplateUrl;
+    bodyParams['templateUrl'] = input.TemplateUrl;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -145,7 +142,7 @@ export async function serializeAws_restJson1_1CreateApplicationCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -154,43 +151,39 @@ export async function serializeAws_restJson1_1CreateApplicationVersionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/applications/{ApplicationId}/versions/{SemanticVersion}";
   if (input.ApplicationId !== undefined) {
     const labelValue: any = input.ApplicationId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ApplicationId."
-      );
+      throw new Error('Empty value provided for input HTTP label: ApplicationId.');
     }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", labelValue);
+    resolvedPath = resolvedPath.replace('{ApplicationId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
+    throw new Error('No value provided for input HTTP label: ApplicationId.');
   }
   if (input.SemanticVersion !== undefined) {
     const labelValue: any = input.SemanticVersion.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: SemanticVersion."
-      );
+      throw new Error('Empty value provided for input HTTP label: SemanticVersion.');
     }
-    resolvedPath = resolvedPath.replace("{SemanticVersion}", labelValue);
+    resolvedPath = resolvedPath.replace('{SemanticVersion}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: SemanticVersion.");
+    throw new Error('No value provided for input HTTP label: SemanticVersion.');
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.SourceCodeArchiveUrl !== undefined) {
-    bodyParams["sourceCodeArchiveUrl"] = input.SourceCodeArchiveUrl;
+    bodyParams['sourceCodeArchiveUrl'] = input.SourceCodeArchiveUrl;
   }
   if (input.SourceCodeUrl !== undefined) {
-    bodyParams["sourceCodeUrl"] = input.SourceCodeUrl;
+    bodyParams['sourceCodeUrl'] = input.SourceCodeUrl;
   }
   if (input.TemplateBody !== undefined) {
-    bodyParams["templateBody"] = input.TemplateBody;
+    bodyParams['templateBody'] = input.TemplateBody;
   }
   if (input.TemplateUrl !== undefined) {
-    bodyParams["templateUrl"] = input.TemplateUrl;
+    bodyParams['templateUrl'] = input.TemplateUrl;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -199,7 +192,7 @@ export async function serializeAws_restJson1_1CreateApplicationVersionCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -208,78 +201,54 @@ export async function serializeAws_restJson1_1CreateCloudFormationChangeSetComma
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/applications/{ApplicationId}/changesets";
   if (input.ApplicationId !== undefined) {
     const labelValue: any = input.ApplicationId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ApplicationId."
-      );
+      throw new Error('Empty value provided for input HTTP label: ApplicationId.');
     }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", labelValue);
+    resolvedPath = resolvedPath.replace('{ApplicationId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
+    throw new Error('No value provided for input HTTP label: ApplicationId.');
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.Capabilities !== undefined) {
-    bodyParams["capabilities"] = serializeAws_restJson1_1__listOf__string(
-      input.Capabilities,
-      context
-    );
+    bodyParams['capabilities'] = serializeAws_restJson1_1__listOf__string(input.Capabilities, context);
   }
   if (input.ChangeSetName !== undefined) {
-    bodyParams["changeSetName"] = input.ChangeSetName;
+    bodyParams['changeSetName'] = input.ChangeSetName;
   }
   if (input.ClientToken !== undefined) {
-    bodyParams["clientToken"] = input.ClientToken;
+    bodyParams['clientToken'] = input.ClientToken;
   }
   if (input.Description !== undefined) {
-    bodyParams["description"] = input.Description;
+    bodyParams['description'] = input.Description;
   }
   if (input.NotificationArns !== undefined) {
-    bodyParams["notificationArns"] = serializeAws_restJson1_1__listOf__string(
-      input.NotificationArns,
-      context
-    );
+    bodyParams['notificationArns'] = serializeAws_restJson1_1__listOf__string(input.NotificationArns, context);
   }
   if (input.ParameterOverrides !== undefined) {
-    bodyParams[
-      "parameterOverrides"
-    ] = serializeAws_restJson1_1__listOfParameterValue(
-      input.ParameterOverrides,
-      context
-    );
+    bodyParams['parameterOverrides'] = serializeAws_restJson1_1__listOfParameterValue(input.ParameterOverrides, context);
   }
   if (input.ResourceTypes !== undefined) {
-    bodyParams["resourceTypes"] = serializeAws_restJson1_1__listOf__string(
-      input.ResourceTypes,
-      context
-    );
+    bodyParams['resourceTypes'] = serializeAws_restJson1_1__listOf__string(input.ResourceTypes, context);
   }
   if (input.RollbackConfiguration !== undefined) {
-    bodyParams[
-      "rollbackConfiguration"
-    ] = serializeAws_restJson1_1RollbackConfiguration(
-      input.RollbackConfiguration,
-      context
-    );
+    bodyParams['rollbackConfiguration'] = serializeAws_restJson1_1RollbackConfiguration(input.RollbackConfiguration, context);
   }
   if (input.SemanticVersion !== undefined) {
-    bodyParams["semanticVersion"] = input.SemanticVersion;
+    bodyParams['semanticVersion'] = input.SemanticVersion;
   }
   if (input.StackName !== undefined) {
-    bodyParams["stackName"] = input.StackName;
+    bodyParams['stackName'] = input.StackName;
   }
   if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1__listOfTag(
-      input.Tags,
-      context
-    );
+    bodyParams['tags'] = serializeAws_restJson1_1__listOfTag(input.Tags, context);
   }
   if (input.TemplateId !== undefined) {
-    bodyParams["templateId"] = input.TemplateId;
+    bodyParams['templateId'] = input.TemplateId;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -288,7 +257,7 @@ export async function serializeAws_restJson1_1CreateCloudFormationChangeSetComma
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -297,23 +266,21 @@ export async function serializeAws_restJson1_1CreateCloudFormationTemplateComman
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/applications/{ApplicationId}/templates";
   if (input.ApplicationId !== undefined) {
     const labelValue: any = input.ApplicationId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ApplicationId."
-      );
+      throw new Error('Empty value provided for input HTTP label: ApplicationId.');
     }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", labelValue);
+    resolvedPath = resolvedPath.replace('{ApplicationId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
+    throw new Error('No value provided for input HTTP label: ApplicationId.');
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.SemanticVersion !== undefined) {
-    bodyParams["semanticVersion"] = input.SemanticVersion;
+    bodyParams['semanticVersion'] = input.SemanticVersion;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -322,7 +289,7 @@ export async function serializeAws_restJson1_1CreateCloudFormationTemplateComman
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -331,25 +298,23 @@ export async function serializeAws_restJson1_1DeleteApplicationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/applications/{ApplicationId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: any = input.ApplicationId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ApplicationId."
-      );
+      throw new Error('Empty value provided for input HTTP label: ApplicationId.');
     }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", labelValue);
+    resolvedPath = resolvedPath.replace('{ApplicationId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
+    throw new Error('No value provided for input HTTP label: ApplicationId.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -358,22 +323,20 @@ export async function serializeAws_restJson1_1GetApplicationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/applications/{ApplicationId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: any = input.ApplicationId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ApplicationId."
-      );
+      throw new Error('Empty value provided for input HTTP label: ApplicationId.');
     }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", labelValue);
+    resolvedPath = resolvedPath.replace('{ApplicationId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
+    throw new Error('No value provided for input HTTP label: ApplicationId.');
   }
   const query: any = {};
   if (input.SemanticVersion !== undefined) {
-    query["semanticVersion"] = input.SemanticVersion.toString();
+    query['semanticVersion'] = input.SemanticVersion.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -381,7 +344,7 @@ export async function serializeAws_restJson1_1GetApplicationCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -390,25 +353,23 @@ export async function serializeAws_restJson1_1GetApplicationPolicyCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/applications/{ApplicationId}/policy";
   if (input.ApplicationId !== undefined) {
     const labelValue: any = input.ApplicationId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ApplicationId."
-      );
+      throw new Error('Empty value provided for input HTTP label: ApplicationId.');
     }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", labelValue);
+    resolvedPath = resolvedPath.replace('{ApplicationId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
+    throw new Error('No value provided for input HTTP label: ApplicationId.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -417,34 +378,32 @@ export async function serializeAws_restJson1_1GetCloudFormationTemplateCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/applications/{ApplicationId}/templates/{TemplateId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: any = input.ApplicationId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ApplicationId."
-      );
+      throw new Error('Empty value provided for input HTTP label: ApplicationId.');
     }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", labelValue);
+    resolvedPath = resolvedPath.replace('{ApplicationId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
+    throw new Error('No value provided for input HTTP label: ApplicationId.');
   }
   if (input.TemplateId !== undefined) {
     const labelValue: any = input.TemplateId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: TemplateId.");
+      throw new Error('Empty value provided for input HTTP label: TemplateId.');
     }
-    resolvedPath = resolvedPath.replace("{TemplateId}", labelValue);
+    resolvedPath = resolvedPath.replace('{TemplateId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: TemplateId.");
+    throw new Error('No value provided for input HTTP label: TemplateId.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -453,28 +412,26 @@ export async function serializeAws_restJson1_1ListApplicationDependenciesCommand
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/applications/{ApplicationId}/dependencies";
   if (input.ApplicationId !== undefined) {
     const labelValue: any = input.ApplicationId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ApplicationId."
-      );
+      throw new Error('Empty value provided for input HTTP label: ApplicationId.');
     }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", labelValue);
+    resolvedPath = resolvedPath.replace('{ApplicationId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
+    throw new Error('No value provided for input HTTP label: ApplicationId.');
   }
   const query: any = {};
   if (input.MaxItems !== undefined) {
-    query["maxItems"] = input.MaxItems.toString();
+    query['maxItems'] = input.MaxItems.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query['nextToken'] = input.NextToken.toString();
   }
   if (input.SemanticVersion !== undefined) {
-    query["semanticVersion"] = input.SemanticVersion.toString();
+    query['semanticVersion'] = input.SemanticVersion.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -482,7 +439,7 @@ export async function serializeAws_restJson1_1ListApplicationDependenciesCommand
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -491,25 +448,23 @@ export async function serializeAws_restJson1_1ListApplicationVersionsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/applications/{ApplicationId}/versions";
   if (input.ApplicationId !== undefined) {
     const labelValue: any = input.ApplicationId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ApplicationId."
-      );
+      throw new Error('Empty value provided for input HTTP label: ApplicationId.');
     }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", labelValue);
+    resolvedPath = resolvedPath.replace('{ApplicationId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
+    throw new Error('No value provided for input HTTP label: ApplicationId.');
   }
   const query: any = {};
   if (input.MaxItems !== undefined) {
-    query["maxItems"] = input.MaxItems.toString();
+    query['maxItems'] = input.MaxItems.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query['nextToken'] = input.NextToken.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -517,7 +472,7 @@ export async function serializeAws_restJson1_1ListApplicationVersionsCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -526,14 +481,14 @@ export async function serializeAws_restJson1_1ListApplicationsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/applications";
   const query: any = {};
   if (input.MaxItems !== undefined) {
-    query["maxItems"] = input.MaxItems.toString();
+    query['maxItems'] = input.MaxItems.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query['nextToken'] = input.NextToken.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -541,7 +496,7 @@ export async function serializeAws_restJson1_1ListApplicationsCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -550,28 +505,21 @@ export async function serializeAws_restJson1_1PutApplicationPolicyCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/applications/{ApplicationId}/policy";
   if (input.ApplicationId !== undefined) {
     const labelValue: any = input.ApplicationId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ApplicationId."
-      );
+      throw new Error('Empty value provided for input HTTP label: ApplicationId.');
     }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", labelValue);
+    resolvedPath = resolvedPath.replace('{ApplicationId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
+    throw new Error('No value provided for input HTTP label: ApplicationId.');
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.Statements !== undefined) {
-    bodyParams[
-      "statements"
-    ] = serializeAws_restJson1_1__listOfApplicationPolicyStatement(
-      input.Statements,
-      context
-    );
+    bodyParams['statements'] = serializeAws_restJson1_1__listOfApplicationPolicyStatement(input.Statements, context);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -580,7 +528,7 @@ export async function serializeAws_restJson1_1PutApplicationPolicyCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -589,41 +537,36 @@ export async function serializeAws_restJson1_1UpdateApplicationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/applications/{ApplicationId}";
   if (input.ApplicationId !== undefined) {
     const labelValue: any = input.ApplicationId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ApplicationId."
-      );
+      throw new Error('Empty value provided for input HTTP label: ApplicationId.');
     }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", labelValue);
+    resolvedPath = resolvedPath.replace('{ApplicationId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
+    throw new Error('No value provided for input HTTP label: ApplicationId.');
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.Author !== undefined) {
-    bodyParams["author"] = input.Author;
+    bodyParams['author'] = input.Author;
   }
   if (input.Description !== undefined) {
-    bodyParams["description"] = input.Description;
+    bodyParams['description'] = input.Description;
   }
   if (input.HomePageUrl !== undefined) {
-    bodyParams["homePageUrl"] = input.HomePageUrl;
+    bodyParams['homePageUrl'] = input.HomePageUrl;
   }
   if (input.Labels !== undefined) {
-    bodyParams["labels"] = serializeAws_restJson1_1__listOf__string(
-      input.Labels,
-      context
-    );
+    bodyParams['labels'] = serializeAws_restJson1_1__listOf__string(input.Labels, context);
   }
   if (input.ReadmeBody !== undefined) {
-    bodyParams["readmeBody"] = input.ReadmeBody;
+    bodyParams['readmeBody'] = input.ReadmeBody;
   }
   if (input.ReadmeUrl !== undefined) {
-    bodyParams["readmeUrl"] = input.ReadmeUrl;
+    bodyParams['readmeUrl'] = input.ReadmeUrl;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -632,7 +575,7 @@ export async function serializeAws_restJson1_1UpdateApplicationCommand(
     method: "PATCH",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -641,10 +584,7 @@ export async function deserializeAws_restJson1_1CreateApplicationCommand(
   context: __SerdeContext
 ): Promise<CreateApplicationCommandOutput> {
   if (output.statusCode !== 201) {
-    return deserializeAws_restJson1_1CreateApplicationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateApplicationCommandError(output, context);
   }
   const contents: CreateApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -661,7 +601,7 @@ export async function deserializeAws_restJson1_1CreateApplicationCommand(
     ReadmeUrl: undefined,
     SpdxLicenseId: undefined,
     VerifiedAuthorUrl: undefined,
-    Version: undefined
+    Version: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.applicationId !== undefined) {
@@ -683,10 +623,7 @@ export async function deserializeAws_restJson1_1CreateApplicationCommand(
     contents.IsVerifiedAuthor = data.isVerifiedAuthor;
   }
   if (data.labels !== undefined) {
-    contents.Labels = deserializeAws_restJson1_1__listOf__string(
-      data.labels,
-      context
-    );
+    contents.Labels = deserializeAws_restJson1_1__listOf__string(data.labels, context);
   }
   if (data.licenseUrl !== undefined) {
     contents.LicenseUrl = data.licenseUrl;
@@ -711,60 +648,44 @@ export async function deserializeAws_restJson1_1CreateApplicationCommand(
 
 async function deserializeAws_restJson1_1CreateApplicationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateApplicationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context);
       break;
     case "ConflictException":
     case "com.amazonaws.serverlessapplicationrepository#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context);
       break;
     case "ForbiddenException":
     case "com.amazonaws.serverlessapplicationrepository#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.serverlessapplicationrepository#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.serverlessapplicationrepository#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -775,10 +696,7 @@ export async function deserializeAws_restJson1_1CreateApplicationVersionCommand(
   context: __SerdeContext
 ): Promise<CreateApplicationVersionCommandOutput> {
   if (output.statusCode !== 201) {
-    return deserializeAws_restJson1_1CreateApplicationVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateApplicationVersionCommandError(output, context);
   }
   const contents: CreateApplicationVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -791,7 +709,7 @@ export async function deserializeAws_restJson1_1CreateApplicationVersionCommand(
     SemanticVersion: undefined,
     SourceCodeArchiveUrl: undefined,
     SourceCodeUrl: undefined,
-    TemplateUrl: undefined
+    TemplateUrl: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.applicationId !== undefined) {
@@ -801,16 +719,10 @@ export async function deserializeAws_restJson1_1CreateApplicationVersionCommand(
     contents.CreationTime = data.creationTime;
   }
   if (data.parameterDefinitions !== undefined) {
-    contents.ParameterDefinitions = deserializeAws_restJson1_1__listOfParameterDefinition(
-      data.parameterDefinitions,
-      context
-    );
+    contents.ParameterDefinitions = deserializeAws_restJson1_1__listOfParameterDefinition(data.parameterDefinitions, context);
   }
   if (data.requiredCapabilities !== undefined) {
-    contents.RequiredCapabilities = deserializeAws_restJson1_1__listOfCapability(
-      data.requiredCapabilities,
-      context
-    );
+    contents.RequiredCapabilities = deserializeAws_restJson1_1__listOfCapability(data.requiredCapabilities, context);
   }
   if (data.resourcesSupported !== undefined) {
     contents.ResourcesSupported = data.resourcesSupported;
@@ -832,60 +744,44 @@ export async function deserializeAws_restJson1_1CreateApplicationVersionCommand(
 
 async function deserializeAws_restJson1_1CreateApplicationVersionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateApplicationVersionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context);
       break;
     case "ConflictException":
     case "com.amazonaws.serverlessapplicationrepository#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context);
       break;
     case "ForbiddenException":
     case "com.amazonaws.serverlessapplicationrepository#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.serverlessapplicationrepository#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.serverlessapplicationrepository#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -896,10 +792,7 @@ export async function deserializeAws_restJson1_1CreateCloudFormationChangeSetCom
   context: __SerdeContext
 ): Promise<CreateCloudFormationChangeSetCommandOutput> {
   if (output.statusCode !== 201) {
-    return deserializeAws_restJson1_1CreateCloudFormationChangeSetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateCloudFormationChangeSetCommandError(output, context);
   }
   const contents: CreateCloudFormationChangeSetCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -907,7 +800,7 @@ export async function deserializeAws_restJson1_1CreateCloudFormationChangeSetCom
     ApplicationId: undefined,
     ChangeSetId: undefined,
     SemanticVersion: undefined,
-    StackId: undefined
+    StackId: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.applicationId !== undefined) {
@@ -927,53 +820,40 @@ export async function deserializeAws_restJson1_1CreateCloudFormationChangeSetCom
 
 async function deserializeAws_restJson1_1CreateCloudFormationChangeSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateCloudFormationChangeSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context);
       break;
     case "ForbiddenException":
     case "com.amazonaws.serverlessapplicationrepository#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.serverlessapplicationrepository#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.serverlessapplicationrepository#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -984,10 +864,7 @@ export async function deserializeAws_restJson1_1CreateCloudFormationTemplateComm
   context: __SerdeContext
 ): Promise<CreateCloudFormationTemplateCommandOutput> {
   if (output.statusCode !== 201) {
-    return deserializeAws_restJson1_1CreateCloudFormationTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateCloudFormationTemplateCommandError(output, context);
   }
   const contents: CreateCloudFormationTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -998,7 +875,7 @@ export async function deserializeAws_restJson1_1CreateCloudFormationTemplateComm
     SemanticVersion: undefined,
     Status: undefined,
     TemplateId: undefined,
-    TemplateUrl: undefined
+    TemplateUrl: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.applicationId !== undefined) {
@@ -1027,60 +904,44 @@ export async function deserializeAws_restJson1_1CreateCloudFormationTemplateComm
 
 async function deserializeAws_restJson1_1CreateCloudFormationTemplateCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateCloudFormationTemplateCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context);
       break;
     case "ForbiddenException":
     case "com.amazonaws.serverlessapplicationrepository#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.serverlessapplicationrepository#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.serverlessapplicationrepository#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.serverlessapplicationrepository#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1091,80 +952,58 @@ export async function deserializeAws_restJson1_1DeleteApplicationCommand(
   context: __SerdeContext
 ): Promise<DeleteApplicationCommandOutput> {
   if (output.statusCode !== 204) {
-    return deserializeAws_restJson1_1DeleteApplicationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteApplicationCommandError(output, context);
   }
   const contents: DeleteApplicationCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DeleteApplicationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteApplicationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context);
       break;
     case "ConflictException":
     case "com.amazonaws.serverlessapplicationrepository#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context);
       break;
     case "ForbiddenException":
     case "com.amazonaws.serverlessapplicationrepository#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.serverlessapplicationrepository#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.serverlessapplicationrepository#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.serverlessapplicationrepository#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1175,10 +1014,7 @@ export async function deserializeAws_restJson1_1GetApplicationCommand(
   context: __SerdeContext
 ): Promise<GetApplicationCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetApplicationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetApplicationCommandError(output, context);
   }
   const contents: GetApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1195,7 +1031,7 @@ export async function deserializeAws_restJson1_1GetApplicationCommand(
     ReadmeUrl: undefined,
     SpdxLicenseId: undefined,
     VerifiedAuthorUrl: undefined,
-    Version: undefined
+    Version: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.applicationId !== undefined) {
@@ -1217,10 +1053,7 @@ export async function deserializeAws_restJson1_1GetApplicationCommand(
     contents.IsVerifiedAuthor = data.isVerifiedAuthor;
   }
   if (data.labels !== undefined) {
-    contents.Labels = deserializeAws_restJson1_1__listOf__string(
-      data.labels,
-      context
-    );
+    contents.Labels = deserializeAws_restJson1_1__listOf__string(data.labels, context);
   }
   if (data.licenseUrl !== undefined) {
     contents.LicenseUrl = data.licenseUrl;
@@ -1245,60 +1078,44 @@ export async function deserializeAws_restJson1_1GetApplicationCommand(
 
 async function deserializeAws_restJson1_1GetApplicationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetApplicationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context);
       break;
     case "ForbiddenException":
     case "com.amazonaws.serverlessapplicationrepository#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.serverlessapplicationrepository#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.serverlessapplicationrepository#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.serverlessapplicationrepository#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1309,82 +1126,60 @@ export async function deserializeAws_restJson1_1GetApplicationPolicyCommand(
   context: __SerdeContext
 ): Promise<GetApplicationPolicyCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetApplicationPolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetApplicationPolicyCommandError(output, context);
   }
   const contents: GetApplicationPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetApplicationPolicyResponse",
-    Statements: undefined
+    Statements: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.statements !== undefined) {
-    contents.Statements = deserializeAws_restJson1_1__listOfApplicationPolicyStatement(
-      data.statements,
-      context
-    );
+    contents.Statements = deserializeAws_restJson1_1__listOfApplicationPolicyStatement(data.statements, context);
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1GetApplicationPolicyCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetApplicationPolicyCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context);
       break;
     case "ForbiddenException":
     case "com.amazonaws.serverlessapplicationrepository#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.serverlessapplicationrepository#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.serverlessapplicationrepository#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.serverlessapplicationrepository#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1395,10 +1190,7 @@ export async function deserializeAws_restJson1_1GetCloudFormationTemplateCommand
   context: __SerdeContext
 ): Promise<GetCloudFormationTemplateCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetCloudFormationTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetCloudFormationTemplateCommandError(output, context);
   }
   const contents: GetCloudFormationTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1409,7 +1201,7 @@ export async function deserializeAws_restJson1_1GetCloudFormationTemplateCommand
     SemanticVersion: undefined,
     Status: undefined,
     TemplateId: undefined,
-    TemplateUrl: undefined
+    TemplateUrl: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.applicationId !== undefined) {
@@ -1438,60 +1230,44 @@ export async function deserializeAws_restJson1_1GetCloudFormationTemplateCommand
 
 async function deserializeAws_restJson1_1GetCloudFormationTemplateCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetCloudFormationTemplateCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context);
       break;
     case "ForbiddenException":
     case "com.amazonaws.serverlessapplicationrepository#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.serverlessapplicationrepository#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.serverlessapplicationrepository#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.serverlessapplicationrepository#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1502,23 +1278,17 @@ export async function deserializeAws_restJson1_1ListApplicationDependenciesComma
   context: __SerdeContext
 ): Promise<ListApplicationDependenciesCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListApplicationDependenciesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListApplicationDependenciesCommandError(output, context);
   }
   const contents: ListApplicationDependenciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListApplicationDependenciesResponse",
     Dependencies: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.dependencies !== undefined) {
-    contents.Dependencies = deserializeAws_restJson1_1__listOfApplicationDependencySummary(
-      data.dependencies,
-      context
-    );
+    contents.Dependencies = deserializeAws_restJson1_1__listOfApplicationDependencySummary(data.dependencies, context);
   }
   if (data.nextToken !== undefined) {
     contents.NextToken = data.nextToken;
@@ -1528,60 +1298,44 @@ export async function deserializeAws_restJson1_1ListApplicationDependenciesComma
 
 async function deserializeAws_restJson1_1ListApplicationDependenciesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListApplicationDependenciesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context);
       break;
     case "ForbiddenException":
     case "com.amazonaws.serverlessapplicationrepository#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.serverlessapplicationrepository#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.serverlessapplicationrepository#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.serverlessapplicationrepository#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1592,86 +1346,64 @@ export async function deserializeAws_restJson1_1ListApplicationVersionsCommand(
   context: __SerdeContext
 ): Promise<ListApplicationVersionsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListApplicationVersionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListApplicationVersionsCommandError(output, context);
   }
   const contents: ListApplicationVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListApplicationVersionsResponse",
     NextToken: undefined,
-    Versions: undefined
+    Versions: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined) {
     contents.NextToken = data.nextToken;
   }
   if (data.versions !== undefined) {
-    contents.Versions = deserializeAws_restJson1_1__listOfVersionSummary(
-      data.versions,
-      context
-    );
+    contents.Versions = deserializeAws_restJson1_1__listOfVersionSummary(data.versions, context);
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1ListApplicationVersionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListApplicationVersionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context);
       break;
     case "ForbiddenException":
     case "com.amazonaws.serverlessapplicationrepository#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.serverlessapplicationrepository#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.serverlessapplicationrepository#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.serverlessapplicationrepository#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1682,23 +1414,17 @@ export async function deserializeAws_restJson1_1ListApplicationsCommand(
   context: __SerdeContext
 ): Promise<ListApplicationsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListApplicationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListApplicationsCommandError(output, context);
   }
   const contents: ListApplicationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListApplicationsResponse",
     Applications: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.applications !== undefined) {
-    contents.Applications = deserializeAws_restJson1_1__listOfApplicationSummary(
-      data.applications,
-      context
-    );
+    contents.Applications = deserializeAws_restJson1_1__listOfApplicationSummary(data.applications, context);
   }
   if (data.nextToken !== undefined) {
     contents.NextToken = data.nextToken;
@@ -1708,53 +1434,40 @@ export async function deserializeAws_restJson1_1ListApplicationsCommand(
 
 async function deserializeAws_restJson1_1ListApplicationsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListApplicationsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context);
       break;
     case "ForbiddenException":
     case "com.amazonaws.serverlessapplicationrepository#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.serverlessapplicationrepository#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.serverlessapplicationrepository#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1765,82 +1478,60 @@ export async function deserializeAws_restJson1_1PutApplicationPolicyCommand(
   context: __SerdeContext
 ): Promise<PutApplicationPolicyCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1PutApplicationPolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutApplicationPolicyCommandError(output, context);
   }
   const contents: PutApplicationPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutApplicationPolicyResponse",
-    Statements: undefined
+    Statements: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.statements !== undefined) {
-    contents.Statements = deserializeAws_restJson1_1__listOfApplicationPolicyStatement(
-      data.statements,
-      context
-    );
+    contents.Statements = deserializeAws_restJson1_1__listOfApplicationPolicyStatement(data.statements, context);
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1PutApplicationPolicyCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<PutApplicationPolicyCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context);
       break;
     case "ForbiddenException":
     case "com.amazonaws.serverlessapplicationrepository#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.serverlessapplicationrepository#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.serverlessapplicationrepository#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.serverlessapplicationrepository#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1851,10 +1542,7 @@ export async function deserializeAws_restJson1_1UpdateApplicationCommand(
   context: __SerdeContext
 ): Promise<UpdateApplicationCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1UpdateApplicationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateApplicationCommandError(output, context);
   }
   const contents: UpdateApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1871,7 +1559,7 @@ export async function deserializeAws_restJson1_1UpdateApplicationCommand(
     ReadmeUrl: undefined,
     SpdxLicenseId: undefined,
     VerifiedAuthorUrl: undefined,
-    Version: undefined
+    Version: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.applicationId !== undefined) {
@@ -1893,10 +1581,7 @@ export async function deserializeAws_restJson1_1UpdateApplicationCommand(
     contents.IsVerifiedAuthor = data.isVerifiedAuthor;
   }
   if (data.labels !== undefined) {
-    contents.Labels = deserializeAws_restJson1_1__listOf__string(
-      data.labels,
-      context
-    );
+    contents.Labels = deserializeAws_restJson1_1__listOf__string(data.labels, context);
   }
   if (data.licenseUrl !== undefined) {
     contents.LicenseUrl = data.licenseUrl;
@@ -1921,67 +1606,48 @@ export async function deserializeAws_restJson1_1UpdateApplicationCommand(
 
 async function deserializeAws_restJson1_1UpdateApplicationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateApplicationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context);
       break;
     case "ConflictException":
     case "com.amazonaws.serverlessapplicationrepository#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context);
       break;
     case "ForbiddenException":
     case "com.amazonaws.serverlessapplicationrepository#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
       break;
     case "NotFoundException":
     case "com.amazonaws.serverlessapplicationrepository#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.serverlessapplicationrepository#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.serverlessapplicationrepository#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1996,7 +1662,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.errorCode !== undefined) {
@@ -2017,7 +1683,7 @@ const deserializeAws_restJson1_1ConflictExceptionResponse = async (
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.errorCode !== undefined) {
@@ -2038,7 +1704,7 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.errorCode !== undefined) {
@@ -2059,7 +1725,7 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
     $fault: "server",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.errorCode !== undefined) {
@@ -2080,7 +1746,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.errorCode !== undefined) {
@@ -2101,7 +1767,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
     $fault: "client",
     $metadata: deserializeMetadata(output),
     ErrorCode: undefined,
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.errorCode !== undefined) {
@@ -2119,22 +1785,16 @@ const serializeAws_restJson1_1ApplicationPolicyStatement = (
 ): any => {
   let bodyParams: any = {};
   if (input.Actions !== undefined) {
-    bodyParams["actions"] = serializeAws_restJson1_1__listOf__string(
-      input.Actions,
-      context
-    );
+    bodyParams['actions'] = serializeAws_restJson1_1__listOf__string(input.Actions, context);
   }
   if (input.Principals !== undefined) {
-    bodyParams["principals"] = serializeAws_restJson1_1__listOf__string(
-      input.Principals,
-      context
-    );
+    bodyParams['principals'] = serializeAws_restJson1_1__listOf__string(input.Principals, context);
   }
   if (input.StatementId !== undefined) {
-    bodyParams["statementId"] = input.StatementId;
+    bodyParams['statementId'] = input.StatementId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1ParameterValue = (
   input: ParameterValue,
@@ -2142,13 +1802,13 @@ const serializeAws_restJson1_1ParameterValue = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams["name"] = input.Name;
+    bodyParams['name'] = input.Name;
   }
   if (input.Value !== undefined) {
-    bodyParams["value"] = input.Value;
+    bodyParams['value'] = input.Value;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1RollbackConfiguration = (
   input: RollbackConfiguration,
@@ -2156,18 +1816,13 @@ const serializeAws_restJson1_1RollbackConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.MonitoringTimeInMinutes !== undefined) {
-    bodyParams["monitoringTimeInMinutes"] = input.MonitoringTimeInMinutes;
+    bodyParams['monitoringTimeInMinutes'] = input.MonitoringTimeInMinutes;
   }
   if (input.RollbackTriggers !== undefined) {
-    bodyParams[
-      "rollbackTriggers"
-    ] = serializeAws_restJson1_1__listOfRollbackTrigger(
-      input.RollbackTriggers,
-      context
-    );
+    bodyParams['rollbackTriggers'] = serializeAws_restJson1_1__listOfRollbackTrigger(input.RollbackTriggers, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1RollbackTrigger = (
   input: RollbackTrigger,
@@ -2175,13 +1830,13 @@ const serializeAws_restJson1_1RollbackTrigger = (
 ): any => {
   let bodyParams: any = {};
   if (input.Arn !== undefined) {
-    bodyParams["arn"] = input.Arn;
+    bodyParams['arn'] = input.Arn;
   }
   if (input.Type !== undefined) {
-    bodyParams["type"] = input.Type;
+    bodyParams['type'] = input.Type;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1Tag = (
   input: Tag,
@@ -2189,13 +1844,13 @@ const serializeAws_restJson1_1Tag = (
 ): any => {
   let bodyParams: any = {};
   if (input.Key !== undefined) {
-    bodyParams["key"] = input.Key;
+    bodyParams['key'] = input.Key;
   }
   if (input.Value !== undefined) {
-    bodyParams["value"] = input.Value;
+    bodyParams['value'] = input.Value;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1__listOfApplicationPolicyStatement = (
   input: Array<ApplicationPolicyStatement>,
@@ -2204,7 +1859,7 @@ const serializeAws_restJson1_1__listOfApplicationPolicyStatement = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1ApplicationPolicyStatement(entry, context)
   );
-};
+}
 
 const serializeAws_restJson1_1__listOfParameterValue = (
   input: Array<ParameterValue>,
@@ -2213,7 +1868,7 @@ const serializeAws_restJson1_1__listOfParameterValue = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1ParameterValue(entry, context)
   );
-};
+}
 
 const serializeAws_restJson1_1__listOfRollbackTrigger = (
   input: Array<RollbackTrigger>,
@@ -2222,7 +1877,7 @@ const serializeAws_restJson1_1__listOfRollbackTrigger = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1RollbackTrigger(entry, context)
   );
-};
+}
 
 const serializeAws_restJson1_1__listOfTag = (
   input: Array<Tag>,
@@ -2231,14 +1886,16 @@ const serializeAws_restJson1_1__listOfTag = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1Tag(entry, context)
   );
-};
+}
 
 const serializeAws_restJson1_1__listOf__string = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const deserializeAws_restJson1_1ApplicationDependencySummary = (
   output: any,
@@ -2247,7 +1904,7 @@ const deserializeAws_restJson1_1ApplicationDependencySummary = (
   let contents: any = {
     __type: "ApplicationDependencySummary",
     ApplicationId: undefined,
-    SemanticVersion: undefined
+    SemanticVersion: undefined,
   };
   if (output.applicationId !== undefined) {
     contents.ApplicationId = output.applicationId;
@@ -2256,7 +1913,7 @@ const deserializeAws_restJson1_1ApplicationDependencySummary = (
     contents.SemanticVersion = output.semanticVersion;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1ApplicationPolicyStatement = (
   output: any,
@@ -2266,25 +1923,19 @@ const deserializeAws_restJson1_1ApplicationPolicyStatement = (
     __type: "ApplicationPolicyStatement",
     Actions: undefined,
     Principals: undefined,
-    StatementId: undefined
+    StatementId: undefined,
   };
   if (output.actions !== undefined) {
-    contents.Actions = deserializeAws_restJson1_1__listOf__string(
-      output.actions,
-      context
-    );
+    contents.Actions = deserializeAws_restJson1_1__listOf__string(output.actions, context);
   }
   if (output.principals !== undefined) {
-    contents.Principals = deserializeAws_restJson1_1__listOf__string(
-      output.principals,
-      context
-    );
+    contents.Principals = deserializeAws_restJson1_1__listOf__string(output.principals, context);
   }
   if (output.statementId !== undefined) {
     contents.StatementId = output.statementId;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1ApplicationSummary = (
   output: any,
@@ -2299,7 +1950,7 @@ const deserializeAws_restJson1_1ApplicationSummary = (
     HomePageUrl: undefined,
     Labels: undefined,
     Name: undefined,
-    SpdxLicenseId: undefined
+    SpdxLicenseId: undefined,
   };
   if (output.applicationId !== undefined) {
     contents.ApplicationId = output.applicationId;
@@ -2317,10 +1968,7 @@ const deserializeAws_restJson1_1ApplicationSummary = (
     contents.HomePageUrl = output.homePageUrl;
   }
   if (output.labels !== undefined) {
-    contents.Labels = deserializeAws_restJson1_1__listOf__string(
-      output.labels,
-      context
-    );
+    contents.Labels = deserializeAws_restJson1_1__listOf__string(output.labels, context);
   }
   if (output.name !== undefined) {
     contents.Name = output.name;
@@ -2329,7 +1977,7 @@ const deserializeAws_restJson1_1ApplicationSummary = (
     contents.SpdxLicenseId = output.spdxLicenseId;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1ParameterDefinition = (
   output: any,
@@ -2349,16 +1997,13 @@ const deserializeAws_restJson1_1ParameterDefinition = (
     Name: undefined,
     NoEcho: undefined,
     ReferencedByResources: undefined,
-    Type: undefined
+    Type: undefined,
   };
   if (output.allowedPattern !== undefined) {
     contents.AllowedPattern = output.allowedPattern;
   }
   if (output.allowedValues !== undefined) {
-    contents.AllowedValues = deserializeAws_restJson1_1__listOf__string(
-      output.allowedValues,
-      context
-    );
+    contents.AllowedValues = deserializeAws_restJson1_1__listOf__string(output.allowedValues, context);
   }
   if (output.constraintDescription !== undefined) {
     contents.ConstraintDescription = output.constraintDescription;
@@ -2388,16 +2033,13 @@ const deserializeAws_restJson1_1ParameterDefinition = (
     contents.NoEcho = output.noEcho;
   }
   if (output.referencedByResources !== undefined) {
-    contents.ReferencedByResources = deserializeAws_restJson1_1__listOf__string(
-      output.referencedByResources,
-      context
-    );
+    contents.ReferencedByResources = deserializeAws_restJson1_1__listOf__string(output.referencedByResources, context);
   }
   if (output.type !== undefined) {
     contents.Type = output.type;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1Version = (
   output: any,
@@ -2413,7 +2055,7 @@ const deserializeAws_restJson1_1Version = (
     SemanticVersion: undefined,
     SourceCodeArchiveUrl: undefined,
     SourceCodeUrl: undefined,
-    TemplateUrl: undefined
+    TemplateUrl: undefined,
   };
   if (output.applicationId !== undefined) {
     contents.ApplicationId = output.applicationId;
@@ -2422,16 +2064,10 @@ const deserializeAws_restJson1_1Version = (
     contents.CreationTime = output.creationTime;
   }
   if (output.parameterDefinitions !== undefined) {
-    contents.ParameterDefinitions = deserializeAws_restJson1_1__listOfParameterDefinition(
-      output.parameterDefinitions,
-      context
-    );
+    contents.ParameterDefinitions = deserializeAws_restJson1_1__listOfParameterDefinition(output.parameterDefinitions, context);
   }
   if (output.requiredCapabilities !== undefined) {
-    contents.RequiredCapabilities = deserializeAws_restJson1_1__listOfCapability(
-      output.requiredCapabilities,
-      context
-    );
+    contents.RequiredCapabilities = deserializeAws_restJson1_1__listOfCapability(output.requiredCapabilities, context);
   }
   if (output.resourcesSupported !== undefined) {
     contents.ResourcesSupported = output.resourcesSupported;
@@ -2449,7 +2085,7 @@ const deserializeAws_restJson1_1Version = (
     contents.TemplateUrl = output.templateUrl;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1VersionSummary = (
   output: any,
@@ -2460,7 +2096,7 @@ const deserializeAws_restJson1_1VersionSummary = (
     ApplicationId: undefined,
     CreationTime: undefined,
     SemanticVersion: undefined,
-    SourceCodeUrl: undefined
+    SourceCodeUrl: undefined,
   };
   if (output.applicationId !== undefined) {
     contents.ApplicationId = output.applicationId;
@@ -2475,7 +2111,7 @@ const deserializeAws_restJson1_1VersionSummary = (
     contents.SourceCodeUrl = output.sourceCodeUrl;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1__listOfApplicationDependencySummary = (
   output: any,
@@ -2484,7 +2120,7 @@ const deserializeAws_restJson1_1__listOfApplicationDependencySummary = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ApplicationDependencySummary(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1__listOfApplicationPolicyStatement = (
   output: any,
@@ -2493,7 +2129,7 @@ const deserializeAws_restJson1_1__listOfApplicationPolicyStatement = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ApplicationPolicyStatement(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1__listOfApplicationSummary = (
   output: any,
@@ -2502,14 +2138,16 @@ const deserializeAws_restJson1_1__listOfApplicationSummary = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ApplicationSummary(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1__listOfCapability = (
   output: any,
   context: __SerdeContext
 ): Array<Capability | string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_restJson1_1__listOfParameterDefinition = (
   output: any,
@@ -2518,7 +2156,7 @@ const deserializeAws_restJson1_1__listOfParameterDefinition = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ParameterDefinition(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1__listOfVersionSummary = (
   output: any,
@@ -2527,14 +2165,16 @@ const deserializeAws_restJson1_1__listOfVersionSummary = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1VersionSummary(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1__listOf__string = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

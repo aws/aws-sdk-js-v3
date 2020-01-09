@@ -1,20 +1,20 @@
 import {
   ChimeClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ChimeClient";
 import {
   GetVoiceConnectorTerminationHealthRequest,
-  GetVoiceConnectorTerminationHealthResponse
+  GetVoiceConnectorTerminationHealthResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1GetVoiceConnectorTerminationHealthCommand,
-  serializeAws_restJson1_1GetVoiceConnectorTerminationHealthCommand
+  serializeAws_restJson1_1GetVoiceConnectorTerminationHealthCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type GetVoiceConnectorTerminationHealthCommandInput = GetVoiceConnectorTerminationHealthRequest;
 export type GetVoiceConnectorTerminationHealthCommandOutput = GetVoiceConnectorTerminationHealthResponse;
 
-export class GetVoiceConnectorTerminationHealthCommand extends $Command<
-  GetVoiceConnectorTerminationHealthCommandInput,
-  GetVoiceConnectorTerminationHealthCommandOutput,
-  ChimeClientResolvedConfig
-> {
+export class GetVoiceConnectorTerminationHealthCommand extends $Command<GetVoiceConnectorTerminationHealthCommandInput, GetVoiceConnectorTerminationHealthCommandOutput, ChimeClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class GetVoiceConnectorTerminationHealthCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetVoiceConnectorTerminationHealthCommandInput,
-    GetVoiceConnectorTerminationHealthCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetVoiceConnectorTerminationHealthCommandInput, GetVoiceConnectorTerminationHealthCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class GetVoiceConnectorTerminationHealthCommand extends $Command<
     input: GetVoiceConnectorTerminationHealthCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetVoiceConnectorTerminationHealthCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetVoiceConnectorTerminationHealthCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<GetVoiceConnectorTerminationHealthCommandOutput> {
-    return deserializeAws_restJson1_1GetVoiceConnectorTerminationHealthCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetVoiceConnectorTerminationHealthCommand(output, context);
   }
 
   // Start section: command_body_extra

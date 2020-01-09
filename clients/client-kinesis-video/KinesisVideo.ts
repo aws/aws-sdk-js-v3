@@ -2,52 +2,52 @@ import { KinesisVideoClient } from "./KinesisVideoClient";
 import {
   CreateStreamCommand,
   CreateStreamCommandInput,
-  CreateStreamCommandOutput
+  CreateStreamCommandOutput,
 } from "./commands/CreateStreamCommand";
 import {
   DeleteStreamCommand,
   DeleteStreamCommandInput,
-  DeleteStreamCommandOutput
+  DeleteStreamCommandOutput,
 } from "./commands/DeleteStreamCommand";
 import {
   DescribeStreamCommand,
   DescribeStreamCommandInput,
-  DescribeStreamCommandOutput
+  DescribeStreamCommandOutput,
 } from "./commands/DescribeStreamCommand";
 import {
   GetDataEndpointCommand,
   GetDataEndpointCommandInput,
-  GetDataEndpointCommandOutput
+  GetDataEndpointCommandOutput,
 } from "./commands/GetDataEndpointCommand";
 import {
   ListStreamsCommand,
   ListStreamsCommandInput,
-  ListStreamsCommandOutput
+  ListStreamsCommandOutput,
 } from "./commands/ListStreamsCommand";
 import {
   ListTagsForStreamCommand,
   ListTagsForStreamCommandInput,
-  ListTagsForStreamCommandOutput
+  ListTagsForStreamCommandOutput,
 } from "./commands/ListTagsForStreamCommand";
 import {
   TagStreamCommand,
   TagStreamCommandInput,
-  TagStreamCommandOutput
+  TagStreamCommandOutput,
 } from "./commands/TagStreamCommand";
 import {
   UntagStreamCommand,
   UntagStreamCommandInput,
-  UntagStreamCommandOutput
+  UntagStreamCommandOutput,
 } from "./commands/UntagStreamCommand";
 import {
   UpdateDataRetentionCommand,
   UpdateDataRetentionCommandInput,
-  UpdateDataRetentionCommandOutput
+  UpdateDataRetentionCommandOutput,
 } from "./commands/UpdateDataRetentionCommand";
 import {
   UpdateStreamCommand,
   UpdateStreamCommandInput,
-  UpdateStreamCommandOutput
+  UpdateStreamCommandOutput,
 } from "./commands/UpdateStreamCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -76,7 +76,7 @@ export class KinesisVideo extends KinesisVideoClient {
    */
   public createStream(
     args: CreateStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateStreamCommandOutput>;
   public createStream(
     args: CreateStreamCommandInput,
@@ -89,18 +89,16 @@ export class KinesisVideo extends KinesisVideoClient {
   ): void;
   public createStream(
     args: CreateStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStreamCommandOutput) => void),
     cb?: (err: any, data?: CreateStreamCommandOutput) => void
   ): Promise<CreateStreamCommandOutput> | void {
     const command = new CreateStreamCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -126,7 +124,7 @@ export class KinesisVideo extends KinesisVideoClient {
    */
   public deleteStream(
     args: DeleteStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteStreamCommandOutput>;
   public deleteStream(
     args: DeleteStreamCommandInput,
@@ -139,18 +137,16 @@ export class KinesisVideo extends KinesisVideoClient {
   ): void;
   public deleteStream(
     args: DeleteStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteStreamCommandOutput) => void),
     cb?: (err: any, data?: DeleteStreamCommandOutput) => void
   ): Promise<DeleteStreamCommandOutput> | void {
     const command = new DeleteStreamCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -165,7 +161,7 @@ export class KinesisVideo extends KinesisVideoClient {
    */
   public describeStream(
     args: DescribeStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeStreamCommandOutput>;
   public describeStream(
     args: DescribeStreamCommandInput,
@@ -178,18 +174,16 @@ export class KinesisVideo extends KinesisVideoClient {
   ): void;
   public describeStream(
     args: DescribeStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStreamCommandOutput) => void),
     cb?: (err: any, data?: DescribeStreamCommandOutput) => void
   ): Promise<DescribeStreamCommandOutput> | void {
     const command = new DescribeStreamCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -211,7 +205,7 @@ export class KinesisVideo extends KinesisVideoClient {
    */
   public getDataEndpoint(
     args: GetDataEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetDataEndpointCommandOutput>;
   public getDataEndpoint(
     args: GetDataEndpointCommandInput,
@@ -224,18 +218,16 @@ export class KinesisVideo extends KinesisVideoClient {
   ): void;
   public getDataEndpoint(
     args: GetDataEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDataEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDataEndpointCommandOutput) => void),
     cb?: (err: any, data?: GetDataEndpointCommandOutput) => void
   ): Promise<GetDataEndpointCommandOutput> | void {
     const command = new GetDataEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -250,7 +242,7 @@ export class KinesisVideo extends KinesisVideoClient {
    */
   public listStreams(
     args: ListStreamsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListStreamsCommandOutput>;
   public listStreams(
     args: ListStreamsCommandInput,
@@ -263,18 +255,16 @@ export class KinesisVideo extends KinesisVideoClient {
   ): void;
   public listStreams(
     args: ListStreamsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListStreamsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStreamsCommandOutput) => void),
     cb?: (err: any, data?: ListStreamsCommandOutput) => void
   ): Promise<ListStreamsCommandOutput> | void {
     const command = new ListStreamsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -288,7 +278,7 @@ export class KinesisVideo extends KinesisVideoClient {
    */
   public listTagsForStream(
     args: ListTagsForStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListTagsForStreamCommandOutput>;
   public listTagsForStream(
     args: ListTagsForStreamCommandInput,
@@ -301,18 +291,16 @@ export class KinesisVideo extends KinesisVideoClient {
   ): void;
   public listTagsForStream(
     args: ListTagsForStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForStreamCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForStreamCommandOutput) => void
   ): Promise<ListTagsForStreamCommandOutput> | void {
     const command = new ListTagsForStreamCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -332,7 +320,7 @@ export class KinesisVideo extends KinesisVideoClient {
    */
   public tagStream(
     args: TagStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<TagStreamCommandOutput>;
   public tagStream(
     args: TagStreamCommandInput,
@@ -345,18 +333,16 @@ export class KinesisVideo extends KinesisVideoClient {
   ): void;
   public tagStream(
     args: TagStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagStreamCommandOutput) => void),
     cb?: (err: any, data?: TagStreamCommandOutput) => void
   ): Promise<TagStreamCommandOutput> | void {
     const command = new TagStreamCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -371,7 +357,7 @@ export class KinesisVideo extends KinesisVideoClient {
    */
   public untagStream(
     args: UntagStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UntagStreamCommandOutput>;
   public untagStream(
     args: UntagStreamCommandInput,
@@ -384,18 +370,16 @@ export class KinesisVideo extends KinesisVideoClient {
   ): void;
   public untagStream(
     args: UntagStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagStreamCommandOutput) => void),
     cb?: (err: any, data?: UntagStreamCommandOutput) => void
   ): Promise<UntagStreamCommandOutput> | void {
     const command = new UntagStreamCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -434,7 +418,7 @@ export class KinesisVideo extends KinesisVideoClient {
    */
   public updateDataRetention(
     args: UpdateDataRetentionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateDataRetentionCommandOutput>;
   public updateDataRetention(
     args: UpdateDataRetentionCommandInput,
@@ -447,18 +431,16 @@ export class KinesisVideo extends KinesisVideoClient {
   ): void;
   public updateDataRetention(
     args: UpdateDataRetentionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDataRetentionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDataRetentionCommandOutput) => void),
     cb?: (err: any, data?: UpdateDataRetentionCommandOutput) => void
   ): Promise<UpdateDataRetentionCommandOutput> | void {
     const command = new UpdateDataRetentionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -479,7 +461,7 @@ export class KinesisVideo extends KinesisVideoClient {
    */
   public updateStream(
     args: UpdateStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateStreamCommandOutput>;
   public updateStream(
     args: UpdateStreamCommandInput,
@@ -492,20 +474,19 @@ export class KinesisVideo extends KinesisVideoClient {
   ): void;
   public updateStream(
     args: UpdateStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateStreamCommandOutput) => void),
     cb?: (err: any, data?: UpdateStreamCommandOutput) => void
   ): Promise<UpdateStreamCommandOutput> | void {
     const command = new UpdateStreamCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

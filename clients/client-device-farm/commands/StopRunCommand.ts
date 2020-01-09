@@ -1,17 +1,20 @@
 import {
   DeviceFarmClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DeviceFarmClient";
-import { StopRunRequest, StopRunResult } from "../models/index";
+import {
+  StopRunRequest,
+  StopRunResult,
+} from "../models/index";
 import {
   deserializeAws_json1_1StopRunCommand,
-  serializeAws_json1_1StopRunCommand
+  serializeAws_json1_1StopRunCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type StopRunCommandInput = StopRunRequest;
 export type StopRunCommandOutput = StopRunResult;
 
-export class StopRunCommand extends $Command<
-  StopRunCommandInput,
-  StopRunCommandOutput,
-  DeviceFarmClientResolvedConfig
-> {
+export class StopRunCommand extends $Command<StopRunCommandInput, StopRunCommandOutput, DeviceFarmClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class StopRunCommand extends $Command<
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopRunCommandInput, StopRunCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -2,267 +2,267 @@ import { DirectConnectClient } from "./DirectConnectClient";
 import {
   AcceptDirectConnectGatewayAssociationProposalCommand,
   AcceptDirectConnectGatewayAssociationProposalCommandInput,
-  AcceptDirectConnectGatewayAssociationProposalCommandOutput
+  AcceptDirectConnectGatewayAssociationProposalCommandOutput,
 } from "./commands/AcceptDirectConnectGatewayAssociationProposalCommand";
 import {
   AllocateConnectionOnInterconnectCommand,
   AllocateConnectionOnInterconnectCommandInput,
-  AllocateConnectionOnInterconnectCommandOutput
+  AllocateConnectionOnInterconnectCommandOutput,
 } from "./commands/AllocateConnectionOnInterconnectCommand";
 import {
   AllocateHostedConnectionCommand,
   AllocateHostedConnectionCommandInput,
-  AllocateHostedConnectionCommandOutput
+  AllocateHostedConnectionCommandOutput,
 } from "./commands/AllocateHostedConnectionCommand";
 import {
   AllocatePrivateVirtualInterfaceCommand,
   AllocatePrivateVirtualInterfaceCommandInput,
-  AllocatePrivateVirtualInterfaceCommandOutput
+  AllocatePrivateVirtualInterfaceCommandOutput,
 } from "./commands/AllocatePrivateVirtualInterfaceCommand";
 import {
   AllocatePublicVirtualInterfaceCommand,
   AllocatePublicVirtualInterfaceCommandInput,
-  AllocatePublicVirtualInterfaceCommandOutput
+  AllocatePublicVirtualInterfaceCommandOutput,
 } from "./commands/AllocatePublicVirtualInterfaceCommand";
 import {
   AllocateTransitVirtualInterfaceCommand,
   AllocateTransitVirtualInterfaceCommandInput,
-  AllocateTransitVirtualInterfaceCommandOutput
+  AllocateTransitVirtualInterfaceCommandOutput,
 } from "./commands/AllocateTransitVirtualInterfaceCommand";
 import {
   AssociateConnectionWithLagCommand,
   AssociateConnectionWithLagCommandInput,
-  AssociateConnectionWithLagCommandOutput
+  AssociateConnectionWithLagCommandOutput,
 } from "./commands/AssociateConnectionWithLagCommand";
 import {
   AssociateHostedConnectionCommand,
   AssociateHostedConnectionCommandInput,
-  AssociateHostedConnectionCommandOutput
+  AssociateHostedConnectionCommandOutput,
 } from "./commands/AssociateHostedConnectionCommand";
 import {
   AssociateVirtualInterfaceCommand,
   AssociateVirtualInterfaceCommandInput,
-  AssociateVirtualInterfaceCommandOutput
+  AssociateVirtualInterfaceCommandOutput,
 } from "./commands/AssociateVirtualInterfaceCommand";
 import {
   ConfirmConnectionCommand,
   ConfirmConnectionCommandInput,
-  ConfirmConnectionCommandOutput
+  ConfirmConnectionCommandOutput,
 } from "./commands/ConfirmConnectionCommand";
 import {
   ConfirmPrivateVirtualInterfaceCommand,
   ConfirmPrivateVirtualInterfaceCommandInput,
-  ConfirmPrivateVirtualInterfaceCommandOutput
+  ConfirmPrivateVirtualInterfaceCommandOutput,
 } from "./commands/ConfirmPrivateVirtualInterfaceCommand";
 import {
   ConfirmPublicVirtualInterfaceCommand,
   ConfirmPublicVirtualInterfaceCommandInput,
-  ConfirmPublicVirtualInterfaceCommandOutput
+  ConfirmPublicVirtualInterfaceCommandOutput,
 } from "./commands/ConfirmPublicVirtualInterfaceCommand";
 import {
   ConfirmTransitVirtualInterfaceCommand,
   ConfirmTransitVirtualInterfaceCommandInput,
-  ConfirmTransitVirtualInterfaceCommandOutput
+  ConfirmTransitVirtualInterfaceCommandOutput,
 } from "./commands/ConfirmTransitVirtualInterfaceCommand";
 import {
   CreateBGPPeerCommand,
   CreateBGPPeerCommandInput,
-  CreateBGPPeerCommandOutput
+  CreateBGPPeerCommandOutput,
 } from "./commands/CreateBGPPeerCommand";
 import {
   CreateConnectionCommand,
   CreateConnectionCommandInput,
-  CreateConnectionCommandOutput
+  CreateConnectionCommandOutput,
 } from "./commands/CreateConnectionCommand";
 import {
   CreateDirectConnectGatewayAssociationCommand,
   CreateDirectConnectGatewayAssociationCommandInput,
-  CreateDirectConnectGatewayAssociationCommandOutput
+  CreateDirectConnectGatewayAssociationCommandOutput,
 } from "./commands/CreateDirectConnectGatewayAssociationCommand";
 import {
   CreateDirectConnectGatewayAssociationProposalCommand,
   CreateDirectConnectGatewayAssociationProposalCommandInput,
-  CreateDirectConnectGatewayAssociationProposalCommandOutput
+  CreateDirectConnectGatewayAssociationProposalCommandOutput,
 } from "./commands/CreateDirectConnectGatewayAssociationProposalCommand";
 import {
   CreateDirectConnectGatewayCommand,
   CreateDirectConnectGatewayCommandInput,
-  CreateDirectConnectGatewayCommandOutput
+  CreateDirectConnectGatewayCommandOutput,
 } from "./commands/CreateDirectConnectGatewayCommand";
 import {
   CreateInterconnectCommand,
   CreateInterconnectCommandInput,
-  CreateInterconnectCommandOutput
+  CreateInterconnectCommandOutput,
 } from "./commands/CreateInterconnectCommand";
 import {
   CreateLagCommand,
   CreateLagCommandInput,
-  CreateLagCommandOutput
+  CreateLagCommandOutput,
 } from "./commands/CreateLagCommand";
 import {
   CreatePrivateVirtualInterfaceCommand,
   CreatePrivateVirtualInterfaceCommandInput,
-  CreatePrivateVirtualInterfaceCommandOutput
+  CreatePrivateVirtualInterfaceCommandOutput,
 } from "./commands/CreatePrivateVirtualInterfaceCommand";
 import {
   CreatePublicVirtualInterfaceCommand,
   CreatePublicVirtualInterfaceCommandInput,
-  CreatePublicVirtualInterfaceCommandOutput
+  CreatePublicVirtualInterfaceCommandOutput,
 } from "./commands/CreatePublicVirtualInterfaceCommand";
 import {
   CreateTransitVirtualInterfaceCommand,
   CreateTransitVirtualInterfaceCommandInput,
-  CreateTransitVirtualInterfaceCommandOutput
+  CreateTransitVirtualInterfaceCommandOutput,
 } from "./commands/CreateTransitVirtualInterfaceCommand";
 import {
   DeleteBGPPeerCommand,
   DeleteBGPPeerCommandInput,
-  DeleteBGPPeerCommandOutput
+  DeleteBGPPeerCommandOutput,
 } from "./commands/DeleteBGPPeerCommand";
 import {
   DeleteConnectionCommand,
   DeleteConnectionCommandInput,
-  DeleteConnectionCommandOutput
+  DeleteConnectionCommandOutput,
 } from "./commands/DeleteConnectionCommand";
 import {
   DeleteDirectConnectGatewayAssociationCommand,
   DeleteDirectConnectGatewayAssociationCommandInput,
-  DeleteDirectConnectGatewayAssociationCommandOutput
+  DeleteDirectConnectGatewayAssociationCommandOutput,
 } from "./commands/DeleteDirectConnectGatewayAssociationCommand";
 import {
   DeleteDirectConnectGatewayAssociationProposalCommand,
   DeleteDirectConnectGatewayAssociationProposalCommandInput,
-  DeleteDirectConnectGatewayAssociationProposalCommandOutput
+  DeleteDirectConnectGatewayAssociationProposalCommandOutput,
 } from "./commands/DeleteDirectConnectGatewayAssociationProposalCommand";
 import {
   DeleteDirectConnectGatewayCommand,
   DeleteDirectConnectGatewayCommandInput,
-  DeleteDirectConnectGatewayCommandOutput
+  DeleteDirectConnectGatewayCommandOutput,
 } from "./commands/DeleteDirectConnectGatewayCommand";
 import {
   DeleteInterconnectCommand,
   DeleteInterconnectCommandInput,
-  DeleteInterconnectCommandOutput
+  DeleteInterconnectCommandOutput,
 } from "./commands/DeleteInterconnectCommand";
 import {
   DeleteLagCommand,
   DeleteLagCommandInput,
-  DeleteLagCommandOutput
+  DeleteLagCommandOutput,
 } from "./commands/DeleteLagCommand";
 import {
   DeleteVirtualInterfaceCommand,
   DeleteVirtualInterfaceCommandInput,
-  DeleteVirtualInterfaceCommandOutput
+  DeleteVirtualInterfaceCommandOutput,
 } from "./commands/DeleteVirtualInterfaceCommand";
 import {
   DescribeConnectionLoaCommand,
   DescribeConnectionLoaCommandInput,
-  DescribeConnectionLoaCommandOutput
+  DescribeConnectionLoaCommandOutput,
 } from "./commands/DescribeConnectionLoaCommand";
 import {
   DescribeConnectionsCommand,
   DescribeConnectionsCommandInput,
-  DescribeConnectionsCommandOutput
+  DescribeConnectionsCommandOutput,
 } from "./commands/DescribeConnectionsCommand";
 import {
   DescribeConnectionsOnInterconnectCommand,
   DescribeConnectionsOnInterconnectCommandInput,
-  DescribeConnectionsOnInterconnectCommandOutput
+  DescribeConnectionsOnInterconnectCommandOutput,
 } from "./commands/DescribeConnectionsOnInterconnectCommand";
 import {
   DescribeDirectConnectGatewayAssociationProposalsCommand,
   DescribeDirectConnectGatewayAssociationProposalsCommandInput,
-  DescribeDirectConnectGatewayAssociationProposalsCommandOutput
+  DescribeDirectConnectGatewayAssociationProposalsCommandOutput,
 } from "./commands/DescribeDirectConnectGatewayAssociationProposalsCommand";
 import {
   DescribeDirectConnectGatewayAssociationsCommand,
   DescribeDirectConnectGatewayAssociationsCommandInput,
-  DescribeDirectConnectGatewayAssociationsCommandOutput
+  DescribeDirectConnectGatewayAssociationsCommandOutput,
 } from "./commands/DescribeDirectConnectGatewayAssociationsCommand";
 import {
   DescribeDirectConnectGatewayAttachmentsCommand,
   DescribeDirectConnectGatewayAttachmentsCommandInput,
-  DescribeDirectConnectGatewayAttachmentsCommandOutput
+  DescribeDirectConnectGatewayAttachmentsCommandOutput,
 } from "./commands/DescribeDirectConnectGatewayAttachmentsCommand";
 import {
   DescribeDirectConnectGatewaysCommand,
   DescribeDirectConnectGatewaysCommandInput,
-  DescribeDirectConnectGatewaysCommandOutput
+  DescribeDirectConnectGatewaysCommandOutput,
 } from "./commands/DescribeDirectConnectGatewaysCommand";
 import {
   DescribeHostedConnectionsCommand,
   DescribeHostedConnectionsCommandInput,
-  DescribeHostedConnectionsCommandOutput
+  DescribeHostedConnectionsCommandOutput,
 } from "./commands/DescribeHostedConnectionsCommand";
 import {
   DescribeInterconnectLoaCommand,
   DescribeInterconnectLoaCommandInput,
-  DescribeInterconnectLoaCommandOutput
+  DescribeInterconnectLoaCommandOutput,
 } from "./commands/DescribeInterconnectLoaCommand";
 import {
   DescribeInterconnectsCommand,
   DescribeInterconnectsCommandInput,
-  DescribeInterconnectsCommandOutput
+  DescribeInterconnectsCommandOutput,
 } from "./commands/DescribeInterconnectsCommand";
 import {
   DescribeLagsCommand,
   DescribeLagsCommandInput,
-  DescribeLagsCommandOutput
+  DescribeLagsCommandOutput,
 } from "./commands/DescribeLagsCommand";
 import {
   DescribeLoaCommand,
   DescribeLoaCommandInput,
-  DescribeLoaCommandOutput
+  DescribeLoaCommandOutput,
 } from "./commands/DescribeLoaCommand";
 import {
   DescribeLocationsCommand,
   DescribeLocationsCommandInput,
-  DescribeLocationsCommandOutput
+  DescribeLocationsCommandOutput,
 } from "./commands/DescribeLocationsCommand";
 import {
   DescribeTagsCommand,
   DescribeTagsCommandInput,
-  DescribeTagsCommandOutput
+  DescribeTagsCommandOutput,
 } from "./commands/DescribeTagsCommand";
 import {
   DescribeVirtualGatewaysCommand,
   DescribeVirtualGatewaysCommandInput,
-  DescribeVirtualGatewaysCommandOutput
+  DescribeVirtualGatewaysCommandOutput,
 } from "./commands/DescribeVirtualGatewaysCommand";
 import {
   DescribeVirtualInterfacesCommand,
   DescribeVirtualInterfacesCommandInput,
-  DescribeVirtualInterfacesCommandOutput
+  DescribeVirtualInterfacesCommandOutput,
 } from "./commands/DescribeVirtualInterfacesCommand";
 import {
   DisassociateConnectionFromLagCommand,
   DisassociateConnectionFromLagCommandInput,
-  DisassociateConnectionFromLagCommandOutput
+  DisassociateConnectionFromLagCommandOutput,
 } from "./commands/DisassociateConnectionFromLagCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateDirectConnectGatewayAssociationCommand,
   UpdateDirectConnectGatewayAssociationCommandInput,
-  UpdateDirectConnectGatewayAssociationCommandOutput
+  UpdateDirectConnectGatewayAssociationCommandOutput,
 } from "./commands/UpdateDirectConnectGatewayAssociationCommand";
 import {
   UpdateLagCommand,
   UpdateLagCommandInput,
-  UpdateLagCommandOutput
+  UpdateLagCommandOutput,
 } from "./commands/UpdateLagCommand";
 import {
   UpdateVirtualInterfaceAttributesCommand,
   UpdateVirtualInterfaceAttributesCommandInput,
-  UpdateVirtualInterfaceAttributesCommandOutput
+  UpdateVirtualInterfaceAttributesCommandOutput,
 } from "./commands/UpdateVirtualInterfaceAttributesCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -284,47 +284,29 @@ export class DirectConnect extends DirectConnectClient {
    */
   public acceptDirectConnectGatewayAssociationProposal(
     args: AcceptDirectConnectGatewayAssociationProposalCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<AcceptDirectConnectGatewayAssociationProposalCommandOutput>;
   public acceptDirectConnectGatewayAssociationProposal(
     args: AcceptDirectConnectGatewayAssociationProposalCommandInput,
-    cb: (
-      err: any,
-      data?: AcceptDirectConnectGatewayAssociationProposalCommandOutput
-    ) => void
+    cb: (err: any, data?: AcceptDirectConnectGatewayAssociationProposalCommandOutput) => void
   ): void;
   public acceptDirectConnectGatewayAssociationProposal(
     args: AcceptDirectConnectGatewayAssociationProposalCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AcceptDirectConnectGatewayAssociationProposalCommandOutput
-    ) => void
+    cb: (err: any, data?: AcceptDirectConnectGatewayAssociationProposalCommandOutput) => void
   ): void;
   public acceptDirectConnectGatewayAssociationProposal(
     args: AcceptDirectConnectGatewayAssociationProposalCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AcceptDirectConnectGatewayAssociationProposalCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AcceptDirectConnectGatewayAssociationProposalCommandOutput
-    ) => void
-  ): Promise<
-    AcceptDirectConnectGatewayAssociationProposalCommandOutput
-  > | void {
-    const command = new AcceptDirectConnectGatewayAssociationProposalCommand(
-      args
-    );
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptDirectConnectGatewayAssociationProposalCommandOutput) => void),
+    cb?: (err: any, data?: AcceptDirectConnectGatewayAssociationProposalCommandOutput) => void
+  ): Promise<AcceptDirectConnectGatewayAssociationProposalCommandOutput> | void {
+    const command = new AcceptDirectConnectGatewayAssociationProposalCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -342,7 +324,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public allocateConnectionOnInterconnect(
     args: AllocateConnectionOnInterconnectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<AllocateConnectionOnInterconnectCommandOutput>;
   public allocateConnectionOnInterconnect(
     args: AllocateConnectionOnInterconnectCommandInput,
@@ -355,24 +337,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public allocateConnectionOnInterconnect(
     args: AllocateConnectionOnInterconnectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AllocateConnectionOnInterconnectCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AllocateConnectionOnInterconnectCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AllocateConnectionOnInterconnectCommandOutput) => void),
+    cb?: (err: any, data?: AllocateConnectionOnInterconnectCommandOutput) => void
   ): Promise<AllocateConnectionOnInterconnectCommandOutput> | void {
     const command = new AllocateConnectionOnInterconnectCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -389,7 +363,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public allocateHostedConnection(
     args: AllocateHostedConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<AllocateHostedConnectionCommandOutput>;
   public allocateHostedConnection(
     args: AllocateHostedConnectionCommandInput,
@@ -402,18 +376,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public allocateHostedConnection(
     args: AllocateHostedConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AllocateHostedConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AllocateHostedConnectionCommandOutput) => void),
     cb?: (err: any, data?: AllocateHostedConnectionCommandOutput) => void
   ): Promise<AllocateHostedConnectionCommandOutput> | void {
     const command = new AllocateHostedConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -428,7 +400,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public allocatePrivateVirtualInterface(
     args: AllocatePrivateVirtualInterfaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<AllocatePrivateVirtualInterfaceCommandOutput>;
   public allocatePrivateVirtualInterface(
     args: AllocatePrivateVirtualInterfaceCommandInput,
@@ -441,21 +413,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public allocatePrivateVirtualInterface(
     args: AllocatePrivateVirtualInterfaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AllocatePrivateVirtualInterfaceCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AllocatePrivateVirtualInterfaceCommandOutput) => void),
     cb?: (err: any, data?: AllocatePrivateVirtualInterfaceCommandOutput) => void
   ): Promise<AllocatePrivateVirtualInterfaceCommandOutput> | void {
     const command = new AllocatePrivateVirtualInterfaceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -473,7 +440,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public allocatePublicVirtualInterface(
     args: AllocatePublicVirtualInterfaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<AllocatePublicVirtualInterfaceCommandOutput>;
   public allocatePublicVirtualInterface(
     args: AllocatePublicVirtualInterfaceCommandInput,
@@ -486,21 +453,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public allocatePublicVirtualInterface(
     args: AllocatePublicVirtualInterfaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AllocatePublicVirtualInterfaceCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AllocatePublicVirtualInterfaceCommandOutput) => void),
     cb?: (err: any, data?: AllocatePublicVirtualInterfaceCommandOutput) => void
   ): Promise<AllocatePublicVirtualInterfaceCommandOutput> | void {
     const command = new AllocatePublicVirtualInterfaceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -515,7 +477,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public allocateTransitVirtualInterface(
     args: AllocateTransitVirtualInterfaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<AllocateTransitVirtualInterfaceCommandOutput>;
   public allocateTransitVirtualInterface(
     args: AllocateTransitVirtualInterfaceCommandInput,
@@ -528,21 +490,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public allocateTransitVirtualInterface(
     args: AllocateTransitVirtualInterfaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AllocateTransitVirtualInterfaceCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AllocateTransitVirtualInterfaceCommandOutput) => void),
     cb?: (err: any, data?: AllocateTransitVirtualInterfaceCommandOutput) => void
   ): Promise<AllocateTransitVirtualInterfaceCommandOutput> | void {
     const command = new AllocateTransitVirtualInterfaceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -568,7 +525,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public associateConnectionWithLag(
     args: AssociateConnectionWithLagCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<AssociateConnectionWithLagCommandOutput>;
   public associateConnectionWithLag(
     args: AssociateConnectionWithLagCommandInput,
@@ -581,18 +538,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public associateConnectionWithLag(
     args: AssociateConnectionWithLagCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateConnectionWithLagCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateConnectionWithLagCommandOutput) => void),
     cb?: (err: any, data?: AssociateConnectionWithLagCommandOutput) => void
   ): Promise<AssociateConnectionWithLagCommandOutput> | void {
     const command = new AssociateConnectionWithLagCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -612,7 +567,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public associateHostedConnection(
     args: AssociateHostedConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<AssociateHostedConnectionCommandOutput>;
   public associateHostedConnection(
     args: AssociateHostedConnectionCommandInput,
@@ -625,18 +580,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public associateHostedConnection(
     args: AssociateHostedConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateHostedConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateHostedConnectionCommandOutput) => void),
     cb?: (err: any, data?: AssociateHostedConnectionCommandOutput) => void
   ): Promise<AssociateHostedConnectionCommandOutput> | void {
     const command = new AssociateHostedConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -658,7 +611,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public associateVirtualInterface(
     args: AssociateVirtualInterfaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<AssociateVirtualInterfaceCommandOutput>;
   public associateVirtualInterface(
     args: AssociateVirtualInterfaceCommandInput,
@@ -671,18 +624,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public associateVirtualInterface(
     args: AssociateVirtualInterfaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateVirtualInterfaceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateVirtualInterfaceCommandOutput) => void),
     cb?: (err: any, data?: AssociateVirtualInterfaceCommandOutput) => void
   ): Promise<AssociateVirtualInterfaceCommandOutput> | void {
     const command = new AssociateVirtualInterfaceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -697,7 +648,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public confirmConnection(
     args: ConfirmConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ConfirmConnectionCommandOutput>;
   public confirmConnection(
     args: ConfirmConnectionCommandInput,
@@ -710,18 +661,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public confirmConnection(
     args: ConfirmConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ConfirmConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ConfirmConnectionCommandOutput) => void),
     cb?: (err: any, data?: ConfirmConnectionCommandOutput) => void
   ): Promise<ConfirmConnectionCommandOutput> | void {
     const command = new ConfirmConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -737,7 +686,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public confirmPrivateVirtualInterface(
     args: ConfirmPrivateVirtualInterfaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ConfirmPrivateVirtualInterfaceCommandOutput>;
   public confirmPrivateVirtualInterface(
     args: ConfirmPrivateVirtualInterfaceCommandInput,
@@ -750,21 +699,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public confirmPrivateVirtualInterface(
     args: ConfirmPrivateVirtualInterfaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ConfirmPrivateVirtualInterfaceCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ConfirmPrivateVirtualInterfaceCommandOutput) => void),
     cb?: (err: any, data?: ConfirmPrivateVirtualInterfaceCommandOutput) => void
   ): Promise<ConfirmPrivateVirtualInterfaceCommandOutput> | void {
     const command = new ConfirmPrivateVirtualInterfaceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -779,7 +723,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public confirmPublicVirtualInterface(
     args: ConfirmPublicVirtualInterfaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ConfirmPublicVirtualInterfaceCommandOutput>;
   public confirmPublicVirtualInterface(
     args: ConfirmPublicVirtualInterfaceCommandInput,
@@ -792,18 +736,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public confirmPublicVirtualInterface(
     args: ConfirmPublicVirtualInterfaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ConfirmPublicVirtualInterfaceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ConfirmPublicVirtualInterfaceCommandOutput) => void),
     cb?: (err: any, data?: ConfirmPublicVirtualInterfaceCommandOutput) => void
   ): Promise<ConfirmPublicVirtualInterfaceCommandOutput> | void {
     const command = new ConfirmPublicVirtualInterfaceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -818,7 +760,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public confirmTransitVirtualInterface(
     args: ConfirmTransitVirtualInterfaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ConfirmTransitVirtualInterfaceCommandOutput>;
   public confirmTransitVirtualInterface(
     args: ConfirmTransitVirtualInterfaceCommandInput,
@@ -831,21 +773,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public confirmTransitVirtualInterface(
     args: ConfirmTransitVirtualInterfaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ConfirmTransitVirtualInterfaceCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ConfirmTransitVirtualInterfaceCommandOutput) => void),
     cb?: (err: any, data?: ConfirmTransitVirtualInterfaceCommandOutput) => void
   ): Promise<ConfirmTransitVirtualInterfaceCommandOutput> | void {
     const command = new ConfirmTransitVirtualInterfaceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -864,7 +801,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public createBGPPeer(
     args: CreateBGPPeerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateBGPPeerCommandOutput>;
   public createBGPPeer(
     args: CreateBGPPeerCommandInput,
@@ -877,18 +814,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public createBGPPeer(
     args: CreateBGPPeerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateBGPPeerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBGPPeerCommandOutput) => void),
     cb?: (err: any, data?: CreateBGPPeerCommandOutput) => void
   ): Promise<CreateBGPPeerCommandOutput> | void {
     const command = new CreateBGPPeerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -909,7 +844,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public createConnection(
     args: CreateConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateConnectionCommandOutput>;
   public createConnection(
     args: CreateConnectionCommandInput,
@@ -922,18 +857,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public createConnection(
     args: CreateConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConnectionCommandOutput) => void),
     cb?: (err: any, data?: CreateConnectionCommandOutput) => void
   ): Promise<CreateConnectionCommandOutput> | void {
     const command = new CreateConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -951,7 +884,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public createDirectConnectGateway(
     args: CreateDirectConnectGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateDirectConnectGatewayCommandOutput>;
   public createDirectConnectGateway(
     args: CreateDirectConnectGatewayCommandInput,
@@ -964,18 +897,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public createDirectConnectGateway(
     args: CreateDirectConnectGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDirectConnectGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDirectConnectGatewayCommandOutput) => void),
     cb?: (err: any, data?: CreateDirectConnectGatewayCommandOutput) => void
   ): Promise<CreateDirectConnectGatewayCommandOutput> | void {
     const command = new CreateDirectConnectGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -989,43 +920,29 @@ export class DirectConnect extends DirectConnectClient {
    */
   public createDirectConnectGatewayAssociation(
     args: CreateDirectConnectGatewayAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateDirectConnectGatewayAssociationCommandOutput>;
   public createDirectConnectGatewayAssociation(
     args: CreateDirectConnectGatewayAssociationCommandInput,
-    cb: (
-      err: any,
-      data?: CreateDirectConnectGatewayAssociationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateDirectConnectGatewayAssociationCommandOutput) => void
   ): void;
   public createDirectConnectGatewayAssociation(
     args: CreateDirectConnectGatewayAssociationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateDirectConnectGatewayAssociationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateDirectConnectGatewayAssociationCommandOutput) => void
   ): void;
   public createDirectConnectGatewayAssociation(
     args: CreateDirectConnectGatewayAssociationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateDirectConnectGatewayAssociationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateDirectConnectGatewayAssociationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDirectConnectGatewayAssociationCommandOutput) => void),
+    cb?: (err: any, data?: CreateDirectConnectGatewayAssociationCommandOutput) => void
   ): Promise<CreateDirectConnectGatewayAssociationCommandOutput> | void {
     const command = new CreateDirectConnectGatewayAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1039,47 +956,29 @@ export class DirectConnect extends DirectConnectClient {
    */
   public createDirectConnectGatewayAssociationProposal(
     args: CreateDirectConnectGatewayAssociationProposalCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateDirectConnectGatewayAssociationProposalCommandOutput>;
   public createDirectConnectGatewayAssociationProposal(
     args: CreateDirectConnectGatewayAssociationProposalCommandInput,
-    cb: (
-      err: any,
-      data?: CreateDirectConnectGatewayAssociationProposalCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateDirectConnectGatewayAssociationProposalCommandOutput) => void
   ): void;
   public createDirectConnectGatewayAssociationProposal(
     args: CreateDirectConnectGatewayAssociationProposalCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateDirectConnectGatewayAssociationProposalCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateDirectConnectGatewayAssociationProposalCommandOutput) => void
   ): void;
   public createDirectConnectGatewayAssociationProposal(
     args: CreateDirectConnectGatewayAssociationProposalCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateDirectConnectGatewayAssociationProposalCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateDirectConnectGatewayAssociationProposalCommandOutput
-    ) => void
-  ): Promise<
-    CreateDirectConnectGatewayAssociationProposalCommandOutput
-  > | void {
-    const command = new CreateDirectConnectGatewayAssociationProposalCommand(
-      args
-    );
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDirectConnectGatewayAssociationProposalCommandOutput) => void),
+    cb?: (err: any, data?: CreateDirectConnectGatewayAssociationProposalCommandOutput) => void
+  ): Promise<CreateDirectConnectGatewayAssociationProposalCommandOutput> | void {
+    const command = new CreateDirectConnectGatewayAssociationProposalCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1107,7 +1006,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public createInterconnect(
     args: CreateInterconnectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateInterconnectCommandOutput>;
   public createInterconnect(
     args: CreateInterconnectCommandInput,
@@ -1120,18 +1019,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public createInterconnect(
     args: CreateInterconnectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateInterconnectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateInterconnectCommandOutput) => void),
     cb?: (err: any, data?: CreateInterconnectCommandOutput) => void
   ): Promise<CreateInterconnectCommandOutput> | void {
     const command = new CreateInterconnectCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1161,7 +1058,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public createLag(
     args: CreateLagCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateLagCommandOutput>;
   public createLag(
     args: CreateLagCommandInput,
@@ -1174,18 +1071,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public createLag(
     args: CreateLagCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLagCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLagCommandOutput) => void),
     cb?: (err: any, data?: CreateLagCommandOutput) => void
   ): Promise<CreateLagCommandOutput> | void {
     const command = new CreateLagCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1202,7 +1097,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public createPrivateVirtualInterface(
     args: CreatePrivateVirtualInterfaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreatePrivateVirtualInterfaceCommandOutput>;
   public createPrivateVirtualInterface(
     args: CreatePrivateVirtualInterfaceCommandInput,
@@ -1215,18 +1110,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public createPrivateVirtualInterface(
     args: CreatePrivateVirtualInterfaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePrivateVirtualInterfaceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePrivateVirtualInterfaceCommandOutput) => void),
     cb?: (err: any, data?: CreatePrivateVirtualInterfaceCommandOutput) => void
   ): Promise<CreatePrivateVirtualInterfaceCommandOutput> | void {
     const command = new CreatePrivateVirtualInterfaceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1242,7 +1135,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public createPublicVirtualInterface(
     args: CreatePublicVirtualInterfaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreatePublicVirtualInterfaceCommandOutput>;
   public createPublicVirtualInterface(
     args: CreatePublicVirtualInterfaceCommandInput,
@@ -1255,18 +1148,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public createPublicVirtualInterface(
     args: CreatePublicVirtualInterfaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePublicVirtualInterfaceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePublicVirtualInterfaceCommandOutput) => void),
     cb?: (err: any, data?: CreatePublicVirtualInterfaceCommandOutput) => void
   ): Promise<CreatePublicVirtualInterfaceCommandOutput> | void {
     const command = new CreatePublicVirtualInterfaceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1282,7 +1173,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public createTransitVirtualInterface(
     args: CreateTransitVirtualInterfaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateTransitVirtualInterfaceCommandOutput>;
   public createTransitVirtualInterface(
     args: CreateTransitVirtualInterfaceCommandInput,
@@ -1295,18 +1186,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public createTransitVirtualInterface(
     args: CreateTransitVirtualInterfaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTransitVirtualInterfaceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTransitVirtualInterfaceCommandOutput) => void),
     cb?: (err: any, data?: CreateTransitVirtualInterfaceCommandOutput) => void
   ): Promise<CreateTransitVirtualInterfaceCommandOutput> | void {
     const command = new CreateTransitVirtualInterfaceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1320,7 +1209,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public deleteBGPPeer(
     args: DeleteBGPPeerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteBGPPeerCommandOutput>;
   public deleteBGPPeer(
     args: DeleteBGPPeerCommandInput,
@@ -1333,18 +1222,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public deleteBGPPeer(
     args: DeleteBGPPeerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBGPPeerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBGPPeerCommandOutput) => void),
     cb?: (err: any, data?: DeleteBGPPeerCommandOutput) => void
   ): Promise<DeleteBGPPeerCommandOutput> | void {
     const command = new DeleteBGPPeerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1360,7 +1247,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public deleteConnection(
     args: DeleteConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteConnectionCommandOutput>;
   public deleteConnection(
     args: DeleteConnectionCommandInput,
@@ -1373,18 +1260,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public deleteConnection(
     args: DeleteConnectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteConnectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConnectionCommandOutput) => void),
     cb?: (err: any, data?: DeleteConnectionCommandOutput) => void
   ): Promise<DeleteConnectionCommandOutput> | void {
     const command = new DeleteConnectionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1399,7 +1284,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public deleteDirectConnectGateway(
     args: DeleteDirectConnectGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteDirectConnectGatewayCommandOutput>;
   public deleteDirectConnectGateway(
     args: DeleteDirectConnectGatewayCommandInput,
@@ -1412,18 +1297,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public deleteDirectConnectGateway(
     args: DeleteDirectConnectGatewayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDirectConnectGatewayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDirectConnectGatewayCommandOutput) => void),
     cb?: (err: any, data?: DeleteDirectConnectGatewayCommandOutput) => void
   ): Promise<DeleteDirectConnectGatewayCommandOutput> | void {
     const command = new DeleteDirectConnectGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1437,43 +1320,29 @@ export class DirectConnect extends DirectConnectClient {
    */
   public deleteDirectConnectGatewayAssociation(
     args: DeleteDirectConnectGatewayAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteDirectConnectGatewayAssociationCommandOutput>;
   public deleteDirectConnectGatewayAssociation(
     args: DeleteDirectConnectGatewayAssociationCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteDirectConnectGatewayAssociationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteDirectConnectGatewayAssociationCommandOutput) => void
   ): void;
   public deleteDirectConnectGatewayAssociation(
     args: DeleteDirectConnectGatewayAssociationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteDirectConnectGatewayAssociationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteDirectConnectGatewayAssociationCommandOutput) => void
   ): void;
   public deleteDirectConnectGatewayAssociation(
     args: DeleteDirectConnectGatewayAssociationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteDirectConnectGatewayAssociationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteDirectConnectGatewayAssociationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDirectConnectGatewayAssociationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDirectConnectGatewayAssociationCommandOutput) => void
   ): Promise<DeleteDirectConnectGatewayAssociationCommandOutput> | void {
     const command = new DeleteDirectConnectGatewayAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1486,47 +1355,29 @@ export class DirectConnect extends DirectConnectClient {
    */
   public deleteDirectConnectGatewayAssociationProposal(
     args: DeleteDirectConnectGatewayAssociationProposalCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteDirectConnectGatewayAssociationProposalCommandOutput>;
   public deleteDirectConnectGatewayAssociationProposal(
     args: DeleteDirectConnectGatewayAssociationProposalCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteDirectConnectGatewayAssociationProposalCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteDirectConnectGatewayAssociationProposalCommandOutput) => void
   ): void;
   public deleteDirectConnectGatewayAssociationProposal(
     args: DeleteDirectConnectGatewayAssociationProposalCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteDirectConnectGatewayAssociationProposalCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteDirectConnectGatewayAssociationProposalCommandOutput) => void
   ): void;
   public deleteDirectConnectGatewayAssociationProposal(
     args: DeleteDirectConnectGatewayAssociationProposalCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteDirectConnectGatewayAssociationProposalCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteDirectConnectGatewayAssociationProposalCommandOutput
-    ) => void
-  ): Promise<
-    DeleteDirectConnectGatewayAssociationProposalCommandOutput
-  > | void {
-    const command = new DeleteDirectConnectGatewayAssociationProposalCommand(
-      args
-    );
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDirectConnectGatewayAssociationProposalCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDirectConnectGatewayAssociationProposalCommandOutput) => void
+  ): Promise<DeleteDirectConnectGatewayAssociationProposalCommandOutput> | void {
+    const command = new DeleteDirectConnectGatewayAssociationProposalCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1543,7 +1394,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public deleteInterconnect(
     args: DeleteInterconnectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteInterconnectCommandOutput>;
   public deleteInterconnect(
     args: DeleteInterconnectCommandInput,
@@ -1556,18 +1407,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public deleteInterconnect(
     args: DeleteInterconnectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteInterconnectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInterconnectCommandOutput) => void),
     cb?: (err: any, data?: DeleteInterconnectCommandOutput) => void
   ): Promise<DeleteInterconnectCommandOutput> | void {
     const command = new DeleteInterconnectCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1581,7 +1430,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public deleteLag(
     args: DeleteLagCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteLagCommandOutput>;
   public deleteLag(
     args: DeleteLagCommandInput,
@@ -1594,18 +1443,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public deleteLag(
     args: DeleteLagCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLagCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLagCommandOutput) => void),
     cb?: (err: any, data?: DeleteLagCommandOutput) => void
   ): Promise<DeleteLagCommandOutput> | void {
     const command = new DeleteLagCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1618,7 +1465,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public deleteVirtualInterface(
     args: DeleteVirtualInterfaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteVirtualInterfaceCommandOutput>;
   public deleteVirtualInterface(
     args: DeleteVirtualInterfaceCommandInput,
@@ -1631,18 +1478,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public deleteVirtualInterface(
     args: DeleteVirtualInterfaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVirtualInterfaceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVirtualInterfaceCommandOutput) => void),
     cb?: (err: any, data?: DeleteVirtualInterfaceCommandOutput) => void
   ): Promise<DeleteVirtualInterfaceCommandOutput> | void {
     const command = new DeleteVirtualInterfaceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1660,7 +1505,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public describeConnectionLoa(
     args: DescribeConnectionLoaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeConnectionLoaCommandOutput>;
   public describeConnectionLoa(
     args: DescribeConnectionLoaCommandInput,
@@ -1673,18 +1518,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public describeConnectionLoa(
     args: DescribeConnectionLoaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeConnectionLoaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeConnectionLoaCommandOutput) => void),
     cb?: (err: any, data?: DescribeConnectionLoaCommandOutput) => void
   ): Promise<DescribeConnectionLoaCommandOutput> | void {
     const command = new DescribeConnectionLoaCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1697,7 +1540,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public describeConnections(
     args: DescribeConnectionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeConnectionsCommandOutput>;
   public describeConnections(
     args: DescribeConnectionsCommandInput,
@@ -1710,18 +1553,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public describeConnections(
     args: DescribeConnectionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeConnectionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeConnectionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeConnectionsCommandOutput) => void
   ): Promise<DescribeConnectionsCommandOutput> | void {
     const command = new DescribeConnectionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1738,43 +1579,29 @@ export class DirectConnect extends DirectConnectClient {
    */
   public describeConnectionsOnInterconnect(
     args: DescribeConnectionsOnInterconnectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeConnectionsOnInterconnectCommandOutput>;
   public describeConnectionsOnInterconnect(
     args: DescribeConnectionsOnInterconnectCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeConnectionsOnInterconnectCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeConnectionsOnInterconnectCommandOutput) => void
   ): void;
   public describeConnectionsOnInterconnect(
     args: DescribeConnectionsOnInterconnectCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeConnectionsOnInterconnectCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeConnectionsOnInterconnectCommandOutput) => void
   ): void;
   public describeConnectionsOnInterconnect(
     args: DescribeConnectionsOnInterconnectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeConnectionsOnInterconnectCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeConnectionsOnInterconnectCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeConnectionsOnInterconnectCommandOutput) => void),
+    cb?: (err: any, data?: DescribeConnectionsOnInterconnectCommandOutput) => void
   ): Promise<DescribeConnectionsOnInterconnectCommandOutput> | void {
     const command = new DescribeConnectionsOnInterconnectCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1787,47 +1614,29 @@ export class DirectConnect extends DirectConnectClient {
    */
   public describeDirectConnectGatewayAssociationProposals(
     args: DescribeDirectConnectGatewayAssociationProposalsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeDirectConnectGatewayAssociationProposalsCommandOutput>;
   public describeDirectConnectGatewayAssociationProposals(
     args: DescribeDirectConnectGatewayAssociationProposalsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeDirectConnectGatewayAssociationProposalsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDirectConnectGatewayAssociationProposalsCommandOutput) => void
   ): void;
   public describeDirectConnectGatewayAssociationProposals(
     args: DescribeDirectConnectGatewayAssociationProposalsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeDirectConnectGatewayAssociationProposalsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDirectConnectGatewayAssociationProposalsCommandOutput) => void
   ): void;
   public describeDirectConnectGatewayAssociationProposals(
     args: DescribeDirectConnectGatewayAssociationProposalsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeDirectConnectGatewayAssociationProposalsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeDirectConnectGatewayAssociationProposalsCommandOutput
-    ) => void
-  ): Promise<
-    DescribeDirectConnectGatewayAssociationProposalsCommandOutput
-  > | void {
-    const command = new DescribeDirectConnectGatewayAssociationProposalsCommand(
-      args
-    );
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDirectConnectGatewayAssociationProposalsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDirectConnectGatewayAssociationProposalsCommandOutput) => void
+  ): Promise<DescribeDirectConnectGatewayAssociationProposalsCommandOutput> | void {
+    const command = new DescribeDirectConnectGatewayAssociationProposalsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1846,43 +1655,29 @@ export class DirectConnect extends DirectConnectClient {
    */
   public describeDirectConnectGatewayAssociations(
     args: DescribeDirectConnectGatewayAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeDirectConnectGatewayAssociationsCommandOutput>;
   public describeDirectConnectGatewayAssociations(
     args: DescribeDirectConnectGatewayAssociationsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeDirectConnectGatewayAssociationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDirectConnectGatewayAssociationsCommandOutput) => void
   ): void;
   public describeDirectConnectGatewayAssociations(
     args: DescribeDirectConnectGatewayAssociationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeDirectConnectGatewayAssociationsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDirectConnectGatewayAssociationsCommandOutput) => void
   ): void;
   public describeDirectConnectGatewayAssociations(
     args: DescribeDirectConnectGatewayAssociationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeDirectConnectGatewayAssociationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeDirectConnectGatewayAssociationsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDirectConnectGatewayAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDirectConnectGatewayAssociationsCommandOutput) => void
   ): Promise<DescribeDirectConnectGatewayAssociationsCommandOutput> | void {
     const command = new DescribeDirectConnectGatewayAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1899,43 +1694,29 @@ export class DirectConnect extends DirectConnectClient {
    */
   public describeDirectConnectGatewayAttachments(
     args: DescribeDirectConnectGatewayAttachmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeDirectConnectGatewayAttachmentsCommandOutput>;
   public describeDirectConnectGatewayAttachments(
     args: DescribeDirectConnectGatewayAttachmentsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeDirectConnectGatewayAttachmentsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDirectConnectGatewayAttachmentsCommandOutput) => void
   ): void;
   public describeDirectConnectGatewayAttachments(
     args: DescribeDirectConnectGatewayAttachmentsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeDirectConnectGatewayAttachmentsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeDirectConnectGatewayAttachmentsCommandOutput) => void
   ): void;
   public describeDirectConnectGatewayAttachments(
     args: DescribeDirectConnectGatewayAttachmentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeDirectConnectGatewayAttachmentsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeDirectConnectGatewayAttachmentsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDirectConnectGatewayAttachmentsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDirectConnectGatewayAttachmentsCommandOutput) => void
   ): Promise<DescribeDirectConnectGatewayAttachmentsCommandOutput> | void {
     const command = new DescribeDirectConnectGatewayAttachmentsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1948,7 +1729,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public describeDirectConnectGateways(
     args: DescribeDirectConnectGatewaysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeDirectConnectGatewaysCommandOutput>;
   public describeDirectConnectGateways(
     args: DescribeDirectConnectGatewaysCommandInput,
@@ -1961,18 +1742,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public describeDirectConnectGateways(
     args: DescribeDirectConnectGatewaysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDirectConnectGatewaysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDirectConnectGatewaysCommandOutput) => void),
     cb?: (err: any, data?: DescribeDirectConnectGatewaysCommandOutput) => void
   ): Promise<DescribeDirectConnectGatewaysCommandOutput> | void {
     const command = new DescribeDirectConnectGatewaysCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1989,7 +1768,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public describeHostedConnections(
     args: DescribeHostedConnectionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeHostedConnectionsCommandOutput>;
   public describeHostedConnections(
     args: DescribeHostedConnectionsCommandInput,
@@ -2002,18 +1781,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public describeHostedConnections(
     args: DescribeHostedConnectionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeHostedConnectionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeHostedConnectionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeHostedConnectionsCommandOutput) => void
   ): Promise<DescribeHostedConnectionsCommandOutput> | void {
     const command = new DescribeHostedConnectionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2030,7 +1807,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public describeInterconnectLoa(
     args: DescribeInterconnectLoaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeInterconnectLoaCommandOutput>;
   public describeInterconnectLoa(
     args: DescribeInterconnectLoaCommandInput,
@@ -2043,18 +1820,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public describeInterconnectLoa(
     args: DescribeInterconnectLoaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeInterconnectLoaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInterconnectLoaCommandOutput) => void),
     cb?: (err: any, data?: DescribeInterconnectLoaCommandOutput) => void
   ): Promise<DescribeInterconnectLoaCommandOutput> | void {
     const command = new DescribeInterconnectLoaCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2067,7 +1842,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public describeInterconnects(
     args: DescribeInterconnectsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeInterconnectsCommandOutput>;
   public describeInterconnects(
     args: DescribeInterconnectsCommandInput,
@@ -2080,18 +1855,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public describeInterconnects(
     args: DescribeInterconnectsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeInterconnectsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInterconnectsCommandOutput) => void),
     cb?: (err: any, data?: DescribeInterconnectsCommandOutput) => void
   ): Promise<DescribeInterconnectsCommandOutput> | void {
     const command = new DescribeInterconnectsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2104,7 +1877,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public describeLags(
     args: DescribeLagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeLagsCommandOutput>;
   public describeLags(
     args: DescribeLagsCommandInput,
@@ -2117,18 +1890,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public describeLags(
     args: DescribeLagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLagsCommandOutput) => void),
     cb?: (err: any, data?: DescribeLagsCommandOutput) => void
   ): Promise<DescribeLagsCommandOutput> | void {
     const command = new DescribeLagsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2144,7 +1915,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public describeLoa(
     args: DescribeLoaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeLoaCommandOutput>;
   public describeLoa(
     args: DescribeLoaCommandInput,
@@ -2157,18 +1928,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public describeLoa(
     args: DescribeLoaCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLoaCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLoaCommandOutput) => void),
     cb?: (err: any, data?: DescribeLoaCommandOutput) => void
   ): Promise<DescribeLoaCommandOutput> | void {
     const command = new DescribeLoaCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2182,7 +1951,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public describeLocations(
     args: DescribeLocationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeLocationsCommandOutput>;
   public describeLocations(
     args: DescribeLocationsCommandInput,
@@ -2195,18 +1964,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public describeLocations(
     args: DescribeLocationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLocationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLocationsCommandOutput) => void),
     cb?: (err: any, data?: DescribeLocationsCommandOutput) => void
   ): Promise<DescribeLocationsCommandOutput> | void {
     const command = new DescribeLocationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2219,7 +1986,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public describeTags(
     args: DescribeTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeTagsCommandOutput>;
   public describeTags(
     args: DescribeTagsCommandInput,
@@ -2232,18 +1999,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public describeTags(
     args: DescribeTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTagsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTagsCommandOutput) => void
   ): Promise<DescribeTagsCommandOutput> | void {
     const command = new DescribeTagsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2257,7 +2022,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public describeVirtualGateways(
     args: DescribeVirtualGatewaysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeVirtualGatewaysCommandOutput>;
   public describeVirtualGateways(
     args: DescribeVirtualGatewaysCommandInput,
@@ -2270,18 +2035,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public describeVirtualGateways(
     args: DescribeVirtualGatewaysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVirtualGatewaysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVirtualGatewaysCommandOutput) => void),
     cb?: (err: any, data?: DescribeVirtualGatewaysCommandOutput) => void
   ): Promise<DescribeVirtualGatewaysCommandOutput> | void {
     const command = new DescribeVirtualGatewaysCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2298,7 +2061,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public describeVirtualInterfaces(
     args: DescribeVirtualInterfacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeVirtualInterfacesCommandOutput>;
   public describeVirtualInterfaces(
     args: DescribeVirtualInterfacesCommandInput,
@@ -2311,18 +2074,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public describeVirtualInterfaces(
     args: DescribeVirtualInterfacesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeVirtualInterfacesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVirtualInterfacesCommandOutput) => void),
     cb?: (err: any, data?: DescribeVirtualInterfacesCommandOutput) => void
   ): Promise<DescribeVirtualInterfacesCommandOutput> | void {
     const command = new DescribeVirtualInterfacesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2344,7 +2105,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public disassociateConnectionFromLag(
     args: DisassociateConnectionFromLagCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DisassociateConnectionFromLagCommandOutput>;
   public disassociateConnectionFromLag(
     args: DisassociateConnectionFromLagCommandInput,
@@ -2357,18 +2118,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public disassociateConnectionFromLag(
     args: DisassociateConnectionFromLagCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateConnectionFromLagCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateConnectionFromLagCommandOutput) => void),
     cb?: (err: any, data?: DisassociateConnectionFromLagCommandOutput) => void
   ): Promise<DisassociateConnectionFromLagCommandOutput> | void {
     const command = new DisassociateConnectionFromLagCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2382,7 +2141,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<TagResourceCommandOutput>;
   public tagResource(
     args: TagResourceCommandInput,
@@ -2395,18 +2154,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2419,7 +2176,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UntagResourceCommandOutput>;
   public untagResource(
     args: UntagResourceCommandInput,
@@ -2432,18 +2189,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2457,43 +2212,29 @@ export class DirectConnect extends DirectConnectClient {
    */
   public updateDirectConnectGatewayAssociation(
     args: UpdateDirectConnectGatewayAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateDirectConnectGatewayAssociationCommandOutput>;
   public updateDirectConnectGatewayAssociation(
     args: UpdateDirectConnectGatewayAssociationCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateDirectConnectGatewayAssociationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateDirectConnectGatewayAssociationCommandOutput) => void
   ): void;
   public updateDirectConnectGatewayAssociation(
     args: UpdateDirectConnectGatewayAssociationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateDirectConnectGatewayAssociationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateDirectConnectGatewayAssociationCommandOutput) => void
   ): void;
   public updateDirectConnectGatewayAssociation(
     args: UpdateDirectConnectGatewayAssociationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateDirectConnectGatewayAssociationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateDirectConnectGatewayAssociationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDirectConnectGatewayAssociationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateDirectConnectGatewayAssociationCommandOutput) => void
   ): Promise<UpdateDirectConnectGatewayAssociationCommandOutput> | void {
     const command = new UpdateDirectConnectGatewayAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2522,7 +2263,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public updateLag(
     args: UpdateLagCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateLagCommandOutput>;
   public updateLag(
     args: UpdateLagCommandInput,
@@ -2535,18 +2276,16 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public updateLag(
     args: UpdateLagCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateLagCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLagCommandOutput) => void),
     cb?: (err: any, data?: UpdateLagCommandOutput) => void
   ): Promise<UpdateLagCommandOutput> | void {
     const command = new UpdateLagCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2565,7 +2304,7 @@ export class DirectConnect extends DirectConnectClient {
    */
   public updateVirtualInterfaceAttributes(
     args: UpdateVirtualInterfaceAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateVirtualInterfaceAttributesCommandOutput>;
   public updateVirtualInterfaceAttributes(
     args: UpdateVirtualInterfaceAttributesCommandInput,
@@ -2578,26 +2317,19 @@ export class DirectConnect extends DirectConnectClient {
   ): void;
   public updateVirtualInterfaceAttributes(
     args: UpdateVirtualInterfaceAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateVirtualInterfaceAttributesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateVirtualInterfaceAttributesCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVirtualInterfaceAttributesCommandOutput) => void),
+    cb?: (err: any, data?: UpdateVirtualInterfaceAttributesCommandOutput) => void
   ): Promise<UpdateVirtualInterfaceAttributesCommandOutput> | void {
     const command = new UpdateVirtualInterfaceAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

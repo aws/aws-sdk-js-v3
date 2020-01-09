@@ -2,82 +2,82 @@ import { LicenseManagerClient } from "./LicenseManagerClient";
 import {
   CreateLicenseConfigurationCommand,
   CreateLicenseConfigurationCommandInput,
-  CreateLicenseConfigurationCommandOutput
+  CreateLicenseConfigurationCommandOutput,
 } from "./commands/CreateLicenseConfigurationCommand";
 import {
   DeleteLicenseConfigurationCommand,
   DeleteLicenseConfigurationCommandInput,
-  DeleteLicenseConfigurationCommandOutput
+  DeleteLicenseConfigurationCommandOutput,
 } from "./commands/DeleteLicenseConfigurationCommand";
 import {
   GetLicenseConfigurationCommand,
   GetLicenseConfigurationCommandInput,
-  GetLicenseConfigurationCommandOutput
+  GetLicenseConfigurationCommandOutput,
 } from "./commands/GetLicenseConfigurationCommand";
 import {
   GetServiceSettingsCommand,
   GetServiceSettingsCommandInput,
-  GetServiceSettingsCommandOutput
+  GetServiceSettingsCommandOutput,
 } from "./commands/GetServiceSettingsCommand";
 import {
   ListAssociationsForLicenseConfigurationCommand,
   ListAssociationsForLicenseConfigurationCommandInput,
-  ListAssociationsForLicenseConfigurationCommandOutput
+  ListAssociationsForLicenseConfigurationCommandOutput,
 } from "./commands/ListAssociationsForLicenseConfigurationCommand";
 import {
   ListFailuresForLicenseConfigurationOperationsCommand,
   ListFailuresForLicenseConfigurationOperationsCommandInput,
-  ListFailuresForLicenseConfigurationOperationsCommandOutput
+  ListFailuresForLicenseConfigurationOperationsCommandOutput,
 } from "./commands/ListFailuresForLicenseConfigurationOperationsCommand";
 import {
   ListLicenseConfigurationsCommand,
   ListLicenseConfigurationsCommandInput,
-  ListLicenseConfigurationsCommandOutput
+  ListLicenseConfigurationsCommandOutput,
 } from "./commands/ListLicenseConfigurationsCommand";
 import {
   ListLicenseSpecificationsForResourceCommand,
   ListLicenseSpecificationsForResourceCommandInput,
-  ListLicenseSpecificationsForResourceCommandOutput
+  ListLicenseSpecificationsForResourceCommandOutput,
 } from "./commands/ListLicenseSpecificationsForResourceCommand";
 import {
   ListResourceInventoryCommand,
   ListResourceInventoryCommandInput,
-  ListResourceInventoryCommandOutput
+  ListResourceInventoryCommandOutput,
 } from "./commands/ListResourceInventoryCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   ListUsageForLicenseConfigurationCommand,
   ListUsageForLicenseConfigurationCommandInput,
-  ListUsageForLicenseConfigurationCommandOutput
+  ListUsageForLicenseConfigurationCommandOutput,
 } from "./commands/ListUsageForLicenseConfigurationCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateLicenseConfigurationCommand,
   UpdateLicenseConfigurationCommandInput,
-  UpdateLicenseConfigurationCommandOutput
+  UpdateLicenseConfigurationCommandOutput,
 } from "./commands/UpdateLicenseConfigurationCommand";
 import {
   UpdateLicenseSpecificationsForResourceCommand,
   UpdateLicenseSpecificationsForResourceCommandInput,
-  UpdateLicenseSpecificationsForResourceCommandOutput
+  UpdateLicenseSpecificationsForResourceCommandOutput,
 } from "./commands/UpdateLicenseSpecificationsForResourceCommand";
 import {
   UpdateServiceSettingsCommand,
   UpdateServiceSettingsCommandInput,
-  UpdateServiceSettingsCommandOutput
+  UpdateServiceSettingsCommandOutput,
 } from "./commands/UpdateServiceSettingsCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -101,7 +101,7 @@ export class LicenseManager extends LicenseManagerClient {
    */
   public createLicenseConfiguration(
     args: CreateLicenseConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateLicenseConfigurationCommandOutput>;
   public createLicenseConfiguration(
     args: CreateLicenseConfigurationCommandInput,
@@ -114,18 +114,16 @@ export class LicenseManager extends LicenseManagerClient {
   ): void;
   public createLicenseConfiguration(
     args: CreateLicenseConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLicenseConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLicenseConfigurationCommandOutput) => void),
     cb?: (err: any, data?: CreateLicenseConfigurationCommandOutput) => void
   ): Promise<CreateLicenseConfigurationCommandOutput> | void {
     const command = new CreateLicenseConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -139,7 +137,7 @@ export class LicenseManager extends LicenseManagerClient {
    */
   public deleteLicenseConfiguration(
     args: DeleteLicenseConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteLicenseConfigurationCommandOutput>;
   public deleteLicenseConfiguration(
     args: DeleteLicenseConfigurationCommandInput,
@@ -152,18 +150,16 @@ export class LicenseManager extends LicenseManagerClient {
   ): void;
   public deleteLicenseConfiguration(
     args: DeleteLicenseConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLicenseConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLicenseConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DeleteLicenseConfigurationCommandOutput) => void
   ): Promise<DeleteLicenseConfigurationCommandOutput> | void {
     const command = new DeleteLicenseConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -176,7 +172,7 @@ export class LicenseManager extends LicenseManagerClient {
    */
   public getLicenseConfiguration(
     args: GetLicenseConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetLicenseConfigurationCommandOutput>;
   public getLicenseConfiguration(
     args: GetLicenseConfigurationCommandInput,
@@ -189,18 +185,16 @@ export class LicenseManager extends LicenseManagerClient {
   ): void;
   public getLicenseConfiguration(
     args: GetLicenseConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLicenseConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLicenseConfigurationCommandOutput) => void),
     cb?: (err: any, data?: GetLicenseConfigurationCommandOutput) => void
   ): Promise<GetLicenseConfigurationCommandOutput> | void {
     const command = new GetLicenseConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -213,7 +207,7 @@ export class LicenseManager extends LicenseManagerClient {
    */
   public getServiceSettings(
     args: GetServiceSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetServiceSettingsCommandOutput>;
   public getServiceSettings(
     args: GetServiceSettingsCommandInput,
@@ -226,18 +220,16 @@ export class LicenseManager extends LicenseManagerClient {
   ): void;
   public getServiceSettings(
     args: GetServiceSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetServiceSettingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetServiceSettingsCommandOutput) => void),
     cb?: (err: any, data?: GetServiceSettingsCommandOutput) => void
   ): Promise<GetServiceSettingsCommandOutput> | void {
     const command = new GetServiceSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -253,43 +245,29 @@ export class LicenseManager extends LicenseManagerClient {
    */
   public listAssociationsForLicenseConfiguration(
     args: ListAssociationsForLicenseConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListAssociationsForLicenseConfigurationCommandOutput>;
   public listAssociationsForLicenseConfiguration(
     args: ListAssociationsForLicenseConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: ListAssociationsForLicenseConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: ListAssociationsForLicenseConfigurationCommandOutput) => void
   ): void;
   public listAssociationsForLicenseConfiguration(
     args: ListAssociationsForLicenseConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListAssociationsForLicenseConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: ListAssociationsForLicenseConfigurationCommandOutput) => void
   ): void;
   public listAssociationsForLicenseConfiguration(
     args: ListAssociationsForLicenseConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListAssociationsForLicenseConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListAssociationsForLicenseConfigurationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssociationsForLicenseConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: ListAssociationsForLicenseConfigurationCommandOutput) => void
   ): Promise<ListAssociationsForLicenseConfigurationCommandOutput> | void {
     const command = new ListAssociationsForLicenseConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -302,47 +280,29 @@ export class LicenseManager extends LicenseManagerClient {
    */
   public listFailuresForLicenseConfigurationOperations(
     args: ListFailuresForLicenseConfigurationOperationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListFailuresForLicenseConfigurationOperationsCommandOutput>;
   public listFailuresForLicenseConfigurationOperations(
     args: ListFailuresForLicenseConfigurationOperationsCommandInput,
-    cb: (
-      err: any,
-      data?: ListFailuresForLicenseConfigurationOperationsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListFailuresForLicenseConfigurationOperationsCommandOutput) => void
   ): void;
   public listFailuresForLicenseConfigurationOperations(
     args: ListFailuresForLicenseConfigurationOperationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListFailuresForLicenseConfigurationOperationsCommandOutput
-    ) => void
+    cb: (err: any, data?: ListFailuresForLicenseConfigurationOperationsCommandOutput) => void
   ): void;
   public listFailuresForLicenseConfigurationOperations(
     args: ListFailuresForLicenseConfigurationOperationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListFailuresForLicenseConfigurationOperationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListFailuresForLicenseConfigurationOperationsCommandOutput
-    ) => void
-  ): Promise<
-    ListFailuresForLicenseConfigurationOperationsCommandOutput
-  > | void {
-    const command = new ListFailuresForLicenseConfigurationOperationsCommand(
-      args
-    );
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFailuresForLicenseConfigurationOperationsCommandOutput) => void),
+    cb?: (err: any, data?: ListFailuresForLicenseConfigurationOperationsCommandOutput) => void
+  ): Promise<ListFailuresForLicenseConfigurationOperationsCommandOutput> | void {
+    const command = new ListFailuresForLicenseConfigurationOperationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -355,7 +315,7 @@ export class LicenseManager extends LicenseManagerClient {
    */
   public listLicenseConfigurations(
     args: ListLicenseConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListLicenseConfigurationsCommandOutput>;
   public listLicenseConfigurations(
     args: ListLicenseConfigurationsCommandInput,
@@ -368,18 +328,16 @@ export class LicenseManager extends LicenseManagerClient {
   ): void;
   public listLicenseConfigurations(
     args: ListLicenseConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListLicenseConfigurationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLicenseConfigurationsCommandOutput) => void),
     cb?: (err: any, data?: ListLicenseConfigurationsCommandOutput) => void
   ): Promise<ListLicenseConfigurationsCommandOutput> | void {
     const command = new ListLicenseConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -392,43 +350,29 @@ export class LicenseManager extends LicenseManagerClient {
    */
   public listLicenseSpecificationsForResource(
     args: ListLicenseSpecificationsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListLicenseSpecificationsForResourceCommandOutput>;
   public listLicenseSpecificationsForResource(
     args: ListLicenseSpecificationsForResourceCommandInput,
-    cb: (
-      err: any,
-      data?: ListLicenseSpecificationsForResourceCommandOutput
-    ) => void
+    cb: (err: any, data?: ListLicenseSpecificationsForResourceCommandOutput) => void
   ): void;
   public listLicenseSpecificationsForResource(
     args: ListLicenseSpecificationsForResourceCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListLicenseSpecificationsForResourceCommandOutput
-    ) => void
+    cb: (err: any, data?: ListLicenseSpecificationsForResourceCommandOutput) => void
   ): void;
   public listLicenseSpecificationsForResource(
     args: ListLicenseSpecificationsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListLicenseSpecificationsForResourceCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListLicenseSpecificationsForResourceCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLicenseSpecificationsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListLicenseSpecificationsForResourceCommandOutput) => void
   ): Promise<ListLicenseSpecificationsForResourceCommandOutput> | void {
     const command = new ListLicenseSpecificationsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -441,7 +385,7 @@ export class LicenseManager extends LicenseManagerClient {
    */
   public listResourceInventory(
     args: ListResourceInventoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListResourceInventoryCommandOutput>;
   public listResourceInventory(
     args: ListResourceInventoryCommandInput,
@@ -454,18 +398,16 @@ export class LicenseManager extends LicenseManagerClient {
   ): void;
   public listResourceInventory(
     args: ListResourceInventoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListResourceInventoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourceInventoryCommandOutput) => void),
     cb?: (err: any, data?: ListResourceInventoryCommandOutput) => void
   ): Promise<ListResourceInventoryCommandOutput> | void {
     const command = new ListResourceInventoryCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -478,7 +420,7 @@ export class LicenseManager extends LicenseManagerClient {
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListTagsForResourceCommandOutput>;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -491,18 +433,16 @@ export class LicenseManager extends LicenseManagerClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -517,7 +457,7 @@ export class LicenseManager extends LicenseManagerClient {
    */
   public listUsageForLicenseConfiguration(
     args: ListUsageForLicenseConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListUsageForLicenseConfigurationCommandOutput>;
   public listUsageForLicenseConfiguration(
     args: ListUsageForLicenseConfigurationCommandInput,
@@ -530,24 +470,16 @@ export class LicenseManager extends LicenseManagerClient {
   ): void;
   public listUsageForLicenseConfiguration(
     args: ListUsageForLicenseConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListUsageForLicenseConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListUsageForLicenseConfigurationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUsageForLicenseConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: ListUsageForLicenseConfigurationCommandOutput) => void
   ): Promise<ListUsageForLicenseConfigurationCommandOutput> | void {
     const command = new ListUsageForLicenseConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -560,7 +492,7 @@ export class LicenseManager extends LicenseManagerClient {
    */
   public tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<TagResourceCommandOutput>;
   public tagResource(
     args: TagResourceCommandInput,
@@ -573,18 +505,16 @@ export class LicenseManager extends LicenseManagerClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -597,7 +527,7 @@ export class LicenseManager extends LicenseManagerClient {
    */
   public untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UntagResourceCommandOutput>;
   public untagResource(
     args: UntagResourceCommandInput,
@@ -610,18 +540,16 @@ export class LicenseManager extends LicenseManagerClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -639,7 +567,7 @@ export class LicenseManager extends LicenseManagerClient {
    */
   public updateLicenseConfiguration(
     args: UpdateLicenseConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateLicenseConfigurationCommandOutput>;
   public updateLicenseConfiguration(
     args: UpdateLicenseConfigurationCommandInput,
@@ -652,18 +580,16 @@ export class LicenseManager extends LicenseManagerClient {
   ): void;
   public updateLicenseConfiguration(
     args: UpdateLicenseConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateLicenseConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLicenseConfigurationCommandOutput) => void),
     cb?: (err: any, data?: UpdateLicenseConfigurationCommandOutput) => void
   ): Promise<UpdateLicenseConfigurationCommandOutput> | void {
     const command = new UpdateLicenseConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -679,43 +605,29 @@ export class LicenseManager extends LicenseManagerClient {
    */
   public updateLicenseSpecificationsForResource(
     args: UpdateLicenseSpecificationsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateLicenseSpecificationsForResourceCommandOutput>;
   public updateLicenseSpecificationsForResource(
     args: UpdateLicenseSpecificationsForResourceCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateLicenseSpecificationsForResourceCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateLicenseSpecificationsForResourceCommandOutput) => void
   ): void;
   public updateLicenseSpecificationsForResource(
     args: UpdateLicenseSpecificationsForResourceCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateLicenseSpecificationsForResourceCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateLicenseSpecificationsForResourceCommandOutput) => void
   ): void;
   public updateLicenseSpecificationsForResource(
     args: UpdateLicenseSpecificationsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateLicenseSpecificationsForResourceCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateLicenseSpecificationsForResourceCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLicenseSpecificationsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: UpdateLicenseSpecificationsForResourceCommandOutput) => void
   ): Promise<UpdateLicenseSpecificationsForResourceCommandOutput> | void {
     const command = new UpdateLicenseSpecificationsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -728,7 +640,7 @@ export class LicenseManager extends LicenseManagerClient {
    */
   public updateServiceSettings(
     args: UpdateServiceSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateServiceSettingsCommandOutput>;
   public updateServiceSettings(
     args: UpdateServiceSettingsCommandInput,
@@ -741,20 +653,19 @@ export class LicenseManager extends LicenseManagerClient {
   ): void;
   public updateServiceSettings(
     args: UpdateServiceSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateServiceSettingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateServiceSettingsCommandOutput) => void),
     cb?: (err: any, data?: UpdateServiceSettingsCommandOutput) => void
   ): Promise<UpdateServiceSettingsCommandOutput> | void {
     const command = new UpdateServiceSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

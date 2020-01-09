@@ -173,9 +173,7 @@ export interface CancelElasticsearchServiceSoftwareUpdateRequest {
 }
 
 export namespace CancelElasticsearchServiceSoftwareUpdateRequest {
-  export function isa(
-    o: any
-  ): o is CancelElasticsearchServiceSoftwareUpdateRequest {
+  export function isa(o: any): o is CancelElasticsearchServiceSoftwareUpdateRequest {
     return _smithy.isa(o, "CancelElasticsearchServiceSoftwareUpdateRequest");
   }
 }
@@ -185,8 +183,7 @@ export namespace CancelElasticsearchServiceSoftwareUpdateRequest {
  *     <p>The result of a <code>CancelElasticsearchServiceSoftwareUpdate</code> operation. Contains the status of the update.</p>
  *
  */
-export interface CancelElasticsearchServiceSoftwareUpdateResponse
-  extends $MetadataBearer {
+export interface CancelElasticsearchServiceSoftwareUpdateResponse extends $MetadataBearer {
   __type?: "CancelElasticsearchServiceSoftwareUpdateResponse";
   /**
    *
@@ -197,9 +194,7 @@ export interface CancelElasticsearchServiceSoftwareUpdateResponse
 }
 
 export namespace CancelElasticsearchServiceSoftwareUpdateResponse {
-  export function isa(
-    o: any
-  ): o is CancelElasticsearchServiceSoftwareUpdateResponse {
+  export function isa(o: any): o is CancelElasticsearchServiceSoftwareUpdateResponse {
     return _smithy.isa(o, "CancelElasticsearchServiceSoftwareUpdateResponse");
   }
 }
@@ -478,12 +473,7 @@ export namespace DeleteElasticsearchDomainResponse {
   }
 }
 
-export type DeploymentStatus =
-  | "COMPLETED"
-  | "ELIGIBLE"
-  | "IN_PROGRESS"
-  | "NOT_ELIGIBLE"
-  | "PENDING_UPDATE";
+export type DeploymentStatus = "COMPLETED" | "ELIGIBLE" | "IN_PROGRESS" | "NOT_ELIGIBLE" | "PENDING_UPDATE"
 
 /**
  *
@@ -511,8 +501,7 @@ export namespace DescribeElasticsearchDomainConfigRequest {
  *       <p>The result of a <code>DescribeElasticsearchDomainConfig</code> request. Contains the configuration information of the requested domain.</p>
  *
  */
-export interface DescribeElasticsearchDomainConfigResponse
-  extends $MetadataBearer {
+export interface DescribeElasticsearchDomainConfigResponse extends $MetadataBearer {
   __type?: "DescribeElasticsearchDomainConfigResponse";
   /**
    *
@@ -668,9 +657,7 @@ export interface DescribeElasticsearchInstanceTypeLimitsRequest {
 }
 
 export namespace DescribeElasticsearchInstanceTypeLimitsRequest {
-  export function isa(
-    o: any
-  ): o is DescribeElasticsearchInstanceTypeLimitsRequest {
+  export function isa(o: any): o is DescribeElasticsearchInstanceTypeLimitsRequest {
     return _smithy.isa(o, "DescribeElasticsearchInstanceTypeLimitsRequest");
   }
 }
@@ -686,8 +673,7 @@ export namespace DescribeElasticsearchInstanceTypeLimitsRequest {
  *     </p>
  *
  */
-export interface DescribeElasticsearchInstanceTypeLimitsResponse
-  extends $MetadataBearer {
+export interface DescribeElasticsearchInstanceTypeLimitsResponse extends $MetadataBearer {
   __type?: "DescribeElasticsearchInstanceTypeLimitsResponse";
   /**
    *
@@ -707,9 +693,7 @@ export interface DescribeElasticsearchInstanceTypeLimitsResponse
 }
 
 export namespace DescribeElasticsearchInstanceTypeLimitsResponse {
-  export function isa(
-    o: any
-  ): o is DescribeElasticsearchInstanceTypeLimitsResponse {
+  export function isa(o: any): o is DescribeElasticsearchInstanceTypeLimitsResponse {
     return _smithy.isa(o, "DescribeElasticsearchInstanceTypeLimitsResponse");
   }
 }
@@ -745,13 +729,8 @@ export interface DescribeReservedElasticsearchInstanceOfferingsRequest {
 }
 
 export namespace DescribeReservedElasticsearchInstanceOfferingsRequest {
-  export function isa(
-    o: any
-  ): o is DescribeReservedElasticsearchInstanceOfferingsRequest {
-    return _smithy.isa(
-      o,
-      "DescribeReservedElasticsearchInstanceOfferingsRequest"
-    );
+  export function isa(o: any): o is DescribeReservedElasticsearchInstanceOfferingsRequest {
+    return _smithy.isa(o, "DescribeReservedElasticsearchInstanceOfferingsRequest");
   }
 }
 
@@ -760,8 +739,7 @@ export namespace DescribeReservedElasticsearchInstanceOfferingsRequest {
  * 	<p>Container for results from <code>DescribeReservedElasticsearchInstanceOfferings</code></p>
  *
  */
-export interface DescribeReservedElasticsearchInstanceOfferingsResponse
-  extends $MetadataBearer {
+export interface DescribeReservedElasticsearchInstanceOfferingsResponse extends $MetadataBearer {
   __type?: "DescribeReservedElasticsearchInstanceOfferingsResponse";
   /**
    *
@@ -775,19 +753,12 @@ export interface DescribeReservedElasticsearchInstanceOfferingsResponse
    * 	<p>List of reserved Elasticsearch instance offerings</p>
    *
    */
-  ReservedElasticsearchInstanceOfferings?: Array<
-    ReservedElasticsearchInstanceOffering
-  >;
+  ReservedElasticsearchInstanceOfferings?: Array<ReservedElasticsearchInstanceOffering>;
 }
 
 export namespace DescribeReservedElasticsearchInstanceOfferingsResponse {
-  export function isa(
-    o: any
-  ): o is DescribeReservedElasticsearchInstanceOfferingsResponse {
-    return _smithy.isa(
-      o,
-      "DescribeReservedElasticsearchInstanceOfferingsResponse"
-    );
+  export function isa(o: any): o is DescribeReservedElasticsearchInstanceOfferingsResponse {
+    return _smithy.isa(o, "DescribeReservedElasticsearchInstanceOfferingsResponse");
   }
 }
 
@@ -822,9 +793,7 @@ export interface DescribeReservedElasticsearchInstancesRequest {
 }
 
 export namespace DescribeReservedElasticsearchInstancesRequest {
-  export function isa(
-    o: any
-  ): o is DescribeReservedElasticsearchInstancesRequest {
+  export function isa(o: any): o is DescribeReservedElasticsearchInstancesRequest {
     return _smithy.isa(o, "DescribeReservedElasticsearchInstancesRequest");
   }
 }
@@ -834,8 +803,7 @@ export namespace DescribeReservedElasticsearchInstancesRequest {
  * 	<p>Container for results from <code>DescribeReservedElasticsearchInstances</code></p>
  *
  */
-export interface DescribeReservedElasticsearchInstancesResponse
-  extends $MetadataBearer {
+export interface DescribeReservedElasticsearchInstancesResponse extends $MetadataBearer {
   __type?: "DescribeReservedElasticsearchInstancesResponse";
   /**
    *
@@ -853,9 +821,7 @@ export interface DescribeReservedElasticsearchInstancesResponse
 }
 
 export namespace DescribeReservedElasticsearchInstancesResponse {
-  export function isa(
-    o: any
-  ): o is DescribeReservedElasticsearchInstancesResponse {
+  export function isa(o: any): o is DescribeReservedElasticsearchInstancesResponse {
     return _smithy.isa(o, "DescribeReservedElasticsearchInstancesResponse");
   }
 }
@@ -1012,69 +978,9 @@ export namespace EBSOptionsStatus {
   }
 }
 
-export type ESPartitionInstanceType =
-  | "c4.2xlarge.elasticsearch"
-  | "c4.4xlarge.elasticsearch"
-  | "c4.8xlarge.elasticsearch"
-  | "c4.large.elasticsearch"
-  | "c4.xlarge.elasticsearch"
-  | "c5.18xlarge.elasticsearch"
-  | "c5.2xlarge.elasticsearch"
-  | "c5.4xlarge.elasticsearch"
-  | "c5.9xlarge.elasticsearch"
-  | "c5.large.elasticsearch"
-  | "c5.xlarge.elasticsearch"
-  | "d2.2xlarge.elasticsearch"
-  | "d2.4xlarge.elasticsearch"
-  | "d2.8xlarge.elasticsearch"
-  | "d2.xlarge.elasticsearch"
-  | "i2.2xlarge.elasticsearch"
-  | "i2.xlarge.elasticsearch"
-  | "i3.16xlarge.elasticsearch"
-  | "i3.2xlarge.elasticsearch"
-  | "i3.4xlarge.elasticsearch"
-  | "i3.8xlarge.elasticsearch"
-  | "i3.large.elasticsearch"
-  | "i3.xlarge.elasticsearch"
-  | "m3.2xlarge.elasticsearch"
-  | "m3.large.elasticsearch"
-  | "m3.medium.elasticsearch"
-  | "m3.xlarge.elasticsearch"
-  | "m4.10xlarge.elasticsearch"
-  | "m4.2xlarge.elasticsearch"
-  | "m4.4xlarge.elasticsearch"
-  | "m4.large.elasticsearch"
-  | "m4.xlarge.elasticsearch"
-  | "m5.12xlarge.elasticsearch"
-  | "m5.2xlarge.elasticsearch"
-  | "m5.4xlarge.elasticsearch"
-  | "m5.large.elasticsearch"
-  | "m5.xlarge.elasticsearch"
-  | "r3.2xlarge.elasticsearch"
-  | "r3.4xlarge.elasticsearch"
-  | "r3.8xlarge.elasticsearch"
-  | "r3.large.elasticsearch"
-  | "r3.xlarge.elasticsearch"
-  | "r4.16xlarge.elasticsearch"
-  | "r4.2xlarge.elasticsearch"
-  | "r4.4xlarge.elasticsearch"
-  | "r4.8xlarge.elasticsearch"
-  | "r4.large.elasticsearch"
-  | "r4.xlarge.elasticsearch"
-  | "r5.12xlarge.elasticsearch"
-  | "r5.2xlarge.elasticsearch"
-  | "r5.4xlarge.elasticsearch"
-  | "r5.large.elasticsearch"
-  | "r5.xlarge.elasticsearch"
-  | "t2.medium.elasticsearch"
-  | "t2.micro.elasticsearch"
-  | "t2.small.elasticsearch"
-  | "ultrawarm1.large.elasticsearch"
-  | "ultrawarm1.medium.elasticsearch";
+export type ESPartitionInstanceType = "c4.2xlarge.elasticsearch" | "c4.4xlarge.elasticsearch" | "c4.8xlarge.elasticsearch" | "c4.large.elasticsearch" | "c4.xlarge.elasticsearch" | "c5.18xlarge.elasticsearch" | "c5.2xlarge.elasticsearch" | "c5.4xlarge.elasticsearch" | "c5.9xlarge.elasticsearch" | "c5.large.elasticsearch" | "c5.xlarge.elasticsearch" | "d2.2xlarge.elasticsearch" | "d2.4xlarge.elasticsearch" | "d2.8xlarge.elasticsearch" | "d2.xlarge.elasticsearch" | "i2.2xlarge.elasticsearch" | "i2.xlarge.elasticsearch" | "i3.16xlarge.elasticsearch" | "i3.2xlarge.elasticsearch" | "i3.4xlarge.elasticsearch" | "i3.8xlarge.elasticsearch" | "i3.large.elasticsearch" | "i3.xlarge.elasticsearch" | "m3.2xlarge.elasticsearch" | "m3.large.elasticsearch" | "m3.medium.elasticsearch" | "m3.xlarge.elasticsearch" | "m4.10xlarge.elasticsearch" | "m4.2xlarge.elasticsearch" | "m4.4xlarge.elasticsearch" | "m4.large.elasticsearch" | "m4.xlarge.elasticsearch" | "m5.12xlarge.elasticsearch" | "m5.2xlarge.elasticsearch" | "m5.4xlarge.elasticsearch" | "m5.large.elasticsearch" | "m5.xlarge.elasticsearch" | "r3.2xlarge.elasticsearch" | "r3.4xlarge.elasticsearch" | "r3.8xlarge.elasticsearch" | "r3.large.elasticsearch" | "r3.xlarge.elasticsearch" | "r4.16xlarge.elasticsearch" | "r4.2xlarge.elasticsearch" | "r4.4xlarge.elasticsearch" | "r4.8xlarge.elasticsearch" | "r4.large.elasticsearch" | "r4.xlarge.elasticsearch" | "r5.12xlarge.elasticsearch" | "r5.2xlarge.elasticsearch" | "r5.4xlarge.elasticsearch" | "r5.large.elasticsearch" | "r5.xlarge.elasticsearch" | "t2.medium.elasticsearch" | "t2.micro.elasticsearch" | "t2.small.elasticsearch" | "ultrawarm1.large.elasticsearch" | "ultrawarm1.medium.elasticsearch"
 
-export type ESWarmPartitionInstanceType =
-  | "ultrawarm1.large.elasticsearch"
-  | "ultrawarm1.medium.elasticsearch";
+export type ESWarmPartitionInstanceType = "ultrawarm1.large.elasticsearch" | "ultrawarm1.medium.elasticsearch"
 
 /**
  *
@@ -1570,8 +1476,7 @@ export namespace GetCompatibleElasticsearchVersionsRequest {
  *     </p>
  *
  */
-export interface GetCompatibleElasticsearchVersionsResponse
-  extends $MetadataBearer {
+export interface GetCompatibleElasticsearchVersionsResponse extends $MetadataBearer {
   __type?: "GetCompatibleElasticsearchVersionsResponse";
   /**
    *
@@ -1977,8 +1882,7 @@ export namespace ListElasticsearchInstanceTypesRequest {
  *     </p>
  *
  */
-export interface ListElasticsearchInstanceTypesResponse
-  extends $MetadataBearer {
+export interface ListElasticsearchInstanceTypesResponse extends $MetadataBearer {
   __type?: "ListElasticsearchInstanceTypesResponse";
   /**
    *
@@ -2208,10 +2112,7 @@ export namespace LogPublishingOptionsStatus {
   }
 }
 
-export type LogType =
-  | "ES_APPLICATION_LOGS"
-  | "INDEX_SLOW_LOGS"
-  | "SEARCH_SLOW_LOGS";
+export type LogType = "ES_APPLICATION_LOGS" | "INDEX_SLOW_LOGS" | "SEARCH_SLOW_LOGS"
 
 /**
  *
@@ -2262,7 +2163,7 @@ export namespace NodeToNodeEncryptionOptionsStatus {
   }
 }
 
-export type OptionState = "Active" | "Processing" | "RequiresIndexDocuments";
+export type OptionState = "Active" | "Processing" | "RequiresIndexDocuments"
 
 /**
  *
@@ -2343,13 +2244,8 @@ export interface PurchaseReservedElasticsearchInstanceOfferingRequest {
 }
 
 export namespace PurchaseReservedElasticsearchInstanceOfferingRequest {
-  export function isa(
-    o: any
-  ): o is PurchaseReservedElasticsearchInstanceOfferingRequest {
-    return _smithy.isa(
-      o,
-      "PurchaseReservedElasticsearchInstanceOfferingRequest"
-    );
+  export function isa(o: any): o is PurchaseReservedElasticsearchInstanceOfferingRequest {
+    return _smithy.isa(o, "PurchaseReservedElasticsearchInstanceOfferingRequest");
   }
 }
 
@@ -2358,8 +2254,7 @@ export namespace PurchaseReservedElasticsearchInstanceOfferingRequest {
  * 	<p>Represents the output of a <code>PurchaseReservedElasticsearchInstanceOffering</code> operation.</p>
  *
  */
-export interface PurchaseReservedElasticsearchInstanceOfferingResponse
-  extends $MetadataBearer {
+export interface PurchaseReservedElasticsearchInstanceOfferingResponse extends $MetadataBearer {
   __type?: "PurchaseReservedElasticsearchInstanceOfferingResponse";
   /**
    *
@@ -2377,13 +2272,8 @@ export interface PurchaseReservedElasticsearchInstanceOfferingResponse
 }
 
 export namespace PurchaseReservedElasticsearchInstanceOfferingResponse {
-  export function isa(
-    o: any
-  ): o is PurchaseReservedElasticsearchInstanceOfferingResponse {
-    return _smithy.isa(
-      o,
-      "PurchaseReservedElasticsearchInstanceOfferingResponse"
-    );
+  export function isa(o: any): o is PurchaseReservedElasticsearchInstanceOfferingResponse {
+    return _smithy.isa(o, "PurchaseReservedElasticsearchInstanceOfferingResponse");
   }
 }
 
@@ -2618,10 +2508,7 @@ export namespace ReservedElasticsearchInstanceOffering {
   }
 }
 
-export type ReservedElasticsearchInstancePaymentOption =
-  | "ALL_UPFRONT"
-  | "NO_UPFRONT"
-  | "PARTIAL_UPFRONT";
+export type ReservedElasticsearchInstancePaymentOption = "ALL_UPFRONT" | "NO_UPFRONT" | "PARTIAL_UPFRONT"
 
 /**
  *
@@ -2751,9 +2638,7 @@ export interface StartElasticsearchServiceSoftwareUpdateRequest {
 }
 
 export namespace StartElasticsearchServiceSoftwareUpdateRequest {
-  export function isa(
-    o: any
-  ): o is StartElasticsearchServiceSoftwareUpdateRequest {
+  export function isa(o: any): o is StartElasticsearchServiceSoftwareUpdateRequest {
     return _smithy.isa(o, "StartElasticsearchServiceSoftwareUpdateRequest");
   }
 }
@@ -2763,8 +2648,7 @@ export namespace StartElasticsearchServiceSoftwareUpdateRequest {
  *     <p>The result of a <code>StartElasticsearchServiceSoftwareUpdate</code> operation. Contains the status of the update.</p>
  *
  */
-export interface StartElasticsearchServiceSoftwareUpdateResponse
-  extends $MetadataBearer {
+export interface StartElasticsearchServiceSoftwareUpdateResponse extends $MetadataBearer {
   __type?: "StartElasticsearchServiceSoftwareUpdateResponse";
   /**
    *
@@ -2775,9 +2659,7 @@ export interface StartElasticsearchServiceSoftwareUpdateResponse
 }
 
 export namespace StartElasticsearchServiceSoftwareUpdateResponse {
-  export function isa(
-    o: any
-  ): o is StartElasticsearchServiceSoftwareUpdateResponse {
+  export function isa(o: any): o is StartElasticsearchServiceSoftwareUpdateResponse {
     return _smithy.isa(o, "StartElasticsearchServiceSoftwareUpdateResponse");
   }
 }
@@ -2892,7 +2774,7 @@ export namespace StorageTypeLimit {
 
 export enum TLSSecurityPolicy {
   POLICY_MIN_TLS_1_0_2019_07 = "Policy-Min-TLS-1-0-2019-07",
-  POLICY_MIN_TLS_1_2_2019_07 = "Policy-Min-TLS-1-2-2019-07"
+  POLICY_MIN_TLS_1_2_2019_07 = "Policy-Min-TLS-1-2-2019-07",
 }
 
 /**
@@ -3014,8 +2896,7 @@ export namespace UpdateElasticsearchDomainConfigRequest {
  *       <p>The result of an <code>UpdateElasticsearchDomain</code> request. Contains the status of the Elasticsearch domain being updated.</p>
  *
  */
-export interface UpdateElasticsearchDomainConfigResponse
-  extends $MetadataBearer {
+export interface UpdateElasticsearchDomainConfigResponse extends $MetadataBearer {
   __type?: "UpdateElasticsearchDomainConfigResponse";
   /**
    *
@@ -3175,13 +3056,9 @@ export namespace UpgradeHistory {
   }
 }
 
-export type UpgradeStatus =
-  | "FAILED"
-  | "IN_PROGRESS"
-  | "SUCCEEDED"
-  | "SUCCEEDED_WITH_ISSUES";
+export type UpgradeStatus = "FAILED" | "IN_PROGRESS" | "SUCCEEDED" | "SUCCEEDED_WITH_ISSUES"
 
-export type UpgradeStep = "PRE_UPGRADE_CHECK" | "SNAPSHOT" | "UPGRADE";
+export type UpgradeStep = "PRE_UPGRADE_CHECK" | "SNAPSHOT" | "UPGRADE"
 
 /**
  *
@@ -3338,7 +3215,7 @@ export namespace VPCOptions {
   }
 }
 
-export type VolumeType = "gp2" | "io1" | "standard";
+export type VolumeType = "gp2" | "io1" | "standard"
 
 /**
  *
@@ -3366,9 +3243,7 @@ export namespace ZoneAwarenessConfig {
  *       <p>An error occurred while processing the request.</p>
  *
  */
-export interface BaseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BaseException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BaseException";
   $fault: "client";
   /**
@@ -3390,9 +3265,7 @@ export namespace BaseException {
  *       <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
  *
  */
-export interface DisabledOperationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DisabledOperationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DisabledOperationException";
   $fault: "client";
   /**
@@ -3414,9 +3287,7 @@ export namespace DisabledOperationException {
  *       <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
  *
  */
-export interface InternalException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalException";
   $fault: "server";
   /**
@@ -3438,9 +3309,7 @@ export namespace InternalException {
  *       <p>An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http status code of 409.</p>
  *
  */
-export interface InvalidTypeException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidTypeException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidTypeException";
   $fault: "client";
   /**
@@ -3462,9 +3331,7 @@ export namespace InvalidTypeException {
  *       <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
  *
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   /**
@@ -3486,9 +3353,7 @@ export namespace LimitExceededException {
  *       <p>An exception for creating a resource that already exists. Gives http status code of 400.</p>
  *
  */
-export interface ResourceAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
   $fault: "client";
   /**
@@ -3510,9 +3375,7 @@ export namespace ResourceAlreadyExistsException {
  *       <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -3534,9 +3397,7 @@ export namespace ResourceNotFoundException {
  *       <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  *
  */
-export interface ValidationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ValidationException";
   $fault: "client";
   /**

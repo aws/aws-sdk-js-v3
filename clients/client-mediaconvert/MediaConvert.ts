@@ -2,127 +2,127 @@ import { MediaConvertClient } from "./MediaConvertClient";
 import {
   AssociateCertificateCommand,
   AssociateCertificateCommandInput,
-  AssociateCertificateCommandOutput
+  AssociateCertificateCommandOutput,
 } from "./commands/AssociateCertificateCommand";
 import {
   CancelJobCommand,
   CancelJobCommandInput,
-  CancelJobCommandOutput
+  CancelJobCommandOutput,
 } from "./commands/CancelJobCommand";
 import {
   CreateJobCommand,
   CreateJobCommandInput,
-  CreateJobCommandOutput
+  CreateJobCommandOutput,
 } from "./commands/CreateJobCommand";
 import {
   CreateJobTemplateCommand,
   CreateJobTemplateCommandInput,
-  CreateJobTemplateCommandOutput
+  CreateJobTemplateCommandOutput,
 } from "./commands/CreateJobTemplateCommand";
 import {
   CreatePresetCommand,
   CreatePresetCommandInput,
-  CreatePresetCommandOutput
+  CreatePresetCommandOutput,
 } from "./commands/CreatePresetCommand";
 import {
   CreateQueueCommand,
   CreateQueueCommandInput,
-  CreateQueueCommandOutput
+  CreateQueueCommandOutput,
 } from "./commands/CreateQueueCommand";
 import {
   DeleteJobTemplateCommand,
   DeleteJobTemplateCommandInput,
-  DeleteJobTemplateCommandOutput
+  DeleteJobTemplateCommandOutput,
 } from "./commands/DeleteJobTemplateCommand";
 import {
   DeletePresetCommand,
   DeletePresetCommandInput,
-  DeletePresetCommandOutput
+  DeletePresetCommandOutput,
 } from "./commands/DeletePresetCommand";
 import {
   DeleteQueueCommand,
   DeleteQueueCommandInput,
-  DeleteQueueCommandOutput
+  DeleteQueueCommandOutput,
 } from "./commands/DeleteQueueCommand";
 import {
   DescribeEndpointsCommand,
   DescribeEndpointsCommandInput,
-  DescribeEndpointsCommandOutput
+  DescribeEndpointsCommandOutput,
 } from "./commands/DescribeEndpointsCommand";
 import {
   DisassociateCertificateCommand,
   DisassociateCertificateCommandInput,
-  DisassociateCertificateCommandOutput
+  DisassociateCertificateCommandOutput,
 } from "./commands/DisassociateCertificateCommand";
 import {
   GetJobCommand,
   GetJobCommandInput,
-  GetJobCommandOutput
+  GetJobCommandOutput,
 } from "./commands/GetJobCommand";
 import {
   GetJobTemplateCommand,
   GetJobTemplateCommandInput,
-  GetJobTemplateCommandOutput
+  GetJobTemplateCommandOutput,
 } from "./commands/GetJobTemplateCommand";
 import {
   GetPresetCommand,
   GetPresetCommandInput,
-  GetPresetCommandOutput
+  GetPresetCommandOutput,
 } from "./commands/GetPresetCommand";
 import {
   GetQueueCommand,
   GetQueueCommandInput,
-  GetQueueCommandOutput
+  GetQueueCommandOutput,
 } from "./commands/GetQueueCommand";
 import {
   ListJobTemplatesCommand,
   ListJobTemplatesCommandInput,
-  ListJobTemplatesCommandOutput
+  ListJobTemplatesCommandOutput,
 } from "./commands/ListJobTemplatesCommand";
 import {
   ListJobsCommand,
   ListJobsCommandInput,
-  ListJobsCommandOutput
+  ListJobsCommandOutput,
 } from "./commands/ListJobsCommand";
 import {
   ListPresetsCommand,
   ListPresetsCommandInput,
-  ListPresetsCommandOutput
+  ListPresetsCommandOutput,
 } from "./commands/ListPresetsCommand";
 import {
   ListQueuesCommand,
   ListQueuesCommandInput,
-  ListQueuesCommandOutput
+  ListQueuesCommandOutput,
 } from "./commands/ListQueuesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateJobTemplateCommand,
   UpdateJobTemplateCommandInput,
-  UpdateJobTemplateCommandOutput
+  UpdateJobTemplateCommandOutput,
 } from "./commands/UpdateJobTemplateCommand";
 import {
   UpdatePresetCommand,
   UpdatePresetCommandInput,
-  UpdatePresetCommandOutput
+  UpdatePresetCommandOutput,
 } from "./commands/UpdatePresetCommand";
 import {
   UpdateQueueCommand,
   UpdateQueueCommandInput,
-  UpdateQueueCommandOutput
+  UpdateQueueCommandOutput,
 } from "./commands/UpdateQueueCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -135,7 +135,7 @@ export class MediaConvert extends MediaConvertClient {
    */
   public associateCertificate(
     args: AssociateCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<AssociateCertificateCommandOutput>;
   public associateCertificate(
     args: AssociateCertificateCommandInput,
@@ -148,18 +148,16 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public associateCertificate(
     args: AssociateCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateCertificateCommandOutput) => void),
     cb?: (err: any, data?: AssociateCertificateCommandOutput) => void
   ): Promise<AssociateCertificateCommandOutput> | void {
     const command = new AssociateCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -170,7 +168,7 @@ export class MediaConvert extends MediaConvertClient {
    */
   public cancelJob(
     args: CancelJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CancelJobCommandOutput>;
   public cancelJob(
     args: CancelJobCommandInput,
@@ -183,18 +181,16 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public cancelJob(
     args: CancelJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelJobCommandOutput) => void),
     cb?: (err: any, data?: CancelJobCommandOutput) => void
   ): Promise<CancelJobCommandOutput> | void {
     const command = new CancelJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -205,7 +201,7 @@ export class MediaConvert extends MediaConvertClient {
    */
   public createJob(
     args: CreateJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateJobCommandOutput>;
   public createJob(
     args: CreateJobCommandInput,
@@ -218,18 +214,16 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public createJob(
     args: CreateJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateJobCommandOutput) => void),
     cb?: (err: any, data?: CreateJobCommandOutput) => void
   ): Promise<CreateJobCommandOutput> | void {
     const command = new CreateJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -240,7 +234,7 @@ export class MediaConvert extends MediaConvertClient {
    */
   public createJobTemplate(
     args: CreateJobTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateJobTemplateCommandOutput>;
   public createJobTemplate(
     args: CreateJobTemplateCommandInput,
@@ -253,18 +247,16 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public createJobTemplate(
     args: CreateJobTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateJobTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateJobTemplateCommandOutput) => void),
     cb?: (err: any, data?: CreateJobTemplateCommandOutput) => void
   ): Promise<CreateJobTemplateCommandOutput> | void {
     const command = new CreateJobTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -275,7 +267,7 @@ export class MediaConvert extends MediaConvertClient {
    */
   public createPreset(
     args: CreatePresetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreatePresetCommandOutput>;
   public createPreset(
     args: CreatePresetCommandInput,
@@ -288,18 +280,16 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public createPreset(
     args: CreatePresetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePresetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePresetCommandOutput) => void),
     cb?: (err: any, data?: CreatePresetCommandOutput) => void
   ): Promise<CreatePresetCommandOutput> | void {
     const command = new CreatePresetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -310,7 +300,7 @@ export class MediaConvert extends MediaConvertClient {
    */
   public createQueue(
     args: CreateQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateQueueCommandOutput>;
   public createQueue(
     args: CreateQueueCommandInput,
@@ -323,18 +313,16 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public createQueue(
     args: CreateQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateQueueCommandOutput) => void),
     cb?: (err: any, data?: CreateQueueCommandOutput) => void
   ): Promise<CreateQueueCommandOutput> | void {
     const command = new CreateQueueCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -345,7 +333,7 @@ export class MediaConvert extends MediaConvertClient {
    */
   public deleteJobTemplate(
     args: DeleteJobTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteJobTemplateCommandOutput>;
   public deleteJobTemplate(
     args: DeleteJobTemplateCommandInput,
@@ -358,18 +346,16 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public deleteJobTemplate(
     args: DeleteJobTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteJobTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteJobTemplateCommandOutput) => void),
     cb?: (err: any, data?: DeleteJobTemplateCommandOutput) => void
   ): Promise<DeleteJobTemplateCommandOutput> | void {
     const command = new DeleteJobTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -380,7 +366,7 @@ export class MediaConvert extends MediaConvertClient {
    */
   public deletePreset(
     args: DeletePresetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeletePresetCommandOutput>;
   public deletePreset(
     args: DeletePresetCommandInput,
@@ -393,18 +379,16 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public deletePreset(
     args: DeletePresetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePresetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePresetCommandOutput) => void),
     cb?: (err: any, data?: DeletePresetCommandOutput) => void
   ): Promise<DeletePresetCommandOutput> | void {
     const command = new DeletePresetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -415,7 +399,7 @@ export class MediaConvert extends MediaConvertClient {
    */
   public deleteQueue(
     args: DeleteQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteQueueCommandOutput>;
   public deleteQueue(
     args: DeleteQueueCommandInput,
@@ -428,18 +412,16 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public deleteQueue(
     args: DeleteQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteQueueCommandOutput) => void),
     cb?: (err: any, data?: DeleteQueueCommandOutput) => void
   ): Promise<DeleteQueueCommandOutput> | void {
     const command = new DeleteQueueCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -450,7 +432,7 @@ export class MediaConvert extends MediaConvertClient {
    */
   public describeEndpoints(
     args: DescribeEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeEndpointsCommandOutput>;
   public describeEndpoints(
     args: DescribeEndpointsCommandInput,
@@ -463,18 +445,16 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public describeEndpoints(
     args: DescribeEndpointsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEndpointsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEndpointsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEndpointsCommandOutput) => void
   ): Promise<DescribeEndpointsCommandOutput> | void {
     const command = new DescribeEndpointsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -485,7 +465,7 @@ export class MediaConvert extends MediaConvertClient {
    */
   public disassociateCertificate(
     args: DisassociateCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DisassociateCertificateCommandOutput>;
   public disassociateCertificate(
     args: DisassociateCertificateCommandInput,
@@ -498,18 +478,16 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public disassociateCertificate(
     args: DisassociateCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateCertificateCommandOutput) => void),
     cb?: (err: any, data?: DisassociateCertificateCommandOutput) => void
   ): Promise<DisassociateCertificateCommandOutput> | void {
     const command = new DisassociateCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -520,7 +498,7 @@ export class MediaConvert extends MediaConvertClient {
    */
   public getJob(
     args: GetJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetJobCommandOutput>;
   public getJob(
     args: GetJobCommandInput,
@@ -533,18 +511,16 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public getJob(
     args: GetJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobCommandOutput) => void),
     cb?: (err: any, data?: GetJobCommandOutput) => void
   ): Promise<GetJobCommandOutput> | void {
     const command = new GetJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -555,7 +531,7 @@ export class MediaConvert extends MediaConvertClient {
    */
   public getJobTemplate(
     args: GetJobTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetJobTemplateCommandOutput>;
   public getJobTemplate(
     args: GetJobTemplateCommandInput,
@@ -568,18 +544,16 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public getJobTemplate(
     args: GetJobTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJobTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobTemplateCommandOutput) => void),
     cb?: (err: any, data?: GetJobTemplateCommandOutput) => void
   ): Promise<GetJobTemplateCommandOutput> | void {
     const command = new GetJobTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -590,7 +564,7 @@ export class MediaConvert extends MediaConvertClient {
    */
   public getPreset(
     args: GetPresetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetPresetCommandOutput>;
   public getPreset(
     args: GetPresetCommandInput,
@@ -603,18 +577,16 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public getPreset(
     args: GetPresetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPresetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPresetCommandOutput) => void),
     cb?: (err: any, data?: GetPresetCommandOutput) => void
   ): Promise<GetPresetCommandOutput> | void {
     const command = new GetPresetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -625,7 +597,7 @@ export class MediaConvert extends MediaConvertClient {
    */
   public getQueue(
     args: GetQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetQueueCommandOutput>;
   public getQueue(
     args: GetQueueCommandInput,
@@ -638,18 +610,16 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public getQueue(
     args: GetQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetQueueCommandOutput) => void),
     cb?: (err: any, data?: GetQueueCommandOutput) => void
   ): Promise<GetQueueCommandOutput> | void {
     const command = new GetQueueCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -660,7 +630,7 @@ export class MediaConvert extends MediaConvertClient {
    */
   public listJobTemplates(
     args: ListJobTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListJobTemplatesCommandOutput>;
   public listJobTemplates(
     args: ListJobTemplatesCommandInput,
@@ -673,18 +643,16 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public listJobTemplates(
     args: ListJobTemplatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobTemplatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJobTemplatesCommandOutput) => void),
     cb?: (err: any, data?: ListJobTemplatesCommandOutput) => void
   ): Promise<ListJobTemplatesCommandOutput> | void {
     const command = new ListJobTemplatesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -695,7 +663,7 @@ export class MediaConvert extends MediaConvertClient {
    */
   public listJobs(
     args: ListJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListJobsCommandOutput>;
   public listJobs(
     args: ListJobsCommandInput,
@@ -708,18 +676,16 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public listJobs(
     args: ListJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJobsCommandOutput) => void),
     cb?: (err: any, data?: ListJobsCommandOutput) => void
   ): Promise<ListJobsCommandOutput> | void {
     const command = new ListJobsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -730,7 +696,7 @@ export class MediaConvert extends MediaConvertClient {
    */
   public listPresets(
     args: ListPresetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListPresetsCommandOutput>;
   public listPresets(
     args: ListPresetsCommandInput,
@@ -743,18 +709,16 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public listPresets(
     args: ListPresetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPresetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPresetsCommandOutput) => void),
     cb?: (err: any, data?: ListPresetsCommandOutput) => void
   ): Promise<ListPresetsCommandOutput> | void {
     const command = new ListPresetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -765,7 +729,7 @@ export class MediaConvert extends MediaConvertClient {
    */
   public listQueues(
     args: ListQueuesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListQueuesCommandOutput>;
   public listQueues(
     args: ListQueuesCommandInput,
@@ -778,18 +742,16 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public listQueues(
     args: ListQueuesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListQueuesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListQueuesCommandOutput) => void),
     cb?: (err: any, data?: ListQueuesCommandOutput) => void
   ): Promise<ListQueuesCommandOutput> | void {
     const command = new ListQueuesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -800,7 +762,7 @@ export class MediaConvert extends MediaConvertClient {
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListTagsForResourceCommandOutput>;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -813,18 +775,16 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -835,7 +795,7 @@ export class MediaConvert extends MediaConvertClient {
    */
   public tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<TagResourceCommandOutput>;
   public tagResource(
     args: TagResourceCommandInput,
@@ -848,18 +808,16 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -870,7 +828,7 @@ export class MediaConvert extends MediaConvertClient {
    */
   public untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UntagResourceCommandOutput>;
   public untagResource(
     args: UntagResourceCommandInput,
@@ -883,18 +841,16 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -905,7 +861,7 @@ export class MediaConvert extends MediaConvertClient {
    */
   public updateJobTemplate(
     args: UpdateJobTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateJobTemplateCommandOutput>;
   public updateJobTemplate(
     args: UpdateJobTemplateCommandInput,
@@ -918,18 +874,16 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public updateJobTemplate(
     args: UpdateJobTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateJobTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateJobTemplateCommandOutput) => void),
     cb?: (err: any, data?: UpdateJobTemplateCommandOutput) => void
   ): Promise<UpdateJobTemplateCommandOutput> | void {
     const command = new UpdateJobTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -940,7 +894,7 @@ export class MediaConvert extends MediaConvertClient {
    */
   public updatePreset(
     args: UpdatePresetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdatePresetCommandOutput>;
   public updatePreset(
     args: UpdatePresetCommandInput,
@@ -953,18 +907,16 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public updatePreset(
     args: UpdatePresetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePresetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePresetCommandOutput) => void),
     cb?: (err: any, data?: UpdatePresetCommandOutput) => void
   ): Promise<UpdatePresetCommandOutput> | void {
     const command = new UpdatePresetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -975,7 +927,7 @@ export class MediaConvert extends MediaConvertClient {
    */
   public updateQueue(
     args: UpdateQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateQueueCommandOutput>;
   public updateQueue(
     args: UpdateQueueCommandInput,
@@ -988,20 +940,19 @@ export class MediaConvert extends MediaConvertClient {
   ): void;
   public updateQueue(
     args: UpdateQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateQueueCommandOutput) => void),
     cb?: (err: any, data?: UpdateQueueCommandOutput) => void
   ): Promise<UpdateQueueCommandOutput> | void {
     const command = new UpdateQueueCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

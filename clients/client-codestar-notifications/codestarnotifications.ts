@@ -2,67 +2,67 @@ import { codestarnotificationsClient } from "./codestarnotificationsClient";
 import {
   CreateNotificationRuleCommand,
   CreateNotificationRuleCommandInput,
-  CreateNotificationRuleCommandOutput
+  CreateNotificationRuleCommandOutput,
 } from "./commands/CreateNotificationRuleCommand";
 import {
   DeleteNotificationRuleCommand,
   DeleteNotificationRuleCommandInput,
-  DeleteNotificationRuleCommandOutput
+  DeleteNotificationRuleCommandOutput,
 } from "./commands/DeleteNotificationRuleCommand";
 import {
   DeleteTargetCommand,
   DeleteTargetCommandInput,
-  DeleteTargetCommandOutput
+  DeleteTargetCommandOutput,
 } from "./commands/DeleteTargetCommand";
 import {
   DescribeNotificationRuleCommand,
   DescribeNotificationRuleCommandInput,
-  DescribeNotificationRuleCommandOutput
+  DescribeNotificationRuleCommandOutput,
 } from "./commands/DescribeNotificationRuleCommand";
 import {
   ListEventTypesCommand,
   ListEventTypesCommandInput,
-  ListEventTypesCommandOutput
+  ListEventTypesCommandOutput,
 } from "./commands/ListEventTypesCommand";
 import {
   ListNotificationRulesCommand,
   ListNotificationRulesCommandInput,
-  ListNotificationRulesCommandOutput
+  ListNotificationRulesCommandOutput,
 } from "./commands/ListNotificationRulesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   ListTargetsCommand,
   ListTargetsCommandInput,
-  ListTargetsCommandOutput
+  ListTargetsCommandOutput,
 } from "./commands/ListTargetsCommand";
 import {
   SubscribeCommand,
   SubscribeCommandInput,
-  SubscribeCommandOutput
+  SubscribeCommandOutput,
 } from "./commands/SubscribeCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand";
 import {
   UnsubscribeCommand,
   UnsubscribeCommandInput,
-  UnsubscribeCommandOutput
+  UnsubscribeCommandOutput,
 } from "./commands/UnsubscribeCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateNotificationRuleCommand,
   UpdateNotificationRuleCommandInput,
-  UpdateNotificationRuleCommandOutput
+  UpdateNotificationRuleCommandOutput,
 } from "./commands/UpdateNotificationRuleCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -164,7 +164,7 @@ export class codestarnotifications extends codestarnotificationsClient {
    */
   public createNotificationRule(
     args: CreateNotificationRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateNotificationRuleCommandOutput>;
   public createNotificationRule(
     args: CreateNotificationRuleCommandInput,
@@ -177,18 +177,16 @@ export class codestarnotifications extends codestarnotificationsClient {
   ): void;
   public createNotificationRule(
     args: CreateNotificationRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateNotificationRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNotificationRuleCommandOutput) => void),
     cb?: (err: any, data?: CreateNotificationRuleCommandOutput) => void
   ): Promise<CreateNotificationRuleCommandOutput> | void {
     const command = new CreateNotificationRuleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -201,7 +199,7 @@ export class codestarnotifications extends codestarnotificationsClient {
    */
   public deleteNotificationRule(
     args: DeleteNotificationRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteNotificationRuleCommandOutput>;
   public deleteNotificationRule(
     args: DeleteNotificationRuleCommandInput,
@@ -214,18 +212,16 @@ export class codestarnotifications extends codestarnotificationsClient {
   ): void;
   public deleteNotificationRule(
     args: DeleteNotificationRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteNotificationRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNotificationRuleCommandOutput) => void),
     cb?: (err: any, data?: DeleteNotificationRuleCommandOutput) => void
   ): Promise<DeleteNotificationRuleCommandOutput> | void {
     const command = new DeleteNotificationRuleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -238,7 +234,7 @@ export class codestarnotifications extends codestarnotificationsClient {
    */
   public deleteTarget(
     args: DeleteTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteTargetCommandOutput>;
   public deleteTarget(
     args: DeleteTargetCommandInput,
@@ -251,18 +247,16 @@ export class codestarnotifications extends codestarnotificationsClient {
   ): void;
   public deleteTarget(
     args: DeleteTargetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTargetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTargetCommandOutput) => void),
     cb?: (err: any, data?: DeleteTargetCommandOutput) => void
   ): Promise<DeleteTargetCommandOutput> | void {
     const command = new DeleteTargetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -275,7 +269,7 @@ export class codestarnotifications extends codestarnotificationsClient {
    */
   public describeNotificationRule(
     args: DescribeNotificationRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeNotificationRuleCommandOutput>;
   public describeNotificationRule(
     args: DescribeNotificationRuleCommandInput,
@@ -288,18 +282,16 @@ export class codestarnotifications extends codestarnotificationsClient {
   ): void;
   public describeNotificationRule(
     args: DescribeNotificationRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeNotificationRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeNotificationRuleCommandOutput) => void),
     cb?: (err: any, data?: DescribeNotificationRuleCommandOutput) => void
   ): Promise<DescribeNotificationRuleCommandOutput> | void {
     const command = new DescribeNotificationRuleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -312,7 +304,7 @@ export class codestarnotifications extends codestarnotificationsClient {
    */
   public listEventTypes(
     args: ListEventTypesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListEventTypesCommandOutput>;
   public listEventTypes(
     args: ListEventTypesCommandInput,
@@ -325,18 +317,16 @@ export class codestarnotifications extends codestarnotificationsClient {
   ): void;
   public listEventTypes(
     args: ListEventTypesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListEventTypesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEventTypesCommandOutput) => void),
     cb?: (err: any, data?: ListEventTypesCommandOutput) => void
   ): Promise<ListEventTypesCommandOutput> | void {
     const command = new ListEventTypesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -349,7 +339,7 @@ export class codestarnotifications extends codestarnotificationsClient {
    */
   public listNotificationRules(
     args: ListNotificationRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListNotificationRulesCommandOutput>;
   public listNotificationRules(
     args: ListNotificationRulesCommandInput,
@@ -362,18 +352,16 @@ export class codestarnotifications extends codestarnotificationsClient {
   ): void;
   public listNotificationRules(
     args: ListNotificationRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListNotificationRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListNotificationRulesCommandOutput) => void),
     cb?: (err: any, data?: ListNotificationRulesCommandOutput) => void
   ): Promise<ListNotificationRulesCommandOutput> | void {
     const command = new ListNotificationRulesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -386,7 +374,7 @@ export class codestarnotifications extends codestarnotificationsClient {
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListTagsForResourceCommandOutput>;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -399,18 +387,16 @@ export class codestarnotifications extends codestarnotificationsClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -423,7 +409,7 @@ export class codestarnotifications extends codestarnotificationsClient {
    */
   public listTargets(
     args: ListTargetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListTargetsCommandOutput>;
   public listTargets(
     args: ListTargetsCommandInput,
@@ -436,18 +422,16 @@ export class codestarnotifications extends codestarnotificationsClient {
   ): void;
   public listTargets(
     args: ListTargetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTargetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTargetsCommandOutput) => void),
     cb?: (err: any, data?: ListTargetsCommandOutput) => void
   ): Promise<ListTargetsCommandOutput> | void {
     const command = new ListTargetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -462,7 +446,7 @@ export class codestarnotifications extends codestarnotificationsClient {
    */
   public subscribe(
     args: SubscribeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<SubscribeCommandOutput>;
   public subscribe(
     args: SubscribeCommandInput,
@@ -475,18 +459,16 @@ export class codestarnotifications extends codestarnotificationsClient {
   ): void;
   public subscribe(
     args: SubscribeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SubscribeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SubscribeCommandOutput) => void),
     cb?: (err: any, data?: SubscribeCommandOutput) => void
   ): Promise<SubscribeCommandOutput> | void {
     const command = new SubscribeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -499,7 +481,7 @@ export class codestarnotifications extends codestarnotificationsClient {
    */
   public tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<TagResourceCommandOutput>;
   public tagResource(
     args: TagResourceCommandInput,
@@ -512,18 +494,16 @@ export class codestarnotifications extends codestarnotificationsClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -538,7 +518,7 @@ export class codestarnotifications extends codestarnotificationsClient {
    */
   public unsubscribe(
     args: UnsubscribeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UnsubscribeCommandOutput>;
   public unsubscribe(
     args: UnsubscribeCommandInput,
@@ -551,18 +531,16 @@ export class codestarnotifications extends codestarnotificationsClient {
   ): void;
   public unsubscribe(
     args: UnsubscribeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UnsubscribeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnsubscribeCommandOutput) => void),
     cb?: (err: any, data?: UnsubscribeCommandOutput) => void
   ): Promise<UnsubscribeCommandOutput> | void {
     const command = new UnsubscribeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -576,7 +554,7 @@ export class codestarnotifications extends codestarnotificationsClient {
    */
   public untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UntagResourceCommandOutput>;
   public untagResource(
     args: UntagResourceCommandInput,
@@ -589,18 +567,16 @@ export class codestarnotifications extends codestarnotificationsClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -618,7 +594,7 @@ export class codestarnotifications extends codestarnotificationsClient {
    */
   public updateNotificationRule(
     args: UpdateNotificationRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateNotificationRuleCommandOutput>;
   public updateNotificationRule(
     args: UpdateNotificationRuleCommandInput,
@@ -631,20 +607,19 @@ export class codestarnotifications extends codestarnotificationsClient {
   ): void;
   public updateNotificationRule(
     args: UpdateNotificationRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateNotificationRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateNotificationRuleCommandOutput) => void),
     cb?: (err: any, data?: UpdateNotificationRuleCommandOutput) => void
   ): Promise<UpdateNotificationRuleCommandOutput> | void {
     const command = new UpdateNotificationRuleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

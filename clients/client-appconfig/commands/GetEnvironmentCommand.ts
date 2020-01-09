@@ -1,17 +1,20 @@
 import {
   AppConfigClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../AppConfigClient";
-import { Environment, GetEnvironmentRequest } from "../models/index";
+import {
+  Environment,
+  GetEnvironmentRequest,
+} from "../models/index";
 import {
   deserializeAws_restJson1_1GetEnvironmentCommand,
-  serializeAws_restJson1_1GetEnvironmentCommand
+  serializeAws_restJson1_1GetEnvironmentCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type GetEnvironmentCommandInput = GetEnvironmentRequest;
 export type GetEnvironmentCommandOutput = Environment;
 
-export class GetEnvironmentCommand extends $Command<
-  GetEnvironmentCommandInput,
-  GetEnvironmentCommandOutput,
-  AppConfigClientResolvedConfig
-> {
+export class GetEnvironmentCommand extends $Command<GetEnvironmentCommandInput, GetEnvironmentCommandOutput, AppConfigClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class GetEnvironmentCommand extends $Command<
     configuration: AppConfigClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetEnvironmentCommandInput, GetEnvironmentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -1,20 +1,20 @@
 import {
   ConfigServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ConfigServiceClient";
 import {
   DescribePendingAggregationRequestsRequest,
-  DescribePendingAggregationRequestsResponse
+  DescribePendingAggregationRequestsResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribePendingAggregationRequestsCommand,
-  serializeAws_json1_1DescribePendingAggregationRequestsCommand
+  serializeAws_json1_1DescribePendingAggregationRequestsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DescribePendingAggregationRequestsCommandInput = DescribePendingAggregationRequestsRequest;
 export type DescribePendingAggregationRequestsCommandOutput = DescribePendingAggregationRequestsResponse;
 
-export class DescribePendingAggregationRequestsCommand extends $Command<
-  DescribePendingAggregationRequestsCommandInput,
-  DescribePendingAggregationRequestsCommandOutput,
-  ConfigServiceClientResolvedConfig
-> {
+export class DescribePendingAggregationRequestsCommand extends $Command<DescribePendingAggregationRequestsCommandInput, DescribePendingAggregationRequestsCommandOutput, ConfigServiceClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class DescribePendingAggregationRequestsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribePendingAggregationRequestsCommandInput,
-    DescribePendingAggregationRequestsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribePendingAggregationRequestsCommandInput, DescribePendingAggregationRequestsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class DescribePendingAggregationRequestsCommand extends $Command<
     input: DescribePendingAggregationRequestsCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribePendingAggregationRequestsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribePendingAggregationRequestsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribePendingAggregationRequestsCommandOutput> {
-    return deserializeAws_json1_1DescribePendingAggregationRequestsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribePendingAggregationRequestsCommand(output, context);
   }
 
   // Start section: command_body_extra

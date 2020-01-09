@@ -55,9 +55,7 @@ export namespace AddTagsResponse {
  *          </p>
  *
  */
-export interface CloudTrailARNInvalidException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CloudTrailARNInvalidException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CloudTrailARNInvalidException";
   $fault: "client";
   /**
@@ -81,9 +79,7 @@ export namespace CloudTrailARNInvalidException {
  *          and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>. </p>
  *
  */
-export interface CloudTrailAccessNotEnabledException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CloudTrailAccessNotEnabledException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CloudTrailAccessNotEnabledException";
   $fault: "client";
   /**
@@ -105,9 +101,7 @@ export namespace CloudTrailAccessNotEnabledException {
  *          <p>Cannot set a CloudWatch Logs delivery for this region.</p>
  *
  */
-export interface CloudWatchLogsDeliveryUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CloudWatchLogsDeliveryUnavailableException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CloudWatchLogsDeliveryUnavailableException";
   $fault: "client";
   /**
@@ -692,7 +686,7 @@ export namespace Event {
 }
 
 export enum EventCategory {
-  Insight = "insight"
+  Insight = "insight",
 }
 
 /**
@@ -1091,9 +1085,7 @@ export namespace GetTrailStatusResponse {
  *          <p>If you run <code>GetInsightSelectors</code> on a trail that does not have Insights events enabled, the operation throws the exception <code>InsightNotEnabledException</code>.</p>
  *
  */
-export interface InsightNotEnabledException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InsightNotEnabledException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InsightNotEnabledException";
   $fault: "client";
   /**
@@ -1132,7 +1124,7 @@ export namespace InsightSelector {
 }
 
 export enum InsightType {
-  ApiCallRateInsight = "ApiCallRateInsight"
+  ApiCallRateInsight = "ApiCallRateInsight",
 }
 
 /**
@@ -1142,9 +1134,7 @@ export enum InsightType {
  *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>.</p>
  *
  */
-export interface InsufficientDependencyServiceAccessPermissionException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InsufficientDependencyServiceAccessPermissionException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InsufficientDependencyServiceAccessPermissionException";
   $fault: "client";
   /**
@@ -1156,13 +1146,8 @@ export interface InsufficientDependencyServiceAccessPermissionException
 }
 
 export namespace InsufficientDependencyServiceAccessPermissionException {
-  export function isa(
-    o: any
-  ): o is InsufficientDependencyServiceAccessPermissionException {
-    return _smithy.isa(
-      o,
-      "InsufficientDependencyServiceAccessPermissionException"
-    );
+  export function isa(o: any): o is InsufficientDependencyServiceAccessPermissionException {
+    return _smithy.isa(o, "InsufficientDependencyServiceAccessPermissionException");
   }
 }
 
@@ -1171,9 +1156,7 @@ export namespace InsufficientDependencyServiceAccessPermissionException {
  *          <p>This exception is thrown when the policy on the S3 bucket or KMS key is not sufficient.</p>
  *
  */
-export interface InsufficientEncryptionPolicyException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InsufficientEncryptionPolicyException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InsufficientEncryptionPolicyException";
   $fault: "client";
   /**
@@ -1195,9 +1178,7 @@ export namespace InsufficientEncryptionPolicyException {
  *          <p>This exception is thrown when the policy on the S3 bucket is not sufficient.</p>
  *
  */
-export interface InsufficientS3BucketPolicyException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InsufficientS3BucketPolicyException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InsufficientS3BucketPolicyException";
   $fault: "client";
   /**
@@ -1219,9 +1200,7 @@ export namespace InsufficientS3BucketPolicyException {
  *          <p>This exception is thrown when the policy on the SNS topic is not sufficient.</p>
  *
  */
-export interface InsufficientSnsTopicPolicyException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InsufficientSnsTopicPolicyException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InsufficientSnsTopicPolicyException";
   $fault: "client";
   /**
@@ -1243,9 +1222,7 @@ export namespace InsufficientSnsTopicPolicyException {
  *          <p>This exception is thrown when the provided CloudWatch log group is not valid.</p>
  *
  */
-export interface InvalidCloudWatchLogsLogGroupArnException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidCloudWatchLogsLogGroupArnException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidCloudWatchLogsLogGroupArnException";
   $fault: "client";
   /**
@@ -1267,9 +1244,7 @@ export namespace InvalidCloudWatchLogsLogGroupArnException {
  *          <p>This exception is thrown when the provided role is not valid.</p>
  *
  */
-export interface InvalidCloudWatchLogsRoleArnException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidCloudWatchLogsRoleArnException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidCloudWatchLogsRoleArnException";
   $fault: "client";
   /**
@@ -1291,9 +1266,7 @@ export namespace InvalidCloudWatchLogsRoleArnException {
  *          <p>Occurs if an event category that is not valid is specified as a value of <code>EventCategory</code>.</p>
  *
  */
-export interface InvalidEventCategoryException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidEventCategoryException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidEventCategoryException";
   $fault: "client";
   /**
@@ -1333,9 +1306,7 @@ export namespace InvalidEventCategoryException {
  *          </ul>
  *
  */
-export interface InvalidEventSelectorsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidEventSelectorsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidEventSelectorsException";
   $fault: "client";
   /**
@@ -1357,9 +1328,7 @@ export namespace InvalidEventSelectorsException {
  *          <p>This exception is thrown when an operation is called on a trail from a region other than the region in which the trail was created.</p>
  *
  */
-export interface InvalidHomeRegionException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidHomeRegionException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidHomeRegionException";
   $fault: "client";
   /**
@@ -1382,9 +1351,7 @@ export namespace InvalidHomeRegionException {
  *          is not valid, or the specified insight type in the <code>InsightSelectors</code> statement is not a valid insight type.</p>
  *
  */
-export interface InvalidInsightSelectorsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidInsightSelectorsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidInsightSelectorsException";
   $fault: "client";
   /**
@@ -1406,9 +1373,7 @@ export namespace InvalidInsightSelectorsException {
  *          <p>This exception is thrown when the KMS key ARN is invalid.</p>
  *
  */
-export interface InvalidKmsKeyIdException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidKmsKeyIdException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidKmsKeyIdException";
   $fault: "client";
   /**
@@ -1430,9 +1395,7 @@ export namespace InvalidKmsKeyIdException {
  *          <p>Occurs when an invalid lookup attribute is specified.</p>
  *
  */
-export interface InvalidLookupAttributesException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidLookupAttributesException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidLookupAttributesException";
   $fault: "client";
   /**
@@ -1454,9 +1417,7 @@ export namespace InvalidLookupAttributesException {
  *          <p>This exception is thrown if the limit specified is invalid.</p>
  *
  */
-export interface InvalidMaxResultsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidMaxResultsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidMaxResultsException";
   $fault: "client";
   /**
@@ -1478,9 +1439,7 @@ export namespace InvalidMaxResultsException {
  *          <p>Invalid token or token that was previously used in a request with different parameters. This exception is thrown if the token is invalid.</p>
  *
  */
-export interface InvalidNextTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidNextTokenException";
   $fault: "client";
   /**
@@ -1502,9 +1461,7 @@ export namespace InvalidNextTokenException {
  *          <p>This exception is thrown when the combination of parameters provided is not valid.</p>
  *
  */
-export interface InvalidParameterCombinationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterCombinationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidParameterCombinationException";
   $fault: "client";
   /**
@@ -1526,9 +1483,7 @@ export namespace InvalidParameterCombinationException {
  *          <p>This exception is thrown when the provided S3 bucket name is not valid.</p>
  *
  */
-export interface InvalidS3BucketNameException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidS3BucketNameException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidS3BucketNameException";
   $fault: "client";
   /**
@@ -1550,9 +1505,7 @@ export namespace InvalidS3BucketNameException {
  *          <p>This exception is thrown when the provided S3 prefix is not valid.</p>
  *
  */
-export interface InvalidS3PrefixException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidS3PrefixException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidS3PrefixException";
   $fault: "client";
   /**
@@ -1574,9 +1527,7 @@ export namespace InvalidS3PrefixException {
  *          <p>This exception is thrown when the provided SNS topic name is not valid.</p>
  *
  */
-export interface InvalidSnsTopicNameException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidSnsTopicNameException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidSnsTopicNameException";
   $fault: "client";
   /**
@@ -1599,9 +1550,7 @@ export namespace InvalidSnsTopicNameException {
  *          It can also occur if there are duplicate tags or too many tags on the resource.</p>
  *
  */
-export interface InvalidTagParameterException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidTagParameterException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidTagParameterException";
   $fault: "client";
   /**
@@ -1623,9 +1572,7 @@ export namespace InvalidTagParameterException {
  *          <p>Occurs if the timestamp values are invalid. Either the start time occurs after the end time or the time range is outside the range of possible values.</p>
  *
  */
-export interface InvalidTimeRangeException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidTimeRangeException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidTimeRangeException";
   $fault: "client";
   /**
@@ -1647,9 +1594,7 @@ export namespace InvalidTimeRangeException {
  *          <p>Reserved for future use.</p>
  *
  */
-export interface InvalidTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidTokenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidTokenException";
   $fault: "client";
   /**
@@ -1689,9 +1634,7 @@ export namespace InvalidTokenException {
  *          </ul>
  *
  */
-export interface InvalidTrailNameException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidTrailNameException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidTrailNameException";
   $fault: "client";
   /**
@@ -1735,9 +1678,7 @@ export namespace KmsException {
  *          <p>This exception is no longer in use.</p>
  *
  */
-export interface KmsKeyDisabledException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface KmsKeyDisabledException extends _smithy.SmithyException, $MetadataBearer {
   __type: "KmsKeyDisabledException";
   $fault: "client";
   /**
@@ -1759,9 +1700,7 @@ export namespace KmsKeyDisabledException {
  *          <p>This exception is thrown when the KMS key does not exist, or when the S3 bucket and the KMS key are not in the same region.</p>
  *
  */
-export interface KmsKeyNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface KmsKeyNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "KmsKeyNotFoundException";
   $fault: "client";
   /**
@@ -1984,7 +1923,7 @@ export enum LookupAttributeKey {
   READ_ONLY = "ReadOnly",
   RESOURCE_NAME = "ResourceName",
   RESOURCE_TYPE = "ResourceType",
-  USERNAME = "Username"
+  USERNAME = "Username",
 }
 
 /**
@@ -2081,9 +2020,7 @@ export namespace LookupEventsResponse {
  *          <p>This exception is thrown when the maximum number of trails is reached.</p>
  *
  */
-export interface MaximumNumberOfTrailsExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MaximumNumberOfTrailsExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "MaximumNumberOfTrailsExceededException";
   $fault: "client";
   /**
@@ -2107,9 +2044,7 @@ export namespace MaximumNumberOfTrailsExceededException {
  *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>.</p>
  *
  */
-export interface NotOrganizationMasterAccountException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotOrganizationMasterAccountException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NotOrganizationMasterAccountException";
   $fault: "client";
   /**
@@ -2131,9 +2066,7 @@ export namespace NotOrganizationMasterAccountException {
  *          <p>This exception is thrown when the requested operation is not permitted.</p>
  *
  */
-export interface OperationNotPermittedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface OperationNotPermittedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "OperationNotPermittedException";
   $fault: "client";
   /**
@@ -2157,9 +2090,7 @@ export namespace OperationNotPermittedException {
  *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>.</p>
  *
  */
-export interface OrganizationNotInAllFeaturesModeException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface OrganizationNotInAllFeaturesModeException extends _smithy.SmithyException, $MetadataBearer {
   __type: "OrganizationNotInAllFeaturesModeException";
   $fault: "client";
   /**
@@ -2182,9 +2113,7 @@ export namespace OrganizationNotInAllFeaturesModeException {
  *          To make this request, sign in using the credentials of an account that belongs to an organization.</p>
  *
  */
-export interface OrganizationsNotInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface OrganizationsNotInUseException extends _smithy.SmithyException, $MetadataBearer {
   __type: "OrganizationsNotInUseException";
   $fault: "client";
   /**
@@ -2366,7 +2295,7 @@ export namespace PutInsightSelectorsResponse {
 export enum ReadWriteType {
   All = "All",
   ReadOnly = "ReadOnly",
-  WriteOnly = "WriteOnly"
+  WriteOnly = "WriteOnly",
 }
 
 /**
@@ -2451,9 +2380,7 @@ export namespace Resource {
  *          <p>This exception is thrown when the specified resource is not found.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -2503,9 +2430,7 @@ export namespace ResourceTag {
  *          <p>This exception is thrown when the specified resource type is not supported by CloudTrail.</p>
  *
  */
-export interface ResourceTypeNotSupportedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceTypeNotSupportedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceTypeNotSupportedException";
   $fault: "client";
   /**
@@ -2527,9 +2452,7 @@ export namespace ResourceTypeNotSupportedException {
  *          <p>This exception is thrown when the specified S3 bucket does not exist.</p>
  *
  */
-export interface S3BucketDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface S3BucketDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "S3BucketDoesNotExistException";
   $fault: "client";
   /**
@@ -2657,9 +2580,7 @@ export namespace Tag {
  *          <p>The number of tags per trail has exceeded the permitted amount. Currently, the limit is 50.</p>
  *
  */
-export interface TagsLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TagsLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TagsLimitExceededException";
   $fault: "client";
   /**
@@ -2823,9 +2744,7 @@ export namespace Trail {
  *          <p>This exception is thrown when the specified trail already exists.</p>
  *
  */
-export interface TrailAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TrailAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TrailAlreadyExistsException";
   $fault: "client";
   /**
@@ -2882,9 +2801,7 @@ export namespace TrailInfo {
  *          <p>This exception is thrown when the trail with the given name is not found.</p>
  *
  */
-export interface TrailNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TrailNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TrailNotFoundException";
   $fault: "client";
   /**
@@ -2906,9 +2823,7 @@ export namespace TrailNotFoundException {
  *          <p>This exception is no longer in use.</p>
  *
  */
-export interface TrailNotProvidedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TrailNotProvidedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TrailNotProvidedException";
   $fault: "client";
   /**
@@ -2930,9 +2845,7 @@ export namespace TrailNotProvidedException {
  *          <p>This exception is thrown when the requested operation is not supported.</p>
  *
  */
-export interface UnsupportedOperationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnsupportedOperationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "UnsupportedOperationException";
   $fault: "client";
   /**

@@ -1,20 +1,20 @@
 import {
   CostExplorerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CostExplorerClient";
 import {
   GetReservationUtilizationRequest,
-  GetReservationUtilizationResponse
+  GetReservationUtilizationResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1GetReservationUtilizationCommand,
-  serializeAws_json1_1GetReservationUtilizationCommand
+  serializeAws_json1_1GetReservationUtilizationCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type GetReservationUtilizationCommandInput = GetReservationUtilizationRequest;
 export type GetReservationUtilizationCommandOutput = GetReservationUtilizationResponse;
 
-export class GetReservationUtilizationCommand extends $Command<
-  GetReservationUtilizationCommandInput,
-  GetReservationUtilizationCommandOutput,
-  CostExplorerClientResolvedConfig
-> {
+export class GetReservationUtilizationCommand extends $Command<GetReservationUtilizationCommandInput, GetReservationUtilizationCommandOutput, CostExplorerClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class GetReservationUtilizationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetReservationUtilizationCommandInput,
-    GetReservationUtilizationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetReservationUtilizationCommandInput, GetReservationUtilizationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -79,10 +70,7 @@ export class GetReservationUtilizationCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<GetReservationUtilizationCommandOutput> {
-    return deserializeAws_json1_1GetReservationUtilizationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetReservationUtilizationCommand(output, context);
   }
 
   // Start section: command_body_extra

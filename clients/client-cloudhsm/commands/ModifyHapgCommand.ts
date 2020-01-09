@@ -1,17 +1,20 @@
 import {
   CloudHSMClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CloudHSMClient";
-import { ModifyHapgRequest, ModifyHapgResponse } from "../models/index";
+import {
+  ModifyHapgRequest,
+  ModifyHapgResponse,
+} from "../models/index";
 import {
   deserializeAws_json1_1ModifyHapgCommand,
-  serializeAws_json1_1ModifyHapgCommand
+  serializeAws_json1_1ModifyHapgCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type ModifyHapgCommandInput = ModifyHapgRequest;
 export type ModifyHapgCommandOutput = ModifyHapgResponse;
 
-export class ModifyHapgCommand extends $Command<
-  ModifyHapgCommandInput,
-  ModifyHapgCommandOutput,
-  CloudHSMClientResolvedConfig
-> {
+export class ModifyHapgCommand extends $Command<ModifyHapgCommandInput, ModifyHapgCommandOutput, CloudHSMClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class ModifyHapgCommand extends $Command<
     configuration: CloudHSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ModifyHapgCommandInput, ModifyHapgCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -2,187 +2,187 @@ import { InspectorClient } from "./InspectorClient";
 import {
   AddAttributesToFindingsCommand,
   AddAttributesToFindingsCommandInput,
-  AddAttributesToFindingsCommandOutput
+  AddAttributesToFindingsCommandOutput,
 } from "./commands/AddAttributesToFindingsCommand";
 import {
   CreateAssessmentTargetCommand,
   CreateAssessmentTargetCommandInput,
-  CreateAssessmentTargetCommandOutput
+  CreateAssessmentTargetCommandOutput,
 } from "./commands/CreateAssessmentTargetCommand";
 import {
   CreateAssessmentTemplateCommand,
   CreateAssessmentTemplateCommandInput,
-  CreateAssessmentTemplateCommandOutput
+  CreateAssessmentTemplateCommandOutput,
 } from "./commands/CreateAssessmentTemplateCommand";
 import {
   CreateExclusionsPreviewCommand,
   CreateExclusionsPreviewCommandInput,
-  CreateExclusionsPreviewCommandOutput
+  CreateExclusionsPreviewCommandOutput,
 } from "./commands/CreateExclusionsPreviewCommand";
 import {
   CreateResourceGroupCommand,
   CreateResourceGroupCommandInput,
-  CreateResourceGroupCommandOutput
+  CreateResourceGroupCommandOutput,
 } from "./commands/CreateResourceGroupCommand";
 import {
   DeleteAssessmentRunCommand,
   DeleteAssessmentRunCommandInput,
-  DeleteAssessmentRunCommandOutput
+  DeleteAssessmentRunCommandOutput,
 } from "./commands/DeleteAssessmentRunCommand";
 import {
   DeleteAssessmentTargetCommand,
   DeleteAssessmentTargetCommandInput,
-  DeleteAssessmentTargetCommandOutput
+  DeleteAssessmentTargetCommandOutput,
 } from "./commands/DeleteAssessmentTargetCommand";
 import {
   DeleteAssessmentTemplateCommand,
   DeleteAssessmentTemplateCommandInput,
-  DeleteAssessmentTemplateCommandOutput
+  DeleteAssessmentTemplateCommandOutput,
 } from "./commands/DeleteAssessmentTemplateCommand";
 import {
   DescribeAssessmentRunsCommand,
   DescribeAssessmentRunsCommandInput,
-  DescribeAssessmentRunsCommandOutput
+  DescribeAssessmentRunsCommandOutput,
 } from "./commands/DescribeAssessmentRunsCommand";
 import {
   DescribeAssessmentTargetsCommand,
   DescribeAssessmentTargetsCommandInput,
-  DescribeAssessmentTargetsCommandOutput
+  DescribeAssessmentTargetsCommandOutput,
 } from "./commands/DescribeAssessmentTargetsCommand";
 import {
   DescribeAssessmentTemplatesCommand,
   DescribeAssessmentTemplatesCommandInput,
-  DescribeAssessmentTemplatesCommandOutput
+  DescribeAssessmentTemplatesCommandOutput,
 } from "./commands/DescribeAssessmentTemplatesCommand";
 import {
   DescribeCrossAccountAccessRoleCommand,
   DescribeCrossAccountAccessRoleCommandInput,
-  DescribeCrossAccountAccessRoleCommandOutput
+  DescribeCrossAccountAccessRoleCommandOutput,
 } from "./commands/DescribeCrossAccountAccessRoleCommand";
 import {
   DescribeExclusionsCommand,
   DescribeExclusionsCommandInput,
-  DescribeExclusionsCommandOutput
+  DescribeExclusionsCommandOutput,
 } from "./commands/DescribeExclusionsCommand";
 import {
   DescribeFindingsCommand,
   DescribeFindingsCommandInput,
-  DescribeFindingsCommandOutput
+  DescribeFindingsCommandOutput,
 } from "./commands/DescribeFindingsCommand";
 import {
   DescribeResourceGroupsCommand,
   DescribeResourceGroupsCommandInput,
-  DescribeResourceGroupsCommandOutput
+  DescribeResourceGroupsCommandOutput,
 } from "./commands/DescribeResourceGroupsCommand";
 import {
   DescribeRulesPackagesCommand,
   DescribeRulesPackagesCommandInput,
-  DescribeRulesPackagesCommandOutput
+  DescribeRulesPackagesCommandOutput,
 } from "./commands/DescribeRulesPackagesCommand";
 import {
   GetAssessmentReportCommand,
   GetAssessmentReportCommandInput,
-  GetAssessmentReportCommandOutput
+  GetAssessmentReportCommandOutput,
 } from "./commands/GetAssessmentReportCommand";
 import {
   GetExclusionsPreviewCommand,
   GetExclusionsPreviewCommandInput,
-  GetExclusionsPreviewCommandOutput
+  GetExclusionsPreviewCommandOutput,
 } from "./commands/GetExclusionsPreviewCommand";
 import {
   GetTelemetryMetadataCommand,
   GetTelemetryMetadataCommandInput,
-  GetTelemetryMetadataCommandOutput
+  GetTelemetryMetadataCommandOutput,
 } from "./commands/GetTelemetryMetadataCommand";
 import {
   ListAssessmentRunAgentsCommand,
   ListAssessmentRunAgentsCommandInput,
-  ListAssessmentRunAgentsCommandOutput
+  ListAssessmentRunAgentsCommandOutput,
 } from "./commands/ListAssessmentRunAgentsCommand";
 import {
   ListAssessmentRunsCommand,
   ListAssessmentRunsCommandInput,
-  ListAssessmentRunsCommandOutput
+  ListAssessmentRunsCommandOutput,
 } from "./commands/ListAssessmentRunsCommand";
 import {
   ListAssessmentTargetsCommand,
   ListAssessmentTargetsCommandInput,
-  ListAssessmentTargetsCommandOutput
+  ListAssessmentTargetsCommandOutput,
 } from "./commands/ListAssessmentTargetsCommand";
 import {
   ListAssessmentTemplatesCommand,
   ListAssessmentTemplatesCommandInput,
-  ListAssessmentTemplatesCommandOutput
+  ListAssessmentTemplatesCommandOutput,
 } from "./commands/ListAssessmentTemplatesCommand";
 import {
   ListEventSubscriptionsCommand,
   ListEventSubscriptionsCommandInput,
-  ListEventSubscriptionsCommandOutput
+  ListEventSubscriptionsCommandOutput,
 } from "./commands/ListEventSubscriptionsCommand";
 import {
   ListExclusionsCommand,
   ListExclusionsCommandInput,
-  ListExclusionsCommandOutput
+  ListExclusionsCommandOutput,
 } from "./commands/ListExclusionsCommand";
 import {
   ListFindingsCommand,
   ListFindingsCommandInput,
-  ListFindingsCommandOutput
+  ListFindingsCommandOutput,
 } from "./commands/ListFindingsCommand";
 import {
   ListRulesPackagesCommand,
   ListRulesPackagesCommandInput,
-  ListRulesPackagesCommandOutput
+  ListRulesPackagesCommandOutput,
 } from "./commands/ListRulesPackagesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   PreviewAgentsCommand,
   PreviewAgentsCommandInput,
-  PreviewAgentsCommandOutput
+  PreviewAgentsCommandOutput,
 } from "./commands/PreviewAgentsCommand";
 import {
   RegisterCrossAccountAccessRoleCommand,
   RegisterCrossAccountAccessRoleCommandInput,
-  RegisterCrossAccountAccessRoleCommandOutput
+  RegisterCrossAccountAccessRoleCommandOutput,
 } from "./commands/RegisterCrossAccountAccessRoleCommand";
 import {
   RemoveAttributesFromFindingsCommand,
   RemoveAttributesFromFindingsCommandInput,
-  RemoveAttributesFromFindingsCommandOutput
+  RemoveAttributesFromFindingsCommandOutput,
 } from "./commands/RemoveAttributesFromFindingsCommand";
 import {
   SetTagsForResourceCommand,
   SetTagsForResourceCommandInput,
-  SetTagsForResourceCommandOutput
+  SetTagsForResourceCommandOutput,
 } from "./commands/SetTagsForResourceCommand";
 import {
   StartAssessmentRunCommand,
   StartAssessmentRunCommandInput,
-  StartAssessmentRunCommandOutput
+  StartAssessmentRunCommandOutput,
 } from "./commands/StartAssessmentRunCommand";
 import {
   StopAssessmentRunCommand,
   StopAssessmentRunCommandInput,
-  StopAssessmentRunCommandOutput
+  StopAssessmentRunCommandOutput,
 } from "./commands/StopAssessmentRunCommand";
 import {
   SubscribeToEventCommand,
   SubscribeToEventCommandInput,
-  SubscribeToEventCommandOutput
+  SubscribeToEventCommandOutput,
 } from "./commands/SubscribeToEventCommand";
 import {
   UnsubscribeFromEventCommand,
   UnsubscribeFromEventCommandInput,
-  UnsubscribeFromEventCommandOutput
+  UnsubscribeFromEventCommandOutput,
 } from "./commands/UnsubscribeFromEventCommand";
 import {
   UpdateAssessmentTargetCommand,
   UpdateAssessmentTargetCommandInput,
-  UpdateAssessmentTargetCommandOutput
+  UpdateAssessmentTargetCommandOutput,
 } from "./commands/UpdateAssessmentTargetCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -205,7 +205,7 @@ export class Inspector extends InspectorClient {
    */
   public addAttributesToFindings(
     args: AddAttributesToFindingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<AddAttributesToFindingsCommandOutput>;
   public addAttributesToFindings(
     args: AddAttributesToFindingsCommandInput,
@@ -218,18 +218,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public addAttributesToFindings(
     args: AddAttributesToFindingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddAttributesToFindingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddAttributesToFindingsCommandOutput) => void),
     cb?: (err: any, data?: AddAttributesToFindingsCommandOutput) => void
   ): Promise<AddAttributesToFindingsCommandOutput> | void {
     const command = new AddAttributesToFindingsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -251,7 +249,7 @@ export class Inspector extends InspectorClient {
    */
   public createAssessmentTarget(
     args: CreateAssessmentTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateAssessmentTargetCommandOutput>;
   public createAssessmentTarget(
     args: CreateAssessmentTargetCommandInput,
@@ -264,18 +262,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public createAssessmentTarget(
     args: CreateAssessmentTargetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAssessmentTargetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAssessmentTargetCommandOutput) => void),
     cb?: (err: any, data?: CreateAssessmentTargetCommandOutput) => void
   ): Promise<CreateAssessmentTargetCommandOutput> | void {
     const command = new CreateAssessmentTargetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -293,7 +289,7 @@ export class Inspector extends InspectorClient {
    */
   public createAssessmentTemplate(
     args: CreateAssessmentTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateAssessmentTemplateCommandOutput>;
   public createAssessmentTemplate(
     args: CreateAssessmentTemplateCommandInput,
@@ -306,18 +302,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public createAssessmentTemplate(
     args: CreateAssessmentTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAssessmentTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAssessmentTemplateCommandOutput) => void),
     cb?: (err: any, data?: CreateAssessmentTemplateCommandOutput) => void
   ): Promise<CreateAssessmentTemplateCommandOutput> | void {
     const command = new CreateAssessmentTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -333,7 +327,7 @@ export class Inspector extends InspectorClient {
    */
   public createExclusionsPreview(
     args: CreateExclusionsPreviewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateExclusionsPreviewCommandOutput>;
   public createExclusionsPreview(
     args: CreateExclusionsPreviewCommandInput,
@@ -346,18 +340,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public createExclusionsPreview(
     args: CreateExclusionsPreviewCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateExclusionsPreviewCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateExclusionsPreviewCommandOutput) => void),
     cb?: (err: any, data?: CreateExclusionsPreviewCommandOutput) => void
   ): Promise<CreateExclusionsPreviewCommandOutput> | void {
     const command = new CreateExclusionsPreviewCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -375,7 +367,7 @@ export class Inspector extends InspectorClient {
    */
   public createResourceGroup(
     args: CreateResourceGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateResourceGroupCommandOutput>;
   public createResourceGroup(
     args: CreateResourceGroupCommandInput,
@@ -388,18 +380,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public createResourceGroup(
     args: CreateResourceGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateResourceGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateResourceGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateResourceGroupCommandOutput) => void
   ): Promise<CreateResourceGroupCommandOutput> | void {
     const command = new CreateResourceGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -415,7 +405,7 @@ export class Inspector extends InspectorClient {
    */
   public deleteAssessmentRun(
     args: DeleteAssessmentRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteAssessmentRunCommandOutput>;
   public deleteAssessmentRun(
     args: DeleteAssessmentRunCommandInput,
@@ -428,18 +418,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public deleteAssessmentRun(
     args: DeleteAssessmentRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAssessmentRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAssessmentRunCommandOutput) => void),
     cb?: (err: any, data?: DeleteAssessmentRunCommandOutput) => void
   ): Promise<DeleteAssessmentRunCommandOutput> | void {
     const command = new DeleteAssessmentRunCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -455,7 +443,7 @@ export class Inspector extends InspectorClient {
    */
   public deleteAssessmentTarget(
     args: DeleteAssessmentTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteAssessmentTargetCommandOutput>;
   public deleteAssessmentTarget(
     args: DeleteAssessmentTargetCommandInput,
@@ -468,18 +456,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public deleteAssessmentTarget(
     args: DeleteAssessmentTargetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAssessmentTargetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAssessmentTargetCommandOutput) => void),
     cb?: (err: any, data?: DeleteAssessmentTargetCommandOutput) => void
   ): Promise<DeleteAssessmentTargetCommandOutput> | void {
     const command = new DeleteAssessmentTargetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -495,7 +481,7 @@ export class Inspector extends InspectorClient {
    */
   public deleteAssessmentTemplate(
     args: DeleteAssessmentTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteAssessmentTemplateCommandOutput>;
   public deleteAssessmentTemplate(
     args: DeleteAssessmentTemplateCommandInput,
@@ -508,18 +494,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public deleteAssessmentTemplate(
     args: DeleteAssessmentTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAssessmentTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAssessmentTemplateCommandOutput) => void),
     cb?: (err: any, data?: DeleteAssessmentTemplateCommandOutput) => void
   ): Promise<DeleteAssessmentTemplateCommandOutput> | void {
     const command = new DeleteAssessmentTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -534,7 +518,7 @@ export class Inspector extends InspectorClient {
    */
   public describeAssessmentRuns(
     args: DescribeAssessmentRunsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeAssessmentRunsCommandOutput>;
   public describeAssessmentRuns(
     args: DescribeAssessmentRunsCommandInput,
@@ -547,18 +531,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public describeAssessmentRuns(
     args: DescribeAssessmentRunsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAssessmentRunsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAssessmentRunsCommandOutput) => void),
     cb?: (err: any, data?: DescribeAssessmentRunsCommandOutput) => void
   ): Promise<DescribeAssessmentRunsCommandOutput> | void {
     const command = new DescribeAssessmentRunsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -574,7 +556,7 @@ export class Inspector extends InspectorClient {
    */
   public describeAssessmentTargets(
     args: DescribeAssessmentTargetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeAssessmentTargetsCommandOutput>;
   public describeAssessmentTargets(
     args: DescribeAssessmentTargetsCommandInput,
@@ -587,18 +569,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public describeAssessmentTargets(
     args: DescribeAssessmentTargetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAssessmentTargetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAssessmentTargetsCommandOutput) => void),
     cb?: (err: any, data?: DescribeAssessmentTargetsCommandOutput) => void
   ): Promise<DescribeAssessmentTargetsCommandOutput> | void {
     const command = new DescribeAssessmentTargetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -614,7 +594,7 @@ export class Inspector extends InspectorClient {
    */
   public describeAssessmentTemplates(
     args: DescribeAssessmentTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeAssessmentTemplatesCommandOutput>;
   public describeAssessmentTemplates(
     args: DescribeAssessmentTemplatesCommandInput,
@@ -627,18 +607,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public describeAssessmentTemplates(
     args: DescribeAssessmentTemplatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAssessmentTemplatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAssessmentTemplatesCommandOutput) => void),
     cb?: (err: any, data?: DescribeAssessmentTemplatesCommandOutput) => void
   ): Promise<DescribeAssessmentTemplatesCommandOutput> | void {
     const command = new DescribeAssessmentTemplatesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -654,7 +632,7 @@ export class Inspector extends InspectorClient {
    */
   public describeCrossAccountAccessRole(
     args: DescribeCrossAccountAccessRoleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeCrossAccountAccessRoleCommandOutput>;
   public describeCrossAccountAccessRole(
     args: DescribeCrossAccountAccessRoleCommandInput,
@@ -667,21 +645,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public describeCrossAccountAccessRole(
     args: DescribeCrossAccountAccessRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeCrossAccountAccessRoleCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCrossAccountAccessRoleCommandOutput) => void),
     cb?: (err: any, data?: DescribeCrossAccountAccessRoleCommandOutput) => void
   ): Promise<DescribeCrossAccountAccessRoleCommandOutput> | void {
     const command = new DescribeCrossAccountAccessRoleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -694,7 +667,7 @@ export class Inspector extends InspectorClient {
    */
   public describeExclusions(
     args: DescribeExclusionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeExclusionsCommandOutput>;
   public describeExclusions(
     args: DescribeExclusionsCommandInput,
@@ -707,18 +680,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public describeExclusions(
     args: DescribeExclusionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeExclusionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeExclusionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeExclusionsCommandOutput) => void
   ): Promise<DescribeExclusionsCommandOutput> | void {
     const command = new DescribeExclusionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -733,7 +704,7 @@ export class Inspector extends InspectorClient {
    */
   public describeFindings(
     args: DescribeFindingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeFindingsCommandOutput>;
   public describeFindings(
     args: DescribeFindingsCommandInput,
@@ -746,18 +717,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public describeFindings(
     args: DescribeFindingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFindingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFindingsCommandOutput) => void),
     cb?: (err: any, data?: DescribeFindingsCommandOutput) => void
   ): Promise<DescribeFindingsCommandOutput> | void {
     const command = new DescribeFindingsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -773,7 +742,7 @@ export class Inspector extends InspectorClient {
    */
   public describeResourceGroups(
     args: DescribeResourceGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeResourceGroupsCommandOutput>;
   public describeResourceGroups(
     args: DescribeResourceGroupsCommandInput,
@@ -786,18 +755,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public describeResourceGroups(
     args: DescribeResourceGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeResourceGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeResourceGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeResourceGroupsCommandOutput) => void
   ): Promise<DescribeResourceGroupsCommandOutput> | void {
     const command = new DescribeResourceGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -813,7 +780,7 @@ export class Inspector extends InspectorClient {
    */
   public describeRulesPackages(
     args: DescribeRulesPackagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeRulesPackagesCommandOutput>;
   public describeRulesPackages(
     args: DescribeRulesPackagesCommandInput,
@@ -826,18 +793,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public describeRulesPackages(
     args: DescribeRulesPackagesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRulesPackagesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRulesPackagesCommandOutput) => void),
     cb?: (err: any, data?: DescribeRulesPackagesCommandOutput) => void
   ): Promise<DescribeRulesPackagesCommandOutput> | void {
     const command = new DescribeRulesPackagesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -851,7 +816,7 @@ export class Inspector extends InspectorClient {
    */
   public getAssessmentReport(
     args: GetAssessmentReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetAssessmentReportCommandOutput>;
   public getAssessmentReport(
     args: GetAssessmentReportCommandInput,
@@ -864,18 +829,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public getAssessmentReport(
     args: GetAssessmentReportCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAssessmentReportCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAssessmentReportCommandOutput) => void),
     cb?: (err: any, data?: GetAssessmentReportCommandOutput) => void
   ): Promise<GetAssessmentReportCommandOutput> | void {
     const command = new GetAssessmentReportCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -890,7 +853,7 @@ export class Inspector extends InspectorClient {
    */
   public getExclusionsPreview(
     args: GetExclusionsPreviewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetExclusionsPreviewCommandOutput>;
   public getExclusionsPreview(
     args: GetExclusionsPreviewCommandInput,
@@ -903,18 +866,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public getExclusionsPreview(
     args: GetExclusionsPreviewCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetExclusionsPreviewCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetExclusionsPreviewCommandOutput) => void),
     cb?: (err: any, data?: GetExclusionsPreviewCommandOutput) => void
   ): Promise<GetExclusionsPreviewCommandOutput> | void {
     const command = new GetExclusionsPreviewCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -930,7 +891,7 @@ export class Inspector extends InspectorClient {
    */
   public getTelemetryMetadata(
     args: GetTelemetryMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetTelemetryMetadataCommandOutput>;
   public getTelemetryMetadata(
     args: GetTelemetryMetadataCommandInput,
@@ -943,18 +904,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public getTelemetryMetadata(
     args: GetTelemetryMetadataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTelemetryMetadataCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTelemetryMetadataCommandOutput) => void),
     cb?: (err: any, data?: GetTelemetryMetadataCommandOutput) => void
   ): Promise<GetTelemetryMetadataCommandOutput> | void {
     const command = new GetTelemetryMetadataCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -970,7 +929,7 @@ export class Inspector extends InspectorClient {
    */
   public listAssessmentRunAgents(
     args: ListAssessmentRunAgentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListAssessmentRunAgentsCommandOutput>;
   public listAssessmentRunAgents(
     args: ListAssessmentRunAgentsCommandInput,
@@ -983,18 +942,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public listAssessmentRunAgents(
     args: ListAssessmentRunAgentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAssessmentRunAgentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssessmentRunAgentsCommandOutput) => void),
     cb?: (err: any, data?: ListAssessmentRunAgentsCommandOutput) => void
   ): Promise<ListAssessmentRunAgentsCommandOutput> | void {
     const command = new ListAssessmentRunAgentsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1009,7 +966,7 @@ export class Inspector extends InspectorClient {
    */
   public listAssessmentRuns(
     args: ListAssessmentRunsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListAssessmentRunsCommandOutput>;
   public listAssessmentRuns(
     args: ListAssessmentRunsCommandInput,
@@ -1022,18 +979,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public listAssessmentRuns(
     args: ListAssessmentRunsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAssessmentRunsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssessmentRunsCommandOutput) => void),
     cb?: (err: any, data?: ListAssessmentRunsCommandOutput) => void
   ): Promise<ListAssessmentRunsCommandOutput> | void {
     const command = new ListAssessmentRunsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1050,7 +1005,7 @@ export class Inspector extends InspectorClient {
    */
   public listAssessmentTargets(
     args: ListAssessmentTargetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListAssessmentTargetsCommandOutput>;
   public listAssessmentTargets(
     args: ListAssessmentTargetsCommandInput,
@@ -1063,18 +1018,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public listAssessmentTargets(
     args: ListAssessmentTargetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAssessmentTargetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssessmentTargetsCommandOutput) => void),
     cb?: (err: any, data?: ListAssessmentTargetsCommandOutput) => void
   ): Promise<ListAssessmentTargetsCommandOutput> | void {
     const command = new ListAssessmentTargetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1090,7 +1043,7 @@ export class Inspector extends InspectorClient {
    */
   public listAssessmentTemplates(
     args: ListAssessmentTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListAssessmentTemplatesCommandOutput>;
   public listAssessmentTemplates(
     args: ListAssessmentTemplatesCommandInput,
@@ -1103,18 +1056,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public listAssessmentTemplates(
     args: ListAssessmentTemplatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAssessmentTemplatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssessmentTemplatesCommandOutput) => void),
     cb?: (err: any, data?: ListAssessmentTemplatesCommandOutput) => void
   ): Promise<ListAssessmentTemplatesCommandOutput> | void {
     const command = new ListAssessmentTemplatesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1130,7 +1081,7 @@ export class Inspector extends InspectorClient {
    */
   public listEventSubscriptions(
     args: ListEventSubscriptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListEventSubscriptionsCommandOutput>;
   public listEventSubscriptions(
     args: ListEventSubscriptionsCommandInput,
@@ -1143,18 +1094,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public listEventSubscriptions(
     args: ListEventSubscriptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListEventSubscriptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEventSubscriptionsCommandOutput) => void),
     cb?: (err: any, data?: ListEventSubscriptionsCommandOutput) => void
   ): Promise<ListEventSubscriptionsCommandOutput> | void {
     const command = new ListEventSubscriptionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1167,7 +1116,7 @@ export class Inspector extends InspectorClient {
    */
   public listExclusions(
     args: ListExclusionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListExclusionsCommandOutput>;
   public listExclusions(
     args: ListExclusionsCommandInput,
@@ -1180,18 +1129,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public listExclusions(
     args: ListExclusionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListExclusionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListExclusionsCommandOutput) => void),
     cb?: (err: any, data?: ListExclusionsCommandOutput) => void
   ): Promise<ListExclusionsCommandOutput> | void {
     const command = new ListExclusionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1206,7 +1153,7 @@ export class Inspector extends InspectorClient {
    */
   public listFindings(
     args: ListFindingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListFindingsCommandOutput>;
   public listFindings(
     args: ListFindingsCommandInput,
@@ -1219,18 +1166,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public listFindings(
     args: ListFindingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListFindingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFindingsCommandOutput) => void),
     cb?: (err: any, data?: ListFindingsCommandOutput) => void
   ): Promise<ListFindingsCommandOutput> | void {
     const command = new ListFindingsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1244,7 +1189,7 @@ export class Inspector extends InspectorClient {
    */
   public listRulesPackages(
     args: ListRulesPackagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListRulesPackagesCommandOutput>;
   public listRulesPackages(
     args: ListRulesPackagesCommandInput,
@@ -1257,18 +1202,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public listRulesPackages(
     args: ListRulesPackagesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRulesPackagesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRulesPackagesCommandOutput) => void),
     cb?: (err: any, data?: ListRulesPackagesCommandOutput) => void
   ): Promise<ListRulesPackagesCommandOutput> | void {
     const command = new ListRulesPackagesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1283,7 +1226,7 @@ export class Inspector extends InspectorClient {
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListTagsForResourceCommandOutput>;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1296,18 +1239,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1323,7 +1264,7 @@ export class Inspector extends InspectorClient {
    */
   public previewAgents(
     args: PreviewAgentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<PreviewAgentsCommandOutput>;
   public previewAgents(
     args: PreviewAgentsCommandInput,
@@ -1336,18 +1277,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public previewAgents(
     args: PreviewAgentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PreviewAgentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PreviewAgentsCommandOutput) => void),
     cb?: (err: any, data?: PreviewAgentsCommandOutput) => void
   ): Promise<PreviewAgentsCommandOutput> | void {
     const command = new PreviewAgentsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1363,7 +1302,7 @@ export class Inspector extends InspectorClient {
    */
   public registerCrossAccountAccessRole(
     args: RegisterCrossAccountAccessRoleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<RegisterCrossAccountAccessRoleCommandOutput>;
   public registerCrossAccountAccessRole(
     args: RegisterCrossAccountAccessRoleCommandInput,
@@ -1376,21 +1315,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public registerCrossAccountAccessRole(
     args: RegisterCrossAccountAccessRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: RegisterCrossAccountAccessRoleCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterCrossAccountAccessRoleCommandOutput) => void),
     cb?: (err: any, data?: RegisterCrossAccountAccessRoleCommandOutput) => void
   ): Promise<RegisterCrossAccountAccessRoleCommandOutput> | void {
     const command = new RegisterCrossAccountAccessRoleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1406,7 +1340,7 @@ export class Inspector extends InspectorClient {
    */
   public removeAttributesFromFindings(
     args: RemoveAttributesFromFindingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<RemoveAttributesFromFindingsCommandOutput>;
   public removeAttributesFromFindings(
     args: RemoveAttributesFromFindingsCommandInput,
@@ -1419,18 +1353,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public removeAttributesFromFindings(
     args: RemoveAttributesFromFindingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveAttributesFromFindingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveAttributesFromFindingsCommandOutput) => void),
     cb?: (err: any, data?: RemoveAttributesFromFindingsCommandOutput) => void
   ): Promise<RemoveAttributesFromFindingsCommandOutput> | void {
     const command = new RemoveAttributesFromFindingsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1446,7 +1378,7 @@ export class Inspector extends InspectorClient {
    */
   public setTagsForResource(
     args: SetTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<SetTagsForResourceCommandOutput>;
   public setTagsForResource(
     args: SetTagsForResourceCommandInput,
@@ -1459,18 +1391,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public setTagsForResource(
     args: SetTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: SetTagsForResourceCommandOutput) => void
   ): Promise<SetTagsForResourceCommandOutput> | void {
     const command = new SetTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1487,7 +1417,7 @@ export class Inspector extends InspectorClient {
    */
   public startAssessmentRun(
     args: StartAssessmentRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<StartAssessmentRunCommandOutput>;
   public startAssessmentRun(
     args: StartAssessmentRunCommandInput,
@@ -1500,18 +1430,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public startAssessmentRun(
     args: StartAssessmentRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartAssessmentRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartAssessmentRunCommandOutput) => void),
     cb?: (err: any, data?: StartAssessmentRunCommandOutput) => void
   ): Promise<StartAssessmentRunCommandOutput> | void {
     const command = new StartAssessmentRunCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1526,7 +1454,7 @@ export class Inspector extends InspectorClient {
    */
   public stopAssessmentRun(
     args: StopAssessmentRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<StopAssessmentRunCommandOutput>;
   public stopAssessmentRun(
     args: StopAssessmentRunCommandInput,
@@ -1539,18 +1467,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public stopAssessmentRun(
     args: StopAssessmentRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopAssessmentRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopAssessmentRunCommandOutput) => void),
     cb?: (err: any, data?: StopAssessmentRunCommandOutput) => void
   ): Promise<StopAssessmentRunCommandOutput> | void {
     const command = new StopAssessmentRunCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1566,7 +1492,7 @@ export class Inspector extends InspectorClient {
    */
   public subscribeToEvent(
     args: SubscribeToEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<SubscribeToEventCommandOutput>;
   public subscribeToEvent(
     args: SubscribeToEventCommandInput,
@@ -1579,18 +1505,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public subscribeToEvent(
     args: SubscribeToEventCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SubscribeToEventCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SubscribeToEventCommandOutput) => void),
     cb?: (err: any, data?: SubscribeToEventCommandOutput) => void
   ): Promise<SubscribeToEventCommandOutput> | void {
     const command = new SubscribeToEventCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1606,7 +1530,7 @@ export class Inspector extends InspectorClient {
    */
   public unsubscribeFromEvent(
     args: UnsubscribeFromEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UnsubscribeFromEventCommandOutput>;
   public unsubscribeFromEvent(
     args: UnsubscribeFromEventCommandInput,
@@ -1619,18 +1543,16 @@ export class Inspector extends InspectorClient {
   ): void;
   public unsubscribeFromEvent(
     args: UnsubscribeFromEventCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UnsubscribeFromEventCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnsubscribeFromEventCommandOutput) => void),
     cb?: (err: any, data?: UnsubscribeFromEventCommandOutput) => void
   ): Promise<UnsubscribeFromEventCommandOutput> | void {
     const command = new UnsubscribeFromEventCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1648,7 +1570,7 @@ export class Inspector extends InspectorClient {
    */
   public updateAssessmentTarget(
     args: UpdateAssessmentTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateAssessmentTargetCommandOutput>;
   public updateAssessmentTarget(
     args: UpdateAssessmentTargetCommandInput,
@@ -1661,20 +1583,19 @@ export class Inspector extends InspectorClient {
   ): void;
   public updateAssessmentTarget(
     args: UpdateAssessmentTargetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAssessmentTargetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAssessmentTargetCommandOutput) => void),
     cb?: (err: any, data?: UpdateAssessmentTargetCommandOutput) => void
   ): Promise<UpdateAssessmentTargetCommandOutput> | void {
     const command = new UpdateAssessmentTargetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

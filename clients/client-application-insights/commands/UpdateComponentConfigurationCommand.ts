@@ -1,20 +1,20 @@
 import {
   ApplicationInsightsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
 import {
   UpdateComponentConfigurationRequest,
-  UpdateComponentConfigurationResponse
+  UpdateComponentConfigurationResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1UpdateComponentConfigurationCommand,
-  serializeAws_json1_1UpdateComponentConfigurationCommand
+  serializeAws_json1_1UpdateComponentConfigurationCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type UpdateComponentConfigurationCommandInput = UpdateComponentConfigurationRequest;
 export type UpdateComponentConfigurationCommandOutput = UpdateComponentConfigurationResponse;
 
-export class UpdateComponentConfigurationCommand extends $Command<
-  UpdateComponentConfigurationCommandInput,
-  UpdateComponentConfigurationCommandOutput,
-  ApplicationInsightsClientResolvedConfig
-> {
+export class UpdateComponentConfigurationCommand extends $Command<UpdateComponentConfigurationCommandInput, UpdateComponentConfigurationCommandOutput, ApplicationInsightsClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class UpdateComponentConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationInsightsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateComponentConfigurationCommandInput,
-    UpdateComponentConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateComponentConfigurationCommandInput, UpdateComponentConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class UpdateComponentConfigurationCommand extends $Command<
     input: UpdateComponentConfigurationCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateComponentConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1UpdateComponentConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UpdateComponentConfigurationCommandOutput> {
-    return deserializeAws_json1_1UpdateComponentConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateComponentConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

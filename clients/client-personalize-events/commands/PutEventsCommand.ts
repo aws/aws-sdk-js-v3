@@ -1,17 +1,17 @@
 import {
   PersonalizeEventsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../PersonalizeEventsClient";
 import { PutEventsRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1PutEventsCommand,
-  serializeAws_restJson1_1PutEventsCommand
+  serializeAws_restJson1_1PutEventsCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,17 +21,13 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
 } from "@aws-sdk/types";
 
 export type PutEventsCommandInput = PutEventsRequest;
-export type PutEventsCommandOutput = __MetadataBearer;
+export type PutEventsCommandOutput = __MetadataBearer
 
-export class PutEventsCommand extends $Command<
-  PutEventsCommandInput,
-  PutEventsCommandOutput,
-  PersonalizeEventsClientResolvedConfig
-> {
+export class PutEventsCommand extends $Command<PutEventsCommandInput, PutEventsCommandOutput, PersonalizeEventsClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,15 +42,13 @@ export class PutEventsCommand extends $Command<
     configuration: PersonalizeEventsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutEventsCommandInput, PutEventsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

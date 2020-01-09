@@ -1,20 +1,20 @@
 import {
   LexModelBuildingServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
 import {
   CreateIntentVersionRequest,
-  CreateIntentVersionResponse
+  CreateIntentVersionResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateIntentVersionCommand,
-  serializeAws_restJson1_1CreateIntentVersionCommand
+  serializeAws_restJson1_1CreateIntentVersionCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type CreateIntentVersionCommandInput = CreateIntentVersionRequest;
 export type CreateIntentVersionCommandOutput = CreateIntentVersionResponse;
 
-export class CreateIntentVersionCommand extends $Command<
-  CreateIntentVersionCommandInput,
-  CreateIntentVersionCommandOutput,
-  LexModelBuildingServiceClientResolvedConfig
-> {
+export class CreateIntentVersionCommand extends $Command<CreateIntentVersionCommandInput, CreateIntentVersionCommandOutput, LexModelBuildingServiceClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class CreateIntentVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelBuildingServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateIntentVersionCommandInput,
-    CreateIntentVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateIntentVersionCommandInput, CreateIntentVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -79,10 +70,7 @@ export class CreateIntentVersionCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<CreateIntentVersionCommandOutput> {
-    return deserializeAws_restJson1_1CreateIntentVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateIntentVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

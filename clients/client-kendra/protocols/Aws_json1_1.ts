@@ -645,7 +645,7 @@ async function deserializeAws_json1_1BatchDeleteDocumentCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -674,7 +674,6 @@ async function deserializeAws_json1_1BatchDeleteDocumentCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
@@ -712,7 +711,7 @@ async function deserializeAws_json1_1BatchPutDocumentCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -745,7 +744,6 @@ async function deserializeAws_json1_1BatchPutDocumentCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
@@ -783,7 +781,7 @@ async function deserializeAws_json1_1CreateDataSourceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -820,7 +818,6 @@ async function deserializeAws_json1_1CreateDataSourceCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
@@ -858,7 +855,7 @@ async function deserializeAws_json1_1CreateFaqCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -891,7 +888,6 @@ async function deserializeAws_json1_1CreateFaqCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
@@ -929,7 +925,7 @@ async function deserializeAws_json1_1CreateIndexCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -958,7 +954,6 @@ async function deserializeAws_json1_1CreateIndexCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
@@ -991,7 +986,7 @@ async function deserializeAws_json1_1DeleteFaqCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1020,7 +1015,6 @@ async function deserializeAws_json1_1DeleteFaqCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
@@ -1053,7 +1047,7 @@ async function deserializeAws_json1_1DeleteIndexCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1082,7 +1076,6 @@ async function deserializeAws_json1_1DeleteIndexCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
@@ -1120,7 +1113,7 @@ async function deserializeAws_json1_1DescribeDataSourceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1145,7 +1138,6 @@ async function deserializeAws_json1_1DescribeDataSourceCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
@@ -1183,7 +1175,7 @@ async function deserializeAws_json1_1DescribeFaqCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1208,7 +1200,6 @@ async function deserializeAws_json1_1DescribeFaqCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
@@ -1246,7 +1237,7 @@ async function deserializeAws_json1_1DescribeIndexCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1271,7 +1262,6 @@ async function deserializeAws_json1_1DescribeIndexCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
@@ -1309,7 +1299,7 @@ async function deserializeAws_json1_1ListDataSourceSyncJobsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1338,7 +1328,6 @@ async function deserializeAws_json1_1ListDataSourceSyncJobsCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
@@ -1376,7 +1365,7 @@ async function deserializeAws_json1_1ListDataSourcesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1401,7 +1390,6 @@ async function deserializeAws_json1_1ListDataSourcesCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
@@ -1439,7 +1427,7 @@ async function deserializeAws_json1_1ListFaqsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1464,7 +1452,6 @@ async function deserializeAws_json1_1ListFaqsCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
@@ -1502,7 +1489,7 @@ async function deserializeAws_json1_1ListIndicesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1523,7 +1510,6 @@ async function deserializeAws_json1_1ListIndicesCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
@@ -1561,7 +1547,7 @@ async function deserializeAws_json1_1QueryCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1590,7 +1576,6 @@ async function deserializeAws_json1_1QueryCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
@@ -1628,7 +1613,7 @@ async function deserializeAws_json1_1StartDataSourceSyncJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1661,7 +1646,6 @@ async function deserializeAws_json1_1StartDataSourceSyncJobCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
@@ -1694,7 +1678,7 @@ async function deserializeAws_json1_1StopDataSourceSyncJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1719,7 +1703,6 @@ async function deserializeAws_json1_1StopDataSourceSyncJobCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
@@ -1752,7 +1735,7 @@ async function deserializeAws_json1_1SubmitFeedbackCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1781,7 +1764,6 @@ async function deserializeAws_json1_1SubmitFeedbackCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
@@ -1814,7 +1796,7 @@ async function deserializeAws_json1_1UpdateDataSourceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1843,7 +1825,6 @@ async function deserializeAws_json1_1UpdateDataSourceCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",
@@ -1876,7 +1857,7 @@ async function deserializeAws_json1_1UpdateIndexCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1905,7 +1886,6 @@ async function deserializeAws_json1_1UpdateIndexCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kendra#${errorCode}`,
         $fault: "client",

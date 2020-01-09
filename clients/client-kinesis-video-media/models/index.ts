@@ -223,7 +223,7 @@ export enum StartSelectorType {
   FRAGMENT_NUMBER = "FRAGMENT_NUMBER",
   NOW = "NOW",
   PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP"
+  SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
 }
 
 /**
@@ -232,9 +232,7 @@ export enum StartSelectorType {
  *       allowed client calls. Try making the call later.</p>
  *
  */
-export interface ClientLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ClientLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ClientLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -252,9 +250,7 @@ export namespace ClientLimitExceededException {
  *       allowed client connections.</p>
  *
  */
-export interface ConnectionLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConnectionLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ConnectionLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -271,9 +267,7 @@ export namespace ConnectionLimitExceededException {
  *          <p>The value for this input parameter is invalid.</p>
  *
  */
-export interface InvalidArgumentException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidArgumentException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
@@ -293,9 +287,7 @@ export namespace InvalidArgumentException {
  *         <code>GetMedia</code> call. </p>
  *
  */
-export interface InvalidEndpointException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidEndpointException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidEndpointException";
   $fault: "client";
   Message?: string;
@@ -313,9 +305,7 @@ export namespace InvalidEndpointException {
  *       stream, or the token has expired.</p>
  *
  */
-export interface NotAuthorizedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotAuthorizedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NotAuthorizedException";
   $fault: "client";
   Message?: string;
@@ -332,9 +322,7 @@ export namespace NotAuthorizedException {
  *          <p>Status Code: 404, The stream with the given name does not exist.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;

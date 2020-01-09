@@ -1,20 +1,20 @@
 import {
   CostExplorerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CostExplorerClient";
 import {
   GetRightsizingRecommendationRequest,
-  GetRightsizingRecommendationResponse
+  GetRightsizingRecommendationResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1GetRightsizingRecommendationCommand,
-  serializeAws_json1_1GetRightsizingRecommendationCommand
+  serializeAws_json1_1GetRightsizingRecommendationCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type GetRightsizingRecommendationCommandInput = GetRightsizingRecommendationRequest;
 export type GetRightsizingRecommendationCommandOutput = GetRightsizingRecommendationResponse;
 
-export class GetRightsizingRecommendationCommand extends $Command<
-  GetRightsizingRecommendationCommandInput,
-  GetRightsizingRecommendationCommandOutput,
-  CostExplorerClientResolvedConfig
-> {
+export class GetRightsizingRecommendationCommand extends $Command<GetRightsizingRecommendationCommandInput, GetRightsizingRecommendationCommandOutput, CostExplorerClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class GetRightsizingRecommendationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetRightsizingRecommendationCommandInput,
-    GetRightsizingRecommendationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetRightsizingRecommendationCommandInput, GetRightsizingRecommendationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class GetRightsizingRecommendationCommand extends $Command<
     input: GetRightsizingRecommendationCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRightsizingRecommendationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1GetRightsizingRecommendationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<GetRightsizingRecommendationCommandOutput> {
-    return deserializeAws_json1_1GetRightsizingRecommendationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetRightsizingRecommendationCommand(output, context);
   }
 
   // Start section: command_body_extra

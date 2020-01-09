@@ -4,21 +4,21 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 /**
  *
  * 		       <p>The active AWS Identity and Access Management (IAM) policy assignment.</p>
- *
+ * 	
  */
 export interface ActiveIAMPolicyAssignment {
   __type?: "ActiveIAMPolicyAssignment";
   /**
    *
    * 		       <p>A name for the IAM policy assignment.</p>
-   *
+   * 	
    */
   AssignmentName?: string;
 
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) of the resource.</p>
-   *
+   * 	
    */
   PolicyArn?: string;
 }
@@ -32,14 +32,14 @@ export namespace ActiveIAMPolicyAssignment {
 /**
  *
  * 		       <p>Ad hoc (one-time) filtering option.</p>
- *
+ * 	
  */
 export interface AdHocFilteringOption {
   __type?: "AdHocFilteringOption";
   /**
    *
    * 		       <p>Availability status.</p>
-   *
+   * 	
    */
   AvailabilityStatus?: DashboardBehavior | string;
 }
@@ -53,14 +53,14 @@ export namespace AdHocFilteringOption {
 /**
  *
  * 		       <p>Amazon Elasticsearch Service parameters.</p>
- *
+ * 	
  */
 export interface AmazonElasticsearchParameters {
   __type?: "AmazonElasticsearchParameters";
   /**
    *
    * 		       <p>The Amazon Elasticsearch Service domain.</p>
-   *
+   * 	
    */
   Domain: string | undefined;
 }
@@ -74,20 +74,20 @@ export namespace AmazonElasticsearchParameters {
 export enum AssignmentStatus {
   DISABLED = "DISABLED",
   DRAFT = "DRAFT",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 /**
  *
  * 		       <p>Amazon Athena parameters.</p>
- *
+ * 	
  */
 export interface AthenaParameters {
   __type?: "AthenaParameters";
   /**
    *
    * 		       <p>The workgroup that Amazon Athena uses.</p>
-   *
+   * 	
    */
   WorkGroup?: string;
 }
@@ -101,28 +101,28 @@ export namespace AthenaParameters {
 /**
  *
  * 		       <p>Amazon Aurora parameters.</p>
- *
+ * 	
  */
 export interface AuroraParameters {
   __type?: "AuroraParameters";
   /**
    *
    * 		       <p>Database.</p>
-   *
+   * 	
    */
   Database: string | undefined;
 
   /**
    *
    * 		       <p>Host.</p>
-   *
+   * 	
    */
   Host: string | undefined;
 
   /**
    *
    * 		       <p>Port.</p>
-   *
+   * 	
    */
   Port: number | undefined;
 }
@@ -136,28 +136,28 @@ export namespace AuroraParameters {
 /**
  *
  * 		       <p>Amazon Aurora with PostgreSQL compatibility parameters.</p>
- *
+ * 	
  */
 export interface AuroraPostgreSqlParameters {
   __type?: "AuroraPostgreSqlParameters";
   /**
    *
    * 		       <p>Database.</p>
-   *
+   * 	
    */
   Database: string | undefined;
 
   /**
    *
    * 		       <p>Host.</p>
-   *
+   * 	
    */
   Host: string | undefined;
 
   /**
    *
    * 		       <p>Port.</p>
-   *
+   * 	
    */
   Port: number | undefined;
 }
@@ -171,14 +171,14 @@ export namespace AuroraPostgreSqlParameters {
 /**
  *
  * 		       <p>AWS IoT Analytics parameters.</p>
- *
+ * 	
  */
 export interface AwsIotAnalyticsParameters {
   __type?: "AwsIotAnalyticsParameters";
   /**
    *
    * 		       <p>Dataset name.</p>
-   *
+   * 	
    */
   DataSetName: string | undefined;
 }
@@ -192,7 +192,7 @@ export namespace AwsIotAnalyticsParameters {
 /**
  *
  * 		       <p>A calculated column for a dataset.</p>
- *
+ * 	
  */
 export interface CalculatedColumn {
   __type?: "CalculatedColumn";
@@ -201,21 +201,21 @@ export interface CalculatedColumn {
    * 		       <p>A unique ID to identify a calculated column. During dataset update, if the column ID of
    * 			a calculated column matches that of an existing calculated column, QuickSight preserves the
    * 			existing calculated column.</p>
-   *
+   * 	
    */
   ColumnId: string | undefined;
 
   /**
    *
    * 		       <p>Column name.</p>
-   *
+   * 	
    */
   ColumnName: string | undefined;
 
   /**
    *
    * 		       <p>An expression that defines the calculated column.</p>
-   *
+   * 	
    */
   Expression: string | undefined;
 }
@@ -231,21 +231,21 @@ export interface CancelIngestionRequest {
   /**
    *
    * 		       <p>The AWS account ID.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The ID of the dataset used in the ingestion.</p>
-   *
+   * 	
    */
   DataSetId: string | undefined;
 
   /**
    *
    * 		       <p>An ID for the ingestion.</p>
-   *
+   * 	
    */
   IngestionId: string | undefined;
 }
@@ -261,14 +261,14 @@ export interface CancelIngestionResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) for the data ingestion.</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>An ID for the ingestion.</p>
-   *
+   * 	
    */
   IngestionId?: string;
 
@@ -289,14 +289,14 @@ export namespace CancelIngestionResponse {
 /**
  *
  * 		       <p>A transform operation that casts a column to a different type.</p>
- *
+ * 	
  */
 export interface CastColumnTypeOperation {
   __type?: "CastColumnTypeOperation";
   /**
    *
    * 		       <p>Column name.</p>
-   *
+   * 	
    */
   ColumnName: string | undefined;
 
@@ -304,14 +304,14 @@ export interface CastColumnTypeOperation {
    *
    * 		       <p>When casting a column from string to datetime type, you can supply a QuickSight
    * 			supported format string to denote the source data format.</p>
-   *
+   * 	
    */
   Format?: string;
 
   /**
    *
    * 		       <p>New column data type.</p>
-   *
+   * 	
    */
   NewColumnType: ColumnDataType | string | undefined;
 }
@@ -327,14 +327,14 @@ export namespace CastColumnTypeOperation {
  * 		       <p>Groupings of columns that work together in certain QuickSight features. This is a
  * 			variant type structure. No more than one of the attributes should be non-null for this
  * 			structure to be valid.</p>
- *
+ * 	
  */
 export interface ColumnGroup {
   __type?: "ColumnGroup";
   /**
    *
    * 		       <p>Geospatial column group that denotes a hierarchy.</p>
-   *
+   * 	
    */
   GeoSpatialColumnGroup?: GeoSpatialColumnGroup;
 }
@@ -348,14 +348,14 @@ export namespace ColumnGroup {
 /**
  *
  * 		       <p>A structure describing the name, datatype, and geographic role of the columns.</p>
- *
+ * 	
  */
 export interface ColumnGroupColumnSchema {
   __type?: "ColumnGroupColumnSchema";
   /**
    *
    * 		       <p>The name of the column group's column schema.</p>
-   *
+   * 	
    */
   Name?: string;
 }
@@ -369,21 +369,21 @@ export namespace ColumnGroupColumnSchema {
 /**
  *
  * 		       <p>The column group schema.</p>
- *
+ * 	
  */
 export interface ColumnGroupSchema {
   __type?: "ColumnGroupSchema";
   /**
    *
    * 		       <p>A structure containing the list of column group column schemas.</p>
-   *
+   * 	
    */
   ColumnGroupColumnSchemaList?: Array<ColumnGroupColumnSchema>;
 
   /**
    *
    * 		       <p>The name of the column group schema.</p>
-   *
+   * 	
    */
   Name?: string;
 }
@@ -397,28 +397,28 @@ export namespace ColumnGroupSchema {
 /**
  *
  * 		       <p>The column schema.</p>
- *
+ * 	
  */
 export interface ColumnSchema {
   __type?: "ColumnSchema";
   /**
    *
    * 		       <p>The data type of the column schema.</p>
-   *
+   * 	
    */
   DataType?: string;
 
   /**
    *
    * 		       <p>The geographic role of the column schema.</p>
-   *
+   * 	
    */
   GeographicRole?: string;
 
   /**
    *
    * 		       <p>The name of the column schema.</p>
-   *
+   * 	
    */
   Name?: string;
 }
@@ -433,14 +433,14 @@ export namespace ColumnSchema {
  *
  * 		       <p>A tag for a column in a TagColumnOperation. This is a variant type structure. No more
  * 			than one of the attributes should be non-null for this structure to be valid.</p>
- *
+ * 	
  */
 export interface ColumnTag {
   __type?: "ColumnTag";
   /**
    *
    * 		       <p>A geospatial role for a column.</p>
-   *
+   * 	
    */
   ColumnGeographicRole?: GeoSpatialDataRole | string;
 }
@@ -455,11 +455,9 @@ export namespace ColumnTag {
  *
  * 		       <p>A resource is already in an "actionable" state that must complete
  * 			before a new update can be applied.</p>
- *
+ * 	
  */
-export interface ConcurrentUpdatingException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConcurrentUpdatingException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ConcurrentUpdatingException";
   $fault: "server";
   Message?: string;
@@ -476,14 +474,14 @@ export namespace ConcurrentUpdatingException {
  *
  * 		       <p>A transform operation that creates calculated columns. Columns created in one such
  * 			operation form a lexical closure.</p>
- *
+ * 	
  */
 export interface CreateColumnsOperation {
   __type?: "CreateColumnsOperation";
   /**
    *
    * 		       <p>Calculated columns to create.</p>
-   *
+   * 	
    */
   Columns: Array<CalculatedColumn> | undefined;
 }
@@ -499,14 +497,14 @@ export interface CreateDashboardRequest {
   /**
    *
    * 		       <p>AWS account ID where you want to create the dashboard.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The ID for the dashboard, also added to IAM policy.</p>
-   *
+   * 	
    */
   DashboardId: string | undefined;
 
@@ -531,14 +529,14 @@ export interface CreateDashboardRequest {
    * 					true. Collapsed by default.  </p>
    * 			         </li>
    *          </ul>
-   *
+   * 	
    */
   DashboardPublishOptions?: DashboardPublishOptions;
 
   /**
    *
    * 		       <p>The display name of the dashboard.</p>
-   *
+   * 	
    */
   Name: string | undefined;
 
@@ -549,7 +547,7 @@ export interface CreateDashboardRequest {
    * 		A dashboard can have any type of parameters and some parameters might
    * 		accept multiple values. You could use the following structure to override
    * 		two string parameters that accept multiple values:</p>
-   *
+   * 	
    */
   Parameters?: _Parameters;
 
@@ -558,7 +556,7 @@ export interface CreateDashboardRequest {
    * 		       <p>A structure that contains the permissions of the dashboard.
    * 		You can use this for granting permissions with principal and
    * 		action information.</p>
-   *
+   * 	
    */
   Permissions?: Array<ResourcePermission>;
 
@@ -570,21 +568,21 @@ export interface CreateDashboardRequest {
    * 			same schema as the datasets for which placeholders were created when creating the template.  </p>
    * 		       <p>If you are creating a dashboard from a source entity in a different AWS account, use the
    * 			ARN of the source template.</p>
-   *
+   * 	
    */
   SourceEntity: DashboardSourceEntity | undefined;
 
   /**
    *
    * 		       <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.</p>
-   *
+   * 	
    */
   Tags?: Array<Tag>;
 
   /**
    *
    * 		       <p>A description for the first version of the dashboard being created.</p>
-   *
+   * 	
    */
   VersionDescription?: string;
 }
@@ -600,28 +598,28 @@ export interface CreateDashboardResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) of the dashboard.</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>The creation status of the dashboard create request.</p>
-   *
+   * 	
    */
   CreationStatus?: ResourceStatus | string;
 
   /**
    *
    * 		       <p>The ID for the dashboard.</p>
-   *
+   * 	
    */
   DashboardId?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 
@@ -629,7 +627,7 @@ export interface CreateDashboardResponse extends $MetadataBearer {
    *
    * 		       <p>The ARN of the dashboard, including the version number
    * 			of the first version that is created.</p>
-   *
+   * 	
    */
   VersionArn?: string;
 }
@@ -645,70 +643,70 @@ export interface CreateDataSetRequest {
   /**
    *
    * 		       <p>The AWS Account ID.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
-   *
+   * 	
    */
   ColumnGroups?: Array<ColumnGroup>;
 
   /**
    *
    * 		       <p>An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
-   *
+   * 	
    */
   DataSetId: string | undefined;
 
   /**
    *
    * 		       <p>Indicates whether or not you want to import the data into SPICE.</p>
-   *
+   * 	
    */
   ImportMode: DataSetImportMode | string | undefined;
 
   /**
    *
    * 		       <p>Configures the combination and transformation of the data from the physical tables.</p>
-   *
+   * 	
    */
   LogicalTableMap?: { [key: string]: LogicalTable };
 
   /**
    *
    * 		       <p>The display name for the dataset.</p>
-   *
+   * 	
    */
   Name: string | undefined;
 
   /**
    *
    * 		       <p>A list of resource permissions on the dataset.</p>
-   *
+   * 	
    */
   Permissions?: Array<ResourcePermission>;
 
   /**
    *
    * 		       <p>Declares the physical tables that are available in the underlying data sources.</p>
-   *
+   * 	
    */
   PhysicalTableMap: { [key: string]: PhysicalTable } | undefined;
 
   /**
    *
    * 		       <p>Row-level security configuration on the data you want to create.</p>
-   *
+   * 	
    */
   RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
 
   /**
    *
    * 		       <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
-   *
+   * 	
    */
   Tags?: Array<Tag>;
 }
@@ -724,35 +722,35 @@ export interface CreateDataSetResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
-   *
+   * 	
    */
   DataSetId?: string;
 
   /**
    *
    * 		       <p>The ARN for the ingestion, which is triggered as a result of dataset creation if the import mode is SPICE</p>
-   *
+   * 	
    */
   IngestionArn?: string;
 
   /**
    *
    * 		       <p>The ID of the ingestion, which is triggered as a result of dataset creation if the import mode is SPICE</p>
-   *
+   * 	
    */
   IngestionId?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -768,7 +766,7 @@ export interface CreateDataSourceRequest {
   /**
    *
    * 		       <p>The AWS account ID.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
@@ -776,49 +774,49 @@ export interface CreateDataSourceRequest {
    *
    * 		       <p>The credentials QuickSight that uses to connect to your underlying source. Currently, only
    * 			credentials based on user name and password are supported.</p>
-   *
+   * 	
    */
   Credentials?: DataSourceCredentials;
 
   /**
    *
    * 		       <p>An ID for the data source. This ID is unique per AWS Region for each AWS account. </p>
-   *
+   * 	
    */
   DataSourceId: string | undefined;
 
   /**
    *
    * 		       <p>The parameters that QuickSight uses to connect to your underlying source.</p>
-   *
+   * 	
    */
   DataSourceParameters?: DataSourceParameters;
 
   /**
    *
    * 		       <p>A display name for the data source.</p>
-   *
+   * 	
    */
   Name: string | undefined;
 
   /**
    *
    * 		       <p>A list of resource permissions on the data source.</p>
-   *
+   * 	
    */
   Permissions?: Array<ResourcePermission>;
 
   /**
    *
    * 		       <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your underlying source.</p>
-   *
+   * 	
    */
   SslProperties?: SslProperties;
 
   /**
    *
    * 		       <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
-   *
+   * 	
    */
   Tags?: Array<Tag>;
 
@@ -829,7 +827,7 @@ export interface CreateDataSourceRequest {
    * 			SNOWFLAKE, SPARK, SQLSERVER, TERADATA</code>.
    * 			Use <code>ListDataSources</code> to return a
    * 			list of all data sources.</p>
-   *
+   * 	
    */
   Type: DataSourceType | string | undefined;
 
@@ -837,7 +835,7 @@ export interface CreateDataSourceRequest {
    *
    * 		       <p>Use this parameter only when you want QuickSight to use a VPC connection when connecting to
    * 			your underlying source.</p>
-   *
+   * 	
    */
   VpcConnectionProperties?: VpcConnectionProperties;
 }
@@ -853,28 +851,28 @@ export interface CreateDataSourceResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) of the data source.</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>The status of creating the data source.</p>
-   *
+   * 	
    */
   CreationStatus?: ResourceStatus | string;
 
   /**
    *
    * 		       <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
-   *
+   * 	
    */
   DataSourceId?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -891,28 +889,28 @@ export interface CreateGroupMembershipRequest {
    *
    * 		       <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS
    * 			account that contains your Amazon QuickSight account.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The name of the group that you want to add the user to.</p>
-   *
+   * 	
    */
   GroupName: string | undefined;
 
   /**
    *
    * 		       <p>The name of the user that you want to add to the group membership.</p>
-   *
+   * 	
    */
   MemberName: string | undefined;
 
   /**
    *
    * 		       <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   *
+   * 	
    */
   Namespace: string | undefined;
 }
@@ -928,14 +926,14 @@ export interface CreateGroupMembershipResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The group member.</p>
-   *
+   * 	
    */
   GroupMember?: GroupMember;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -949,7 +947,7 @@ export namespace CreateGroupMembershipResponse {
 /**
  *
  * 		       <p>The request object for this operation. </p>
- *
+ * 	
  */
 export interface CreateGroupRequest {
   __type?: "CreateGroupRequest";
@@ -957,28 +955,28 @@ export interface CreateGroupRequest {
    *
    * 		       <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS
    * 			account that contains your Amazon QuickSight account.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>A description for the group that you want to create.</p>
-   *
+   * 	
    */
   Description?: string;
 
   /**
    *
    * 		       <p>A name for the group that you want to create.</p>
-   *
+   * 	
    */
   GroupName: string | undefined;
 
   /**
    *
    * 		       <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   *
+   * 	
    */
   Namespace: string | undefined;
 }
@@ -992,21 +990,21 @@ export namespace CreateGroupRequest {
 /**
  *
  * 		       <p>The response object for this operation.</p>
- *
+ * 	
  */
 export interface CreateGroupResponse extends $MetadataBearer {
   __type?: "CreateGroupResponse";
   /**
    *
    * 		       <p>The name of the group.</p>
-   *
+   * 	
    */
   Group?: Group;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -1022,7 +1020,7 @@ export interface CreateIAMPolicyAssignmentRequest {
   /**
    *
    * 		       <p>The name of the assignment. It must be unique within an AWS account.</p>
-   *
+   * 	
    */
   AssignmentName: string | undefined;
 
@@ -1041,35 +1039,35 @@ export interface CreateIAMPolicyAssignmentRequest {
    * 					source.</p>
    *             </li>
    *          </ul>
-   *
+   * 	
    */
   AssignmentStatus: AssignmentStatus | string | undefined;
 
   /**
    *
    * 		       <p>The AWS Account ID where you want to assign QuickSight users or groups to an IAM policy.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>QuickSight users and/or groups that you want to assign the policy to.</p>
-   *
+   * 	
    */
   Identities?: { [key: string]: Array<string> };
 
   /**
    *
    * 		       <p>The namespace that contains the assignment.</p>
-   *
+   * 	
    */
   Namespace: string | undefined;
 
   /**
    *
    * 		       <p>An IAM policy Amazon Resource Name (ARN) that you want to apply to the QuickSight users and groups specified in this assignment.</p>
-   *
+   * 	
    */
   PolicyArn?: string;
 }
@@ -1085,14 +1083,14 @@ export interface CreateIAMPolicyAssignmentResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>An ID for the assignment.</p>
-   *
+   * 	
    */
   AssignmentId?: string;
 
   /**
    *
    * 		       <p>The name of the assignment. Must be unique within an AWS account.</p>
-   *
+   * 	
    */
   AssignmentName?: string;
 
@@ -1111,28 +1109,28 @@ export interface CreateIAMPolicyAssignmentResponse extends $MetadataBearer {
    * 					source.</p>
    *             </li>
    *          </ul>
-   *
+   * 	
    */
   AssignmentStatus?: AssignmentStatus | string;
 
   /**
    *
    * 		       <p>QuickSight users and/or groups that are assigned to the IAM policy.</p>
-   *
+   * 	
    */
   Identities?: { [key: string]: Array<string> };
 
   /**
    *
    * 		       <p>An IAM policy Amazon Resource Name (ARN) that is applied to the QuickSight users and groups specified in this assignment.</p>
-   *
+   * 	
    */
   PolicyArn?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -1148,21 +1146,21 @@ export interface CreateIngestionRequest {
   /**
    *
    * 		       <p>The AWS account ID.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The ID of the dataset used in the ingestion.</p>
-   *
+   * 	
    */
   DataSetId: string | undefined;
 
   /**
    *
    * 		       <p>An ID for the ingestion.</p>
-   *
+   * 	
    */
   IngestionId: string | undefined;
 }
@@ -1178,21 +1176,21 @@ export interface CreateIngestionResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) for the data ingestion.</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>An ID for the ingestion.</p>
-   *
+   * 	
    */
   IngestionId?: string;
 
   /**
    *
    * 		       <p>The ingestion status.</p>
-   *
+   * 	
    */
   IngestionStatus?: IngestionStatus | string;
 
@@ -1216,28 +1214,28 @@ export interface CreateTemplateAliasRequest {
    *
    * 		       <p>The name that you want to give to the template alias that you're creating.
    * 			Aliases that start with <code>$</code> are reserved by QuickSight. </p>
-   *
+   * 	
    */
   AliasName: string | undefined;
 
   /**
    *
    * 		       <p>AWS account ID that contains the template you are aliasing.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>An ID for the template.</p>
-   *
+   * 	
    */
   TemplateId: string | undefined;
 
   /**
    *
    * 		       <p>The version number of the template.</p>
-   *
+   * 	
    */
   TemplateVersionNumber: number | undefined;
 }
@@ -1253,14 +1251,14 @@ export interface CreateTemplateAliasResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 
   /**
    *
    * 		       <p>Information on the template alias.</p>
-   *
+   * 	
    */
   TemplateAlias?: TemplateAlias;
 }
@@ -1277,21 +1275,21 @@ export interface CreateTemplateRequest {
    *
    * 		       <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS
    * 			account that contains your Amazon QuickSight account.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>A display name for the template.</p>
-   *
+   * 	
    */
   Name?: string;
 
   /**
    *
    * 		       <p>A list of resource permissions to be set on the template. </p>
-   *
+   * 	
    */
   Permissions?: Array<ResourcePermission>;
 
@@ -1300,14 +1298,14 @@ export interface CreateTemplateRequest {
    * 		       <p>The Amazon Resource Name (ARN) of the source entity from which this template is being created. Templates can be
    * 			currently created from an analysis or another template. If the ARN is for an analysis, you
    * 			must include its dataset references. </p>
-   *
+   * 	
    */
   SourceEntity: TemplateSourceEntity | undefined;
 
   /**
    *
    * 		       <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
-   *
+   * 	
    */
   Tags?: Array<Tag>;
 
@@ -1315,7 +1313,7 @@ export interface CreateTemplateRequest {
    *
    * 		       <p>An ID for the template you want to create. This is unique per AWS region per AWS
    * 			account.</p>
-   *
+   * 	
    */
   TemplateId: string | undefined;
 
@@ -1325,7 +1323,7 @@ export interface CreateTemplateRequest {
    * 			version of the template. Every time UpdateTemplate is called a new version is created. Each
    * 			version of the template maintains a description of the version in the VersionDescription
    * 			field.</p>
-   *
+   * 	
    */
   VersionDescription?: string;
 }
@@ -1341,28 +1339,28 @@ export interface CreateTemplateResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) for the template.</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>The template creation status.</p>
-   *
+   * 	
    */
   CreationStatus?: ResourceStatus | string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 
   /**
    *
    * 		       <p>The ID of the template.</p>
-   *
+   * 	
    */
   TemplateId?: string;
 
@@ -1370,7 +1368,7 @@ export interface CreateTemplateResponse extends $MetadataBearer {
    *
    * 		       <p>The ARN for the template, including the version information of
    * 			the first version.</p>
-   *
+   * 	
    */
   VersionArn?: string;
 }
@@ -1384,21 +1382,21 @@ export namespace CreateTemplateResponse {
 /**
  *
  * 		       <p>The combination of username and password that are used as credentials.</p>
- *
+ * 	
  */
 export interface CredentialPair {
   __type?: "CredentialPair";
   /**
    *
    * 		       <p>Password.</p>
-   *
+   * 	
    */
   Password: string | undefined;
 
   /**
    *
    * 		       <p>Username.</p>
-   *
+   * 	
    */
   Username: string | undefined;
 }
@@ -1412,35 +1410,35 @@ export namespace CredentialPair {
 /**
  *
  * 		       <p>A physical table type built from the results of the custom SQL query.</p>
- *
+ * 	
  */
 export interface CustomSql {
   __type?: "CustomSql";
   /**
    *
    * 		       <p>The column schema from the SQL query result set.</p>
-   *
+   * 	
    */
   Columns?: Array<InputColumn>;
 
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) of the data source.</p>
-   *
+   * 	
    */
   DataSourceArn: string | undefined;
 
   /**
    *
    * 		       <p>A display name for the SQL query result.</p>
-   *
+   * 	
    */
   Name: string | undefined;
 
   /**
    *
    * 		       <p>The SQL query.</p>
-   *
+   * 	
    */
   SqlQuery: string | undefined;
 }
@@ -1454,56 +1452,56 @@ export namespace CustomSql {
 /**
  *
  * 		       <p>Dashboard.</p>
- *
+ * 	
  */
 export interface Dashboard {
   __type?: "Dashboard";
   /**
    *
    * 		       <p>The Amazon Resource name (ARN) of the resource.</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>The time this was created.</p>
-   *
+   * 	
    */
   CreatedTime?: Date;
 
   /**
    *
    * 		       <p>Dashboard ID.</p>
-   *
+   * 	
    */
   DashboardId?: string;
 
   /**
    *
    * 		       <p>The last time this was published.</p>
-   *
+   * 	
    */
   LastPublishedTime?: Date;
 
   /**
    *
    * 		       <p>The last time this was updated.</p>
-   *
+   * 	
    */
   LastUpdatedTime?: Date;
 
   /**
    *
    * 		       <p>A display name for the dataset.</p>
-   *
+   * 	
    */
   Name?: string;
 
   /**
    *
    * 		       <p>Version.</p>
-   *
+   * 	
    */
   Version?: DashboardVersion;
 }
@@ -1516,27 +1514,27 @@ export namespace Dashboard {
 
 export enum DashboardBehavior {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 /**
  *
  * 		       <p>Dashboard error.</p>
- *
+ * 	
  */
 export interface DashboardError {
   __type?: "DashboardError";
   /**
    *
    * 		       <p>Message.</p>
-   *
+   * 	
    */
   Message?: string;
 
   /**
    *
    * 		       <p>Type.</p>
-   *
+   * 	
    */
   Type?: DashboardErrorType | string;
 }
@@ -1555,34 +1553,34 @@ export enum DashboardErrorType {
   INTERNAL_FAILURE = "INTERNAL_FAILURE",
   PARAMETER_NOT_FOUND = "PARAMETER_NOT_FOUND",
   PARAMETER_TYPE_INVALID = "PARAMETER_TYPE_INVALID",
-  PARAMETER_VALUE_INCOMPATIBLE = "PARAMETER_VALUE_INCOMPATIBLE"
+  PARAMETER_VALUE_INCOMPATIBLE = "PARAMETER_VALUE_INCOMPATIBLE",
 }
 
 /**
  *
  * 		       <p>Dashboard publish options.</p>
- *
+ * 	
  */
 export interface DashboardPublishOptions {
   __type?: "DashboardPublishOptions";
   /**
    *
    * 		       <p>Ad hoc filtering option.</p>
-   *
+   * 	
    */
   AdHocFilteringOption?: AdHocFilteringOption;
 
   /**
    *
    * 		       <p>Export to CSV option.</p>
-   *
+   * 	
    */
   ExportToCSVOption?: ExportToCSVOption;
 
   /**
    *
    * 		       <p>Sheet controls option.</p>
-   *
+   * 	
    */
   SheetControlsOption?: SheetControlsOption;
 }
@@ -1596,14 +1594,14 @@ export namespace DashboardPublishOptions {
 /**
  *
  * 		       <p>Dashboard source entity.</p>
- *
+ * 	
  */
 export interface DashboardSourceEntity {
   __type?: "DashboardSourceEntity";
   /**
    *
    * 		       <p>Source template.</p>
-   *
+   * 	
    */
   SourceTemplate?: DashboardSourceTemplate;
 }
@@ -1617,21 +1615,21 @@ export namespace DashboardSourceEntity {
 /**
  *
  * 		       <p>Dashboard source template.</p>
- *
+ * 	
  */
 export interface DashboardSourceTemplate {
   __type?: "DashboardSourceTemplate";
   /**
    *
    * 		       <p>The Amazon Resource name (ARN) of the resource.</p>
-   *
+   * 	
    */
   Arn: string | undefined;
 
   /**
    *
    * 		       <p>Dataset references.</p>
-   *
+   * 	
    */
   DataSetReferences: Array<DataSetReference> | undefined;
 }
@@ -1645,56 +1643,56 @@ export namespace DashboardSourceTemplate {
 /**
  *
  * 		       <p>Dashboard summary.</p>
- *
+ * 	
  */
 export interface DashboardSummary {
   __type?: "DashboardSummary";
   /**
    *
    * 		       <p>The Amazon Resource name (ARN) of the resource.</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>The time this was created.</p>
-   *
+   * 	
    */
   CreatedTime?: Date;
 
   /**
    *
    * 		       <p>Dashboard ID.</p>
-   *
+   * 	
    */
   DashboardId?: string;
 
   /**
    *
    * 		       <p>The last time this was published.</p>
-   *
+   * 	
    */
   LastPublishedTime?: Date;
 
   /**
    *
    * 		       <p>The last time this was updated.</p>
-   *
+   * 	
    */
   LastUpdatedTime?: Date;
 
   /**
    *
    * 		       <p>A display name for the dataset.</p>
-   *
+   * 	
    */
   Name?: string;
 
   /**
    *
    * 		       <p>Published version number.</p>
-   *
+   * 	
    */
   PublishedVersionNumber?: number;
 }
@@ -1707,62 +1705,62 @@ export namespace DashboardSummary {
 
 export enum DashboardUIState {
   COLLAPSED = "COLLAPSED",
-  EXPANDED = "EXPANDED"
+  EXPANDED = "EXPANDED",
 }
 
 /**
  *
  * 		       <p>Dashboard version.</p>
- *
+ * 	
  */
 export interface DashboardVersion {
   __type?: "DashboardVersion";
   /**
    *
    * 		       <p>The Amazon Resource name (ARN) of the resource.</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>The time this was created.</p>
-   *
+   * 	
    */
   CreatedTime?: Date;
 
   /**
    *
    * 		       <p>Description.</p>
-   *
+   * 	
    */
   Description?: string;
 
   /**
    *
    * 		       <p>Errors.</p>
-   *
+   * 	
    */
   Errors?: Array<DashboardError>;
 
   /**
    *
    * 		       <p>Source entity ARN.</p>
-   *
+   * 	
    */
   SourceEntityArn?: string;
 
   /**
    *
    * 		       <p>The HTTP status of the request.</p>
-   *
+   * 	
    */
   Status?: ResourceStatus | string;
 
   /**
    *
    * 		       <p>Version number.</p>
-   *
+   * 	
    */
   VersionNumber?: number;
 }
@@ -1776,49 +1774,49 @@ export namespace DashboardVersion {
 /**
  *
  * 		       <p>Dashboard version summary.</p>
- *
+ * 	
  */
 export interface DashboardVersionSummary {
   __type?: "DashboardVersionSummary";
   /**
    *
    * 		       <p>The Amazon Resource name (ARN) of the resource.</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>The time this was created.</p>
-   *
+   * 	
    */
   CreatedTime?: Date;
 
   /**
    *
    * 		       <p>Description.</p>
-   *
+   * 	
    */
   Description?: string;
 
   /**
    *
    * 		       <p>Source entity ARN.</p>
-   *
+   * 	
    */
   SourceEntityArn?: string;
 
   /**
    *
    * 		       <p>The HTTP status of the request.</p>
-   *
+   * 	
    */
   Status?: ResourceStatus | string;
 
   /**
    *
    * 		       <p>Version number.</p>
-   *
+   * 	
    */
   VersionNumber?: number;
 }
@@ -1832,14 +1830,14 @@ export namespace DashboardVersionSummary {
 /**
  *
  * 		       <p>Dataset.</p>
- *
+ * 	
  */
 export interface DataSet {
   __type?: "DataSet";
   /**
    *
    * 		       <p>The Amazon Resource name (ARN) of the resource.</p>
-   *
+   * 	
    */
   Arn?: string;
 
@@ -1847,7 +1845,7 @@ export interface DataSet {
    *
    * 		       <p>Groupings of columns that work together in certain QuickSight features. Currently, only
    * 			geospatial hierarchy is supported.</p>
-   *
+   * 	
    */
   ColumnGroups?: Array<ColumnGroup>;
 
@@ -1855,35 +1853,35 @@ export interface DataSet {
    *
    * 		       <p>The amount of SPICE capacity used by this dataset. This is 0 if the dataset isn't
    * 			imported into SPICE.</p>
-   *
+   * 	
    */
   ConsumedSpiceCapacityInBytes?: number;
 
   /**
    *
    * 		       <p>The time this was created.</p>
-   *
+   * 	
    */
   CreatedTime?: Date;
 
   /**
    *
    * 		       <p>The ID of the dataset.</p>
-   *
+   * 	
    */
   DataSetId?: string;
 
   /**
    *
    * 		       <p>Indicates whether or not you want to import the data into SPICE.</p>
-   *
+   * 	
    */
   ImportMode?: DataSetImportMode | string;
 
   /**
    *
    * 		       <p>The last time this was updated.</p>
-   *
+   * 	
    */
   LastUpdatedTime?: Date;
 
@@ -1891,14 +1889,14 @@ export interface DataSet {
    *
    * 		       <p>Configures the combination and transformation of the data from the physical
    * 			tables.</p>
-   *
+   * 	
    */
   LogicalTableMap?: { [key: string]: LogicalTable };
 
   /**
    *
    * 		       <p>A display name for the dataset.</p>
-   *
+   * 	
    */
   Name?: string;
 
@@ -1906,21 +1904,21 @@ export interface DataSet {
    *
    * 		       <p>The list of columns after all transforms. These columns are available in templates,
    * 			analyses, and dashboards.</p>
-   *
+   * 	
    */
   OutputColumns?: Array<OutputColumn>;
 
   /**
    *
    * 		       <p>Declares the physical tables that are available in the underlying data sources.</p>
-   *
+   * 	
    */
   PhysicalTableMap?: { [key: string]: PhysicalTable };
 
   /**
    *
    * 		       <p>Row-level security configuration on the dataset.</p>
-   *
+   * 	
    */
   RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
 }
@@ -1934,28 +1932,28 @@ export namespace DataSet {
 /**
  *
  * 		       <p>Dataset configuration.</p>
- *
+ * 	
  */
 export interface DataSetConfiguration {
   __type?: "DataSetConfiguration";
   /**
    *
    * 		       <p>A structure containing the list of column group schemas.</p>
-   *
+   * 	
    */
   ColumnGroupSchemaList?: Array<ColumnGroupSchema>;
 
   /**
    *
    * 		       <p>Dataset schema.</p>
-   *
+   * 	
    */
   DataSetSchema?: DataSetSchema;
 
   /**
    *
    * 		       <p>Placeholder.</p>
-   *
+   * 	
    */
   Placeholder?: string;
 }
@@ -1968,27 +1966,27 @@ export namespace DataSetConfiguration {
 
 export enum DataSetImportMode {
   DIRECT_QUERY = "DIRECT_QUERY",
-  SPICE = "SPICE"
+  SPICE = "SPICE",
 }
 
 /**
  *
  * 		       <p>Dataset reference.</p>
- *
+ * 	
  */
 export interface DataSetReference {
   __type?: "DataSetReference";
   /**
    *
    * 		       <p>Dataset ARN.</p>
-   *
+   * 	
    */
   DataSetArn: string | undefined;
 
   /**
    *
    * 		       <p>Dataset placeholder.</p>
-   *
+   * 	
    */
   DataSetPlaceholder: string | undefined;
 }
@@ -2002,14 +2000,14 @@ export namespace DataSetReference {
 /**
  *
  * 		       <p>Dataset schema.</p>
- *
+ * 	
  */
 export interface DataSetSchema {
   __type?: "DataSetSchema";
   /**
    *
    * 		       <p>A structure containing the list of column schemas.</p>
-   *
+   * 	
    */
   ColumnSchemaList?: Array<ColumnSchema>;
 }
@@ -2023,56 +2021,56 @@ export namespace DataSetSchema {
 /**
  *
  * 		       <p>Dataset summary.</p>
- *
+ * 	
  */
 export interface DataSetSummary {
   __type?: "DataSetSummary";
   /**
    *
    * 		       <p>The Amazon Resource name (ARN) of the dataset.</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>The time this was created.</p>
-   *
+   * 	
    */
   CreatedTime?: Date;
 
   /**
    *
    * 		       <p>The ID of the dataset.</p>
-   *
+   * 	
    */
   DataSetId?: string;
 
   /**
    *
    * 		       <p>Indicates whether or not you want to import the data into SPICE.</p>
-   *
+   * 	
    */
   ImportMode?: DataSetImportMode | string;
 
   /**
    *
    * 		       <p>The last time this was updated.</p>
-   *
+   * 	
    */
   LastUpdatedTime?: Date;
 
   /**
    *
    * 		       <p>A display name for the dataset.</p>
-   *
+   * 	
    */
   Name?: string;
 
   /**
    *
    * 		       <p>Row-level security configuration on the dataset.</p>
-   *
+   * 	
    */
   RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
 }
@@ -2086,28 +2084,28 @@ export namespace DataSetSummary {
 /**
  *
  * 		       <p>The structure of a data source.</p>
- *
+ * 	
  */
 export interface DataSource {
   __type?: "DataSource";
   /**
    *
    * 		       <p>The Amazon Resource name (ARN) of the data source.</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>The time this was created.</p>
-   *
+   * 	
    */
   CreatedTime?: Date;
 
   /**
    *
    * 		       <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
-   *
+   * 	
    */
   DataSourceId?: string;
 
@@ -2116,28 +2114,28 @@ export interface DataSource {
    * 		       <p>The parameters that QuickSight uses to connect to your underlying source. This is a
    * 			variant type structure. At most one of the attributes should be non-null for this structure
    * 			to be valid.</p>
-   *
+   * 	
    */
   DataSourceParameters?: DataSourceParameters;
 
   /**
    *
    * 		       <p>Error information from the last update or the creation of the data source.</p>
-   *
+   * 	
    */
   ErrorInfo?: DataSourceErrorInfo;
 
   /**
    *
    * 		       <p>The last time this was updated.</p>
-   *
+   * 	
    */
   LastUpdatedTime?: Date;
 
   /**
    *
    * 		       <p>A display name for the data source.</p>
-   *
+   * 	
    */
   Name?: string;
 
@@ -2145,14 +2143,14 @@ export interface DataSource {
    *
    * 		       <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your
    * 			underlying source.</p>
-   *
+   * 	
    */
   SslProperties?: SslProperties;
 
   /**
    *
    * 		       <p>The HTTP status of the request.</p>
-   *
+   * 	
    */
   Status?: ResourceStatus | string;
 
@@ -2160,7 +2158,7 @@ export interface DataSource {
    *
    * 		       <p>The type of the data source. This indicates which database engine the data source
    * 			connects to.</p>
-   *
+   * 	
    */
   Type?: DataSourceType | string;
 
@@ -2168,7 +2166,7 @@ export interface DataSource {
    *
    * 		       <p>The VPC connection information. You need to use this parameter only when you want
    * 			QuickSight to use a VPC connection when connecting to your underlying source.</p>
-   *
+   * 	
    */
   VpcConnectionProperties?: VpcConnectionProperties;
 }
@@ -2182,14 +2180,14 @@ export namespace DataSource {
 /**
  *
  * 		       <p>Data source credentials.</p>
- *
+ * 	
  */
 export interface DataSourceCredentials {
   __type?: "DataSourceCredentials";
   /**
    *
    * 		       <p>Credential pair.</p>
-   *
+   * 	
    */
   CredentialPair?: CredentialPair;
 }
@@ -2203,21 +2201,21 @@ export namespace DataSourceCredentials {
 /**
  *
  * 		       <p>Error information on data source creation or update.</p>
- *
+ * 	
  */
 export interface DataSourceErrorInfo {
   __type?: "DataSourceErrorInfo";
   /**
    *
    * 		       <p>Error message.</p>
-   *
+   * 	
    */
   Message?: string;
 
   /**
    *
    * 		       <p>Error type.</p>
-   *
+   * 	
    */
   Type?: DataSourceErrorInfoType | string;
 }
@@ -2234,7 +2232,7 @@ export enum DataSourceErrorInfoType {
   GENERIC_SQL_FAILURE = "GENERIC_SQL_FAILURE",
   TIMEOUT = "TIMEOUT",
   UNKNOWN = "UNKNOWN",
-  UNKNOWN_HOST = "UNKNOWN_HOST"
+  UNKNOWN_HOST = "UNKNOWN_HOST",
 }
 
 /**
@@ -2242,140 +2240,140 @@ export enum DataSourceErrorInfoType {
  * 		       <p>The parameters that QuickSight uses to connect to your underlying source. This is a
  * 			variant type structure. At most one of the attributes should be non-null for this structure
  * 			to be valid.</p>
- *
+ * 	
  */
 export interface DataSourceParameters {
   __type?: "DataSourceParameters";
   /**
    *
    * 		       <p>Amazon Elasticsearch parameters.</p>
-   *
+   * 	
    */
   AmazonElasticsearchParameters?: AmazonElasticsearchParameters;
 
   /**
    *
    * 		       <p>Athena parameters.</p>
-   *
+   * 	
    */
   AthenaParameters?: AthenaParameters;
 
   /**
    *
    * 		       <p>Aurora MySQL parameters.</p>
-   *
+   * 	
    */
   AuroraParameters?: AuroraParameters;
 
   /**
    *
    * 		       <p>Aurora PostgreSQL parameters.</p>
-   *
+   * 	
    */
   AuroraPostgreSqlParameters?: AuroraPostgreSqlParameters;
 
   /**
    *
    * 		       <p>AWS IoT Analytics parameters.</p>
-   *
+   * 	
    */
   AwsIotAnalyticsParameters?: AwsIotAnalyticsParameters;
 
   /**
    *
    * 		       <p>Jira parameters.</p>
-   *
+   * 	
    */
   JiraParameters?: JiraParameters;
 
   /**
    *
    * 		       <p>MariaDB parameters.</p>
-   *
+   * 	
    */
   MariaDbParameters?: MariaDbParameters;
 
   /**
    *
    * 		       <p>MySQL parameters.</p>
-   *
+   * 	
    */
   MySqlParameters?: MySqlParameters;
 
   /**
    *
    * 		       <p>PostgreSQL parameters.</p>
-   *
+   * 	
    */
   PostgreSqlParameters?: PostgreSqlParameters;
 
   /**
    *
    * 		       <p>Presto parameters.</p>
-   *
+   * 	
    */
   PrestoParameters?: PrestoParameters;
 
   /**
    *
    * 		       <p>RDS parameters.</p>
-   *
+   * 	
    */
   RdsParameters?: RdsParameters;
 
   /**
    *
    * 		       <p>Redshift parameters.</p>
-   *
+   * 	
    */
   RedshiftParameters?: RedshiftParameters;
 
   /**
    *
    * 		       <p>S3 parameters.</p>
-   *
+   * 	
    */
   S3Parameters?: S3Parameters;
 
   /**
    *
    * 		       <p>ServiceNow parameters.</p>
-   *
+   * 	
    */
   ServiceNowParameters?: ServiceNowParameters;
 
   /**
    *
    * 		       <p>Snowflake parameters.</p>
-   *
+   * 	
    */
   SnowflakeParameters?: SnowflakeParameters;
 
   /**
    *
    * 		       <p>Spark parameters.</p>
-   *
+   * 	
    */
   SparkParameters?: SparkParameters;
 
   /**
    *
    * 		       <p>SQL Server parameters.</p>
-   *
+   * 	
    */
   SqlServerParameters?: SqlServerParameters;
 
   /**
    *
    * 		       <p>Teradata parameters.</p>
-   *
+   * 	
    */
   TeradataParameters?: TeradataParameters;
 
   /**
    *
    * 		       <p>Twitter parameters.</p>
-   *
+   * 	
    */
   TwitterParameters?: TwitterParameters;
 }
@@ -2407,27 +2405,27 @@ export enum DataSourceType {
   SPARK = "SPARK",
   SQLSERVER = "SQLSERVER",
   TERADATA = "TERADATA",
-  TWITTER = "TWITTER"
+  TWITTER = "TWITTER",
 }
 
 /**
  *
  * 		       <p>Date time parameter.</p>
- *
+ * 	
  */
 export interface DateTimeParameter {
   __type?: "DateTimeParameter";
   /**
    *
    * 		       <p>A display name for the dataset.</p>
-   *
+   * 	
    */
   Name: string | undefined;
 
   /**
    *
    * 		       <p>Values.</p>
-   *
+   * 	
    */
   Values: Array<Date> | undefined;
 }
@@ -2441,21 +2439,21 @@ export namespace DateTimeParameter {
 /**
  *
  * 		       <p>Decimal parameter.</p>
- *
+ * 	
  */
 export interface DecimalParameter {
   __type?: "DecimalParameter";
   /**
    *
    * 		       <p>A display name for the dataset.</p>
-   *
+   * 	
    */
   Name: string | undefined;
 
   /**
    *
    * 		       <p>Values.</p>
-   *
+   * 	
    */
   Values: Array<number> | undefined;
 }
@@ -2471,14 +2469,14 @@ export interface DeleteDashboardRequest {
   /**
    *
    * 		       <p>AWS account ID that contains the dashboard you are deleting.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The ID for the dashboard.</p>
-   *
+   * 	
    */
   DashboardId: string | undefined;
 
@@ -2486,7 +2484,7 @@ export interface DeleteDashboardRequest {
    *
    * 		       <p>The version number of the dashboard. If version number property is provided, only the
    * 			specified version of the dashboard is deleted.</p>
-   *
+   * 	
    */
   VersionNumber?: number;
 }
@@ -2502,21 +2500,21 @@ export interface DeleteDashboardResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The Secure Socket Layer (SSL) properties that apply. of the resource.</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>The ID of the dashboard.</p>
-   *
+   * 	
    */
   DashboardId?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -2532,14 +2530,14 @@ export interface DeleteDataSetRequest {
   /**
    *
    * 		       <p>The AWS account ID.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
-   *
+   * 	
    */
   DataSetId: string | undefined;
 }
@@ -2555,21 +2553,21 @@ export interface DeleteDataSetResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
-   *
+   * 	
    */
   DataSetId?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -2585,14 +2583,14 @@ export interface DeleteDataSourceRequest {
   /**
    *
    * 		       <p>The AWS account ID.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
-   *
+   * 	
    */
   DataSourceId: string | undefined;
 }
@@ -2608,21 +2606,21 @@ export interface DeleteDataSourceResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) of the data source that you deleted.</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
-   *
+   * 	
    */
   DataSourceId?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -2639,28 +2637,28 @@ export interface DeleteGroupMembershipRequest {
    *
    * 		       <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS
    * 			account that contains your Amazon QuickSight account.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The name of the group that you want to delete the user from.</p>
-   *
+   * 	
    */
   GroupName: string | undefined;
 
   /**
    *
    * 		       <p>The name of the user that you want to delete from the group membership.</p>
-   *
+   * 	
    */
   MemberName: string | undefined;
 
   /**
    *
    * 		       <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   *
+   * 	
    */
   Namespace: string | undefined;
 }
@@ -2676,7 +2674,7 @@ export interface DeleteGroupMembershipResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -2693,21 +2691,21 @@ export interface DeleteGroupRequest {
    *
    * 		       <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS
    * 			account that contains your Amazon QuickSight account.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The name of the group that you want to delete.</p>
-   *
+   * 	
    */
   GroupName: string | undefined;
 
   /**
    *
    * 		       <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   *
+   * 	
    */
   Namespace: string | undefined;
 }
@@ -2723,7 +2721,7 @@ export interface DeleteGroupResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -2739,21 +2737,21 @@ export interface DeleteIAMPolicyAssignmentRequest {
   /**
    *
    * 		       <p>The name of the assignment. </p>
-   *
+   * 	
    */
   AssignmentName: string | undefined;
 
   /**
    *
    * 		       <p>The AWS account ID where you want to delete an IAM policy assignment.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The namespace that contains the assignment.</p>
-   *
+   * 	
    */
   Namespace: string | undefined;
 }
@@ -2769,14 +2767,14 @@ export interface DeleteIAMPolicyAssignmentResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The name of the assignment. </p>
-   *
+   * 	
    */
   AssignmentName?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -2795,21 +2793,21 @@ export interface DeleteTemplateAliasRequest {
    * 			you delete the version that the alias points to.
    * 			You can specify the latest version of the template by providing the keyword
    * 			<code>$LATEST</code> in the <code>AliasName</code> parameter. </p>
-   *
+   * 	
    */
   AliasName: string | undefined;
 
   /**
    *
    * 		       <p>AWS account ID that contains the template alias you are deleting.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>An ID for the template.</p>
-   *
+   * 	
    */
   TemplateId: string | undefined;
 }
@@ -2825,28 +2823,28 @@ export interface DeleteTemplateAliasResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The name of the alias.</p>
-   *
+   * 	
    */
   AliasName?: string;
 
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) of the resource.</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 
   /**
    *
    * 		       <p>An ID for the template.</p>
-   *
+   * 	
    */
   TemplateId?: string;
 }
@@ -2862,14 +2860,14 @@ export interface DeleteTemplateRequest {
   /**
    *
    * 		       <p>AWS account ID that contains the template you are deleting.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>An ID for the template you want to delete.</p>
-   *
+   * 	
    */
   TemplateId: string | undefined;
 
@@ -2878,7 +2876,7 @@ export interface DeleteTemplateRequest {
    * 		       <p>Specifies the version of the template that you want to delete.
    * 			If you don't provide a version number, <code>DeleteTemplate</code> deletes all versions of the template.
    * 	 </p>
-   *
+   * 	
    */
   VersionNumber?: number;
 }
@@ -2894,21 +2892,21 @@ export interface DeleteTemplateResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) of the resource.</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 
   /**
    *
    * 		       <p>An ID for the template.</p>
-   *
+   * 	
    */
   TemplateId?: string;
 }
@@ -2922,7 +2920,7 @@ export namespace DeleteTemplateResponse {
 /**
  *
  * 		       <p></p>
- *
+ * 	
  */
 export interface DeleteUserByPrincipalIdRequest {
   __type?: "DeleteUserByPrincipalIdRequest";
@@ -2930,21 +2928,21 @@ export interface DeleteUserByPrincipalIdRequest {
    *
    * 		       <p>The ID for the AWS account that the user is in. Currently, you use the ID for the AWS
    * 			account that contains your Amazon QuickSight account.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   *
+   * 	
    */
   Namespace: string | undefined;
 
   /**
    *
    * 		       <p>The principal ID of the user.</p>
-   *
+   * 	
    */
   PrincipalId: string | undefined;
 }
@@ -2960,7 +2958,7 @@ export interface DeleteUserByPrincipalIdResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -2977,21 +2975,21 @@ export interface DeleteUserRequest {
    *
    * 		       <p>The ID for the AWS account that the user is in. Currently, you use the ID for the AWS
    * 			account that contains your Amazon QuickSight account.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   *
+   * 	
    */
   Namespace: string | undefined;
 
   /**
    *
    * 		       <p>The name of the user that you want to delete.</p>
-   *
+   * 	
    */
   UserName: string | undefined;
 }
@@ -3007,7 +3005,7 @@ export interface DeleteUserResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -3023,14 +3021,14 @@ export interface DescribeDashboardPermissionsRequest {
   /**
    *
    * 		       <p>AWS account ID that contains the dashboard you are describing permissions of.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The ID for the dashboard, also added to IAM policy.</p>
-   *
+   * 	
    */
   DashboardId: string | undefined;
 }
@@ -3046,28 +3044,28 @@ export interface DescribeDashboardPermissionsResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) of the dashboard.</p>
-   *
+   * 	
    */
   DashboardArn?: string;
 
   /**
    *
    * 		       <p>The ID for the dashboard.</p>
-   *
+   * 	
    */
   DashboardId?: string;
 
   /**
    *
    * 		       <p>A structure that contains the permissions of the dashboard.</p>
-   *
+   * 	
    */
   Permissions?: Array<ResourcePermission>;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -3083,21 +3081,21 @@ export interface DescribeDashboardRequest {
   /**
    *
    * 		       <p>The alias name.</p>
-   *
+   * 	
    */
   AliasName?: string;
 
   /**
    *
    * 		       <p>AWS account ID that contains the dashboard you are describing.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The ID for the dashboard.</p>
-   *
+   * 	
    */
   DashboardId: string | undefined;
 
@@ -3105,7 +3103,7 @@ export interface DescribeDashboardRequest {
    *
    * 		       <p>The version number for the dashboard. If version number isn’t passed the latest
    * 			published dashboard version is described. </p>
-   *
+   * 	
    */
   VersionNumber?: number;
 }
@@ -3121,14 +3119,14 @@ export interface DescribeDashboardResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>Information about the dashboard.</p>
-   *
+   * 	
    */
   Dashboard?: Dashboard;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -3144,14 +3142,14 @@ export interface DescribeDataSetPermissionsRequest {
   /**
    *
    * 		       <p>The AWS Account ID.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
-   *
+   * 	
    */
   DataSetId: string | undefined;
 }
@@ -3167,28 +3165,28 @@ export interface DescribeDataSetPermissionsResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   *
+   * 	
    */
   DataSetArn?: string;
 
   /**
    *
    * 		       <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
-   *
+   * 	
    */
   DataSetId?: string;
 
   /**
    *
    * 		       <p>A list of resource permissions on the dataset.</p>
-   *
+   * 	
    */
   Permissions?: Array<ResourcePermission>;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -3204,14 +3202,14 @@ export interface DescribeDataSetRequest {
   /**
    *
    * 		       <p>The AWS Account ID.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
-   *
+   * 	
    */
   DataSetId: string | undefined;
 }
@@ -3227,14 +3225,14 @@ export interface DescribeDataSetResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>Information on the dataset.</p>
-   *
+   * 	
    */
   DataSet?: DataSet;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -3250,14 +3248,14 @@ export interface DescribeDataSourcePermissionsRequest {
   /**
    *
    * 		       <p>The AWS account ID.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
-   *
+   * 	
    */
   DataSourceId: string | undefined;
 }
@@ -3273,28 +3271,28 @@ export interface DescribeDataSourcePermissionsResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) of the data source.</p>
-   *
+   * 	
    */
   DataSourceArn?: string;
 
   /**
    *
    * 		       <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
-   *
+   * 	
    */
   DataSourceId?: string;
 
   /**
    *
    * 		       <p>A list of resource permissions on the data source.</p>
-   *
+   * 	
    */
   Permissions?: Array<ResourcePermission>;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -3310,14 +3308,14 @@ export interface DescribeDataSourceRequest {
   /**
    *
    * 		       <p>The AWS account ID.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
-   *
+   * 	
    */
   DataSourceId: string | undefined;
 }
@@ -3333,14 +3331,14 @@ export interface DescribeDataSourceResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The information on the data source.</p>
-   *
+   * 	
    */
   DataSource?: DataSource;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -3357,21 +3355,21 @@ export interface DescribeGroupRequest {
    *
    * 		       <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS
    * 			account that contains your Amazon QuickSight account.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The name of the group that you want to describe.</p>
-   *
+   * 	
    */
   GroupName: string | undefined;
 
   /**
    *
    * 		       <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   *
+   * 	
    */
   Namespace: string | undefined;
 }
@@ -3387,14 +3385,14 @@ export interface DescribeGroupResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The name of the group.</p>
-   *
+   * 	
    */
   Group?: Group;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -3410,21 +3408,21 @@ export interface DescribeIAMPolicyAssignmentRequest {
   /**
    *
    * 		       <p>The name of the assignment. </p>
-   *
+   * 	
    */
   AssignmentName: string | undefined;
 
   /**
    *
    * 		       <p>The AWS account ID that contains the assignment you want to describe.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The namespace that contains the assignment.</p>
-   *
+   * 	
    */
   Namespace: string | undefined;
 }
@@ -3440,14 +3438,14 @@ export interface DescribeIAMPolicyAssignmentResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>Information describing the IAM policy assignment.</p>
-   *
+   * 	
    */
   IAMPolicyAssignment?: IAMPolicyAssignment;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -3463,21 +3461,21 @@ export interface DescribeIngestionRequest {
   /**
    *
    * 		       <p>The AWS account ID.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The ID of the dataset used in the ingestion.</p>
-   *
+   * 	
    */
   DataSetId: string | undefined;
 
   /**
    *
    * 		       <p>An ID for the ingestion.</p>
-   *
+   * 	
    */
   IngestionId: string | undefined;
 }
@@ -3493,14 +3491,14 @@ export interface DescribeIngestionResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>Information about the ingestion.</p>
-   *
+   * 	
    */
   Ingestion?: Ingestion;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -3520,21 +3518,21 @@ export interface DescribeTemplateAliasRequest {
    * 			You can specify the latest version of the template by providing the keyword
    * 			<code>$LATEST</code> in the <code>AliasName</code> parameter.
    * 			The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
-   *
+   * 	
    */
   AliasName: string | undefined;
 
   /**
    *
    * 		       <p>AWS account ID that contains the template alias you are describing.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>An ID for the template.</p>
-   *
+   * 	
    */
   TemplateId: string | undefined;
 }
@@ -3550,14 +3548,14 @@ export interface DescribeTemplateAliasResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 
   /**
    *
    * 		       <p>Information about the template alias.</p>
-   *
+   * 	
    */
   TemplateAlias?: TemplateAlias;
 }
@@ -3573,14 +3571,14 @@ export interface DescribeTemplatePermissionsRequest {
   /**
    *
    * 		       <p>AWS account ID that contains the template you are describing.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The ID for the template.</p>
-   *
+   * 	
    */
   TemplateId: string | undefined;
 }
@@ -3596,28 +3594,28 @@ export interface DescribeTemplatePermissionsResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>A list of resource permissions to be set on the template. </p>
-   *
+   * 	
    */
   Permissions?: Array<ResourcePermission>;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) of the template.</p>
-   *
+   * 	
    */
   TemplateArn?: string;
 
   /**
    *
    * 		       <p>The ID for the template.</p>
-   *
+   * 	
    */
   TemplateId?: string;
 }
@@ -3637,21 +3635,21 @@ export interface DescribeTemplateRequest {
    * 			You can specify the latest version of the template by providing the keyword
    * 			<code>$LATEST</code> in the <code>AliasName</code> parameter.
    * 			The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
-   *
+   * 	
    */
   AliasName?: string;
 
   /**
    *
    * 		       <p>AWS account ID that contains the template you are describing.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>An ID for the template.</p>
-   *
+   * 	
    */
   TemplateId: string | undefined;
 
@@ -3659,7 +3657,7 @@ export interface DescribeTemplateRequest {
    *
    * 		       <p>This is an optional field, when a version number is provided the corresponding version
    * 			is describe, if it's not provided the latest version of the template is described.</p>
-   *
+   * 	
    */
   VersionNumber?: number;
 }
@@ -3675,7 +3673,7 @@ export interface DescribeTemplateResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The template structure of the object you want to describe.</p>
-   *
+   * 	
    */
   Template?: Template;
 }
@@ -3692,21 +3690,21 @@ export interface DescribeUserRequest {
    *
    * 		       <p>The ID for the AWS account that the user is in. Currently, you use the ID for the AWS
    * 			account that contains your Amazon QuickSight account.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   *
+   * 	
    */
   Namespace: string | undefined;
 
   /**
    *
    * 		       <p>The name of the user that you want to describe.</p>
-   *
+   * 	
    */
   UserName: string | undefined;
 }
@@ -3722,14 +3720,14 @@ export interface DescribeUserResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 
   /**
    *
    * 		       <p>The user name.</p>
-   *
+   * 	
    */
   User?: User;
 }
@@ -3744,18 +3742,16 @@ export namespace DescribeUserResponse {
  *
  * 		       <p>The domain specified is not on the allowlist. All domains for embedded dashboards must
  * 			be added to the approved list by an Amazon QuickSight admin.</p>
- *
+ * 	
  */
-export interface DomainNotWhitelistedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DomainNotWhitelistedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DomainNotWhitelistedException";
   $fault: "client";
   Message?: string;
   /**
    *
    * 		       <p>The AWS request ID for this request.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -3769,21 +3765,21 @@ export namespace DomainNotWhitelistedException {
 /**
  *
  * 		       <p>Error information on a data set SPICE ingestion.</p>
- *
+ * 	
  */
 export interface ErrorInfo {
   __type?: "ErrorInfo";
   /**
    *
    * 		       <p>Error essage.</p>
-   *
+   * 	
    */
   Message?: string;
 
   /**
    *
    * 		       <p>Error type.</p>
-   *
+   * 	
    */
   Type?: IngestionErrorType | string;
 }
@@ -3797,14 +3793,14 @@ export namespace ErrorInfo {
 /**
  *
  * 		       <p>Export to CSV option.</p>
- *
+ * 	
  */
 export interface ExportToCSVOption {
   __type?: "ExportToCSVOption";
   /**
    *
    * 		       <p>Availability status.</p>
-   *
+   * 	
    */
   AvailabilityStatus?: DashboardBehavior | string;
 }
@@ -3821,13 +3817,13 @@ export enum FileFormat {
   ELF = "ELF",
   JSON = "JSON",
   TSV = "TSV",
-  XLSX = "XLSX"
+  XLSX = "XLSX",
 }
 
 /**
  *
  * 		       <p>A transform operation that filters rows based on some condition.</p>
- *
+ * 	
  */
 export interface FilterOperation {
   __type?: "FilterOperation";
@@ -3835,7 +3831,7 @@ export interface FilterOperation {
    *
    * 		       <p>An expression that must evaluate to a boolean value. Rows for which the expression is
    * 			evaluated to true are kept in the dataset.</p>
-   *
+   * 	
    */
   ConditionExpression: string | undefined;
 }
@@ -3849,28 +3845,28 @@ export namespace FilterOperation {
 /**
  *
  * 		       <p>Geospatial column group that denotes a hierarchy.</p>
- *
+ * 	
  */
 export interface GeoSpatialColumnGroup {
   __type?: "GeoSpatialColumnGroup";
   /**
    *
    * 		       <p>Columns in this hierarchy.</p>
-   *
+   * 	
    */
   Columns: Array<string> | undefined;
 
   /**
    *
    * 		       <p>Country code.</p>
-   *
+   * 	
    */
   CountryCode: GeoSpatialCountryCode | string | undefined;
 
   /**
    *
    * 		       <p>A display name for the hierarchy.</p>
-   *
+   * 	
    */
   Name: string | undefined;
 }
@@ -3882,7 +3878,7 @@ export namespace GeoSpatialColumnGroup {
 }
 
 export enum GeoSpatialCountryCode {
-  US = "US"
+  US = "US",
 }
 
 export enum GeoSpatialDataRole {
@@ -3892,7 +3888,7 @@ export enum GeoSpatialDataRole {
   LATITUDE = "LATITUDE",
   LONGITUDE = "LONGITUDE",
   POSTCODE = "POSTCODE",
-  STATE = "STATE"
+  STATE = "STATE",
 }
 
 export interface GetDashboardEmbedUrlRequest {
@@ -3900,21 +3896,21 @@ export interface GetDashboardEmbedUrlRequest {
   /**
    *
    * 		       <p>AWS account ID that contains the dashboard you are embedding.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The ID for the dashboard, also added to IAM policy</p>
-   *
+   * 	
    */
   DashboardId: string | undefined;
 
   /**
    *
    * 		       <p>The authentication method the user uses to sign in.</p>
-   *
+   * 	
    */
   IdentityType: IdentityType | string | undefined;
 
@@ -3922,7 +3918,7 @@ export interface GetDashboardEmbedUrlRequest {
    *
    * 		       <p>Remove the reset button on embedded dashboard. The default is FALSE, which allows the
    * 			reset button.</p>
-   *
+   * 	
    */
   ResetDisabled?: boolean;
 
@@ -3930,7 +3926,7 @@ export interface GetDashboardEmbedUrlRequest {
    *
    * 		       <p>How many minutes the session is valid. The session lifetime must be between 15 and 600
    * 			minutes.</p>
-   *
+   * 	
    */
   SessionLifetimeInMinutes?: number;
 
@@ -3938,7 +3934,7 @@ export interface GetDashboardEmbedUrlRequest {
    *
    * 		       <p>Remove the undo/redo button on embedded dashboard. The default is FALSE, which enables
    * 			the undo/redo button.</p>
-   *
+   * 	
    */
   UndoRedoDisabled?: boolean;
 
@@ -3959,7 +3955,7 @@ export interface GetDashboardEmbedUrlRequest {
    * 					Sign-On using SAML, OpenID Connect, or IAM Federation</p>
    * 			         </li>
    *          </ul>
-   *
+   * 	
    */
   UserArn?: string;
 }
@@ -3977,14 +3973,14 @@ export interface GetDashboardEmbedUrlResponse extends $MetadataBearer {
    * 		       <p>URL that you can put into your server-side webpage to embed your dashboard. This URL is
    * 			valid for 5 minutes, and the resulting session is valid for 10 hours. The API provides the
    * 			URL with an auth_code that enables a single-signon session. </p>
-   *
+   * 	
    */
   EmbedUrl?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -4000,35 +3996,35 @@ export namespace GetDashboardEmbedUrlResponse {
  * 		       <p>A <i>group</i> in Amazon QuickSight consists of a set of users. You can
  * 			use groups to make it easier to manage access and security. Currently, an Amazon QuickSight
  * 			subscription can't contain more than 500 Amazon QuickSight groups.</p>
- *
+ * 	
  */
 export interface Group {
   __type?: "Group";
   /**
    *
    * 		       <p>The Amazon Resource name (ARN) for the group.</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>The group description.</p>
-   *
+   * 	
    */
   Description?: string;
 
   /**
    *
    * 		       <p>The name of the group.</p>
-   *
+   * 	
    */
   GroupName?: string;
 
   /**
    *
    * 		       <p>The principal ID of the group.</p>
-   *
+   * 	
    */
   PrincipalId?: string;
 }
@@ -4043,21 +4039,21 @@ export namespace Group {
  *
  * 		       <p>A member of an Amazon QuickSight group. Currently, group members must be users. Groups
  * 			can't be members of another group. .</p>
- *
+ * 	
  */
 export interface GroupMember {
   __type?: "GroupMember";
   /**
    *
    * 		       <p>The Amazon Resource name (ARN) for the group member (user).</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>The name of the group member (user).</p>
-   *
+   * 	
    */
   MemberName?: string;
 }
@@ -4071,49 +4067,49 @@ export namespace GroupMember {
 /**
  *
  * 		       <p>IAM policy assignment.</p>
- *
+ * 	
  */
 export interface IAMPolicyAssignment {
   __type?: "IAMPolicyAssignment";
   /**
    *
    * 		       <p>Assignment ID.</p>
-   *
+   * 	
    */
   AssignmentId?: string;
 
   /**
    *
    * 		       <p>Assignment name.</p>
-   *
+   * 	
    */
   AssignmentName?: string;
 
   /**
    *
    * 		       <p>Assignment status.</p>
-   *
+   * 	
    */
   AssignmentStatus?: AssignmentStatus | string;
 
   /**
    *
    * 		       <p>AWS account ID.</p>
-   *
+   * 	
    */
   AwsAccountId?: string;
 
   /**
    *
    * 		       <p>Identities.</p>
-   *
+   * 	
    */
   Identities?: { [key: string]: Array<string> };
 
   /**
    *
    * 		       <p>Policy Amazon Resource Name (ARN).</p>
-   *
+   * 	
    */
   PolicyArn?: string;
 }
@@ -4127,21 +4123,21 @@ export namespace IAMPolicyAssignment {
 /**
  *
  * 		       <p>IAM policy assignment Summary.</p>
- *
+ * 	
  */
 export interface IAMPolicyAssignmentSummary {
   __type?: "IAMPolicyAssignmentSummary";
   /**
    *
    * 		       <p>Assignment name.</p>
-   *
+   * 	
    */
   AssignmentName?: string;
 
   /**
    *
    * 		       <p>Assignment status.</p>
-   *
+   * 	
    */
   AssignmentStatus?: AssignmentStatus | string;
 }
@@ -4156,18 +4152,16 @@ export namespace IAMPolicyAssignmentSummary {
  *
  * 		       <p>The identity type specified is not supported. Supported identity types include IAM and
  * 			QUICKSIGHT.</p>
- *
+ * 	
  */
-export interface IdentityTypeNotSupportedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface IdentityTypeNotSupportedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "IdentityTypeNotSupportedException";
   $fault: "client";
   Message?: string;
   /**
    *
    * 		       <p>The AWS request ID for this request.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -4181,84 +4175,84 @@ export namespace IdentityTypeNotSupportedException {
 /**
  *
  * 		       <p>Information on the SPICE ingestion for a dataset.</p>
- *
+ * 	
  */
 export interface Ingestion {
   __type?: "Ingestion";
   /**
    *
    * 		       <p>The Amazon Resource name (ARN) of the resource.</p>
-   *
+   * 	
    */
   Arn: string | undefined;
 
   /**
    *
    * 		       <p>The time this ingestion started.</p>
-   *
+   * 	
    */
   CreatedTime: Date | undefined;
 
   /**
    *
    * 		       <p>Error information for this ingestion.</p>
-   *
+   * 	
    */
   ErrorInfo?: ErrorInfo;
 
   /**
    *
    * 		       <p>Ingestion ID.</p>
-   *
+   * 	
    */
   IngestionId?: string;
 
   /**
    *
    * 		       <p>Size of the data ingested in bytes.</p>
-   *
+   * 	
    */
   IngestionSizeInBytes?: number;
 
   /**
    *
    * 		       <p>Ingestion status.</p>
-   *
+   * 	
    */
   IngestionStatus: IngestionStatus | string | undefined;
 
   /**
    *
    * 		       <p>The time this ingestion took, measured in seconds.</p>
-   *
+   * 	
    */
   IngestionTimeInSeconds?: number;
 
   /**
    *
    * 		       <p>Information on queued dataset SPICE ingestion.</p>
-   *
+   * 	
    */
   QueueInfo?: QueueInfo;
 
   /**
    *
    * 		       <p>Event source for this ingestion.</p>
-   *
+   * 	
    */
   RequestSource?: IngestionRequestSource | string;
 
   /**
    *
    * 		       <p>Type of this ingestion.</p>
-   *
+   * 	
    */
   RequestType?: IngestionRequestType | string;
 
   /**
    *
    * 		       <p>Information on rows during a data set SPICE ingestion.</p>
-   *
+   * 	
    */
   RowInfo?: RowInfo;
 }
@@ -4309,19 +4303,19 @@ export enum IngestionErrorType {
   SQL_TABLE_NOT_FOUND = "SQL_TABLE_NOT_FOUND",
   SSL_CERTIFICATE_VALIDATION_FAILURE = "SSL_CERTIFICATE_VALIDATION_FAILURE",
   UNRESOLVABLE_HOST = "UNRESOLVABLE_HOST",
-  UNROUTABLE_HOST = "UNROUTABLE_HOST"
+  UNROUTABLE_HOST = "UNROUTABLE_HOST",
 }
 
 export enum IngestionRequestSource {
   MANUAL = "MANUAL",
-  SCHEDULED = "SCHEDULED"
+  SCHEDULED = "SCHEDULED",
 }
 
 export enum IngestionRequestType {
   EDIT = "EDIT",
   FULL_REFRESH = "FULL_REFRESH",
   INCREMENTAL_REFRESH = "INCREMENTAL_REFRESH",
-  INITIAL_INGESTION = "INITIAL_INGESTION"
+  INITIAL_INGESTION = "INITIAL_INGESTION",
 }
 
 export enum IngestionStatus {
@@ -4330,27 +4324,27 @@ export enum IngestionStatus {
   FAILED = "FAILED",
   INITIALIZED = "INITIALIZED",
   QUEUED = "QUEUED",
-  RUNNING = "RUNNING"
+  RUNNING = "RUNNING",
 }
 
 /**
  *
  * 		       <p>Metadata on a column that is used as the input of a transform operation.</p>
- *
+ * 	
  */
 export interface InputColumn {
   __type?: "InputColumn";
   /**
    *
    * 		       <p>The name of this column in the underlying data source.</p>
-   *
+   * 	
    */
   Name: string | undefined;
 
   /**
    *
    * 		       <p>The data type of the column.</p>
-   *
+   * 	
    */
   Type: InputColumnDataType | string | undefined;
 }
@@ -4368,27 +4362,27 @@ export enum InputColumnDataType {
   DECIMAL = "DECIMAL",
   INTEGER = "INTEGER",
   JSON = "JSON",
-  STRING = "STRING"
+  STRING = "STRING",
 }
 
 /**
  *
  * 		       <p>Integer parameter.</p>
- *
+ * 	
  */
 export interface IntegerParameter {
   __type?: "IntegerParameter";
   /**
    *
    * 		       <p>A display name for the dataset.</p>
-   *
+   * 	
    */
   Name: string | undefined;
 
   /**
    *
    * 		       <p>Values.</p>
-   *
+   * 	
    */
   Values: Array<number> | undefined;
 }
@@ -4402,14 +4396,14 @@ export namespace IntegerParameter {
 /**
  *
  * 		       <p>Jira parameters.</p>
- *
+ * 	
  */
 export interface JiraParameters {
   __type?: "JiraParameters";
   /**
    *
    * 		       <p>The base URL of the Jira site.</p>
-   *
+   * 	
    */
   SiteBaseUrl: string | undefined;
 }
@@ -4423,35 +4417,35 @@ export namespace JiraParameters {
 /**
  *
  * 		       <p>Join instruction.</p>
- *
+ * 	
  */
 export interface JoinInstruction {
   __type?: "JoinInstruction";
   /**
    *
    * 		       <p>Left operand.</p>
-   *
+   * 	
    */
   LeftOperand: string | undefined;
 
   /**
    *
    * 		       <p>On Clause.</p>
-   *
+   * 	
    */
   OnClause: string | undefined;
 
   /**
    *
    * 		       <p>Right operand.</p>
-   *
+   * 	
    */
   RightOperand: string | undefined;
 
   /**
    *
    * 		       <p>Type.</p>
-   *
+   * 	
    */
   Type: JoinType | string | undefined;
 }
@@ -4466,7 +4460,7 @@ export enum JoinType {
   INNER = "INNER",
   LEFT = "LEFT",
   OUTER = "OUTER",
-  RIGHT = "RIGHT"
+  RIGHT = "RIGHT",
 }
 
 export interface ListDashboardVersionsRequest {
@@ -4474,28 +4468,28 @@ export interface ListDashboardVersionsRequest {
   /**
    *
    * 		       <p>AWS account ID that contains the dashboard you are listing.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The ID for the dashboard.</p>
-   *
+   * 	
    */
   DashboardId: string | undefined;
 
   /**
    *
    * 		       <p>The maximum number of results to be returned per request.</p>
-   *
+   * 	
    */
   MaxResults?: number;
 
   /**
    *
    * 		       <p>The token for the next set of results, or null if there are no more results.</p>
-   *
+   * 	
    */
   NextToken?: string;
 }
@@ -4511,21 +4505,21 @@ export interface ListDashboardVersionsResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>A structure that contains information about each version of the dashboard.</p>
-   *
+   * 	
    */
   DashboardVersionSummaryList?: Array<DashboardVersionSummary>;
 
   /**
    *
    * 		       <p>The token for the next set of results, or null if there are no more results.</p>
-   *
+   * 	
    */
   NextToken?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -4541,21 +4535,21 @@ export interface ListDashboardsRequest {
   /**
    *
    * 		       <p>AWS account ID that contains the dashboards you are listing.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The maximum number of results to be returned per request.</p>
-   *
+   * 	
    */
   MaxResults?: number;
 
   /**
    *
    * 		       <p>The token for the next set of results, or null if there are no more results.</p>
-   *
+   * 	
    */
   NextToken?: string;
 }
@@ -4571,21 +4565,21 @@ export interface ListDashboardsResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>A structure that contains all of the dashboards shared with the user. Provides basic information about the dashboards.</p>
-   *
+   * 	
    */
   DashboardSummaryList?: Array<DashboardSummary>;
 
   /**
    *
    * 		       <p>The token for the next set of results, or null if there are no more results.</p>
-   *
+   * 	
    */
   NextToken?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -4601,21 +4595,21 @@ export interface ListDataSetsRequest {
   /**
    *
    * 		       <p>The AWS Account ID.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The maximum number of results to be returned per request.</p>
-   *
+   * 	
    */
   MaxResults?: number;
 
   /**
    *
    * 		       <p>The token for the next set of results, or null if there are no more results.</p>
-   *
+   * 	
    */
   NextToken?: string;
 }
@@ -4631,21 +4625,21 @@ export interface ListDataSetsResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The list of dataset summaries.</p>
-   *
+   * 	
    */
   DataSetSummaries?: Array<DataSetSummary>;
 
   /**
    *
    * 		       <p>The token for the next set of results, or null if there are no more results.</p>
-   *
+   * 	
    */
   NextToken?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -4661,21 +4655,21 @@ export interface ListDataSourcesRequest {
   /**
    *
    * 		       <p>The AWS account ID.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The maximum number of results to be returned per request.</p>
-   *
+   * 	
    */
   MaxResults?: number;
 
   /**
    *
    * 		       <p>The token for the next set of results, or null if there are no more results.</p>
-   *
+   * 	
    */
   NextToken?: string;
 }
@@ -4691,21 +4685,21 @@ export interface ListDataSourcesResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>A list of data sources.</p>
-   *
+   * 	
    */
   DataSources?: Array<DataSource>;
 
   /**
    *
    * 		       <p>The token for the next set of results, or null if there are no more results.</p>
-   *
+   * 	
    */
   NextToken?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -4722,35 +4716,35 @@ export interface ListGroupMembershipsRequest {
    *
    * 		       <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS
    * 			account that contains your Amazon QuickSight account.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The name of the group that you want to see a membership list of.</p>
-   *
+   * 	
    */
   GroupName: string | undefined;
 
   /**
    *
    * 		       <p>The maximum number of results to return from this request.</p>
-   *
+   * 	
    */
   MaxResults?: number;
 
   /**
    *
    * 		       <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   *
+   * 	
    */
   Namespace: string | undefined;
 
   /**
    *
    * 		       <p>A pagination token that can be used in a subsequent request.</p>
-   *
+   * 	
    */
   NextToken?: string;
 }
@@ -4766,21 +4760,21 @@ export interface ListGroupMembershipsResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The list of the members of the group.</p>
-   *
+   * 	
    */
   GroupMemberList?: Array<GroupMember>;
 
   /**
    *
    * 		       <p>A pagination token that can be used in a subsequent request.</p>
-   *
+   * 	
    */
   NextToken?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -4797,28 +4791,28 @@ export interface ListGroupsRequest {
    *
    * 		       <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS
    * 			account that contains your Amazon QuickSight account.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The maximum number of results to return.</p>
-   *
+   * 	
    */
   MaxResults?: number;
 
   /**
    *
    * 		       <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   *
+   * 	
    */
   Namespace: string | undefined;
 
   /**
    *
    * 		       <p>A pagination token that can be used in a subsequent request.</p>
-   *
+   * 	
    */
   NextToken?: string;
 }
@@ -4834,21 +4828,21 @@ export interface ListGroupsResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The list of the groups.</p>
-   *
+   * 	
    */
   GroupList?: Array<Group>;
 
   /**
    *
    * 		       <p>A pagination token that can be used in a subsequent request.</p>
-   *
+   * 	
    */
   NextToken?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -4864,35 +4858,35 @@ export interface ListIAMPolicyAssignmentsForUserRequest {
   /**
    *
    * 		       <p>The AWS account ID that contains the assignment.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The maximum number of results to be returned per request.</p>
-   *
+   * 	
    */
   MaxResults?: number;
 
   /**
    *
    * 		       <p>The namespace of the assignment.</p>
-   *
+   * 	
    */
   Namespace: string | undefined;
 
   /**
    *
    * 		       <p>The token for the next set of results, or null if there are no more results.</p>
-   *
+   * 	
    */
   NextToken?: string;
 
   /**
    *
    * 		       <p>The name of the user.</p>
-   *
+   * 	
    */
   UserName: string | undefined;
 }
@@ -4903,27 +4897,26 @@ export namespace ListIAMPolicyAssignmentsForUserRequest {
   }
 }
 
-export interface ListIAMPolicyAssignmentsForUserResponse
-  extends $MetadataBearer {
+export interface ListIAMPolicyAssignmentsForUserResponse extends $MetadataBearer {
   __type?: "ListIAMPolicyAssignmentsForUserResponse";
   /**
    *
    * 		       <p>Active assignments for this user.</p>
-   *
+   * 	
    */
   ActiveAssignments?: Array<ActiveIAMPolicyAssignment>;
 
   /**
    *
    * 		       <p>The token for the next set of results, or null if there are no more results.</p>
-   *
+   * 	
    */
   NextToken?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -4939,35 +4932,35 @@ export interface ListIAMPolicyAssignmentsRequest {
   /**
    *
    * 		       <p>The status of the assignment.</p>
-   *
+   * 	
    */
   AssignmentStatus?: AssignmentStatus | string;
 
   /**
    *
    * 		       <p>The AWS account ID that contains this IAM policy assignment.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The maximum number of results to be returned per request.</p>
-   *
+   * 	
    */
   MaxResults?: number;
 
   /**
    *
    * 		       <p>The namespace for this assignment.</p>
-   *
+   * 	
    */
   Namespace: string | undefined;
 
   /**
    *
    * 		       <p>The token for the next set of results, or null if there are no more results.</p>
-   *
+   * 	
    */
   NextToken?: string;
 }
@@ -4983,21 +4976,21 @@ export interface ListIAMPolicyAssignmentsResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>Information describing the IAM policy assignments.</p>
-   *
+   * 	
    */
   IAMPolicyAssignments?: Array<IAMPolicyAssignmentSummary>;
 
   /**
    *
    * 		       <p>The token for the next set of results, or null if there are no more results.</p>
-   *
+   * 	
    */
   NextToken?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -5013,28 +5006,28 @@ export interface ListIngestionsRequest {
   /**
    *
    * 		       <p>The AWS account ID.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The ID of the dataset used in the ingestion.</p>
-   *
+   * 	
    */
   DataSetId: string | undefined;
 
   /**
    *
    * 		       <p>The maximum number of results to be returned per request.</p>
-   *
+   * 	
    */
   MaxResults?: number;
 
   /**
    *
    * 		       <p>The token for the next set of results, or null if there are no more results.</p>
-   *
+   * 	
    */
   NextToken?: string;
 }
@@ -5050,21 +5043,21 @@ export interface ListIngestionsResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>A list of the ingestions.</p>
-   *
+   * 	
    */
   Ingestions?: Array<Ingestion>;
 
   /**
    *
    * 		       <p>The token for the next set of results, or null if there are no more results.</p>
-   *
+   * 	
    */
   NextToken?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -5080,7 +5073,7 @@ export interface ListTagsForResourceRequest {
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) of the resource that you want a list of tags for.</p>
-   *
+   * 	
    */
   ResourceArn: string | undefined;
 }
@@ -5096,7 +5089,7 @@ export interface ListTagsForResourceResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 
@@ -5104,7 +5097,7 @@ export interface ListTagsForResourceResponse extends $MetadataBearer {
    *
    * 		       <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
    * 			resource.</p>
-   *
+   * 	
    */
   Tags?: Array<Tag>;
 }
@@ -5120,28 +5113,28 @@ export interface ListTemplateAliasesRequest {
   /**
    *
    * 		       <p>AWS account ID that contains the template aliases you are listing.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The maximum number of results to be returned per request.</p>
-   *
+   * 	
    */
   MaxResults?: number;
 
   /**
    *
    * 		       <p>The token for the next set of results, or null if there are no more results.</p>
-   *
+   * 	
    */
   NextToken?: string;
 
   /**
    *
    * 		       <p>The ID for the template.</p>
-   *
+   * 	
    */
   TemplateId: string | undefined;
 }
@@ -5157,21 +5150,21 @@ export interface ListTemplateAliasesResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The token for the next set of results, or null if there are no more results.</p>
-   *
+   * 	
    */
   NextToken?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 
   /**
    *
    * 		       <p>A structure containing the list of the template's aliases.</p>
-   *
+   * 	
    */
   TemplateAliasList?: Array<TemplateAlias>;
 }
@@ -5187,28 +5180,28 @@ export interface ListTemplateVersionsRequest {
   /**
    *
    * 		       <p>AWS account ID that contains the templates you are listing.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The maximum number of results to be returned per request.</p>
-   *
+   * 	
    */
   MaxResults?: number;
 
   /**
    *
    * 		       <p>The token for the next set of results, or null if there are no more results.</p>
-   *
+   * 	
    */
   NextToken?: string;
 
   /**
    *
    * 		       <p>The ID for the template.</p>
-   *
+   * 	
    */
   TemplateId: string | undefined;
 }
@@ -5224,21 +5217,21 @@ export interface ListTemplateVersionsResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The token for the next set of results, or null if there are no more results.</p>
-   *
+   * 	
    */
   NextToken?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 
   /**
    *
    * 		       <p>A structure containing a list of all the versions of the specified template.</p>
-   *
+   * 	
    */
   TemplateVersionSummaryList?: Array<TemplateVersionSummary>;
 }
@@ -5254,21 +5247,21 @@ export interface ListTemplatesRequest {
   /**
    *
    * 		       <p>AWS account ID that contains the templates you are listing.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The maximum number of results to be returned per request.</p>
-   *
+   * 	
    */
   MaxResults?: number;
 
   /**
    *
    * 		       <p>The token for the next set of results, or null if there are no more results.</p>
-   *
+   * 	
    */
   NextToken?: string;
 }
@@ -5284,21 +5277,21 @@ export interface ListTemplatesResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The token for the next set of results, or null if there are no more results.</p>
-   *
+   * 	
    */
   NextToken?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 
   /**
    *
    * 		       <p>A structure containing information about the templates in the list.</p>
-   *
+   * 	
    */
   TemplateSummaryList?: Array<TemplateSummary>;
 }
@@ -5315,35 +5308,35 @@ export interface ListUserGroupsRequest {
    *
    * 		       <p>The AWS Account ID that the user is in. Currently, you use the ID for the AWS account
    * 			that contains your Amazon QuickSight account.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The maximum number of results to return from this request.</p>
-   *
+   * 	
    */
   MaxResults?: number;
 
   /**
    *
    * 		       <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   *
+   * 	
    */
   Namespace: string | undefined;
 
   /**
    *
    * 		       <p>A pagination token that can be used in a subsequent request.</p>
-   *
+   * 	
    */
   NextToken?: string;
 
   /**
    *
    * 		       <p>The Amazon QuickSight user name that you want to list group memberships for.</p>
-   *
+   * 	
    */
   UserName: string | undefined;
 }
@@ -5359,21 +5352,21 @@ export interface ListUserGroupsResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The list of groups the user is a member of.</p>
-   *
+   * 	
    */
   GroupList?: Array<Group>;
 
   /**
    *
    * 		       <p>A pagination token that can be used in a subsequent request.</p>
-   *
+   * 	
    */
   NextToken?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -5390,28 +5383,28 @@ export interface ListUsersRequest {
    *
    * 		       <p>The ID for the AWS account that the user is in. Currently, you use the ID for the AWS
    * 			account that contains your Amazon QuickSight account.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The maximum number of results to return from this request.</p>
-   *
+   * 	
    */
   MaxResults?: number;
 
   /**
    *
    * 		       <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   *
+   * 	
    */
   Namespace: string | undefined;
 
   /**
    *
    * 		       <p>A pagination token that can be used in a subsequent request.</p>
-   *
+   * 	
    */
   NextToken?: string;
 }
@@ -5427,21 +5420,21 @@ export interface ListUsersResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>A pagination token that can be used in a subsequent request.</p>
-   *
+   * 	
    */
   NextToken?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 
   /**
    *
    * 		       <p>The list of users.</p>
-   *
+   * 	
    */
   UserList?: Array<User>;
 }
@@ -5458,28 +5451,28 @@ export namespace ListUsersResponse {
  * 			which can be either a physical table or result of a join. When it points to a physical
  * 			table, a logical table acts as a mutable copy of that table through transform
  * 			operations.</p>
- *
+ * 	
  */
 export interface LogicalTable {
   __type?: "LogicalTable";
   /**
    *
    * 		       <p>A display name for the logical table.</p>
-   *
+   * 	
    */
   Alias: string | undefined;
 
   /**
    *
    * 		       <p>Transform operations that act on this logical table.</p>
-   *
+   * 	
    */
   DataTransforms?: Array<TransformOperation>;
 
   /**
    *
    * 		       <p>Source of this logical table.</p>
-   *
+   * 	
    */
   Source: LogicalTableSource | undefined;
 }
@@ -5494,21 +5487,21 @@ export namespace LogicalTable {
  *
  * 		       <p>Information on the source of a logical table. This is a variant type structure. No more
  * 			than one of the attributes should be non-null for this structure to be valid.</p>
- *
+ * 	
  */
 export interface LogicalTableSource {
   __type?: "LogicalTableSource";
   /**
    *
    * 		       <p>Specifies the result of a join of two logical tables.</p>
-   *
+   * 	
    */
   JoinInstruction?: JoinInstruction;
 
   /**
    *
    * 		       <p>Physical table ID.</p>
-   *
+   * 	
    */
   PhysicalTableId?: string;
 }
@@ -5522,21 +5515,21 @@ export namespace LogicalTableSource {
 /**
  *
  * 		       <p>Amazon S3 manifest file location.</p>
- *
+ * 	
  */
 export interface ManifestFileLocation {
   __type?: "ManifestFileLocation";
   /**
    *
    * 		       <p>Amazon S3 bucket.</p>
-   *
+   * 	
    */
   Bucket: string | undefined;
 
   /**
    *
    * 		       <p>Amazon S3 key that identifies an object.</p>
-   *
+   * 	
    */
   Key: string | undefined;
 }
@@ -5550,28 +5543,28 @@ export namespace ManifestFileLocation {
 /**
  *
  * 		       <p>MariaDB parameters.</p>
- *
+ * 	
  */
 export interface MariaDbParameters {
   __type?: "MariaDbParameters";
   /**
    *
    * 		       <p>Database.</p>
-   *
+   * 	
    */
   Database: string | undefined;
 
   /**
    *
    * 		       <p>Host.</p>
-   *
+   * 	
    */
   Host: string | undefined;
 
   /**
    *
    * 		       <p>Port.</p>
-   *
+   * 	
    */
   Port: number | undefined;
 }
@@ -5585,28 +5578,28 @@ export namespace MariaDbParameters {
 /**
  *
  * 		       <p>MySQL parameters.</p>
- *
+ * 	
  */
 export interface MySqlParameters {
   __type?: "MySqlParameters";
   /**
    *
    * 		       <p>Database.</p>
-   *
+   * 	
    */
   Database: string | undefined;
 
   /**
    *
    * 		       <p>Host.</p>
-   *
+   * 	
    */
   Host: string | undefined;
 
   /**
    *
    * 		       <p>Port.</p>
-   *
+   * 	
    */
   Port: number | undefined;
 }
@@ -5620,21 +5613,21 @@ export namespace MySqlParameters {
 /**
  *
  * 		       <p>Output column.</p>
- *
+ * 	
  */
 export interface OutputColumn {
   __type?: "OutputColumn";
   /**
    *
    * 		       <p>A display name for the dataset.</p>
-   *
+   * 	
    */
   Name?: string;
 
   /**
    *
    * 		       <p>Type.</p>
-   *
+   * 	
    */
   Type?: ColumnDataType | string;
 }
@@ -5648,35 +5641,35 @@ export namespace OutputColumn {
 /**
  *
  * 		       <p>Parameters.</p>
- *
+ * 	
  */
 export interface _Parameters {
   __type?: "Parameters";
   /**
    *
    * 		       <p>DateTime parameters.</p>
-   *
+   * 	
    */
   DateTimeParameters?: Array<DateTimeParameter>;
 
   /**
    *
    * 		       <p>Decimal parameters.</p>
-   *
+   * 	
    */
   DecimalParameters?: Array<DecimalParameter>;
 
   /**
    *
    * 		       <p>Integer parameters.</p>
-   *
+   * 	
    */
   IntegerParameters?: Array<IntegerParameter>;
 
   /**
    *
    * 		       <p>String parameters.</p>
-   *
+   * 	
    */
   StringParameters?: Array<StringParameter>;
 }
@@ -5692,28 +5685,28 @@ export namespace _Parameters {
  * 		       <p>A view of a data source. Contains information on the shape of the data in the underlying
  * 			source. This is a variant type structure. No more than one of the attributes can be
  * 			non-null for this structure to be valid.</p>
- *
+ * 	
  */
 export interface PhysicalTable {
   __type?: "PhysicalTable";
   /**
    *
    * 		       <p>A physical table type built from the results of the custom SQL query.</p>
-   *
+   * 	
    */
   CustomSql?: CustomSql;
 
   /**
    *
    * 		       <p>A physical table type for relational data sources.</p>
-   *
+   * 	
    */
   RelationalTable?: RelationalTable;
 
   /**
    *
    * 		       <p>A physical table type for as S3 data source.</p>
-   *
+   * 	
    */
   S3Source?: S3Source;
 }
@@ -5727,28 +5720,28 @@ export namespace PhysicalTable {
 /**
  *
  * 		       <p>PostgreSQL parameters.</p>
- *
+ * 	
  */
 export interface PostgreSqlParameters {
   __type?: "PostgreSqlParameters";
   /**
    *
    * 		       <p>Database.</p>
-   *
+   * 	
    */
   Database: string | undefined;
 
   /**
    *
    * 		       <p>Host.</p>
-   *
+   * 	
    */
   Host: string | undefined;
 
   /**
    *
    * 		       <p>Port.</p>
-   *
+   * 	
    */
   Port: number | undefined;
 }
@@ -5762,28 +5755,28 @@ export namespace PostgreSqlParameters {
 /**
  *
  * 		       <p>Presto parameters.</p>
- *
+ * 	
  */
 export interface PrestoParameters {
   __type?: "PrestoParameters";
   /**
    *
    * 		       <p>Catalog.</p>
-   *
+   * 	
    */
   Catalog: string | undefined;
 
   /**
    *
    * 		       <p>Host.</p>
-   *
+   * 	
    */
   Host: string | undefined;
 
   /**
    *
    * 		       <p>Port.</p>
-   *
+   * 	
    */
   Port: number | undefined;
 }
@@ -5798,14 +5791,14 @@ export namespace PrestoParameters {
  *
  * 		       <p>A transform operation that projects columns. Operations that come after a projection can
  * 			only refer to projected columns.</p>
- *
+ * 	
  */
 export interface ProjectOperation {
   __type?: "ProjectOperation";
   /**
    *
    * 		       <p>Projected columns.</p>
-   *
+   * 	
    */
   ProjectedColumns: Array<string> | undefined;
 }
@@ -5819,7 +5812,7 @@ export namespace ProjectOperation {
 /**
  *
  * 		       <p>Information on queued dataset SPICE ingestion.</p>
- *
+ * 	
  */
 export interface QueueInfo {
   __type?: "QueueInfo";
@@ -5827,14 +5820,14 @@ export interface QueueInfo {
    *
    * 		       <p>The ID of the ongoing ingestion. The queued ingestion is waiting for the ongoing
    * 			ingestion to complete.</p>
-   *
+   * 	
    */
   QueuedIngestion: string | undefined;
 
   /**
    *
    * 		       <p>The ID of the queued ingestion.</p>
-   *
+   * 	
    */
   WaitingOnIngestion: string | undefined;
 }
@@ -5850,18 +5843,16 @@ export namespace QueueInfo {
  * 		       <p>The user is not found. This error can happen in any operation that requires finding a
  * 			user based on a provided user name, such as <code>DeleteUser</code>,
  * 			<code>DescribeUser</code>, and so on.</p>
- *
+ * 	
  */
-export interface QuickSightUserNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface QuickSightUserNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "QuickSightUserNotFoundException";
   $fault: "client";
   Message?: string;
   /**
    *
    * 		       <p>The AWS request ID for this request.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -5875,21 +5866,21 @@ export namespace QuickSightUserNotFoundException {
 /**
  *
  * 		       <p>RDS parameters.</p>
- *
+ * 	
  */
 export interface RdsParameters {
   __type?: "RdsParameters";
   /**
    *
    * 		       <p>Database.</p>
-   *
+   * 	
    */
   Database: string | undefined;
 
   /**
    *
    * 		       <p>Instance ID.</p>
-   *
+   * 	
    */
   InstanceId: string | undefined;
 }
@@ -5904,7 +5895,7 @@ export namespace RdsParameters {
  *
  * 		       <p>Redshift parameters. The <code>ClusterId</code> field can be blank if <code>Host</code>
  * 			and <code>Port</code> are both set, and the other way around.</p>
- *
+ * 	
  */
 export interface RedshiftParameters {
   __type?: "RedshiftParameters";
@@ -5912,28 +5903,28 @@ export interface RedshiftParameters {
    *
    * 		       <p>Cluster ID. This can be blank if the <code>Host</code> and <code>Port</code> are
    * 			provided.</p>
-   *
+   * 	
    */
   ClusterId?: string;
 
   /**
    *
    * 		       <p>Database.</p>
-   *
+   * 	
    */
   Database: string | undefined;
 
   /**
    *
    * 		       <p>Host. This can be blank if the <code>ClusterId</code> is provided.</p>
-   *
+   * 	
    */
   Host?: string;
 
   /**
    *
    * 		       <p>Port. This can be blank if the <code>ClusterId</code> is provided.</p>
-   *
+   * 	
    */
   Port?: number;
 }
@@ -5950,21 +5941,21 @@ export interface RegisterUserRequest {
    *
    * 		       <p>The ID for the AWS account that the user is in. Currently, you use the ID for the AWS
    * 			account that contains your Amazon QuickSight account.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The email address of the user that you want to register.</p>
-   *
+   * 	
    */
   Email: string | undefined;
 
   /**
    *
    * 		       <p>The ARN of the IAM user or role that you are registering with Amazon QuickSight. </p>
-   *
+   * 	
    */
   IamArn?: string;
 
@@ -5984,14 +5975,14 @@ export interface RegisterUserRequest {
    * 					Amazon QuickSight. </p>
    * 			         </li>
    *          </ul>
-   *
+   * 	
    */
   IdentityType: IdentityType | string | undefined;
 
   /**
    *
    * 		       <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   *
+   * 	
    */
   Namespace: string | undefined;
 
@@ -6005,7 +5996,7 @@ export interface RegisterUserRequest {
    *                <code>assume-role</code>
    *             </a> in the <i>AWS CLI Reference.</i>
    *          </p>
-   *
+   * 	
    */
   SessionName?: string;
 
@@ -6013,7 +6004,7 @@ export interface RegisterUserRequest {
    *
    * 		       <p>The Amazon QuickSight user name that you want to create for the user you are
    * 			registering.</p>
-   *
+   * 	
    */
   UserName?: string;
 
@@ -6047,7 +6038,7 @@ export interface RegisterUserRequest {
    * 					use.</p>
    * 			         </li>
    *          </ul>
-   *
+   * 	
    */
   UserRole: UserRole | string | undefined;
 }
@@ -6063,14 +6054,14 @@ export interface RegisterUserResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 
   /**
    *
    * 		       <p>The user name.</p>
-   *
+   * 	
    */
   User?: User;
 
@@ -6078,7 +6069,7 @@ export interface RegisterUserResponse extends $MetadataBearer {
    *
    * 		       <p>The URL the user visits to complete registration and provide a password. This is
    * 			returned only for users with an identity type of <code>QUICKSIGHT</code>.</p>
-   *
+   * 	
    */
   UserInvitationUrl?: string;
 }
@@ -6092,35 +6083,35 @@ export namespace RegisterUserResponse {
 /**
  *
  * 		       <p>A physical table type for relational data sources.</p>
- *
+ * 	
  */
 export interface RelationalTable {
   __type?: "RelationalTable";
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) for the data source.</p>
-   *
+   * 	
    */
   DataSourceArn: string | undefined;
 
   /**
    *
    * 		       <p>The column schema of the table.</p>
-   *
+   * 	
    */
   InputColumns: Array<InputColumn> | undefined;
 
   /**
    *
    * 		       <p>Name of the relational table.</p>
-   *
+   * 	
    */
   Name: string | undefined;
 
   /**
    *
    * 		       <p>The schema name. Applies to certain relational database engines.</p>
-   *
+   * 	
    */
   Schema?: string;
 }
@@ -6134,21 +6125,21 @@ export namespace RelationalTable {
 /**
  *
  * 		       <p>A transform operation that renames a column.</p>
- *
+ * 	
  */
 export interface RenameColumnOperation {
   __type?: "RenameColumnOperation";
   /**
    *
    * 		       <p>Name of the column to be renamed.</p>
-   *
+   * 	
    */
   ColumnName: string | undefined;
 
   /**
    *
    * 		       <p>New name for the column.</p>
-   *
+   * 	
    */
   NewColumnName: string | undefined;
 }
@@ -6162,21 +6153,21 @@ export namespace RenameColumnOperation {
 /**
  *
  * 		       <p>Information on rows during a data set SPICE ingestion.</p>
- *
+ * 	
  */
 export interface RowInfo {
   __type?: "RowInfo";
   /**
    *
    * 		       <p>The number of rows that were not ingested.</p>
-   *
+   * 	
    */
   RowsDropped?: number;
 
   /**
    *
    * 		       <p>The number of rows that were ingested.</p>
-   *
+   * 	
    */
   RowsIngested?: number;
 }
@@ -6190,21 +6181,21 @@ export namespace RowInfo {
 /**
  *
  * 		       <p>Row-level security configuration on the dataset.</p>
- *
+ * 	
  */
 export interface RowLevelPermissionDataSet {
   __type?: "RowLevelPermissionDataSet";
   /**
    *
    * 		       <p>The Amazon Resource name (ARN) of the permission dataset.</p>
-   *
+   * 	
    */
   Arn: string | undefined;
 
   /**
    *
    * 		       <p>Permission policy.</p>
-   *
+   * 	
    */
   PermissionPolicy: RowLevelPermissionPolicy | string | undefined;
 }
@@ -6217,13 +6208,13 @@ export namespace RowLevelPermissionDataSet {
 
 export enum RowLevelPermissionPolicy {
   DENY_ACCESS = "DENY_ACCESS",
-  GRANT_ACCESS = "GRANT_ACCESS"
+  GRANT_ACCESS = "GRANT_ACCESS",
 }
 
 /**
  *
  * 		       <p>S3 parameters.</p>
- *
+ * 	
  */
 export interface S3Parameters {
   __type?: "S3Parameters";
@@ -6231,7 +6222,7 @@ export interface S3Parameters {
    *
    * 		       <p>Location of the Amazon S3 manifest file. This is NULL if the manifest file was uploaded
    * 			in the console.</p>
-   *
+   * 	
    */
   ManifestFileLocation: ManifestFileLocation | undefined;
 }
@@ -6245,28 +6236,28 @@ export namespace S3Parameters {
 /**
  *
  * 		       <p>A physical table type for as S3 data source.</p>
- *
+ * 	
  */
 export interface S3Source {
   __type?: "S3Source";
   /**
    *
    * 		       <p>Data source ARN.</p>
-   *
+   * 	
    */
   DataSourceArn: string | undefined;
 
   /**
    *
    * 		       <p>A physical table type for as S3 data source.</p>
-   *
+   * 	
    */
   InputColumns: Array<InputColumn> | undefined;
 
   /**
    *
    * 		       <p>Information on the S3 source file(s) format.</p>
-   *
+   * 	
    */
   UploadSettings?: UploadSettings;
 }
@@ -6280,14 +6271,14 @@ export namespace S3Source {
 /**
  *
  * 		       <p>ServiceNow parameters.</p>
- *
+ * 	
  */
 export interface ServiceNowParameters {
   __type?: "ServiceNowParameters";
   /**
    *
    * 		       <p>URL of the base site.</p>
-   *
+   * 	
    */
   SiteBaseUrl: string | undefined;
 }
@@ -6302,18 +6293,16 @@ export namespace ServiceNowParameters {
  *
  * 		       <p>The number of minutes specified for the lifetime of a session is not valid. The session
  * 			lifetime must be from 15 to 600 minutes.</p>
- *
+ * 	
  */
-export interface SessionLifetimeInMinutesInvalidException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface SessionLifetimeInMinutesInvalidException extends _smithy.SmithyException, $MetadataBearer {
   __type: "SessionLifetimeInMinutesInvalidException";
   $fault: "client";
   Message?: string;
   /**
    *
    * 		       <p>The AWS request ID for this request.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -6327,14 +6316,14 @@ export namespace SessionLifetimeInMinutesInvalidException {
 /**
  *
  * 		       <p>Sheet controls option.</p>
- *
+ * 	
  */
 export interface SheetControlsOption {
   __type?: "SheetControlsOption";
   /**
    *
    * 		       <p>Visibility state.</p>
-   *
+   * 	
    */
   VisibilityState?: DashboardUIState | string;
 }
@@ -6348,28 +6337,28 @@ export namespace SheetControlsOption {
 /**
  *
  * 		       <p>Snowflake parameters.</p>
- *
+ * 	
  */
 export interface SnowflakeParameters {
   __type?: "SnowflakeParameters";
   /**
    *
    * 		       <p>Database.</p>
-   *
+   * 	
    */
   Database: string | undefined;
 
   /**
    *
    * 		       <p>Host.</p>
-   *
+   * 	
    */
   Host: string | undefined;
 
   /**
    *
    * 		       <p>Warehouse.</p>
-   *
+   * 	
    */
   Warehouse: string | undefined;
 }
@@ -6383,21 +6372,21 @@ export namespace SnowflakeParameters {
 /**
  *
  * 		       <p>Spark parameters.</p>
- *
+ * 	
  */
 export interface SparkParameters {
   __type?: "SparkParameters";
   /**
    *
    * 		       <p>Host.</p>
-   *
+   * 	
    */
   Host: string | undefined;
 
   /**
    *
    * 		       <p>Port.</p>
-   *
+   * 	
    */
   Port: number | undefined;
 }
@@ -6411,28 +6400,28 @@ export namespace SparkParameters {
 /**
  *
  * 		       <p>SQL Server parameters.</p>
- *
+ * 	
  */
 export interface SqlServerParameters {
   __type?: "SqlServerParameters";
   /**
    *
    * 		       <p>Database.</p>
-   *
+   * 	
    */
   Database: string | undefined;
 
   /**
    *
    * 		       <p>Host.</p>
-   *
+   * 	
    */
   Host: string | undefined;
 
   /**
    *
    * 		       <p>Port.</p>
-   *
+   * 	
    */
   Port: number | undefined;
 }
@@ -6447,14 +6436,14 @@ export namespace SqlServerParameters {
  *
  * 		       <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your
  * 			underlying data source.</p>
- *
+ * 	
  */
 export interface SslProperties {
   __type?: "SslProperties";
   /**
    *
    * 		       <p>A boolean flag to control whether SSL should be disabled.</p>
-   *
+   * 	
    */
   DisableSsl?: boolean;
 }
@@ -6468,21 +6457,21 @@ export namespace SslProperties {
 /**
  *
  * 		       <p>String parameter.</p>
- *
+ * 	
  */
 export interface StringParameter {
   __type?: "StringParameter";
   /**
    *
    * 		       <p>A display name for the dataset.</p>
-   *
+   * 	
    */
   Name: string | undefined;
 
   /**
    *
    * 		       <p>Values.</p>
-   *
+   * 	
    */
   Values: Array<string> | undefined;
 }
@@ -6496,14 +6485,14 @@ export namespace StringParameter {
 /**
  *
  * 		       <p>A transform operation that tags a column with additional information.</p>
- *
+ * 	
  */
 export interface TagColumnOperation {
   __type?: "TagColumnOperation";
   /**
    *
    * 		       <p>The column that this operation acts on.</p>
-   *
+   * 	
    */
   ColumnName: string | undefined;
 
@@ -6513,7 +6502,7 @@ export interface TagColumnOperation {
    * 		       <note>
    * 			         <p>This is not tags for the AWS tagging feature. .</p>
    * 		       </note>
-   *
+   * 	
    */
   Tags: Array<ColumnTag> | undefined;
 }
@@ -6529,14 +6518,14 @@ export interface TagResourceRequest {
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
-   *
+   * 	
    */
   ResourceArn: string | undefined;
 
   /**
    *
    * 		       <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
-   *
+   * 	
    */
   Tags: Array<Tag> | undefined;
 }
@@ -6552,7 +6541,7 @@ export interface TagResourceResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -6573,49 +6562,49 @@ export namespace TagResourceResponse {
  * 			template.</p>
  * 		       <p>You can share templates across AWS accounts by allowing users in other AWS accounts to
  * 			create a template or a dashboard from an existing template.</p>
- *
+ * 	
  */
 export interface Template {
   __type?: "Template";
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) of the template.</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>Time when this was created.</p>
-   *
+   * 	
    */
   CreatedTime?: Date;
 
   /**
    *
    * 		       <p>Time when this was last updated.</p>
-   *
+   * 	
    */
   LastUpdatedTime?: Date;
 
   /**
    *
    * 		       <p>The display name of the template.</p>
-   *
+   * 	
    */
   Name?: string;
 
   /**
    *
    * 		       <p>The ID for the template. This is unique per AWS Region for each AWS account.</p>
-   *
+   * 	
    */
   TemplateId?: string;
 
   /**
    *
    * 		       <p>A structure describing the versions of the template.</p>
-   *
+   * 	
    */
   Version?: TemplateVersion;
 }
@@ -6629,28 +6618,28 @@ export namespace Template {
 /**
  *
  * 		       <p>The template alias.</p>
- *
+ * 	
  */
 export interface TemplateAlias {
   __type?: "TemplateAlias";
   /**
    *
    * 		       <p>The display name of the template alias.</p>
-   *
+   * 	
    */
   AliasName?: string;
 
   /**
    *
    * 		       <p>The ARN of the template alias.</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>The version number of the template alias.</p>
-   *
+   * 	
    */
   TemplateVersionNumber?: number;
 }
@@ -6664,21 +6653,21 @@ export namespace TemplateAlias {
 /**
  *
  * 		       <p>List of errors that occurred when the template version creation failed.</p>
- *
+ * 	
  */
 export interface TemplateError {
   __type?: "TemplateError";
   /**
    *
    * 		       <p>Description of the error type.</p>
-   *
+   * 	
    */
   Message?: string;
 
   /**
    *
    * 		       <p>Type of error.</p>
-   *
+   * 	
    */
   Type?: TemplateErrorType | string;
 }
@@ -6691,20 +6680,20 @@ export namespace TemplateError {
 
 export enum TemplateErrorType {
   DATA_SET_NOT_FOUND = "DATA_SET_NOT_FOUND",
-  INTERNAL_FAILURE = "INTERNAL_FAILURE"
+  INTERNAL_FAILURE = "INTERNAL_FAILURE",
 }
 
 /**
  *
  * 		       <p>The source analysis of the template.</p>
- *
+ * 	
  */
 export interface TemplateSourceAnalysis {
   __type?: "TemplateSourceAnalysis";
   /**
    *
    * 		       <p>The Amazon Resource name (ARN) of the resource.</p>
-   *
+   * 	
    */
   Arn: string | undefined;
 
@@ -6712,7 +6701,7 @@ export interface TemplateSourceAnalysis {
    *
    * 		       <p>A structure containing information about the dataset references used as placeholders in
    * 			the template.</p>
-   *
+   * 	
    */
   DataSetReferences: Array<DataSetReference> | undefined;
 }
@@ -6726,21 +6715,21 @@ export namespace TemplateSourceAnalysis {
 /**
  *
  * 		       <p>The source entity of the template.</p>
- *
+ * 	
  */
 export interface TemplateSourceEntity {
   __type?: "TemplateSourceEntity";
   /**
    *
    * 		       <p>The source analysis, if it is based on an analysis.</p>
-   *
+   * 	
    */
   SourceAnalysis?: TemplateSourceAnalysis;
 
   /**
    *
    * 		       <p>The source template, if it is based on an template.</p>
-   *
+   * 	
    */
   SourceTemplate?: TemplateSourceTemplate;
 }
@@ -6754,14 +6743,14 @@ export namespace TemplateSourceEntity {
 /**
  *
  * 		       <p>The source template of the template.</p>
- *
+ * 	
  */
 export interface TemplateSourceTemplate {
   __type?: "TemplateSourceTemplate";
   /**
    *
    * 		       <p>The Amazon Resource name (ARN) of the resource.</p>
-   *
+   * 	
    */
   Arn: string | undefined;
 }
@@ -6775,49 +6764,49 @@ export namespace TemplateSourceTemplate {
 /**
  *
  * 		       <p>The template summary.</p>
- *
+ * 	
  */
 export interface TemplateSummary {
   __type?: "TemplateSummary";
   /**
    *
    * 		       <p>A summary of a template.</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>The last time this was created.</p>
-   *
+   * 	
    */
   CreatedTime?: Date;
 
   /**
    *
    * 		       <p>The last time this was updated.</p>
-   *
+   * 	
    */
   LastUpdatedTime?: Date;
 
   /**
    *
    * 		       <p>A structure containing a list of version numbers for the template summary.</p>
-   *
+   * 	
    */
   LatestVersionNumber?: number;
 
   /**
    *
    * 		       <p>A display name for the template.</p>
-   *
+   * 	
    */
   Name?: string;
 
   /**
    *
    * 		       <p>The ID of the template. This is unique per AWS Region for each AWS account.</p>
-   *
+   * 	
    */
   TemplateId?: string;
 }
@@ -6831,14 +6820,14 @@ export namespace TemplateSummary {
 /**
  *
  * 		       <p>A version of a template.</p>
- *
+ * 	
  */
 export interface TemplateVersion {
   __type?: "TemplateVersion";
   /**
    *
    * 		       <p>The time this was created.</p>
-   *
+   * 	
    */
   CreatedTime?: Date;
 
@@ -6847,21 +6836,21 @@ export interface TemplateVersion {
    * 		       <p>Schema of the dataset identified by the placeholder. The idea is that any dashboard
    * 			created from the template should be bound to new datasets matching the same schema
    * 			described through this API. .</p>
-   *
+   * 	
    */
   DataSetConfigurations?: Array<DataSetConfiguration>;
 
   /**
    *
    * 		       <p>The description of the template.</p>
-   *
+   * 	
    */
   Description?: string;
 
   /**
    *
    * 		       <p>Errors associated with the template.</p>
-   *
+   * 	
    */
   Errors?: Array<TemplateError>;
 
@@ -6869,21 +6858,21 @@ export interface TemplateVersion {
    *
    * 		       <p>The Amazon Resource Name (ARN) of the analysis or template which was used to create this
    * 			template.</p>
-   *
+   * 	
    */
   SourceEntityArn?: string;
 
   /**
    *
    * 		       <p>The HTTP status of the request.</p>
-   *
+   * 	
    */
   Status?: ResourceStatus | string;
 
   /**
    *
    * 		       <p>The version number of the template.</p>
-   *
+   * 	
    */
   VersionNumber?: number;
 }
@@ -6897,42 +6886,42 @@ export namespace TemplateVersion {
 /**
  *
  * 		       <p>The template version.</p>
- *
+ * 	
  */
 export interface TemplateVersionSummary {
   __type?: "TemplateVersionSummary";
   /**
    *
    * 		       <p>The ARN of the template version.</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>The time this was created.</p>
-   *
+   * 	
    */
   CreatedTime?: Date;
 
   /**
    *
    * 		       <p>The desription of the template version.</p>
-   *
+   * 	
    */
   Description?: string;
 
   /**
    *
    * 		       <p>The status of the template version.</p>
-   *
+   * 	
    */
   Status?: ResourceStatus | string;
 
   /**
    *
    * 		       <p>The version number of the template version.</p>
-   *
+   * 	
    */
   VersionNumber?: number;
 }
@@ -6946,28 +6935,28 @@ export namespace TemplateVersionSummary {
 /**
  *
  * 		       <p>Teradata parameters.</p>
- *
+ * 	
  */
 export interface TeradataParameters {
   __type?: "TeradataParameters";
   /**
    *
    * 		       <p>Database.</p>
-   *
+   * 	
    */
   Database: string | undefined;
 
   /**
    *
    * 		       <p>Host.</p>
-   *
+   * 	
    */
   Host: string | undefined;
 
   /**
    *
    * 		       <p>Port.</p>
-   *
+   * 	
    */
   Port: number | undefined;
 }
@@ -6980,21 +6969,21 @@ export namespace TeradataParameters {
 
 export enum TextQualifier {
   DOUBLE_QUOTE = "DOUBLE_QUOTE",
-  SINGLE_QUOTE = "SINGLE_QUOTE"
+  SINGLE_QUOTE = "SINGLE_QUOTE",
 }
 
 /**
  *
  * 		       <p>A data transformation on a logical table. This is a variant type structure. No more than
  * 			one of the attributes should be non-null for this structure to be valid.</p>
- *
+ * 	
  */
 export interface TransformOperation {
   __type?: "TransformOperation";
   /**
    *
    * 		       <p>A transform operation that casts a column to a different type.</p>
-   *
+   * 	
    */
   CastColumnTypeOperation?: CastColumnTypeOperation;
 
@@ -7002,14 +6991,14 @@ export interface TransformOperation {
    *
    * 		       <p>An operation that creates calculated columns. Columns created in one such operation form
    * 			a lexical closure.</p>
-   *
+   * 	
    */
   CreateColumnsOperation?: CreateColumnsOperation;
 
   /**
    *
    * 		       <p>An operation that filters rows based on some condition.</p>
-   *
+   * 	
    */
   FilterOperation?: FilterOperation;
 
@@ -7017,21 +7006,21 @@ export interface TransformOperation {
    *
    * 		       <p>An operation that projects columns. Operations that come after a projection can only
    * 			refer to projected columns.</p>
-   *
+   * 	
    */
   ProjectOperation?: ProjectOperation;
 
   /**
    *
    * 		       <p>An operation that renames a column.</p>
-   *
+   * 	
    */
   RenameColumnOperation?: RenameColumnOperation;
 
   /**
    *
    * 		       <p>An operation that tags a column with additional information.</p>
-   *
+   * 	
    */
   TagColumnOperation?: TagColumnOperation;
 }
@@ -7045,21 +7034,21 @@ export namespace TransformOperation {
 /**
  *
  * 		       <p>Twitter parameters.</p>
- *
+ * 	
  */
 export interface TwitterParameters {
   __type?: "TwitterParameters";
   /**
    *
    * 		       <p>Maximum number of rows to query Twitter.</p>
-   *
+   * 	
    */
   MaxRows: number | undefined;
 
   /**
    *
    * 		       <p>Twitter query string.</p>
-   *
+   * 	
    */
   Query: string | undefined;
 }
@@ -7075,14 +7064,14 @@ export interface UntagResourceRequest {
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) of the resource that you want to untag.</p>
-   *
+   * 	
    */
   ResourceArn: string | undefined;
 
   /**
    *
    * 		       <p>The keys of the key-value pairs for the resource tag or tags assigned to the resource.</p>
-   *
+   * 	
    */
   TagKeys: Array<string> | undefined;
 }
@@ -7098,7 +7087,7 @@ export interface UntagResourceResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -7114,28 +7103,28 @@ export interface UpdateDashboardPermissionsRequest {
   /**
    *
    * 		       <p>AWS account ID that contains the dashboard you are updating.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The ID for the dashboard.</p>
-   *
+   * 	
    */
   DashboardId: string | undefined;
 
   /**
    *
    * 		       <p>The permissions that you want to grant on this resource.</p>
-   *
+   * 	
    */
   GrantPermissions?: Array<ResourcePermission>;
 
   /**
    *
    * 		       <p>The permissions that you want to revoke from this resource.</p>
-   *
+   * 	
    */
   RevokePermissions?: Array<ResourcePermission>;
 }
@@ -7151,28 +7140,28 @@ export interface UpdateDashboardPermissionsResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) of the dashboard.</p>
-   *
+   * 	
    */
   DashboardArn?: string;
 
   /**
    *
    * 		       <p>The ID for the dashboard.</p>
-   *
+   * 	
    */
   DashboardId?: string;
 
   /**
    *
    * 		       <p>Information about the permissions on the dashboard.</p>
-   *
+   * 	
    */
   Permissions?: Array<ResourcePermission>;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -7188,21 +7177,21 @@ export interface UpdateDashboardPublishedVersionRequest {
   /**
    *
    * 		       <p>AWS account ID that contains the dashboard you are updating.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The ID for the dashboard.</p>
-   *
+   * 	
    */
   DashboardId: string | undefined;
 
   /**
    *
    * 		       <p>The version number of the dashboard.</p>
-   *
+   * 	
    */
   VersionNumber: number | undefined;
 }
@@ -7213,27 +7202,26 @@ export namespace UpdateDashboardPublishedVersionRequest {
   }
 }
 
-export interface UpdateDashboardPublishedVersionResponse
-  extends $MetadataBearer {
+export interface UpdateDashboardPublishedVersionResponse extends $MetadataBearer {
   __type?: "UpdateDashboardPublishedVersionResponse";
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) of the dashboard.</p>
-   *
+   * 	
    */
   DashboardArn?: string;
 
   /**
    *
    * 		       <p>The ID for the dashboard.</p>
-   *
+   * 	
    */
   DashboardId?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -7249,14 +7237,14 @@ export interface UpdateDashboardRequest {
   /**
    *
    * 		       <p>AWS account ID that contains the dashboard you are updating.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The ID for the dashboard.</p>
-   *
+   * 	
    */
   DashboardId: string | undefined;
 
@@ -7281,21 +7269,21 @@ export interface UpdateDashboardRequest {
    * 					by default when set to true. Collapsed by default.  </p>
    * 			         </li>
    *          </ul>
-   *
+   * 	
    */
   DashboardPublishOptions?: DashboardPublishOptions;
 
   /**
    *
    * 		       <p>The display name of the dashboard.</p>
-   *
+   * 	
    */
   Name: string | undefined;
 
   /**
    *
    * 		       <p>A structure that contains the parameters of the dashboard.</p>
-   *
+   * 	
    */
   Parameters?: _Parameters;
 
@@ -7307,14 +7295,14 @@ export interface UpdateDashboardRequest {
    * 		set when creating the template. The replacement datasets need to follow
    * 		the same schema as the datasets for which placeholders were created
    * 		when creating the template.</p>
-   *
+   * 	
    */
   SourceEntity: DashboardSourceEntity | undefined;
 
   /**
    *
    * 		       <p>A description for the first version of the dashboard being created.</p>
-   *
+   * 	
    */
   VersionDescription?: string;
 }
@@ -7330,42 +7318,42 @@ export interface UpdateDashboardResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) of the resource.</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>The creation status of the request.</p>
-   *
+   * 	
    */
   CreationStatus?: ResourceStatus | string;
 
   /**
    *
    * 		       <p>The ID for the dashboard.</p>
-   *
+   * 	
    */
   DashboardId?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 
   /**
    *
    * 		       <p>The HTTP status of the request.</p>
-   *
+   * 	
    */
   Status?: number;
 
   /**
    *
    * 		       <p>The ARN of the dashboard, including the version number.</p>
-   *
+   * 	
    */
   VersionArn?: string;
 }
@@ -7381,28 +7369,28 @@ export interface UpdateDataSetPermissionsRequest {
   /**
    *
    * 		       <p>The AWS Account ID.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
-   *
+   * 	
    */
   DataSetId: string | undefined;
 
   /**
    *
    * 		       <p>The resource permissions that you want to grant to the dataset.</p>
-   *
+   * 	
    */
   GrantPermissions?: Array<ResourcePermission>;
 
   /**
    *
    * 		       <p>The resource permissions that you want to revoke from the dataset.</p>
-   *
+   * 	
    */
   RevokePermissions?: Array<ResourcePermission>;
 }
@@ -7418,21 +7406,21 @@ export interface UpdateDataSetPermissionsResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   *
+   * 	
    */
   DataSetArn?: string;
 
   /**
    *
    * 		       <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
-   *
+   * 	
    */
   DataSetId?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -7448,56 +7436,56 @@ export interface UpdateDataSetRequest {
   /**
    *
    * 		       <p>The AWS Account ID.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
-   *
+   * 	
    */
   ColumnGroups?: Array<ColumnGroup>;
 
   /**
    *
    * 		       <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
-   *
+   * 	
    */
   DataSetId: string | undefined;
 
   /**
    *
    * 		       <p>Indicates whether or not you want to import the data into SPICE.</p>
-   *
+   * 	
    */
   ImportMode: DataSetImportMode | string | undefined;
 
   /**
    *
    * 		       <p>Configures the combination and transformation of the data from the physical tables.</p>
-   *
+   * 	
    */
   LogicalTableMap?: { [key: string]: LogicalTable };
 
   /**
    *
    * 		       <p>The display name for the dataset.</p>
-   *
+   * 	
    */
   Name: string | undefined;
 
   /**
    *
    * 		       <p>Declares the physical tables that are available in the underlying data sources.</p>
-   *
+   * 	
    */
   PhysicalTableMap: { [key: string]: PhysicalTable } | undefined;
 
   /**
    *
    * 		       <p>Row-level security configuration on the data you want to create.</p>
-   *
+   * 	
    */
   RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
 }
@@ -7513,35 +7501,35 @@ export interface UpdateDataSetResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
-   *
+   * 	
    */
   DataSetId?: string;
 
   /**
    *
    * 		       <p>The ARN for the ingestion, which is triggered as a result of dataset creation if the import mode is SPICE</p>
-   *
+   * 	
    */
   IngestionArn?: string;
 
   /**
    *
    * 		       <p>The ID of the ingestion, which is triggered as a result of dataset creation if the import mode is SPICE</p>
-   *
+   * 	
    */
   IngestionId?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -7557,28 +7545,28 @@ export interface UpdateDataSourcePermissionsRequest {
   /**
    *
    * 		       <p>The AWS account ID.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The ID of the data source. This ID is unique per AWS Region for each AWS account. </p>
-   *
+   * 	
    */
   DataSourceId: string | undefined;
 
   /**
    *
    * 		       <p>A list of resource permissions that you want to grant on the data source.</p>
-   *
+   * 	
    */
   GrantPermissions?: Array<ResourcePermission>;
 
   /**
    *
    * 		       <p>A list of resource permissions that you want to revoke on the data source.</p>
-   *
+   * 	
    */
   RevokePermissions?: Array<ResourcePermission>;
 }
@@ -7594,21 +7582,21 @@ export interface UpdateDataSourcePermissionsResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) of the data source.</p>
-   *
+   * 	
    */
   DataSourceArn?: string;
 
   /**
    *
    * 		       <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
-   *
+   * 	
    */
   DataSourceId?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -7624,7 +7612,7 @@ export interface UpdateDataSourceRequest {
   /**
    *
    * 		       <p>The AWS account ID.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
@@ -7632,28 +7620,28 @@ export interface UpdateDataSourceRequest {
    *
    * 		       <p>The credentials that QuickSight that uses to connect to your underlying source. Currently,
    * 			only credentials based on user name and password are supported.</p>
-   *
+   * 	
    */
   Credentials?: DataSourceCredentials;
 
   /**
    *
    * 		       <p>The ID of the data source. This ID is unique per AWS Region for each AWS account. </p>
-   *
+   * 	
    */
   DataSourceId: string | undefined;
 
   /**
    *
    * 		       <p>The parameters that QuickSight uses to connect to your underlying source.</p>
-   *
+   * 	
    */
   DataSourceParameters?: DataSourceParameters;
 
   /**
    *
    * 		       <p>A display name for the data source.</p>
-   *
+   * 	
    */
   Name: string | undefined;
 
@@ -7661,7 +7649,7 @@ export interface UpdateDataSourceRequest {
    *
    * 		       <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your underlying
    * 			source.</p>
-   *
+   * 	
    */
   SslProperties?: SslProperties;
 
@@ -7669,7 +7657,7 @@ export interface UpdateDataSourceRequest {
    *
    * 		       <p>Use this parameter only when you want QuickSight to use a VPC connection when connecting to
    * 			your underlying source.</p>
-   *
+   * 	
    */
   VpcConnectionProperties?: VpcConnectionProperties;
 }
@@ -7685,28 +7673,28 @@ export interface UpdateDataSourceResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) of the data source.</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
-   *
+   * 	
    */
   DataSourceId?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 
   /**
    *
    * 		       <p>The update status of the data source's last update.</p>
-   *
+   * 	
    */
   UpdateStatus?: ResourceStatus | string;
 }
@@ -7723,28 +7711,28 @@ export interface UpdateGroupRequest {
    *
    * 		       <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS
    * 			account that contains your Amazon QuickSight account.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The description for the group that you want to update.</p>
-   *
+   * 	
    */
   Description?: string;
 
   /**
    *
    * 		       <p>The name of the group that you want to update.</p>
-   *
+   * 	
    */
   GroupName: string | undefined;
 
   /**
    *
    * 		       <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   *
+   * 	
    */
   Namespace: string | undefined;
 }
@@ -7760,14 +7748,14 @@ export interface UpdateGroupResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The name of the group.</p>
-   *
+   * 	
    */
   Group?: Group;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -7783,7 +7771,7 @@ export interface UpdateIAMPolicyAssignmentRequest {
   /**
    *
    * 		       <p>The name of the assignment. It must be unique within an AWS account.</p>
-   *
+   * 	
    */
   AssignmentName: string | undefined;
 
@@ -7802,35 +7790,35 @@ export interface UpdateIAMPolicyAssignmentRequest {
    * 					source.</p>
    *             </li>
    *          </ul>
-   *
+   * 	
    */
   AssignmentStatus?: AssignmentStatus | string;
 
   /**
    *
    * 		       <p>The AWS account ID that contains the IAM policy assignment.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>QuickSight users and/or groups that you want to assign to the specified IAM policy.</p>
-   *
+   * 	
    */
   Identities?: { [key: string]: Array<string> };
 
   /**
    *
    * 		       <p>The namespace of the assignment.</p>
-   *
+   * 	
    */
   Namespace: string | undefined;
 
   /**
    *
    * 		       <p>An IAM policy Amazon Resource Name (ARN) that will be applied to specified QuickSight users and groups in this assignment.</p>
-   *
+   * 	
    */
   PolicyArn?: string;
 }
@@ -7846,14 +7834,14 @@ export interface UpdateIAMPolicyAssignmentResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The ID of the assignment.</p>
-   *
+   * 	
    */
   AssignmentId?: string;
 
   /**
    *
    * 		       <p>The name of the assignment. </p>
-   *
+   * 	
    */
   AssignmentName?: string;
 
@@ -7872,28 +7860,28 @@ export interface UpdateIAMPolicyAssignmentResponse extends $MetadataBearer {
    * 					source.</p>
    *             </li>
    *          </ul>
-   *
+   * 	
    */
   AssignmentStatus?: AssignmentStatus | string;
 
   /**
    *
    * 		       <p>QuickSight users and/or groups that are assigned to this IAM policy.</p>
-   *
+   * 	
    */
   Identities?: { [key: string]: Array<string> };
 
   /**
    *
    * 		       <p>The IAM policy ARN assigned to the QuickSight users and groups specified in this request.</p>
-   *
+   * 	
    */
   PolicyArn?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -7913,28 +7901,28 @@ export interface UpdateTemplateAliasRequest {
    * 			You can specify the latest version of the template by providing the keyword
    * 			<code>$LATEST</code> in the <code>AliasName</code> parameter.
    * 			The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
-   *
+   * 	
    */
   AliasName: string | undefined;
 
   /**
    *
    * 		       <p>AWS account ID that contains the template aliases you are updating.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The ID for the template.</p>
-   *
+   * 	
    */
   TemplateId: string | undefined;
 
   /**
    *
    * 		       <p>The version number of the template.</p>
-   *
+   * 	
    */
   TemplateVersionNumber: number | undefined;
 }
@@ -7950,14 +7938,14 @@ export interface UpdateTemplateAliasResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 
   /**
    *
    * 		       <p>The template alias.</p>
-   *
+   * 	
    */
   TemplateAlias?: TemplateAlias;
 }
@@ -7973,28 +7961,28 @@ export interface UpdateTemplatePermissionsRequest {
   /**
    *
    * 		       <p>AWS account ID that contains the template.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>A list of resource permissions to be granted on the template. </p>
-   *
+   * 	
    */
   GrantPermissions?: Array<ResourcePermission>;
 
   /**
    *
    * 		       <p>A list of resource permissions to be revoked from the template. </p>
-   *
+   * 	
    */
   RevokePermissions?: Array<ResourcePermission>;
 
   /**
    *
    * 		       <p>The ID for the template.</p>
-   *
+   * 	
    */
   TemplateId: string | undefined;
 }
@@ -8010,28 +7998,28 @@ export interface UpdateTemplatePermissionsResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>A list of resource permissions to be set on the template.</p>
-   *
+   * 	
    */
   Permissions?: Array<ResourcePermission>;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) of the template.</p>
-   *
+   * 	
    */
   TemplateArn?: string;
 
   /**
    *
    * 		       <p>The ID for the template.</p>
-   *
+   * 	
    */
   TemplateId?: string;
 }
@@ -8047,14 +8035,14 @@ export interface UpdateTemplateRequest {
   /**
    *
    * 		       <p>AWS account ID that contains the template you are updating.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The name for the template.</p>
-   *
+   * 	
    */
   Name?: string;
 
@@ -8062,14 +8050,14 @@ export interface UpdateTemplateRequest {
    *
    * 		       <p>The source QuickSight entity from which this template is being created. Templates can be
    * 			currently created from an Analysis or another template.</p>
-   *
+   * 	
    */
   SourceEntity: TemplateSourceEntity | undefined;
 
   /**
    *
    * 		       <p>The ID for the template.</p>
-   *
+   * 	
    */
   TemplateId: string | undefined;
 
@@ -8079,7 +8067,7 @@ export interface UpdateTemplateRequest {
    * 			Every time you cal <code>UpdateTemplate</code> you create a new version. Each
    * 			version of the template maintains a description of the version in the <code>VersionDescription</code>
    * 			field.</p>
-   *
+   * 	
    */
   VersionDescription?: string;
 }
@@ -8095,28 +8083,28 @@ export interface UpdateTemplateResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) for the template.</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>The creation status of the template.</p>
-   *
+   * 	
    */
   CreationStatus?: ResourceStatus | string;
 
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 
   /**
    *
    * 		       <p>The ID for the template.</p>
-   *
+   * 	
    */
   TemplateId?: string;
 
@@ -8124,7 +8112,7 @@ export interface UpdateTemplateResponse extends $MetadataBearer {
    *
    * 		       <p>The Amazon Resource Name (ARN) for the template, including the version information of
    * 			the first version.</p>
-   *
+   * 	
    */
   VersionArn?: string;
 }
@@ -8141,21 +8129,21 @@ export interface UpdateUserRequest {
    *
    * 		       <p>The ID for the AWS account that the user is in. Currently, you use the ID for the AWS
    * 			account that contains your Amazon QuickSight account.</p>
-   *
+   * 	
    */
   AwsAccountId: string | undefined;
 
   /**
    *
    * 		       <p>The email address of the user that you want to update.</p>
-   *
+   * 	
    */
   Email: string | undefined;
 
   /**
    *
    * 		       <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   *
+   * 	
    */
   Namespace: string | undefined;
 
@@ -8179,14 +8167,14 @@ export interface UpdateUserRequest {
    * 					settings.</p>
    * 			         </li>
    *          </ul>
-   *
+   * 	
    */
   Role: UserRole | string | undefined;
 
   /**
    *
    * 		       <p>The Amazon QuickSight user name that you want to update.</p>
-   *
+   * 	
    */
   UserName: string | undefined;
 }
@@ -8202,14 +8190,14 @@ export interface UpdateUserResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The AWS request ID for this operation.</p>
-   *
+   * 	
    */
   RequestId?: string;
 
   /**
    *
    * 		       <p>The Amazon QuickSight user.</p>
-   *
+   * 	
    */
   User?: User;
 }
@@ -8223,42 +8211,42 @@ export namespace UpdateUserResponse {
 /**
  *
  * 		       <p>Information on source file(s) format.</p>
- *
+ * 	
  */
 export interface UploadSettings {
   __type?: "UploadSettings";
   /**
    *
    * 		       <p>Whether or not the file(s) has a header row.</p>
-   *
+   * 	
    */
   ContainsHeader?: boolean;
 
   /**
    *
    * 		       <p>The delimiter between values in the file.</p>
-   *
+   * 	
    */
   Delimiter?: string;
 
   /**
    *
    * 		       <p>File format.</p>
-   *
+   * 	
    */
   Format?: FileFormat | string;
 
   /**
    *
    * 		       <p>A row number to start reading data from.</p>
-   *
+   * 	
    */
   StartFromRow?: number;
 
   /**
    *
    * 		       <p>Text qualifier.</p>
-   *
+   * 	
    */
   TextQualifier?: TextQualifier | string;
 }
@@ -8273,7 +8261,7 @@ export namespace UploadSettings {
  *
  * 		       <p>A registered user of Amazon QuickSight. Currently, an Amazon QuickSight subscription
  * 			can't contain more than 20 million users.</p>
- *
+ * 	
  */
 export interface User {
   __type?: "User";
@@ -8281,35 +8269,35 @@ export interface User {
    *
    * 		       <p>Active status of user. When you create an Amazon QuickSight user that’s not an IAM user
    * 			or an AD user, that user is inactive until they sign in and provide a password.</p>
-   *
+   * 	
    */
   Active?: boolean;
 
   /**
    *
    * 		       <p>The Amazon Resource name (ARN) for the user.</p>
-   *
+   * 	
    */
   Arn?: string;
 
   /**
    *
    * 		       <p>The user's email address.</p>
-   *
+   * 	
    */
   Email?: string;
 
   /**
    *
    * 		       <p>The type of identity authentication used by the user.</p>
-   *
+   * 	
    */
   IdentityType?: IdentityType | string;
 
   /**
    *
    * 		       <p>The principal ID of the user.</p>
-   *
+   * 	
    */
   PrincipalId?: string;
 
@@ -8343,14 +8331,14 @@ export interface User {
    * 					use.</p>
    * 			         </li>
    *          </ul>
-   *
+   * 	
    */
   Role?: UserRole | string;
 
   /**
    *
    * 		       <p>The user's user name.</p>
-   *
+   * 	
    */
   UserName?: string;
 }
@@ -8366,20 +8354,20 @@ export enum UserRole {
   AUTHOR = "AUTHOR",
   READER = "READER",
   RESTRICTED_AUTHOR = "RESTRICTED_AUTHOR",
-  RESTRICTED_READER = "RESTRICTED_READER"
+  RESTRICTED_READER = "RESTRICTED_READER",
 }
 
 /**
  *
  * 		       <p>VPC connection properties.</p>
- *
+ * 	
  */
 export interface VpcConnectionProperties {
   __type?: "VpcConnectionProperties";
   /**
    *
    * 		       <p>The Amazon Resource Name (ARN) for the VPC connection.</p>
-   *
+   * 	
    */
   VpcConnectionArn: string | undefined;
 }
@@ -8396,18 +8384,16 @@ export namespace VpcConnectionProperties {
  * 			You might not be authorized to carry out the request. Ensure that your account is
  * 			authorized to use the Amazon QuickSight service, that your policies have the correct
  * 			permissions, and that you are using the correct access keys.</p>
- *
+ * 	
  */
-export interface AccessDeniedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   Message?: string;
   /**
    *
    * 		       <p>The AWS request id for this request.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -8422,24 +8408,22 @@ export enum ColumnDataType {
   DATETIME = "DATETIME",
   DECIMAL = "DECIMAL",
   INTEGER = "INTEGER",
-  STRING = "STRING"
+  STRING = "STRING",
 }
 
 /**
  *
  * 		       <p>Updating or deleting a resource can cause an inconsistent state.</p>
- *
+ * 	
  */
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConflictException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ConflictException";
   $fault: "client";
   Message?: string;
   /**
    *
    * 		       <p>The AWS request id for this request.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -8459,29 +8443,27 @@ export enum ExceptionResourceType {
   INGESTION = "INGESTION",
   NAMESPACE = "NAMESPACE",
   USER = "USER",
-  VPC_CONNECTION = "VPC_CONNECTION"
+  VPC_CONNECTION = "VPC_CONNECTION",
 }
 
 export enum IdentityType {
   IAM = "IAM",
-  QUICKSIGHT = "QUICKSIGHT"
+  QUICKSIGHT = "QUICKSIGHT",
 }
 
 /**
  *
  * 		       <p>An internal failure occurred.</p>
- *
+ * 	
  */
-export interface InternalFailureException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalFailureException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalFailureException";
   $fault: "server";
   Message?: string;
   /**
    *
    * 		       <p>The AWS request ID for this request.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -8495,18 +8477,16 @@ export namespace InternalFailureException {
 /**
  *
  * 		       <p>The <code>NextToken</code> value isn't valid.</p>
- *
+ * 	
  */
-export interface InvalidNextTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
   /**
    *
    * 		       <p>The AWS request ID for this request.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -8520,18 +8500,16 @@ export namespace InvalidNextTokenException {
 /**
  *
  * 		       <p>One or more parameters don't have a valid value.</p>
- *
+ * 	
  */
-export interface InvalidParameterValueException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterValueException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidParameterValueException";
   $fault: "client";
   Message?: string;
   /**
    *
    * 		       <p>The AWS request ID for this request.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -8545,25 +8523,23 @@ export namespace InvalidParameterValueException {
 /**
  *
  * 		       <p>A limit is exceeded.</p>
- *
+ * 	
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   Message?: string;
   /**
    *
    * 		       <p>The AWS request ID for this request.</p>
-   *
+   * 	
    */
   RequestId?: string;
 
   /**
    *
    * 		       <p>Limit exceeded.</p>
-   *
+   * 	
    */
   ResourceType?: ExceptionResourceType | string;
 }
@@ -8577,18 +8553,16 @@ export namespace LimitExceededException {
 /**
  *
  * 		       <p>One or more preconditions aren't met.</p>
- *
+ * 	
  */
-export interface PreconditionNotMetException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface PreconditionNotMetException extends _smithy.SmithyException, $MetadataBearer {
   __type: "PreconditionNotMetException";
   $fault: "client";
   Message?: string;
   /**
    *
    * 		       <p>The AWS request ID for this request.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -8602,25 +8576,23 @@ export namespace PreconditionNotMetException {
 /**
  *
  * 		       <p>The resource specified already exists. </p>
- *
+ * 	
  */
-export interface ResourceExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceExistsException";
   $fault: "client";
   Message?: string;
   /**
    *
    * 		       <p>The AWS request ID for this request.</p>
-   *
+   * 	
    */
   RequestId?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this request.</p>
-   *
+   * 	
    */
   ResourceType?: ExceptionResourceType | string;
 }
@@ -8634,25 +8606,23 @@ export namespace ResourceExistsException {
 /**
  *
  * 		       <p>One or more resources can't be found.</p>
- *
+ * 	
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
   /**
    *
    * 		       <p>The AWS request ID for this request.</p>
-   *
+   * 	
    */
   RequestId?: string;
 
   /**
    *
    * 		       <p>The AWS request ID for this request.</p>
-   *
+   * 	
    */
   ResourceType?: ExceptionResourceType | string;
 }
@@ -8666,7 +8636,7 @@ export namespace ResourceNotFoundException {
 /**
  *
  * 		       <p>Permission for the resource.</p>
- *
+ * 	
  */
 export interface ResourcePermission {
   __type?: "ResourcePermission";
@@ -8674,7 +8644,7 @@ export interface ResourcePermission {
    *
    * 		       <p>The action to grant or revoke permissions on. For example,
    * 			"quicksight:DescribeDashboard".</p>
-   *
+   * 	
    */
   Actions: Array<string> | undefined;
 
@@ -8683,7 +8653,7 @@ export interface ResourcePermission {
    * 		       <p>The Amazon Resource Name (ARN) of a QuickSight user or group, or an IAM ARN. If you are
    * 			using cross-account resource sharing, this is the IAM ARN of an account root. Otherwise, it
    * 			is the ARN of a QuickSight user or group. .</p>
-   *
+   * 	
    */
   Principal: string | undefined;
 }
@@ -8700,31 +8670,29 @@ export enum ResourceStatus {
   CREATION_SUCCESSFUL = "CREATION_SUCCESSFUL",
   UPDATE_FAILED = "UPDATE_FAILED",
   UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL"
+  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL",
 }
 
 /**
  *
  * 		       <p>This resource is currently unavailable.</p>
- *
+ * 	
  */
-export interface ResourceUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceUnavailableException";
   $fault: "server";
   Message?: string;
   /**
    *
    * 		       <p>The AWS request ID for this request.</p>
-   *
+   * 	
    */
   RequestId?: string;
 
   /**
    *
    * 		       <p>The resource type for this request.</p>
-   *
+   * 	
    */
   ResourceType?: ExceptionResourceType | string;
 }
@@ -8739,21 +8707,21 @@ export namespace ResourceUnavailableException {
  *
  * 		       <p>The keys of the key-value pairs for the resource tag or tags assigned to the
  * 			resource.</p>
- *
+ * 	
  */
 export interface Tag {
   __type?: "Tag";
   /**
    *
    * 		       <p>Tag key.</p>
-   *
+   * 	
    */
   Key: string | undefined;
 
   /**
    *
    * 		       <p>Tag value.</p>
-   *
+   * 	
    */
   Value: string | undefined;
 }
@@ -8767,18 +8735,16 @@ export namespace Tag {
 /**
  *
  * 		       <p>Access is throttled.</p>
- *
+ * 	
  */
-export interface ThrottlingException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ThrottlingException";
   $fault: "client";
   Message?: string;
   /**
    *
    * 		       <p>The AWS request ID for this request.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }
@@ -8795,18 +8761,16 @@ export namespace ThrottlingException {
  * 			subscription where the edition doesn't include support for that operation. Amazon
  * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
  * 			capability is available in every edition.</p>
- *
+ * 	
  */
-export interface UnsupportedUserEditionException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnsupportedUserEditionException extends _smithy.SmithyException, $MetadataBearer {
   __type: "UnsupportedUserEditionException";
   $fault: "client";
   Message?: string;
   /**
    *
    * 		       <p>The AWS request ID for this request.</p>
-   *
+   * 	
    */
   RequestId?: string;
 }

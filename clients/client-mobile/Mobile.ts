@@ -2,47 +2,47 @@ import { MobileClient } from "./MobileClient";
 import {
   CreateProjectCommand,
   CreateProjectCommandInput,
-  CreateProjectCommandOutput
+  CreateProjectCommandOutput,
 } from "./commands/CreateProjectCommand";
 import {
   DeleteProjectCommand,
   DeleteProjectCommandInput,
-  DeleteProjectCommandOutput
+  DeleteProjectCommandOutput,
 } from "./commands/DeleteProjectCommand";
 import {
   DescribeBundleCommand,
   DescribeBundleCommandInput,
-  DescribeBundleCommandOutput
+  DescribeBundleCommandOutput,
 } from "./commands/DescribeBundleCommand";
 import {
   DescribeProjectCommand,
   DescribeProjectCommandInput,
-  DescribeProjectCommandOutput
+  DescribeProjectCommandOutput,
 } from "./commands/DescribeProjectCommand";
 import {
   ExportBundleCommand,
   ExportBundleCommandInput,
-  ExportBundleCommandOutput
+  ExportBundleCommandOutput,
 } from "./commands/ExportBundleCommand";
 import {
   ExportProjectCommand,
   ExportProjectCommandInput,
-  ExportProjectCommandOutput
+  ExportProjectCommandOutput,
 } from "./commands/ExportProjectCommand";
 import {
   ListBundlesCommand,
   ListBundlesCommandInput,
-  ListBundlesCommandOutput
+  ListBundlesCommandOutput,
 } from "./commands/ListBundlesCommand";
 import {
   ListProjectsCommand,
   ListProjectsCommandInput,
-  ListProjectsCommandOutput
+  ListProjectsCommandOutput,
 } from "./commands/ListProjectsCommand";
 import {
   UpdateProjectCommand,
   UpdateProjectCommandInput,
-  UpdateProjectCommandOutput
+  UpdateProjectCommandOutput,
 } from "./commands/UpdateProjectCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -65,7 +65,7 @@ export class Mobile extends MobileClient {
    */
   public createProject(
     args: CreateProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateProjectCommandOutput>;
   public createProject(
     args: CreateProjectCommandInput,
@@ -78,18 +78,16 @@ export class Mobile extends MobileClient {
   ): void;
   public createProject(
     args: CreateProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProjectCommandOutput) => void),
     cb?: (err: any, data?: CreateProjectCommandOutput) => void
   ): Promise<CreateProjectCommandOutput> | void {
     const command = new CreateProjectCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -104,7 +102,7 @@ export class Mobile extends MobileClient {
    */
   public deleteProject(
     args: DeleteProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteProjectCommandOutput>;
   public deleteProject(
     args: DeleteProjectCommandInput,
@@ -117,18 +115,16 @@ export class Mobile extends MobileClient {
   ): void;
   public deleteProject(
     args: DeleteProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProjectCommandOutput) => void),
     cb?: (err: any, data?: DeleteProjectCommandOutput) => void
   ): Promise<DeleteProjectCommandOutput> | void {
     const command = new DeleteProjectCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -143,7 +139,7 @@ export class Mobile extends MobileClient {
    */
   public describeBundle(
     args: DescribeBundleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeBundleCommandOutput>;
   public describeBundle(
     args: DescribeBundleCommandInput,
@@ -156,18 +152,16 @@ export class Mobile extends MobileClient {
   ): void;
   public describeBundle(
     args: DescribeBundleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeBundleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBundleCommandOutput) => void),
     cb?: (err: any, data?: DescribeBundleCommandOutput) => void
   ): Promise<DescribeBundleCommandOutput> | void {
     const command = new DescribeBundleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -182,7 +176,7 @@ export class Mobile extends MobileClient {
    */
   public describeProject(
     args: DescribeProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeProjectCommandOutput>;
   public describeProject(
     args: DescribeProjectCommandInput,
@@ -195,18 +189,16 @@ export class Mobile extends MobileClient {
   ): void;
   public describeProject(
     args: DescribeProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProjectCommandOutput) => void),
     cb?: (err: any, data?: DescribeProjectCommandOutput) => void
   ): Promise<DescribeProjectCommandOutput> | void {
     const command = new DescribeProjectCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -222,7 +214,7 @@ export class Mobile extends MobileClient {
    */
   public exportBundle(
     args: ExportBundleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ExportBundleCommandOutput>;
   public exportBundle(
     args: ExportBundleCommandInput,
@@ -235,18 +227,16 @@ export class Mobile extends MobileClient {
   ): void;
   public exportBundle(
     args: ExportBundleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ExportBundleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExportBundleCommandOutput) => void),
     cb?: (err: any, data?: ExportBundleCommandOutput) => void
   ): Promise<ExportBundleCommandOutput> | void {
     const command = new ExportBundleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -263,7 +253,7 @@ export class Mobile extends MobileClient {
    */
   public exportProject(
     args: ExportProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ExportProjectCommandOutput>;
   public exportProject(
     args: ExportProjectCommandInput,
@@ -276,18 +266,16 @@ export class Mobile extends MobileClient {
   ): void;
   public exportProject(
     args: ExportProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ExportProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExportProjectCommandOutput) => void),
     cb?: (err: any, data?: ExportProjectCommandOutput) => void
   ): Promise<ExportProjectCommandOutput> | void {
     const command = new ExportProjectCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -302,7 +290,7 @@ export class Mobile extends MobileClient {
    */
   public listBundles(
     args: ListBundlesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListBundlesCommandOutput>;
   public listBundles(
     args: ListBundlesCommandInput,
@@ -315,18 +303,16 @@ export class Mobile extends MobileClient {
   ): void;
   public listBundles(
     args: ListBundlesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBundlesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBundlesCommandOutput) => void),
     cb?: (err: any, data?: ListBundlesCommandOutput) => void
   ): Promise<ListBundlesCommandOutput> | void {
     const command = new ListBundlesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -341,7 +327,7 @@ export class Mobile extends MobileClient {
    */
   public listProjects(
     args: ListProjectsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListProjectsCommandOutput>;
   public listProjects(
     args: ListProjectsCommandInput,
@@ -354,18 +340,16 @@ export class Mobile extends MobileClient {
   ): void;
   public listProjects(
     args: ListProjectsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListProjectsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProjectsCommandOutput) => void),
     cb?: (err: any, data?: ListProjectsCommandOutput) => void
   ): Promise<ListProjectsCommandOutput> | void {
     const command = new ListProjectsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -380,7 +364,7 @@ export class Mobile extends MobileClient {
    */
   public updateProject(
     args: UpdateProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateProjectCommandOutput>;
   public updateProject(
     args: UpdateProjectCommandInput,
@@ -393,20 +377,19 @@ export class Mobile extends MobileClient {
   ): void;
   public updateProject(
     args: UpdateProjectCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateProjectCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateProjectCommandOutput) => void),
     cb?: (err: any, data?: UpdateProjectCommandOutput) => void
   ): Promise<UpdateProjectCommandOutput> | void {
     const command = new UpdateProjectCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

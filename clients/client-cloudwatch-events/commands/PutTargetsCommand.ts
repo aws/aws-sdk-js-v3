@@ -1,17 +1,20 @@
 import {
   CloudWatchEventsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CloudWatchEventsClient";
-import { PutTargetsRequest, PutTargetsResponse } from "../models/index";
+import {
+  PutTargetsRequest,
+  PutTargetsResponse,
+} from "../models/index";
 import {
   deserializeAws_json1_1PutTargetsCommand,
-  serializeAws_json1_1PutTargetsCommand
+  serializeAws_json1_1PutTargetsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type PutTargetsCommandInput = PutTargetsRequest;
 export type PutTargetsCommandOutput = PutTargetsResponse;
 
-export class PutTargetsCommand extends $Command<
-  PutTargetsCommandInput,
-  PutTargetsCommandOutput,
-  CloudWatchEventsClientResolvedConfig
-> {
+export class PutTargetsCommand extends $Command<PutTargetsCommandInput, PutTargetsCommandOutput, CloudWatchEventsClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class PutTargetsCommand extends $Command<
     configuration: CloudWatchEventsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutTargetsCommandInput, PutTargetsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

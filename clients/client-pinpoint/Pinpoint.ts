@@ -2,527 +2,527 @@ import { PinpointClient } from "./PinpointClient";
 import {
   CreateAppCommand,
   CreateAppCommandInput,
-  CreateAppCommandOutput
+  CreateAppCommandOutput,
 } from "./commands/CreateAppCommand";
 import {
   CreateCampaignCommand,
   CreateCampaignCommandInput,
-  CreateCampaignCommandOutput
+  CreateCampaignCommandOutput,
 } from "./commands/CreateCampaignCommand";
 import {
   CreateEmailTemplateCommand,
   CreateEmailTemplateCommandInput,
-  CreateEmailTemplateCommandOutput
+  CreateEmailTemplateCommandOutput,
 } from "./commands/CreateEmailTemplateCommand";
 import {
   CreateExportJobCommand,
   CreateExportJobCommandInput,
-  CreateExportJobCommandOutput
+  CreateExportJobCommandOutput,
 } from "./commands/CreateExportJobCommand";
 import {
   CreateImportJobCommand,
   CreateImportJobCommandInput,
-  CreateImportJobCommandOutput
+  CreateImportJobCommandOutput,
 } from "./commands/CreateImportJobCommand";
 import {
   CreateJourneyCommand,
   CreateJourneyCommandInput,
-  CreateJourneyCommandOutput
+  CreateJourneyCommandOutput,
 } from "./commands/CreateJourneyCommand";
 import {
   CreatePushTemplateCommand,
   CreatePushTemplateCommandInput,
-  CreatePushTemplateCommandOutput
+  CreatePushTemplateCommandOutput,
 } from "./commands/CreatePushTemplateCommand";
 import {
   CreateSegmentCommand,
   CreateSegmentCommandInput,
-  CreateSegmentCommandOutput
+  CreateSegmentCommandOutput,
 } from "./commands/CreateSegmentCommand";
 import {
   CreateSmsTemplateCommand,
   CreateSmsTemplateCommandInput,
-  CreateSmsTemplateCommandOutput
+  CreateSmsTemplateCommandOutput,
 } from "./commands/CreateSmsTemplateCommand";
 import {
   CreateVoiceTemplateCommand,
   CreateVoiceTemplateCommandInput,
-  CreateVoiceTemplateCommandOutput
+  CreateVoiceTemplateCommandOutput,
 } from "./commands/CreateVoiceTemplateCommand";
 import {
   DeleteAdmChannelCommand,
   DeleteAdmChannelCommandInput,
-  DeleteAdmChannelCommandOutput
+  DeleteAdmChannelCommandOutput,
 } from "./commands/DeleteAdmChannelCommand";
 import {
   DeleteApnsChannelCommand,
   DeleteApnsChannelCommandInput,
-  DeleteApnsChannelCommandOutput
+  DeleteApnsChannelCommandOutput,
 } from "./commands/DeleteApnsChannelCommand";
 import {
   DeleteApnsSandboxChannelCommand,
   DeleteApnsSandboxChannelCommandInput,
-  DeleteApnsSandboxChannelCommandOutput
+  DeleteApnsSandboxChannelCommandOutput,
 } from "./commands/DeleteApnsSandboxChannelCommand";
 import {
   DeleteApnsVoipChannelCommand,
   DeleteApnsVoipChannelCommandInput,
-  DeleteApnsVoipChannelCommandOutput
+  DeleteApnsVoipChannelCommandOutput,
 } from "./commands/DeleteApnsVoipChannelCommand";
 import {
   DeleteApnsVoipSandboxChannelCommand,
   DeleteApnsVoipSandboxChannelCommandInput,
-  DeleteApnsVoipSandboxChannelCommandOutput
+  DeleteApnsVoipSandboxChannelCommandOutput,
 } from "./commands/DeleteApnsVoipSandboxChannelCommand";
 import {
   DeleteAppCommand,
   DeleteAppCommandInput,
-  DeleteAppCommandOutput
+  DeleteAppCommandOutput,
 } from "./commands/DeleteAppCommand";
 import {
   DeleteBaiduChannelCommand,
   DeleteBaiduChannelCommandInput,
-  DeleteBaiduChannelCommandOutput
+  DeleteBaiduChannelCommandOutput,
 } from "./commands/DeleteBaiduChannelCommand";
 import {
   DeleteCampaignCommand,
   DeleteCampaignCommandInput,
-  DeleteCampaignCommandOutput
+  DeleteCampaignCommandOutput,
 } from "./commands/DeleteCampaignCommand";
 import {
   DeleteEmailChannelCommand,
   DeleteEmailChannelCommandInput,
-  DeleteEmailChannelCommandOutput
+  DeleteEmailChannelCommandOutput,
 } from "./commands/DeleteEmailChannelCommand";
 import {
   DeleteEmailTemplateCommand,
   DeleteEmailTemplateCommandInput,
-  DeleteEmailTemplateCommandOutput
+  DeleteEmailTemplateCommandOutput,
 } from "./commands/DeleteEmailTemplateCommand";
 import {
   DeleteEndpointCommand,
   DeleteEndpointCommandInput,
-  DeleteEndpointCommandOutput
+  DeleteEndpointCommandOutput,
 } from "./commands/DeleteEndpointCommand";
 import {
   DeleteEventStreamCommand,
   DeleteEventStreamCommandInput,
-  DeleteEventStreamCommandOutput
+  DeleteEventStreamCommandOutput,
 } from "./commands/DeleteEventStreamCommand";
 import {
   DeleteGcmChannelCommand,
   DeleteGcmChannelCommandInput,
-  DeleteGcmChannelCommandOutput
+  DeleteGcmChannelCommandOutput,
 } from "./commands/DeleteGcmChannelCommand";
 import {
   DeleteJourneyCommand,
   DeleteJourneyCommandInput,
-  DeleteJourneyCommandOutput
+  DeleteJourneyCommandOutput,
 } from "./commands/DeleteJourneyCommand";
 import {
   DeletePushTemplateCommand,
   DeletePushTemplateCommandInput,
-  DeletePushTemplateCommandOutput
+  DeletePushTemplateCommandOutput,
 } from "./commands/DeletePushTemplateCommand";
 import {
   DeleteSegmentCommand,
   DeleteSegmentCommandInput,
-  DeleteSegmentCommandOutput
+  DeleteSegmentCommandOutput,
 } from "./commands/DeleteSegmentCommand";
 import {
   DeleteSmsChannelCommand,
   DeleteSmsChannelCommandInput,
-  DeleteSmsChannelCommandOutput
+  DeleteSmsChannelCommandOutput,
 } from "./commands/DeleteSmsChannelCommand";
 import {
   DeleteSmsTemplateCommand,
   DeleteSmsTemplateCommandInput,
-  DeleteSmsTemplateCommandOutput
+  DeleteSmsTemplateCommandOutput,
 } from "./commands/DeleteSmsTemplateCommand";
 import {
   DeleteUserEndpointsCommand,
   DeleteUserEndpointsCommandInput,
-  DeleteUserEndpointsCommandOutput
+  DeleteUserEndpointsCommandOutput,
 } from "./commands/DeleteUserEndpointsCommand";
 import {
   DeleteVoiceChannelCommand,
   DeleteVoiceChannelCommandInput,
-  DeleteVoiceChannelCommandOutput
+  DeleteVoiceChannelCommandOutput,
 } from "./commands/DeleteVoiceChannelCommand";
 import {
   DeleteVoiceTemplateCommand,
   DeleteVoiceTemplateCommandInput,
-  DeleteVoiceTemplateCommandOutput
+  DeleteVoiceTemplateCommandOutput,
 } from "./commands/DeleteVoiceTemplateCommand";
 import {
   GetAdmChannelCommand,
   GetAdmChannelCommandInput,
-  GetAdmChannelCommandOutput
+  GetAdmChannelCommandOutput,
 } from "./commands/GetAdmChannelCommand";
 import {
   GetApnsChannelCommand,
   GetApnsChannelCommandInput,
-  GetApnsChannelCommandOutput
+  GetApnsChannelCommandOutput,
 } from "./commands/GetApnsChannelCommand";
 import {
   GetApnsSandboxChannelCommand,
   GetApnsSandboxChannelCommandInput,
-  GetApnsSandboxChannelCommandOutput
+  GetApnsSandboxChannelCommandOutput,
 } from "./commands/GetApnsSandboxChannelCommand";
 import {
   GetApnsVoipChannelCommand,
   GetApnsVoipChannelCommandInput,
-  GetApnsVoipChannelCommandOutput
+  GetApnsVoipChannelCommandOutput,
 } from "./commands/GetApnsVoipChannelCommand";
 import {
   GetApnsVoipSandboxChannelCommand,
   GetApnsVoipSandboxChannelCommandInput,
-  GetApnsVoipSandboxChannelCommandOutput
+  GetApnsVoipSandboxChannelCommandOutput,
 } from "./commands/GetApnsVoipSandboxChannelCommand";
 import {
   GetAppCommand,
   GetAppCommandInput,
-  GetAppCommandOutput
+  GetAppCommandOutput,
 } from "./commands/GetAppCommand";
 import {
   GetApplicationDateRangeKpiCommand,
   GetApplicationDateRangeKpiCommandInput,
-  GetApplicationDateRangeKpiCommandOutput
+  GetApplicationDateRangeKpiCommandOutput,
 } from "./commands/GetApplicationDateRangeKpiCommand";
 import {
   GetApplicationSettingsCommand,
   GetApplicationSettingsCommandInput,
-  GetApplicationSettingsCommandOutput
+  GetApplicationSettingsCommandOutput,
 } from "./commands/GetApplicationSettingsCommand";
 import {
   GetAppsCommand,
   GetAppsCommandInput,
-  GetAppsCommandOutput
+  GetAppsCommandOutput,
 } from "./commands/GetAppsCommand";
 import {
   GetBaiduChannelCommand,
   GetBaiduChannelCommandInput,
-  GetBaiduChannelCommandOutput
+  GetBaiduChannelCommandOutput,
 } from "./commands/GetBaiduChannelCommand";
 import {
   GetCampaignActivitiesCommand,
   GetCampaignActivitiesCommandInput,
-  GetCampaignActivitiesCommandOutput
+  GetCampaignActivitiesCommandOutput,
 } from "./commands/GetCampaignActivitiesCommand";
 import {
   GetCampaignCommand,
   GetCampaignCommandInput,
-  GetCampaignCommandOutput
+  GetCampaignCommandOutput,
 } from "./commands/GetCampaignCommand";
 import {
   GetCampaignDateRangeKpiCommand,
   GetCampaignDateRangeKpiCommandInput,
-  GetCampaignDateRangeKpiCommandOutput
+  GetCampaignDateRangeKpiCommandOutput,
 } from "./commands/GetCampaignDateRangeKpiCommand";
 import {
   GetCampaignVersionCommand,
   GetCampaignVersionCommandInput,
-  GetCampaignVersionCommandOutput
+  GetCampaignVersionCommandOutput,
 } from "./commands/GetCampaignVersionCommand";
 import {
   GetCampaignVersionsCommand,
   GetCampaignVersionsCommandInput,
-  GetCampaignVersionsCommandOutput
+  GetCampaignVersionsCommandOutput,
 } from "./commands/GetCampaignVersionsCommand";
 import {
   GetCampaignsCommand,
   GetCampaignsCommandInput,
-  GetCampaignsCommandOutput
+  GetCampaignsCommandOutput,
 } from "./commands/GetCampaignsCommand";
 import {
   GetChannelsCommand,
   GetChannelsCommandInput,
-  GetChannelsCommandOutput
+  GetChannelsCommandOutput,
 } from "./commands/GetChannelsCommand";
 import {
   GetEmailChannelCommand,
   GetEmailChannelCommandInput,
-  GetEmailChannelCommandOutput
+  GetEmailChannelCommandOutput,
 } from "./commands/GetEmailChannelCommand";
 import {
   GetEmailTemplateCommand,
   GetEmailTemplateCommandInput,
-  GetEmailTemplateCommandOutput
+  GetEmailTemplateCommandOutput,
 } from "./commands/GetEmailTemplateCommand";
 import {
   GetEndpointCommand,
   GetEndpointCommandInput,
-  GetEndpointCommandOutput
+  GetEndpointCommandOutput,
 } from "./commands/GetEndpointCommand";
 import {
   GetEventStreamCommand,
   GetEventStreamCommandInput,
-  GetEventStreamCommandOutput
+  GetEventStreamCommandOutput,
 } from "./commands/GetEventStreamCommand";
 import {
   GetExportJobCommand,
   GetExportJobCommandInput,
-  GetExportJobCommandOutput
+  GetExportJobCommandOutput,
 } from "./commands/GetExportJobCommand";
 import {
   GetExportJobsCommand,
   GetExportJobsCommandInput,
-  GetExportJobsCommandOutput
+  GetExportJobsCommandOutput,
 } from "./commands/GetExportJobsCommand";
 import {
   GetGcmChannelCommand,
   GetGcmChannelCommandInput,
-  GetGcmChannelCommandOutput
+  GetGcmChannelCommandOutput,
 } from "./commands/GetGcmChannelCommand";
 import {
   GetImportJobCommand,
   GetImportJobCommandInput,
-  GetImportJobCommandOutput
+  GetImportJobCommandOutput,
 } from "./commands/GetImportJobCommand";
 import {
   GetImportJobsCommand,
   GetImportJobsCommandInput,
-  GetImportJobsCommandOutput
+  GetImportJobsCommandOutput,
 } from "./commands/GetImportJobsCommand";
 import {
   GetJourneyCommand,
   GetJourneyCommandInput,
-  GetJourneyCommandOutput
+  GetJourneyCommandOutput,
 } from "./commands/GetJourneyCommand";
 import {
   GetJourneyDateRangeKpiCommand,
   GetJourneyDateRangeKpiCommandInput,
-  GetJourneyDateRangeKpiCommandOutput
+  GetJourneyDateRangeKpiCommandOutput,
 } from "./commands/GetJourneyDateRangeKpiCommand";
 import {
   GetJourneyExecutionActivityMetricsCommand,
   GetJourneyExecutionActivityMetricsCommandInput,
-  GetJourneyExecutionActivityMetricsCommandOutput
+  GetJourneyExecutionActivityMetricsCommandOutput,
 } from "./commands/GetJourneyExecutionActivityMetricsCommand";
 import {
   GetJourneyExecutionMetricsCommand,
   GetJourneyExecutionMetricsCommandInput,
-  GetJourneyExecutionMetricsCommandOutput
+  GetJourneyExecutionMetricsCommandOutput,
 } from "./commands/GetJourneyExecutionMetricsCommand";
 import {
   GetPushTemplateCommand,
   GetPushTemplateCommandInput,
-  GetPushTemplateCommandOutput
+  GetPushTemplateCommandOutput,
 } from "./commands/GetPushTemplateCommand";
 import {
   GetSegmentCommand,
   GetSegmentCommandInput,
-  GetSegmentCommandOutput
+  GetSegmentCommandOutput,
 } from "./commands/GetSegmentCommand";
 import {
   GetSegmentExportJobsCommand,
   GetSegmentExportJobsCommandInput,
-  GetSegmentExportJobsCommandOutput
+  GetSegmentExportJobsCommandOutput,
 } from "./commands/GetSegmentExportJobsCommand";
 import {
   GetSegmentImportJobsCommand,
   GetSegmentImportJobsCommandInput,
-  GetSegmentImportJobsCommandOutput
+  GetSegmentImportJobsCommandOutput,
 } from "./commands/GetSegmentImportJobsCommand";
 import {
   GetSegmentVersionCommand,
   GetSegmentVersionCommandInput,
-  GetSegmentVersionCommandOutput
+  GetSegmentVersionCommandOutput,
 } from "./commands/GetSegmentVersionCommand";
 import {
   GetSegmentVersionsCommand,
   GetSegmentVersionsCommandInput,
-  GetSegmentVersionsCommandOutput
+  GetSegmentVersionsCommandOutput,
 } from "./commands/GetSegmentVersionsCommand";
 import {
   GetSegmentsCommand,
   GetSegmentsCommandInput,
-  GetSegmentsCommandOutput
+  GetSegmentsCommandOutput,
 } from "./commands/GetSegmentsCommand";
 import {
   GetSmsChannelCommand,
   GetSmsChannelCommandInput,
-  GetSmsChannelCommandOutput
+  GetSmsChannelCommandOutput,
 } from "./commands/GetSmsChannelCommand";
 import {
   GetSmsTemplateCommand,
   GetSmsTemplateCommandInput,
-  GetSmsTemplateCommandOutput
+  GetSmsTemplateCommandOutput,
 } from "./commands/GetSmsTemplateCommand";
 import {
   GetUserEndpointsCommand,
   GetUserEndpointsCommandInput,
-  GetUserEndpointsCommandOutput
+  GetUserEndpointsCommandOutput,
 } from "./commands/GetUserEndpointsCommand";
 import {
   GetVoiceChannelCommand,
   GetVoiceChannelCommandInput,
-  GetVoiceChannelCommandOutput
+  GetVoiceChannelCommandOutput,
 } from "./commands/GetVoiceChannelCommand";
 import {
   GetVoiceTemplateCommand,
   GetVoiceTemplateCommandInput,
-  GetVoiceTemplateCommandOutput
+  GetVoiceTemplateCommandOutput,
 } from "./commands/GetVoiceTemplateCommand";
 import {
   ListJourneysCommand,
   ListJourneysCommandInput,
-  ListJourneysCommandOutput
+  ListJourneysCommandOutput,
 } from "./commands/ListJourneysCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   ListTemplatesCommand,
   ListTemplatesCommandInput,
-  ListTemplatesCommandOutput
+  ListTemplatesCommandOutput,
 } from "./commands/ListTemplatesCommand";
 import {
   PhoneNumberValidateCommand,
   PhoneNumberValidateCommandInput,
-  PhoneNumberValidateCommandOutput
+  PhoneNumberValidateCommandOutput,
 } from "./commands/PhoneNumberValidateCommand";
 import {
   PutEventStreamCommand,
   PutEventStreamCommandInput,
-  PutEventStreamCommandOutput
+  PutEventStreamCommandOutput,
 } from "./commands/PutEventStreamCommand";
 import {
   PutEventsCommand,
   PutEventsCommandInput,
-  PutEventsCommandOutput
+  PutEventsCommandOutput,
 } from "./commands/PutEventsCommand";
 import {
   RemoveAttributesCommand,
   RemoveAttributesCommandInput,
-  RemoveAttributesCommandOutput
+  RemoveAttributesCommandOutput,
 } from "./commands/RemoveAttributesCommand";
 import {
   SendMessagesCommand,
   SendMessagesCommandInput,
-  SendMessagesCommandOutput
+  SendMessagesCommandOutput,
 } from "./commands/SendMessagesCommand";
 import {
   SendUsersMessagesCommand,
   SendUsersMessagesCommandInput,
-  SendUsersMessagesCommandOutput
+  SendUsersMessagesCommandOutput,
 } from "./commands/SendUsersMessagesCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateAdmChannelCommand,
   UpdateAdmChannelCommandInput,
-  UpdateAdmChannelCommandOutput
+  UpdateAdmChannelCommandOutput,
 } from "./commands/UpdateAdmChannelCommand";
 import {
   UpdateApnsChannelCommand,
   UpdateApnsChannelCommandInput,
-  UpdateApnsChannelCommandOutput
+  UpdateApnsChannelCommandOutput,
 } from "./commands/UpdateApnsChannelCommand";
 import {
   UpdateApnsSandboxChannelCommand,
   UpdateApnsSandboxChannelCommandInput,
-  UpdateApnsSandboxChannelCommandOutput
+  UpdateApnsSandboxChannelCommandOutput,
 } from "./commands/UpdateApnsSandboxChannelCommand";
 import {
   UpdateApnsVoipChannelCommand,
   UpdateApnsVoipChannelCommandInput,
-  UpdateApnsVoipChannelCommandOutput
+  UpdateApnsVoipChannelCommandOutput,
 } from "./commands/UpdateApnsVoipChannelCommand";
 import {
   UpdateApnsVoipSandboxChannelCommand,
   UpdateApnsVoipSandboxChannelCommandInput,
-  UpdateApnsVoipSandboxChannelCommandOutput
+  UpdateApnsVoipSandboxChannelCommandOutput,
 } from "./commands/UpdateApnsVoipSandboxChannelCommand";
 import {
   UpdateApplicationSettingsCommand,
   UpdateApplicationSettingsCommandInput,
-  UpdateApplicationSettingsCommandOutput
+  UpdateApplicationSettingsCommandOutput,
 } from "./commands/UpdateApplicationSettingsCommand";
 import {
   UpdateBaiduChannelCommand,
   UpdateBaiduChannelCommandInput,
-  UpdateBaiduChannelCommandOutput
+  UpdateBaiduChannelCommandOutput,
 } from "./commands/UpdateBaiduChannelCommand";
 import {
   UpdateCampaignCommand,
   UpdateCampaignCommandInput,
-  UpdateCampaignCommandOutput
+  UpdateCampaignCommandOutput,
 } from "./commands/UpdateCampaignCommand";
 import {
   UpdateEmailChannelCommand,
   UpdateEmailChannelCommandInput,
-  UpdateEmailChannelCommandOutput
+  UpdateEmailChannelCommandOutput,
 } from "./commands/UpdateEmailChannelCommand";
 import {
   UpdateEmailTemplateCommand,
   UpdateEmailTemplateCommandInput,
-  UpdateEmailTemplateCommandOutput
+  UpdateEmailTemplateCommandOutput,
 } from "./commands/UpdateEmailTemplateCommand";
 import {
   UpdateEndpointCommand,
   UpdateEndpointCommandInput,
-  UpdateEndpointCommandOutput
+  UpdateEndpointCommandOutput,
 } from "./commands/UpdateEndpointCommand";
 import {
   UpdateEndpointsBatchCommand,
   UpdateEndpointsBatchCommandInput,
-  UpdateEndpointsBatchCommandOutput
+  UpdateEndpointsBatchCommandOutput,
 } from "./commands/UpdateEndpointsBatchCommand";
 import {
   UpdateGcmChannelCommand,
   UpdateGcmChannelCommandInput,
-  UpdateGcmChannelCommandOutput
+  UpdateGcmChannelCommandOutput,
 } from "./commands/UpdateGcmChannelCommand";
 import {
   UpdateJourneyCommand,
   UpdateJourneyCommandInput,
-  UpdateJourneyCommandOutput
+  UpdateJourneyCommandOutput,
 } from "./commands/UpdateJourneyCommand";
 import {
   UpdateJourneyStateCommand,
   UpdateJourneyStateCommandInput,
-  UpdateJourneyStateCommandOutput
+  UpdateJourneyStateCommandOutput,
 } from "./commands/UpdateJourneyStateCommand";
 import {
   UpdatePushTemplateCommand,
   UpdatePushTemplateCommandInput,
-  UpdatePushTemplateCommandOutput
+  UpdatePushTemplateCommandOutput,
 } from "./commands/UpdatePushTemplateCommand";
 import {
   UpdateSegmentCommand,
   UpdateSegmentCommandInput,
-  UpdateSegmentCommandOutput
+  UpdateSegmentCommandOutput,
 } from "./commands/UpdateSegmentCommand";
 import {
   UpdateSmsChannelCommand,
   UpdateSmsChannelCommandInput,
-  UpdateSmsChannelCommandOutput
+  UpdateSmsChannelCommandOutput,
 } from "./commands/UpdateSmsChannelCommand";
 import {
   UpdateSmsTemplateCommand,
   UpdateSmsTemplateCommandInput,
-  UpdateSmsTemplateCommandOutput
+  UpdateSmsTemplateCommandOutput,
 } from "./commands/UpdateSmsTemplateCommand";
 import {
   UpdateVoiceChannelCommand,
   UpdateVoiceChannelCommandInput,
-  UpdateVoiceChannelCommandOutput
+  UpdateVoiceChannelCommandOutput,
 } from "./commands/UpdateVoiceChannelCommand";
 import {
   UpdateVoiceTemplateCommand,
   UpdateVoiceTemplateCommandInput,
-  UpdateVoiceTemplateCommandOutput
+  UpdateVoiceTemplateCommandOutput,
 } from "./commands/UpdateVoiceTemplateCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -535,7 +535,7 @@ export class Pinpoint extends PinpointClient {
    */
   public createApp(
     args: CreateAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateAppCommandOutput>;
   public createApp(
     args: CreateAppCommandInput,
@@ -548,18 +548,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public createApp(
     args: CreateAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAppCommandOutput) => void),
     cb?: (err: any, data?: CreateAppCommandOutput) => void
   ): Promise<CreateAppCommandOutput> | void {
     const command = new CreateAppCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -570,7 +568,7 @@ export class Pinpoint extends PinpointClient {
    */
   public createCampaign(
     args: CreateCampaignCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateCampaignCommandOutput>;
   public createCampaign(
     args: CreateCampaignCommandInput,
@@ -583,18 +581,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public createCampaign(
     args: CreateCampaignCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCampaignCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCampaignCommandOutput) => void),
     cb?: (err: any, data?: CreateCampaignCommandOutput) => void
   ): Promise<CreateCampaignCommandOutput> | void {
     const command = new CreateCampaignCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -605,7 +601,7 @@ export class Pinpoint extends PinpointClient {
    */
   public createEmailTemplate(
     args: CreateEmailTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateEmailTemplateCommandOutput>;
   public createEmailTemplate(
     args: CreateEmailTemplateCommandInput,
@@ -618,18 +614,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public createEmailTemplate(
     args: CreateEmailTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateEmailTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEmailTemplateCommandOutput) => void),
     cb?: (err: any, data?: CreateEmailTemplateCommandOutput) => void
   ): Promise<CreateEmailTemplateCommandOutput> | void {
     const command = new CreateEmailTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -640,7 +634,7 @@ export class Pinpoint extends PinpointClient {
    */
   public createExportJob(
     args: CreateExportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateExportJobCommandOutput>;
   public createExportJob(
     args: CreateExportJobCommandInput,
@@ -653,18 +647,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public createExportJob(
     args: CreateExportJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateExportJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateExportJobCommandOutput) => void),
     cb?: (err: any, data?: CreateExportJobCommandOutput) => void
   ): Promise<CreateExportJobCommandOutput> | void {
     const command = new CreateExportJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -675,7 +667,7 @@ export class Pinpoint extends PinpointClient {
    */
   public createImportJob(
     args: CreateImportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateImportJobCommandOutput>;
   public createImportJob(
     args: CreateImportJobCommandInput,
@@ -688,18 +680,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public createImportJob(
     args: CreateImportJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateImportJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateImportJobCommandOutput) => void),
     cb?: (err: any, data?: CreateImportJobCommandOutput) => void
   ): Promise<CreateImportJobCommandOutput> | void {
     const command = new CreateImportJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -710,7 +700,7 @@ export class Pinpoint extends PinpointClient {
    */
   public createJourney(
     args: CreateJourneyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateJourneyCommandOutput>;
   public createJourney(
     args: CreateJourneyCommandInput,
@@ -723,18 +713,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public createJourney(
     args: CreateJourneyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateJourneyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateJourneyCommandOutput) => void),
     cb?: (err: any, data?: CreateJourneyCommandOutput) => void
   ): Promise<CreateJourneyCommandOutput> | void {
     const command = new CreateJourneyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -745,7 +733,7 @@ export class Pinpoint extends PinpointClient {
    */
   public createPushTemplate(
     args: CreatePushTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreatePushTemplateCommandOutput>;
   public createPushTemplate(
     args: CreatePushTemplateCommandInput,
@@ -758,18 +746,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public createPushTemplate(
     args: CreatePushTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePushTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePushTemplateCommandOutput) => void),
     cb?: (err: any, data?: CreatePushTemplateCommandOutput) => void
   ): Promise<CreatePushTemplateCommandOutput> | void {
     const command = new CreatePushTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -780,7 +766,7 @@ export class Pinpoint extends PinpointClient {
    */
   public createSegment(
     args: CreateSegmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateSegmentCommandOutput>;
   public createSegment(
     args: CreateSegmentCommandInput,
@@ -793,18 +779,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public createSegment(
     args: CreateSegmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSegmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSegmentCommandOutput) => void),
     cb?: (err: any, data?: CreateSegmentCommandOutput) => void
   ): Promise<CreateSegmentCommandOutput> | void {
     const command = new CreateSegmentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -815,7 +799,7 @@ export class Pinpoint extends PinpointClient {
    */
   public createSmsTemplate(
     args: CreateSmsTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateSmsTemplateCommandOutput>;
   public createSmsTemplate(
     args: CreateSmsTemplateCommandInput,
@@ -828,18 +812,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public createSmsTemplate(
     args: CreateSmsTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSmsTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSmsTemplateCommandOutput) => void),
     cb?: (err: any, data?: CreateSmsTemplateCommandOutput) => void
   ): Promise<CreateSmsTemplateCommandOutput> | void {
     const command = new CreateSmsTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -850,7 +832,7 @@ export class Pinpoint extends PinpointClient {
    */
   public createVoiceTemplate(
     args: CreateVoiceTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateVoiceTemplateCommandOutput>;
   public createVoiceTemplate(
     args: CreateVoiceTemplateCommandInput,
@@ -863,18 +845,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public createVoiceTemplate(
     args: CreateVoiceTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateVoiceTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVoiceTemplateCommandOutput) => void),
     cb?: (err: any, data?: CreateVoiceTemplateCommandOutput) => void
   ): Promise<CreateVoiceTemplateCommandOutput> | void {
     const command = new CreateVoiceTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -885,7 +865,7 @@ export class Pinpoint extends PinpointClient {
    */
   public deleteAdmChannel(
     args: DeleteAdmChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteAdmChannelCommandOutput>;
   public deleteAdmChannel(
     args: DeleteAdmChannelCommandInput,
@@ -898,18 +878,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteAdmChannel(
     args: DeleteAdmChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAdmChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAdmChannelCommandOutput) => void),
     cb?: (err: any, data?: DeleteAdmChannelCommandOutput) => void
   ): Promise<DeleteAdmChannelCommandOutput> | void {
     const command = new DeleteAdmChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -920,7 +898,7 @@ export class Pinpoint extends PinpointClient {
    */
   public deleteApnsChannel(
     args: DeleteApnsChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteApnsChannelCommandOutput>;
   public deleteApnsChannel(
     args: DeleteApnsChannelCommandInput,
@@ -933,18 +911,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteApnsChannel(
     args: DeleteApnsChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteApnsChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApnsChannelCommandOutput) => void),
     cb?: (err: any, data?: DeleteApnsChannelCommandOutput) => void
   ): Promise<DeleteApnsChannelCommandOutput> | void {
     const command = new DeleteApnsChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -955,7 +931,7 @@ export class Pinpoint extends PinpointClient {
    */
   public deleteApnsSandboxChannel(
     args: DeleteApnsSandboxChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteApnsSandboxChannelCommandOutput>;
   public deleteApnsSandboxChannel(
     args: DeleteApnsSandboxChannelCommandInput,
@@ -968,18 +944,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteApnsSandboxChannel(
     args: DeleteApnsSandboxChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteApnsSandboxChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApnsSandboxChannelCommandOutput) => void),
     cb?: (err: any, data?: DeleteApnsSandboxChannelCommandOutput) => void
   ): Promise<DeleteApnsSandboxChannelCommandOutput> | void {
     const command = new DeleteApnsSandboxChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -990,7 +964,7 @@ export class Pinpoint extends PinpointClient {
    */
   public deleteApnsVoipChannel(
     args: DeleteApnsVoipChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteApnsVoipChannelCommandOutput>;
   public deleteApnsVoipChannel(
     args: DeleteApnsVoipChannelCommandInput,
@@ -1003,18 +977,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteApnsVoipChannel(
     args: DeleteApnsVoipChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteApnsVoipChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApnsVoipChannelCommandOutput) => void),
     cb?: (err: any, data?: DeleteApnsVoipChannelCommandOutput) => void
   ): Promise<DeleteApnsVoipChannelCommandOutput> | void {
     const command = new DeleteApnsVoipChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1025,7 +997,7 @@ export class Pinpoint extends PinpointClient {
    */
   public deleteApnsVoipSandboxChannel(
     args: DeleteApnsVoipSandboxChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteApnsVoipSandboxChannelCommandOutput>;
   public deleteApnsVoipSandboxChannel(
     args: DeleteApnsVoipSandboxChannelCommandInput,
@@ -1038,18 +1010,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteApnsVoipSandboxChannel(
     args: DeleteApnsVoipSandboxChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteApnsVoipSandboxChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApnsVoipSandboxChannelCommandOutput) => void),
     cb?: (err: any, data?: DeleteApnsVoipSandboxChannelCommandOutput) => void
   ): Promise<DeleteApnsVoipSandboxChannelCommandOutput> | void {
     const command = new DeleteApnsVoipSandboxChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1060,7 +1030,7 @@ export class Pinpoint extends PinpointClient {
    */
   public deleteApp(
     args: DeleteAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteAppCommandOutput>;
   public deleteApp(
     args: DeleteAppCommandInput,
@@ -1073,18 +1043,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteApp(
     args: DeleteAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAppCommandOutput) => void),
     cb?: (err: any, data?: DeleteAppCommandOutput) => void
   ): Promise<DeleteAppCommandOutput> | void {
     const command = new DeleteAppCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1095,7 +1063,7 @@ export class Pinpoint extends PinpointClient {
    */
   public deleteBaiduChannel(
     args: DeleteBaiduChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteBaiduChannelCommandOutput>;
   public deleteBaiduChannel(
     args: DeleteBaiduChannelCommandInput,
@@ -1108,18 +1076,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteBaiduChannel(
     args: DeleteBaiduChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBaiduChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBaiduChannelCommandOutput) => void),
     cb?: (err: any, data?: DeleteBaiduChannelCommandOutput) => void
   ): Promise<DeleteBaiduChannelCommandOutput> | void {
     const command = new DeleteBaiduChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1130,7 +1096,7 @@ export class Pinpoint extends PinpointClient {
    */
   public deleteCampaign(
     args: DeleteCampaignCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteCampaignCommandOutput>;
   public deleteCampaign(
     args: DeleteCampaignCommandInput,
@@ -1143,18 +1109,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteCampaign(
     args: DeleteCampaignCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteCampaignCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCampaignCommandOutput) => void),
     cb?: (err: any, data?: DeleteCampaignCommandOutput) => void
   ): Promise<DeleteCampaignCommandOutput> | void {
     const command = new DeleteCampaignCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1165,7 +1129,7 @@ export class Pinpoint extends PinpointClient {
    */
   public deleteEmailChannel(
     args: DeleteEmailChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteEmailChannelCommandOutput>;
   public deleteEmailChannel(
     args: DeleteEmailChannelCommandInput,
@@ -1178,18 +1142,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteEmailChannel(
     args: DeleteEmailChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEmailChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEmailChannelCommandOutput) => void),
     cb?: (err: any, data?: DeleteEmailChannelCommandOutput) => void
   ): Promise<DeleteEmailChannelCommandOutput> | void {
     const command = new DeleteEmailChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1200,7 +1162,7 @@ export class Pinpoint extends PinpointClient {
    */
   public deleteEmailTemplate(
     args: DeleteEmailTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteEmailTemplateCommandOutput>;
   public deleteEmailTemplate(
     args: DeleteEmailTemplateCommandInput,
@@ -1213,18 +1175,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteEmailTemplate(
     args: DeleteEmailTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEmailTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEmailTemplateCommandOutput) => void),
     cb?: (err: any, data?: DeleteEmailTemplateCommandOutput) => void
   ): Promise<DeleteEmailTemplateCommandOutput> | void {
     const command = new DeleteEmailTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1235,7 +1195,7 @@ export class Pinpoint extends PinpointClient {
    */
   public deleteEndpoint(
     args: DeleteEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteEndpointCommandOutput>;
   public deleteEndpoint(
     args: DeleteEndpointCommandInput,
@@ -1248,18 +1208,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteEndpoint(
     args: DeleteEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEndpointCommandOutput) => void),
     cb?: (err: any, data?: DeleteEndpointCommandOutput) => void
   ): Promise<DeleteEndpointCommandOutput> | void {
     const command = new DeleteEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1270,7 +1228,7 @@ export class Pinpoint extends PinpointClient {
    */
   public deleteEventStream(
     args: DeleteEventStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteEventStreamCommandOutput>;
   public deleteEventStream(
     args: DeleteEventStreamCommandInput,
@@ -1283,18 +1241,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteEventStream(
     args: DeleteEventStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEventStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEventStreamCommandOutput) => void),
     cb?: (err: any, data?: DeleteEventStreamCommandOutput) => void
   ): Promise<DeleteEventStreamCommandOutput> | void {
     const command = new DeleteEventStreamCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1305,7 +1261,7 @@ export class Pinpoint extends PinpointClient {
    */
   public deleteGcmChannel(
     args: DeleteGcmChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteGcmChannelCommandOutput>;
   public deleteGcmChannel(
     args: DeleteGcmChannelCommandInput,
@@ -1318,18 +1274,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteGcmChannel(
     args: DeleteGcmChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGcmChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGcmChannelCommandOutput) => void),
     cb?: (err: any, data?: DeleteGcmChannelCommandOutput) => void
   ): Promise<DeleteGcmChannelCommandOutput> | void {
     const command = new DeleteGcmChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1340,7 +1294,7 @@ export class Pinpoint extends PinpointClient {
    */
   public deleteJourney(
     args: DeleteJourneyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteJourneyCommandOutput>;
   public deleteJourney(
     args: DeleteJourneyCommandInput,
@@ -1353,18 +1307,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteJourney(
     args: DeleteJourneyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteJourneyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteJourneyCommandOutput) => void),
     cb?: (err: any, data?: DeleteJourneyCommandOutput) => void
   ): Promise<DeleteJourneyCommandOutput> | void {
     const command = new DeleteJourneyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1375,7 +1327,7 @@ export class Pinpoint extends PinpointClient {
    */
   public deletePushTemplate(
     args: DeletePushTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeletePushTemplateCommandOutput>;
   public deletePushTemplate(
     args: DeletePushTemplateCommandInput,
@@ -1388,18 +1340,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deletePushTemplate(
     args: DeletePushTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePushTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePushTemplateCommandOutput) => void),
     cb?: (err: any, data?: DeletePushTemplateCommandOutput) => void
   ): Promise<DeletePushTemplateCommandOutput> | void {
     const command = new DeletePushTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1410,7 +1360,7 @@ export class Pinpoint extends PinpointClient {
    */
   public deleteSegment(
     args: DeleteSegmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteSegmentCommandOutput>;
   public deleteSegment(
     args: DeleteSegmentCommandInput,
@@ -1423,18 +1373,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteSegment(
     args: DeleteSegmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSegmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSegmentCommandOutput) => void),
     cb?: (err: any, data?: DeleteSegmentCommandOutput) => void
   ): Promise<DeleteSegmentCommandOutput> | void {
     const command = new DeleteSegmentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1445,7 +1393,7 @@ export class Pinpoint extends PinpointClient {
    */
   public deleteSmsChannel(
     args: DeleteSmsChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteSmsChannelCommandOutput>;
   public deleteSmsChannel(
     args: DeleteSmsChannelCommandInput,
@@ -1458,18 +1406,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteSmsChannel(
     args: DeleteSmsChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSmsChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSmsChannelCommandOutput) => void),
     cb?: (err: any, data?: DeleteSmsChannelCommandOutput) => void
   ): Promise<DeleteSmsChannelCommandOutput> | void {
     const command = new DeleteSmsChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1480,7 +1426,7 @@ export class Pinpoint extends PinpointClient {
    */
   public deleteSmsTemplate(
     args: DeleteSmsTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteSmsTemplateCommandOutput>;
   public deleteSmsTemplate(
     args: DeleteSmsTemplateCommandInput,
@@ -1493,18 +1439,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteSmsTemplate(
     args: DeleteSmsTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSmsTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSmsTemplateCommandOutput) => void),
     cb?: (err: any, data?: DeleteSmsTemplateCommandOutput) => void
   ): Promise<DeleteSmsTemplateCommandOutput> | void {
     const command = new DeleteSmsTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1515,7 +1459,7 @@ export class Pinpoint extends PinpointClient {
    */
   public deleteUserEndpoints(
     args: DeleteUserEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteUserEndpointsCommandOutput>;
   public deleteUserEndpoints(
     args: DeleteUserEndpointsCommandInput,
@@ -1528,18 +1472,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteUserEndpoints(
     args: DeleteUserEndpointsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteUserEndpointsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserEndpointsCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserEndpointsCommandOutput) => void
   ): Promise<DeleteUserEndpointsCommandOutput> | void {
     const command = new DeleteUserEndpointsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1550,7 +1492,7 @@ export class Pinpoint extends PinpointClient {
    */
   public deleteVoiceChannel(
     args: DeleteVoiceChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteVoiceChannelCommandOutput>;
   public deleteVoiceChannel(
     args: DeleteVoiceChannelCommandInput,
@@ -1563,18 +1505,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteVoiceChannel(
     args: DeleteVoiceChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVoiceChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVoiceChannelCommandOutput) => void),
     cb?: (err: any, data?: DeleteVoiceChannelCommandOutput) => void
   ): Promise<DeleteVoiceChannelCommandOutput> | void {
     const command = new DeleteVoiceChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1585,7 +1525,7 @@ export class Pinpoint extends PinpointClient {
    */
   public deleteVoiceTemplate(
     args: DeleteVoiceTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteVoiceTemplateCommandOutput>;
   public deleteVoiceTemplate(
     args: DeleteVoiceTemplateCommandInput,
@@ -1598,18 +1538,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public deleteVoiceTemplate(
     args: DeleteVoiceTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteVoiceTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVoiceTemplateCommandOutput) => void),
     cb?: (err: any, data?: DeleteVoiceTemplateCommandOutput) => void
   ): Promise<DeleteVoiceTemplateCommandOutput> | void {
     const command = new DeleteVoiceTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1620,7 +1558,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getAdmChannel(
     args: GetAdmChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetAdmChannelCommandOutput>;
   public getAdmChannel(
     args: GetAdmChannelCommandInput,
@@ -1633,18 +1571,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getAdmChannel(
     args: GetAdmChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAdmChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAdmChannelCommandOutput) => void),
     cb?: (err: any, data?: GetAdmChannelCommandOutput) => void
   ): Promise<GetAdmChannelCommandOutput> | void {
     const command = new GetAdmChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1655,7 +1591,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getApnsChannel(
     args: GetApnsChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetApnsChannelCommandOutput>;
   public getApnsChannel(
     args: GetApnsChannelCommandInput,
@@ -1668,18 +1604,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getApnsChannel(
     args: GetApnsChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetApnsChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApnsChannelCommandOutput) => void),
     cb?: (err: any, data?: GetApnsChannelCommandOutput) => void
   ): Promise<GetApnsChannelCommandOutput> | void {
     const command = new GetApnsChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1690,7 +1624,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getApnsSandboxChannel(
     args: GetApnsSandboxChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetApnsSandboxChannelCommandOutput>;
   public getApnsSandboxChannel(
     args: GetApnsSandboxChannelCommandInput,
@@ -1703,18 +1637,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getApnsSandboxChannel(
     args: GetApnsSandboxChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetApnsSandboxChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApnsSandboxChannelCommandOutput) => void),
     cb?: (err: any, data?: GetApnsSandboxChannelCommandOutput) => void
   ): Promise<GetApnsSandboxChannelCommandOutput> | void {
     const command = new GetApnsSandboxChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1725,7 +1657,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getApnsVoipChannel(
     args: GetApnsVoipChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetApnsVoipChannelCommandOutput>;
   public getApnsVoipChannel(
     args: GetApnsVoipChannelCommandInput,
@@ -1738,18 +1670,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getApnsVoipChannel(
     args: GetApnsVoipChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetApnsVoipChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApnsVoipChannelCommandOutput) => void),
     cb?: (err: any, data?: GetApnsVoipChannelCommandOutput) => void
   ): Promise<GetApnsVoipChannelCommandOutput> | void {
     const command = new GetApnsVoipChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1760,7 +1690,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getApnsVoipSandboxChannel(
     args: GetApnsVoipSandboxChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetApnsVoipSandboxChannelCommandOutput>;
   public getApnsVoipSandboxChannel(
     args: GetApnsVoipSandboxChannelCommandInput,
@@ -1773,18 +1703,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getApnsVoipSandboxChannel(
     args: GetApnsVoipSandboxChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetApnsVoipSandboxChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApnsVoipSandboxChannelCommandOutput) => void),
     cb?: (err: any, data?: GetApnsVoipSandboxChannelCommandOutput) => void
   ): Promise<GetApnsVoipSandboxChannelCommandOutput> | void {
     const command = new GetApnsVoipSandboxChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1795,7 +1723,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getApp(
     args: GetAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetAppCommandOutput>;
   public getApp(
     args: GetAppCommandInput,
@@ -1808,18 +1736,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getApp(
     args: GetAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAppCommandOutput) => void),
     cb?: (err: any, data?: GetAppCommandOutput) => void
   ): Promise<GetAppCommandOutput> | void {
     const command = new GetAppCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1830,7 +1756,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getApplicationDateRangeKpi(
     args: GetApplicationDateRangeKpiCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetApplicationDateRangeKpiCommandOutput>;
   public getApplicationDateRangeKpi(
     args: GetApplicationDateRangeKpiCommandInput,
@@ -1843,18 +1769,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getApplicationDateRangeKpi(
     args: GetApplicationDateRangeKpiCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetApplicationDateRangeKpiCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApplicationDateRangeKpiCommandOutput) => void),
     cb?: (err: any, data?: GetApplicationDateRangeKpiCommandOutput) => void
   ): Promise<GetApplicationDateRangeKpiCommandOutput> | void {
     const command = new GetApplicationDateRangeKpiCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1865,7 +1789,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getApplicationSettings(
     args: GetApplicationSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetApplicationSettingsCommandOutput>;
   public getApplicationSettings(
     args: GetApplicationSettingsCommandInput,
@@ -1878,18 +1802,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getApplicationSettings(
     args: GetApplicationSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetApplicationSettingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApplicationSettingsCommandOutput) => void),
     cb?: (err: any, data?: GetApplicationSettingsCommandOutput) => void
   ): Promise<GetApplicationSettingsCommandOutput> | void {
     const command = new GetApplicationSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1900,7 +1822,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getApps(
     args: GetAppsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetAppsCommandOutput>;
   public getApps(
     args: GetAppsCommandInput,
@@ -1913,18 +1835,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getApps(
     args: GetAppsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAppsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAppsCommandOutput) => void),
     cb?: (err: any, data?: GetAppsCommandOutput) => void
   ): Promise<GetAppsCommandOutput> | void {
     const command = new GetAppsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1935,7 +1855,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getBaiduChannel(
     args: GetBaiduChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetBaiduChannelCommandOutput>;
   public getBaiduChannel(
     args: GetBaiduChannelCommandInput,
@@ -1948,18 +1868,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getBaiduChannel(
     args: GetBaiduChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBaiduChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBaiduChannelCommandOutput) => void),
     cb?: (err: any, data?: GetBaiduChannelCommandOutput) => void
   ): Promise<GetBaiduChannelCommandOutput> | void {
     const command = new GetBaiduChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1970,7 +1888,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getCampaign(
     args: GetCampaignCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetCampaignCommandOutput>;
   public getCampaign(
     args: GetCampaignCommandInput,
@@ -1983,18 +1901,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getCampaign(
     args: GetCampaignCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCampaignCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCampaignCommandOutput) => void),
     cb?: (err: any, data?: GetCampaignCommandOutput) => void
   ): Promise<GetCampaignCommandOutput> | void {
     const command = new GetCampaignCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2005,7 +1921,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getCampaignActivities(
     args: GetCampaignActivitiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetCampaignActivitiesCommandOutput>;
   public getCampaignActivities(
     args: GetCampaignActivitiesCommandInput,
@@ -2018,18 +1934,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getCampaignActivities(
     args: GetCampaignActivitiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCampaignActivitiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCampaignActivitiesCommandOutput) => void),
     cb?: (err: any, data?: GetCampaignActivitiesCommandOutput) => void
   ): Promise<GetCampaignActivitiesCommandOutput> | void {
     const command = new GetCampaignActivitiesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2040,7 +1954,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getCampaignDateRangeKpi(
     args: GetCampaignDateRangeKpiCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetCampaignDateRangeKpiCommandOutput>;
   public getCampaignDateRangeKpi(
     args: GetCampaignDateRangeKpiCommandInput,
@@ -2053,18 +1967,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getCampaignDateRangeKpi(
     args: GetCampaignDateRangeKpiCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCampaignDateRangeKpiCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCampaignDateRangeKpiCommandOutput) => void),
     cb?: (err: any, data?: GetCampaignDateRangeKpiCommandOutput) => void
   ): Promise<GetCampaignDateRangeKpiCommandOutput> | void {
     const command = new GetCampaignDateRangeKpiCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2075,7 +1987,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getCampaignVersion(
     args: GetCampaignVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetCampaignVersionCommandOutput>;
   public getCampaignVersion(
     args: GetCampaignVersionCommandInput,
@@ -2088,18 +2000,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getCampaignVersion(
     args: GetCampaignVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCampaignVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCampaignVersionCommandOutput) => void),
     cb?: (err: any, data?: GetCampaignVersionCommandOutput) => void
   ): Promise<GetCampaignVersionCommandOutput> | void {
     const command = new GetCampaignVersionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2110,7 +2020,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getCampaignVersions(
     args: GetCampaignVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetCampaignVersionsCommandOutput>;
   public getCampaignVersions(
     args: GetCampaignVersionsCommandInput,
@@ -2123,18 +2033,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getCampaignVersions(
     args: GetCampaignVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCampaignVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCampaignVersionsCommandOutput) => void),
     cb?: (err: any, data?: GetCampaignVersionsCommandOutput) => void
   ): Promise<GetCampaignVersionsCommandOutput> | void {
     const command = new GetCampaignVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2145,7 +2053,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getCampaigns(
     args: GetCampaignsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetCampaignsCommandOutput>;
   public getCampaigns(
     args: GetCampaignsCommandInput,
@@ -2158,18 +2066,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getCampaigns(
     args: GetCampaignsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCampaignsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCampaignsCommandOutput) => void),
     cb?: (err: any, data?: GetCampaignsCommandOutput) => void
   ): Promise<GetCampaignsCommandOutput> | void {
     const command = new GetCampaignsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2180,7 +2086,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getChannels(
     args: GetChannelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetChannelsCommandOutput>;
   public getChannels(
     args: GetChannelsCommandInput,
@@ -2193,18 +2099,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getChannels(
     args: GetChannelsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetChannelsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetChannelsCommandOutput) => void),
     cb?: (err: any, data?: GetChannelsCommandOutput) => void
   ): Promise<GetChannelsCommandOutput> | void {
     const command = new GetChannelsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2215,7 +2119,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getEmailChannel(
     args: GetEmailChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetEmailChannelCommandOutput>;
   public getEmailChannel(
     args: GetEmailChannelCommandInput,
@@ -2228,18 +2132,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getEmailChannel(
     args: GetEmailChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetEmailChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEmailChannelCommandOutput) => void),
     cb?: (err: any, data?: GetEmailChannelCommandOutput) => void
   ): Promise<GetEmailChannelCommandOutput> | void {
     const command = new GetEmailChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2250,7 +2152,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getEmailTemplate(
     args: GetEmailTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetEmailTemplateCommandOutput>;
   public getEmailTemplate(
     args: GetEmailTemplateCommandInput,
@@ -2263,18 +2165,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getEmailTemplate(
     args: GetEmailTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetEmailTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEmailTemplateCommandOutput) => void),
     cb?: (err: any, data?: GetEmailTemplateCommandOutput) => void
   ): Promise<GetEmailTemplateCommandOutput> | void {
     const command = new GetEmailTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2285,7 +2185,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getEndpoint(
     args: GetEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetEndpointCommandOutput>;
   public getEndpoint(
     args: GetEndpointCommandInput,
@@ -2298,18 +2198,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getEndpoint(
     args: GetEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEndpointCommandOutput) => void),
     cb?: (err: any, data?: GetEndpointCommandOutput) => void
   ): Promise<GetEndpointCommandOutput> | void {
     const command = new GetEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2320,7 +2218,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getEventStream(
     args: GetEventStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetEventStreamCommandOutput>;
   public getEventStream(
     args: GetEventStreamCommandInput,
@@ -2333,18 +2231,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getEventStream(
     args: GetEventStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetEventStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEventStreamCommandOutput) => void),
     cb?: (err: any, data?: GetEventStreamCommandOutput) => void
   ): Promise<GetEventStreamCommandOutput> | void {
     const command = new GetEventStreamCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2355,7 +2251,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getExportJob(
     args: GetExportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetExportJobCommandOutput>;
   public getExportJob(
     args: GetExportJobCommandInput,
@@ -2368,18 +2264,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getExportJob(
     args: GetExportJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetExportJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetExportJobCommandOutput) => void),
     cb?: (err: any, data?: GetExportJobCommandOutput) => void
   ): Promise<GetExportJobCommandOutput> | void {
     const command = new GetExportJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2390,7 +2284,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getExportJobs(
     args: GetExportJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetExportJobsCommandOutput>;
   public getExportJobs(
     args: GetExportJobsCommandInput,
@@ -2403,18 +2297,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getExportJobs(
     args: GetExportJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetExportJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetExportJobsCommandOutput) => void),
     cb?: (err: any, data?: GetExportJobsCommandOutput) => void
   ): Promise<GetExportJobsCommandOutput> | void {
     const command = new GetExportJobsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2425,7 +2317,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getGcmChannel(
     args: GetGcmChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetGcmChannelCommandOutput>;
   public getGcmChannel(
     args: GetGcmChannelCommandInput,
@@ -2438,18 +2330,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getGcmChannel(
     args: GetGcmChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGcmChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGcmChannelCommandOutput) => void),
     cb?: (err: any, data?: GetGcmChannelCommandOutput) => void
   ): Promise<GetGcmChannelCommandOutput> | void {
     const command = new GetGcmChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2460,7 +2350,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getImportJob(
     args: GetImportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetImportJobCommandOutput>;
   public getImportJob(
     args: GetImportJobCommandInput,
@@ -2473,18 +2363,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getImportJob(
     args: GetImportJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetImportJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetImportJobCommandOutput) => void),
     cb?: (err: any, data?: GetImportJobCommandOutput) => void
   ): Promise<GetImportJobCommandOutput> | void {
     const command = new GetImportJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2495,7 +2383,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getImportJobs(
     args: GetImportJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetImportJobsCommandOutput>;
   public getImportJobs(
     args: GetImportJobsCommandInput,
@@ -2508,18 +2396,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getImportJobs(
     args: GetImportJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetImportJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetImportJobsCommandOutput) => void),
     cb?: (err: any, data?: GetImportJobsCommandOutput) => void
   ): Promise<GetImportJobsCommandOutput> | void {
     const command = new GetImportJobsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2530,7 +2416,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getJourney(
     args: GetJourneyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetJourneyCommandOutput>;
   public getJourney(
     args: GetJourneyCommandInput,
@@ -2543,18 +2429,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getJourney(
     args: GetJourneyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJourneyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJourneyCommandOutput) => void),
     cb?: (err: any, data?: GetJourneyCommandOutput) => void
   ): Promise<GetJourneyCommandOutput> | void {
     const command = new GetJourneyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2565,7 +2449,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getJourneyDateRangeKpi(
     args: GetJourneyDateRangeKpiCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetJourneyDateRangeKpiCommandOutput>;
   public getJourneyDateRangeKpi(
     args: GetJourneyDateRangeKpiCommandInput,
@@ -2578,18 +2462,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getJourneyDateRangeKpi(
     args: GetJourneyDateRangeKpiCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJourneyDateRangeKpiCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJourneyDateRangeKpiCommandOutput) => void),
     cb?: (err: any, data?: GetJourneyDateRangeKpiCommandOutput) => void
   ): Promise<GetJourneyDateRangeKpiCommandOutput> | void {
     const command = new GetJourneyDateRangeKpiCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2600,43 +2482,29 @@ export class Pinpoint extends PinpointClient {
    */
   public getJourneyExecutionActivityMetrics(
     args: GetJourneyExecutionActivityMetricsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetJourneyExecutionActivityMetricsCommandOutput>;
   public getJourneyExecutionActivityMetrics(
     args: GetJourneyExecutionActivityMetricsCommandInput,
-    cb: (
-      err: any,
-      data?: GetJourneyExecutionActivityMetricsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetJourneyExecutionActivityMetricsCommandOutput) => void
   ): void;
   public getJourneyExecutionActivityMetrics(
     args: GetJourneyExecutionActivityMetricsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetJourneyExecutionActivityMetricsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetJourneyExecutionActivityMetricsCommandOutput) => void
   ): void;
   public getJourneyExecutionActivityMetrics(
     args: GetJourneyExecutionActivityMetricsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetJourneyExecutionActivityMetricsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetJourneyExecutionActivityMetricsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJourneyExecutionActivityMetricsCommandOutput) => void),
+    cb?: (err: any, data?: GetJourneyExecutionActivityMetricsCommandOutput) => void
   ): Promise<GetJourneyExecutionActivityMetricsCommandOutput> | void {
     const command = new GetJourneyExecutionActivityMetricsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2647,7 +2515,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getJourneyExecutionMetrics(
     args: GetJourneyExecutionMetricsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetJourneyExecutionMetricsCommandOutput>;
   public getJourneyExecutionMetrics(
     args: GetJourneyExecutionMetricsCommandInput,
@@ -2660,18 +2528,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getJourneyExecutionMetrics(
     args: GetJourneyExecutionMetricsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetJourneyExecutionMetricsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJourneyExecutionMetricsCommandOutput) => void),
     cb?: (err: any, data?: GetJourneyExecutionMetricsCommandOutput) => void
   ): Promise<GetJourneyExecutionMetricsCommandOutput> | void {
     const command = new GetJourneyExecutionMetricsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2682,7 +2548,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getPushTemplate(
     args: GetPushTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetPushTemplateCommandOutput>;
   public getPushTemplate(
     args: GetPushTemplateCommandInput,
@@ -2695,18 +2561,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getPushTemplate(
     args: GetPushTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPushTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPushTemplateCommandOutput) => void),
     cb?: (err: any, data?: GetPushTemplateCommandOutput) => void
   ): Promise<GetPushTemplateCommandOutput> | void {
     const command = new GetPushTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2717,7 +2581,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getSegment(
     args: GetSegmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetSegmentCommandOutput>;
   public getSegment(
     args: GetSegmentCommandInput,
@@ -2730,18 +2594,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getSegment(
     args: GetSegmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSegmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSegmentCommandOutput) => void),
     cb?: (err: any, data?: GetSegmentCommandOutput) => void
   ): Promise<GetSegmentCommandOutput> | void {
     const command = new GetSegmentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2752,7 +2614,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getSegmentExportJobs(
     args: GetSegmentExportJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetSegmentExportJobsCommandOutput>;
   public getSegmentExportJobs(
     args: GetSegmentExportJobsCommandInput,
@@ -2765,18 +2627,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getSegmentExportJobs(
     args: GetSegmentExportJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSegmentExportJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSegmentExportJobsCommandOutput) => void),
     cb?: (err: any, data?: GetSegmentExportJobsCommandOutput) => void
   ): Promise<GetSegmentExportJobsCommandOutput> | void {
     const command = new GetSegmentExportJobsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2787,7 +2647,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getSegmentImportJobs(
     args: GetSegmentImportJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetSegmentImportJobsCommandOutput>;
   public getSegmentImportJobs(
     args: GetSegmentImportJobsCommandInput,
@@ -2800,18 +2660,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getSegmentImportJobs(
     args: GetSegmentImportJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSegmentImportJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSegmentImportJobsCommandOutput) => void),
     cb?: (err: any, data?: GetSegmentImportJobsCommandOutput) => void
   ): Promise<GetSegmentImportJobsCommandOutput> | void {
     const command = new GetSegmentImportJobsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2822,7 +2680,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getSegmentVersion(
     args: GetSegmentVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetSegmentVersionCommandOutput>;
   public getSegmentVersion(
     args: GetSegmentVersionCommandInput,
@@ -2835,18 +2693,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getSegmentVersion(
     args: GetSegmentVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSegmentVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSegmentVersionCommandOutput) => void),
     cb?: (err: any, data?: GetSegmentVersionCommandOutput) => void
   ): Promise<GetSegmentVersionCommandOutput> | void {
     const command = new GetSegmentVersionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2857,7 +2713,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getSegmentVersions(
     args: GetSegmentVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetSegmentVersionsCommandOutput>;
   public getSegmentVersions(
     args: GetSegmentVersionsCommandInput,
@@ -2870,18 +2726,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getSegmentVersions(
     args: GetSegmentVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSegmentVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSegmentVersionsCommandOutput) => void),
     cb?: (err: any, data?: GetSegmentVersionsCommandOutput) => void
   ): Promise<GetSegmentVersionsCommandOutput> | void {
     const command = new GetSegmentVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2892,7 +2746,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getSegments(
     args: GetSegmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetSegmentsCommandOutput>;
   public getSegments(
     args: GetSegmentsCommandInput,
@@ -2905,18 +2759,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getSegments(
     args: GetSegmentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSegmentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSegmentsCommandOutput) => void),
     cb?: (err: any, data?: GetSegmentsCommandOutput) => void
   ): Promise<GetSegmentsCommandOutput> | void {
     const command = new GetSegmentsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2927,7 +2779,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getSmsChannel(
     args: GetSmsChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetSmsChannelCommandOutput>;
   public getSmsChannel(
     args: GetSmsChannelCommandInput,
@@ -2940,18 +2792,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getSmsChannel(
     args: GetSmsChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSmsChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSmsChannelCommandOutput) => void),
     cb?: (err: any, data?: GetSmsChannelCommandOutput) => void
   ): Promise<GetSmsChannelCommandOutput> | void {
     const command = new GetSmsChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2962,7 +2812,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getSmsTemplate(
     args: GetSmsTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetSmsTemplateCommandOutput>;
   public getSmsTemplate(
     args: GetSmsTemplateCommandInput,
@@ -2975,18 +2825,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getSmsTemplate(
     args: GetSmsTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSmsTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSmsTemplateCommandOutput) => void),
     cb?: (err: any, data?: GetSmsTemplateCommandOutput) => void
   ): Promise<GetSmsTemplateCommandOutput> | void {
     const command = new GetSmsTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2997,7 +2845,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getUserEndpoints(
     args: GetUserEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetUserEndpointsCommandOutput>;
   public getUserEndpoints(
     args: GetUserEndpointsCommandInput,
@@ -3010,18 +2858,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getUserEndpoints(
     args: GetUserEndpointsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetUserEndpointsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUserEndpointsCommandOutput) => void),
     cb?: (err: any, data?: GetUserEndpointsCommandOutput) => void
   ): Promise<GetUserEndpointsCommandOutput> | void {
     const command = new GetUserEndpointsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3032,7 +2878,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getVoiceChannel(
     args: GetVoiceChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetVoiceChannelCommandOutput>;
   public getVoiceChannel(
     args: GetVoiceChannelCommandInput,
@@ -3045,18 +2891,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getVoiceChannel(
     args: GetVoiceChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetVoiceChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVoiceChannelCommandOutput) => void),
     cb?: (err: any, data?: GetVoiceChannelCommandOutput) => void
   ): Promise<GetVoiceChannelCommandOutput> | void {
     const command = new GetVoiceChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3067,7 +2911,7 @@ export class Pinpoint extends PinpointClient {
    */
   public getVoiceTemplate(
     args: GetVoiceTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetVoiceTemplateCommandOutput>;
   public getVoiceTemplate(
     args: GetVoiceTemplateCommandInput,
@@ -3080,18 +2924,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public getVoiceTemplate(
     args: GetVoiceTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetVoiceTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVoiceTemplateCommandOutput) => void),
     cb?: (err: any, data?: GetVoiceTemplateCommandOutput) => void
   ): Promise<GetVoiceTemplateCommandOutput> | void {
     const command = new GetVoiceTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3102,7 +2944,7 @@ export class Pinpoint extends PinpointClient {
    */
   public listJourneys(
     args: ListJourneysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListJourneysCommandOutput>;
   public listJourneys(
     args: ListJourneysCommandInput,
@@ -3115,18 +2957,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public listJourneys(
     args: ListJourneysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJourneysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJourneysCommandOutput) => void),
     cb?: (err: any, data?: ListJourneysCommandOutput) => void
   ): Promise<ListJourneysCommandOutput> | void {
     const command = new ListJourneysCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3137,7 +2977,7 @@ export class Pinpoint extends PinpointClient {
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListTagsForResourceCommandOutput>;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -3150,18 +2990,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3172,7 +3010,7 @@ export class Pinpoint extends PinpointClient {
    */
   public listTemplates(
     args: ListTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListTemplatesCommandOutput>;
   public listTemplates(
     args: ListTemplatesCommandInput,
@@ -3185,18 +3023,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public listTemplates(
     args: ListTemplatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTemplatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTemplatesCommandOutput) => void),
     cb?: (err: any, data?: ListTemplatesCommandOutput) => void
   ): Promise<ListTemplatesCommandOutput> | void {
     const command = new ListTemplatesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3207,7 +3043,7 @@ export class Pinpoint extends PinpointClient {
    */
   public phoneNumberValidate(
     args: PhoneNumberValidateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<PhoneNumberValidateCommandOutput>;
   public phoneNumberValidate(
     args: PhoneNumberValidateCommandInput,
@@ -3220,18 +3056,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public phoneNumberValidate(
     args: PhoneNumberValidateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PhoneNumberValidateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PhoneNumberValidateCommandOutput) => void),
     cb?: (err: any, data?: PhoneNumberValidateCommandOutput) => void
   ): Promise<PhoneNumberValidateCommandOutput> | void {
     const command = new PhoneNumberValidateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3242,7 +3076,7 @@ export class Pinpoint extends PinpointClient {
    */
   public putEventStream(
     args: PutEventStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<PutEventStreamCommandOutput>;
   public putEventStream(
     args: PutEventStreamCommandInput,
@@ -3255,18 +3089,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public putEventStream(
     args: PutEventStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutEventStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutEventStreamCommandOutput) => void),
     cb?: (err: any, data?: PutEventStreamCommandOutput) => void
   ): Promise<PutEventStreamCommandOutput> | void {
     const command = new PutEventStreamCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3277,7 +3109,7 @@ export class Pinpoint extends PinpointClient {
    */
   public putEvents(
     args: PutEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<PutEventsCommandOutput>;
   public putEvents(
     args: PutEventsCommandInput,
@@ -3290,18 +3122,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public putEvents(
     args: PutEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutEventsCommandOutput) => void),
     cb?: (err: any, data?: PutEventsCommandOutput) => void
   ): Promise<PutEventsCommandOutput> | void {
     const command = new PutEventsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3312,7 +3142,7 @@ export class Pinpoint extends PinpointClient {
    */
   public removeAttributes(
     args: RemoveAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<RemoveAttributesCommandOutput>;
   public removeAttributes(
     args: RemoveAttributesCommandInput,
@@ -3325,18 +3155,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public removeAttributes(
     args: RemoveAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveAttributesCommandOutput) => void),
     cb?: (err: any, data?: RemoveAttributesCommandOutput) => void
   ): Promise<RemoveAttributesCommandOutput> | void {
     const command = new RemoveAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3347,7 +3175,7 @@ export class Pinpoint extends PinpointClient {
    */
   public sendMessages(
     args: SendMessagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<SendMessagesCommandOutput>;
   public sendMessages(
     args: SendMessagesCommandInput,
@@ -3360,18 +3188,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public sendMessages(
     args: SendMessagesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendMessagesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendMessagesCommandOutput) => void),
     cb?: (err: any, data?: SendMessagesCommandOutput) => void
   ): Promise<SendMessagesCommandOutput> | void {
     const command = new SendMessagesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3382,7 +3208,7 @@ export class Pinpoint extends PinpointClient {
    */
   public sendUsersMessages(
     args: SendUsersMessagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<SendUsersMessagesCommandOutput>;
   public sendUsersMessages(
     args: SendUsersMessagesCommandInput,
@@ -3395,18 +3221,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public sendUsersMessages(
     args: SendUsersMessagesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendUsersMessagesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendUsersMessagesCommandOutput) => void),
     cb?: (err: any, data?: SendUsersMessagesCommandOutput) => void
   ): Promise<SendUsersMessagesCommandOutput> | void {
     const command = new SendUsersMessagesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3417,7 +3241,7 @@ export class Pinpoint extends PinpointClient {
    */
   public tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<TagResourceCommandOutput>;
   public tagResource(
     args: TagResourceCommandInput,
@@ -3430,18 +3254,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3452,7 +3274,7 @@ export class Pinpoint extends PinpointClient {
    */
   public untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UntagResourceCommandOutput>;
   public untagResource(
     args: UntagResourceCommandInput,
@@ -3465,18 +3287,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3487,7 +3307,7 @@ export class Pinpoint extends PinpointClient {
    */
   public updateAdmChannel(
     args: UpdateAdmChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateAdmChannelCommandOutput>;
   public updateAdmChannel(
     args: UpdateAdmChannelCommandInput,
@@ -3500,18 +3320,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updateAdmChannel(
     args: UpdateAdmChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAdmChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAdmChannelCommandOutput) => void),
     cb?: (err: any, data?: UpdateAdmChannelCommandOutput) => void
   ): Promise<UpdateAdmChannelCommandOutput> | void {
     const command = new UpdateAdmChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3522,7 +3340,7 @@ export class Pinpoint extends PinpointClient {
    */
   public updateApnsChannel(
     args: UpdateApnsChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateApnsChannelCommandOutput>;
   public updateApnsChannel(
     args: UpdateApnsChannelCommandInput,
@@ -3535,18 +3353,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updateApnsChannel(
     args: UpdateApnsChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateApnsChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApnsChannelCommandOutput) => void),
     cb?: (err: any, data?: UpdateApnsChannelCommandOutput) => void
   ): Promise<UpdateApnsChannelCommandOutput> | void {
     const command = new UpdateApnsChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3557,7 +3373,7 @@ export class Pinpoint extends PinpointClient {
    */
   public updateApnsSandboxChannel(
     args: UpdateApnsSandboxChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateApnsSandboxChannelCommandOutput>;
   public updateApnsSandboxChannel(
     args: UpdateApnsSandboxChannelCommandInput,
@@ -3570,18 +3386,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updateApnsSandboxChannel(
     args: UpdateApnsSandboxChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateApnsSandboxChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApnsSandboxChannelCommandOutput) => void),
     cb?: (err: any, data?: UpdateApnsSandboxChannelCommandOutput) => void
   ): Promise<UpdateApnsSandboxChannelCommandOutput> | void {
     const command = new UpdateApnsSandboxChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3592,7 +3406,7 @@ export class Pinpoint extends PinpointClient {
    */
   public updateApnsVoipChannel(
     args: UpdateApnsVoipChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateApnsVoipChannelCommandOutput>;
   public updateApnsVoipChannel(
     args: UpdateApnsVoipChannelCommandInput,
@@ -3605,18 +3419,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updateApnsVoipChannel(
     args: UpdateApnsVoipChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateApnsVoipChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApnsVoipChannelCommandOutput) => void),
     cb?: (err: any, data?: UpdateApnsVoipChannelCommandOutput) => void
   ): Promise<UpdateApnsVoipChannelCommandOutput> | void {
     const command = new UpdateApnsVoipChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3627,7 +3439,7 @@ export class Pinpoint extends PinpointClient {
    */
   public updateApnsVoipSandboxChannel(
     args: UpdateApnsVoipSandboxChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateApnsVoipSandboxChannelCommandOutput>;
   public updateApnsVoipSandboxChannel(
     args: UpdateApnsVoipSandboxChannelCommandInput,
@@ -3640,18 +3452,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updateApnsVoipSandboxChannel(
     args: UpdateApnsVoipSandboxChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateApnsVoipSandboxChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApnsVoipSandboxChannelCommandOutput) => void),
     cb?: (err: any, data?: UpdateApnsVoipSandboxChannelCommandOutput) => void
   ): Promise<UpdateApnsVoipSandboxChannelCommandOutput> | void {
     const command = new UpdateApnsVoipSandboxChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3662,7 +3472,7 @@ export class Pinpoint extends PinpointClient {
    */
   public updateApplicationSettings(
     args: UpdateApplicationSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateApplicationSettingsCommandOutput>;
   public updateApplicationSettings(
     args: UpdateApplicationSettingsCommandInput,
@@ -3675,18 +3485,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updateApplicationSettings(
     args: UpdateApplicationSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateApplicationSettingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApplicationSettingsCommandOutput) => void),
     cb?: (err: any, data?: UpdateApplicationSettingsCommandOutput) => void
   ): Promise<UpdateApplicationSettingsCommandOutput> | void {
     const command = new UpdateApplicationSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3697,7 +3505,7 @@ export class Pinpoint extends PinpointClient {
    */
   public updateBaiduChannel(
     args: UpdateBaiduChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateBaiduChannelCommandOutput>;
   public updateBaiduChannel(
     args: UpdateBaiduChannelCommandInput,
@@ -3710,18 +3518,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updateBaiduChannel(
     args: UpdateBaiduChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateBaiduChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateBaiduChannelCommandOutput) => void),
     cb?: (err: any, data?: UpdateBaiduChannelCommandOutput) => void
   ): Promise<UpdateBaiduChannelCommandOutput> | void {
     const command = new UpdateBaiduChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3732,7 +3538,7 @@ export class Pinpoint extends PinpointClient {
    */
   public updateCampaign(
     args: UpdateCampaignCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateCampaignCommandOutput>;
   public updateCampaign(
     args: UpdateCampaignCommandInput,
@@ -3745,18 +3551,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updateCampaign(
     args: UpdateCampaignCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateCampaignCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCampaignCommandOutput) => void),
     cb?: (err: any, data?: UpdateCampaignCommandOutput) => void
   ): Promise<UpdateCampaignCommandOutput> | void {
     const command = new UpdateCampaignCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3767,7 +3571,7 @@ export class Pinpoint extends PinpointClient {
    */
   public updateEmailChannel(
     args: UpdateEmailChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateEmailChannelCommandOutput>;
   public updateEmailChannel(
     args: UpdateEmailChannelCommandInput,
@@ -3780,18 +3584,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updateEmailChannel(
     args: UpdateEmailChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateEmailChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEmailChannelCommandOutput) => void),
     cb?: (err: any, data?: UpdateEmailChannelCommandOutput) => void
   ): Promise<UpdateEmailChannelCommandOutput> | void {
     const command = new UpdateEmailChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3802,7 +3604,7 @@ export class Pinpoint extends PinpointClient {
    */
   public updateEmailTemplate(
     args: UpdateEmailTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateEmailTemplateCommandOutput>;
   public updateEmailTemplate(
     args: UpdateEmailTemplateCommandInput,
@@ -3815,18 +3617,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updateEmailTemplate(
     args: UpdateEmailTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateEmailTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEmailTemplateCommandOutput) => void),
     cb?: (err: any, data?: UpdateEmailTemplateCommandOutput) => void
   ): Promise<UpdateEmailTemplateCommandOutput> | void {
     const command = new UpdateEmailTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3837,7 +3637,7 @@ export class Pinpoint extends PinpointClient {
    */
   public updateEndpoint(
     args: UpdateEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateEndpointCommandOutput>;
   public updateEndpoint(
     args: UpdateEndpointCommandInput,
@@ -3850,18 +3650,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updateEndpoint(
     args: UpdateEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEndpointCommandOutput) => void),
     cb?: (err: any, data?: UpdateEndpointCommandOutput) => void
   ): Promise<UpdateEndpointCommandOutput> | void {
     const command = new UpdateEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3872,7 +3670,7 @@ export class Pinpoint extends PinpointClient {
    */
   public updateEndpointsBatch(
     args: UpdateEndpointsBatchCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateEndpointsBatchCommandOutput>;
   public updateEndpointsBatch(
     args: UpdateEndpointsBatchCommandInput,
@@ -3885,18 +3683,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updateEndpointsBatch(
     args: UpdateEndpointsBatchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateEndpointsBatchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEndpointsBatchCommandOutput) => void),
     cb?: (err: any, data?: UpdateEndpointsBatchCommandOutput) => void
   ): Promise<UpdateEndpointsBatchCommandOutput> | void {
     const command = new UpdateEndpointsBatchCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3907,7 +3703,7 @@ export class Pinpoint extends PinpointClient {
    */
   public updateGcmChannel(
     args: UpdateGcmChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateGcmChannelCommandOutput>;
   public updateGcmChannel(
     args: UpdateGcmChannelCommandInput,
@@ -3920,18 +3716,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updateGcmChannel(
     args: UpdateGcmChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGcmChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGcmChannelCommandOutput) => void),
     cb?: (err: any, data?: UpdateGcmChannelCommandOutput) => void
   ): Promise<UpdateGcmChannelCommandOutput> | void {
     const command = new UpdateGcmChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3942,7 +3736,7 @@ export class Pinpoint extends PinpointClient {
    */
   public updateJourney(
     args: UpdateJourneyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateJourneyCommandOutput>;
   public updateJourney(
     args: UpdateJourneyCommandInput,
@@ -3955,18 +3749,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updateJourney(
     args: UpdateJourneyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateJourneyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateJourneyCommandOutput) => void),
     cb?: (err: any, data?: UpdateJourneyCommandOutput) => void
   ): Promise<UpdateJourneyCommandOutput> | void {
     const command = new UpdateJourneyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3977,7 +3769,7 @@ export class Pinpoint extends PinpointClient {
    */
   public updateJourneyState(
     args: UpdateJourneyStateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateJourneyStateCommandOutput>;
   public updateJourneyState(
     args: UpdateJourneyStateCommandInput,
@@ -3990,18 +3782,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updateJourneyState(
     args: UpdateJourneyStateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateJourneyStateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateJourneyStateCommandOutput) => void),
     cb?: (err: any, data?: UpdateJourneyStateCommandOutput) => void
   ): Promise<UpdateJourneyStateCommandOutput> | void {
     const command = new UpdateJourneyStateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4012,7 +3802,7 @@ export class Pinpoint extends PinpointClient {
    */
   public updatePushTemplate(
     args: UpdatePushTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdatePushTemplateCommandOutput>;
   public updatePushTemplate(
     args: UpdatePushTemplateCommandInput,
@@ -4025,18 +3815,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updatePushTemplate(
     args: UpdatePushTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePushTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePushTemplateCommandOutput) => void),
     cb?: (err: any, data?: UpdatePushTemplateCommandOutput) => void
   ): Promise<UpdatePushTemplateCommandOutput> | void {
     const command = new UpdatePushTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4047,7 +3835,7 @@ export class Pinpoint extends PinpointClient {
    */
   public updateSegment(
     args: UpdateSegmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateSegmentCommandOutput>;
   public updateSegment(
     args: UpdateSegmentCommandInput,
@@ -4060,18 +3848,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updateSegment(
     args: UpdateSegmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSegmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSegmentCommandOutput) => void),
     cb?: (err: any, data?: UpdateSegmentCommandOutput) => void
   ): Promise<UpdateSegmentCommandOutput> | void {
     const command = new UpdateSegmentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4082,7 +3868,7 @@ export class Pinpoint extends PinpointClient {
    */
   public updateSmsChannel(
     args: UpdateSmsChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateSmsChannelCommandOutput>;
   public updateSmsChannel(
     args: UpdateSmsChannelCommandInput,
@@ -4095,18 +3881,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updateSmsChannel(
     args: UpdateSmsChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSmsChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSmsChannelCommandOutput) => void),
     cb?: (err: any, data?: UpdateSmsChannelCommandOutput) => void
   ): Promise<UpdateSmsChannelCommandOutput> | void {
     const command = new UpdateSmsChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4117,7 +3901,7 @@ export class Pinpoint extends PinpointClient {
    */
   public updateSmsTemplate(
     args: UpdateSmsTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateSmsTemplateCommandOutput>;
   public updateSmsTemplate(
     args: UpdateSmsTemplateCommandInput,
@@ -4130,18 +3914,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updateSmsTemplate(
     args: UpdateSmsTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSmsTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSmsTemplateCommandOutput) => void),
     cb?: (err: any, data?: UpdateSmsTemplateCommandOutput) => void
   ): Promise<UpdateSmsTemplateCommandOutput> | void {
     const command = new UpdateSmsTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4152,7 +3934,7 @@ export class Pinpoint extends PinpointClient {
    */
   public updateVoiceChannel(
     args: UpdateVoiceChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateVoiceChannelCommandOutput>;
   public updateVoiceChannel(
     args: UpdateVoiceChannelCommandInput,
@@ -4165,18 +3947,16 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updateVoiceChannel(
     args: UpdateVoiceChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateVoiceChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVoiceChannelCommandOutput) => void),
     cb?: (err: any, data?: UpdateVoiceChannelCommandOutput) => void
   ): Promise<UpdateVoiceChannelCommandOutput> | void {
     const command = new UpdateVoiceChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4187,7 +3967,7 @@ export class Pinpoint extends PinpointClient {
    */
   public updateVoiceTemplate(
     args: UpdateVoiceTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateVoiceTemplateCommandOutput>;
   public updateVoiceTemplate(
     args: UpdateVoiceTemplateCommandInput,
@@ -4200,20 +3980,19 @@ export class Pinpoint extends PinpointClient {
   ): void;
   public updateVoiceTemplate(
     args: UpdateVoiceTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateVoiceTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVoiceTemplateCommandOutput) => void),
     cb?: (err: any, data?: UpdateVoiceTemplateCommandOutput) => void
   ): Promise<UpdateVoiceTemplateCommandOutput> | void {
     const command = new UpdateVoiceTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

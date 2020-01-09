@@ -1,20 +1,20 @@
 import {
   CodeDeployClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CodeDeployClient";
 import {
   BatchGetDeploymentTargetsInput,
-  BatchGetDeploymentTargetsOutput
+  BatchGetDeploymentTargetsOutput,
 } from "../models/index";
 import {
   deserializeAws_json1_1BatchGetDeploymentTargetsCommand,
-  serializeAws_json1_1BatchGetDeploymentTargetsCommand
+  serializeAws_json1_1BatchGetDeploymentTargetsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type BatchGetDeploymentTargetsCommandInput = BatchGetDeploymentTargetsInput;
 export type BatchGetDeploymentTargetsCommandOutput = BatchGetDeploymentTargetsOutput;
 
-export class BatchGetDeploymentTargetsCommand extends $Command<
-  BatchGetDeploymentTargetsCommandInput,
-  BatchGetDeploymentTargetsCommandOutput,
-  CodeDeployClientResolvedConfig
-> {
+export class BatchGetDeploymentTargetsCommand extends $Command<BatchGetDeploymentTargetsCommandInput, BatchGetDeploymentTargetsCommandOutput, CodeDeployClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class BatchGetDeploymentTargetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchGetDeploymentTargetsCommandInput,
-    BatchGetDeploymentTargetsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchGetDeploymentTargetsCommandInput, BatchGetDeploymentTargetsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -79,10 +70,7 @@ export class BatchGetDeploymentTargetsCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<BatchGetDeploymentTargetsCommandOutput> {
-    return deserializeAws_json1_1BatchGetDeploymentTargetsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1BatchGetDeploymentTargetsCommand(output, context);
   }
 
   // Start section: command_body_extra

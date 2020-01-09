@@ -1,20 +1,20 @@
 import {
   ConfigServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ConfigServiceClient";
 import {
   GetOrganizationConformancePackDetailedStatusRequest,
-  GetOrganizationConformancePackDetailedStatusResponse
+  GetOrganizationConformancePackDetailedStatusResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommand,
-  serializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommand
+  serializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,23 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type GetOrganizationConformancePackDetailedStatusCommandInput = GetOrganizationConformancePackDetailedStatusRequest;
 export type GetOrganizationConformancePackDetailedStatusCommandOutput = GetOrganizationConformancePackDetailedStatusResponse;
 
-export class GetOrganizationConformancePackDetailedStatusCommand extends $Command<
-  GetOrganizationConformancePackDetailedStatusCommandInput,
-  GetOrganizationConformancePackDetailedStatusCommandOutput,
-  ConfigServiceClientResolvedConfig
-> {
+export class GetOrganizationConformancePackDetailedStatusCommand extends $Command<GetOrganizationConformancePackDetailedStatusCommandInput, GetOrganizationConformancePackDetailedStatusCommandOutput, ConfigServiceClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: GetOrganizationConformancePackDetailedStatusCommandInput
-  ) {
+  constructor(readonly input: GetOrganizationConformancePackDetailedStatusCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -49,19 +43,14 @@ export class GetOrganizationConformancePackDetailedStatusCommand extends $Comman
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetOrganizationConformancePackDetailedStatusCommandInput,
-    GetOrganizationConformancePackDetailedStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetOrganizationConformancePackDetailedStatusCommandInput, GetOrganizationConformancePackDetailedStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -74,20 +63,14 @@ export class GetOrganizationConformancePackDetailedStatusCommand extends $Comman
     input: GetOrganizationConformancePackDetailedStatusCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<GetOrganizationConformancePackDetailedStatusCommandOutput> {
-    return deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

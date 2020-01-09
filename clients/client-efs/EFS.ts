@@ -2,72 +2,72 @@ import { EFSClient } from "./EFSClient";
 import {
   CreateFileSystemCommand,
   CreateFileSystemCommandInput,
-  CreateFileSystemCommandOutput
+  CreateFileSystemCommandOutput,
 } from "./commands/CreateFileSystemCommand";
 import {
   CreateMountTargetCommand,
   CreateMountTargetCommandInput,
-  CreateMountTargetCommandOutput
+  CreateMountTargetCommandOutput,
 } from "./commands/CreateMountTargetCommand";
 import {
   CreateTagsCommand,
   CreateTagsCommandInput,
-  CreateTagsCommandOutput
+  CreateTagsCommandOutput,
 } from "./commands/CreateTagsCommand";
 import {
   DeleteFileSystemCommand,
   DeleteFileSystemCommandInput,
-  DeleteFileSystemCommandOutput
+  DeleteFileSystemCommandOutput,
 } from "./commands/DeleteFileSystemCommand";
 import {
   DeleteMountTargetCommand,
   DeleteMountTargetCommandInput,
-  DeleteMountTargetCommandOutput
+  DeleteMountTargetCommandOutput,
 } from "./commands/DeleteMountTargetCommand";
 import {
   DeleteTagsCommand,
   DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
+  DeleteTagsCommandOutput,
 } from "./commands/DeleteTagsCommand";
 import {
   DescribeFileSystemsCommand,
   DescribeFileSystemsCommandInput,
-  DescribeFileSystemsCommandOutput
+  DescribeFileSystemsCommandOutput,
 } from "./commands/DescribeFileSystemsCommand";
 import {
   DescribeLifecycleConfigurationCommand,
   DescribeLifecycleConfigurationCommandInput,
-  DescribeLifecycleConfigurationCommandOutput
+  DescribeLifecycleConfigurationCommandOutput,
 } from "./commands/DescribeLifecycleConfigurationCommand";
 import {
   DescribeMountTargetSecurityGroupsCommand,
   DescribeMountTargetSecurityGroupsCommandInput,
-  DescribeMountTargetSecurityGroupsCommandOutput
+  DescribeMountTargetSecurityGroupsCommandOutput,
 } from "./commands/DescribeMountTargetSecurityGroupsCommand";
 import {
   DescribeMountTargetsCommand,
   DescribeMountTargetsCommandInput,
-  DescribeMountTargetsCommandOutput
+  DescribeMountTargetsCommandOutput,
 } from "./commands/DescribeMountTargetsCommand";
 import {
   DescribeTagsCommand,
   DescribeTagsCommandInput,
-  DescribeTagsCommandOutput
+  DescribeTagsCommandOutput,
 } from "./commands/DescribeTagsCommand";
 import {
   ModifyMountTargetSecurityGroupsCommand,
   ModifyMountTargetSecurityGroupsCommandInput,
-  ModifyMountTargetSecurityGroupsCommandOutput
+  ModifyMountTargetSecurityGroupsCommandOutput,
 } from "./commands/ModifyMountTargetSecurityGroupsCommand";
 import {
   PutLifecycleConfigurationCommand,
   PutLifecycleConfigurationCommandInput,
-  PutLifecycleConfigurationCommandOutput
+  PutLifecycleConfigurationCommandOutput,
 } from "./commands/PutLifecycleConfigurationCommand";
 import {
   UpdateFileSystemCommand,
   UpdateFileSystemCommandInput,
-  UpdateFileSystemCommandOutput
+  UpdateFileSystemCommandOutput,
 } from "./commands/UpdateFileSystemCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -139,7 +139,7 @@ export class EFS extends EFSClient {
    */
   public createFileSystem(
     args: CreateFileSystemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateFileSystemCommandOutput>;
   public createFileSystem(
     args: CreateFileSystemCommandInput,
@@ -152,18 +152,16 @@ export class EFS extends EFSClient {
   ): void;
   public createFileSystem(
     args: CreateFileSystemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateFileSystemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFileSystemCommandOutput) => void),
     cb?: (err: any, data?: CreateFileSystemCommandOutput) => void
   ): Promise<CreateFileSystemCommandOutput> | void {
     const command = new CreateFileSystemCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -303,7 +301,7 @@ export class EFS extends EFSClient {
    */
   public createMountTarget(
     args: CreateMountTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateMountTargetCommandOutput>;
   public createMountTarget(
     args: CreateMountTargetCommandInput,
@@ -316,18 +314,16 @@ export class EFS extends EFSClient {
   ): void;
   public createMountTarget(
     args: CreateMountTargetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateMountTargetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMountTargetCommandOutput) => void),
     cb?: (err: any, data?: CreateMountTargetCommandOutput) => void
   ): Promise<CreateMountTargetCommandOutput> | void {
     const command = new CreateMountTargetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -346,7 +342,7 @@ export class EFS extends EFSClient {
    */
   public createTags(
     args: CreateTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateTagsCommandOutput>;
   public createTags(
     args: CreateTagsCommandInput,
@@ -359,18 +355,16 @@ export class EFS extends EFSClient {
   ): void;
   public createTags(
     args: CreateTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTagsCommandOutput) => void),
     cb?: (err: any, data?: CreateTagsCommandOutput) => void
   ): Promise<CreateTagsCommandOutput> | void {
     const command = new CreateTagsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -400,7 +394,7 @@ export class EFS extends EFSClient {
    */
   public deleteFileSystem(
     args: DeleteFileSystemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteFileSystemCommandOutput>;
   public deleteFileSystem(
     args: DeleteFileSystemCommandInput,
@@ -413,18 +407,16 @@ export class EFS extends EFSClient {
   ): void;
   public deleteFileSystem(
     args: DeleteFileSystemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFileSystemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFileSystemCommandOutput) => void),
     cb?: (err: any, data?: DeleteFileSystemCommandOutput) => void
   ): Promise<DeleteFileSystemCommandOutput> | void {
     const command = new DeleteFileSystemCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -471,7 +463,7 @@ export class EFS extends EFSClient {
    */
   public deleteMountTarget(
     args: DeleteMountTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteMountTargetCommandOutput>;
   public deleteMountTarget(
     args: DeleteMountTargetCommandInput,
@@ -484,18 +476,16 @@ export class EFS extends EFSClient {
   ): void;
   public deleteMountTarget(
     args: DeleteMountTargetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteMountTargetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMountTargetCommandOutput) => void),
     cb?: (err: any, data?: DeleteMountTargetCommandOutput) => void
   ): Promise<DeleteMountTargetCommandOutput> | void {
     const command = new DeleteMountTargetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -516,7 +506,7 @@ export class EFS extends EFSClient {
    */
   public deleteTags(
     args: DeleteTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteTagsCommandOutput>;
   public deleteTags(
     args: DeleteTagsCommandInput,
@@ -529,18 +519,16 @@ export class EFS extends EFSClient {
   ): void;
   public deleteTags(
     args: DeleteTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTagsCommandOutput) => void),
     cb?: (err: any, data?: DeleteTagsCommandOutput) => void
   ): Promise<DeleteTagsCommandOutput> | void {
     const command = new DeleteTagsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -576,7 +564,7 @@ export class EFS extends EFSClient {
    */
   public describeFileSystems(
     args: DescribeFileSystemsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeFileSystemsCommandOutput>;
   public describeFileSystems(
     args: DescribeFileSystemsCommandInput,
@@ -589,18 +577,16 @@ export class EFS extends EFSClient {
   ): void;
   public describeFileSystems(
     args: DescribeFileSystemsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeFileSystemsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFileSystemsCommandOutput) => void),
     cb?: (err: any, data?: DescribeFileSystemsCommandOutput) => void
   ): Promise<DescribeFileSystemsCommandOutput> | void {
     const command = new DescribeFileSystemsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -621,7 +607,7 @@ export class EFS extends EFSClient {
    */
   public describeLifecycleConfiguration(
     args: DescribeLifecycleConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeLifecycleConfigurationCommandOutput>;
   public describeLifecycleConfiguration(
     args: DescribeLifecycleConfigurationCommandInput,
@@ -634,21 +620,16 @@ export class EFS extends EFSClient {
   ): void;
   public describeLifecycleConfiguration(
     args: DescribeLifecycleConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeLifecycleConfigurationCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLifecycleConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DescribeLifecycleConfigurationCommandOutput) => void
   ): Promise<DescribeLifecycleConfigurationCommandOutput> | void {
     const command = new DescribeLifecycleConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -678,43 +659,29 @@ export class EFS extends EFSClient {
    */
   public describeMountTargetSecurityGroups(
     args: DescribeMountTargetSecurityGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeMountTargetSecurityGroupsCommandOutput>;
   public describeMountTargetSecurityGroups(
     args: DescribeMountTargetSecurityGroupsCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeMountTargetSecurityGroupsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMountTargetSecurityGroupsCommandOutput) => void
   ): void;
   public describeMountTargetSecurityGroups(
     args: DescribeMountTargetSecurityGroupsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeMountTargetSecurityGroupsCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeMountTargetSecurityGroupsCommandOutput) => void
   ): void;
   public describeMountTargetSecurityGroups(
     args: DescribeMountTargetSecurityGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeMountTargetSecurityGroupsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeMountTargetSecurityGroupsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMountTargetSecurityGroupsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMountTargetSecurityGroupsCommandOutput) => void
   ): Promise<DescribeMountTargetSecurityGroupsCommandOutput> | void {
     const command = new DescribeMountTargetSecurityGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -735,7 +702,7 @@ export class EFS extends EFSClient {
    */
   public describeMountTargets(
     args: DescribeMountTargetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeMountTargetsCommandOutput>;
   public describeMountTargets(
     args: DescribeMountTargetsCommandInput,
@@ -748,18 +715,16 @@ export class EFS extends EFSClient {
   ): void;
   public describeMountTargets(
     args: DescribeMountTargetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeMountTargetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMountTargetsCommandOutput) => void),
     cb?: (err: any, data?: DescribeMountTargetsCommandOutput) => void
   ): Promise<DescribeMountTargetsCommandOutput> | void {
     const command = new DescribeMountTargetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -777,7 +742,7 @@ export class EFS extends EFSClient {
    */
   public describeTags(
     args: DescribeTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeTagsCommandOutput>;
   public describeTags(
     args: DescribeTagsCommandInput,
@@ -790,18 +755,16 @@ export class EFS extends EFSClient {
   ): void;
   public describeTags(
     args: DescribeTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTagsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTagsCommandOutput) => void
   ): Promise<DescribeTagsCommandOutput> | void {
     const command = new DescribeTagsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -836,7 +799,7 @@ export class EFS extends EFSClient {
    */
   public modifyMountTargetSecurityGroups(
     args: ModifyMountTargetSecurityGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ModifyMountTargetSecurityGroupsCommandOutput>;
   public modifyMountTargetSecurityGroups(
     args: ModifyMountTargetSecurityGroupsCommandInput,
@@ -849,21 +812,16 @@ export class EFS extends EFSClient {
   ): void;
   public modifyMountTargetSecurityGroups(
     args: ModifyMountTargetSecurityGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyMountTargetSecurityGroupsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyMountTargetSecurityGroupsCommandOutput) => void),
     cb?: (err: any, data?: ModifyMountTargetSecurityGroupsCommandOutput) => void
   ): Promise<ModifyMountTargetSecurityGroupsCommandOutput> | void {
     const command = new ModifyMountTargetSecurityGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -905,7 +863,7 @@ export class EFS extends EFSClient {
    */
   public putLifecycleConfiguration(
     args: PutLifecycleConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<PutLifecycleConfigurationCommandOutput>;
   public putLifecycleConfiguration(
     args: PutLifecycleConfigurationCommandInput,
@@ -918,18 +876,16 @@ export class EFS extends EFSClient {
   ): void;
   public putLifecycleConfiguration(
     args: PutLifecycleConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutLifecycleConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutLifecycleConfigurationCommandOutput) => void),
     cb?: (err: any, data?: PutLifecycleConfigurationCommandOutput) => void
   ): Promise<PutLifecycleConfigurationCommandOutput> | void {
     const command = new PutLifecycleConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -943,7 +899,7 @@ export class EFS extends EFSClient {
    */
   public updateFileSystem(
     args: UpdateFileSystemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateFileSystemCommandOutput>;
   public updateFileSystem(
     args: UpdateFileSystemCommandInput,
@@ -956,20 +912,19 @@ export class EFS extends EFSClient {
   ): void;
   public updateFileSystem(
     args: UpdateFileSystemCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateFileSystemCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFileSystemCommandOutput) => void),
     cb?: (err: any, data?: UpdateFileSystemCommandOutput) => void
   ): Promise<UpdateFileSystemCommandOutput> | void {
     const command = new UpdateFileSystemCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

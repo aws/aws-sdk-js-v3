@@ -1,20 +1,20 @@
 import {
   DeviceFarmClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DeviceFarmClient";
 import {
   ListDeviceInstancesRequest,
-  ListDeviceInstancesResult
+  ListDeviceInstancesResult,
 } from "../models/index";
 import {
   deserializeAws_json1_1ListDeviceInstancesCommand,
-  serializeAws_json1_1ListDeviceInstancesCommand
+  serializeAws_json1_1ListDeviceInstancesCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type ListDeviceInstancesCommandInput = ListDeviceInstancesRequest;
 export type ListDeviceInstancesCommandOutput = ListDeviceInstancesResult;
 
-export class ListDeviceInstancesCommand extends $Command<
-  ListDeviceInstancesCommandInput,
-  ListDeviceInstancesCommandOutput,
-  DeviceFarmClientResolvedConfig
-> {
+export class ListDeviceInstancesCommand extends $Command<ListDeviceInstancesCommandInput, ListDeviceInstancesCommandOutput, DeviceFarmClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class ListDeviceInstancesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListDeviceInstancesCommandInput,
-    ListDeviceInstancesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListDeviceInstancesCommandInput, ListDeviceInstancesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

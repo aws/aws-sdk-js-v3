@@ -6,9 +6,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *         <p>The specified Amazon Resource Name (ARN) does not exist in the AWS account.</p>
  *
  */
-export interface ActorDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ActorDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ActorDoesNotExistException";
   $fault: "client";
   /**
@@ -128,9 +126,7 @@ export namespace ApprovalRule {
  *         <p>The content for the approval rule is empty. You must provide some content for an approval rule. The content cannot be null.</p>
  *
  */
-export interface ApprovalRuleContentRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ApprovalRuleContentRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ApprovalRuleContentRequiredException";
   $fault: "client";
   /**
@@ -152,9 +148,7 @@ export namespace ApprovalRuleContentRequiredException {
  *         <p>The specified approval rule does not exist.</p>
  *
  */
-export interface ApprovalRuleDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ApprovalRuleDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ApprovalRuleDoesNotExistException";
   $fault: "client";
   /**
@@ -212,9 +206,7 @@ export namespace ApprovalRuleEventMetadata {
  *             within the scope of a pull request.</p>
  *
  */
-export interface ApprovalRuleNameAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ApprovalRuleNameAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ApprovalRuleNameAlreadyExistsException";
   $fault: "client";
   /**
@@ -236,9 +228,7 @@ export namespace ApprovalRuleNameAlreadyExistsException {
  *         <p>An approval rule name is required, but was not specified.</p>
  *
  */
-export interface ApprovalRuleNameRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ApprovalRuleNameRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ApprovalRuleNameRequiredException";
   $fault: "client";
   /**
@@ -358,9 +348,7 @@ export namespace ApprovalRuleTemplate {
  *         <p>The content for the approval rule template is empty. You must provide some content for an approval rule template. The content cannot be null.</p>
  *
  */
-export interface ApprovalRuleTemplateContentRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ApprovalRuleTemplateContentRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ApprovalRuleTemplateContentRequiredException";
   $fault: "client";
   /**
@@ -372,9 +360,7 @@ export interface ApprovalRuleTemplateContentRequiredException
 }
 
 export namespace ApprovalRuleTemplateContentRequiredException {
-  export function isa(
-    o: any
-  ): o is ApprovalRuleTemplateContentRequiredException {
+  export function isa(o: any): o is ApprovalRuleTemplateContentRequiredException {
     return _smithy.isa(o, "ApprovalRuleTemplateContentRequiredException");
   }
 }
@@ -385,9 +371,7 @@ export namespace ApprovalRuleTemplateContentRequiredException {
  *         was created, and then try again.</p>
  *
  */
-export interface ApprovalRuleTemplateDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ApprovalRuleTemplateDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ApprovalRuleTemplateDoesNotExistException";
   $fault: "client";
   /**
@@ -410,9 +394,7 @@ export namespace ApprovalRuleTemplateDoesNotExistException {
  *         all associations, and then try again.</p>
  *
  */
-export interface ApprovalRuleTemplateInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ApprovalRuleTemplateInUseException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ApprovalRuleTemplateInUseException";
   $fault: "client";
   /**
@@ -436,9 +418,7 @@ export namespace ApprovalRuleTemplateInUseException {
  *             names must be unique.</p>
  *
  */
-export interface ApprovalRuleTemplateNameAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ApprovalRuleTemplateNameAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ApprovalRuleTemplateNameAlreadyExistsException";
   $fault: "client";
   /**
@@ -450,9 +430,7 @@ export interface ApprovalRuleTemplateNameAlreadyExistsException
 }
 
 export namespace ApprovalRuleTemplateNameAlreadyExistsException {
-  export function isa(
-    o: any
-  ): o is ApprovalRuleTemplateNameAlreadyExistsException {
+  export function isa(o: any): o is ApprovalRuleTemplateNameAlreadyExistsException {
     return _smithy.isa(o, "ApprovalRuleTemplateNameAlreadyExistsException");
   }
 }
@@ -462,9 +440,7 @@ export namespace ApprovalRuleTemplateNameAlreadyExistsException {
  *         <p>An approval rule template name is required, but was not specified.</p>
  *
  */
-export interface ApprovalRuleTemplateNameRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ApprovalRuleTemplateNameRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ApprovalRuleTemplateNameRequiredException";
   $fault: "client";
   /**
@@ -483,7 +459,7 @@ export namespace ApprovalRuleTemplateNameRequiredException {
 
 export enum ApprovalState {
   APPROVE = "APPROVE",
-  REVOKE = "REVOKE"
+  REVOKE = "REVOKE",
 }
 
 /**
@@ -519,9 +495,7 @@ export namespace ApprovalStateChangedEventMetadata {
  *         <p>An approval state is required, but was not specified.</p>
  *
  */
-export interface ApprovalStateRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ApprovalStateRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ApprovalStateRequiredException";
   $fault: "client";
   /**
@@ -556,9 +530,7 @@ export interface AssociateApprovalRuleTemplateWithRepositoryInput {
 }
 
 export namespace AssociateApprovalRuleTemplateWithRepositoryInput {
-  export function isa(
-    o: any
-  ): o is AssociateApprovalRuleTemplateWithRepositoryInput {
+  export function isa(o: any): o is AssociateApprovalRuleTemplateWithRepositoryInput {
     return _smithy.isa(o, "AssociateApprovalRuleTemplateWithRepositoryInput");
   }
 }
@@ -568,9 +540,7 @@ export namespace AssociateApprovalRuleTemplateWithRepositoryInput {
  *         <p>The specified Amazon Resource Name (ARN) does not exist in the AWS account.</p>
  *
  */
-export interface AuthorDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AuthorDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AuthorDoesNotExistException";
   $fault: "client";
   /**
@@ -617,13 +587,8 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesError {
 }
 
 export namespace BatchAssociateApprovalRuleTemplateWithRepositoriesError {
-  export function isa(
-    o: any
-  ): o is BatchAssociateApprovalRuleTemplateWithRepositoriesError {
-    return _smithy.isa(
-      o,
-      "BatchAssociateApprovalRuleTemplateWithRepositoriesError"
-    );
+  export function isa(o: any): o is BatchAssociateApprovalRuleTemplateWithRepositoriesError {
+    return _smithy.isa(o, "BatchAssociateApprovalRuleTemplateWithRepositoriesError");
   }
 }
 
@@ -648,18 +613,12 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesInput {
 }
 
 export namespace BatchAssociateApprovalRuleTemplateWithRepositoriesInput {
-  export function isa(
-    o: any
-  ): o is BatchAssociateApprovalRuleTemplateWithRepositoriesInput {
-    return _smithy.isa(
-      o,
-      "BatchAssociateApprovalRuleTemplateWithRepositoriesInput"
-    );
+  export function isa(o: any): o is BatchAssociateApprovalRuleTemplateWithRepositoriesInput {
+    return _smithy.isa(o, "BatchAssociateApprovalRuleTemplateWithRepositoriesInput");
   }
 }
 
-export interface BatchAssociateApprovalRuleTemplateWithRepositoriesOutput
-  extends $MetadataBearer {
+export interface BatchAssociateApprovalRuleTemplateWithRepositoriesOutput extends $MetadataBearer {
   __type?: "BatchAssociateApprovalRuleTemplateWithRepositoriesOutput";
   /**
    *
@@ -673,19 +632,12 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesOutput
    *         <p>A list of any errors that might have occurred while attempting to create the association between the template and the repositories.</p>
    *
    */
-  errors:
-    | Array<BatchAssociateApprovalRuleTemplateWithRepositoriesError>
-    | undefined;
+  errors: Array<BatchAssociateApprovalRuleTemplateWithRepositoriesError> | undefined;
 }
 
 export namespace BatchAssociateApprovalRuleTemplateWithRepositoriesOutput {
-  export function isa(
-    o: any
-  ): o is BatchAssociateApprovalRuleTemplateWithRepositoriesOutput {
-    return _smithy.isa(
-      o,
-      "BatchAssociateApprovalRuleTemplateWithRepositoriesOutput"
-    );
+  export function isa(o: any): o is BatchAssociateApprovalRuleTemplateWithRepositoriesOutput {
+    return _smithy.isa(o, "BatchAssociateApprovalRuleTemplateWithRepositoriesOutput");
   }
 }
 
@@ -893,13 +845,8 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesError {
 }
 
 export namespace BatchDisassociateApprovalRuleTemplateFromRepositoriesError {
-  export function isa(
-    o: any
-  ): o is BatchDisassociateApprovalRuleTemplateFromRepositoriesError {
-    return _smithy.isa(
-      o,
-      "BatchDisassociateApprovalRuleTemplateFromRepositoriesError"
-    );
+  export function isa(o: any): o is BatchDisassociateApprovalRuleTemplateFromRepositoriesError {
+    return _smithy.isa(o, "BatchDisassociateApprovalRuleTemplateFromRepositoriesError");
   }
 }
 
@@ -925,18 +872,12 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {
 }
 
 export namespace BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {
-  export function isa(
-    o: any
-  ): o is BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {
-    return _smithy.isa(
-      o,
-      "BatchDisassociateApprovalRuleTemplateFromRepositoriesInput"
-    );
+  export function isa(o: any): o is BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {
+    return _smithy.isa(o, "BatchDisassociateApprovalRuleTemplateFromRepositoriesInput");
   }
 }
 
-export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput
-  extends $MetadataBearer {
+export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput extends $MetadataBearer {
   __type?: "BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput";
   /**
    *
@@ -951,19 +892,12 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput
    *         <p>A list of any errors that might have occurred while attempting to remove the association between the template and the repositories.</p>
    *
    */
-  errors:
-    | Array<BatchDisassociateApprovalRuleTemplateFromRepositoriesError>
-    | undefined;
+  errors: Array<BatchDisassociateApprovalRuleTemplateFromRepositoriesError> | undefined;
 }
 
 export namespace BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput {
-  export function isa(
-    o: any
-  ): o is BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput {
-    return _smithy.isa(
-      o,
-      "BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput"
-    );
+  export function isa(o: any): o is BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput {
+    return _smithy.isa(o, "BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput");
   }
 }
 
@@ -1111,9 +1045,7 @@ export namespace BatchGetRepositoriesOutput {
  *         <p>The before commit ID and the after commit ID are the same, which is not valid. The before commit ID and the after commit ID must be different commit IDs.</p>
  *
  */
-export interface BeforeCommitIdAndAfterCommitIdAreSameException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BeforeCommitIdAndAfterCommitIdAreSameException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BeforeCommitIdAndAfterCommitIdAreSameException";
   $fault: "client";
   /**
@@ -1125,9 +1057,7 @@ export interface BeforeCommitIdAndAfterCommitIdAreSameException
 }
 
 export namespace BeforeCommitIdAndAfterCommitIdAreSameException {
-  export function isa(
-    o: any
-  ): o is BeforeCommitIdAndAfterCommitIdAreSameException {
+  export function isa(o: any): o is BeforeCommitIdAndAfterCommitIdAreSameException {
     return _smithy.isa(o, "BeforeCommitIdAndAfterCommitIdAreSameException");
   }
 }
@@ -1137,9 +1067,7 @@ export namespace BeforeCommitIdAndAfterCommitIdAreSameException {
  *         <p>The specified blob does not exist.</p>
  *
  */
-export interface BlobIdDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BlobIdDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BlobIdDoesNotExistException";
   $fault: "client";
   /**
@@ -1161,9 +1089,7 @@ export namespace BlobIdDoesNotExistException {
  *         <p>A blob ID is required, but was not specified.</p>
  *
  */
-export interface BlobIdRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BlobIdRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BlobIdRequiredException";
   $fault: "client";
   /**
@@ -1238,9 +1164,7 @@ export namespace BlobMetadata {
  *         <p>The specified branch does not exist.</p>
  *
  */
-export interface BranchDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BranchDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BranchDoesNotExistException";
   $fault: "client";
   /**
@@ -1290,9 +1214,7 @@ export namespace BranchInfo {
  *         <p>The specified branch name already exists.</p>
  *
  */
-export interface BranchNameExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BranchNameExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BranchNameExistsException";
   $fault: "client";
   /**
@@ -1315,9 +1237,7 @@ export namespace BranchNameExistsException {
  *             branch in the repository. For a list of valid branch names, use <a>ListBranches</a>.</p>
  *
  */
-export interface BranchNameIsTagNameException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BranchNameIsTagNameException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BranchNameIsTagNameException";
   $fault: "client";
   /**
@@ -1339,9 +1259,7 @@ export namespace BranchNameIsTagNameException {
  *         <p>A branch name is required, but was not specified.</p>
  *
  */
-export interface BranchNameRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BranchNameRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BranchNameRequiredException";
   $fault: "client";
   /**
@@ -1364,9 +1282,7 @@ export namespace BranchNameRequiredException {
  *             approval rule template and applied to the pull request automatically.</p>
  *
  */
-export interface CannotDeleteApprovalRuleFromTemplateException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CannotDeleteApprovalRuleFromTemplateException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CannotDeleteApprovalRuleFromTemplateException";
   $fault: "client";
   /**
@@ -1378,9 +1294,7 @@ export interface CannotDeleteApprovalRuleFromTemplateException
 }
 
 export namespace CannotDeleteApprovalRuleFromTemplateException {
-  export function isa(
-    o: any
-  ): o is CannotDeleteApprovalRuleFromTemplateException {
+  export function isa(o: any): o is CannotDeleteApprovalRuleFromTemplateException {
     return _smithy.isa(o, "CannotDeleteApprovalRuleFromTemplateException");
   }
 }
@@ -1391,9 +1305,7 @@ export namespace CannotDeleteApprovalRuleFromTemplateException {
  *             approval rule template and applied to the pull request automatically.</p>
  *
  */
-export interface CannotModifyApprovalRuleFromTemplateException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CannotModifyApprovalRuleFromTemplateException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CannotModifyApprovalRuleFromTemplateException";
   $fault: "client";
   /**
@@ -1405,9 +1317,7 @@ export interface CannotModifyApprovalRuleFromTemplateException
 }
 
 export namespace CannotModifyApprovalRuleFromTemplateException {
-  export function isa(
-    o: any
-  ): o is CannotModifyApprovalRuleFromTemplateException {
+  export function isa(o: any): o is CannotModifyApprovalRuleFromTemplateException {
     return _smithy.isa(o, "CannotModifyApprovalRuleFromTemplateException");
   }
 }
@@ -1415,7 +1325,7 @@ export namespace CannotModifyApprovalRuleFromTemplateException {
 export enum ChangeTypeEnum {
   ADDED = "A",
   DELETED = "D",
-  MODIFIED = "M"
+  MODIFIED = "M",
 }
 
 /**
@@ -1427,9 +1337,7 @@ export enum ChangeTypeEnum {
  *             request that used that token.</p>
  *
  */
-export interface ClientRequestTokenRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ClientRequestTokenRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ClientRequestTokenRequiredException";
   $fault: "client";
   /**
@@ -1524,9 +1432,7 @@ export namespace Comment {
  *         <p>The comment is empty. You must provide some content for a comment. The content cannot be null.</p>
  *
  */
-export interface CommentContentRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CommentContentRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CommentContentRequiredException";
   $fault: "client";
   /**
@@ -1548,9 +1454,7 @@ export namespace CommentContentRequiredException {
  *         <p>The comment is too large. Comments are limited to 1,000 characters.</p>
  *
  */
-export interface CommentContentSizeLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CommentContentSizeLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CommentContentSizeLimitExceededException";
   $fault: "client";
   /**
@@ -1572,9 +1476,7 @@ export namespace CommentContentSizeLimitExceededException {
  *         <p>This comment has already been deleted. You cannot edit or delete a deleted comment.</p>
  *
  */
-export interface CommentDeletedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CommentDeletedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CommentDeletedException";
   $fault: "client";
   /**
@@ -1597,9 +1499,7 @@ export namespace CommentDeletedException {
  *             then try again.</p>
  *
  */
-export interface CommentDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CommentDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CommentDoesNotExistException";
   $fault: "client";
   /**
@@ -1621,9 +1521,7 @@ export namespace CommentDoesNotExistException {
  *         <p>The comment ID is missing or null. A comment ID is required.</p>
  *
  */
-export interface CommentIdRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CommentIdRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CommentIdRequiredException";
   $fault: "client";
   /**
@@ -1645,9 +1543,7 @@ export namespace CommentIdRequiredException {
  *         <p>You cannot modify or delete this comment. Only comment authors can modify or delete their comments.</p>
  *
  */
-export interface CommentNotCreatedByCallerException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CommentNotCreatedByCallerException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CommentNotCreatedByCallerException";
   $fault: "client";
   /**
@@ -1881,9 +1777,7 @@ export namespace Commit {
  *         <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
  *
  */
-export interface CommitDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CommitDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CommitDoesNotExistException";
   $fault: "client";
   /**
@@ -1905,9 +1799,7 @@ export namespace CommitDoesNotExistException {
  *         <p>The specified commit ID does not exist.</p>
  *
  */
-export interface CommitIdDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CommitIdDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CommitIdDoesNotExistException";
   $fault: "client";
   /**
@@ -1929,9 +1821,7 @@ export namespace CommitIdDoesNotExistException {
  *         <p>A commit ID was not specified.</p>
  *
  */
-export interface CommitIdRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CommitIdRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CommitIdRequiredException";
   $fault: "client";
   /**
@@ -1953,9 +1843,7 @@ export namespace CommitIdRequiredException {
  *         <p>The maximum number of allowed commit IDs in a batch request is 100. Verify that your batch requests contains no more than 100 commit IDs, and then try again.</p>
  *
  */
-export interface CommitIdsLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CommitIdsLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CommitIdsLimitExceededException";
   $fault: "client";
   /**
@@ -1977,9 +1865,7 @@ export namespace CommitIdsLimitExceededException {
  *         <p>A list of commit IDs is required, but was either not specified or the list was empty.</p>
  *
  */
-export interface CommitIdsListRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CommitIdsListRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CommitIdsListRequiredException";
   $fault: "client";
   /**
@@ -2001,9 +1887,7 @@ export namespace CommitIdsListRequiredException {
  *         <p>The commit message is too long. Provide a shorter string. </p>
  *
  */
-export interface CommitMessageLengthExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CommitMessageLengthExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CommitMessageLengthExceededException";
   $fault: "client";
   /**
@@ -2025,9 +1909,7 @@ export namespace CommitMessageLengthExceededException {
  *         <p>A commit was not specified.</p>
  *
  */
-export interface CommitRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CommitRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CommitRequiredException";
   $fault: "client";
   /**
@@ -2049,9 +1931,7 @@ export namespace CommitRequiredException {
  *         <p>The merge cannot be completed because the target branch has been modified. Another user might have modified the target branch while the merge was in progress. Wait a few minutes, and then try again.</p>
  *
  */
-export interface ConcurrentReferenceUpdateException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConcurrentReferenceUpdateException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ConcurrentReferenceUpdateException";
   $fault: "client";
   /**
@@ -2098,7 +1978,7 @@ export namespace Conflict {
 
 export enum ConflictDetailLevelTypeEnum {
   FILE_LEVEL = "FILE_LEVEL",
-  LINE_LEVEL = "LINE_LEVEL"
+  LINE_LEVEL = "LINE_LEVEL",
 }
 
 /**
@@ -2225,7 +2105,7 @@ export enum ConflictResolutionStrategyTypeEnum {
   ACCEPT_DESTINATION = "ACCEPT_DESTINATION",
   ACCEPT_SOURCE = "ACCEPT_SOURCE",
   AUTOMERGE = "AUTOMERGE",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 export interface CreateApprovalRuleTemplateInput {
@@ -2831,9 +2711,7 @@ export namespace CreateUnreferencedMergeCommitOutput {
  *         <p>The specified branch is the default branch for the repository, and cannot be deleted. To delete this branch, you must first set another branch as the default branch.</p>
  *
  */
-export interface DefaultBranchCannotBeDeletedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DefaultBranchCannotBeDeletedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DefaultBranchCannotBeDeletedException";
   $fault: "client";
   /**
@@ -3430,9 +3308,7 @@ export namespace Difference {
  *         Either provide a different name for the file, or specify a different path for the file.</p>
  *
  */
-export interface DirectoryNameConflictsWithFileNameException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DirectoryNameConflictsWithFileNameException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DirectoryNameConflictsWithFileNameException";
   $fault: "client";
   /**
@@ -3444,9 +3320,7 @@ export interface DirectoryNameConflictsWithFileNameException
 }
 
 export namespace DirectoryNameConflictsWithFileNameException {
-  export function isa(
-    o: any
-  ): o is DirectoryNameConflictsWithFileNameException {
+  export function isa(o: any): o is DirectoryNameConflictsWithFileNameException {
     return _smithy.isa(o, "DirectoryNameConflictsWithFileNameException");
   }
 }
@@ -3469,13 +3343,8 @@ export interface DisassociateApprovalRuleTemplateFromRepositoryInput {
 }
 
 export namespace DisassociateApprovalRuleTemplateFromRepositoryInput {
-  export function isa(
-    o: any
-  ): o is DisassociateApprovalRuleTemplateFromRepositoryInput {
-    return _smithy.isa(
-      o,
-      "DisassociateApprovalRuleTemplateFromRepositoryInput"
-    );
+  export function isa(o: any): o is DisassociateApprovalRuleTemplateFromRepositoryInput {
+    return _smithy.isa(o, "DisassociateApprovalRuleTemplateFromRepositoryInput");
   }
 }
 
@@ -3484,9 +3353,7 @@ export namespace DisassociateApprovalRuleTemplateFromRepositoryInput {
  *         <p>An encryption integrity check failed.</p>
  *
  */
-export interface EncryptionIntegrityChecksFailedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface EncryptionIntegrityChecksFailedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "EncryptionIntegrityChecksFailedException";
   $fault: "server";
   /**
@@ -3508,9 +3375,7 @@ export namespace EncryptionIntegrityChecksFailedException {
  *         <p>An encryption key could not be accessed.</p>
  *
  */
-export interface EncryptionKeyAccessDeniedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface EncryptionKeyAccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "EncryptionKeyAccessDeniedException";
   $fault: "client";
   /**
@@ -3532,9 +3397,7 @@ export namespace EncryptionKeyAccessDeniedException {
  *         <p>The encryption key is disabled.</p>
  *
  */
-export interface EncryptionKeyDisabledException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface EncryptionKeyDisabledException extends _smithy.SmithyException, $MetadataBearer {
   __type: "EncryptionKeyDisabledException";
   $fault: "client";
   /**
@@ -3556,9 +3419,7 @@ export namespace EncryptionKeyDisabledException {
  *         <p>No encryption key was found.</p>
  *
  */
-export interface EncryptionKeyNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface EncryptionKeyNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "EncryptionKeyNotFoundException";
   $fault: "client";
   /**
@@ -3580,9 +3441,7 @@ export namespace EncryptionKeyNotFoundException {
  *         <p>The encryption key is not available.</p>
  *
  */
-export interface EncryptionKeyUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface EncryptionKeyUnavailableException extends _smithy.SmithyException, $MetadataBearer {
   __type: "EncryptionKeyUnavailableException";
   $fault: "client";
   /**
@@ -3624,8 +3483,7 @@ export namespace EvaluatePullRequestApprovalRulesInput {
   }
 }
 
-export interface EvaluatePullRequestApprovalRulesOutput
-  extends $MetadataBearer {
+export interface EvaluatePullRequestApprovalRulesOutput extends $MetadataBearer {
   __type?: "EvaluatePullRequestApprovalRulesOutput";
   /**
    *
@@ -3733,9 +3591,7 @@ export namespace File {
  *             provide the file content directly.</p>
  *
  */
-export interface FileContentAndSourceFileSpecifiedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface FileContentAndSourceFileSpecifiedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "FileContentAndSourceFileSpecifiedException";
   $fault: "client";
   /**
@@ -3757,9 +3613,7 @@ export namespace FileContentAndSourceFileSpecifiedException {
  *         <p>The file cannot be added because it is empty. Empty files cannot be added to the repository with this API.</p>
  *
  */
-export interface FileContentRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface FileContentRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "FileContentRequiredException";
   $fault: "client";
   /**
@@ -3783,9 +3637,7 @@ export namespace FileContentRequiredException {
  *             client.</p>
  *
  */
-export interface FileContentSizeLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface FileContentSizeLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "FileContentSizeLimitExceededException";
   $fault: "client";
   /**
@@ -3808,9 +3660,7 @@ export namespace FileContentSizeLimitExceededException {
  *             full path, and extension.</p>
  *
  */
-export interface FileDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface FileDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "FileDoesNotExistException";
   $fault: "client";
   /**
@@ -3832,9 +3682,7 @@ export namespace FileDoesNotExistException {
  *         <p>The commit cannot be created because no files have been specified as added, updated, or changed (PutFile or DeleteFile) for the commit.</p>
  *
  */
-export interface FileEntryRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface FileEntryRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "FileEntryRequiredException";
   $fault: "client";
   /**
@@ -3893,9 +3741,7 @@ export namespace FileMetadata {
  *             required to update mode permissions for a file.</p>
  *
  */
-export interface FileModeRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface FileModeRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "FileModeRequiredException";
   $fault: "client";
   /**
@@ -3915,7 +3761,7 @@ export namespace FileModeRequiredException {
 export enum FileModeTypeEnum {
   EXECUTABLE = "EXECUTABLE",
   NORMAL = "NORMAL",
-  SYMLINK = "SYMLINK"
+  SYMLINK = "SYMLINK",
 }
 
 /**
@@ -3959,9 +3805,7 @@ export namespace FileModes {
  *         another name for the file, or add the file in a directory that does not match the file name.</p>
  *
  */
-export interface FileNameConflictsWithDirectoryNameException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface FileNameConflictsWithDirectoryNameException extends _smithy.SmithyException, $MetadataBearer {
   __type: "FileNameConflictsWithDirectoryNameException";
   $fault: "client";
   /**
@@ -3973,9 +3817,7 @@ export interface FileNameConflictsWithDirectoryNameException
 }
 
 export namespace FileNameConflictsWithDirectoryNameException {
-  export function isa(
-    o: any
-  ): o is FileNameConflictsWithDirectoryNameException {
+  export function isa(o: any): o is FileNameConflictsWithDirectoryNameException {
     return _smithy.isa(o, "FileNameConflictsWithDirectoryNameException");
   }
 }
@@ -3986,9 +3828,7 @@ export namespace FileNameConflictsWithDirectoryNameException {
  *         have valid file paths that do not point to a submodule.</p>
  *
  */
-export interface FilePathConflictsWithSubmodulePathException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface FilePathConflictsWithSubmodulePathException extends _smithy.SmithyException, $MetadataBearer {
   __type: "FilePathConflictsWithSubmodulePathException";
   $fault: "client";
   /**
@@ -4000,9 +3840,7 @@ export interface FilePathConflictsWithSubmodulePathException
 }
 
 export namespace FilePathConflictsWithSubmodulePathException {
-  export function isa(
-    o: any
-  ): o is FilePathConflictsWithSubmodulePathException {
+  export function isa(o: any): o is FilePathConflictsWithSubmodulePathException {
     return _smithy.isa(o, "FilePathConflictsWithSubmodulePathException");
   }
 }
@@ -4048,9 +3886,7 @@ export namespace FileSizes {
  *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS CodeCommit User Guide</a>.</p>
  *
  */
-export interface FileTooLargeException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface FileTooLargeException extends _smithy.SmithyException, $MetadataBearer {
   __type: "FileTooLargeException";
   $fault: "client";
   /**
@@ -4109,9 +3945,7 @@ export namespace Folder {
  *         or split the changes across multiple folders.</p>
  *
  */
-export interface FolderContentSizeLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface FolderContentSizeLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "FolderContentSizeLimitExceededException";
   $fault: "client";
   /**
@@ -4134,9 +3968,7 @@ export namespace FolderContentSizeLimitExceededException {
  *             not enter the full path to the folder.</p>
  *
  */
-export interface FolderDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface FolderDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "FolderDoesNotExistException";
   $fault: "client";
   /**
@@ -5308,9 +5140,7 @@ export namespace GetRepositoryTriggersOutput {
  *             the token has been used in a previous request and cannot be reused.</p>
  *
  */
-export interface IdempotencyParameterMismatchException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface IdempotencyParameterMismatchException extends _smithy.SmithyException, $MetadataBearer {
   __type: "IdempotencyParameterMismatchException";
   $fault: "client";
   /**
@@ -5333,9 +5163,7 @@ export namespace IdempotencyParameterMismatchException {
  *             and then try again.</p>
  *
  */
-export interface InvalidActorArnException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidActorArnException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidActorArnException";
   $fault: "client";
   /**
@@ -5357,9 +5185,7 @@ export namespace InvalidActorArnException {
  *         <p>The content for the approval rule is not valid.</p>
  *
  */
-export interface InvalidApprovalRuleContentException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidApprovalRuleContentException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidApprovalRuleContentException";
   $fault: "client";
   /**
@@ -5381,9 +5207,7 @@ export namespace InvalidApprovalRuleContentException {
  *         <p>The name for the approval rule is not valid.</p>
  *
  */
-export interface InvalidApprovalRuleNameException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidApprovalRuleNameException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidApprovalRuleNameException";
   $fault: "client";
   /**
@@ -5405,9 +5229,7 @@ export namespace InvalidApprovalRuleNameException {
  *         <p>The content of the approval rule template is not valid.</p>
  *
  */
-export interface InvalidApprovalRuleTemplateContentException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidApprovalRuleTemplateContentException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidApprovalRuleTemplateContentException";
   $fault: "client";
   /**
@@ -5419,9 +5241,7 @@ export interface InvalidApprovalRuleTemplateContentException
 }
 
 export namespace InvalidApprovalRuleTemplateContentException {
-  export function isa(
-    o: any
-  ): o is InvalidApprovalRuleTemplateContentException {
+  export function isa(o: any): o is InvalidApprovalRuleTemplateContentException {
     return _smithy.isa(o, "InvalidApprovalRuleTemplateContentException");
   }
 }
@@ -5434,9 +5254,7 @@ export namespace InvalidApprovalRuleTemplateContentException {
  *             Guide</a>.</p>
  *
  */
-export interface InvalidApprovalRuleTemplateDescriptionException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidApprovalRuleTemplateDescriptionException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidApprovalRuleTemplateDescriptionException";
   $fault: "client";
   /**
@@ -5448,9 +5266,7 @@ export interface InvalidApprovalRuleTemplateDescriptionException
 }
 
 export namespace InvalidApprovalRuleTemplateDescriptionException {
-  export function isa(
-    o: any
-  ): o is InvalidApprovalRuleTemplateDescriptionException {
+  export function isa(o: any): o is InvalidApprovalRuleTemplateDescriptionException {
     return _smithy.isa(o, "InvalidApprovalRuleTemplateDescriptionException");
   }
 }
@@ -5463,9 +5279,7 @@ export namespace InvalidApprovalRuleTemplateDescriptionException {
  *                 CodeCommit User Guide</a>.</p>
  *
  */
-export interface InvalidApprovalRuleTemplateNameException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidApprovalRuleTemplateNameException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidApprovalRuleTemplateNameException";
   $fault: "client";
   /**
@@ -5487,9 +5301,7 @@ export namespace InvalidApprovalRuleTemplateNameException {
  *         <p>The state for the approval is not valid. Valid values include APPROVE and REVOKE. </p>
  *
  */
-export interface InvalidApprovalStateException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidApprovalStateException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidApprovalStateException";
   $fault: "client";
   /**
@@ -5511,9 +5323,7 @@ export namespace InvalidApprovalStateException {
  *         <p>The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the author of the pull request, and then try again.</p>
  *
  */
-export interface InvalidAuthorArnException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidAuthorArnException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidAuthorArnException";
   $fault: "client";
   /**
@@ -5535,9 +5345,7 @@ export namespace InvalidAuthorArnException {
  *         <p>The specified blob is not valid.</p>
  *
  */
-export interface InvalidBlobIdException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidBlobIdException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidBlobIdException";
   $fault: "client";
   /**
@@ -5559,9 +5367,7 @@ export namespace InvalidBlobIdException {
  *         <p>The specified reference name is not valid.</p>
  *
  */
-export interface InvalidBranchNameException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidBranchNameException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidBranchNameException";
   $fault: "client";
   /**
@@ -5583,9 +5389,7 @@ export namespace InvalidBranchNameException {
  *         <p>The client request token is not valid.</p>
  *
  */
-export interface InvalidClientRequestTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidClientRequestTokenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidClientRequestTokenException";
   $fault: "client";
   /**
@@ -5607,9 +5411,7 @@ export namespace InvalidClientRequestTokenException {
  *         <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
  *
  */
-export interface InvalidCommentIdException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidCommentIdException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidCommentIdException";
   $fault: "client";
   /**
@@ -5631,9 +5433,7 @@ export namespace InvalidCommentIdException {
  *         <p>The specified commit is not valid.</p>
  *
  */
-export interface InvalidCommitException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidCommitException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidCommitException";
   $fault: "client";
   /**
@@ -5655,9 +5455,7 @@ export namespace InvalidCommitException {
  *         <p>The specified commit ID is not valid.</p>
  *
  */
-export interface InvalidCommitIdException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidCommitIdException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidCommitIdException";
   $fault: "client";
   /**
@@ -5679,9 +5477,7 @@ export namespace InvalidCommitIdException {
  *         <p>The specified conflict detail level is not valid.</p>
  *
  */
-export interface InvalidConflictDetailLevelException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidConflictDetailLevelException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidConflictDetailLevelException";
   $fault: "client";
   /**
@@ -5703,9 +5499,7 @@ export namespace InvalidConflictDetailLevelException {
  *         <p>The specified conflict resolution list is not valid.</p>
  *
  */
-export interface InvalidConflictResolutionException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidConflictResolutionException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidConflictResolutionException";
   $fault: "client";
   /**
@@ -5727,9 +5521,7 @@ export namespace InvalidConflictResolutionException {
  *         <p>The specified conflict resolution strategy is not valid.</p>
  *
  */
-export interface InvalidConflictResolutionStrategyException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidConflictResolutionStrategyException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidConflictResolutionStrategyException";
   $fault: "client";
   /**
@@ -5751,9 +5543,7 @@ export namespace InvalidConflictResolutionStrategyException {
  *         <p>The specified continuation token is not valid.</p>
  *
  */
-export interface InvalidContinuationTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidContinuationTokenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidContinuationTokenException";
   $fault: "client";
   /**
@@ -5775,9 +5565,7 @@ export namespace InvalidContinuationTokenException {
  *         <p>The specified deletion parameter is not valid.</p>
  *
  */
-export interface InvalidDeletionParameterException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidDeletionParameterException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidDeletionParameterException";
   $fault: "client";
   /**
@@ -5800,9 +5588,7 @@ export namespace InvalidDeletionParameterException {
  *             characters.</p>
  *
  */
-export interface InvalidDescriptionException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidDescriptionException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidDescriptionException";
   $fault: "client";
   /**
@@ -5824,9 +5610,7 @@ export namespace InvalidDescriptionException {
  *         <p>The destination commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID. </p>
  *
  */
-export interface InvalidDestinationCommitSpecifierException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidDestinationCommitSpecifierException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidDestinationCommitSpecifierException";
   $fault: "client";
   /**
@@ -5849,9 +5633,7 @@ export namespace InvalidDestinationCommitSpecifierException {
  *         allowed for an email address.</p>
  *
  */
-export interface InvalidEmailException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidEmailException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidEmailException";
   $fault: "client";
   /**
@@ -5874,9 +5656,7 @@ export namespace InvalidEmailException {
  *             extension.</p>
  *
  */
-export interface InvalidFileLocationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidFileLocationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidFileLocationException";
   $fault: "client";
   /**
@@ -5898,9 +5678,7 @@ export namespace InvalidFileLocationException {
  *         <p>The specified file mode permission is not valid. For a list of valid file mode permissions, see <a>PutFile</a>. </p>
  *
  */
-export interface InvalidFileModeException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidFileModeException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidFileModeException";
   $fault: "client";
   /**
@@ -5922,9 +5700,7 @@ export namespace InvalidFileModeException {
  *         <p>The position is not valid. Make sure that the line number exists in the version of the file you want to comment on.</p>
  *
  */
-export interface InvalidFilePositionException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidFilePositionException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidFilePositionException";
   $fault: "client";
   /**
@@ -5946,9 +5722,7 @@ export namespace InvalidFilePositionException {
  *         <p>The specified value for the number of conflict files to return is not valid.</p>
  *
  */
-export interface InvalidMaxConflictFilesException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidMaxConflictFilesException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidMaxConflictFilesException";
   $fault: "client";
   /**
@@ -5970,9 +5744,7 @@ export namespace InvalidMaxConflictFilesException {
  *         <p>The specified value for the number of merge hunks to return is not valid.</p>
  *
  */
-export interface InvalidMaxMergeHunksException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidMaxMergeHunksException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidMaxMergeHunksException";
   $fault: "client";
   /**
@@ -5994,9 +5766,7 @@ export namespace InvalidMaxMergeHunksException {
  *         <p>The specified number of maximum results is not valid.</p>
  *
  */
-export interface InvalidMaxResultsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidMaxResultsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidMaxResultsException";
   $fault: "client";
   /**
@@ -6018,9 +5788,7 @@ export namespace InvalidMaxResultsException {
  *         <p>The specified merge option is not valid for this operation. Not all merge strategies are supported for all operations.</p>
  *
  */
-export interface InvalidMergeOptionException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidMergeOptionException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidMergeOptionException";
   $fault: "client";
   /**
@@ -6042,9 +5810,7 @@ export namespace InvalidMergeOptionException {
  *         <p>The specified sort order is not valid.</p>
  *
  */
-export interface InvalidOrderException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidOrderException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidOrderException";
   $fault: "client";
   /**
@@ -6066,9 +5832,7 @@ export namespace InvalidOrderException {
  *         <p>The override status is not valid. Valid statuses are OVERRIDE and REVOKE.</p>
  *
  */
-export interface InvalidOverrideStatusException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidOverrideStatusException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidOverrideStatusException";
   $fault: "client";
   /**
@@ -6091,9 +5855,7 @@ export namespace InvalidOverrideStatusException {
  *         want to add or update a file.</p>
  *
  */
-export interface InvalidParentCommitIdException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidParentCommitIdException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidParentCommitIdException";
   $fault: "client";
   /**
@@ -6115,9 +5877,7 @@ export namespace InvalidParentCommitIdException {
  *         <p>The specified path is not valid.</p>
  *
  */
-export interface InvalidPathException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidPathException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidPathException";
   $fault: "client";
   /**
@@ -6139,9 +5899,7 @@ export namespace InvalidPathException {
  *         <p>The pull request event type is not valid. </p>
  *
  */
-export interface InvalidPullRequestEventTypeException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidPullRequestEventTypeException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidPullRequestEventTypeException";
   $fault: "client";
   /**
@@ -6163,9 +5921,7 @@ export namespace InvalidPullRequestEventTypeException {
  *         <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
  *
  */
-export interface InvalidPullRequestIdException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidPullRequestIdException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidPullRequestIdException";
   $fault: "client";
   /**
@@ -6187,9 +5943,7 @@ export namespace InvalidPullRequestIdException {
  *         <p>The pull request status is not valid. The only valid values are <code>OPEN</code> and <code>CLOSED</code>.</p>
  *
  */
-export interface InvalidPullRequestStatusException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidPullRequestStatusException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidPullRequestStatusException";
   $fault: "client";
   /**
@@ -6211,9 +5965,7 @@ export namespace InvalidPullRequestStatusException {
  *         <p>The pull request status update is not valid. The only valid update is from <code>OPEN</code> to <code>CLOSED</code>.</p>
  *
  */
-export interface InvalidPullRequestStatusUpdateException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidPullRequestStatusUpdateException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidPullRequestStatusUpdateException";
   $fault: "client";
   /**
@@ -6237,9 +5989,7 @@ export namespace InvalidPullRequestStatusUpdateException {
  *                 Git References</a> or consult your Git documentation.</p>
  *
  */
-export interface InvalidReferenceNameException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidReferenceNameException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidReferenceNameException";
   $fault: "client";
   /**
@@ -6262,9 +6012,7 @@ export namespace InvalidReferenceNameException {
  *
  *
  */
-export interface InvalidRelativeFileVersionEnumException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRelativeFileVersionEnumException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRelativeFileVersionEnumException";
   $fault: "client";
   /**
@@ -6286,9 +6034,7 @@ export namespace InvalidRelativeFileVersionEnumException {
  *         <p>Automerge was specified for resolving the conflict, but the replacement type is not valid or content is missing. </p>
  *
  */
-export interface InvalidReplacementContentException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidReplacementContentException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidReplacementContentException";
   $fault: "client";
   /**
@@ -6311,9 +6057,7 @@ export namespace InvalidReplacementContentException {
  *
  *
  */
-export interface InvalidReplacementTypeException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidReplacementTypeException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidReplacementTypeException";
   $fault: "client";
   /**
@@ -6335,9 +6079,7 @@ export namespace InvalidReplacementTypeException {
  *         <p>The specified repository description is not valid.</p>
  *
  */
-export interface InvalidRepositoryDescriptionException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRepositoryDescriptionException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRepositoryDescriptionException";
   $fault: "client";
   /**
@@ -6366,9 +6108,7 @@ export namespace InvalidRepositoryDescriptionException {
  *          </note>
  *
  */
-export interface InvalidRepositoryNameException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRepositoryNameException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRepositoryNameException";
   $fault: "client";
   /**
@@ -6390,9 +6130,7 @@ export namespace InvalidRepositoryNameException {
  *         <p>One or more branch names specified for the trigger is not valid.</p>
  *
  */
-export interface InvalidRepositoryTriggerBranchNameException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRepositoryTriggerBranchNameException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRepositoryTriggerBranchNameException";
   $fault: "client";
   /**
@@ -6404,9 +6142,7 @@ export interface InvalidRepositoryTriggerBranchNameException
 }
 
 export namespace InvalidRepositoryTriggerBranchNameException {
-  export function isa(
-    o: any
-  ): o is InvalidRepositoryTriggerBranchNameException {
+  export function isa(o: any): o is InvalidRepositoryTriggerBranchNameException {
     return _smithy.isa(o, "InvalidRepositoryTriggerBranchNameException");
   }
 }
@@ -6416,9 +6152,7 @@ export namespace InvalidRepositoryTriggerBranchNameException {
  *         <p>The custom data provided for the trigger is not valid.</p>
  *
  */
-export interface InvalidRepositoryTriggerCustomDataException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRepositoryTriggerCustomDataException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRepositoryTriggerCustomDataException";
   $fault: "client";
   /**
@@ -6430,9 +6164,7 @@ export interface InvalidRepositoryTriggerCustomDataException
 }
 
 export namespace InvalidRepositoryTriggerCustomDataException {
-  export function isa(
-    o: any
-  ): o is InvalidRepositoryTriggerCustomDataException {
+  export function isa(o: any): o is InvalidRepositoryTriggerCustomDataException {
     return _smithy.isa(o, "InvalidRepositoryTriggerCustomDataException");
   }
 }
@@ -6442,9 +6174,7 @@ export namespace InvalidRepositoryTriggerCustomDataException {
  *         <p>The Amazon Resource Name (ARN) for the trigger is not valid for the specified destination. The most common reason for this error is that the ARN does not meet the requirements for the service type.</p>
  *
  */
-export interface InvalidRepositoryTriggerDestinationArnException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRepositoryTriggerDestinationArnException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRepositoryTriggerDestinationArnException";
   $fault: "client";
   /**
@@ -6456,9 +6186,7 @@ export interface InvalidRepositoryTriggerDestinationArnException
 }
 
 export namespace InvalidRepositoryTriggerDestinationArnException {
-  export function isa(
-    o: any
-  ): o is InvalidRepositoryTriggerDestinationArnException {
+  export function isa(o: any): o is InvalidRepositoryTriggerDestinationArnException {
     return _smithy.isa(o, "InvalidRepositoryTriggerDestinationArnException");
   }
 }
@@ -6468,9 +6196,7 @@ export namespace InvalidRepositoryTriggerDestinationArnException {
  *         <p>One or more events specified for the trigger is not valid. Check to make sure that all events specified match the requirements for allowed events.</p>
  *
  */
-export interface InvalidRepositoryTriggerEventsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRepositoryTriggerEventsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRepositoryTriggerEventsException";
   $fault: "client";
   /**
@@ -6492,9 +6218,7 @@ export namespace InvalidRepositoryTriggerEventsException {
  *         <p>The name of the trigger is not valid.</p>
  *
  */
-export interface InvalidRepositoryTriggerNameException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRepositoryTriggerNameException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRepositoryTriggerNameException";
   $fault: "client";
   /**
@@ -6518,9 +6242,7 @@ export namespace InvalidRepositoryTriggerNameException {
  *             trigger.</p>
  *
  */
-export interface InvalidRepositoryTriggerRegionException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRepositoryTriggerRegionException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRepositoryTriggerRegionException";
   $fault: "client";
   /**
@@ -6544,9 +6266,7 @@ export namespace InvalidRepositoryTriggerRegionException {
  *             in the AWS CodeCommit User Guide.</p>
  *
  */
-export interface InvalidResourceArnException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidResourceArnException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidResourceArnException";
   $fault: "client";
   /**
@@ -6568,9 +6288,7 @@ export namespace InvalidResourceArnException {
  *         <p>The revision ID is not valid. Use GetPullRequest to determine the value.</p>
  *
  */
-export interface InvalidRevisionIdException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRevisionIdException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRevisionIdException";
   $fault: "client";
   /**
@@ -6592,9 +6310,7 @@ export namespace InvalidRevisionIdException {
  *         <p>The SHA-256 hash signature for the rule content is not valid.</p>
  *
  */
-export interface InvalidRuleContentSha256Exception
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRuleContentSha256Exception extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRuleContentSha256Exception";
   $fault: "client";
   /**
@@ -6616,9 +6332,7 @@ export namespace InvalidRuleContentSha256Exception {
  *         <p>The specified sort by value is not valid.</p>
  *
  */
-export interface InvalidSortByException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidSortByException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidSortByException";
   $fault: "client";
   /**
@@ -6640,9 +6354,7 @@ export namespace InvalidSortByException {
  *         <p>The source commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID.</p>
  *
  */
-export interface InvalidSourceCommitSpecifierException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidSourceCommitSpecifierException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidSourceCommitSpecifierException";
   $fault: "client";
   /**
@@ -6664,9 +6376,7 @@ export namespace InvalidSourceCommitSpecifierException {
  *         <p>The specified tag is not valid. Key names cannot be prefixed with aws:.</p>
  *
  */
-export interface InvalidSystemTagUsageException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidSystemTagUsageException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidSystemTagUsageException";
   $fault: "client";
   /**
@@ -6688,9 +6398,7 @@ export namespace InvalidSystemTagUsageException {
  *         <p>The list of tags is not valid.</p>
  *
  */
-export interface InvalidTagKeysListException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidTagKeysListException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidTagKeysListException";
   $fault: "client";
   /**
@@ -6712,9 +6420,7 @@ export namespace InvalidTagKeysListException {
  *         <p>The map of tags is not valid.</p>
  *
  */
-export interface InvalidTagsMapException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidTagsMapException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidTagsMapException";
   $fault: "client";
   /**
@@ -6736,9 +6442,7 @@ export namespace InvalidTagsMapException {
  *             <p>The specified target branch is not valid.</p>
  *
  */
-export interface InvalidTargetBranchException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidTargetBranchException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidTargetBranchException";
   $fault: "client";
   /**
@@ -6760,9 +6464,7 @@ export namespace InvalidTargetBranchException {
  *         <p>The target for the pull request is not valid. A target must contain the full values for the repository name, source branch, and destination branch for the pull request.</p>
  *
  */
-export interface InvalidTargetException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidTargetException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidTargetException";
   $fault: "client";
   /**
@@ -6785,9 +6487,7 @@ export namespace InvalidTargetException {
  *             the repository name, source branch, and destination branch for a pull request.</p>
  *
  */
-export interface InvalidTargetsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidTargetsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidTargetsException";
   $fault: "client";
   /**
@@ -6809,9 +6509,7 @@ export namespace InvalidTargetsException {
  *         <p>The title of the pull request is not valid. Pull request titles cannot exceed 100 characters in length.</p>
  *
  */
-export interface InvalidTitleException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidTitleException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidTitleException";
   $fault: "client";
   /**
@@ -6937,18 +6635,12 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryInput {
 }
 
 export namespace ListAssociatedApprovalRuleTemplatesForRepositoryInput {
-  export function isa(
-    o: any
-  ): o is ListAssociatedApprovalRuleTemplatesForRepositoryInput {
-    return _smithy.isa(
-      o,
-      "ListAssociatedApprovalRuleTemplatesForRepositoryInput"
-    );
+  export function isa(o: any): o is ListAssociatedApprovalRuleTemplatesForRepositoryInput {
+    return _smithy.isa(o, "ListAssociatedApprovalRuleTemplatesForRepositoryInput");
   }
 }
 
-export interface ListAssociatedApprovalRuleTemplatesForRepositoryOutput
-  extends $MetadataBearer {
+export interface ListAssociatedApprovalRuleTemplatesForRepositoryOutput extends $MetadataBearer {
   __type?: "ListAssociatedApprovalRuleTemplatesForRepositoryOutput";
   /**
    *
@@ -6966,13 +6658,8 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryOutput
 }
 
 export namespace ListAssociatedApprovalRuleTemplatesForRepositoryOutput {
-  export function isa(
-    o: any
-  ): o is ListAssociatedApprovalRuleTemplatesForRepositoryOutput {
-    return _smithy.isa(
-      o,
-      "ListAssociatedApprovalRuleTemplatesForRepositoryOutput"
-    );
+  export function isa(o: any): o is ListAssociatedApprovalRuleTemplatesForRepositoryOutput {
+    return _smithy.isa(o, "ListAssociatedApprovalRuleTemplatesForRepositoryOutput");
   }
 }
 
@@ -7127,15 +6814,12 @@ export interface ListRepositoriesForApprovalRuleTemplateInput {
 }
 
 export namespace ListRepositoriesForApprovalRuleTemplateInput {
-  export function isa(
-    o: any
-  ): o is ListRepositoriesForApprovalRuleTemplateInput {
+  export function isa(o: any): o is ListRepositoriesForApprovalRuleTemplateInput {
     return _smithy.isa(o, "ListRepositoriesForApprovalRuleTemplateInput");
   }
 }
 
-export interface ListRepositoriesForApprovalRuleTemplateOutput
-  extends $MetadataBearer {
+export interface ListRepositoriesForApprovalRuleTemplateOutput extends $MetadataBearer {
   __type?: "ListRepositoriesForApprovalRuleTemplateOutput";
   /**
    *
@@ -7153,9 +6837,7 @@ export interface ListRepositoriesForApprovalRuleTemplateOutput
 }
 
 export namespace ListRepositoriesForApprovalRuleTemplateOutput {
-  export function isa(
-    o: any
-  ): o is ListRepositoriesForApprovalRuleTemplateOutput {
+  export function isa(o: any): o is ListRepositoriesForApprovalRuleTemplateOutput {
     return _smithy.isa(o, "ListRepositoriesForApprovalRuleTemplateOutput");
   }
 }
@@ -7316,9 +6998,7 @@ export namespace Location {
  *         <p>The pull request cannot be merged automatically into the destination branch. You must manually merge the branches and resolve any conflicts.</p>
  *
  */
-export interface ManualMergeRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ManualMergeRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ManualMergeRequiredException";
   $fault: "client";
   /**
@@ -7340,9 +7020,7 @@ export namespace ManualMergeRequiredException {
  *         <p>The number of branches for the trigger was exceeded.</p>
  *
  */
-export interface MaximumBranchesExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MaximumBranchesExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "MaximumBranchesExceededException";
   $fault: "client";
   /**
@@ -7364,9 +7042,7 @@ export namespace MaximumBranchesExceededException {
  *         <p>The number of allowed conflict resolution entries was exceeded.</p>
  *
  */
-export interface MaximumConflictResolutionEntriesExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MaximumConflictResolutionEntriesExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "MaximumConflictResolutionEntriesExceededException";
   $fault: "client";
   /**
@@ -7378,9 +7054,7 @@ export interface MaximumConflictResolutionEntriesExceededException
 }
 
 export namespace MaximumConflictResolutionEntriesExceededException {
-  export function isa(
-    o: any
-  ): o is MaximumConflictResolutionEntriesExceededException {
+  export function isa(o: any): o is MaximumConflictResolutionEntriesExceededException {
     return _smithy.isa(o, "MaximumConflictResolutionEntriesExceededException");
   }
 }
@@ -7390,9 +7064,7 @@ export namespace MaximumConflictResolutionEntriesExceededException {
  *         <p>The number of files to load exceeds the allowed limit.</p>
  *
  */
-export interface MaximumFileContentToLoadExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MaximumFileContentToLoadExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "MaximumFileContentToLoadExceededException";
   $fault: "client";
   /**
@@ -7415,9 +7087,7 @@ export namespace MaximumFileContentToLoadExceededException {
  *         that can be changed in a single commit. Consider using a Git client for these changes.</p>
  *
  */
-export interface MaximumFileEntriesExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MaximumFileEntriesExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "MaximumFileEntriesExceededException";
   $fault: "client";
   /**
@@ -7439,9 +7109,7 @@ export namespace MaximumFileEntriesExceededException {
  *         <p>The number of items to compare between the source or destination branches and the merge base has exceeded the maximum allowed.</p>
  *
  */
-export interface MaximumItemsToCompareExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MaximumItemsToCompareExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "MaximumItemsToCompareExceededException";
   $fault: "client";
   /**
@@ -7463,9 +7131,7 @@ export namespace MaximumItemsToCompareExceededException {
  *         <p>The number of approvals required for the approval rule exceeds the maximum number allowed.</p>
  *
  */
-export interface MaximumNumberOfApprovalsExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MaximumNumberOfApprovalsExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "MaximumNumberOfApprovalsExceededException";
   $fault: "client";
   /**
@@ -7488,9 +7154,7 @@ export namespace MaximumNumberOfApprovalsExceededException {
  *             The maximum number of open pull requests for a repository is 1,000. Close one or more open pull requests, and then try again.</p>
  *
  */
-export interface MaximumOpenPullRequestsExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MaximumOpenPullRequestsExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "MaximumOpenPullRequestsExceededException";
   $fault: "client";
   /**
@@ -7512,9 +7176,7 @@ export namespace MaximumOpenPullRequestsExceededException {
  *         <p>The maximum number of allowed repository names was exceeded. Currently, this number is 100.</p>
  *
  */
-export interface MaximumRepositoryNamesExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MaximumRepositoryNamesExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "MaximumRepositoryNamesExceededException";
   $fault: "client";
   /**
@@ -7536,9 +7198,7 @@ export namespace MaximumRepositoryNamesExceededException {
  *         <p>The number of triggers allowed for the repository was exceeded.</p>
  *
  */
-export interface MaximumRepositoryTriggersExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MaximumRepositoryTriggersExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "MaximumRepositoryTriggersExceededException";
   $fault: "client";
   /**
@@ -7561,9 +7221,7 @@ export namespace MaximumRepositoryTriggersExceededException {
  *         approval rule templates with a repository.</p>
  *
  */
-export interface MaximumRuleTemplatesAssociatedWithRepositoryException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MaximumRuleTemplatesAssociatedWithRepositoryException extends _smithy.SmithyException, $MetadataBearer {
   __type: "MaximumRuleTemplatesAssociatedWithRepositoryException";
   $fault: "client";
   /**
@@ -7575,13 +7233,8 @@ export interface MaximumRuleTemplatesAssociatedWithRepositoryException
 }
 
 export namespace MaximumRuleTemplatesAssociatedWithRepositoryException {
-  export function isa(
-    o: any
-  ): o is MaximumRuleTemplatesAssociatedWithRepositoryException {
-    return _smithy.isa(
-      o,
-      "MaximumRuleTemplatesAssociatedWithRepositoryException"
-    );
+  export function isa(o: any): o is MaximumRuleTemplatesAssociatedWithRepositoryException {
+    return _smithy.isa(o, "MaximumRuleTemplatesAssociatedWithRepositoryException");
   }
 }
 
@@ -8048,9 +7701,7 @@ export namespace MergeOperations {
  *         <p>A merge option or stategy is required, and none was provided.</p>
  *
  */
-export interface MergeOptionRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MergeOptionRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "MergeOptionRequiredException";
   $fault: "client";
   /**
@@ -8070,7 +7721,7 @@ export namespace MergeOptionRequiredException {
 export enum MergeOptionTypeEnum {
   FAST_FORWARD_MERGE = "FAST_FORWARD_MERGE",
   SQUASH_MERGE = "SQUASH_MERGE",
-  THREE_WAY_MERGE = "THREE_WAY_MERGE"
+  THREE_WAY_MERGE = "THREE_WAY_MERGE",
 }
 
 export interface MergePullRequestByFastForwardInput {
@@ -8337,9 +7988,7 @@ export namespace MergePullRequestByThreeWayOutput {
  *         <p>More than one conflict resolution entries exists for the conflict. A conflict can have only one conflict resolution entry.</p>
  *
  */
-export interface MultipleConflictResolutionEntriesException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MultipleConflictResolutionEntriesException extends _smithy.SmithyException, $MetadataBearer {
   __type: "MultipleConflictResolutionEntriesException";
   $fault: "client";
   /**
@@ -8361,9 +8010,7 @@ export namespace MultipleConflictResolutionEntriesException {
  *         <p>You cannot include more than one repository in a pull request. Make sure you have specified only one repository name in your request, and then try again.</p>
  *
  */
-export interface MultipleRepositoriesInPullRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MultipleRepositoriesInPullRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "MultipleRepositoriesInPullRequestException";
   $fault: "client";
   /**
@@ -8385,9 +8032,7 @@ export namespace MultipleRepositoriesInPullRequestException {
  *         <p>The user name is not valid because it has exceeded the character limit for author names. </p>
  *
  */
-export interface NameLengthExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NameLengthExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NameLengthExceededException";
   $fault: "client";
   /**
@@ -8409,9 +8054,7 @@ export namespace NameLengthExceededException {
  *         <p>The commit cannot be created because no changes will be made to the repository as a result of this commit. A commit must contain at least one change.</p>
  *
  */
-export interface NoChangeException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NoChangeException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NoChangeException";
   $fault: "client";
   /**
@@ -8433,9 +8076,7 @@ export namespace NoChangeException {
  *         <p>The maximum number of approval rule templates has been exceeded for this AWS Region. </p>
  *
  */
-export interface NumberOfRuleTemplatesExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NumberOfRuleTemplatesExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NumberOfRuleTemplatesExceededException";
   $fault: "client";
   /**
@@ -8457,9 +8098,7 @@ export namespace NumberOfRuleTemplatesExceededException {
  *         <p>The approval rule cannot be added. The pull request has the maximum number of approval rules associated with it.</p>
  *
  */
-export interface NumberOfRulesExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NumberOfRulesExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NumberOfRulesExceededException";
   $fault: "client";
   /**
@@ -8480,7 +8119,7 @@ export enum ObjectTypeEnum {
   DIRECTORY = "DIRECTORY",
   FILE = "FILE",
   GIT_LINK = "GIT_LINK",
-  SYMBOLIC_LINK = "SYMBOLIC_LINK"
+  SYMBOLIC_LINK = "SYMBOLIC_LINK",
 }
 
 /**
@@ -8521,7 +8160,7 @@ export namespace ObjectTypes {
 
 export enum OrderEnum {
   ASCENDING = "ascending",
-  DESCENDING = "descending"
+  DESCENDING = "descending",
 }
 
 /**
@@ -8557,9 +8196,7 @@ export namespace OriginApprovalRuleTemplate {
  *         <p>The pull request has already had its approval rules set to override.</p>
  *
  */
-export interface OverrideAlreadySetException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface OverrideAlreadySetException extends _smithy.SmithyException, $MetadataBearer {
   __type: "OverrideAlreadySetException";
   $fault: "client";
   /**
@@ -8612,7 +8249,7 @@ export namespace OverridePullRequestApprovalRulesInput {
 
 export enum OverrideStatus {
   OVERRIDE = "OVERRIDE",
-  REVOKE = "REVOKE"
+  REVOKE = "REVOKE",
 }
 
 /**
@@ -8620,9 +8257,7 @@ export enum OverrideStatus {
  *         <p>An override status is required, but no value was provided. Valid values include OVERRIDE and REVOKE.</p>
  *
  */
-export interface OverrideStatusRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface OverrideStatusRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "OverrideStatusRequiredException";
   $fault: "client";
   /**
@@ -8644,9 +8279,7 @@ export namespace OverrideStatusRequiredException {
  *         <p>The parent commit ID is not valid because it does not exist. The specified parent commit ID does not exist in the specified branch of the repository.</p>
  *
  */
-export interface ParentCommitDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ParentCommitDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ParentCommitDoesNotExistException";
   $fault: "client";
   /**
@@ -8669,9 +8302,7 @@ export namespace ParentCommitDoesNotExistException {
  *         of the branch, use <a>GetBranch</a>.</p>
  *
  */
-export interface ParentCommitIdOutdatedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ParentCommitIdOutdatedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ParentCommitIdOutdatedException";
   $fault: "client";
   /**
@@ -8694,9 +8325,7 @@ export namespace ParentCommitIdOutdatedException {
  *         (for example, git pull or git log).</p>
  *
  */
-export interface ParentCommitIdRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ParentCommitIdRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ParentCommitIdRequiredException";
   $fault: "client";
   /**
@@ -8718,9 +8347,7 @@ export namespace ParentCommitIdRequiredException {
  *         <p>The specified path does not exist.</p>
  *
  */
-export interface PathDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface PathDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "PathDoesNotExistException";
   $fault: "client";
   /**
@@ -8742,9 +8369,7 @@ export namespace PathDoesNotExistException {
  *         <p>The folderPath for a location cannot be null.</p>
  *
  */
-export interface PathRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface PathRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "PathRequiredException";
   $fault: "client";
   /**
@@ -9156,9 +8781,7 @@ export namespace PullRequest {
  *         <p>The pull request status cannot be updated because it is already closed.</p>
  *
  */
-export interface PullRequestAlreadyClosedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface PullRequestAlreadyClosedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "PullRequestAlreadyClosedException";
   $fault: "client";
   /**
@@ -9180,9 +8803,7 @@ export namespace PullRequestAlreadyClosedException {
  *         <p>The pull request cannot be merged because one or more approval rules applied to the pull request have conditions that have not been met.</p>
  *
  */
-export interface PullRequestApprovalRulesNotSatisfiedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface PullRequestApprovalRulesNotSatisfiedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "PullRequestApprovalRulesNotSatisfiedException";
   $fault: "client";
   /**
@@ -9194,9 +8815,7 @@ export interface PullRequestApprovalRulesNotSatisfiedException
 }
 
 export namespace PullRequestApprovalRulesNotSatisfiedException {
-  export function isa(
-    o: any
-  ): o is PullRequestApprovalRulesNotSatisfiedException {
+  export function isa(o: any): o is PullRequestApprovalRulesNotSatisfiedException {
     return _smithy.isa(o, "PullRequestApprovalRulesNotSatisfiedException");
   }
 }
@@ -9207,9 +8826,7 @@ export namespace PullRequestApprovalRulesNotSatisfiedException {
  *         request that you created.</p>
  *
  */
-export interface PullRequestCannotBeApprovedByAuthorException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface PullRequestCannotBeApprovedByAuthorException extends _smithy.SmithyException, $MetadataBearer {
   __type: "PullRequestCannotBeApprovedByAuthorException";
   $fault: "client";
   /**
@@ -9221,9 +8838,7 @@ export interface PullRequestCannotBeApprovedByAuthorException
 }
 
 export namespace PullRequestCannotBeApprovedByAuthorException {
-  export function isa(
-    o: any
-  ): o is PullRequestCannotBeApprovedByAuthorException {
+  export function isa(o: any): o is PullRequestCannotBeApprovedByAuthorException {
     return _smithy.isa(o, "PullRequestCannotBeApprovedByAuthorException");
   }
 }
@@ -9275,9 +8890,7 @@ export namespace PullRequestCreatedEventMetadata {
  *         <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
  *
  */
-export interface PullRequestDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface PullRequestDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "PullRequestDoesNotExistException";
   $fault: "client";
   /**
@@ -9398,7 +9011,7 @@ export enum PullRequestEventType {
   PULL_REQUEST_CREATED = "PULL_REQUEST_CREATED",
   PULL_REQUEST_MERGE_STATE_CHANGED = "PULL_REQUEST_MERGE_STATE_CHANGED",
   PULL_REQUEST_SOURCE_REFERENCE_UPDATED = "PULL_REQUEST_SOURCE_REFERENCE_UPDATED",
-  PULL_REQUEST_STATUS_CHANGED = "PULL_REQUEST_STATUS_CHANGED"
+  PULL_REQUEST_STATUS_CHANGED = "PULL_REQUEST_STATUS_CHANGED",
 }
 
 /**
@@ -9406,9 +9019,7 @@ export enum PullRequestEventType {
  *         <p>A pull request ID is required, but none was provided.</p>
  *
  */
-export interface PullRequestIdRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface PullRequestIdRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "PullRequestIdRequiredException";
   $fault: "client";
   /**
@@ -9497,9 +9108,7 @@ export interface PullRequestSourceReferenceUpdatedEventMetadata {
 }
 
 export namespace PullRequestSourceReferenceUpdatedEventMetadata {
-  export function isa(
-    o: any
-  ): o is PullRequestSourceReferenceUpdatedEventMetadata {
+  export function isa(o: any): o is PullRequestSourceReferenceUpdatedEventMetadata {
     return _smithy.isa(o, "PullRequestSourceReferenceUpdatedEventMetadata");
   }
 }
@@ -9527,7 +9136,7 @@ export namespace PullRequestStatusChangedEventMetadata {
 
 export enum PullRequestStatusEnum {
   CLOSED = "CLOSED",
-  OPEN = "OPEN"
+  OPEN = "OPEN",
 }
 
 /**
@@ -9535,9 +9144,7 @@ export enum PullRequestStatusEnum {
  *         <p>A pull request status is required, but none was provided.</p>
  *
  */
-export interface PullRequestStatusRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface PullRequestStatusRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "PullRequestStatusRequiredException";
   $fault: "client";
   /**
@@ -9668,9 +9275,7 @@ export namespace PutFileEntry {
  *         <p>The commit cannot be created because one or more files specified in the commit reference both a file and a folder.</p>
  *
  */
-export interface PutFileEntryConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface PutFileEntryConflictException extends _smithy.SmithyException, $MetadataBearer {
   __type: "PutFileEntryConflictException";
   $fault: "client";
   /**
@@ -9855,9 +9460,7 @@ export namespace PutRepositoryTriggersOutput {
  *         <p>The specified reference does not exist. You must provide a full commit ID.</p>
  *
  */
-export interface ReferenceDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ReferenceDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ReferenceDoesNotExistException";
   $fault: "client";
   /**
@@ -9879,9 +9482,7 @@ export namespace ReferenceDoesNotExistException {
  *         <p>A reference name is required, but none was provided.</p>
  *
  */
-export interface ReferenceNameRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ReferenceNameRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ReferenceNameRequiredException";
   $fault: "client";
   /**
@@ -9903,9 +9504,7 @@ export namespace ReferenceNameRequiredException {
  *         <p>The specified reference is not a supported type. </p>
  *
  */
-export interface ReferenceTypeNotSupportedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ReferenceTypeNotSupportedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ReferenceTypeNotSupportedException";
   $fault: "client";
   /**
@@ -9924,7 +9523,7 @@ export namespace ReferenceTypeNotSupportedException {
 
 export enum RelativeFileVersionEnum {
   AFTER = "AFTER",
-  BEFORE = "BEFORE"
+  BEFORE = "BEFORE",
 }
 
 /**
@@ -9974,9 +9573,7 @@ export namespace ReplaceContentEntry {
  *         <p>USE_NEW_CONTENT was specified, but no replacement content has been provided.</p>
  *
  */
-export interface ReplacementContentRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ReplacementContentRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ReplacementContentRequiredException";
   $fault: "client";
   /**
@@ -9997,7 +9594,7 @@ export enum ReplacementTypeEnum {
   KEEP_BASE = "KEEP_BASE",
   KEEP_DESTINATION = "KEEP_DESTINATION",
   KEEP_SOURCE = "KEEP_SOURCE",
-  USE_NEW_CONTENT = "USE_NEW_CONTENT"
+  USE_NEW_CONTENT = "USE_NEW_CONTENT",
 }
 
 /**
@@ -10005,9 +9602,7 @@ export enum ReplacementTypeEnum {
  *         <p>A replacement type is required.</p>
  *
  */
-export interface ReplacementTypeRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ReplacementTypeRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ReplacementTypeRequiredException";
   $fault: "client";
   /**
@@ -10029,9 +9624,7 @@ export namespace ReplacementTypeRequiredException {
  *         <p>The specified repository does not exist.</p>
  *
  */
-export interface RepositoryDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface RepositoryDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "RepositoryDoesNotExistException";
   $fault: "client";
   /**
@@ -10053,9 +9646,7 @@ export namespace RepositoryDoesNotExistException {
  *         <p>A repository resource limit was exceeded.</p>
  *
  */
-export interface RepositoryLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface RepositoryLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "RepositoryLimitExceededException";
   $fault: "client";
   /**
@@ -10161,9 +9752,7 @@ export namespace RepositoryMetadata {
  *         <p>The specified repository name already exists.</p>
  *
  */
-export interface RepositoryNameExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface RepositoryNameExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "RepositoryNameExistsException";
   $fault: "client";
   /**
@@ -10213,9 +9802,7 @@ export namespace RepositoryNameIdPair {
  *         <p>A repository name is required, but was not specified.</p>
  *
  */
-export interface RepositoryNameRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface RepositoryNameRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "RepositoryNameRequiredException";
   $fault: "client";
   /**
@@ -10237,9 +9824,7 @@ export namespace RepositoryNameRequiredException {
  *         <p>At least one repository name object is required, but was not specified.</p>
  *
  */
-export interface RepositoryNamesRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface RepositoryNamesRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "RepositoryNamesRequiredException";
   $fault: "client";
   /**
@@ -10261,9 +9846,7 @@ export namespace RepositoryNamesRequiredException {
  *         <p>The repository does not contain any pull requests with that pull request ID. Use GetPullRequest to verify the correct repository name for the pull request ID.</p>
  *
  */
-export interface RepositoryNotAssociatedWithPullRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface RepositoryNotAssociatedWithPullRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "RepositoryNotAssociatedWithPullRequestException";
   $fault: "client";
   /**
@@ -10275,9 +9858,7 @@ export interface RepositoryNotAssociatedWithPullRequestException
 }
 
 export namespace RepositoryNotAssociatedWithPullRequestException {
-  export function isa(
-    o: any
-  ): o is RepositoryNotAssociatedWithPullRequestException {
+  export function isa(o: any): o is RepositoryNotAssociatedWithPullRequestException {
     return _smithy.isa(o, "RepositoryNotAssociatedWithPullRequestException");
   }
 }
@@ -10349,9 +9930,7 @@ export namespace RepositoryTrigger {
  *             configuration.</p>
  *
  */
-export interface RepositoryTriggerBranchNameListRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface RepositoryTriggerBranchNameListRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "RepositoryTriggerBranchNameListRequiredException";
   $fault: "client";
   /**
@@ -10363,9 +9942,7 @@ export interface RepositoryTriggerBranchNameListRequiredException
 }
 
 export namespace RepositoryTriggerBranchNameListRequiredException {
-  export function isa(
-    o: any
-  ): o is RepositoryTriggerBranchNameListRequiredException {
+  export function isa(o: any): o is RepositoryTriggerBranchNameListRequiredException {
     return _smithy.isa(o, "RepositoryTriggerBranchNameListRequiredException");
   }
 }
@@ -10376,9 +9953,7 @@ export namespace RepositoryTriggerBranchNameListRequiredException {
  *             specified.</p>
  *
  */
-export interface RepositoryTriggerDestinationArnRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface RepositoryTriggerDestinationArnRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "RepositoryTriggerDestinationArnRequiredException";
   $fault: "client";
   /**
@@ -10390,9 +9965,7 @@ export interface RepositoryTriggerDestinationArnRequiredException
 }
 
 export namespace RepositoryTriggerDestinationArnRequiredException {
-  export function isa(
-    o: any
-  ): o is RepositoryTriggerDestinationArnRequiredException {
+  export function isa(o: any): o is RepositoryTriggerDestinationArnRequiredException {
     return _smithy.isa(o, "RepositoryTriggerDestinationArnRequiredException");
   }
 }
@@ -10401,7 +9974,7 @@ export enum RepositoryTriggerEventEnum {
   ALL = "all",
   CREATE_REFERENCE = "createReference",
   DELETE_REFERENCE = "deleteReference",
-  UPDATE_REFERENCE = "updateReference"
+  UPDATE_REFERENCE = "updateReference",
 }
 
 /**
@@ -10409,9 +9982,7 @@ export enum RepositoryTriggerEventEnum {
  *         <p>At least one event for the trigger is required, but was not specified.</p>
  *
  */
-export interface RepositoryTriggerEventsListRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface RepositoryTriggerEventsListRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "RepositoryTriggerEventsListRequiredException";
   $fault: "client";
   /**
@@ -10423,9 +9994,7 @@ export interface RepositoryTriggerEventsListRequiredException
 }
 
 export namespace RepositoryTriggerEventsListRequiredException {
-  export function isa(
-    o: any
-  ): o is RepositoryTriggerEventsListRequiredException {
+  export function isa(o: any): o is RepositoryTriggerEventsListRequiredException {
     return _smithy.isa(o, "RepositoryTriggerEventsListRequiredException");
   }
 }
@@ -10463,9 +10032,7 @@ export namespace RepositoryTriggerExecutionFailure {
  *         <p>A name for the trigger is required, but was not specified.</p>
  *
  */
-export interface RepositoryTriggerNameRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface RepositoryTriggerNameRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "RepositoryTriggerNameRequiredException";
   $fault: "client";
   /**
@@ -10487,9 +10054,7 @@ export namespace RepositoryTriggerNameRequiredException {
  *         <p>The list of triggers for the repository is required, but was not specified.</p>
  *
  */
-export interface RepositoryTriggersListRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface RepositoryTriggersListRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "RepositoryTriggersListRequiredException";
   $fault: "client";
   /**
@@ -10513,9 +10078,7 @@ export namespace RepositoryTriggersListRequiredException {
  *             in the AWS CodeCommit User Guide.</p>
  *
  */
-export interface ResourceArnRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceArnRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceArnRequiredException";
   $fault: "client";
   /**
@@ -10537,9 +10100,7 @@ export namespace ResourceArnRequiredException {
  *         <p>The commit cannot be created because one of the changes specifies copying or moving a .gitkeep file.</p>
  *
  */
-export interface RestrictedSourceFileException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface RestrictedSourceFileException extends _smithy.SmithyException, $MetadataBearer {
   __type: "RestrictedSourceFileException";
   $fault: "client";
   /**
@@ -10561,9 +10122,7 @@ export namespace RestrictedSourceFileException {
  *         <p>A revision ID is required, but was not provided.</p>
  *
  */
-export interface RevisionIdRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface RevisionIdRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "RevisionIdRequiredException";
   $fault: "client";
   /**
@@ -10585,9 +10144,7 @@ export namespace RevisionIdRequiredException {
  *         <p>The revision ID provided in the request does not match the current revision ID. Use GetPullRequest to retrieve the current revision ID.</p>
  *
  */
-export interface RevisionNotCurrentException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface RevisionNotCurrentException extends _smithy.SmithyException, $MetadataBearer {
   __type: "RevisionNotCurrentException";
   $fault: "client";
   /**
@@ -10610,9 +10167,7 @@ export namespace RevisionNotCurrentException {
  *         that you specified.</p>
  *
  */
-export interface SameFileContentException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface SameFileContentException extends _smithy.SmithyException, $MetadataBearer {
   __type: "SameFileContentException";
   $fault: "client";
   /**
@@ -10636,9 +10191,7 @@ export namespace SameFileContentException {
  *         file as part of the same commit.</p>
  *
  */
-export interface SamePathRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface SamePathRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "SamePathRequestException";
   $fault: "client";
   /**
@@ -10685,7 +10238,7 @@ export namespace SetFileModeEntry {
 
 export enum SortByEnum {
   MODIFIED_DATE = "lastModifiedDate",
-  REPOSITORY_NAME = "repositoryName"
+  REPOSITORY_NAME = "repositoryName",
 }
 
 /**
@@ -10694,9 +10247,7 @@ export enum SortByEnum {
  *             specify different branches for the source and destination.</p>
  *
  */
-export interface SourceAndDestinationAreSameException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface SourceAndDestinationAreSameException extends _smithy.SmithyException, $MetadataBearer {
   __type: "SourceAndDestinationAreSameException";
   $fault: "client";
   /**
@@ -10718,9 +10269,7 @@ export namespace SourceAndDestinationAreSameException {
  *         <p>The commit cannot be created because no source files or file content have been specified for the commit.</p>
  *
  */
-export interface SourceFileOrContentRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface SourceFileOrContentRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "SourceFileOrContentRequiredException";
   $fault: "client";
   /**
@@ -10847,9 +10396,7 @@ export namespace SymbolicLink {
  *         <p>A list of tag keys is required. The list cannot be empty or null.</p>
  *
  */
-export interface TagKeysListRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TagKeysListRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TagKeysListRequiredException";
   $fault: "client";
   /**
@@ -10871,9 +10418,7 @@ export namespace TagKeysListRequiredException {
  *         <p>The tag policy is not valid.</p>
  *
  */
-export interface TagPolicyException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TagPolicyException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TagPolicyException";
   $fault: "client";
   /**
@@ -10918,9 +10463,7 @@ export namespace TagResourceInput {
  *         <p>A map of tags is required.</p>
  *
  */
-export interface TagsMapRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TagsMapRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TagsMapRequiredException";
   $fault: "client";
   /**
@@ -10978,9 +10521,7 @@ export namespace Target {
  *         <p>A pull request target is required. It cannot be empty or null. A pull request target must contain the full values for the repository name, source branch, and destination branch for the pull request.</p>
  *
  */
-export interface TargetRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TargetRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TargetRequiredException";
   $fault: "client";
   /**
@@ -11002,9 +10543,7 @@ export namespace TargetRequiredException {
  *         <p>An array of target objects is required. It cannot be empty or null.</p>
  *
  */
-export interface TargetsRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TargetsRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TargetsRequiredException";
   $fault: "client";
   /**
@@ -11084,9 +10623,7 @@ export namespace TestRepositoryTriggersOutput {
  *             The pull request might have been updated. Make sure that you have the latest changes.</p>
  *
  */
-export interface TipOfSourceReferenceIsDifferentException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TipOfSourceReferenceIsDifferentException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TipOfSourceReferenceIsDifferentException";
   $fault: "client";
   /**
@@ -11109,9 +10646,7 @@ export namespace TipOfSourceReferenceIsDifferentException {
  *             any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
  *
  */
-export interface TipsDivergenceExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TipsDivergenceExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TipsDivergenceExceededException";
   $fault: "client";
   /**
@@ -11133,9 +10668,7 @@ export namespace TipsDivergenceExceededException {
  *         <p>A pull request title is required. It cannot be empty or null.</p>
  *
  */
-export interface TitleRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TitleRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TitleRequiredException";
   $fault: "client";
   /**
@@ -11157,9 +10690,7 @@ export namespace TitleRequiredException {
  *         <p>The maximum number of tags for an AWS CodeCommit resource has been exceeded.</p>
  *
  */
-export interface TooManyTagsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TooManyTagsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TooManyTagsException";
   $fault: "client";
   /**
@@ -11232,8 +10763,7 @@ export namespace UpdateApprovalRuleTemplateContentInput {
   }
 }
 
-export interface UpdateApprovalRuleTemplateContentOutput
-  extends $MetadataBearer {
+export interface UpdateApprovalRuleTemplateContentOutput extends $MetadataBearer {
   __type?: "UpdateApprovalRuleTemplateContentOutput";
   /**
    *
@@ -11272,8 +10802,7 @@ export namespace UpdateApprovalRuleTemplateDescriptionInput {
   }
 }
 
-export interface UpdateApprovalRuleTemplateDescriptionOutput
-  extends $MetadataBearer {
+export interface UpdateApprovalRuleTemplateDescriptionOutput extends $MetadataBearer {
   __type?: "UpdateApprovalRuleTemplateDescriptionOutput";
   /**
    *
@@ -11284,9 +10813,7 @@ export interface UpdateApprovalRuleTemplateDescriptionOutput
 }
 
 export namespace UpdateApprovalRuleTemplateDescriptionOutput {
-  export function isa(
-    o: any
-  ): o is UpdateApprovalRuleTemplateDescriptionOutput {
+  export function isa(o: any): o is UpdateApprovalRuleTemplateDescriptionOutput {
     return _smithy.isa(o, "UpdateApprovalRuleTemplateDescriptionOutput");
   }
 }
@@ -11477,8 +11004,7 @@ export namespace UpdatePullRequestApprovalRuleContentInput {
   }
 }
 
-export interface UpdatePullRequestApprovalRuleContentOutput
-  extends $MetadataBearer {
+export interface UpdatePullRequestApprovalRuleContentOutput extends $MetadataBearer {
   __type?: "UpdatePullRequestApprovalRuleContentOutput";
   /**
    *

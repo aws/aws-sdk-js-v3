@@ -7,7 +7,7 @@ export enum APIName {
   GET_MEDIA = "GET_MEDIA",
   GET_MEDIA_FOR_FRAGMENT_LIST = "GET_MEDIA_FOR_FRAGMENT_LIST",
   LIST_FRAGMENTS = "LIST_FRAGMENTS",
-  PUT_MEDIA = "PUT_MEDIA"
+  PUT_MEDIA = "PUT_MEDIA",
 }
 
 /**
@@ -15,9 +15,7 @@ export enum APIName {
  *          <p>The number of streams created for the account is too high.</p>
  *
  */
-export interface AccountStreamLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AccountStreamLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AccountStreamLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -35,9 +33,7 @@ export namespace AccountStreamLimitExceededException {
  *       request because you have exceeded the limit of allowed client calls. Try making the call later.</p>
  *
  */
-export interface ClientLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ClientLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ClientLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -50,7 +46,7 @@ export namespace ClientLimitExceededException {
 }
 
 export enum ComparisonOperator {
-  BEGINS_WITH = "BEGINS_WITH"
+  BEGINS_WITH = "BEGINS_WITH",
 }
 
 export interface CreateStreamInput {
@@ -228,9 +224,7 @@ export namespace DescribeStreamOutput {
  *          <p>Not implemented. </p>
  *
  */
-export interface DeviceStreamLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DeviceStreamLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DeviceStreamLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -296,9 +290,7 @@ export namespace GetDataEndpointOutput {
  *          <p>The value for this input parameter is invalid.</p>
  *
  */
-export interface InvalidArgumentException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidArgumentException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
@@ -315,9 +307,7 @@ export namespace InvalidArgumentException {
  *          <p>Not implemented.</p>
  *
  */
-export interface InvalidDeviceException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidDeviceException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidDeviceException";
   $fault: "client";
   Message?: string;
@@ -334,9 +324,7 @@ export namespace InvalidDeviceException {
  *          <p>The format of the <code>StreamARN</code> is invalid.</p>
  *
  */
-export interface InvalidResourceFormatException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidResourceFormatException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidResourceFormatException";
   $fault: "client";
   Message?: string;
@@ -468,9 +456,7 @@ export namespace ListTagsForStreamOutput {
  *          <p>The caller is not authorized to perform this operation.</p>
  *
  */
-export interface NotAuthorizedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotAuthorizedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NotAuthorizedException";
   $fault: "client";
   Message?: string;
@@ -487,9 +473,7 @@ export namespace NotAuthorizedException {
  *          <p>The stream is currently not available for this operation.</p>
  *
  */
-export interface ResourceInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   Message?: string;
@@ -506,9 +490,7 @@ export namespace ResourceInUseException {
  *          <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -524,7 +506,7 @@ export enum Status {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
   DELETING = "DELETING",
-  UPDATING = "UPDATING"
+  UPDATING = "UPDATING",
 }
 
 /**
@@ -685,9 +667,7 @@ export namespace TagStreamOutput {
  *          <p>You have exceeded the limit of tags that you can associate with the resource. Kinesis video streams support up to 50 tags. </p>
  *
  */
-export interface TagsPerResourceExceededLimitException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TagsPerResourceExceededLimitException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TagsPerResourceExceededLimitException";
   $fault: "client";
   Message?: string;
@@ -788,7 +768,7 @@ export namespace UpdateDataRetentionInput {
 
 export enum UpdateDataRetentionOperation {
   DECREASE_DATA_RETENTION = "DECREASE_DATA_RETENTION",
-  INCREASE_DATA_RETENTION = "INCREASE_DATA_RETENTION"
+  INCREASE_DATA_RETENTION = "INCREASE_DATA_RETENTION",
 }
 
 export interface UpdateDataRetentionOutput extends $MetadataBearer {
@@ -877,9 +857,7 @@ export namespace UpdateStreamOutput {
  *       <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html">DescribeStream</a> API.</p>
  *
  */
-export interface VersionMismatchException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface VersionMismatchException extends _smithy.SmithyException, $MetadataBearer {
   __type: "VersionMismatchException";
   $fault: "client";
   Message?: string;

@@ -1,20 +1,20 @@
 import {
   CodeCommitClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CodeCommitClient";
 import {
   GetApprovalRuleTemplateInput,
-  GetApprovalRuleTemplateOutput
+  GetApprovalRuleTemplateOutput,
 } from "../models/index";
 import {
   deserializeAws_json1_1GetApprovalRuleTemplateCommand,
-  serializeAws_json1_1GetApprovalRuleTemplateCommand
+  serializeAws_json1_1GetApprovalRuleTemplateCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type GetApprovalRuleTemplateCommandInput = GetApprovalRuleTemplateInput;
 export type GetApprovalRuleTemplateCommandOutput = GetApprovalRuleTemplateOutput;
 
-export class GetApprovalRuleTemplateCommand extends $Command<
-  GetApprovalRuleTemplateCommandInput,
-  GetApprovalRuleTemplateCommandOutput,
-  CodeCommitClientResolvedConfig
-> {
+export class GetApprovalRuleTemplateCommand extends $Command<GetApprovalRuleTemplateCommandInput, GetApprovalRuleTemplateCommandOutput, CodeCommitClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class GetApprovalRuleTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetApprovalRuleTemplateCommandInput,
-    GetApprovalRuleTemplateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetApprovalRuleTemplateCommandInput, GetApprovalRuleTemplateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -79,10 +70,7 @@ export class GetApprovalRuleTemplateCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<GetApprovalRuleTemplateCommandOutput> {
-    return deserializeAws_json1_1GetApprovalRuleTemplateCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetApprovalRuleTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -105,9 +105,7 @@ export namespace AlarmConfiguration {
  *         <p>The maximum number of alarms for a deployment group (10) was exceeded.</p>
  *
  */
-export interface AlarmsLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AlarmsLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AlarmsLimitExceededException";
   $fault: "client";
   /**
@@ -169,9 +167,7 @@ export namespace AppSpecContent {
  *             exists.</p>
  *
  */
-export interface ApplicationAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ApplicationAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ApplicationAlreadyExistsException";
   $fault: "client";
   /**
@@ -193,9 +189,7 @@ export namespace ApplicationAlreadyExistsException {
  *         <p>The application does not exist with the IAM user or AWS account.</p>
  *
  */
-export interface ApplicationDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ApplicationDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ApplicationDoesNotExistException";
   $fault: "client";
   /**
@@ -275,9 +269,7 @@ export namespace ApplicationInfo {
  *         <p>More applications were attempted to be created than are allowed.</p>
  *
  */
-export interface ApplicationLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ApplicationLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ApplicationLimitExceededException";
   $fault: "client";
   /**
@@ -299,9 +291,7 @@ export namespace ApplicationLimitExceededException {
  *         <p>The minimum number of required application names was not specified.</p>
  *
  */
-export interface ApplicationNameRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ApplicationNameRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ApplicationNameRequiredException";
   $fault: "client";
   /**
@@ -321,7 +311,7 @@ export namespace ApplicationNameRequiredException {
 export enum ApplicationRevisionSortBy {
   FirstUsedTime = "firstUsedTime",
   LastUsedTime = "lastUsedTime",
-  RegisterTime = "registerTime"
+  RegisterTime = "registerTime",
 }
 
 /**
@@ -331,9 +321,7 @@ export enum ApplicationRevisionSortBy {
  *         </p>
  *
  */
-export interface ArnNotSupportedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ArnNotSupportedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ArnNotSupportedException";
   $fault: "client";
   /**
@@ -383,7 +371,7 @@ export namespace AutoRollbackConfiguration {
 export enum AutoRollbackEvent {
   DEPLOYMENT_FAILURE = "DEPLOYMENT_FAILURE",
   DEPLOYMENT_STOP_ON_ALARM = "DEPLOYMENT_STOP_ON_ALARM",
-  DEPLOYMENT_STOP_ON_REQUEST = "DEPLOYMENT_STOP_ON_REQUEST"
+  DEPLOYMENT_STOP_ON_REQUEST = "DEPLOYMENT_STOP_ON_REQUEST",
 }
 
 /**
@@ -800,9 +788,7 @@ export namespace BatchGetOnPremisesInstancesOutput {
  *         <p>The maximum number of names or IDs allowed for this request (100) was exceeded.</p>
  *
  */
-export interface BatchLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BatchLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BatchLimitExceededException";
   $fault: "client";
   /**
@@ -914,9 +900,7 @@ export namespace BlueInstanceTerminationOption {
  *         <p>A bucket name is required, but was not provided.</p>
  *
  */
-export interface BucketNameFilterRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BucketNameFilterRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BucketNameFilterRequiredException";
   $fault: "client";
   /**
@@ -938,13 +922,13 @@ export enum BundleType {
   Tar = "tar",
   TarGZip = "tgz",
   YAML = "YAML",
-  Zip = "zip"
+  Zip = "zip",
 }
 
 export enum ComputePlatform {
   ECS = "ECS",
   LAMBDA = "Lambda",
-  SERVER = "Server"
+  SERVER = "Server",
 }
 
 export interface ContinueDeploymentInput {
@@ -1594,9 +1578,7 @@ export namespace DeleteGitHubAccountTokenOutput {
  *         <p>The deployment is already complete.</p>
  *
  */
-export interface DeploymentAlreadyCompletedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DeploymentAlreadyCompletedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DeploymentAlreadyCompletedException";
   $fault: "client";
   /**
@@ -1619,9 +1601,7 @@ export namespace DeploymentAlreadyCompletedException {
  *             already exists .</p>
  *
  */
-export interface DeploymentConfigAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DeploymentConfigAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DeploymentConfigAlreadyExistsException";
   $fault: "client";
   /**
@@ -1643,9 +1623,7 @@ export namespace DeploymentConfigAlreadyExistsException {
  *         <p>The deployment configuration does not exist with the IAM user or AWS account.</p>
  *
  */
-export interface DeploymentConfigDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DeploymentConfigDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DeploymentConfigDoesNotExistException";
   $fault: "client";
   /**
@@ -1667,9 +1645,7 @@ export namespace DeploymentConfigDoesNotExistException {
  *         <p>The deployment configuration is still in use.</p>
  *
  */
-export interface DeploymentConfigInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DeploymentConfigInUseException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DeploymentConfigInUseException";
   $fault: "client";
   /**
@@ -1748,9 +1724,7 @@ export namespace DeploymentConfigInfo {
  *         <p>The deployment configurations limit was exceeded.</p>
  *
  */
-export interface DeploymentConfigLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DeploymentConfigLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DeploymentConfigLimitExceededException";
   $fault: "client";
   /**
@@ -1772,9 +1746,7 @@ export namespace DeploymentConfigLimitExceededException {
  *         <p>The deployment configuration name was not specified.</p>
  *
  */
-export interface DeploymentConfigNameRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DeploymentConfigNameRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DeploymentConfigNameRequiredException";
   $fault: "client";
   /**
@@ -1794,7 +1766,7 @@ export namespace DeploymentConfigNameRequiredException {
 export enum DeploymentCreator {
   Autoscaling = "autoscaling",
   CodeDeployRollback = "codeDeployRollback",
-  User = "user"
+  User = "user",
 }
 
 /**
@@ -1802,9 +1774,7 @@ export enum DeploymentCreator {
  *         <p>The deployment with the IAM user or AWS account does not exist.</p>
  *
  */
-export interface DeploymentDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DeploymentDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DeploymentDoesNotExistException";
   $fault: "client";
   /**
@@ -1827,9 +1797,7 @@ export namespace DeploymentDoesNotExistException {
  *             exists.</p>
  *
  */
-export interface DeploymentGroupAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DeploymentGroupAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DeploymentGroupAlreadyExistsException";
   $fault: "client";
   /**
@@ -1851,9 +1819,7 @@ export namespace DeploymentGroupAlreadyExistsException {
  *         <p>The named deployment group with the IAM user or AWS account does not exist.</p>
  *
  */
-export interface DeploymentGroupDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DeploymentGroupDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DeploymentGroupDoesNotExistException";
   $fault: "client";
   /**
@@ -2051,9 +2017,7 @@ export namespace DeploymentGroupInfo {
  *         <p> The deployment groups limit was exceeded.</p>
  *
  */
-export interface DeploymentGroupLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DeploymentGroupLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DeploymentGroupLimitExceededException";
   $fault: "client";
   /**
@@ -2075,9 +2039,7 @@ export namespace DeploymentGroupLimitExceededException {
  *         <p>The deployment group name was not specified.</p>
  *
  */
-export interface DeploymentGroupNameRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DeploymentGroupNameRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DeploymentGroupNameRequiredException";
   $fault: "client";
   /**
@@ -2099,9 +2061,7 @@ export namespace DeploymentGroupNameRequiredException {
  *         <p>At least one deployment ID must be specified.</p>
  *
  */
-export interface DeploymentIdRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DeploymentIdRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DeploymentIdRequiredException";
   $fault: "client";
   /**
@@ -2390,9 +2350,7 @@ export namespace DeploymentInfo {
  *         <p>The deployment does not have a status of Ready and can't continue yet.</p>
  *
  */
-export interface DeploymentIsNotInReadyStateException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DeploymentIsNotInReadyStateException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DeploymentIsNotInReadyStateException";
   $fault: "client";
   /**
@@ -2414,9 +2372,7 @@ export namespace DeploymentIsNotInReadyStateException {
  *         <p>The number of allowed deployments was exceeded.</p>
  *
  */
-export interface DeploymentLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DeploymentLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DeploymentLimitExceededException";
   $fault: "client";
   /**
@@ -2438,9 +2394,7 @@ export namespace DeploymentLimitExceededException {
  *         <p>The specified deployment has not started.</p>
  *
  */
-export interface DeploymentNotStartedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DeploymentNotStartedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DeploymentNotStartedException";
   $fault: "client";
   /**
@@ -2459,7 +2413,7 @@ export namespace DeploymentNotStartedException {
 
 export enum DeploymentOption {
   WITHOUT_TRAFFIC_CONTROL = "WITHOUT_TRAFFIC_CONTROL",
-  WITH_TRAFFIC_CONTROL = "WITH_TRAFFIC_CONTROL"
+  WITH_TRAFFIC_CONTROL = "WITH_TRAFFIC_CONTROL",
 }
 
 /**
@@ -2522,7 +2476,7 @@ export namespace DeploymentOverview {
 
 export enum DeploymentReadyAction {
   CONTINUE_DEPLOYMENT = "CONTINUE_DEPLOYMENT",
-  STOP_DEPLOYMENT = "STOP_DEPLOYMENT"
+  STOP_DEPLOYMENT = "STOP_DEPLOYMENT",
 }
 
 /**
@@ -2577,7 +2531,7 @@ export enum DeploymentStatus {
   QUEUED = "Queued",
   READY = "Ready",
   STOPPED = "Stopped",
-  SUCCEEDED = "Succeeded"
+  SUCCEEDED = "Succeeded",
 }
 
 /**
@@ -2659,9 +2613,7 @@ export namespace DeploymentTarget {
  *         <p> The provided target ID does not belong to the attempted deployment. </p>
  *
  */
-export interface DeploymentTargetDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DeploymentTargetDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DeploymentTargetDoesNotExistException";
   $fault: "client";
   /**
@@ -2683,9 +2635,7 @@ export namespace DeploymentTargetDoesNotExistException {
  *         <p> A deployment target ID was not provided. </p>
  *
  */
-export interface DeploymentTargetIdRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DeploymentTargetIdRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DeploymentTargetIdRequiredException";
   $fault: "client";
   /**
@@ -2709,9 +2659,7 @@ export namespace DeploymentTargetIdRequiredException {
  *             one item. This exception does not apply to EC2/On-premises deployments. </p>
  *
  */
-export interface DeploymentTargetListSizeExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DeploymentTargetListSizeExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DeploymentTargetListSizeExceededException";
   $fault: "client";
   /**
@@ -2731,17 +2679,17 @@ export namespace DeploymentTargetListSizeExceededException {
 export enum DeploymentTargetType {
   ECS_TARGET = "ECSTarget",
   INSTANCE_TARGET = "InstanceTarget",
-  LAMBDA_TARGET = "LambdaTarget"
+  LAMBDA_TARGET = "LambdaTarget",
 }
 
 export enum DeploymentType {
   BLUE_GREEN = "BLUE_GREEN",
-  IN_PLACE = "IN_PLACE"
+  IN_PLACE = "IN_PLACE",
 }
 
 export enum DeploymentWaitType {
   READY_WAIT = "READY_WAIT",
-  TERMINATION_WAIT = "TERMINATION_WAIT"
+  TERMINATION_WAIT = "TERMINATION_WAIT",
 }
 
 /**
@@ -2770,9 +2718,7 @@ export namespace DeregisterOnPremisesInstanceInput {
  *         <p>The description is too long.</p>
  *
  */
-export interface DescriptionTooLongException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DescriptionTooLongException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DescriptionTooLongException";
   $fault: "client";
   /**
@@ -2904,7 +2850,7 @@ export namespace EC2TagFilter {
 export enum EC2TagFilterType {
   KEY_AND_VALUE = "KEY_AND_VALUE",
   KEY_ONLY = "KEY_ONLY",
-  VALUE_ONLY = "VALUE_ONLY"
+  VALUE_ONLY = "VALUE_ONLY",
 }
 
 /**
@@ -2965,9 +2911,7 @@ export namespace ECSService {
  *             ECS service can be associated with only one deployment group. </p>
  *
  */
-export interface ECSServiceMappingLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ECSServiceMappingLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ECSServiceMappingLimitExceededException";
   $fault: "client";
   /**
@@ -3209,7 +3153,7 @@ export enum ErrorCode {
   RESOURCE_LIMIT_EXCEEDED = "RESOURCE_LIMIT_EXCEEDED",
   REVISION_MISSING = "REVISION_MISSING",
   THROTTLED = "THROTTLED",
-  TIMEOUT = "TIMEOUT"
+  TIMEOUT = "TIMEOUT",
 }
 
 /**
@@ -3298,7 +3242,7 @@ export namespace ErrorInformation {
 export enum FileExistsBehavior {
   DISALLOW = "DISALLOW",
   OVERWRITE = "OVERWRITE",
-  RETAIN = "RETAIN"
+  RETAIN = "RETAIN",
 }
 
 /**
@@ -3730,9 +3674,7 @@ export namespace GetOnPremisesInstanceOutput {
  *         <p>No GitHub account connection exists with the named specified in the call.</p>
  *
  */
-export interface GitHubAccountTokenDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface GitHubAccountTokenDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "GitHubAccountTokenDoesNotExistException";
   $fault: "client";
   /**
@@ -3754,9 +3696,7 @@ export namespace GitHubAccountTokenDoesNotExistException {
  *         <p>The call is missing a required GitHub account connection name.</p>
  *
  */
-export interface GitHubAccountTokenNameRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface GitHubAccountTokenNameRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "GitHubAccountTokenNameRequiredException";
   $fault: "client";
   /**
@@ -3806,7 +3746,7 @@ export namespace GitHubLocation {
 
 export enum GreenFleetProvisioningAction {
   COPY_AUTO_SCALING_GROUP = "COPY_AUTO_SCALING_GROUP",
-  DISCOVER_EXISTING = "DISCOVER_EXISTING"
+  DISCOVER_EXISTING = "DISCOVER_EXISTING",
 }
 
 /**
@@ -3847,9 +3787,7 @@ export namespace GreenFleetProvisioningOption {
  *             ARN in the request.</p>
  *
  */
-export interface IamArnRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface IamArnRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "IamArnRequiredException";
   $fault: "client";
   /**
@@ -3872,9 +3810,7 @@ export namespace IamArnRequiredException {
  *             different instance.</p>
  *
  */
-export interface IamSessionArnAlreadyRegisteredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface IamSessionArnAlreadyRegisteredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "IamSessionArnAlreadyRegisteredException";
   $fault: "client";
   /**
@@ -3896,9 +3832,7 @@ export namespace IamSessionArnAlreadyRegisteredException {
  *         <p>The specified IAM user ARN is already registered with an on-premises instance.</p>
  *
  */
-export interface IamUserArnAlreadyRegisteredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface IamUserArnAlreadyRegisteredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "IamUserArnAlreadyRegisteredException";
   $fault: "client";
   /**
@@ -3920,9 +3854,7 @@ export namespace IamUserArnAlreadyRegisteredException {
  *         <p>An IAM user ARN was not specified.</p>
  *
  */
-export interface IamUserArnRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface IamUserArnRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "IamUserArnRequiredException";
   $fault: "client";
   /**
@@ -3941,7 +3873,7 @@ export namespace IamUserArnRequiredException {
 
 export enum InstanceAction {
   KEEP_ALIVE = "KEEP_ALIVE",
-  TERMINATE = "TERMINATE"
+  TERMINATE = "TERMINATE",
 }
 
 /**
@@ -3949,9 +3881,7 @@ export enum InstanceAction {
  *         <p>The specified instance does not exist in the deployment group.</p>
  *
  */
-export interface InstanceDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InstanceDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InstanceDoesNotExistException";
   $fault: "client";
   /**
@@ -3973,9 +3903,7 @@ export namespace InstanceDoesNotExistException {
  *         <p>The instance ID was not specified.</p>
  *
  */
-export interface InstanceIdRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InstanceIdRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InstanceIdRequiredException";
   $fault: "client";
   /**
@@ -4062,9 +3990,7 @@ export namespace InstanceInfo {
  *             exceeded.</p>
  *
  */
-export interface InstanceLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InstanceLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InstanceLimitExceededException";
   $fault: "client";
   /**
@@ -4086,9 +4012,7 @@ export namespace InstanceLimitExceededException {
  *         <p>The specified on-premises instance name is already registered.</p>
  *
  */
-export interface InstanceNameAlreadyRegisteredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InstanceNameAlreadyRegisteredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InstanceNameAlreadyRegisteredException";
   $fault: "client";
   /**
@@ -4110,9 +4034,7 @@ export namespace InstanceNameAlreadyRegisteredException {
  *         <p>An on-premises instance name was not specified.</p>
  *
  */
-export interface InstanceNameRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InstanceNameRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InstanceNameRequiredException";
   $fault: "client";
   /**
@@ -4134,9 +4056,7 @@ export namespace InstanceNameRequiredException {
  *         <p>The specified on-premises instance is not registered.</p>
  *
  */
-export interface InstanceNotRegisteredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InstanceNotRegisteredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InstanceNotRegisteredException";
   $fault: "client";
   /**
@@ -4160,7 +4080,7 @@ export enum InstanceStatus {
   READY = "Ready",
   SKIPPED = "Skipped",
   SUCCEEDED = "Succeeded",
-  UNKNOWN = "Unknown"
+  UNKNOWN = "Unknown",
 }
 
 /**
@@ -4316,7 +4236,7 @@ export namespace InstanceTarget {
 
 export enum _InstanceType {
   BLUE = "Blue",
-  GREEN = "Green"
+  GREEN = "Green",
 }
 
 /**
@@ -4341,9 +4261,7 @@ export enum _InstanceType {
  *          </ul>
  *
  */
-export interface InvalidAlarmConfigException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidAlarmConfigException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidAlarmConfigException";
   $fault: "client";
   /**
@@ -4365,9 +4283,7 @@ export namespace InvalidAlarmConfigException {
  *         <p>The application name was specified in an invalid format.</p>
  *
  */
-export interface InvalidApplicationNameException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidApplicationNameException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidApplicationNameException";
   $fault: "client";
   /**
@@ -4391,9 +4307,7 @@ export namespace InvalidApplicationNameException {
  *         </p>
  *
  */
-export interface InvalidArnException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidArnException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidArnException";
   $fault: "client";
   /**
@@ -4417,9 +4331,7 @@ export namespace InvalidArnException {
  *             were listed.</p>
  *
  */
-export interface InvalidAutoRollbackConfigException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidAutoRollbackConfigException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidAutoRollbackConfigException";
   $fault: "client";
   /**
@@ -4441,9 +4353,7 @@ export namespace InvalidAutoRollbackConfigException {
  *         <p>The Auto Scaling group was specified in an invalid format or does not exist.</p>
  *
  */
-export interface InvalidAutoScalingGroupException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidAutoScalingGroupException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidAutoScalingGroupException";
   $fault: "client";
   /**
@@ -4466,9 +4376,7 @@ export namespace InvalidAutoScalingGroupException {
  *             format. For information about deployment configuration format, see <a>CreateDeploymentConfig</a>.</p>
  *
  */
-export interface InvalidBlueGreenDeploymentConfigurationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidBlueGreenDeploymentConfigurationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidBlueGreenDeploymentConfigurationException";
   $fault: "client";
   /**
@@ -4480,9 +4388,7 @@ export interface InvalidBlueGreenDeploymentConfigurationException
 }
 
 export namespace InvalidBlueGreenDeploymentConfigurationException {
-  export function isa(
-    o: any
-  ): o is InvalidBlueGreenDeploymentConfigurationException {
+  export function isa(o: any): o is InvalidBlueGreenDeploymentConfigurationException {
     return _smithy.isa(o, "InvalidBlueGreenDeploymentConfigurationException");
   }
 }
@@ -4492,9 +4398,7 @@ export namespace InvalidBlueGreenDeploymentConfigurationException {
  *         <p>The bucket name either doesn't exist or was specified in an invalid format.</p>
  *
  */
-export interface InvalidBucketNameFilterException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidBucketNameFilterException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidBucketNameFilterException";
   $fault: "client";
   /**
@@ -4517,9 +4421,7 @@ export namespace InvalidBucketNameFilterException {
  *                 <code>Server</code>.</p>
  *
  */
-export interface InvalidComputePlatformException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidComputePlatformException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidComputePlatformException";
   $fault: "client";
   /**
@@ -4541,9 +4443,7 @@ export namespace InvalidComputePlatformException {
  *         <p>The deployed state filter was specified in an invalid format.</p>
  *
  */
-export interface InvalidDeployedStateFilterException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidDeployedStateFilterException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidDeployedStateFilterException";
   $fault: "client";
   /**
@@ -4565,9 +4465,7 @@ export namespace InvalidDeployedStateFilterException {
  *         <p>The deployment configuration name was specified in an invalid format.</p>
  *
  */
-export interface InvalidDeploymentConfigNameException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidDeploymentConfigNameException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidDeploymentConfigNameException";
   $fault: "client";
   /**
@@ -4589,9 +4487,7 @@ export namespace InvalidDeploymentConfigNameException {
  *         <p>The deployment group name was specified in an invalid format.</p>
  *
  */
-export interface InvalidDeploymentGroupNameException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidDeploymentGroupNameException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidDeploymentGroupNameException";
   $fault: "client";
   /**
@@ -4613,9 +4509,7 @@ export namespace InvalidDeploymentGroupNameException {
  *         <p>At least one of the deployment IDs was specified in an invalid format.</p>
  *
  */
-export interface InvalidDeploymentIdException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidDeploymentIdException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidDeploymentIdException";
   $fault: "client";
   /**
@@ -4638,9 +4532,7 @@ export namespace InvalidDeploymentIdException {
  *             supported for blue/green deployments only.</p>
  *
  */
-export interface InvalidDeploymentInstanceTypeException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidDeploymentInstanceTypeException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidDeploymentInstanceTypeException";
   $fault: "client";
   /**
@@ -4662,9 +4554,7 @@ export namespace InvalidDeploymentInstanceTypeException {
  *         <p>The specified deployment status doesn't exist or cannot be determined.</p>
  *
  */
-export interface InvalidDeploymentStatusException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidDeploymentStatusException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidDeploymentStatusException";
   $fault: "client";
   /**
@@ -4688,9 +4578,7 @@ export namespace InvalidDeploymentStatusException {
  *             "WITHOUT_TRAFFIC_CONTROL."</p>
  *
  */
-export interface InvalidDeploymentStyleException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidDeploymentStyleException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidDeploymentStyleException";
   $fault: "client";
   /**
@@ -4712,9 +4600,7 @@ export namespace InvalidDeploymentStyleException {
  *         <p> The target ID provided was not valid. </p>
  *
  */
-export interface InvalidDeploymentTargetIdException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidDeploymentTargetIdException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidDeploymentTargetIdException";
   $fault: "client";
   /**
@@ -4736,9 +4622,7 @@ export namespace InvalidDeploymentTargetIdException {
  *         <p> The wait type is invalid. </p>
  *
  */
-export interface InvalidDeploymentWaitTypeException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidDeploymentWaitTypeException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidDeploymentWaitTypeException";
   $fault: "client";
   /**
@@ -4761,9 +4645,7 @@ export namespace InvalidDeploymentWaitTypeException {
  *             these data types can be used in a single call.</p>
  *
  */
-export interface InvalidEC2TagCombinationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidEC2TagCombinationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidEC2TagCombinationException";
   $fault: "client";
   /**
@@ -4785,9 +4667,7 @@ export namespace InvalidEC2TagCombinationException {
  *         <p>The tag was specified in an invalid format.</p>
  *
  */
-export interface InvalidEC2TagException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidEC2TagException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidEC2TagException";
   $fault: "client";
   /**
@@ -4809,9 +4689,7 @@ export namespace InvalidEC2TagException {
  *         <p> The Amazon ECS service identifier is not valid. </p>
  *
  */
-export interface InvalidECSServiceException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidECSServiceException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidECSServiceException";
   $fault: "client";
   /**
@@ -4836,9 +4714,7 @@ export namespace InvalidECSServiceException {
  *             "OVERWRITE," and "RETAIN."</p>
  *
  */
-export interface InvalidFileExistsBehaviorException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidFileExistsBehaviorException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidFileExistsBehaviorException";
   $fault: "client";
   /**
@@ -4860,9 +4736,7 @@ export namespace InvalidFileExistsBehaviorException {
  *         <p>The GitHub token is not valid.</p>
  *
  */
-export interface InvalidGitHubAccountTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidGitHubAccountTokenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidGitHubAccountTokenException";
   $fault: "client";
   /**
@@ -4884,9 +4758,7 @@ export namespace InvalidGitHubAccountTokenException {
  *         <p>The format of the specified GitHub account connection name is invalid.</p>
  *
  */
-export interface InvalidGitHubAccountTokenNameException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidGitHubAccountTokenNameException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidGitHubAccountTokenNameException";
   $fault: "client";
   /**
@@ -4908,9 +4780,7 @@ export namespace InvalidGitHubAccountTokenNameException {
  *         <p>The IAM session ARN was specified in an invalid format.</p>
  *
  */
-export interface InvalidIamSessionArnException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidIamSessionArnException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidIamSessionArnException";
   $fault: "client";
   /**
@@ -4932,9 +4802,7 @@ export namespace InvalidIamSessionArnException {
  *         <p>The IAM user ARN was specified in an invalid format.</p>
  *
  */
-export interface InvalidIamUserArnException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidIamUserArnException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidIamUserArnException";
   $fault: "client";
   /**
@@ -4958,9 +4826,7 @@ export namespace InvalidIamUserArnException {
  *             or <code>false</code> is expected.</p>
  *
  */
-export interface InvalidIgnoreApplicationStopFailuresValueException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidIgnoreApplicationStopFailuresValueException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidIgnoreApplicationStopFailuresValueException";
   $fault: "client";
   /**
@@ -4972,9 +4838,7 @@ export interface InvalidIgnoreApplicationStopFailuresValueException
 }
 
 export namespace InvalidIgnoreApplicationStopFailuresValueException {
-  export function isa(
-    o: any
-  ): o is InvalidIgnoreApplicationStopFailuresValueException {
+  export function isa(o: any): o is InvalidIgnoreApplicationStopFailuresValueException {
     return _smithy.isa(o, "InvalidIgnoreApplicationStopFailuresValueException");
   }
 }
@@ -4984,9 +4848,7 @@ export namespace InvalidIgnoreApplicationStopFailuresValueException {
  *         <p>The input was specified in an invalid format.</p>
  *
  */
-export interface InvalidInputException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidInputException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidInputException";
   $fault: "client";
   /**
@@ -5008,9 +4870,7 @@ export namespace InvalidInputException {
  *         <p>The on-premises instance name was specified in an invalid format.</p>
  *
  */
-export interface InvalidInstanceNameException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidInstanceNameException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidInstanceNameException";
   $fault: "client";
   /**
@@ -5032,9 +4892,7 @@ export namespace InvalidInstanceNameException {
  *         <p>The specified instance status does not exist.</p>
  *
  */
-export interface InvalidInstanceStatusException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidInstanceStatusException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidInstanceStatusException";
   $fault: "client";
   /**
@@ -5058,9 +4916,7 @@ export namespace InvalidInstanceStatusException {
  *             environment.</p>
  *
  */
-export interface InvalidInstanceTypeException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidInstanceTypeException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidInstanceTypeException";
   $fault: "client";
   /**
@@ -5082,9 +4938,7 @@ export namespace InvalidInstanceTypeException {
  *         <p>The specified key prefix filter was specified in an invalid format.</p>
  *
  */
-export interface InvalidKeyPrefixFilterException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidKeyPrefixFilterException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidKeyPrefixFilterException";
   $fault: "client";
   /**
@@ -5108,9 +4962,7 @@ export namespace InvalidKeyPrefixFilterException {
  *             valid.</p>
  *
  */
-export interface InvalidLifecycleEventHookExecutionIdException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidLifecycleEventHookExecutionIdException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidLifecycleEventHookExecutionIdException";
   $fault: "client";
   /**
@@ -5122,9 +4974,7 @@ export interface InvalidLifecycleEventHookExecutionIdException
 }
 
 export namespace InvalidLifecycleEventHookExecutionIdException {
-  export function isa(
-    o: any
-  ): o is InvalidLifecycleEventHookExecutionIdException {
+  export function isa(o: any): o is InvalidLifecycleEventHookExecutionIdException {
     return _smithy.isa(o, "InvalidLifecycleEventHookExecutionIdException");
   }
 }
@@ -5135,9 +4985,7 @@ export namespace InvalidLifecycleEventHookExecutionIdException {
  *             It should return <code>Succeeded</code> or <code>Failed</code>.</p>
  *
  */
-export interface InvalidLifecycleEventHookExecutionStatusException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidLifecycleEventHookExecutionStatusException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidLifecycleEventHookExecutionStatusException";
   $fault: "client";
   /**
@@ -5149,9 +4997,7 @@ export interface InvalidLifecycleEventHookExecutionStatusException
 }
 
 export namespace InvalidLifecycleEventHookExecutionStatusException {
-  export function isa(
-    o: any
-  ): o is InvalidLifecycleEventHookExecutionStatusException {
+  export function isa(o: any): o is InvalidLifecycleEventHookExecutionStatusException {
     return _smithy.isa(o, "InvalidLifecycleEventHookExecutionStatusException");
   }
 }
@@ -5161,9 +5007,7 @@ export namespace InvalidLifecycleEventHookExecutionStatusException {
  *         <p>An invalid load balancer name, or no load balancer name, was specified.</p>
  *
  */
-export interface InvalidLoadBalancerInfoException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidLoadBalancerInfoException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidLoadBalancerInfoException";
   $fault: "client";
   /**
@@ -5185,9 +5029,7 @@ export namespace InvalidLoadBalancerInfoException {
  *         <p>The minimum healthy instance value was specified in an invalid format.</p>
  *
  */
-export interface InvalidMinimumHealthyHostValueException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidMinimumHealthyHostValueException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidMinimumHealthyHostValueException";
   $fault: "client";
   /**
@@ -5209,9 +5051,7 @@ export namespace InvalidMinimumHealthyHostValueException {
  *         <p>The next token was specified in an invalid format.</p>
  *
  */
-export interface InvalidNextTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidNextTokenException";
   $fault: "client";
   /**
@@ -5234,9 +5074,7 @@ export namespace InvalidNextTokenException {
  *             but only one of these data types can be used in a single call.</p>
  *
  */
-export interface InvalidOnPremisesTagCombinationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidOnPremisesTagCombinationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidOnPremisesTagCombinationException";
   $fault: "client";
   /**
@@ -5258,9 +5096,7 @@ export namespace InvalidOnPremisesTagCombinationException {
  *         <p>An invalid operation was detected.</p>
  *
  */
-export interface InvalidOperationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidOperationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidOperationException";
   $fault: "client";
   /**
@@ -5282,9 +5118,7 @@ export namespace InvalidOperationException {
  *         <p>The registration status was specified in an invalid format.</p>
  *
  */
-export interface InvalidRegistrationStatusException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRegistrationStatusException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRegistrationStatusException";
   $fault: "client";
   /**
@@ -5306,9 +5140,7 @@ export namespace InvalidRegistrationStatusException {
  *         <p>The revision was specified in an invalid format.</p>
  *
  */
-export interface InvalidRevisionException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRevisionException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRevisionException";
   $fault: "client";
   /**
@@ -5332,9 +5164,7 @@ export namespace InvalidRevisionException {
  *             Amazon EC2 Auto Scaling.</p>
  *
  */
-export interface InvalidRoleException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRoleException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRoleException";
   $fault: "client";
   /**
@@ -5357,9 +5187,7 @@ export namespace InvalidRoleException {
  *             format.</p>
  *
  */
-export interface InvalidSortByException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidSortByException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidSortByException";
   $fault: "client";
   /**
@@ -5381,9 +5209,7 @@ export namespace InvalidSortByException {
  *         <p>The sort order was specified in an invalid format.</p>
  *
  */
-export interface InvalidSortOrderException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidSortOrderException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidSortOrderException";
   $fault: "client";
   /**
@@ -5405,9 +5231,7 @@ export namespace InvalidSortOrderException {
  *         <p>The tag was specified in an invalid format.</p>
  *
  */
-export interface InvalidTagException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidTagException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidTagException";
   $fault: "client";
   /**
@@ -5429,9 +5253,7 @@ export namespace InvalidTagException {
  *         <p>The tag filter was specified in an invalid format.</p>
  *
  */
-export interface InvalidTagFilterException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidTagFilterException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidTagFilterException";
   $fault: "client";
   /**
@@ -5455,9 +5277,7 @@ export namespace InvalidTagFilterException {
  *         </p>
  *
  */
-export interface InvalidTagsToAddException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidTagsToAddException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidTagsToAddException";
   $fault: "client";
   /**
@@ -5479,9 +5299,7 @@ export namespace InvalidTagsToAddException {
  *         <p> The target filter name is invalid. </p>
  *
  */
-export interface InvalidTargetFilterNameException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidTargetFilterNameException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidTargetFilterNameException";
   $fault: "client";
   /**
@@ -5503,9 +5321,7 @@ export namespace InvalidTargetFilterNameException {
  *         <p> A target group pair associated with this deployment is not valid. </p>
  *
  */
-export interface InvalidTargetGroupPairException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidTargetGroupPairException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidTargetGroupPairException";
   $fault: "client";
   /**
@@ -5542,9 +5358,7 @@ export namespace InvalidTargetGroupPairException {
  *          </ul>
  *
  */
-export interface InvalidTargetInstancesException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidTargetInstancesException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidTargetInstancesException";
   $fault: "client";
   /**
@@ -5566,9 +5380,7 @@ export namespace InvalidTargetInstancesException {
  *         <p>The specified time range was specified in an invalid format.</p>
  *
  */
-export interface InvalidTimeRangeException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidTimeRangeException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidTimeRangeException";
   $fault: "client";
   /**
@@ -5591,9 +5403,7 @@ export namespace InvalidTimeRangeException {
  *             invalid.</p>
  *
  */
-export interface InvalidTrafficRoutingConfigurationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidTrafficRoutingConfigurationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidTrafficRoutingConfigurationException";
   $fault: "client";
   /**
@@ -5605,9 +5415,7 @@ export interface InvalidTrafficRoutingConfigurationException
 }
 
 export namespace InvalidTrafficRoutingConfigurationException {
-  export function isa(
-    o: any
-  ): o is InvalidTrafficRoutingConfigurationException {
+  export function isa(o: any): o is InvalidTrafficRoutingConfigurationException {
     return _smithy.isa(o, "InvalidTrafficRoutingConfigurationException");
   }
 }
@@ -5617,9 +5425,7 @@ export namespace InvalidTrafficRoutingConfigurationException {
  *         <p>The trigger was specified in an invalid format.</p>
  *
  */
-export interface InvalidTriggerConfigException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidTriggerConfigException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidTriggerConfigException";
   $fault: "client";
   /**
@@ -5643,9 +5449,7 @@ export namespace InvalidTriggerConfigException {
  *             or <code>false</code> is expected.</p>
  *
  */
-export interface InvalidUpdateOutdatedInstancesOnlyValueException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidUpdateOutdatedInstancesOnlyValueException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidUpdateOutdatedInstancesOnlyValueException";
   $fault: "client";
   /**
@@ -5657,9 +5461,7 @@ export interface InvalidUpdateOutdatedInstancesOnlyValueException
 }
 
 export namespace InvalidUpdateOutdatedInstancesOnlyValueException {
-  export function isa(
-    o: any
-  ): o is InvalidUpdateOutdatedInstancesOnlyValueException {
+  export function isa(o: any): o is InvalidUpdateOutdatedInstancesOnlyValueException {
     return _smithy.isa(o, "InvalidUpdateOutdatedInstancesOnlyValueException");
   }
 }
@@ -5845,7 +5647,7 @@ export enum LifecycleErrorCode {
   SCRIPT_NOT_EXECUTABLE = "ScriptNotExecutable",
   SCRIPT_TIMED_OUT = "ScriptTimedOut",
   SUCCESS = "Success",
-  UNKNOWN_ERROR = "UnknownError"
+  UNKNOWN_ERROR = "UnknownError",
 }
 
 /**
@@ -5924,9 +5726,7 @@ export namespace LifecycleEvent {
  *             occurred.</p>
  *
  */
-export interface LifecycleEventAlreadyCompletedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LifecycleEventAlreadyCompletedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LifecycleEventAlreadyCompletedException";
   $fault: "client";
   /**
@@ -5949,7 +5749,7 @@ export enum LifecycleEventStatus {
   PENDING = "Pending",
   SKIPPED = "Skipped",
   SUCCEEDED = "Succeeded",
-  UNKNOWN = "Unknown"
+  UNKNOWN = "Unknown",
 }
 
 /**
@@ -5957,9 +5757,7 @@ export enum LifecycleEventStatus {
  *         <p>The limit for lifecycle hooks was exceeded.</p>
  *
  */
-export interface LifecycleHookLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LifecycleHookLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LifecycleHookLimitExceededException";
   $fault: "client";
   /**
@@ -6694,7 +6492,7 @@ export namespace ListOnPremisesInstancesOutput {
 export enum ListStateFilterAction {
   Exclude = "exclude",
   Ignore = "ignore",
-  Include = "include"
+  Include = "include",
 }
 
 export interface ListTagsForResourceInput {
@@ -6855,7 +6653,7 @@ export namespace MinimumHealthyHosts {
   }
 }
 
-export type MinimumHealthyHostsType = "FLEET_PERCENT" | "HOST_COUNT";
+export type MinimumHealthyHostsType = "FLEET_PERCENT" | "HOST_COUNT"
 
 /**
  *
@@ -6863,9 +6661,7 @@ export type MinimumHealthyHostsType = "FLEET_PERCENT" | "HOST_COUNT";
  *             ARN type.</p>
  *
  */
-export interface MultipleIamArnsProvidedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MultipleIamArnsProvidedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "MultipleIamArnsProvidedException";
   $fault: "client";
   /**
@@ -6910,9 +6706,7 @@ export namespace OnPremisesTagSet {
  *         <p>The API used does not support the deployment.</p>
  *
  */
-export interface OperationNotSupportedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface OperationNotSupportedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "OperationNotSupportedException";
   $fault: "client";
   /**
@@ -6962,8 +6756,7 @@ export namespace PutLifecycleEventHookExecutionStatusInput {
   }
 }
 
-export interface PutLifecycleEventHookExecutionStatusOutput
-  extends $MetadataBearer {
+export interface PutLifecycleEventHookExecutionStatusOutput extends $MetadataBearer {
   __type?: "PutLifecycleEventHookExecutionStatusOutput";
   /**
    *
@@ -7085,7 +6878,7 @@ export namespace RegisterOnPremisesInstanceInput {
 
 export enum RegistrationStatus {
   Deregistered = "Deregistered",
-  Registered = "Registered"
+  Registered = "Registered",
 }
 
 /**
@@ -7123,9 +6916,7 @@ export namespace RemoveTagsFromOnPremisesInstancesInput {
  *         </p>
  *
  */
-export interface ResourceArnRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceArnRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceArnRequiredException";
   $fault: "client";
   /**
@@ -7147,9 +6938,7 @@ export namespace ResourceArnRequiredException {
  *         <p>The specified resource could not be validated.</p>
  *
  */
-export interface ResourceValidationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceValidationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceValidationException";
   $fault: "client";
   /**
@@ -7171,9 +6960,7 @@ export namespace ResourceValidationException {
  *         <p>The named revision does not exist with the IAM user or AWS account.</p>
  *
  */
-export interface RevisionDoesNotExistException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface RevisionDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
   __type: "RevisionDoesNotExistException";
   $fault: "client";
   /**
@@ -7287,7 +7074,7 @@ export enum RevisionLocationType {
   AppSpecContent = "AppSpecContent",
   GitHub = "GitHub",
   S3 = "S3",
-  String = "String"
+  String = "String",
 }
 
 /**
@@ -7295,9 +7082,7 @@ export enum RevisionLocationType {
  *         <p>The revision ID was not specified.</p>
  *
  */
-export interface RevisionRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface RevisionRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "RevisionRequiredException";
   $fault: "client";
   /**
@@ -7319,9 +7104,7 @@ export namespace RevisionRequiredException {
  *         <p>The role ID was not specified.</p>
  *
  */
-export interface RoleRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface RoleRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "RoleRequiredException";
   $fault: "client";
   /**
@@ -7461,7 +7244,7 @@ export namespace SkipWaitTimeForInstanceTerminationInput {
 
 export enum SortOrder {
   Ascending = "ascending",
-  Descending = "descending"
+  Descending = "descending",
 }
 
 /**
@@ -7531,7 +7314,7 @@ export namespace StopDeploymentOutput {
 
 export enum StopStatus {
   PENDING = "Pending",
-  SUCCEEDED = "Succeeded"
+  SUCCEEDED = "Succeeded",
 }
 
 /**
@@ -7611,7 +7394,7 @@ export namespace TagFilter {
 export enum TagFilterType {
   KEY_AND_VALUE = "KEY_AND_VALUE",
   KEY_ONLY = "KEY_ONLY",
-  VALUE_ONLY = "VALUE_ONLY"
+  VALUE_ONLY = "VALUE_ONLY",
 }
 
 /**
@@ -7619,9 +7402,7 @@ export enum TagFilterType {
  *         <p>The maximum allowed number of tags was exceeded.</p>
  *
  */
-export interface TagLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TagLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TagLimitExceededException";
   $fault: "client";
   /**
@@ -7643,9 +7424,7 @@ export namespace TagLimitExceededException {
  *         <p>A tag was not specified.</p>
  *
  */
-export interface TagRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TagRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TagRequiredException";
   $fault: "client";
   /**
@@ -7705,9 +7484,7 @@ export namespace TagResourceOutput {
  *             limit of 3.</p>
  *
  */
-export interface TagSetListLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TagSetListLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TagSetListLimitExceededException";
   $fault: "client";
   /**
@@ -7726,7 +7503,7 @@ export namespace TagSetListLimitExceededException {
 
 export enum TargetFilterName {
   SERVER_INSTANCE_LABEL = "ServerInstanceLabel",
-  TARGET_STATUS = "TargetStatus"
+  TARGET_STATUS = "TargetStatus",
 }
 
 /**
@@ -7838,7 +7615,7 @@ export namespace TargetInstances {
 
 export enum TargetLabel {
   BLUE = "Blue",
-  GREEN = "Green"
+  GREEN = "Green",
 }
 
 export enum TargetStatus {
@@ -7848,7 +7625,7 @@ export enum TargetStatus {
   READY = "Ready",
   SKIPPED = "Skipped",
   SUCCEEDED = "Succeeded",
-  UNKNOWN = "Unknown"
+  UNKNOWN = "Unknown",
 }
 
 /**
@@ -7856,9 +7633,7 @@ export enum TargetStatus {
  *         <p>An API function was called too frequently.</p>
  *
  */
-export interface ThrottlingException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ThrottlingException";
   $fault: "client";
   /**
@@ -8042,7 +7817,7 @@ export namespace TrafficRoutingConfig {
 export enum TrafficRoutingType {
   AllAtOnce = "AllAtOnce",
   TimeBasedCanary = "TimeBasedCanary",
-  TimeBasedLinear = "TimeBasedLinear"
+  TimeBasedLinear = "TimeBasedLinear",
 }
 
 /**
@@ -8091,7 +7866,7 @@ export enum TriggerEventType {
   INSTANCE_FAILURE = "InstanceFailure",
   INSTANCE_READY = "InstanceReady",
   INSTANCE_START = "InstanceStart",
-  INSTANCE_SUCCESS = "InstanceSuccess"
+  INSTANCE_SUCCESS = "InstanceSuccess",
 }
 
 /**
@@ -8099,9 +7874,7 @@ export enum TriggerEventType {
  *         <p>The maximum allowed number of triggers was exceeded.</p>
  *
  */
-export interface TriggerTargetsLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TriggerTargetsLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TriggerTargetsLimitExceededException";
   $fault: "client";
   /**
@@ -8123,9 +7896,7 @@ export namespace TriggerTargetsLimitExceededException {
  *         <p>A call was submitted that is not supported for the specified deployment type.</p>
  *
  */
-export interface UnsupportedActionForDeploymentTypeException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnsupportedActionForDeploymentTypeException extends _smithy.SmithyException, $MetadataBearer {
   __type: "UnsupportedActionForDeploymentTypeException";
   $fault: "client";
   /**
@@ -8137,9 +7908,7 @@ export interface UnsupportedActionForDeploymentTypeException
 }
 
 export namespace UnsupportedActionForDeploymentTypeException {
-  export function isa(
-    o: any
-  ): o is UnsupportedActionForDeploymentTypeException {
+  export function isa(o: any): o is UnsupportedActionForDeploymentTypeException {
     return _smithy.isa(o, "UnsupportedActionForDeploymentTypeException");
   }
 }

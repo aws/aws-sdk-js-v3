@@ -2,377 +2,377 @@ import { CodeCommitClient } from "./CodeCommitClient";
 import {
   AssociateApprovalRuleTemplateWithRepositoryCommand,
   AssociateApprovalRuleTemplateWithRepositoryCommandInput,
-  AssociateApprovalRuleTemplateWithRepositoryCommandOutput
+  AssociateApprovalRuleTemplateWithRepositoryCommandOutput,
 } from "./commands/AssociateApprovalRuleTemplateWithRepositoryCommand";
 import {
   BatchAssociateApprovalRuleTemplateWithRepositoriesCommand,
   BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput,
-  BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
+  BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput,
 } from "./commands/BatchAssociateApprovalRuleTemplateWithRepositoriesCommand";
 import {
   BatchDescribeMergeConflictsCommand,
   BatchDescribeMergeConflictsCommandInput,
-  BatchDescribeMergeConflictsCommandOutput
+  BatchDescribeMergeConflictsCommandOutput,
 } from "./commands/BatchDescribeMergeConflictsCommand";
 import {
   BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand,
   BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput,
-  BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
+  BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput,
 } from "./commands/BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand";
 import {
   BatchGetCommitsCommand,
   BatchGetCommitsCommandInput,
-  BatchGetCommitsCommandOutput
+  BatchGetCommitsCommandOutput,
 } from "./commands/BatchGetCommitsCommand";
 import {
   BatchGetRepositoriesCommand,
   BatchGetRepositoriesCommandInput,
-  BatchGetRepositoriesCommandOutput
+  BatchGetRepositoriesCommandOutput,
 } from "./commands/BatchGetRepositoriesCommand";
 import {
   CreateApprovalRuleTemplateCommand,
   CreateApprovalRuleTemplateCommandInput,
-  CreateApprovalRuleTemplateCommandOutput
+  CreateApprovalRuleTemplateCommandOutput,
 } from "./commands/CreateApprovalRuleTemplateCommand";
 import {
   CreateBranchCommand,
   CreateBranchCommandInput,
-  CreateBranchCommandOutput
+  CreateBranchCommandOutput,
 } from "./commands/CreateBranchCommand";
 import {
   CreateCommitCommand,
   CreateCommitCommandInput,
-  CreateCommitCommandOutput
+  CreateCommitCommandOutput,
 } from "./commands/CreateCommitCommand";
 import {
   CreatePullRequestApprovalRuleCommand,
   CreatePullRequestApprovalRuleCommandInput,
-  CreatePullRequestApprovalRuleCommandOutput
+  CreatePullRequestApprovalRuleCommandOutput,
 } from "./commands/CreatePullRequestApprovalRuleCommand";
 import {
   CreatePullRequestCommand,
   CreatePullRequestCommandInput,
-  CreatePullRequestCommandOutput
+  CreatePullRequestCommandOutput,
 } from "./commands/CreatePullRequestCommand";
 import {
   CreateRepositoryCommand,
   CreateRepositoryCommandInput,
-  CreateRepositoryCommandOutput
+  CreateRepositoryCommandOutput,
 } from "./commands/CreateRepositoryCommand";
 import {
   CreateUnreferencedMergeCommitCommand,
   CreateUnreferencedMergeCommitCommandInput,
-  CreateUnreferencedMergeCommitCommandOutput
+  CreateUnreferencedMergeCommitCommandOutput,
 } from "./commands/CreateUnreferencedMergeCommitCommand";
 import {
   DeleteApprovalRuleTemplateCommand,
   DeleteApprovalRuleTemplateCommandInput,
-  DeleteApprovalRuleTemplateCommandOutput
+  DeleteApprovalRuleTemplateCommandOutput,
 } from "./commands/DeleteApprovalRuleTemplateCommand";
 import {
   DeleteBranchCommand,
   DeleteBranchCommandInput,
-  DeleteBranchCommandOutput
+  DeleteBranchCommandOutput,
 } from "./commands/DeleteBranchCommand";
 import {
   DeleteCommentContentCommand,
   DeleteCommentContentCommandInput,
-  DeleteCommentContentCommandOutput
+  DeleteCommentContentCommandOutput,
 } from "./commands/DeleteCommentContentCommand";
 import {
   DeleteFileCommand,
   DeleteFileCommandInput,
-  DeleteFileCommandOutput
+  DeleteFileCommandOutput,
 } from "./commands/DeleteFileCommand";
 import {
   DeletePullRequestApprovalRuleCommand,
   DeletePullRequestApprovalRuleCommandInput,
-  DeletePullRequestApprovalRuleCommandOutput
+  DeletePullRequestApprovalRuleCommandOutput,
 } from "./commands/DeletePullRequestApprovalRuleCommand";
 import {
   DeleteRepositoryCommand,
   DeleteRepositoryCommandInput,
-  DeleteRepositoryCommandOutput
+  DeleteRepositoryCommandOutput,
 } from "./commands/DeleteRepositoryCommand";
 import {
   DescribeMergeConflictsCommand,
   DescribeMergeConflictsCommandInput,
-  DescribeMergeConflictsCommandOutput
+  DescribeMergeConflictsCommandOutput,
 } from "./commands/DescribeMergeConflictsCommand";
 import {
   DescribePullRequestEventsCommand,
   DescribePullRequestEventsCommandInput,
-  DescribePullRequestEventsCommandOutput
+  DescribePullRequestEventsCommandOutput,
 } from "./commands/DescribePullRequestEventsCommand";
 import {
   DisassociateApprovalRuleTemplateFromRepositoryCommand,
   DisassociateApprovalRuleTemplateFromRepositoryCommandInput,
-  DisassociateApprovalRuleTemplateFromRepositoryCommandOutput
+  DisassociateApprovalRuleTemplateFromRepositoryCommandOutput,
 } from "./commands/DisassociateApprovalRuleTemplateFromRepositoryCommand";
 import {
   EvaluatePullRequestApprovalRulesCommand,
   EvaluatePullRequestApprovalRulesCommandInput,
-  EvaluatePullRequestApprovalRulesCommandOutput
+  EvaluatePullRequestApprovalRulesCommandOutput,
 } from "./commands/EvaluatePullRequestApprovalRulesCommand";
 import {
   GetApprovalRuleTemplateCommand,
   GetApprovalRuleTemplateCommandInput,
-  GetApprovalRuleTemplateCommandOutput
+  GetApprovalRuleTemplateCommandOutput,
 } from "./commands/GetApprovalRuleTemplateCommand";
 import {
   GetBlobCommand,
   GetBlobCommandInput,
-  GetBlobCommandOutput
+  GetBlobCommandOutput,
 } from "./commands/GetBlobCommand";
 import {
   GetBranchCommand,
   GetBranchCommandInput,
-  GetBranchCommandOutput
+  GetBranchCommandOutput,
 } from "./commands/GetBranchCommand";
 import {
   GetCommentCommand,
   GetCommentCommandInput,
-  GetCommentCommandOutput
+  GetCommentCommandOutput,
 } from "./commands/GetCommentCommand";
 import {
   GetCommentsForComparedCommitCommand,
   GetCommentsForComparedCommitCommandInput,
-  GetCommentsForComparedCommitCommandOutput
+  GetCommentsForComparedCommitCommandOutput,
 } from "./commands/GetCommentsForComparedCommitCommand";
 import {
   GetCommentsForPullRequestCommand,
   GetCommentsForPullRequestCommandInput,
-  GetCommentsForPullRequestCommandOutput
+  GetCommentsForPullRequestCommandOutput,
 } from "./commands/GetCommentsForPullRequestCommand";
 import {
   GetCommitCommand,
   GetCommitCommandInput,
-  GetCommitCommandOutput
+  GetCommitCommandOutput,
 } from "./commands/GetCommitCommand";
 import {
   GetDifferencesCommand,
   GetDifferencesCommandInput,
-  GetDifferencesCommandOutput
+  GetDifferencesCommandOutput,
 } from "./commands/GetDifferencesCommand";
 import {
   GetFileCommand,
   GetFileCommandInput,
-  GetFileCommandOutput
+  GetFileCommandOutput,
 } from "./commands/GetFileCommand";
 import {
   GetFolderCommand,
   GetFolderCommandInput,
-  GetFolderCommandOutput
+  GetFolderCommandOutput,
 } from "./commands/GetFolderCommand";
 import {
   GetMergeCommitCommand,
   GetMergeCommitCommandInput,
-  GetMergeCommitCommandOutput
+  GetMergeCommitCommandOutput,
 } from "./commands/GetMergeCommitCommand";
 import {
   GetMergeConflictsCommand,
   GetMergeConflictsCommandInput,
-  GetMergeConflictsCommandOutput
+  GetMergeConflictsCommandOutput,
 } from "./commands/GetMergeConflictsCommand";
 import {
   GetMergeOptionsCommand,
   GetMergeOptionsCommandInput,
-  GetMergeOptionsCommandOutput
+  GetMergeOptionsCommandOutput,
 } from "./commands/GetMergeOptionsCommand";
 import {
   GetPullRequestApprovalStatesCommand,
   GetPullRequestApprovalStatesCommandInput,
-  GetPullRequestApprovalStatesCommandOutput
+  GetPullRequestApprovalStatesCommandOutput,
 } from "./commands/GetPullRequestApprovalStatesCommand";
 import {
   GetPullRequestCommand,
   GetPullRequestCommandInput,
-  GetPullRequestCommandOutput
+  GetPullRequestCommandOutput,
 } from "./commands/GetPullRequestCommand";
 import {
   GetPullRequestOverrideStateCommand,
   GetPullRequestOverrideStateCommandInput,
-  GetPullRequestOverrideStateCommandOutput
+  GetPullRequestOverrideStateCommandOutput,
 } from "./commands/GetPullRequestOverrideStateCommand";
 import {
   GetRepositoryCommand,
   GetRepositoryCommandInput,
-  GetRepositoryCommandOutput
+  GetRepositoryCommandOutput,
 } from "./commands/GetRepositoryCommand";
 import {
   GetRepositoryTriggersCommand,
   GetRepositoryTriggersCommandInput,
-  GetRepositoryTriggersCommandOutput
+  GetRepositoryTriggersCommandOutput,
 } from "./commands/GetRepositoryTriggersCommand";
 import {
   ListApprovalRuleTemplatesCommand,
   ListApprovalRuleTemplatesCommandInput,
-  ListApprovalRuleTemplatesCommandOutput
+  ListApprovalRuleTemplatesCommandOutput,
 } from "./commands/ListApprovalRuleTemplatesCommand";
 import {
   ListAssociatedApprovalRuleTemplatesForRepositoryCommand,
   ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput,
-  ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
+  ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput,
 } from "./commands/ListAssociatedApprovalRuleTemplatesForRepositoryCommand";
 import {
   ListBranchesCommand,
   ListBranchesCommandInput,
-  ListBranchesCommandOutput
+  ListBranchesCommandOutput,
 } from "./commands/ListBranchesCommand";
 import {
   ListPullRequestsCommand,
   ListPullRequestsCommandInput,
-  ListPullRequestsCommandOutput
+  ListPullRequestsCommandOutput,
 } from "./commands/ListPullRequestsCommand";
 import {
   ListRepositoriesCommand,
   ListRepositoriesCommandInput,
-  ListRepositoriesCommandOutput
+  ListRepositoriesCommandOutput,
 } from "./commands/ListRepositoriesCommand";
 import {
   ListRepositoriesForApprovalRuleTemplateCommand,
   ListRepositoriesForApprovalRuleTemplateCommandInput,
-  ListRepositoriesForApprovalRuleTemplateCommandOutput
+  ListRepositoriesForApprovalRuleTemplateCommandOutput,
 } from "./commands/ListRepositoriesForApprovalRuleTemplateCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   MergeBranchesByFastForwardCommand,
   MergeBranchesByFastForwardCommandInput,
-  MergeBranchesByFastForwardCommandOutput
+  MergeBranchesByFastForwardCommandOutput,
 } from "./commands/MergeBranchesByFastForwardCommand";
 import {
   MergeBranchesBySquashCommand,
   MergeBranchesBySquashCommandInput,
-  MergeBranchesBySquashCommandOutput
+  MergeBranchesBySquashCommandOutput,
 } from "./commands/MergeBranchesBySquashCommand";
 import {
   MergeBranchesByThreeWayCommand,
   MergeBranchesByThreeWayCommandInput,
-  MergeBranchesByThreeWayCommandOutput
+  MergeBranchesByThreeWayCommandOutput,
 } from "./commands/MergeBranchesByThreeWayCommand";
 import {
   MergePullRequestByFastForwardCommand,
   MergePullRequestByFastForwardCommandInput,
-  MergePullRequestByFastForwardCommandOutput
+  MergePullRequestByFastForwardCommandOutput,
 } from "./commands/MergePullRequestByFastForwardCommand";
 import {
   MergePullRequestBySquashCommand,
   MergePullRequestBySquashCommandInput,
-  MergePullRequestBySquashCommandOutput
+  MergePullRequestBySquashCommandOutput,
 } from "./commands/MergePullRequestBySquashCommand";
 import {
   MergePullRequestByThreeWayCommand,
   MergePullRequestByThreeWayCommandInput,
-  MergePullRequestByThreeWayCommandOutput
+  MergePullRequestByThreeWayCommandOutput,
 } from "./commands/MergePullRequestByThreeWayCommand";
 import {
   OverridePullRequestApprovalRulesCommand,
   OverridePullRequestApprovalRulesCommandInput,
-  OverridePullRequestApprovalRulesCommandOutput
+  OverridePullRequestApprovalRulesCommandOutput,
 } from "./commands/OverridePullRequestApprovalRulesCommand";
 import {
   PostCommentForComparedCommitCommand,
   PostCommentForComparedCommitCommandInput,
-  PostCommentForComparedCommitCommandOutput
+  PostCommentForComparedCommitCommandOutput,
 } from "./commands/PostCommentForComparedCommitCommand";
 import {
   PostCommentForPullRequestCommand,
   PostCommentForPullRequestCommandInput,
-  PostCommentForPullRequestCommandOutput
+  PostCommentForPullRequestCommandOutput,
 } from "./commands/PostCommentForPullRequestCommand";
 import {
   PostCommentReplyCommand,
   PostCommentReplyCommandInput,
-  PostCommentReplyCommandOutput
+  PostCommentReplyCommandOutput,
 } from "./commands/PostCommentReplyCommand";
 import {
   PutFileCommand,
   PutFileCommandInput,
-  PutFileCommandOutput
+  PutFileCommandOutput,
 } from "./commands/PutFileCommand";
 import {
   PutRepositoryTriggersCommand,
   PutRepositoryTriggersCommandInput,
-  PutRepositoryTriggersCommandOutput
+  PutRepositoryTriggersCommandOutput,
 } from "./commands/PutRepositoryTriggersCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand";
 import {
   TestRepositoryTriggersCommand,
   TestRepositoryTriggersCommandInput,
-  TestRepositoryTriggersCommandOutput
+  TestRepositoryTriggersCommandOutput,
 } from "./commands/TestRepositoryTriggersCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateApprovalRuleTemplateContentCommand,
   UpdateApprovalRuleTemplateContentCommandInput,
-  UpdateApprovalRuleTemplateContentCommandOutput
+  UpdateApprovalRuleTemplateContentCommandOutput,
 } from "./commands/UpdateApprovalRuleTemplateContentCommand";
 import {
   UpdateApprovalRuleTemplateDescriptionCommand,
   UpdateApprovalRuleTemplateDescriptionCommandInput,
-  UpdateApprovalRuleTemplateDescriptionCommandOutput
+  UpdateApprovalRuleTemplateDescriptionCommandOutput,
 } from "./commands/UpdateApprovalRuleTemplateDescriptionCommand";
 import {
   UpdateApprovalRuleTemplateNameCommand,
   UpdateApprovalRuleTemplateNameCommandInput,
-  UpdateApprovalRuleTemplateNameCommandOutput
+  UpdateApprovalRuleTemplateNameCommandOutput,
 } from "./commands/UpdateApprovalRuleTemplateNameCommand";
 import {
   UpdateCommentCommand,
   UpdateCommentCommandInput,
-  UpdateCommentCommandOutput
+  UpdateCommentCommandOutput,
 } from "./commands/UpdateCommentCommand";
 import {
   UpdateDefaultBranchCommand,
   UpdateDefaultBranchCommandInput,
-  UpdateDefaultBranchCommandOutput
+  UpdateDefaultBranchCommandOutput,
 } from "./commands/UpdateDefaultBranchCommand";
 import {
   UpdatePullRequestApprovalRuleContentCommand,
   UpdatePullRequestApprovalRuleContentCommandInput,
-  UpdatePullRequestApprovalRuleContentCommandOutput
+  UpdatePullRequestApprovalRuleContentCommandOutput,
 } from "./commands/UpdatePullRequestApprovalRuleContentCommand";
 import {
   UpdatePullRequestApprovalStateCommand,
   UpdatePullRequestApprovalStateCommandInput,
-  UpdatePullRequestApprovalStateCommandOutput
+  UpdatePullRequestApprovalStateCommandOutput,
 } from "./commands/UpdatePullRequestApprovalStateCommand";
 import {
   UpdatePullRequestDescriptionCommand,
   UpdatePullRequestDescriptionCommandInput,
-  UpdatePullRequestDescriptionCommandOutput
+  UpdatePullRequestDescriptionCommandOutput,
 } from "./commands/UpdatePullRequestDescriptionCommand";
 import {
   UpdatePullRequestStatusCommand,
   UpdatePullRequestStatusCommandInput,
-  UpdatePullRequestStatusCommandOutput
+  UpdatePullRequestStatusCommandOutput,
 } from "./commands/UpdatePullRequestStatusCommand";
 import {
   UpdatePullRequestTitleCommand,
   UpdatePullRequestTitleCommandInput,
-  UpdatePullRequestTitleCommandOutput
+  UpdatePullRequestTitleCommandOutput,
 } from "./commands/UpdatePullRequestTitleCommand";
 import {
   UpdateRepositoryDescriptionCommand,
   UpdateRepositoryDescriptionCommandInput,
-  UpdateRepositoryDescriptionCommandOutput
+  UpdateRepositoryDescriptionCommandOutput,
 } from "./commands/UpdateRepositoryDescriptionCommand";
 import {
   UpdateRepositoryNameCommand,
   UpdateRepositoryNameCommandInput,
-  UpdateRepositoryNameCommandOutput
+  UpdateRepositoryNameCommandOutput,
 } from "./commands/UpdateRepositoryNameCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -784,45 +784,29 @@ export class CodeCommit extends CodeCommitClient {
    */
   public associateApprovalRuleTemplateWithRepository(
     args: AssociateApprovalRuleTemplateWithRepositoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<AssociateApprovalRuleTemplateWithRepositoryCommandOutput>;
   public associateApprovalRuleTemplateWithRepository(
     args: AssociateApprovalRuleTemplateWithRepositoryCommandInput,
-    cb: (
-      err: any,
-      data?: AssociateApprovalRuleTemplateWithRepositoryCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateApprovalRuleTemplateWithRepositoryCommandOutput) => void
   ): void;
   public associateApprovalRuleTemplateWithRepository(
     args: AssociateApprovalRuleTemplateWithRepositoryCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: AssociateApprovalRuleTemplateWithRepositoryCommandOutput
-    ) => void
+    cb: (err: any, data?: AssociateApprovalRuleTemplateWithRepositoryCommandOutput) => void
   ): void;
   public associateApprovalRuleTemplateWithRepository(
     args: AssociateApprovalRuleTemplateWithRepositoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateApprovalRuleTemplateWithRepositoryCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AssociateApprovalRuleTemplateWithRepositoryCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateApprovalRuleTemplateWithRepositoryCommandOutput) => void),
+    cb?: (err: any, data?: AssociateApprovalRuleTemplateWithRepositoryCommandOutput) => void
   ): Promise<AssociateApprovalRuleTemplateWithRepositoryCommandOutput> | void {
-    const command = new AssociateApprovalRuleTemplateWithRepositoryCommand(
-      args
-    );
+    const command = new AssociateApprovalRuleTemplateWithRepositoryCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -836,47 +820,29 @@ export class CodeCommit extends CodeCommitClient {
    */
   public batchAssociateApprovalRuleTemplateWithRepositories(
     args: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput>;
   public batchAssociateApprovalRuleTemplateWithRepositories(
     args: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput,
-    cb: (
-      err: any,
-      data?: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
-    ) => void
+    cb: (err: any, data?: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput) => void
   ): void;
   public batchAssociateApprovalRuleTemplateWithRepositories(
     args: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
-    ) => void
+    cb: (err: any, data?: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput) => void
   ): void;
   public batchAssociateApprovalRuleTemplateWithRepositories(
     args: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
-    ) => void
-  ): Promise<
-    BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
-  > | void {
-    const command = new BatchAssociateApprovalRuleTemplateWithRepositoriesCommand(
-      args
-    );
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput) => void),
+    cb?: (err: any, data?: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput) => void
+  ): Promise<BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput> | void {
+    const command = new BatchAssociateApprovalRuleTemplateWithRepositoriesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -890,7 +856,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public batchDescribeMergeConflicts(
     args: BatchDescribeMergeConflictsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<BatchDescribeMergeConflictsCommandOutput>;
   public batchDescribeMergeConflicts(
     args: BatchDescribeMergeConflictsCommandInput,
@@ -903,18 +869,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public batchDescribeMergeConflicts(
     args: BatchDescribeMergeConflictsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchDescribeMergeConflictsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDescribeMergeConflictsCommandOutput) => void),
     cb?: (err: any, data?: BatchDescribeMergeConflictsCommandOutput) => void
   ): Promise<BatchDescribeMergeConflictsCommandOutput> | void {
     const command = new BatchDescribeMergeConflictsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -928,49 +892,29 @@ export class CodeCommit extends CodeCommitClient {
    */
   public batchDisassociateApprovalRuleTemplateFromRepositories(
     args: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<
-    BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
-  >;
+    options?: __HttpHandlerOptions,
+  ): Promise<BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput>;
   public batchDisassociateApprovalRuleTemplateFromRepositories(
     args: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput,
-    cb: (
-      err: any,
-      data?: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
-    ) => void
+    cb: (err: any, data?: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput) => void
   ): void;
   public batchDisassociateApprovalRuleTemplateFromRepositories(
     args: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
-    ) => void
+    cb: (err: any, data?: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput) => void
   ): void;
   public batchDisassociateApprovalRuleTemplateFromRepositories(
     args: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
-    ) => void
-  ): Promise<
-    BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
-  > | void {
-    const command = new BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand(
-      args
-    );
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput) => void),
+    cb?: (err: any, data?: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput) => void
+  ): Promise<BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput> | void {
+    const command = new BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -984,7 +928,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public batchGetCommits(
     args: BatchGetCommitsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<BatchGetCommitsCommandOutput>;
   public batchGetCommits(
     args: BatchGetCommitsCommandInput,
@@ -997,18 +941,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public batchGetCommits(
     args: BatchGetCommitsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetCommitsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetCommitsCommandOutput) => void),
     cb?: (err: any, data?: BatchGetCommitsCommandOutput) => void
   ): Promise<BatchGetCommitsCommandOutput> | void {
     const command = new BatchGetCommitsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1029,7 +971,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public batchGetRepositories(
     args: BatchGetRepositoriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<BatchGetRepositoriesCommandOutput>;
   public batchGetRepositories(
     args: BatchGetRepositoriesCommandInput,
@@ -1042,18 +984,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public batchGetRepositories(
     args: BatchGetRepositoriesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchGetRepositoriesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetRepositoriesCommandOutput) => void),
     cb?: (err: any, data?: BatchGetRepositoriesCommandOutput) => void
   ): Promise<BatchGetRepositoriesCommandOutput> | void {
     const command = new BatchGetRepositoriesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1071,7 +1011,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public createApprovalRuleTemplate(
     args: CreateApprovalRuleTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateApprovalRuleTemplateCommandOutput>;
   public createApprovalRuleTemplate(
     args: CreateApprovalRuleTemplateCommandInput,
@@ -1084,18 +1024,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public createApprovalRuleTemplate(
     args: CreateApprovalRuleTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateApprovalRuleTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateApprovalRuleTemplateCommandOutput) => void),
     cb?: (err: any, data?: CreateApprovalRuleTemplateCommandOutput) => void
   ): Promise<CreateApprovalRuleTemplateCommandOutput> | void {
     const command = new CreateApprovalRuleTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1112,7 +1050,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public createBranch(
     args: CreateBranchCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateBranchCommandOutput>;
   public createBranch(
     args: CreateBranchCommandInput,
@@ -1125,18 +1063,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public createBranch(
     args: CreateBranchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateBranchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBranchCommandOutput) => void),
     cb?: (err: any, data?: CreateBranchCommandOutput) => void
   ): Promise<CreateBranchCommandOutput> | void {
     const command = new CreateBranchCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1150,7 +1086,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public createCommit(
     args: CreateCommitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateCommitCommandOutput>;
   public createCommit(
     args: CreateCommitCommandInput,
@@ -1163,18 +1099,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public createCommit(
     args: CreateCommitCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCommitCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCommitCommandOutput) => void),
     cb?: (err: any, data?: CreateCommitCommandOutput) => void
   ): Promise<CreateCommitCommandOutput> | void {
     const command = new CreateCommitCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1188,7 +1122,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public createPullRequest(
     args: CreatePullRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreatePullRequestCommandOutput>;
   public createPullRequest(
     args: CreatePullRequestCommandInput,
@@ -1201,18 +1135,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public createPullRequest(
     args: CreatePullRequestCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePullRequestCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePullRequestCommandOutput) => void),
     cb?: (err: any, data?: CreatePullRequestCommandOutput) => void
   ): Promise<CreatePullRequestCommandOutput> | void {
     const command = new CreatePullRequestCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1226,7 +1158,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public createPullRequestApprovalRule(
     args: CreatePullRequestApprovalRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreatePullRequestApprovalRuleCommandOutput>;
   public createPullRequestApprovalRule(
     args: CreatePullRequestApprovalRuleCommandInput,
@@ -1239,18 +1171,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public createPullRequestApprovalRule(
     args: CreatePullRequestApprovalRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePullRequestApprovalRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePullRequestApprovalRuleCommandOutput) => void),
     cb?: (err: any, data?: CreatePullRequestApprovalRuleCommandOutput) => void
   ): Promise<CreatePullRequestApprovalRuleCommandOutput> | void {
     const command = new CreatePullRequestApprovalRuleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1265,7 +1195,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public createRepository(
     args: CreateRepositoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateRepositoryCommandOutput>;
   public createRepository(
     args: CreateRepositoryCommandInput,
@@ -1278,18 +1208,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public createRepository(
     args: CreateRepositoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRepositoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRepositoryCommandOutput) => void),
     cb?: (err: any, data?: CreateRepositoryCommandOutput) => void
   ): Promise<CreateRepositoryCommandOutput> | void {
     const command = new CreateRepositoryCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1310,7 +1238,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public createUnreferencedMergeCommit(
     args: CreateUnreferencedMergeCommitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateUnreferencedMergeCommitCommandOutput>;
   public createUnreferencedMergeCommit(
     args: CreateUnreferencedMergeCommitCommandInput,
@@ -1323,18 +1251,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public createUnreferencedMergeCommit(
     args: CreateUnreferencedMergeCommitCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateUnreferencedMergeCommitCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUnreferencedMergeCommitCommandOutput) => void),
     cb?: (err: any, data?: CreateUnreferencedMergeCommitCommandOutput) => void
   ): Promise<CreateUnreferencedMergeCommitCommandOutput> | void {
     const command = new CreateUnreferencedMergeCommitCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1348,7 +1274,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public deleteApprovalRuleTemplate(
     args: DeleteApprovalRuleTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteApprovalRuleTemplateCommandOutput>;
   public deleteApprovalRuleTemplate(
     args: DeleteApprovalRuleTemplateCommandInput,
@@ -1361,18 +1287,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public deleteApprovalRuleTemplate(
     args: DeleteApprovalRuleTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteApprovalRuleTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApprovalRuleTemplateCommandOutput) => void),
     cb?: (err: any, data?: DeleteApprovalRuleTemplateCommandOutput) => void
   ): Promise<DeleteApprovalRuleTemplateCommandOutput> | void {
     const command = new DeleteApprovalRuleTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1386,7 +1310,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public deleteBranch(
     args: DeleteBranchCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteBranchCommandOutput>;
   public deleteBranch(
     args: DeleteBranchCommandInput,
@@ -1399,18 +1323,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public deleteBranch(
     args: DeleteBranchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteBranchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBranchCommandOutput) => void),
     cb?: (err: any, data?: DeleteBranchCommandOutput) => void
   ): Promise<DeleteBranchCommandOutput> | void {
     const command = new DeleteBranchCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1424,7 +1346,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public deleteCommentContent(
     args: DeleteCommentContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteCommentContentCommandOutput>;
   public deleteCommentContent(
     args: DeleteCommentContentCommandInput,
@@ -1437,18 +1359,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public deleteCommentContent(
     args: DeleteCommentContentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteCommentContentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCommentContentCommandOutput) => void),
     cb?: (err: any, data?: DeleteCommentContentCommandOutput) => void
   ): Promise<DeleteCommentContentCommandOutput> | void {
     const command = new DeleteCommentContentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1464,7 +1384,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public deleteFile(
     args: DeleteFileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteFileCommandOutput>;
   public deleteFile(
     args: DeleteFileCommandInput,
@@ -1477,18 +1397,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public deleteFile(
     args: DeleteFileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteFileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFileCommandOutput) => void),
     cb?: (err: any, data?: DeleteFileCommandOutput) => void
   ): Promise<DeleteFileCommandOutput> | void {
     const command = new DeleteFileCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1504,7 +1422,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public deletePullRequestApprovalRule(
     args: DeletePullRequestApprovalRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeletePullRequestApprovalRuleCommandOutput>;
   public deletePullRequestApprovalRule(
     args: DeletePullRequestApprovalRuleCommandInput,
@@ -1517,18 +1435,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public deletePullRequestApprovalRule(
     args: DeletePullRequestApprovalRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePullRequestApprovalRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePullRequestApprovalRuleCommandOutput) => void),
     cb?: (err: any, data?: DeletePullRequestApprovalRuleCommandOutput) => void
   ): Promise<DeletePullRequestApprovalRuleCommandOutput> | void {
     const command = new DeletePullRequestApprovalRuleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1547,7 +1463,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public deleteRepository(
     args: DeleteRepositoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteRepositoryCommandOutput>;
   public deleteRepository(
     args: DeleteRepositoryCommandInput,
@@ -1560,18 +1476,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public deleteRepository(
     args: DeleteRepositoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRepositoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRepositoryCommandOutput) => void),
     cb?: (err: any, data?: DeleteRepositoryCommandOutput) => void
   ): Promise<DeleteRepositoryCommandOutput> | void {
     const command = new DeleteRepositoryCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1587,7 +1501,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public describeMergeConflicts(
     args: DescribeMergeConflictsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeMergeConflictsCommandOutput>;
   public describeMergeConflicts(
     args: DescribeMergeConflictsCommandInput,
@@ -1600,18 +1514,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public describeMergeConflicts(
     args: DescribeMergeConflictsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeMergeConflictsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMergeConflictsCommandOutput) => void),
     cb?: (err: any, data?: DescribeMergeConflictsCommandOutput) => void
   ): Promise<DescribeMergeConflictsCommandOutput> | void {
     const command = new DescribeMergeConflictsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1625,7 +1537,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public describePullRequestEvents(
     args: DescribePullRequestEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribePullRequestEventsCommandOutput>;
   public describePullRequestEvents(
     args: DescribePullRequestEventsCommandInput,
@@ -1638,18 +1550,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public describePullRequestEvents(
     args: DescribePullRequestEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribePullRequestEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePullRequestEventsCommandOutput) => void),
     cb?: (err: any, data?: DescribePullRequestEventsCommandOutput) => void
   ): Promise<DescribePullRequestEventsCommandOutput> | void {
     const command = new DescribePullRequestEventsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1666,47 +1576,29 @@ export class CodeCommit extends CodeCommitClient {
    */
   public disassociateApprovalRuleTemplateFromRepository(
     args: DisassociateApprovalRuleTemplateFromRepositoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DisassociateApprovalRuleTemplateFromRepositoryCommandOutput>;
   public disassociateApprovalRuleTemplateFromRepository(
     args: DisassociateApprovalRuleTemplateFromRepositoryCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateApprovalRuleTemplateFromRepositoryCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateApprovalRuleTemplateFromRepositoryCommandOutput) => void
   ): void;
   public disassociateApprovalRuleTemplateFromRepository(
     args: DisassociateApprovalRuleTemplateFromRepositoryCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateApprovalRuleTemplateFromRepositoryCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateApprovalRuleTemplateFromRepositoryCommandOutput) => void
   ): void;
   public disassociateApprovalRuleTemplateFromRepository(
     args: DisassociateApprovalRuleTemplateFromRepositoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateApprovalRuleTemplateFromRepositoryCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateApprovalRuleTemplateFromRepositoryCommandOutput
-    ) => void
-  ): Promise<
-    DisassociateApprovalRuleTemplateFromRepositoryCommandOutput
-  > | void {
-    const command = new DisassociateApprovalRuleTemplateFromRepositoryCommand(
-      args
-    );
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateApprovalRuleTemplateFromRepositoryCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateApprovalRuleTemplateFromRepositoryCommandOutput) => void
+  ): Promise<DisassociateApprovalRuleTemplateFromRepositoryCommandOutput> | void {
+    const command = new DisassociateApprovalRuleTemplateFromRepositoryCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1720,7 +1612,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public evaluatePullRequestApprovalRules(
     args: EvaluatePullRequestApprovalRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<EvaluatePullRequestApprovalRulesCommandOutput>;
   public evaluatePullRequestApprovalRules(
     args: EvaluatePullRequestApprovalRulesCommandInput,
@@ -1733,24 +1625,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public evaluatePullRequestApprovalRules(
     args: EvaluatePullRequestApprovalRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: EvaluatePullRequestApprovalRulesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: EvaluatePullRequestApprovalRulesCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EvaluatePullRequestApprovalRulesCommandOutput) => void),
+    cb?: (err: any, data?: EvaluatePullRequestApprovalRulesCommandOutput) => void
   ): Promise<EvaluatePullRequestApprovalRulesCommandOutput> | void {
     const command = new EvaluatePullRequestApprovalRulesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1764,7 +1648,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public getApprovalRuleTemplate(
     args: GetApprovalRuleTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetApprovalRuleTemplateCommandOutput>;
   public getApprovalRuleTemplate(
     args: GetApprovalRuleTemplateCommandInput,
@@ -1777,18 +1661,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getApprovalRuleTemplate(
     args: GetApprovalRuleTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetApprovalRuleTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApprovalRuleTemplateCommandOutput) => void),
     cb?: (err: any, data?: GetApprovalRuleTemplateCommandOutput) => void
   ): Promise<GetApprovalRuleTemplateCommandOutput> | void {
     const command = new GetApprovalRuleTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1801,7 +1683,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public getBlob(
     args: GetBlobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetBlobCommandOutput>;
   public getBlob(
     args: GetBlobCommandInput,
@@ -1814,18 +1696,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getBlob(
     args: GetBlobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBlobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBlobCommandOutput) => void),
     cb?: (err: any, data?: GetBlobCommandOutput) => void
   ): Promise<GetBlobCommandOutput> | void {
     const command = new GetBlobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1839,7 +1719,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public getBranch(
     args: GetBranchCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetBranchCommandOutput>;
   public getBranch(
     args: GetBranchCommandInput,
@@ -1852,18 +1732,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getBranch(
     args: GetBranchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetBranchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBranchCommandOutput) => void),
     cb?: (err: any, data?: GetBranchCommandOutput) => void
   ): Promise<GetBranchCommandOutput> | void {
     const command = new GetBranchCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1877,7 +1755,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public getComment(
     args: GetCommentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetCommentCommandOutput>;
   public getComment(
     args: GetCommentCommandInput,
@@ -1890,18 +1768,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getComment(
     args: GetCommentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCommentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCommentCommandOutput) => void),
     cb?: (err: any, data?: GetCommentCommandOutput) => void
   ): Promise<GetCommentCommandOutput> | void {
     const command = new GetCommentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1915,7 +1791,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public getCommentsForComparedCommit(
     args: GetCommentsForComparedCommitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetCommentsForComparedCommitCommandOutput>;
   public getCommentsForComparedCommit(
     args: GetCommentsForComparedCommitCommandInput,
@@ -1928,18 +1804,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getCommentsForComparedCommit(
     args: GetCommentsForComparedCommitCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCommentsForComparedCommitCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCommentsForComparedCommitCommandOutput) => void),
     cb?: (err: any, data?: GetCommentsForComparedCommitCommandOutput) => void
   ): Promise<GetCommentsForComparedCommitCommandOutput> | void {
     const command = new GetCommentsForComparedCommitCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1953,7 +1827,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public getCommentsForPullRequest(
     args: GetCommentsForPullRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetCommentsForPullRequestCommandOutput>;
   public getCommentsForPullRequest(
     args: GetCommentsForPullRequestCommandInput,
@@ -1966,18 +1840,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getCommentsForPullRequest(
     args: GetCommentsForPullRequestCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCommentsForPullRequestCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCommentsForPullRequestCommandOutput) => void),
     cb?: (err: any, data?: GetCommentsForPullRequestCommandOutput) => void
   ): Promise<GetCommentsForPullRequestCommandOutput> | void {
     const command = new GetCommentsForPullRequestCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1991,7 +1863,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public getCommit(
     args: GetCommitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetCommitCommandOutput>;
   public getCommit(
     args: GetCommitCommandInput,
@@ -2004,18 +1876,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getCommit(
     args: GetCommitCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCommitCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCommitCommandOutput) => void),
     cb?: (err: any, data?: GetCommitCommandOutput) => void
   ): Promise<GetCommitCommandOutput> | void {
     const command = new GetCommitCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2032,7 +1902,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public getDifferences(
     args: GetDifferencesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetDifferencesCommandOutput>;
   public getDifferences(
     args: GetDifferencesCommandInput,
@@ -2045,18 +1915,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getDifferences(
     args: GetDifferencesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDifferencesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDifferencesCommandOutput) => void),
     cb?: (err: any, data?: GetDifferencesCommandOutput) => void
   ): Promise<GetDifferencesCommandOutput> | void {
     const command = new GetDifferencesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2071,7 +1939,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public getFile(
     args: GetFileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetFileCommandOutput>;
   public getFile(
     args: GetFileCommandInput,
@@ -2084,18 +1952,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getFile(
     args: GetFileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFileCommandOutput) => void),
     cb?: (err: any, data?: GetFileCommandOutput) => void
   ): Promise<GetFileCommandOutput> | void {
     const command = new GetFileCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2109,7 +1975,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public getFolder(
     args: GetFolderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetFolderCommandOutput>;
   public getFolder(
     args: GetFolderCommandInput,
@@ -2122,18 +1988,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getFolder(
     args: GetFolderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFolderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFolderCommandOutput) => void),
     cb?: (err: any, data?: GetFolderCommandOutput) => void
   ): Promise<GetFolderCommandOutput> | void {
     const command = new GetFolderCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2147,7 +2011,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public getMergeCommit(
     args: GetMergeCommitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetMergeCommitCommandOutput>;
   public getMergeCommit(
     args: GetMergeCommitCommandInput,
@@ -2160,18 +2024,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getMergeCommit(
     args: GetMergeCommitCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMergeCommitCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMergeCommitCommandOutput) => void),
     cb?: (err: any, data?: GetMergeCommitCommandOutput) => void
   ): Promise<GetMergeCommitCommandOutput> | void {
     const command = new GetMergeCommitCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2185,7 +2047,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public getMergeConflicts(
     args: GetMergeConflictsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetMergeConflictsCommandOutput>;
   public getMergeConflicts(
     args: GetMergeConflictsCommandInput,
@@ -2198,18 +2060,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getMergeConflicts(
     args: GetMergeConflictsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMergeConflictsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMergeConflictsCommandOutput) => void),
     cb?: (err: any, data?: GetMergeConflictsCommandOutput) => void
   ): Promise<GetMergeConflictsCommandOutput> | void {
     const command = new GetMergeConflictsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2226,7 +2086,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public getMergeOptions(
     args: GetMergeOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetMergeOptionsCommandOutput>;
   public getMergeOptions(
     args: GetMergeOptionsCommandInput,
@@ -2239,18 +2099,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getMergeOptions(
     args: GetMergeOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetMergeOptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMergeOptionsCommandOutput) => void),
     cb?: (err: any, data?: GetMergeOptionsCommandOutput) => void
   ): Promise<GetMergeOptionsCommandOutput> | void {
     const command = new GetMergeOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2264,7 +2122,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public getPullRequest(
     args: GetPullRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetPullRequestCommandOutput>;
   public getPullRequest(
     args: GetPullRequestCommandInput,
@@ -2277,18 +2135,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getPullRequest(
     args: GetPullRequestCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPullRequestCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPullRequestCommandOutput) => void),
     cb?: (err: any, data?: GetPullRequestCommandOutput) => void
   ): Promise<GetPullRequestCommandOutput> | void {
     const command = new GetPullRequestCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2303,7 +2159,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public getPullRequestApprovalStates(
     args: GetPullRequestApprovalStatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetPullRequestApprovalStatesCommandOutput>;
   public getPullRequestApprovalStates(
     args: GetPullRequestApprovalStatesCommandInput,
@@ -2316,18 +2172,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getPullRequestApprovalStates(
     args: GetPullRequestApprovalStatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPullRequestApprovalStatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPullRequestApprovalStatesCommandOutput) => void),
     cb?: (err: any, data?: GetPullRequestApprovalStatesCommandOutput) => void
   ): Promise<GetPullRequestApprovalStatesCommandOutput> | void {
     const command = new GetPullRequestApprovalStatesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2342,7 +2196,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public getPullRequestOverrideState(
     args: GetPullRequestOverrideStateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetPullRequestOverrideStateCommandOutput>;
   public getPullRequestOverrideState(
     args: GetPullRequestOverrideStateCommandInput,
@@ -2355,18 +2209,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getPullRequestOverrideState(
     args: GetPullRequestOverrideStateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPullRequestOverrideStateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPullRequestOverrideStateCommandOutput) => void),
     cb?: (err: any, data?: GetPullRequestOverrideStateCommandOutput) => void
   ): Promise<GetPullRequestOverrideStateCommandOutput> | void {
     const command = new GetPullRequestOverrideStateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2388,7 +2240,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public getRepository(
     args: GetRepositoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetRepositoryCommandOutput>;
   public getRepository(
     args: GetRepositoryCommandInput,
@@ -2401,18 +2253,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getRepository(
     args: GetRepositoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRepositoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRepositoryCommandOutput) => void),
     cb?: (err: any, data?: GetRepositoryCommandOutput) => void
   ): Promise<GetRepositoryCommandOutput> | void {
     const command = new GetRepositoryCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2426,7 +2276,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public getRepositoryTriggers(
     args: GetRepositoryTriggersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetRepositoryTriggersCommandOutput>;
   public getRepositoryTriggers(
     args: GetRepositoryTriggersCommandInput,
@@ -2439,18 +2289,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public getRepositoryTriggers(
     args: GetRepositoryTriggersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRepositoryTriggersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRepositoryTriggersCommandOutput) => void),
     cb?: (err: any, data?: GetRepositoryTriggersCommandOutput) => void
   ): Promise<GetRepositoryTriggersCommandOutput> | void {
     const command = new GetRepositoryTriggersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2465,7 +2313,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public listApprovalRuleTemplates(
     args: ListApprovalRuleTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListApprovalRuleTemplatesCommandOutput>;
   public listApprovalRuleTemplates(
     args: ListApprovalRuleTemplatesCommandInput,
@@ -2478,18 +2326,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public listApprovalRuleTemplates(
     args: ListApprovalRuleTemplatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListApprovalRuleTemplatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListApprovalRuleTemplatesCommandOutput) => void),
     cb?: (err: any, data?: ListApprovalRuleTemplatesCommandOutput) => void
   ): Promise<ListApprovalRuleTemplatesCommandOutput> | void {
     const command = new ListApprovalRuleTemplatesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2503,47 +2349,29 @@ export class CodeCommit extends CodeCommitClient {
    */
   public listAssociatedApprovalRuleTemplatesForRepository(
     args: ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput>;
   public listAssociatedApprovalRuleTemplatesForRepository(
     args: ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput,
-    cb: (
-      err: any,
-      data?: ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
-    ) => void
+    cb: (err: any, data?: ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput) => void
   ): void;
   public listAssociatedApprovalRuleTemplatesForRepository(
     args: ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
-    ) => void
+    cb: (err: any, data?: ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput) => void
   ): void;
   public listAssociatedApprovalRuleTemplatesForRepository(
     args: ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
-    ) => void
-  ): Promise<
-    ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
-  > | void {
-    const command = new ListAssociatedApprovalRuleTemplatesForRepositoryCommand(
-      args
-    );
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput) => void),
+    cb?: (err: any, data?: ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput) => void
+  ): Promise<ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput> | void {
+    const command = new ListAssociatedApprovalRuleTemplatesForRepositoryCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2557,7 +2385,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public listBranches(
     args: ListBranchesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListBranchesCommandOutput>;
   public listBranches(
     args: ListBranchesCommandInput,
@@ -2570,18 +2398,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public listBranches(
     args: ListBranchesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBranchesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBranchesCommandOutput) => void),
     cb?: (err: any, data?: ListBranchesCommandOutput) => void
   ): Promise<ListBranchesCommandOutput> | void {
     const command = new ListBranchesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2596,7 +2422,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public listPullRequests(
     args: ListPullRequestsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListPullRequestsCommandOutput>;
   public listPullRequests(
     args: ListPullRequestsCommandInput,
@@ -2609,18 +2435,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public listPullRequests(
     args: ListPullRequestsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPullRequestsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPullRequestsCommandOutput) => void),
     cb?: (err: any, data?: ListPullRequestsCommandOutput) => void
   ): Promise<ListPullRequestsCommandOutput> | void {
     const command = new ListPullRequestsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2634,7 +2458,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public listRepositories(
     args: ListRepositoriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListRepositoriesCommandOutput>;
   public listRepositories(
     args: ListRepositoriesCommandInput,
@@ -2647,18 +2471,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public listRepositories(
     args: ListRepositoriesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRepositoriesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRepositoriesCommandOutput) => void),
     cb?: (err: any, data?: ListRepositoriesCommandOutput) => void
   ): Promise<ListRepositoriesCommandOutput> | void {
     const command = new ListRepositoriesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2672,43 +2494,29 @@ export class CodeCommit extends CodeCommitClient {
    */
   public listRepositoriesForApprovalRuleTemplate(
     args: ListRepositoriesForApprovalRuleTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListRepositoriesForApprovalRuleTemplateCommandOutput>;
   public listRepositoriesForApprovalRuleTemplate(
     args: ListRepositoriesForApprovalRuleTemplateCommandInput,
-    cb: (
-      err: any,
-      data?: ListRepositoriesForApprovalRuleTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: ListRepositoriesForApprovalRuleTemplateCommandOutput) => void
   ): void;
   public listRepositoriesForApprovalRuleTemplate(
     args: ListRepositoriesForApprovalRuleTemplateCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListRepositoriesForApprovalRuleTemplateCommandOutput
-    ) => void
+    cb: (err: any, data?: ListRepositoriesForApprovalRuleTemplateCommandOutput) => void
   ): void;
   public listRepositoriesForApprovalRuleTemplate(
     args: ListRepositoriesForApprovalRuleTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListRepositoriesForApprovalRuleTemplateCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListRepositoriesForApprovalRuleTemplateCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRepositoriesForApprovalRuleTemplateCommandOutput) => void),
+    cb?: (err: any, data?: ListRepositoriesForApprovalRuleTemplateCommandOutput) => void
   ): Promise<ListRepositoriesForApprovalRuleTemplateCommandOutput> | void {
     const command = new ListRepositoriesForApprovalRuleTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2724,7 +2532,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListTagsForResourceCommandOutput>;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2737,18 +2545,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2762,7 +2568,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public mergeBranchesByFastForward(
     args: MergeBranchesByFastForwardCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<MergeBranchesByFastForwardCommandOutput>;
   public mergeBranchesByFastForward(
     args: MergeBranchesByFastForwardCommandInput,
@@ -2775,18 +2581,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public mergeBranchesByFastForward(
     args: MergeBranchesByFastForwardCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: MergeBranchesByFastForwardCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MergeBranchesByFastForwardCommandOutput) => void),
     cb?: (err: any, data?: MergeBranchesByFastForwardCommandOutput) => void
   ): Promise<MergeBranchesByFastForwardCommandOutput> | void {
     const command = new MergeBranchesByFastForwardCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2800,7 +2604,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public mergeBranchesBySquash(
     args: MergeBranchesBySquashCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<MergeBranchesBySquashCommandOutput>;
   public mergeBranchesBySquash(
     args: MergeBranchesBySquashCommandInput,
@@ -2813,18 +2617,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public mergeBranchesBySquash(
     args: MergeBranchesBySquashCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: MergeBranchesBySquashCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MergeBranchesBySquashCommandOutput) => void),
     cb?: (err: any, data?: MergeBranchesBySquashCommandOutput) => void
   ): Promise<MergeBranchesBySquashCommandOutput> | void {
     const command = new MergeBranchesBySquashCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2838,7 +2640,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public mergeBranchesByThreeWay(
     args: MergeBranchesByThreeWayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<MergeBranchesByThreeWayCommandOutput>;
   public mergeBranchesByThreeWay(
     args: MergeBranchesByThreeWayCommandInput,
@@ -2851,18 +2653,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public mergeBranchesByThreeWay(
     args: MergeBranchesByThreeWayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: MergeBranchesByThreeWayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MergeBranchesByThreeWayCommandOutput) => void),
     cb?: (err: any, data?: MergeBranchesByThreeWayCommandOutput) => void
   ): Promise<MergeBranchesByThreeWayCommandOutput> | void {
     const command = new MergeBranchesByThreeWayCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2879,7 +2679,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public mergePullRequestByFastForward(
     args: MergePullRequestByFastForwardCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<MergePullRequestByFastForwardCommandOutput>;
   public mergePullRequestByFastForward(
     args: MergePullRequestByFastForwardCommandInput,
@@ -2892,18 +2692,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public mergePullRequestByFastForward(
     args: MergePullRequestByFastForwardCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: MergePullRequestByFastForwardCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MergePullRequestByFastForwardCommandOutput) => void),
     cb?: (err: any, data?: MergePullRequestByFastForwardCommandOutput) => void
   ): Promise<MergePullRequestByFastForwardCommandOutput> | void {
     const command = new MergePullRequestByFastForwardCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2919,7 +2717,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public mergePullRequestBySquash(
     args: MergePullRequestBySquashCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<MergePullRequestBySquashCommandOutput>;
   public mergePullRequestBySquash(
     args: MergePullRequestBySquashCommandInput,
@@ -2932,18 +2730,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public mergePullRequestBySquash(
     args: MergePullRequestBySquashCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: MergePullRequestBySquashCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MergePullRequestBySquashCommandOutput) => void),
     cb?: (err: any, data?: MergePullRequestBySquashCommandOutput) => void
   ): Promise<MergePullRequestBySquashCommandOutput> | void {
     const command = new MergePullRequestBySquashCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2960,7 +2756,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public mergePullRequestByThreeWay(
     args: MergePullRequestByThreeWayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<MergePullRequestByThreeWayCommandOutput>;
   public mergePullRequestByThreeWay(
     args: MergePullRequestByThreeWayCommandInput,
@@ -2973,18 +2769,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public mergePullRequestByThreeWay(
     args: MergePullRequestByThreeWayCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: MergePullRequestByThreeWayCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MergePullRequestByThreeWayCommandOutput) => void),
     cb?: (err: any, data?: MergePullRequestByThreeWayCommandOutput) => void
   ): Promise<MergePullRequestByThreeWayCommandOutput> | void {
     const command = new MergePullRequestByThreeWayCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2998,7 +2792,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public overridePullRequestApprovalRules(
     args: OverridePullRequestApprovalRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<OverridePullRequestApprovalRulesCommandOutput>;
   public overridePullRequestApprovalRules(
     args: OverridePullRequestApprovalRulesCommandInput,
@@ -3011,24 +2805,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public overridePullRequestApprovalRules(
     args: OverridePullRequestApprovalRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: OverridePullRequestApprovalRulesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: OverridePullRequestApprovalRulesCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: OverridePullRequestApprovalRulesCommandOutput) => void),
+    cb?: (err: any, data?: OverridePullRequestApprovalRulesCommandOutput) => void
   ): Promise<OverridePullRequestApprovalRulesCommandOutput> | void {
     const command = new OverridePullRequestApprovalRulesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3042,7 +2828,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public postCommentForComparedCommit(
     args: PostCommentForComparedCommitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<PostCommentForComparedCommitCommandOutput>;
   public postCommentForComparedCommit(
     args: PostCommentForComparedCommitCommandInput,
@@ -3055,18 +2841,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public postCommentForComparedCommit(
     args: PostCommentForComparedCommitCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PostCommentForComparedCommitCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PostCommentForComparedCommitCommandOutput) => void),
     cb?: (err: any, data?: PostCommentForComparedCommitCommandOutput) => void
   ): Promise<PostCommentForComparedCommitCommandOutput> | void {
     const command = new PostCommentForComparedCommitCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3080,7 +2864,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public postCommentForPullRequest(
     args: PostCommentForPullRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<PostCommentForPullRequestCommandOutput>;
   public postCommentForPullRequest(
     args: PostCommentForPullRequestCommandInput,
@@ -3093,18 +2877,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public postCommentForPullRequest(
     args: PostCommentForPullRequestCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PostCommentForPullRequestCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PostCommentForPullRequestCommandOutput) => void),
     cb?: (err: any, data?: PostCommentForPullRequestCommandOutput) => void
   ): Promise<PostCommentForPullRequestCommandOutput> | void {
     const command = new PostCommentForPullRequestCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3118,7 +2900,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public postCommentReply(
     args: PostCommentReplyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<PostCommentReplyCommandOutput>;
   public postCommentReply(
     args: PostCommentReplyCommandInput,
@@ -3131,18 +2913,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public postCommentReply(
     args: PostCommentReplyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PostCommentReplyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PostCommentReplyCommandOutput) => void),
     cb?: (err: any, data?: PostCommentReplyCommandOutput) => void
   ): Promise<PostCommentReplyCommandOutput> | void {
     const command = new PostCommentReplyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3156,7 +2936,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public putFile(
     args: PutFileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<PutFileCommandOutput>;
   public putFile(
     args: PutFileCommandInput,
@@ -3169,18 +2949,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public putFile(
     args: PutFileCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutFileCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutFileCommandOutput) => void),
     cb?: (err: any, data?: PutFileCommandOutput) => void
   ): Promise<PutFileCommandOutput> | void {
     const command = new PutFileCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3194,7 +2972,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public putRepositoryTriggers(
     args: PutRepositoryTriggersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<PutRepositoryTriggersCommandOutput>;
   public putRepositoryTriggers(
     args: PutRepositoryTriggersCommandInput,
@@ -3207,18 +2985,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public putRepositoryTriggers(
     args: PutRepositoryTriggersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutRepositoryTriggersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutRepositoryTriggersCommandOutput) => void),
     cb?: (err: any, data?: PutRepositoryTriggersCommandOutput) => void
   ): Promise<PutRepositoryTriggersCommandOutput> | void {
     const command = new PutRepositoryTriggersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3234,7 +3010,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<TagResourceCommandOutput>;
   public tagResource(
     args: TagResourceCommandInput,
@@ -3247,18 +3023,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3274,7 +3048,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public testRepositoryTriggers(
     args: TestRepositoryTriggersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<TestRepositoryTriggersCommandOutput>;
   public testRepositoryTriggers(
     args: TestRepositoryTriggersCommandInput,
@@ -3287,18 +3061,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public testRepositoryTriggers(
     args: TestRepositoryTriggersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TestRepositoryTriggersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TestRepositoryTriggersCommandOutput) => void),
     cb?: (err: any, data?: TestRepositoryTriggersCommandOutput) => void
   ): Promise<TestRepositoryTriggersCommandOutput> | void {
     const command = new TestRepositoryTriggersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3314,7 +3086,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UntagResourceCommandOutput>;
   public untagResource(
     args: UntagResourceCommandInput,
@@ -3327,18 +3099,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3354,43 +3124,29 @@ export class CodeCommit extends CodeCommitClient {
    */
   public updateApprovalRuleTemplateContent(
     args: UpdateApprovalRuleTemplateContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateApprovalRuleTemplateContentCommandOutput>;
   public updateApprovalRuleTemplateContent(
     args: UpdateApprovalRuleTemplateContentCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateApprovalRuleTemplateContentCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateApprovalRuleTemplateContentCommandOutput) => void
   ): void;
   public updateApprovalRuleTemplateContent(
     args: UpdateApprovalRuleTemplateContentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateApprovalRuleTemplateContentCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateApprovalRuleTemplateContentCommandOutput) => void
   ): void;
   public updateApprovalRuleTemplateContent(
     args: UpdateApprovalRuleTemplateContentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateApprovalRuleTemplateContentCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateApprovalRuleTemplateContentCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApprovalRuleTemplateContentCommandOutput) => void),
+    cb?: (err: any, data?: UpdateApprovalRuleTemplateContentCommandOutput) => void
   ): Promise<UpdateApprovalRuleTemplateContentCommandOutput> | void {
     const command = new UpdateApprovalRuleTemplateContentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3404,43 +3160,29 @@ export class CodeCommit extends CodeCommitClient {
    */
   public updateApprovalRuleTemplateDescription(
     args: UpdateApprovalRuleTemplateDescriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateApprovalRuleTemplateDescriptionCommandOutput>;
   public updateApprovalRuleTemplateDescription(
     args: UpdateApprovalRuleTemplateDescriptionCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateApprovalRuleTemplateDescriptionCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateApprovalRuleTemplateDescriptionCommandOutput) => void
   ): void;
   public updateApprovalRuleTemplateDescription(
     args: UpdateApprovalRuleTemplateDescriptionCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateApprovalRuleTemplateDescriptionCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateApprovalRuleTemplateDescriptionCommandOutput) => void
   ): void;
   public updateApprovalRuleTemplateDescription(
     args: UpdateApprovalRuleTemplateDescriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateApprovalRuleTemplateDescriptionCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateApprovalRuleTemplateDescriptionCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApprovalRuleTemplateDescriptionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateApprovalRuleTemplateDescriptionCommandOutput) => void
   ): Promise<UpdateApprovalRuleTemplateDescriptionCommandOutput> | void {
     const command = new UpdateApprovalRuleTemplateDescriptionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3454,7 +3196,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public updateApprovalRuleTemplateName(
     args: UpdateApprovalRuleTemplateNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateApprovalRuleTemplateNameCommandOutput>;
   public updateApprovalRuleTemplateName(
     args: UpdateApprovalRuleTemplateNameCommandInput,
@@ -3467,21 +3209,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public updateApprovalRuleTemplateName(
     args: UpdateApprovalRuleTemplateNameCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateApprovalRuleTemplateNameCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApprovalRuleTemplateNameCommandOutput) => void),
     cb?: (err: any, data?: UpdateApprovalRuleTemplateNameCommandOutput) => void
   ): Promise<UpdateApprovalRuleTemplateNameCommandOutput> | void {
     const command = new UpdateApprovalRuleTemplateNameCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3497,7 +3234,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public updateComment(
     args: UpdateCommentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateCommentCommandOutput>;
   public updateComment(
     args: UpdateCommentCommandInput,
@@ -3510,18 +3247,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public updateComment(
     args: UpdateCommentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateCommentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCommentCommandOutput) => void),
     cb?: (err: any, data?: UpdateCommentCommandOutput) => void
   ): Promise<UpdateCommentCommandOutput> | void {
     const command = new UpdateCommentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3538,7 +3273,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public updateDefaultBranch(
     args: UpdateDefaultBranchCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateDefaultBranchCommandOutput>;
   public updateDefaultBranch(
     args: UpdateDefaultBranchCommandInput,
@@ -3551,18 +3286,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public updateDefaultBranch(
     args: UpdateDefaultBranchCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDefaultBranchCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDefaultBranchCommandOutput) => void),
     cb?: (err: any, data?: UpdateDefaultBranchCommandOutput) => void
   ): Promise<UpdateDefaultBranchCommandOutput> | void {
     const command = new UpdateDefaultBranchCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3577,43 +3310,29 @@ export class CodeCommit extends CodeCommitClient {
    */
   public updatePullRequestApprovalRuleContent(
     args: UpdatePullRequestApprovalRuleContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdatePullRequestApprovalRuleContentCommandOutput>;
   public updatePullRequestApprovalRuleContent(
     args: UpdatePullRequestApprovalRuleContentCommandInput,
-    cb: (
-      err: any,
-      data?: UpdatePullRequestApprovalRuleContentCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdatePullRequestApprovalRuleContentCommandOutput) => void
   ): void;
   public updatePullRequestApprovalRuleContent(
     args: UpdatePullRequestApprovalRuleContentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdatePullRequestApprovalRuleContentCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdatePullRequestApprovalRuleContentCommandOutput) => void
   ): void;
   public updatePullRequestApprovalRuleContent(
     args: UpdatePullRequestApprovalRuleContentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdatePullRequestApprovalRuleContentCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdatePullRequestApprovalRuleContentCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePullRequestApprovalRuleContentCommandOutput) => void),
+    cb?: (err: any, data?: UpdatePullRequestApprovalRuleContentCommandOutput) => void
   ): Promise<UpdatePullRequestApprovalRuleContentCommandOutput> | void {
     const command = new UpdatePullRequestApprovalRuleContentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3628,7 +3347,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public updatePullRequestApprovalState(
     args: UpdatePullRequestApprovalStateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdatePullRequestApprovalStateCommandOutput>;
   public updatePullRequestApprovalState(
     args: UpdatePullRequestApprovalStateCommandInput,
@@ -3641,21 +3360,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public updatePullRequestApprovalState(
     args: UpdatePullRequestApprovalStateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdatePullRequestApprovalStateCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePullRequestApprovalStateCommandOutput) => void),
     cb?: (err: any, data?: UpdatePullRequestApprovalStateCommandOutput) => void
   ): Promise<UpdatePullRequestApprovalStateCommandOutput> | void {
     const command = new UpdatePullRequestApprovalStateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3669,7 +3383,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public updatePullRequestDescription(
     args: UpdatePullRequestDescriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdatePullRequestDescriptionCommandOutput>;
   public updatePullRequestDescription(
     args: UpdatePullRequestDescriptionCommandInput,
@@ -3682,18 +3396,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public updatePullRequestDescription(
     args: UpdatePullRequestDescriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePullRequestDescriptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePullRequestDescriptionCommandOutput) => void),
     cb?: (err: any, data?: UpdatePullRequestDescriptionCommandOutput) => void
   ): Promise<UpdatePullRequestDescriptionCommandOutput> | void {
     const command = new UpdatePullRequestDescriptionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3707,7 +3419,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public updatePullRequestStatus(
     args: UpdatePullRequestStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdatePullRequestStatusCommandOutput>;
   public updatePullRequestStatus(
     args: UpdatePullRequestStatusCommandInput,
@@ -3720,18 +3432,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public updatePullRequestStatus(
     args: UpdatePullRequestStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePullRequestStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePullRequestStatusCommandOutput) => void),
     cb?: (err: any, data?: UpdatePullRequestStatusCommandOutput) => void
   ): Promise<UpdatePullRequestStatusCommandOutput> | void {
     const command = new UpdatePullRequestStatusCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3745,7 +3455,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public updatePullRequestTitle(
     args: UpdatePullRequestTitleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdatePullRequestTitleCommandOutput>;
   public updatePullRequestTitle(
     args: UpdatePullRequestTitleCommandInput,
@@ -3758,18 +3468,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public updatePullRequestTitle(
     args: UpdatePullRequestTitleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePullRequestTitleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePullRequestTitleCommandOutput) => void),
     cb?: (err: any, data?: UpdatePullRequestTitleCommandOutput) => void
   ): Promise<UpdatePullRequestTitleCommandOutput> | void {
     const command = new UpdatePullRequestTitleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3790,7 +3498,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public updateRepositoryDescription(
     args: UpdateRepositoryDescriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateRepositoryDescriptionCommandOutput>;
   public updateRepositoryDescription(
     args: UpdateRepositoryDescriptionCommandInput,
@@ -3803,18 +3511,16 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public updateRepositoryDescription(
     args: UpdateRepositoryDescriptionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRepositoryDescriptionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRepositoryDescriptionCommandOutput) => void),
     cb?: (err: any, data?: UpdateRepositoryDescriptionCommandOutput) => void
   ): Promise<UpdateRepositoryDescriptionCommandOutput> | void {
     const command = new UpdateRepositoryDescriptionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3833,7 +3539,7 @@ export class CodeCommit extends CodeCommitClient {
    */
   public updateRepositoryName(
     args: UpdateRepositoryNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateRepositoryNameCommandOutput>;
   public updateRepositoryName(
     args: UpdateRepositoryNameCommandInput,
@@ -3846,20 +3552,19 @@ export class CodeCommit extends CodeCommitClient {
   ): void;
   public updateRepositoryName(
     args: UpdateRepositoryNameCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRepositoryNameCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRepositoryNameCommandOutput) => void),
     cb?: (err: any, data?: UpdateRepositoryNameCommandOutput) => void
   ): Promise<UpdateRepositoryNameCommandOutput> | void {
     const command = new UpdateRepositoryNameCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

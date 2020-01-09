@@ -2,72 +2,72 @@ import { FMSClient } from "./FMSClient";
 import {
   AssociateAdminAccountCommand,
   AssociateAdminAccountCommandInput,
-  AssociateAdminAccountCommandOutput
+  AssociateAdminAccountCommandOutput,
 } from "./commands/AssociateAdminAccountCommand";
 import {
   DeleteNotificationChannelCommand,
   DeleteNotificationChannelCommandInput,
-  DeleteNotificationChannelCommandOutput
+  DeleteNotificationChannelCommandOutput,
 } from "./commands/DeleteNotificationChannelCommand";
 import {
   DeletePolicyCommand,
   DeletePolicyCommandInput,
-  DeletePolicyCommandOutput
+  DeletePolicyCommandOutput,
 } from "./commands/DeletePolicyCommand";
 import {
   DisassociateAdminAccountCommand,
   DisassociateAdminAccountCommandInput,
-  DisassociateAdminAccountCommandOutput
+  DisassociateAdminAccountCommandOutput,
 } from "./commands/DisassociateAdminAccountCommand";
 import {
   GetAdminAccountCommand,
   GetAdminAccountCommandInput,
-  GetAdminAccountCommandOutput
+  GetAdminAccountCommandOutput,
 } from "./commands/GetAdminAccountCommand";
 import {
   GetComplianceDetailCommand,
   GetComplianceDetailCommandInput,
-  GetComplianceDetailCommandOutput
+  GetComplianceDetailCommandOutput,
 } from "./commands/GetComplianceDetailCommand";
 import {
   GetNotificationChannelCommand,
   GetNotificationChannelCommandInput,
-  GetNotificationChannelCommandOutput
+  GetNotificationChannelCommandOutput,
 } from "./commands/GetNotificationChannelCommand";
 import {
   GetPolicyCommand,
   GetPolicyCommandInput,
-  GetPolicyCommandOutput
+  GetPolicyCommandOutput,
 } from "./commands/GetPolicyCommand";
 import {
   GetProtectionStatusCommand,
   GetProtectionStatusCommandInput,
-  GetProtectionStatusCommandOutput
+  GetProtectionStatusCommandOutput,
 } from "./commands/GetProtectionStatusCommand";
 import {
   ListComplianceStatusCommand,
   ListComplianceStatusCommandInput,
-  ListComplianceStatusCommandOutput
+  ListComplianceStatusCommandOutput,
 } from "./commands/ListComplianceStatusCommand";
 import {
   ListMemberAccountsCommand,
   ListMemberAccountsCommandInput,
-  ListMemberAccountsCommandOutput
+  ListMemberAccountsCommandOutput,
 } from "./commands/ListMemberAccountsCommand";
 import {
   ListPoliciesCommand,
   ListPoliciesCommandInput,
-  ListPoliciesCommandOutput
+  ListPoliciesCommandOutput,
 } from "./commands/ListPoliciesCommand";
 import {
   PutNotificationChannelCommand,
   PutNotificationChannelCommandInput,
-  PutNotificationChannelCommandOutput
+  PutNotificationChannelCommandOutput,
 } from "./commands/PutNotificationChannelCommand";
 import {
   PutPolicyCommand,
   PutPolicyCommandInput,
-  PutPolicyCommandOutput
+  PutPolicyCommandOutput,
 } from "./commands/PutPolicyCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -95,7 +95,7 @@ export class FMS extends FMSClient {
    */
   public associateAdminAccount(
     args: AssociateAdminAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<AssociateAdminAccountCommandOutput>;
   public associateAdminAccount(
     args: AssociateAdminAccountCommandInput,
@@ -108,18 +108,16 @@ export class FMS extends FMSClient {
   ): void;
   public associateAdminAccount(
     args: AssociateAdminAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateAdminAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateAdminAccountCommandOutput) => void),
     cb?: (err: any, data?: AssociateAdminAccountCommandOutput) => void
   ): Promise<AssociateAdminAccountCommandOutput> | void {
     const command = new AssociateAdminAccountCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -133,7 +131,7 @@ export class FMS extends FMSClient {
    */
   public deleteNotificationChannel(
     args: DeleteNotificationChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteNotificationChannelCommandOutput>;
   public deleteNotificationChannel(
     args: DeleteNotificationChannelCommandInput,
@@ -146,18 +144,16 @@ export class FMS extends FMSClient {
   ): void;
   public deleteNotificationChannel(
     args: DeleteNotificationChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteNotificationChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNotificationChannelCommandOutput) => void),
     cb?: (err: any, data?: DeleteNotificationChannelCommandOutput) => void
   ): Promise<DeleteNotificationChannelCommandOutput> | void {
     const command = new DeleteNotificationChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -170,7 +166,7 @@ export class FMS extends FMSClient {
    */
   public deletePolicy(
     args: DeletePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeletePolicyCommandOutput>;
   public deletePolicy(
     args: DeletePolicyCommandInput,
@@ -183,18 +179,16 @@ export class FMS extends FMSClient {
   ): void;
   public deletePolicy(
     args: DeletePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePolicyCommandOutput) => void),
     cb?: (err: any, data?: DeletePolicyCommandOutput) => void
   ): Promise<DeletePolicyCommandOutput> | void {
     const command = new DeletePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -209,7 +203,7 @@ export class FMS extends FMSClient {
    */
   public disassociateAdminAccount(
     args: DisassociateAdminAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DisassociateAdminAccountCommandOutput>;
   public disassociateAdminAccount(
     args: DisassociateAdminAccountCommandInput,
@@ -222,18 +216,16 @@ export class FMS extends FMSClient {
   ): void;
   public disassociateAdminAccount(
     args: DisassociateAdminAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateAdminAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateAdminAccountCommandOutput) => void),
     cb?: (err: any, data?: DisassociateAdminAccountCommandOutput) => void
   ): Promise<DisassociateAdminAccountCommandOutput> | void {
     const command = new DisassociateAdminAccountCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -247,7 +239,7 @@ export class FMS extends FMSClient {
    */
   public getAdminAccount(
     args: GetAdminAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetAdminAccountCommandOutput>;
   public getAdminAccount(
     args: GetAdminAccountCommandInput,
@@ -260,18 +252,16 @@ export class FMS extends FMSClient {
   ): void;
   public getAdminAccount(
     args: GetAdminAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAdminAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAdminAccountCommandOutput) => void),
     cb?: (err: any, data?: GetAdminAccountCommandOutput) => void
   ): Promise<GetAdminAccountCommandOutput> | void {
     const command = new GetAdminAccountCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -289,7 +279,7 @@ export class FMS extends FMSClient {
    */
   public getComplianceDetail(
     args: GetComplianceDetailCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetComplianceDetailCommandOutput>;
   public getComplianceDetail(
     args: GetComplianceDetailCommandInput,
@@ -302,18 +292,16 @@ export class FMS extends FMSClient {
   ): void;
   public getComplianceDetail(
     args: GetComplianceDetailCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetComplianceDetailCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetComplianceDetailCommandOutput) => void),
     cb?: (err: any, data?: GetComplianceDetailCommandOutput) => void
   ): Promise<GetComplianceDetailCommandOutput> | void {
     const command = new GetComplianceDetailCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -328,7 +316,7 @@ export class FMS extends FMSClient {
    */
   public getNotificationChannel(
     args: GetNotificationChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetNotificationChannelCommandOutput>;
   public getNotificationChannel(
     args: GetNotificationChannelCommandInput,
@@ -341,18 +329,16 @@ export class FMS extends FMSClient {
   ): void;
   public getNotificationChannel(
     args: GetNotificationChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetNotificationChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetNotificationChannelCommandOutput) => void),
     cb?: (err: any, data?: GetNotificationChannelCommandOutput) => void
   ): Promise<GetNotificationChannelCommandOutput> | void {
     const command = new GetNotificationChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -365,7 +351,7 @@ export class FMS extends FMSClient {
    */
   public getPolicy(
     args: GetPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetPolicyCommandOutput>;
   public getPolicy(
     args: GetPolicyCommandInput,
@@ -378,18 +364,16 @@ export class FMS extends FMSClient {
   ): void;
   public getPolicy(
     args: GetPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetPolicyCommandOutput) => void
   ): Promise<GetPolicyCommandOutput> | void {
     const command = new GetPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -405,7 +389,7 @@ export class FMS extends FMSClient {
    */
   public getProtectionStatus(
     args: GetProtectionStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetProtectionStatusCommandOutput>;
   public getProtectionStatus(
     args: GetProtectionStatusCommandInput,
@@ -418,18 +402,16 @@ export class FMS extends FMSClient {
   ): void;
   public getProtectionStatus(
     args: GetProtectionStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetProtectionStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetProtectionStatusCommandOutput) => void),
     cb?: (err: any, data?: GetProtectionStatusCommandOutput) => void
   ): Promise<GetProtectionStatusCommandOutput> | void {
     const command = new GetProtectionStatusCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -444,7 +426,7 @@ export class FMS extends FMSClient {
    */
   public listComplianceStatus(
     args: ListComplianceStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListComplianceStatusCommandOutput>;
   public listComplianceStatus(
     args: ListComplianceStatusCommandInput,
@@ -457,18 +439,16 @@ export class FMS extends FMSClient {
   ): void;
   public listComplianceStatus(
     args: ListComplianceStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListComplianceStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListComplianceStatusCommandOutput) => void),
     cb?: (err: any, data?: ListComplianceStatusCommandOutput) => void
   ): Promise<ListComplianceStatusCommandOutput> | void {
     const command = new ListComplianceStatusCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -484,7 +464,7 @@ export class FMS extends FMSClient {
    */
   public listMemberAccounts(
     args: ListMemberAccountsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListMemberAccountsCommandOutput>;
   public listMemberAccounts(
     args: ListMemberAccountsCommandInput,
@@ -497,18 +477,16 @@ export class FMS extends FMSClient {
   ): void;
   public listMemberAccounts(
     args: ListMemberAccountsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListMemberAccountsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMemberAccountsCommandOutput) => void),
     cb?: (err: any, data?: ListMemberAccountsCommandOutput) => void
   ): Promise<ListMemberAccountsCommandOutput> | void {
     const command = new ListMemberAccountsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -521,7 +499,7 @@ export class FMS extends FMSClient {
    */
   public listPolicies(
     args: ListPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListPoliciesCommandOutput>;
   public listPolicies(
     args: ListPoliciesCommandInput,
@@ -534,18 +512,16 @@ export class FMS extends FMSClient {
   ): void;
   public listPolicies(
     args: ListPoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPoliciesCommandOutput) => void),
     cb?: (err: any, data?: ListPoliciesCommandOutput) => void
   ): Promise<ListPoliciesCommandOutput> | void {
     const command = new ListPoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -559,7 +535,7 @@ export class FMS extends FMSClient {
    */
   public putNotificationChannel(
     args: PutNotificationChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<PutNotificationChannelCommandOutput>;
   public putNotificationChannel(
     args: PutNotificationChannelCommandInput,
@@ -572,18 +548,16 @@ export class FMS extends FMSClient {
   ): void;
   public putNotificationChannel(
     args: PutNotificationChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutNotificationChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutNotificationChannelCommandOutput) => void),
     cb?: (err: any, data?: PutNotificationChannelCommandOutput) => void
   ): Promise<PutNotificationChannelCommandOutput> | void {
     const command = new PutNotificationChannelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -616,7 +590,7 @@ export class FMS extends FMSClient {
    */
   public putPolicy(
     args: PutPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<PutPolicyCommandOutput>;
   public putPolicy(
     args: PutPolicyCommandInput,
@@ -629,20 +603,19 @@ export class FMS extends FMSClient {
   ): void;
   public putPolicy(
     args: PutPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutPolicyCommandOutput) => void
   ): Promise<PutPolicyCommandOutput> | void {
     const command = new PutPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

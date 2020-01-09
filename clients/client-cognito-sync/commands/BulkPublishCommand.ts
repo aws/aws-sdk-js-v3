@@ -1,17 +1,20 @@
 import {
   CognitoSyncClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CognitoSyncClient";
-import { BulkPublishRequest, BulkPublishResponse } from "../models/index";
+import {
+  BulkPublishRequest,
+  BulkPublishResponse,
+} from "../models/index";
 import {
   deserializeAws_restJson1_1BulkPublishCommand,
-  serializeAws_restJson1_1BulkPublishCommand
+  serializeAws_restJson1_1BulkPublishCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type BulkPublishCommandInput = BulkPublishRequest;
 export type BulkPublishCommandOutput = BulkPublishResponse;
 
-export class BulkPublishCommand extends $Command<
-  BulkPublishCommandInput,
-  BulkPublishCommandOutput,
-  CognitoSyncClientResolvedConfig
-> {
+export class BulkPublishCommand extends $Command<BulkPublishCommandInput, BulkPublishCommandOutput, CognitoSyncClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class BulkPublishCommand extends $Command<
     configuration: CognitoSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BulkPublishCommandInput, BulkPublishCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

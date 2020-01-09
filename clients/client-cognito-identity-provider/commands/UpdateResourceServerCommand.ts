@@ -1,20 +1,20 @@
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import {
   UpdateResourceServerRequest,
-  UpdateResourceServerResponse
+  UpdateResourceServerResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1UpdateResourceServerCommand,
-  serializeAws_json1_1UpdateResourceServerCommand
+  serializeAws_json1_1UpdateResourceServerCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type UpdateResourceServerCommandInput = UpdateResourceServerRequest;
 export type UpdateResourceServerCommandOutput = UpdateResourceServerResponse;
 
-export class UpdateResourceServerCommand extends $Command<
-  UpdateResourceServerCommandInput,
-  UpdateResourceServerCommandOutput,
-  CognitoIdentityProviderClientResolvedConfig
-> {
+export class UpdateResourceServerCommand extends $Command<UpdateResourceServerCommandInput, UpdateResourceServerCommandOutput, CognitoIdentityProviderClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class UpdateResourceServerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateResourceServerCommandInput,
-    UpdateResourceServerCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateResourceServerCommandInput, UpdateResourceServerCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

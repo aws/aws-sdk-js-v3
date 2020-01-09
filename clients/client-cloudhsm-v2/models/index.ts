@@ -56,14 +56,14 @@ export namespace Backup {
 }
 
 export enum BackupPolicy {
-  DEFAULT = "DEFAULT"
+  DEFAULT = "DEFAULT",
 }
 
 export enum BackupState {
   CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
   DELETED = "DELETED",
   PENDING_DELETION = "PENDING_DELETION",
-  READY = "READY"
+  READY = "READY",
 }
 
 /**
@@ -233,7 +233,7 @@ export enum ClusterState {
   INITIALIZED = "INITIALIZED",
   INITIALIZE_IN_PROGRESS = "INITIALIZE_IN_PROGRESS",
   UNINITIALIZED = "UNINITIALIZED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
+  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
 }
 
 export interface CopyBackupToRegionRequest {
@@ -728,7 +728,7 @@ export enum HsmState {
   CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
   DEGRADED = "DEGRADED",
   DELETED = "DELETED",
-  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
+  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
 }
 
 export interface InitializeClusterRequest {
@@ -982,9 +982,7 @@ export namespace UntagResourceResponse {
  *       requested operation.</p>
  *
  */
-export interface CloudHsmAccessDeniedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CloudHsmAccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CloudHsmAccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -1002,9 +1000,7 @@ export namespace CloudHsmAccessDeniedException {
  *       be retried.</p>
  *
  */
-export interface CloudHsmInternalFailureException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CloudHsmInternalFailureException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CloudHsmInternalFailureException";
   $fault: "server";
   Message?: string;
@@ -1021,9 +1017,7 @@ export namespace CloudHsmInternalFailureException {
  *          <p>The request was rejected because it is not a valid request.</p>
  *
  */
-export interface CloudHsmInvalidRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CloudHsmInvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CloudHsmInvalidRequestException";
   $fault: "client";
   Message?: string;
@@ -1041,9 +1035,7 @@ export namespace CloudHsmInvalidRequestException {
  *       found.</p>
  *
  */
-export interface CloudHsmResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CloudHsmResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CloudHsmResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1060,9 +1052,7 @@ export namespace CloudHsmResourceNotFoundException {
  *          <p>The request was rejected because an error occurred.</p>
  *
  */
-export interface CloudHsmServiceException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CloudHsmServiceException extends _smithy.SmithyException, $MetadataBearer {
   __type: "CloudHsmServiceException";
   $fault: "client";
   Message?: string;

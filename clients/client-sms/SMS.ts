@@ -2,142 +2,142 @@ import { SMSClient } from "./SMSClient";
 import {
   CreateAppCommand,
   CreateAppCommandInput,
-  CreateAppCommandOutput
+  CreateAppCommandOutput,
 } from "./commands/CreateAppCommand";
 import {
   CreateReplicationJobCommand,
   CreateReplicationJobCommandInput,
-  CreateReplicationJobCommandOutput
+  CreateReplicationJobCommandOutput,
 } from "./commands/CreateReplicationJobCommand";
 import {
   DeleteAppCommand,
   DeleteAppCommandInput,
-  DeleteAppCommandOutput
+  DeleteAppCommandOutput,
 } from "./commands/DeleteAppCommand";
 import {
   DeleteAppLaunchConfigurationCommand,
   DeleteAppLaunchConfigurationCommandInput,
-  DeleteAppLaunchConfigurationCommandOutput
+  DeleteAppLaunchConfigurationCommandOutput,
 } from "./commands/DeleteAppLaunchConfigurationCommand";
 import {
   DeleteAppReplicationConfigurationCommand,
   DeleteAppReplicationConfigurationCommandInput,
-  DeleteAppReplicationConfigurationCommandOutput
+  DeleteAppReplicationConfigurationCommandOutput,
 } from "./commands/DeleteAppReplicationConfigurationCommand";
 import {
   DeleteReplicationJobCommand,
   DeleteReplicationJobCommandInput,
-  DeleteReplicationJobCommandOutput
+  DeleteReplicationJobCommandOutput,
 } from "./commands/DeleteReplicationJobCommand";
 import {
   DeleteServerCatalogCommand,
   DeleteServerCatalogCommandInput,
-  DeleteServerCatalogCommandOutput
+  DeleteServerCatalogCommandOutput,
 } from "./commands/DeleteServerCatalogCommand";
 import {
   DisassociateConnectorCommand,
   DisassociateConnectorCommandInput,
-  DisassociateConnectorCommandOutput
+  DisassociateConnectorCommandOutput,
 } from "./commands/DisassociateConnectorCommand";
 import {
   GenerateChangeSetCommand,
   GenerateChangeSetCommandInput,
-  GenerateChangeSetCommandOutput
+  GenerateChangeSetCommandOutput,
 } from "./commands/GenerateChangeSetCommand";
 import {
   GenerateTemplateCommand,
   GenerateTemplateCommandInput,
-  GenerateTemplateCommandOutput
+  GenerateTemplateCommandOutput,
 } from "./commands/GenerateTemplateCommand";
 import {
   GetAppCommand,
   GetAppCommandInput,
-  GetAppCommandOutput
+  GetAppCommandOutput,
 } from "./commands/GetAppCommand";
 import {
   GetAppLaunchConfigurationCommand,
   GetAppLaunchConfigurationCommandInput,
-  GetAppLaunchConfigurationCommandOutput
+  GetAppLaunchConfigurationCommandOutput,
 } from "./commands/GetAppLaunchConfigurationCommand";
 import {
   GetAppReplicationConfigurationCommand,
   GetAppReplicationConfigurationCommandInput,
-  GetAppReplicationConfigurationCommandOutput
+  GetAppReplicationConfigurationCommandOutput,
 } from "./commands/GetAppReplicationConfigurationCommand";
 import {
   GetConnectorsCommand,
   GetConnectorsCommandInput,
-  GetConnectorsCommandOutput
+  GetConnectorsCommandOutput,
 } from "./commands/GetConnectorsCommand";
 import {
   GetReplicationJobsCommand,
   GetReplicationJobsCommandInput,
-  GetReplicationJobsCommandOutput
+  GetReplicationJobsCommandOutput,
 } from "./commands/GetReplicationJobsCommand";
 import {
   GetReplicationRunsCommand,
   GetReplicationRunsCommandInput,
-  GetReplicationRunsCommandOutput
+  GetReplicationRunsCommandOutput,
 } from "./commands/GetReplicationRunsCommand";
 import {
   GetServersCommand,
   GetServersCommandInput,
-  GetServersCommandOutput
+  GetServersCommandOutput,
 } from "./commands/GetServersCommand";
 import {
   ImportServerCatalogCommand,
   ImportServerCatalogCommandInput,
-  ImportServerCatalogCommandOutput
+  ImportServerCatalogCommandOutput,
 } from "./commands/ImportServerCatalogCommand";
 import {
   LaunchAppCommand,
   LaunchAppCommandInput,
-  LaunchAppCommandOutput
+  LaunchAppCommandOutput,
 } from "./commands/LaunchAppCommand";
 import {
   ListAppsCommand,
   ListAppsCommandInput,
-  ListAppsCommandOutput
+  ListAppsCommandOutput,
 } from "./commands/ListAppsCommand";
 import {
   PutAppLaunchConfigurationCommand,
   PutAppLaunchConfigurationCommandInput,
-  PutAppLaunchConfigurationCommandOutput
+  PutAppLaunchConfigurationCommandOutput,
 } from "./commands/PutAppLaunchConfigurationCommand";
 import {
   PutAppReplicationConfigurationCommand,
   PutAppReplicationConfigurationCommandInput,
-  PutAppReplicationConfigurationCommandOutput
+  PutAppReplicationConfigurationCommandOutput,
 } from "./commands/PutAppReplicationConfigurationCommand";
 import {
   StartAppReplicationCommand,
   StartAppReplicationCommandInput,
-  StartAppReplicationCommandOutput
+  StartAppReplicationCommandOutput,
 } from "./commands/StartAppReplicationCommand";
 import {
   StartOnDemandReplicationRunCommand,
   StartOnDemandReplicationRunCommandInput,
-  StartOnDemandReplicationRunCommandOutput
+  StartOnDemandReplicationRunCommandOutput,
 } from "./commands/StartOnDemandReplicationRunCommand";
 import {
   StopAppReplicationCommand,
   StopAppReplicationCommandInput,
-  StopAppReplicationCommandOutput
+  StopAppReplicationCommandOutput,
 } from "./commands/StopAppReplicationCommand";
 import {
   TerminateAppCommand,
   TerminateAppCommandInput,
-  TerminateAppCommandOutput
+  TerminateAppCommandOutput,
 } from "./commands/TerminateAppCommand";
 import {
   UpdateAppCommand,
   UpdateAppCommandInput,
-  UpdateAppCommandOutput
+  UpdateAppCommandOutput,
 } from "./commands/UpdateAppCommand";
 import {
   UpdateReplicationJobCommand,
   UpdateReplicationJobCommandInput,
-  UpdateReplicationJobCommandOutput
+  UpdateReplicationJobCommandOutput,
 } from "./commands/UpdateReplicationJobCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -175,7 +175,7 @@ export class SMS extends SMSClient {
    */
   public createApp(
     args: CreateAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateAppCommandOutput>;
   public createApp(
     args: CreateAppCommandInput,
@@ -188,18 +188,16 @@ export class SMS extends SMSClient {
   ): void;
   public createApp(
     args: CreateAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAppCommandOutput) => void),
     cb?: (err: any, data?: CreateAppCommandOutput) => void
   ): Promise<CreateAppCommandOutput> | void {
     const command = new CreateAppCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -214,7 +212,7 @@ export class SMS extends SMSClient {
    */
   public createReplicationJob(
     args: CreateReplicationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateReplicationJobCommandOutput>;
   public createReplicationJob(
     args: CreateReplicationJobCommandInput,
@@ -227,18 +225,16 @@ export class SMS extends SMSClient {
   ): void;
   public createReplicationJob(
     args: CreateReplicationJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateReplicationJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateReplicationJobCommandOutput) => void),
     cb?: (err: any, data?: CreateReplicationJobCommandOutput) => void
   ): Promise<CreateReplicationJobCommandOutput> | void {
     const command = new CreateReplicationJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -252,7 +248,7 @@ export class SMS extends SMSClient {
    */
   public deleteApp(
     args: DeleteAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteAppCommandOutput>;
   public deleteApp(
     args: DeleteAppCommandInput,
@@ -265,18 +261,16 @@ export class SMS extends SMSClient {
   ): void;
   public deleteApp(
     args: DeleteAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAppCommandOutput) => void),
     cb?: (err: any, data?: DeleteAppCommandOutput) => void
   ): Promise<DeleteAppCommandOutput> | void {
     const command = new DeleteAppCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -289,7 +283,7 @@ export class SMS extends SMSClient {
    */
   public deleteAppLaunchConfiguration(
     args: DeleteAppLaunchConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteAppLaunchConfigurationCommandOutput>;
   public deleteAppLaunchConfiguration(
     args: DeleteAppLaunchConfigurationCommandInput,
@@ -302,18 +296,16 @@ export class SMS extends SMSClient {
   ): void;
   public deleteAppLaunchConfiguration(
     args: DeleteAppLaunchConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAppLaunchConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAppLaunchConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DeleteAppLaunchConfigurationCommandOutput) => void
   ): Promise<DeleteAppLaunchConfigurationCommandOutput> | void {
     const command = new DeleteAppLaunchConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -326,43 +318,29 @@ export class SMS extends SMSClient {
    */
   public deleteAppReplicationConfiguration(
     args: DeleteAppReplicationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteAppReplicationConfigurationCommandOutput>;
   public deleteAppReplicationConfiguration(
     args: DeleteAppReplicationConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteAppReplicationConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteAppReplicationConfigurationCommandOutput) => void
   ): void;
   public deleteAppReplicationConfiguration(
     args: DeleteAppReplicationConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteAppReplicationConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteAppReplicationConfigurationCommandOutput) => void
   ): void;
   public deleteAppReplicationConfiguration(
     args: DeleteAppReplicationConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteAppReplicationConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteAppReplicationConfigurationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAppReplicationConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAppReplicationConfigurationCommandOutput) => void
   ): Promise<DeleteAppReplicationConfigurationCommandOutput> | void {
     const command = new DeleteAppReplicationConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -378,7 +356,7 @@ export class SMS extends SMSClient {
    */
   public deleteReplicationJob(
     args: DeleteReplicationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteReplicationJobCommandOutput>;
   public deleteReplicationJob(
     args: DeleteReplicationJobCommandInput,
@@ -391,18 +369,16 @@ export class SMS extends SMSClient {
   ): void;
   public deleteReplicationJob(
     args: DeleteReplicationJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteReplicationJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteReplicationJobCommandOutput) => void),
     cb?: (err: any, data?: DeleteReplicationJobCommandOutput) => void
   ): Promise<DeleteReplicationJobCommandOutput> | void {
     const command = new DeleteReplicationJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -415,7 +391,7 @@ export class SMS extends SMSClient {
    */
   public deleteServerCatalog(
     args: DeleteServerCatalogCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteServerCatalogCommandOutput>;
   public deleteServerCatalog(
     args: DeleteServerCatalogCommandInput,
@@ -428,18 +404,16 @@ export class SMS extends SMSClient {
   ): void;
   public deleteServerCatalog(
     args: DeleteServerCatalogCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteServerCatalogCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteServerCatalogCommandOutput) => void),
     cb?: (err: any, data?: DeleteServerCatalogCommandOutput) => void
   ): Promise<DeleteServerCatalogCommandOutput> | void {
     const command = new DeleteServerCatalogCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -454,7 +428,7 @@ export class SMS extends SMSClient {
    */
   public disassociateConnector(
     args: DisassociateConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DisassociateConnectorCommandOutput>;
   public disassociateConnector(
     args: DisassociateConnectorCommandInput,
@@ -467,18 +441,16 @@ export class SMS extends SMSClient {
   ): void;
   public disassociateConnector(
     args: DisassociateConnectorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateConnectorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateConnectorCommandOutput) => void),
     cb?: (err: any, data?: DisassociateConnectorCommandOutput) => void
   ): Promise<DisassociateConnectorCommandOutput> | void {
     const command = new DisassociateConnectorCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -492,7 +464,7 @@ export class SMS extends SMSClient {
    */
   public generateChangeSet(
     args: GenerateChangeSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GenerateChangeSetCommandOutput>;
   public generateChangeSet(
     args: GenerateChangeSetCommandInput,
@@ -505,18 +477,16 @@ export class SMS extends SMSClient {
   ): void;
   public generateChangeSet(
     args: GenerateChangeSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GenerateChangeSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GenerateChangeSetCommandOutput) => void),
     cb?: (err: any, data?: GenerateChangeSetCommandOutput) => void
   ): Promise<GenerateChangeSetCommandOutput> | void {
     const command = new GenerateChangeSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -530,7 +500,7 @@ export class SMS extends SMSClient {
    */
   public generateTemplate(
     args: GenerateTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GenerateTemplateCommandOutput>;
   public generateTemplate(
     args: GenerateTemplateCommandInput,
@@ -543,18 +513,16 @@ export class SMS extends SMSClient {
   ): void;
   public generateTemplate(
     args: GenerateTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GenerateTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GenerateTemplateCommandOutput) => void),
     cb?: (err: any, data?: GenerateTemplateCommandOutput) => void
   ): Promise<GenerateTemplateCommandOutput> | void {
     const command = new GenerateTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -567,7 +535,7 @@ export class SMS extends SMSClient {
    */
   public getApp(
     args: GetAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetAppCommandOutput>;
   public getApp(
     args: GetAppCommandInput,
@@ -580,18 +548,16 @@ export class SMS extends SMSClient {
   ): void;
   public getApp(
     args: GetAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAppCommandOutput) => void),
     cb?: (err: any, data?: GetAppCommandOutput) => void
   ): Promise<GetAppCommandOutput> | void {
     const command = new GetAppCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -604,7 +570,7 @@ export class SMS extends SMSClient {
    */
   public getAppLaunchConfiguration(
     args: GetAppLaunchConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetAppLaunchConfigurationCommandOutput>;
   public getAppLaunchConfiguration(
     args: GetAppLaunchConfigurationCommandInput,
@@ -617,18 +583,16 @@ export class SMS extends SMSClient {
   ): void;
   public getAppLaunchConfiguration(
     args: GetAppLaunchConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAppLaunchConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAppLaunchConfigurationCommandOutput) => void),
     cb?: (err: any, data?: GetAppLaunchConfigurationCommandOutput) => void
   ): Promise<GetAppLaunchConfigurationCommandOutput> | void {
     const command = new GetAppLaunchConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -642,7 +606,7 @@ export class SMS extends SMSClient {
    */
   public getAppReplicationConfiguration(
     args: GetAppReplicationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetAppReplicationConfigurationCommandOutput>;
   public getAppReplicationConfiguration(
     args: GetAppReplicationConfigurationCommandInput,
@@ -655,21 +619,16 @@ export class SMS extends SMSClient {
   ): void;
   public getAppReplicationConfiguration(
     args: GetAppReplicationConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetAppReplicationConfigurationCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAppReplicationConfigurationCommandOutput) => void),
     cb?: (err: any, data?: GetAppReplicationConfigurationCommandOutput) => void
   ): Promise<GetAppReplicationConfigurationCommandOutput> | void {
     const command = new GetAppReplicationConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -682,7 +641,7 @@ export class SMS extends SMSClient {
    */
   public getConnectors(
     args: GetConnectorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetConnectorsCommandOutput>;
   public getConnectors(
     args: GetConnectorsCommandInput,
@@ -695,18 +654,16 @@ export class SMS extends SMSClient {
   ): void;
   public getConnectors(
     args: GetConnectorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetConnectorsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConnectorsCommandOutput) => void),
     cb?: (err: any, data?: GetConnectorsCommandOutput) => void
   ): Promise<GetConnectorsCommandOutput> | void {
     const command = new GetConnectorsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -719,7 +676,7 @@ export class SMS extends SMSClient {
    */
   public getReplicationJobs(
     args: GetReplicationJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetReplicationJobsCommandOutput>;
   public getReplicationJobs(
     args: GetReplicationJobsCommandInput,
@@ -732,18 +689,16 @@ export class SMS extends SMSClient {
   ): void;
   public getReplicationJobs(
     args: GetReplicationJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetReplicationJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetReplicationJobsCommandOutput) => void),
     cb?: (err: any, data?: GetReplicationJobsCommandOutput) => void
   ): Promise<GetReplicationJobsCommandOutput> | void {
     const command = new GetReplicationJobsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -756,7 +711,7 @@ export class SMS extends SMSClient {
    */
   public getReplicationRuns(
     args: GetReplicationRunsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetReplicationRunsCommandOutput>;
   public getReplicationRuns(
     args: GetReplicationRunsCommandInput,
@@ -769,18 +724,16 @@ export class SMS extends SMSClient {
   ): void;
   public getReplicationRuns(
     args: GetReplicationRunsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetReplicationRunsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetReplicationRunsCommandOutput) => void),
     cb?: (err: any, data?: GetReplicationRunsCommandOutput) => void
   ): Promise<GetReplicationRunsCommandOutput> | void {
     const command = new GetReplicationRunsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -794,7 +747,7 @@ export class SMS extends SMSClient {
    */
   public getServers(
     args: GetServersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetServersCommandOutput>;
   public getServers(
     args: GetServersCommandInput,
@@ -807,18 +760,16 @@ export class SMS extends SMSClient {
   ): void;
   public getServers(
     args: GetServersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetServersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetServersCommandOutput) => void),
     cb?: (err: any, data?: GetServersCommandOutput) => void
   ): Promise<GetServersCommandOutput> | void {
     const command = new GetServersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -834,7 +785,7 @@ export class SMS extends SMSClient {
    */
   public importServerCatalog(
     args: ImportServerCatalogCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ImportServerCatalogCommandOutput>;
   public importServerCatalog(
     args: ImportServerCatalogCommandInput,
@@ -847,18 +798,16 @@ export class SMS extends SMSClient {
   ): void;
   public importServerCatalog(
     args: ImportServerCatalogCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportServerCatalogCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportServerCatalogCommandOutput) => void),
     cb?: (err: any, data?: ImportServerCatalogCommandOutput) => void
   ): Promise<ImportServerCatalogCommandOutput> | void {
     const command = new ImportServerCatalogCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -871,7 +820,7 @@ export class SMS extends SMSClient {
    */
   public launchApp(
     args: LaunchAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<LaunchAppCommandOutput>;
   public launchApp(
     args: LaunchAppCommandInput,
@@ -884,18 +833,16 @@ export class SMS extends SMSClient {
   ): void;
   public launchApp(
     args: LaunchAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: LaunchAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: LaunchAppCommandOutput) => void),
     cb?: (err: any, data?: LaunchAppCommandOutput) => void
   ): Promise<LaunchAppCommandOutput> | void {
     const command = new LaunchAppCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -908,7 +855,7 @@ export class SMS extends SMSClient {
    */
   public listApps(
     args: ListAppsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListAppsCommandOutput>;
   public listApps(
     args: ListAppsCommandInput,
@@ -921,18 +868,16 @@ export class SMS extends SMSClient {
   ): void;
   public listApps(
     args: ListAppsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAppsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAppsCommandOutput) => void),
     cb?: (err: any, data?: ListAppsCommandOutput) => void
   ): Promise<ListAppsCommandOutput> | void {
     const command = new ListAppsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -945,7 +890,7 @@ export class SMS extends SMSClient {
    */
   public putAppLaunchConfiguration(
     args: PutAppLaunchConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<PutAppLaunchConfigurationCommandOutput>;
   public putAppLaunchConfiguration(
     args: PutAppLaunchConfigurationCommandInput,
@@ -958,18 +903,16 @@ export class SMS extends SMSClient {
   ): void;
   public putAppLaunchConfiguration(
     args: PutAppLaunchConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutAppLaunchConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAppLaunchConfigurationCommandOutput) => void),
     cb?: (err: any, data?: PutAppLaunchConfigurationCommandOutput) => void
   ): Promise<PutAppLaunchConfigurationCommandOutput> | void {
     const command = new PutAppLaunchConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -982,7 +925,7 @@ export class SMS extends SMSClient {
    */
   public putAppReplicationConfiguration(
     args: PutAppReplicationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<PutAppReplicationConfigurationCommandOutput>;
   public putAppReplicationConfiguration(
     args: PutAppReplicationConfigurationCommandInput,
@@ -995,21 +938,16 @@ export class SMS extends SMSClient {
   ): void;
   public putAppReplicationConfiguration(
     args: PutAppReplicationConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: PutAppReplicationConfigurationCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAppReplicationConfigurationCommandOutput) => void),
     cb?: (err: any, data?: PutAppReplicationConfigurationCommandOutput) => void
   ): Promise<PutAppReplicationConfigurationCommandOutput> | void {
     const command = new PutAppReplicationConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1022,7 +960,7 @@ export class SMS extends SMSClient {
    */
   public startAppReplication(
     args: StartAppReplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<StartAppReplicationCommandOutput>;
   public startAppReplication(
     args: StartAppReplicationCommandInput,
@@ -1035,18 +973,16 @@ export class SMS extends SMSClient {
   ): void;
   public startAppReplication(
     args: StartAppReplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartAppReplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartAppReplicationCommandOutput) => void),
     cb?: (err: any, data?: StartAppReplicationCommandOutput) => void
   ): Promise<StartAppReplicationCommandOutput> | void {
     const command = new StartAppReplicationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1063,7 +999,7 @@ export class SMS extends SMSClient {
    */
   public startOnDemandReplicationRun(
     args: StartOnDemandReplicationRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<StartOnDemandReplicationRunCommandOutput>;
   public startOnDemandReplicationRun(
     args: StartOnDemandReplicationRunCommandInput,
@@ -1076,18 +1012,16 @@ export class SMS extends SMSClient {
   ): void;
   public startOnDemandReplicationRun(
     args: StartOnDemandReplicationRunCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartOnDemandReplicationRunCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartOnDemandReplicationRunCommandOutput) => void),
     cb?: (err: any, data?: StartOnDemandReplicationRunCommandOutput) => void
   ): Promise<StartOnDemandReplicationRunCommandOutput> | void {
     const command = new StartOnDemandReplicationRunCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1100,7 +1034,7 @@ export class SMS extends SMSClient {
    */
   public stopAppReplication(
     args: StopAppReplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<StopAppReplicationCommandOutput>;
   public stopAppReplication(
     args: StopAppReplicationCommandInput,
@@ -1113,18 +1047,16 @@ export class SMS extends SMSClient {
   ): void;
   public stopAppReplication(
     args: StopAppReplicationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopAppReplicationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopAppReplicationCommandOutput) => void),
     cb?: (err: any, data?: StopAppReplicationCommandOutput) => void
   ): Promise<StopAppReplicationCommandOutput> | void {
     const command = new StopAppReplicationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1137,7 +1069,7 @@ export class SMS extends SMSClient {
    */
   public terminateApp(
     args: TerminateAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<TerminateAppCommandOutput>;
   public terminateApp(
     args: TerminateAppCommandInput,
@@ -1150,18 +1082,16 @@ export class SMS extends SMSClient {
   ): void;
   public terminateApp(
     args: TerminateAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TerminateAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TerminateAppCommandOutput) => void),
     cb?: (err: any, data?: TerminateAppCommandOutput) => void
   ): Promise<TerminateAppCommandOutput> | void {
     const command = new TerminateAppCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1174,7 +1104,7 @@ export class SMS extends SMSClient {
    */
   public updateApp(
     args: UpdateAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateAppCommandOutput>;
   public updateApp(
     args: UpdateAppCommandInput,
@@ -1187,18 +1117,16 @@ export class SMS extends SMSClient {
   ): void;
   public updateApp(
     args: UpdateAppCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAppCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAppCommandOutput) => void),
     cb?: (err: any, data?: UpdateAppCommandOutput) => void
   ): Promise<UpdateAppCommandOutput> | void {
     const command = new UpdateAppCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1211,7 +1139,7 @@ export class SMS extends SMSClient {
    */
   public updateReplicationJob(
     args: UpdateReplicationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateReplicationJobCommandOutput>;
   public updateReplicationJob(
     args: UpdateReplicationJobCommandInput,
@@ -1224,20 +1152,19 @@ export class SMS extends SMSClient {
   ): void;
   public updateReplicationJob(
     args: UpdateReplicationJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateReplicationJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateReplicationJobCommandOutput) => void),
     cb?: (err: any, data?: UpdateReplicationJobCommandOutput) => void
   ): Promise<UpdateReplicationJobCommandOutput> | void {
     const command = new UpdateReplicationJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

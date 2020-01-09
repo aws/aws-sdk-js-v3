@@ -1,17 +1,20 @@
 import {
   IoT1ClickProjectsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient";
-import { ListPlacementsRequest, ListPlacementsResponse } from "../models/index";
+import {
+  ListPlacementsRequest,
+  ListPlacementsResponse,
+} from "../models/index";
 import {
   deserializeAws_restJson1_1ListPlacementsCommand,
-  serializeAws_restJson1_1ListPlacementsCommand
+  serializeAws_restJson1_1ListPlacementsCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type ListPlacementsCommandInput = ListPlacementsRequest;
 export type ListPlacementsCommandOutput = ListPlacementsResponse;
 
-export class ListPlacementsCommand extends $Command<
-  ListPlacementsCommandInput,
-  ListPlacementsCommandOutput,
-  IoT1ClickProjectsClientResolvedConfig
-> {
+export class ListPlacementsCommand extends $Command<ListPlacementsCommandInput, ListPlacementsCommandOutput, IoT1ClickProjectsClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class ListPlacementsCommand extends $Command<
     configuration: IoT1ClickProjectsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListPlacementsCommandInput, ListPlacementsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

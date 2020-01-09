@@ -1,17 +1,20 @@
 import {
   AmplifyClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../AmplifyClient";
-import { GetArtifactUrlRequest, GetArtifactUrlResult } from "../models/index";
+import {
+  GetArtifactUrlRequest,
+  GetArtifactUrlResult,
+} from "../models/index";
 import {
   deserializeAws_restJson1_1GetArtifactUrlCommand,
-  serializeAws_restJson1_1GetArtifactUrlCommand
+  serializeAws_restJson1_1GetArtifactUrlCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type GetArtifactUrlCommandInput = GetArtifactUrlRequest;
 export type GetArtifactUrlCommandOutput = GetArtifactUrlResult;
 
-export class GetArtifactUrlCommand extends $Command<
-  GetArtifactUrlCommandInput,
-  GetArtifactUrlCommandOutput,
-  AmplifyClientResolvedConfig
-> {
+export class GetArtifactUrlCommand extends $Command<GetArtifactUrlCommandInput, GetArtifactUrlCommandOutput, AmplifyClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class GetArtifactUrlCommand extends $Command<
     configuration: AmplifyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetArtifactUrlCommandInput, GetArtifactUrlCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

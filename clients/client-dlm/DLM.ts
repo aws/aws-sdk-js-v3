@@ -2,42 +2,42 @@ import { DLMClient } from "./DLMClient";
 import {
   CreateLifecyclePolicyCommand,
   CreateLifecyclePolicyCommandInput,
-  CreateLifecyclePolicyCommandOutput
+  CreateLifecyclePolicyCommandOutput,
 } from "./commands/CreateLifecyclePolicyCommand";
 import {
   DeleteLifecyclePolicyCommand,
   DeleteLifecyclePolicyCommandInput,
-  DeleteLifecyclePolicyCommandOutput
+  DeleteLifecyclePolicyCommandOutput,
 } from "./commands/DeleteLifecyclePolicyCommand";
 import {
   GetLifecyclePoliciesCommand,
   GetLifecyclePoliciesCommandInput,
-  GetLifecyclePoliciesCommandOutput
+  GetLifecyclePoliciesCommandOutput,
 } from "./commands/GetLifecyclePoliciesCommand";
 import {
   GetLifecyclePolicyCommand,
   GetLifecyclePolicyCommandInput,
-  GetLifecyclePolicyCommandOutput
+  GetLifecyclePolicyCommandOutput,
 } from "./commands/GetLifecyclePolicyCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateLifecyclePolicyCommand,
   UpdateLifecyclePolicyCommandInput,
-  UpdateLifecyclePolicyCommandOutput
+  UpdateLifecyclePolicyCommandOutput,
 } from "./commands/UpdateLifecyclePolicyCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -60,7 +60,7 @@ export class DLM extends DLMClient {
    */
   public createLifecyclePolicy(
     args: CreateLifecyclePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateLifecyclePolicyCommandOutput>;
   public createLifecyclePolicy(
     args: CreateLifecyclePolicyCommandInput,
@@ -73,18 +73,16 @@ export class DLM extends DLMClient {
   ): void;
   public createLifecyclePolicy(
     args: CreateLifecyclePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLifecyclePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLifecyclePolicyCommandOutput) => void),
     cb?: (err: any, data?: CreateLifecyclePolicyCommandOutput) => void
   ): Promise<CreateLifecyclePolicyCommandOutput> | void {
     const command = new CreateLifecyclePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -98,7 +96,7 @@ export class DLM extends DLMClient {
    */
   public deleteLifecyclePolicy(
     args: DeleteLifecyclePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteLifecyclePolicyCommandOutput>;
   public deleteLifecyclePolicy(
     args: DeleteLifecyclePolicyCommandInput,
@@ -111,18 +109,16 @@ export class DLM extends DLMClient {
   ): void;
   public deleteLifecyclePolicy(
     args: DeleteLifecyclePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLifecyclePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLifecyclePolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteLifecyclePolicyCommandOutput) => void
   ): Promise<DeleteLifecyclePolicyCommandOutput> | void {
     const command = new DeleteLifecyclePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -136,7 +132,7 @@ export class DLM extends DLMClient {
    */
   public getLifecyclePolicies(
     args: GetLifecyclePoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetLifecyclePoliciesCommandOutput>;
   public getLifecyclePolicies(
     args: GetLifecyclePoliciesCommandInput,
@@ -149,18 +145,16 @@ export class DLM extends DLMClient {
   ): void;
   public getLifecyclePolicies(
     args: GetLifecyclePoliciesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLifecyclePoliciesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLifecyclePoliciesCommandOutput) => void),
     cb?: (err: any, data?: GetLifecyclePoliciesCommandOutput) => void
   ): Promise<GetLifecyclePoliciesCommandOutput> | void {
     const command = new GetLifecyclePoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -173,7 +167,7 @@ export class DLM extends DLMClient {
    */
   public getLifecyclePolicy(
     args: GetLifecyclePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetLifecyclePolicyCommandOutput>;
   public getLifecyclePolicy(
     args: GetLifecyclePolicyCommandInput,
@@ -186,18 +180,16 @@ export class DLM extends DLMClient {
   ): void;
   public getLifecyclePolicy(
     args: GetLifecyclePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLifecyclePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLifecyclePolicyCommandOutput) => void),
     cb?: (err: any, data?: GetLifecyclePolicyCommandOutput) => void
   ): Promise<GetLifecyclePolicyCommandOutput> | void {
     const command = new GetLifecyclePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -210,7 +202,7 @@ export class DLM extends DLMClient {
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListTagsForResourceCommandOutput>;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -223,18 +215,16 @@ export class DLM extends DLMClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -247,7 +237,7 @@ export class DLM extends DLMClient {
    */
   public tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<TagResourceCommandOutput>;
   public tagResource(
     args: TagResourceCommandInput,
@@ -260,18 +250,16 @@ export class DLM extends DLMClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -284,7 +272,7 @@ export class DLM extends DLMClient {
    */
   public untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UntagResourceCommandOutput>;
   public untagResource(
     args: UntagResourceCommandInput,
@@ -297,18 +285,16 @@ export class DLM extends DLMClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -321,7 +307,7 @@ export class DLM extends DLMClient {
    */
   public updateLifecyclePolicy(
     args: UpdateLifecyclePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateLifecyclePolicyCommandOutput>;
   public updateLifecyclePolicy(
     args: UpdateLifecyclePolicyCommandInput,
@@ -334,20 +320,19 @@ export class DLM extends DLMClient {
   ): void;
   public updateLifecyclePolicy(
     args: UpdateLifecyclePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateLifecyclePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLifecyclePolicyCommandOutput) => void),
     cb?: (err: any, data?: UpdateLifecyclePolicyCommandOutput) => void
   ): Promise<UpdateLifecyclePolicyCommandOutput> | void {
     const command = new UpdateLifecyclePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

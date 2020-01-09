@@ -309,7 +309,7 @@ export namespace ExportJournalToS3Response {
 export enum ExportStatus {
   CANCELLED = "CANCELLED",
   COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS"
+  IN_PROGRESS = "IN_PROGRESS",
 }
 
 export interface GetBlockRequest {
@@ -490,9 +490,7 @@ export namespace GetRevisionResponse {
  *          <p>One or more parameters in the request aren't valid.</p>
  *
  */
-export interface InvalidParameterException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidParameterException";
   $fault: "client";
   Message?: string;
@@ -599,7 +597,7 @@ export enum LedgerState {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
   DELETED = "DELETED",
-  DELETING = "DELETING"
+  DELETING = "DELETING",
 }
 
 /**
@@ -643,9 +641,7 @@ export namespace LedgerSummary {
  *          <p>You have reached the limit on the maximum number of resources allowed.</p>
  *
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -892,7 +888,7 @@ export namespace ListTagsForResourceResponse {
 }
 
 export enum PermissionsMode {
-  ALLOW_ALL = "ALLOW_ALL"
+  ALLOW_ALL = "ALLOW_ALL",
 }
 
 /**
@@ -900,9 +896,7 @@ export enum PermissionsMode {
  *          <p>The specified resource already exists.</p>
  *
  */
-export interface ResourceAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -932,9 +926,7 @@ export namespace ResourceAlreadyExistsException {
  *          <p>The specified resource can't be modified at this time.</p>
  *
  */
-export interface ResourceInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   Message?: string;
@@ -964,9 +956,7 @@ export namespace ResourceInUseException {
  *          <p>The specified resource doesn't exist.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -996,9 +986,7 @@ export namespace ResourceNotFoundException {
  *          <p>The operation failed because a condition wasn't satisfied in advance.</p>
  *
  */
-export interface ResourcePreconditionNotMetException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourcePreconditionNotMetException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourcePreconditionNotMetException";
   $fault: "client";
   Message?: string;
@@ -1126,7 +1114,7 @@ export namespace S3ExportConfiguration {
 export enum S3ObjectEncryptionType {
   NO_ENCRYPTION = "NO_ENCRYPTION",
   SSE_KMS = "SSE_KMS",
-  SSE_S3 = "SSE_S3"
+  SSE_S3 = "SSE_S3",
 }
 
 export interface TagResourceRequest {

@@ -40,12 +40,12 @@ export namespace AgentListEntry {
 
 export enum AgentStatus {
   OFFLINE = "OFFLINE",
-  ONLINE = "ONLINE"
+  ONLINE = "ONLINE",
 }
 
 export enum Atime {
   BEST_EFFORT = "BEST_EFFORT",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 /**
@@ -1533,7 +1533,7 @@ export namespace Ec2Config {
 export enum EndpointType {
   FIPS = "FIPS",
   PRIVATE_LINK = "PRIVATE_LINK",
-  PUBLIC = "PUBLIC"
+  PUBLIC = "PUBLIC",
 }
 
 /**
@@ -1571,14 +1571,14 @@ export namespace FilterRule {
 }
 
 export enum FilterType {
-  SIMPLE_PATTERN = "SIMPLE_PATTERN"
+  SIMPLE_PATTERN = "SIMPLE_PATTERN",
 }
 
 export enum Gid {
   BOTH = "BOTH",
   INT_VALUE = "INT_VALUE",
   NAME = "NAME",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 /**
@@ -1586,9 +1586,7 @@ export enum Gid {
  *          <p>This exception is thrown when an error occurs in the AWS DataSync service.</p>
  *
  */
-export interface InternalException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalException";
   $fault: "server";
   errorCode?: string;
@@ -1606,9 +1604,7 @@ export namespace InternalException {
  *          <p>This exception is thrown when the client submits a malformed request.</p>
  *
  */
-export interface InvalidRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRequestException";
   $fault: "client";
   errorCode?: string;
@@ -1972,7 +1968,7 @@ export namespace LocationListEntry {
 
 export enum Mtime {
   NONE = "NONE",
-  PRESERVE = "PRESERVE"
+  PRESERVE = "PRESERVE",
 }
 
 /**
@@ -2030,7 +2026,7 @@ export enum NfsVersion {
   AUTOMATIC = "AUTOMATIC",
   NFS3 = "NFS3",
   NFS4_0 = "NFS4_0",
-  NFS4_1 = "NFS4_1"
+  NFS4_1 = "NFS4_1",
 }
 
 /**
@@ -2222,28 +2218,28 @@ export namespace Options {
 
 export enum OverwriteMode {
   ALWAYS = "ALWAYS",
-  NEVER = "NEVER"
+  NEVER = "NEVER",
 }
 
 export enum PhaseStatus {
   ERROR = "ERROR",
   PENDING = "PENDING",
-  SUCCESS = "SUCCESS"
+  SUCCESS = "SUCCESS",
 }
 
 export enum PosixPermissions {
   NONE = "NONE",
-  PRESERVE = "PRESERVE"
+  PRESERVE = "PRESERVE",
 }
 
 export enum PreserveDeletedFiles {
   PRESERVE = "PRESERVE",
-  REMOVE = "REMOVE"
+  REMOVE = "REMOVE",
 }
 
 export enum PreserveDevices {
   NONE = "NONE",
-  PRESERVE = "PRESERVE"
+  PRESERVE = "PRESERVE",
 }
 
 /**
@@ -2326,7 +2322,7 @@ export enum S3StorageClass {
   INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
   ONEZONE_IA = "ONEZONE_IA",
   STANDARD = "STANDARD",
-  STANDARD_IA = "STANDARD_IA"
+  STANDARD_IA = "STANDARD_IA",
 }
 
 /**
@@ -2356,7 +2352,7 @@ export namespace SmbMountOptions {
 export enum SmbVersion {
   AUTOMATIC = "AUTOMATIC",
   SMB2 = "SMB2",
-  SMB3 = "SMB3"
+  SMB3 = "SMB3",
 }
 
 /**
@@ -2616,7 +2612,7 @@ export enum TaskExecutionStatus {
   QUEUED = "QUEUED",
   SUCCESS = "SUCCESS",
   TRANSFERRING = "TRANSFERRING",
-  VERIFYING = "VERIFYING"
+  VERIFYING = "VERIFYING",
 }
 
 /**
@@ -2660,7 +2656,7 @@ export namespace TaskListEntry {
 
 export enum TaskQueueing {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 /**
@@ -2691,14 +2687,14 @@ export enum TaskStatus {
   CREATING = "CREATING",
   QUEUED = "QUEUED",
   RUNNING = "RUNNING",
-  UNAVAILABLE = "UNAVAILABLE"
+  UNAVAILABLE = "UNAVAILABLE",
 }
 
 export enum Uid {
   BOTH = "BOTH",
   INT_VALUE = "INT_VALUE",
   NAME = "NAME",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 /**
@@ -2862,5 +2858,5 @@ export namespace UpdateTaskResponse {
 export enum VerifyMode {
   NONE = "NONE",
   ONLY_FILES_TRANSFERRED = "ONLY_FILES_TRANSFERRED",
-  POINT_IN_TIME_CONSISTENT = "POINT_IN_TIME_CONSISTENT"
+  POINT_IN_TIME_CONSISTENT = "POINT_IN_TIME_CONSISTENT",
 }

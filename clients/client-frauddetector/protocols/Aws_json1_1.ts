@@ -905,7 +905,7 @@ async function deserializeAws_json1_1BatchCreateVariableCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -922,7 +922,6 @@ async function deserializeAws_json1_1BatchCreateVariableCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -960,7 +959,7 @@ async function deserializeAws_json1_1BatchGetVariableCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -977,7 +976,6 @@ async function deserializeAws_json1_1BatchGetVariableCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -1015,7 +1013,7 @@ async function deserializeAws_json1_1CreateDetectorVersionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1036,7 +1034,6 @@ async function deserializeAws_json1_1CreateDetectorVersionCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -1074,7 +1071,7 @@ async function deserializeAws_json1_1CreateModelVersionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1091,7 +1088,6 @@ async function deserializeAws_json1_1CreateModelVersionCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -1129,7 +1125,7 @@ async function deserializeAws_json1_1CreateRuleCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1146,7 +1142,6 @@ async function deserializeAws_json1_1CreateRuleCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -1184,7 +1179,7 @@ async function deserializeAws_json1_1CreateVariableCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1201,7 +1196,6 @@ async function deserializeAws_json1_1CreateVariableCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -1239,7 +1233,7 @@ async function deserializeAws_json1_1DeleteDetectorVersionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1260,7 +1254,6 @@ async function deserializeAws_json1_1DeleteDetectorVersionCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -1298,7 +1291,7 @@ async function deserializeAws_json1_1DeleteEventCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1311,7 +1304,6 @@ async function deserializeAws_json1_1DeleteEventCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -1349,7 +1341,7 @@ async function deserializeAws_json1_1DescribeDetectorCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1370,7 +1362,6 @@ async function deserializeAws_json1_1DescribeDetectorCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -1408,7 +1399,7 @@ async function deserializeAws_json1_1DescribeModelVersionsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1429,7 +1420,6 @@ async function deserializeAws_json1_1DescribeModelVersionsCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -1467,7 +1457,7 @@ async function deserializeAws_json1_1GetDetectorVersionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1488,7 +1478,6 @@ async function deserializeAws_json1_1GetDetectorVersionCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -1526,7 +1515,7 @@ async function deserializeAws_json1_1GetDetectorsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1547,7 +1536,6 @@ async function deserializeAws_json1_1GetDetectorsCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -1585,7 +1573,7 @@ async function deserializeAws_json1_1GetExternalModelsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1606,7 +1594,6 @@ async function deserializeAws_json1_1GetExternalModelsCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -1644,7 +1631,7 @@ async function deserializeAws_json1_1GetModelVersionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1665,7 +1652,6 @@ async function deserializeAws_json1_1GetModelVersionCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -1703,7 +1689,7 @@ async function deserializeAws_json1_1GetModelsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1724,7 +1710,6 @@ async function deserializeAws_json1_1GetModelsCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -1762,7 +1747,7 @@ async function deserializeAws_json1_1GetOutcomesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1783,7 +1768,6 @@ async function deserializeAws_json1_1GetOutcomesCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -1821,7 +1805,7 @@ async function deserializeAws_json1_1GetPredictionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1842,7 +1826,6 @@ async function deserializeAws_json1_1GetPredictionCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -1880,7 +1863,7 @@ async function deserializeAws_json1_1GetRulesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1901,7 +1884,6 @@ async function deserializeAws_json1_1GetRulesCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -1939,7 +1921,7 @@ async function deserializeAws_json1_1GetVariablesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1960,7 +1942,6 @@ async function deserializeAws_json1_1GetVariablesCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -1998,7 +1979,7 @@ async function deserializeAws_json1_1PutDetectorCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2015,7 +1996,6 @@ async function deserializeAws_json1_1PutDetectorCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -2053,7 +2033,7 @@ async function deserializeAws_json1_1PutExternalModelCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2070,7 +2050,6 @@ async function deserializeAws_json1_1PutExternalModelCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -2108,7 +2087,7 @@ async function deserializeAws_json1_1PutModelCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2125,7 +2104,6 @@ async function deserializeAws_json1_1PutModelCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -2163,7 +2141,7 @@ async function deserializeAws_json1_1PutOutcomeCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2180,7 +2158,6 @@ async function deserializeAws_json1_1PutOutcomeCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -2218,7 +2195,7 @@ async function deserializeAws_json1_1UpdateDetectorVersionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2239,7 +2216,6 @@ async function deserializeAws_json1_1UpdateDetectorVersionCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -2277,7 +2253,7 @@ async function deserializeAws_json1_1UpdateDetectorVersionMetadataCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2294,7 +2270,6 @@ async function deserializeAws_json1_1UpdateDetectorVersionMetadataCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -2332,7 +2307,7 @@ async function deserializeAws_json1_1UpdateDetectorVersionStatusCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2353,7 +2328,6 @@ async function deserializeAws_json1_1UpdateDetectorVersionStatusCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -2391,7 +2365,7 @@ async function deserializeAws_json1_1UpdateModelVersionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2412,7 +2386,6 @@ async function deserializeAws_json1_1UpdateModelVersionCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -2450,7 +2423,7 @@ async function deserializeAws_json1_1UpdateRuleMetadataCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2471,7 +2444,6 @@ async function deserializeAws_json1_1UpdateRuleMetadataCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -2509,7 +2481,7 @@ async function deserializeAws_json1_1UpdateRuleVersionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2530,7 +2502,6 @@ async function deserializeAws_json1_1UpdateRuleVersionCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",
@@ -2568,7 +2539,7 @@ async function deserializeAws_json1_1UpdateVariableCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2589,7 +2560,6 @@ async function deserializeAws_json1_1UpdateVariableCommandError(
       response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.hawksnest.servicefacade#${errorCode}`,
         $fault: "client",

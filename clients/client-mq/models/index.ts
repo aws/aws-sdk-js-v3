@@ -21,9 +21,7 @@ export namespace AvailabilityZone {
 /**
  * Returns information about an error.
  */
-export interface BadRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BadRequestException";
   $fault: "client";
   /**
@@ -129,7 +127,7 @@ export enum BrokerState {
   CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
   DELETION_IN_PROGRESS = "DELETION_IN_PROGRESS",
   REBOOT_IN_PROGRESS = "REBOOT_IN_PROGRESS",
-  RUNNING = "RUNNING"
+  RUNNING = "RUNNING",
 }
 
 /**
@@ -182,7 +180,7 @@ export namespace BrokerSummary {
 export enum ChangeType {
   CREATE = "CREATE",
   DELETE = "DELETE",
-  UPDATE = "UPDATE"
+  UPDATE = "UPDATE",
 }
 
 /**
@@ -321,9 +319,7 @@ export namespace Configurations {
 /**
  * Returns information about an error.
  */
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConflictException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ConflictException";
   $fault: "client";
   /**
@@ -596,7 +592,7 @@ export enum DayOfWeek {
   SUNDAY = "SUNDAY",
   THURSDAY = "THURSDAY",
   TUESDAY = "TUESDAY",
-  WEDNESDAY = "WEDNESDAY"
+  WEDNESDAY = "WEDNESDAY",
 }
 
 export interface DeleteBrokerRequest {
@@ -677,7 +673,7 @@ export namespace DeleteUserResponse {
 
 export enum DeploymentMode {
   ACTIVE_STANDBY_MULTI_AZ = "ACTIVE_STANDBY_MULTI_AZ",
-  SINGLE_INSTANCE = "SINGLE_INSTANCE"
+  SINGLE_INSTANCE = "SINGLE_INSTANCE",
 }
 
 export interface DescribeBrokerEngineTypesRequest {
@@ -1111,7 +1107,7 @@ export namespace EncryptionOptions {
 }
 
 export enum EngineType {
-  ACTIVEMQ = "ACTIVEMQ"
+  ACTIVEMQ = "ACTIVEMQ",
 }
 
 /**
@@ -1134,9 +1130,7 @@ export namespace EngineVersion {
 /**
  * Returns information about an error.
  */
-export interface ForbiddenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ForbiddenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ForbiddenException";
   $fault: "client";
   /**
@@ -1159,9 +1153,7 @@ export namespace ForbiddenException {
 /**
  * Returns information about an error.
  */
-export interface InternalServerErrorException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerErrorException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerErrorException";
   $fault: "server";
   /**
@@ -1458,9 +1450,7 @@ export namespace LogsSummary {
 /**
  * Returns information about an error.
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   /**
@@ -1556,15 +1546,13 @@ export namespace SanitizationWarning {
 export enum SanitizationWarningReason {
   DISALLOWED_ATTRIBUTE_REMOVED = "DISALLOWED_ATTRIBUTE_REMOVED",
   DISALLOWED_ELEMENT_REMOVED = "DISALLOWED_ELEMENT_REMOVED",
-  INVALID_ATTRIBUTE_VALUE_REMOVED = "INVALID_ATTRIBUTE_VALUE_REMOVED"
+  INVALID_ATTRIBUTE_VALUE_REMOVED = "INVALID_ATTRIBUTE_VALUE_REMOVED",
 }
 
 /**
  * Returns information about an error.
  */
-export interface UnauthorizedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnauthorizedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "UnauthorizedException";
   $fault: "client";
   /**

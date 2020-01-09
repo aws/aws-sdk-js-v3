@@ -248,9 +248,7 @@ export namespace AwsApiCallAction {
  *          <p>Bad request exception object.</p>
  *
  */
-export interface BadRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BadRequestException";
   $fault: "client";
   /**
@@ -1257,12 +1255,12 @@ export namespace DestinationProperties {
 }
 
 export enum DestinationType {
-  S3 = "S3"
+  S3 = "S3",
 }
 
 export enum DetectorStatus {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export interface DisassociateFromMasterAccountRequest {
@@ -1398,12 +1396,12 @@ export namespace Evidence {
 
 export enum Feedback {
   NOT_USEFUL = "NOT_USEFUL",
-  USEFUL = "USEFUL"
+  USEFUL = "USEFUL",
 }
 
 export enum FilterAction {
   ARCHIVE = "ARCHIVE",
-  NOOP = "NOOP"
+  NOOP = "NOOP",
 }
 
 /**
@@ -1552,11 +1550,11 @@ export namespace FindingCriteria {
 export enum FindingPublishingFrequency {
   FIFTEEN_MINUTES = "FIFTEEN_MINUTES",
   ONE_HOUR = "ONE_HOUR",
-  SIX_HOURS = "SIX_HOURS"
+  SIX_HOURS = "SIX_HOURS",
 }
 
 export enum FindingStatisticType {
-  COUNT_BY_SEVERITY = "COUNT_BY_SEVERITY"
+  COUNT_BY_SEVERITY = "COUNT_BY_SEVERITY",
 }
 
 /**
@@ -2218,9 +2216,7 @@ export namespace InstanceDetails {
  *          <p>Internal server error exception object.</p>
  *
  */
-export interface InternalServerErrorException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerErrorException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerErrorException";
   $fault: "server";
   /**
@@ -2351,7 +2347,7 @@ export enum IpSetFormat {
   OTX_CSV = "OTX_CSV",
   PROOF_POINT = "PROOF_POINT",
   STIX = "STIX",
-  TXT = "TXT"
+  TXT = "TXT",
 }
 
 export enum IpSetStatus {
@@ -2361,7 +2357,7 @@ export enum IpSetStatus {
   DELETED = "DELETED",
   DELETE_PENDING = "DELETE_PENDING",
   ERROR = "ERROR",
-  INACTIVE = "INACTIVE"
+  INACTIVE = "INACTIVE",
 }
 
 export interface ListDetectorsRequest {
@@ -3295,7 +3291,7 @@ export namespace NetworkInterface {
 
 export enum OrderBy {
   ASC = "ASC",
-  DESC = "DESC"
+  DESC = "DESC",
 }
 
 /**
@@ -3456,7 +3452,7 @@ export enum PublishingStatus {
   PENDING_VERIFICATION = "PENDING_VERIFICATION",
   PUBLISHING = "PUBLISHING",
   STOPPED = "STOPPED",
-  UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY = "UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY"
+  UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY = "UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY",
 }
 
 /**
@@ -3866,7 +3862,7 @@ export enum ThreatIntelSetFormat {
   OTX_CSV = "OTX_CSV",
   PROOF_POINT = "PROOF_POINT",
   STIX = "STIX",
-  TXT = "TXT"
+  TXT = "TXT",
 }
 
 export enum ThreatIntelSetStatus {
@@ -3876,7 +3872,7 @@ export enum ThreatIntelSetStatus {
   DELETED = "DELETED",
   DELETE_PENDING = "DELETE_PENDING",
   ERROR = "ERROR",
-  INACTIVE = "INACTIVE"
+  INACTIVE = "INACTIVE",
 }
 
 /**

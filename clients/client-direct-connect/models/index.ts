@@ -34,18 +34,12 @@ export interface AcceptDirectConnectGatewayAssociationProposalRequest {
 }
 
 export namespace AcceptDirectConnectGatewayAssociationProposalRequest {
-  export function isa(
-    o: any
-  ): o is AcceptDirectConnectGatewayAssociationProposalRequest {
-    return _smithy.isa(
-      o,
-      "AcceptDirectConnectGatewayAssociationProposalRequest"
-    );
+  export function isa(o: any): o is AcceptDirectConnectGatewayAssociationProposalRequest {
+    return _smithy.isa(o, "AcceptDirectConnectGatewayAssociationProposalRequest");
   }
 }
 
-export interface AcceptDirectConnectGatewayAssociationProposalResult
-  extends $MetadataBearer {
+export interface AcceptDirectConnectGatewayAssociationProposalResult extends $MetadataBearer {
   __type?: "AcceptDirectConnectGatewayAssociationProposalResult";
   /**
    *
@@ -56,19 +50,14 @@ export interface AcceptDirectConnectGatewayAssociationProposalResult
 }
 
 export namespace AcceptDirectConnectGatewayAssociationProposalResult {
-  export function isa(
-    o: any
-  ): o is AcceptDirectConnectGatewayAssociationProposalResult {
-    return _smithy.isa(
-      o,
-      "AcceptDirectConnectGatewayAssociationProposalResult"
-    );
+  export function isa(o: any): o is AcceptDirectConnectGatewayAssociationProposalResult {
+    return _smithy.isa(o, "AcceptDirectConnectGatewayAssociationProposalResult");
   }
 }
 
 export enum AddressFamily {
   IPv4 = "ipv4",
-  IPv6 = "ipv6"
+  IPv6 = "ipv6",
 }
 
 export interface AllocateConnectionOnInterconnectRequest {
@@ -183,9 +172,7 @@ export interface AllocatePrivateVirtualInterfaceRequest {
    *          <p>Information about the private virtual interface.</p>
    *
    */
-  newPrivateVirtualInterfaceAllocation:
-    | NewPrivateVirtualInterfaceAllocation
-    | undefined;
+  newPrivateVirtualInterfaceAllocation: NewPrivateVirtualInterfaceAllocation | undefined;
 
   /**
    *
@@ -215,9 +202,7 @@ export interface AllocatePublicVirtualInterfaceRequest {
    *          <p>Information about the public virtual interface.</p>
    *
    */
-  newPublicVirtualInterfaceAllocation:
-    | NewPublicVirtualInterfaceAllocation
-    | undefined;
+  newPublicVirtualInterfaceAllocation: NewPublicVirtualInterfaceAllocation | undefined;
 
   /**
    *
@@ -247,9 +232,7 @@ export interface AllocateTransitVirtualInterfaceRequest {
    *          <p>Information about the transit virtual interface.</p>
    *
    */
-  newTransitVirtualInterfaceAllocation:
-    | NewTransitVirtualInterfaceAllocation
-    | undefined;
+  newTransitVirtualInterfaceAllocation: NewTransitVirtualInterfaceAllocation | undefined;
 
   /**
    *
@@ -511,13 +494,13 @@ export enum BGPPeerState {
   Deleted = "deleted",
   Deleting = "deleting",
   Pending = "pending",
-  Verifying = "verifying"
+  Verifying = "verifying",
 }
 
 export enum BGPStatus {
   Down = "down",
   Unknown = "unknown",
-  Up = "up"
+  Up = "up",
 }
 
 export interface ConfirmConnectionRequest {
@@ -621,8 +604,7 @@ export namespace ConfirmPrivateVirtualInterfaceRequest {
   }
 }
 
-export interface ConfirmPrivateVirtualInterfaceResponse
-  extends $MetadataBearer {
+export interface ConfirmPrivateVirtualInterfaceResponse extends $MetadataBearer {
   __type?: "ConfirmPrivateVirtualInterfaceResponse";
   /**
    *
@@ -771,8 +753,7 @@ export namespace ConfirmTransitVirtualInterfaceRequest {
   }
 }
 
-export interface ConfirmTransitVirtualInterfaceResponse
-  extends $MetadataBearer {
+export interface ConfirmTransitVirtualInterfaceResponse extends $MetadataBearer {
   __type?: "ConfirmTransitVirtualInterfaceResponse";
   /**
    *
@@ -999,16 +980,7 @@ export namespace Connection {
   }
 }
 
-export type ConnectionState =
-  | "available"
-  | "deleted"
-  | "deleting"
-  | "down"
-  | "ordering"
-  | "pending"
-  | "rejected"
-  | "requested"
-  | "unknown";
+export type ConnectionState = "available" | "deleted" | "deleting" | "down" | "ordering" | "pending" | "rejected" | "requested" | "unknown"
 
 export interface Connections extends $MetadataBearer {
   __type?: "Connections";
@@ -1155,18 +1127,12 @@ export interface CreateDirectConnectGatewayAssociationProposalRequest {
 }
 
 export namespace CreateDirectConnectGatewayAssociationProposalRequest {
-  export function isa(
-    o: any
-  ): o is CreateDirectConnectGatewayAssociationProposalRequest {
-    return _smithy.isa(
-      o,
-      "CreateDirectConnectGatewayAssociationProposalRequest"
-    );
+  export function isa(o: any): o is CreateDirectConnectGatewayAssociationProposalRequest {
+    return _smithy.isa(o, "CreateDirectConnectGatewayAssociationProposalRequest");
   }
 }
 
-export interface CreateDirectConnectGatewayAssociationProposalResult
-  extends $MetadataBearer {
+export interface CreateDirectConnectGatewayAssociationProposalResult extends $MetadataBearer {
   __type?: "CreateDirectConnectGatewayAssociationProposalResult";
   /**
    *
@@ -1177,13 +1143,8 @@ export interface CreateDirectConnectGatewayAssociationProposalResult
 }
 
 export namespace CreateDirectConnectGatewayAssociationProposalResult {
-  export function isa(
-    o: any
-  ): o is CreateDirectConnectGatewayAssociationProposalResult {
-    return _smithy.isa(
-      o,
-      "CreateDirectConnectGatewayAssociationProposalResult"
-    );
+  export function isa(o: any): o is CreateDirectConnectGatewayAssociationProposalResult {
+    return _smithy.isa(o, "CreateDirectConnectGatewayAssociationProposalResult");
   }
 }
 
@@ -1221,15 +1182,12 @@ export interface CreateDirectConnectGatewayAssociationRequest {
 }
 
 export namespace CreateDirectConnectGatewayAssociationRequest {
-  export function isa(
-    o: any
-  ): o is CreateDirectConnectGatewayAssociationRequest {
+  export function isa(o: any): o is CreateDirectConnectGatewayAssociationRequest {
     return _smithy.isa(o, "CreateDirectConnectGatewayAssociationRequest");
   }
 }
 
-export interface CreateDirectConnectGatewayAssociationResult
-  extends $MetadataBearer {
+export interface CreateDirectConnectGatewayAssociationResult extends $MetadataBearer {
   __type?: "CreateDirectConnectGatewayAssociationResult";
   /**
    *
@@ -1240,9 +1198,7 @@ export interface CreateDirectConnectGatewayAssociationResult
 }
 
 export namespace CreateDirectConnectGatewayAssociationResult {
-  export function isa(
-    o: any
-  ): o is CreateDirectConnectGatewayAssociationResult {
+  export function isa(o: any): o is CreateDirectConnectGatewayAssociationResult {
     return _smithy.isa(o, "CreateDirectConnectGatewayAssociationResult");
   }
 }
@@ -1569,18 +1525,12 @@ export interface DeleteDirectConnectGatewayAssociationProposalRequest {
 }
 
 export namespace DeleteDirectConnectGatewayAssociationProposalRequest {
-  export function isa(
-    o: any
-  ): o is DeleteDirectConnectGatewayAssociationProposalRequest {
-    return _smithy.isa(
-      o,
-      "DeleteDirectConnectGatewayAssociationProposalRequest"
-    );
+  export function isa(o: any): o is DeleteDirectConnectGatewayAssociationProposalRequest {
+    return _smithy.isa(o, "DeleteDirectConnectGatewayAssociationProposalRequest");
   }
 }
 
-export interface DeleteDirectConnectGatewayAssociationProposalResult
-  extends $MetadataBearer {
+export interface DeleteDirectConnectGatewayAssociationProposalResult extends $MetadataBearer {
   __type?: "DeleteDirectConnectGatewayAssociationProposalResult";
   /**
    *
@@ -1591,13 +1541,8 @@ export interface DeleteDirectConnectGatewayAssociationProposalResult
 }
 
 export namespace DeleteDirectConnectGatewayAssociationProposalResult {
-  export function isa(
-    o: any
-  ): o is DeleteDirectConnectGatewayAssociationProposalResult {
-    return _smithy.isa(
-      o,
-      "DeleteDirectConnectGatewayAssociationProposalResult"
-    );
+  export function isa(o: any): o is DeleteDirectConnectGatewayAssociationProposalResult {
+    return _smithy.isa(o, "DeleteDirectConnectGatewayAssociationProposalResult");
   }
 }
 
@@ -1626,15 +1571,12 @@ export interface DeleteDirectConnectGatewayAssociationRequest {
 }
 
 export namespace DeleteDirectConnectGatewayAssociationRequest {
-  export function isa(
-    o: any
-  ): o is DeleteDirectConnectGatewayAssociationRequest {
+  export function isa(o: any): o is DeleteDirectConnectGatewayAssociationRequest {
     return _smithy.isa(o, "DeleteDirectConnectGatewayAssociationRequest");
   }
 }
 
-export interface DeleteDirectConnectGatewayAssociationResult
-  extends $MetadataBearer {
+export interface DeleteDirectConnectGatewayAssociationResult extends $MetadataBearer {
   __type?: "DeleteDirectConnectGatewayAssociationResult";
   /**
    *
@@ -1645,9 +1587,7 @@ export interface DeleteDirectConnectGatewayAssociationResult
 }
 
 export namespace DeleteDirectConnectGatewayAssociationResult {
-  export function isa(
-    o: any
-  ): o is DeleteDirectConnectGatewayAssociationResult {
+  export function isa(o: any): o is DeleteDirectConnectGatewayAssociationResult {
     return _smithy.isa(o, "DeleteDirectConnectGatewayAssociationResult");
   }
 }
@@ -1956,27 +1896,19 @@ export interface DescribeDirectConnectGatewayAssociationProposalsRequest {
 }
 
 export namespace DescribeDirectConnectGatewayAssociationProposalsRequest {
-  export function isa(
-    o: any
-  ): o is DescribeDirectConnectGatewayAssociationProposalsRequest {
-    return _smithy.isa(
-      o,
-      "DescribeDirectConnectGatewayAssociationProposalsRequest"
-    );
+  export function isa(o: any): o is DescribeDirectConnectGatewayAssociationProposalsRequest {
+    return _smithy.isa(o, "DescribeDirectConnectGatewayAssociationProposalsRequest");
   }
 }
 
-export interface DescribeDirectConnectGatewayAssociationProposalsResult
-  extends $MetadataBearer {
+export interface DescribeDirectConnectGatewayAssociationProposalsResult extends $MetadataBearer {
   __type?: "DescribeDirectConnectGatewayAssociationProposalsResult";
   /**
    *
    *          <p>Describes the Direct Connect gateway association proposals.</p>
    *
    */
-  directConnectGatewayAssociationProposals?: Array<
-    DirectConnectGatewayAssociationProposal
-  >;
+  directConnectGatewayAssociationProposals?: Array<DirectConnectGatewayAssociationProposal>;
 
   /**
    *
@@ -1987,13 +1919,8 @@ export interface DescribeDirectConnectGatewayAssociationProposalsResult
 }
 
 export namespace DescribeDirectConnectGatewayAssociationProposalsResult {
-  export function isa(
-    o: any
-  ): o is DescribeDirectConnectGatewayAssociationProposalsResult {
-    return _smithy.isa(
-      o,
-      "DescribeDirectConnectGatewayAssociationProposalsResult"
-    );
+  export function isa(o: any): o is DescribeDirectConnectGatewayAssociationProposalsResult {
+    return _smithy.isa(o, "DescribeDirectConnectGatewayAssociationProposalsResult");
   }
 }
 
@@ -2046,15 +1973,12 @@ export interface DescribeDirectConnectGatewayAssociationsRequest {
 }
 
 export namespace DescribeDirectConnectGatewayAssociationsRequest {
-  export function isa(
-    o: any
-  ): o is DescribeDirectConnectGatewayAssociationsRequest {
+  export function isa(o: any): o is DescribeDirectConnectGatewayAssociationsRequest {
     return _smithy.isa(o, "DescribeDirectConnectGatewayAssociationsRequest");
   }
 }
 
-export interface DescribeDirectConnectGatewayAssociationsResult
-  extends $MetadataBearer {
+export interface DescribeDirectConnectGatewayAssociationsResult extends $MetadataBearer {
   __type?: "DescribeDirectConnectGatewayAssociationsResult";
   /**
    *
@@ -2072,9 +1996,7 @@ export interface DescribeDirectConnectGatewayAssociationsResult
 }
 
 export namespace DescribeDirectConnectGatewayAssociationsResult {
-  export function isa(
-    o: any
-  ): o is DescribeDirectConnectGatewayAssociationsResult {
+  export function isa(o: any): o is DescribeDirectConnectGatewayAssociationsResult {
     return _smithy.isa(o, "DescribeDirectConnectGatewayAssociationsResult");
   }
 }
@@ -2114,15 +2036,12 @@ export interface DescribeDirectConnectGatewayAttachmentsRequest {
 }
 
 export namespace DescribeDirectConnectGatewayAttachmentsRequest {
-  export function isa(
-    o: any
-  ): o is DescribeDirectConnectGatewayAttachmentsRequest {
+  export function isa(o: any): o is DescribeDirectConnectGatewayAttachmentsRequest {
     return _smithy.isa(o, "DescribeDirectConnectGatewayAttachmentsRequest");
   }
 }
 
-export interface DescribeDirectConnectGatewayAttachmentsResult
-  extends $MetadataBearer {
+export interface DescribeDirectConnectGatewayAttachmentsResult extends $MetadataBearer {
   __type?: "DescribeDirectConnectGatewayAttachmentsResult";
   /**
    *
@@ -2140,9 +2059,7 @@ export interface DescribeDirectConnectGatewayAttachmentsResult
 }
 
 export namespace DescribeDirectConnectGatewayAttachmentsResult {
-  export function isa(
-    o: any
-  ): o is DescribeDirectConnectGatewayAttachmentsResult {
+  export function isa(o: any): o is DescribeDirectConnectGatewayAttachmentsResult {
     return _smithy.isa(o, "DescribeDirectConnectGatewayAttachmentsResult");
   }
 }
@@ -2388,9 +2305,7 @@ export namespace DescribeVirtualInterfacesRequest {
  *          <p>One or more parameters are not valid.</p>
  *
  */
-export interface DirectConnectClientException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DirectConnectClientException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DirectConnectClientException";
   $fault: "client";
   message?: string;
@@ -2656,17 +2571,9 @@ export namespace DirectConnectGatewayAssociationProposal {
   }
 }
 
-export type DirectConnectGatewayAssociationProposalState =
-  | "accepted"
-  | "deleted"
-  | "requested";
+export type DirectConnectGatewayAssociationProposalState = "accepted" | "deleted" | "requested"
 
-export type DirectConnectGatewayAssociationState =
-  | "associated"
-  | "associating"
-  | "disassociated"
-  | "disassociating"
-  | "updating";
+export type DirectConnectGatewayAssociationState = "associated" | "associating" | "disassociated" | "disassociating" | "updating"
 
 /**
  *
@@ -2749,30 +2656,18 @@ export namespace DirectConnectGatewayAttachment {
   }
 }
 
-export type DirectConnectGatewayAttachmentState =
-  | "attached"
-  | "attaching"
-  | "detached"
-  | "detaching";
+export type DirectConnectGatewayAttachmentState = "attached" | "attaching" | "detached" | "detaching"
 
-export type DirectConnectGatewayAttachmentType =
-  | "PrivateVirtualInterface"
-  | "TransitVirtualInterface";
+export type DirectConnectGatewayAttachmentType = "PrivateVirtualInterface" | "TransitVirtualInterface"
 
-export type DirectConnectGatewayState =
-  | "available"
-  | "deleted"
-  | "deleting"
-  | "pending";
+export type DirectConnectGatewayState = "available" | "deleted" | "deleting" | "pending"
 
 /**
  *
  *          <p>A server-side error occurred.</p>
  *
  */
-export interface DirectConnectServerException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DirectConnectServerException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DirectConnectServerException";
   $fault: "client";
   message?: string;
@@ -2812,9 +2707,7 @@ export namespace DisassociateConnectionFromLagRequest {
  *          <p>A tag key was specified more than once.</p>
  *
  */
-export interface DuplicateTagKeysException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DuplicateTagKeysException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DuplicateTagKeysException";
   $fault: "client";
   message?: string;
@@ -2828,13 +2721,13 @@ export namespace DuplicateTagKeysException {
 
 export enum GatewayType {
   TransitGateway = "transitGateway",
-  VirtualPrivateGateway = "virtualPrivateGateway"
+  VirtualPrivateGateway = "virtualPrivateGateway",
 }
 
 export enum HasLogicalRedundancy {
   No = "no",
   Unknown = "unknown",
-  Yes = "yes"
+  Yes = "yes",
 }
 
 /**
@@ -2981,14 +2874,7 @@ export namespace Interconnect {
   }
 }
 
-export type InterconnectState =
-  | "available"
-  | "deleted"
-  | "deleting"
-  | "down"
-  | "pending"
-  | "requested"
-  | "unknown";
+export type InterconnectState = "available" | "deleted" | "deleting" | "down" | "pending" | "requested" | "unknown"
 
 export interface Interconnects extends $MetadataBearer {
   __type?: "Interconnects";
@@ -3172,14 +3058,7 @@ export namespace Lag {
   }
 }
 
-export type LagState =
-  | "available"
-  | "deleted"
-  | "deleting"
-  | "down"
-  | "pending"
-  | "requested"
-  | "unknown";
+export type LagState = "available" | "deleted" | "deleting" | "down" | "pending" | "requested" | "unknown"
 
 export interface Lags extends $MetadataBearer {
   __type?: "Lags";
@@ -3226,7 +3105,7 @@ export namespace Loa {
 }
 
 export enum LoaContentType {
-  PDF = "application/pdf"
+  PDF = "application/pdf",
 }
 
 /**
@@ -3948,9 +3827,7 @@ export namespace TagResourceResponse {
  *          <p>You have reached the limit on the number of tags that can be assigned.</p>
  *
  */
-export interface TooManyTagsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TooManyTagsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TooManyTagsException";
   $fault: "client";
   message?: string;
@@ -4020,15 +3897,12 @@ export interface UpdateDirectConnectGatewayAssociationRequest {
 }
 
 export namespace UpdateDirectConnectGatewayAssociationRequest {
-  export function isa(
-    o: any
-  ): o is UpdateDirectConnectGatewayAssociationRequest {
+  export function isa(o: any): o is UpdateDirectConnectGatewayAssociationRequest {
     return _smithy.isa(o, "UpdateDirectConnectGatewayAssociationRequest");
   }
 }
 
-export interface UpdateDirectConnectGatewayAssociationResult
-  extends $MetadataBearer {
+export interface UpdateDirectConnectGatewayAssociationResult extends $MetadataBearer {
   __type?: "UpdateDirectConnectGatewayAssociationResult";
   /**
    *
@@ -4039,9 +3913,7 @@ export interface UpdateDirectConnectGatewayAssociationResult
 }
 
 export namespace UpdateDirectConnectGatewayAssociationResult {
-  export function isa(
-    o: any
-  ): o is UpdateDirectConnectGatewayAssociationResult {
+  export function isa(o: any): o is UpdateDirectConnectGatewayAssociationResult {
     return _smithy.isa(o, "UpdateDirectConnectGatewayAssociationResult");
   }
 }
@@ -4384,16 +4256,7 @@ export namespace VirtualInterface {
   }
 }
 
-export type VirtualInterfaceState =
-  | "available"
-  | "confirming"
-  | "deleted"
-  | "deleting"
-  | "down"
-  | "pending"
-  | "rejected"
-  | "unknown"
-  | "verifying";
+export type VirtualInterfaceState = "available" | "confirming" | "deleted" | "deleting" | "down" | "pending" | "rejected" | "unknown" | "verifying"
 
 export interface VirtualInterfaces extends $MetadataBearer {
   __type?: "VirtualInterfaces";

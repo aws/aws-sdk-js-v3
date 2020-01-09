@@ -385,7 +385,7 @@ async function deserializeAws_json1_1CreateBackupCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -418,7 +418,6 @@ async function deserializeAws_json1_1CreateBackupCommandError(
       response = await deserializeAws_json1_1UnsupportedOperationResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
         $fault: "client",
@@ -456,7 +455,7 @@ async function deserializeAws_json1_1CreateFileSystemCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -497,7 +496,6 @@ async function deserializeAws_json1_1CreateFileSystemCommandError(
       response = await deserializeAws_json1_1ServiceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
         $fault: "client",
@@ -535,7 +533,7 @@ async function deserializeAws_json1_1CreateFileSystemFromBackupCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -572,7 +570,6 @@ async function deserializeAws_json1_1CreateFileSystemFromBackupCommandError(
       response = await deserializeAws_json1_1ServiceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
         $fault: "client",
@@ -610,7 +607,7 @@ async function deserializeAws_json1_1DeleteBackupCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -639,7 +636,6 @@ async function deserializeAws_json1_1DeleteBackupCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
         $fault: "client",
@@ -677,7 +673,7 @@ async function deserializeAws_json1_1DeleteFileSystemCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -702,7 +698,6 @@ async function deserializeAws_json1_1DeleteFileSystemCommandError(
       response = await deserializeAws_json1_1ServiceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
         $fault: "client",
@@ -740,7 +735,7 @@ async function deserializeAws_json1_1DescribeBackupsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -761,7 +756,6 @@ async function deserializeAws_json1_1DescribeBackupsCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
         $fault: "client",
@@ -799,7 +793,7 @@ async function deserializeAws_json1_1DescribeFileSystemsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -816,7 +810,6 @@ async function deserializeAws_json1_1DescribeFileSystemsCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
         $fault: "client",
@@ -854,7 +847,7 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -879,7 +872,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
         $fault: "client",
@@ -917,7 +909,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -942,7 +934,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
         $fault: "client",
@@ -980,7 +971,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1005,7 +996,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
         $fault: "client",
@@ -1043,7 +1033,7 @@ async function deserializeAws_json1_1UpdateFileSystemCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1072,7 +1062,6 @@ async function deserializeAws_json1_1UpdateFileSystemCommandError(
       response = await deserializeAws_json1_1UnsupportedOperationResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.simba.api.v20180301#${errorCode}`,
         $fault: "client",

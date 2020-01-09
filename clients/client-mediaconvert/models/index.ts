@@ -3,13 +3,13 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AacAudioDescriptionBroadcasterMix {
   BROADCASTER_MIXED_AD = "BROADCASTER_MIXED_AD",
-  NORMAL = "NORMAL"
+  NORMAL = "NORMAL",
 }
 
 export enum AacCodecProfile {
   HEV1 = "HEV1",
   HEV2 = "HEV2",
-  LC = "LC"
+  LC = "LC",
 }
 
 export enum AacCodingMode {
@@ -17,17 +17,17 @@ export enum AacCodingMode {
   CODING_MODE_1_0 = "CODING_MODE_1_0",
   CODING_MODE_1_1 = "CODING_MODE_1_1",
   CODING_MODE_2_0 = "CODING_MODE_2_0",
-  CODING_MODE_5_1 = "CODING_MODE_5_1"
+  CODING_MODE_5_1 = "CODING_MODE_5_1",
 }
 
 export enum AacRateControlMode {
   CBR = "CBR",
-  VBR = "VBR"
+  VBR = "VBR",
 }
 
 export enum AacRawFormat {
   LATM_LOAS = "LATM_LOAS",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 /**
@@ -89,14 +89,14 @@ export namespace AacSettings {
 
 export enum AacSpecification {
   MPEG2 = "MPEG2",
-  MPEG4 = "MPEG4"
+  MPEG4 = "MPEG4",
 }
 
 export enum AacVbrQuality {
   HIGH = "HIGH",
   LOW = "LOW",
   MEDIUM_HIGH = "MEDIUM_HIGH",
-  MEDIUM_LOW = "MEDIUM_LOW"
+  MEDIUM_LOW = "MEDIUM_LOW",
 }
 
 export enum Ac3BitstreamMode {
@@ -107,29 +107,29 @@ export enum Ac3BitstreamMode {
   HEARING_IMPAIRED = "HEARING_IMPAIRED",
   MUSIC_AND_EFFECTS = "MUSIC_AND_EFFECTS",
   VISUALLY_IMPAIRED = "VISUALLY_IMPAIRED",
-  VOICE_OVER = "VOICE_OVER"
+  VOICE_OVER = "VOICE_OVER",
 }
 
 export enum Ac3CodingMode {
   CODING_MODE_1_0 = "CODING_MODE_1_0",
   CODING_MODE_1_1 = "CODING_MODE_1_1",
   CODING_MODE_2_0 = "CODING_MODE_2_0",
-  CODING_MODE_3_2_LFE = "CODING_MODE_3_2_LFE"
+  CODING_MODE_3_2_LFE = "CODING_MODE_3_2_LFE",
 }
 
 export enum Ac3DynamicRangeCompressionProfile {
   FILM_STANDARD = "FILM_STANDARD",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 export enum Ac3LfeFilter {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum Ac3MetadataControl {
   FOLLOW_INPUT = "FOLLOW_INPUT",
-  USE_CONFIGURED = "USE_CONFIGURED"
+  USE_CONFIGURED = "USE_CONFIGURED",
 }
 
 /**
@@ -187,7 +187,7 @@ export namespace Ac3Settings {
 export enum AccelerationMode {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
-  PREFERRED = "PREFERRED"
+  PREFERRED = "PREFERRED",
 }
 
 /**
@@ -211,13 +211,13 @@ export enum AccelerationStatus {
   ACCELERATED = "ACCELERATED",
   IN_PROGRESS = "IN_PROGRESS",
   NOT_ACCELERATED = "NOT_ACCELERATED",
-  NOT_APPLICABLE = "NOT_APPLICABLE"
+  NOT_APPLICABLE = "NOT_APPLICABLE",
 }
 
 export enum AfdSignaling {
   AUTO = "AUTO",
   FIXED = "FIXED",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 /**
@@ -249,12 +249,12 @@ export namespace AiffSettings {
 
 export enum AlphaBehavior {
   DISCARD = "DISCARD",
-  REMAP_TO_LUMA = "REMAP_TO_LUMA"
+  REMAP_TO_LUMA = "REMAP_TO_LUMA",
 }
 
 export enum AncillaryConvert608To708 {
   DISABLED = "DISABLED",
-  UPCONVERT = "UPCONVERT"
+  UPCONVERT = "UPCONVERT",
 }
 
 /**
@@ -286,12 +286,12 @@ export namespace AncillarySourceSettings {
 
 export enum AncillaryTerminateCaptions {
   DISABLED = "DISABLED",
-  END_OF_INPUT = "END_OF_INPUT"
+  END_OF_INPUT = "END_OF_INPUT",
 }
 
 export enum AntiAlias {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export interface AssociateCertificateRequest {
@@ -326,7 +326,7 @@ export enum AudioCodec {
   EAC3_ATMOS = "EAC3_ATMOS",
   MP2 = "MP2",
   PASSTHROUGH = "PASSTHROUGH",
-  WAV = "WAV"
+  WAV = "WAV",
 }
 
 /**
@@ -383,7 +383,7 @@ export namespace AudioCodecSettings {
 
 export enum AudioDefaultSelection {
   DEFAULT = "DEFAULT",
-  NOT_DEFAULT = "NOT_DEFAULT"
+  NOT_DEFAULT = "NOT_DEFAULT",
 }
 
 /**
@@ -450,29 +450,29 @@ export namespace AudioDescription {
 
 export enum AudioLanguageCodeControl {
   FOLLOW_INPUT = "FOLLOW_INPUT",
-  USE_CONFIGURED = "USE_CONFIGURED"
+  USE_CONFIGURED = "USE_CONFIGURED",
 }
 
 export enum AudioNormalizationAlgorithm {
   ITU_BS_1770_1 = "ITU_BS_1770_1",
   ITU_BS_1770_2 = "ITU_BS_1770_2",
   ITU_BS_1770_3 = "ITU_BS_1770_3",
-  ITU_BS_1770_4 = "ITU_BS_1770_4"
+  ITU_BS_1770_4 = "ITU_BS_1770_4",
 }
 
 export enum AudioNormalizationAlgorithmControl {
   CORRECT_AUDIO = "CORRECT_AUDIO",
-  MEASURE_ONLY = "MEASURE_ONLY"
+  MEASURE_ONLY = "MEASURE_ONLY",
 }
 
 export enum AudioNormalizationLoudnessLogging {
   DONT_LOG = "DONT_LOG",
-  LOG = "LOG"
+  LOG = "LOG",
 }
 
 export enum AudioNormalizationPeakCalculation {
   NONE = "NONE",
-  TRUE_PEAK = "TRUE_PEAK"
+  TRUE_PEAK = "TRUE_PEAK",
 }
 
 /**
@@ -599,12 +599,12 @@ export namespace AudioSelectorGroup {
 export enum AudioSelectorType {
   LANGUAGE_CODE = "LANGUAGE_CODE",
   PID = "PID",
-  TRACK = "TRACK"
+  TRACK = "TRACK",
 }
 
 export enum AudioTypeControl {
   FOLLOW_INPUT = "FOLLOW_INPUT",
-  USE_CONFIGURED = "USE_CONFIGURED"
+  USE_CONFIGURED = "USE_CONFIGURED",
 }
 
 /**
@@ -627,9 +627,7 @@ export namespace AvailBlanking {
 /**
  * The service can't process your request because of a problem in the request. Please check your request form and syntax.
  */
-export interface BadRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BadRequestException";
   $fault: "client";
   Message?: string;
@@ -645,7 +643,7 @@ export enum BillingTagsSource {
   JOB = "JOB",
   JOB_TEMPLATE = "JOB_TEMPLATE",
   PRESET = "PRESET",
-  QUEUE = "QUEUE"
+  QUEUE = "QUEUE",
 }
 
 /**
@@ -751,13 +749,13 @@ export namespace BurninDestinationSettings {
 
 export enum BurninSubtitleAlignment {
   CENTERED = "CENTERED",
-  LEFT = "LEFT"
+  LEFT = "LEFT",
 }
 
 export enum BurninSubtitleBackgroundColor {
   BLACK = "BLACK",
   NONE = "NONE",
-  WHITE = "WHITE"
+  WHITE = "WHITE",
 }
 
 export enum BurninSubtitleFontColor {
@@ -766,7 +764,7 @@ export enum BurninSubtitleFontColor {
   GREEN = "GREEN",
   RED = "RED",
   WHITE = "WHITE",
-  YELLOW = "YELLOW"
+  YELLOW = "YELLOW",
 }
 
 export enum BurninSubtitleOutlineColor {
@@ -775,18 +773,18 @@ export enum BurninSubtitleOutlineColor {
   GREEN = "GREEN",
   RED = "RED",
   WHITE = "WHITE",
-  YELLOW = "YELLOW"
+  YELLOW = "YELLOW",
 }
 
 export enum BurninSubtitleShadowColor {
   BLACK = "BLACK",
   NONE = "NONE",
-  WHITE = "WHITE"
+  WHITE = "WHITE",
 }
 
 export enum BurninSubtitleTeletextSpacing {
   FIXED_GRID = "FIXED_GRID",
-  PROPORTIONAL = "PROPORTIONAL"
+  PROPORTIONAL = "PROPORTIONAL",
 }
 
 export interface CancelJobRequest {
@@ -946,7 +944,7 @@ export enum CaptionDestinationType {
   SRT = "SRT",
   TELETEXT = "TELETEXT",
   TTML = "TTML",
-  WEBVTT = "WEBVTT"
+  WEBVTT = "WEBVTT",
 }
 
 /**
@@ -1035,7 +1033,7 @@ export enum CaptionSourceType {
   SRT = "SRT",
   STL = "STL",
   TELETEXT = "TELETEXT",
-  TTML = "TTML"
+  TTML = "TTML",
 }
 
 /**
@@ -1079,12 +1077,12 @@ export namespace CmafAdditionalManifest {
 
 export enum CmafClientCache {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum CmafCodecSpecification {
   RFC_4281 = "RFC_4281",
-  RFC_6381 = "RFC_6381"
+  RFC_6381 = "RFC_6381",
 }
 
 /**
@@ -1131,7 +1129,7 @@ export namespace CmafEncryptionSettings {
 
 export enum CmafEncryptionType {
   AES_CTR = "AES_CTR",
-  SAMPLE_AES = "SAMPLE_AES"
+  SAMPLE_AES = "SAMPLE_AES",
 }
 
 /**
@@ -1238,47 +1236,47 @@ export namespace CmafGroupSettings {
 
 export enum CmafInitializationVectorInManifest {
   EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE"
+  INCLUDE = "INCLUDE",
 }
 
 export enum CmafKeyProviderType {
   SPEKE = "SPEKE",
-  STATIC_KEY = "STATIC_KEY"
+  STATIC_KEY = "STATIC_KEY",
 }
 
 export enum CmafManifestCompression {
   GZIP = "GZIP",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 export enum CmafManifestDurationFormat {
   FLOATING_POINT = "FLOATING_POINT",
-  INTEGER = "INTEGER"
+  INTEGER = "INTEGER",
 }
 
 export enum CmafMpdProfile {
   MAIN_PROFILE = "MAIN_PROFILE",
-  ON_DEMAND_PROFILE = "ON_DEMAND_PROFILE"
+  ON_DEMAND_PROFILE = "ON_DEMAND_PROFILE",
 }
 
 export enum CmafSegmentControl {
   SEGMENTED_FILES = "SEGMENTED_FILES",
-  SINGLE_FILE = "SINGLE_FILE"
+  SINGLE_FILE = "SINGLE_FILE",
 }
 
 export enum CmafStreamInfResolution {
   EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE"
+  INCLUDE = "INCLUDE",
 }
 
 export enum CmafWriteDASHManifest {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum CmafWriteHLSManifest {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 /**
@@ -1325,7 +1323,7 @@ export namespace ColorCorrector {
 
 export enum ColorMetadata {
   IGNORE = "IGNORE",
-  INSERT = "INSERT"
+  INSERT = "INSERT",
 }
 
 export enum ColorSpace {
@@ -1333,7 +1331,7 @@ export enum ColorSpace {
   HDR10 = "HDR10",
   HLG_2020 = "HLG_2020",
   REC_601 = "REC_601",
-  REC_709 = "REC_709"
+  REC_709 = "REC_709",
 }
 
 export enum ColorSpaceConversion {
@@ -1341,24 +1339,22 @@ export enum ColorSpaceConversion {
   FORCE_709 = "FORCE_709",
   FORCE_HDR10 = "FORCE_HDR10",
   FORCE_HLG_2020 = "FORCE_HLG_2020",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 export enum ColorSpaceUsage {
   FALLBACK = "FALLBACK",
-  FORCE = "FORCE"
+  FORCE = "FORCE",
 }
 
 export enum Commitment {
-  ONE_YEAR = "ONE_YEAR"
+  ONE_YEAR = "ONE_YEAR",
 }
 
 /**
  * The service couldn't complete your request because there is a conflict with the current state of the resource.
  */
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConflictException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ConflictException";
   $fault: "client";
   Message?: string;
@@ -1427,7 +1423,7 @@ export enum ContainerType {
   MP4 = "MP4",
   MPD = "MPD",
   MXF = "MXF",
-  RAW = "RAW"
+  RAW = "RAW",
 }
 
 export interface CreateJobRequest {
@@ -1789,9 +1785,7 @@ export interface DashIsoGroupSettings {
   /**
    * If you get an HTTP error in the 400 range when you play back your DASH output, enable this setting and run your transcoding job again. When you enable this setting, the service writes precise segment durations in the DASH manifest. The segment duration information appears inside the SegmentTimeline element, inside SegmentTemplate at the Representation level. When you don't enable this setting, the service writes approximate segment durations in your DASH manifest.
    */
-  WriteSegmentTimelineInRepresentation?:
-    | DashIsoWriteSegmentTimelineInRepresentation
-    | string;
+  WriteSegmentTimelineInRepresentation?: DashIsoWriteSegmentTimelineInRepresentation | string;
 }
 
 export namespace DashIsoGroupSettings {
@@ -1802,40 +1796,40 @@ export namespace DashIsoGroupSettings {
 
 export enum DashIsoHbbtvCompliance {
   HBBTV_1_5 = "HBBTV_1_5",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 export enum DashIsoMpdProfile {
   MAIN_PROFILE = "MAIN_PROFILE",
-  ON_DEMAND_PROFILE = "ON_DEMAND_PROFILE"
+  ON_DEMAND_PROFILE = "ON_DEMAND_PROFILE",
 }
 
 export enum DashIsoPlaybackDeviceCompatibility {
   CENC_V1 = "CENC_V1",
-  UNENCRYPTED_SEI = "UNENCRYPTED_SEI"
+  UNENCRYPTED_SEI = "UNENCRYPTED_SEI",
 }
 
 export enum DashIsoSegmentControl {
   SEGMENTED_FILES = "SEGMENTED_FILES",
-  SINGLE_FILE = "SINGLE_FILE"
+  SINGLE_FILE = "SINGLE_FILE",
 }
 
 export enum DashIsoWriteSegmentTimelineInRepresentation {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum DecryptionMode {
   AES_CBC = "AES_CBC",
   AES_CTR = "AES_CTR",
-  AES_GCM = "AES_GCM"
+  AES_GCM = "AES_GCM",
 }
 
 export enum DeinterlaceAlgorithm {
   BLEND = "BLEND",
   BLEND_TICKER = "BLEND_TICKER",
   INTERPOLATE = "INTERPOLATE",
-  INTERPOLATE_TICKER = "INTERPOLATE_TICKER"
+  INTERPOLATE_TICKER = "INTERPOLATE_TICKER",
 }
 
 /**
@@ -1867,13 +1861,13 @@ export namespace Deinterlacer {
 
 export enum DeinterlacerControl {
   FORCE_ALL_FRAMES = "FORCE_ALL_FRAMES",
-  NORMAL = "NORMAL"
+  NORMAL = "NORMAL",
 }
 
 export enum DeinterlacerMode {
   ADAPTIVE = "ADAPTIVE",
   DEINTERLACE = "DEINTERLACE",
-  INVERSE_TELECINE = "INVERSE_TELECINE"
+  INVERSE_TELECINE = "INVERSE_TELECINE",
 }
 
 export interface DeleteJobTemplateRequest {
@@ -1950,7 +1944,7 @@ export namespace DeleteQueueResponse {
 
 export enum DescribeEndpointsMode {
   DEFAULT = "DEFAULT",
-  GET_ONLY = "GET_ONLY"
+  GET_ONLY = "GET_ONLY",
 }
 
 /**
@@ -2092,16 +2086,16 @@ export namespace DolbyVisionLevel6Metadata {
 export enum DolbyVisionLevel6Mode {
   PASSTHROUGH = "PASSTHROUGH",
   RECALCULATE = "RECALCULATE",
-  SPECIFY = "SPECIFY"
+  SPECIFY = "SPECIFY",
 }
 
 export enum DolbyVisionProfile {
-  PROFILE_5 = "PROFILE_5"
+  PROFILE_5 = "PROFILE_5",
 }
 
 export enum DropFrameTimecode {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 /**
@@ -2288,13 +2282,13 @@ export namespace DvbSubSourceSettings {
 
 export enum DvbSubtitleAlignment {
   CENTERED = "CENTERED",
-  LEFT = "LEFT"
+  LEFT = "LEFT",
 }
 
 export enum DvbSubtitleBackgroundColor {
   BLACK = "BLACK",
   NONE = "NONE",
-  WHITE = "WHITE"
+  WHITE = "WHITE",
 }
 
 export enum DvbSubtitleFontColor {
@@ -2303,7 +2297,7 @@ export enum DvbSubtitleFontColor {
   GREEN = "GREEN",
   RED = "RED",
   WHITE = "WHITE",
-  YELLOW = "YELLOW"
+  YELLOW = "YELLOW",
 }
 
 export enum DvbSubtitleOutlineColor {
@@ -2312,23 +2306,23 @@ export enum DvbSubtitleOutlineColor {
   GREEN = "GREEN",
   RED = "RED",
   WHITE = "WHITE",
-  YELLOW = "YELLOW"
+  YELLOW = "YELLOW",
 }
 
 export enum DvbSubtitleShadowColor {
   BLACK = "BLACK",
   NONE = "NONE",
-  WHITE = "WHITE"
+  WHITE = "WHITE",
 }
 
 export enum DvbSubtitleTeletextSpacing {
   FIXED_GRID = "FIXED_GRID",
-  PROPORTIONAL = "PROPORTIONAL"
+  PROPORTIONAL = "PROPORTIONAL",
 }
 
 export enum DvbSubtitlingType {
   HEARING_IMPAIRED = "HEARING_IMPAIRED",
-  STANDARD = "STANDARD"
+  STANDARD = "STANDARD",
 }
 
 /**
@@ -2349,16 +2343,16 @@ export namespace DvbTdtSettings {
 }
 
 export enum Eac3AtmosBitstreamMode {
-  COMPLETE_MAIN = "COMPLETE_MAIN"
+  COMPLETE_MAIN = "COMPLETE_MAIN",
 }
 
 export enum Eac3AtmosCodingMode {
-  CODING_MODE_9_1_6 = "CODING_MODE_9_1_6"
+  CODING_MODE_9_1_6 = "CODING_MODE_9_1_6",
 }
 
 export enum Eac3AtmosDialogueIntelligence {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum Eac3AtmosDynamicRangeCompressionLine {
@@ -2367,7 +2361,7 @@ export enum Eac3AtmosDynamicRangeCompressionLine {
   MUSIC_LIGHT = "MUSIC_LIGHT",
   MUSIC_STANDARD = "MUSIC_STANDARD",
   NONE = "NONE",
-  SPEECH = "SPEECH"
+  SPEECH = "SPEECH",
 }
 
 export enum Eac3AtmosDynamicRangeCompressionRf {
@@ -2376,7 +2370,7 @@ export enum Eac3AtmosDynamicRangeCompressionRf {
   MUSIC_LIGHT = "MUSIC_LIGHT",
   MUSIC_STANDARD = "MUSIC_STANDARD",
   NONE = "NONE",
-  SPEECH = "SPEECH"
+  SPEECH = "SPEECH",
 }
 
 export enum Eac3AtmosMeteringMode {
@@ -2384,7 +2378,7 @@ export enum Eac3AtmosMeteringMode {
   ITU_BS_1770_2 = "ITU_BS_1770_2",
   ITU_BS_1770_3 = "ITU_BS_1770_3",
   ITU_BS_1770_4 = "ITU_BS_1770_4",
-  LEQ_A = "LEQ_A"
+  LEQ_A = "LEQ_A",
 }
 
 /**
@@ -2482,18 +2476,18 @@ export enum Eac3AtmosStereoDownmix {
   DPL2 = "DPL2",
   NOT_INDICATED = "NOT_INDICATED",
   STEREO = "STEREO",
-  SURROUND = "SURROUND"
+  SURROUND = "SURROUND",
 }
 
 export enum Eac3AtmosSurroundExMode {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
-  NOT_INDICATED = "NOT_INDICATED"
+  NOT_INDICATED = "NOT_INDICATED",
 }
 
 export enum Eac3AttenuationControl {
   ATTENUATE_3_DB = "ATTENUATE_3_DB",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 export enum Eac3BitstreamMode {
@@ -2501,18 +2495,18 @@ export enum Eac3BitstreamMode {
   COMPLETE_MAIN = "COMPLETE_MAIN",
   EMERGENCY = "EMERGENCY",
   HEARING_IMPAIRED = "HEARING_IMPAIRED",
-  VISUALLY_IMPAIRED = "VISUALLY_IMPAIRED"
+  VISUALLY_IMPAIRED = "VISUALLY_IMPAIRED",
 }
 
 export enum Eac3CodingMode {
   CODING_MODE_1_0 = "CODING_MODE_1_0",
   CODING_MODE_2_0 = "CODING_MODE_2_0",
-  CODING_MODE_3_2 = "CODING_MODE_3_2"
+  CODING_MODE_3_2 = "CODING_MODE_3_2",
 }
 
 export enum Eac3DcFilter {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum Eac3DynamicRangeCompressionLine {
@@ -2521,7 +2515,7 @@ export enum Eac3DynamicRangeCompressionLine {
   MUSIC_LIGHT = "MUSIC_LIGHT",
   MUSIC_STANDARD = "MUSIC_STANDARD",
   NONE = "NONE",
-  SPEECH = "SPEECH"
+  SPEECH = "SPEECH",
 }
 
 export enum Eac3DynamicRangeCompressionRf {
@@ -2530,32 +2524,32 @@ export enum Eac3DynamicRangeCompressionRf {
   MUSIC_LIGHT = "MUSIC_LIGHT",
   MUSIC_STANDARD = "MUSIC_STANDARD",
   NONE = "NONE",
-  SPEECH = "SPEECH"
+  SPEECH = "SPEECH",
 }
 
 export enum Eac3LfeControl {
   LFE = "LFE",
-  NO_LFE = "NO_LFE"
+  NO_LFE = "NO_LFE",
 }
 
 export enum Eac3LfeFilter {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum Eac3MetadataControl {
   FOLLOW_INPUT = "FOLLOW_INPUT",
-  USE_CONFIGURED = "USE_CONFIGURED"
+  USE_CONFIGURED = "USE_CONFIGURED",
 }
 
 export enum Eac3PassthroughControl {
   NO_PASSTHROUGH = "NO_PASSTHROUGH",
-  WHEN_POSSIBLE = "WHEN_POSSIBLE"
+  WHEN_POSSIBLE = "WHEN_POSSIBLE",
 }
 
 export enum Eac3PhaseControl {
   NO_SHIFT = "NO_SHIFT",
-  SHIFT_90_DEGREES = "SHIFT_90_DEGREES"
+  SHIFT_90_DEGREES = "SHIFT_90_DEGREES",
 }
 
 /**
@@ -2679,24 +2673,24 @@ export enum Eac3StereoDownmix {
   DPL2 = "DPL2",
   LO_RO = "LO_RO",
   LT_RT = "LT_RT",
-  NOT_INDICATED = "NOT_INDICATED"
+  NOT_INDICATED = "NOT_INDICATED",
 }
 
 export enum Eac3SurroundExMode {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
-  NOT_INDICATED = "NOT_INDICATED"
+  NOT_INDICATED = "NOT_INDICATED",
 }
 
 export enum Eac3SurroundMode {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
-  NOT_INDICATED = "NOT_INDICATED"
+  NOT_INDICATED = "NOT_INDICATED",
 }
 
 export enum EmbeddedConvert608To708 {
   DISABLED = "DISABLED",
-  UPCONVERT = "UPCONVERT"
+  UPCONVERT = "UPCONVERT",
 }
 
 /**
@@ -2755,7 +2749,7 @@ export namespace EmbeddedSourceSettings {
 
 export enum EmbeddedTerminateCaptions {
   DISABLED = "DISABLED",
-  END_OF_INPUT = "END_OF_INPUT"
+  END_OF_INPUT = "END_OF_INPUT",
 }
 
 /**
@@ -2838,7 +2832,7 @@ export namespace EsamSignalProcessingNotification {
 
 export enum F4vMoovPlacement {
   NORMAL = "NORMAL",
-  PROGRESSIVE_DOWNLOAD = "PROGRESSIVE_DOWNLOAD"
+  PROGRESSIVE_DOWNLOAD = "PROGRESSIVE_DOWNLOAD",
 }
 
 /**
@@ -2882,7 +2876,7 @@ export namespace FileGroupSettings {
 
 export enum FileSourceConvert608To708 {
   DISABLED = "DISABLED",
-  UPCONVERT = "UPCONVERT"
+  UPCONVERT = "UPCONVERT",
 }
 
 /**
@@ -2915,15 +2909,13 @@ export namespace FileSourceSettings {
 export enum FontScript {
   AUTOMATIC = "AUTOMATIC",
   HANS = "HANS",
-  HANT = "HANT"
+  HANT = "HANT",
 }
 
 /**
  * You don't have permissions for this action with the credentials you sent.
  */
-export interface ForbiddenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ForbiddenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ForbiddenException";
   $fault: "client";
   Message?: string;
@@ -3085,7 +3077,7 @@ export enum H264AdaptiveQuantization {
   LOW = "LOW",
   MAX = "MAX",
   MEDIUM = "MEDIUM",
-  OFF = "OFF"
+  OFF = "OFF",
 }
 
 export enum H264CodecLevel {
@@ -3105,7 +3097,7 @@ export enum H264CodecLevel {
   LEVEL_4_2 = "LEVEL_4_2",
   LEVEL_5 = "LEVEL_5",
   LEVEL_5_1 = "LEVEL_5_1",
-  LEVEL_5_2 = "LEVEL_5_2"
+  LEVEL_5_2 = "LEVEL_5_2",
 }
 
 export enum H264CodecProfile {
@@ -3114,47 +3106,47 @@ export enum H264CodecProfile {
   HIGH_10BIT = "HIGH_10BIT",
   HIGH_422 = "HIGH_422",
   HIGH_422_10BIT = "HIGH_422_10BIT",
-  MAIN = "MAIN"
+  MAIN = "MAIN",
 }
 
 export enum H264DynamicSubGop {
   ADAPTIVE = "ADAPTIVE",
-  STATIC = "STATIC"
+  STATIC = "STATIC",
 }
 
 export enum H264EntropyEncoding {
   CABAC = "CABAC",
-  CAVLC = "CAVLC"
+  CAVLC = "CAVLC",
 }
 
 export enum H264FieldEncoding {
   FORCE_FIELD = "FORCE_FIELD",
-  PAFF = "PAFF"
+  PAFF = "PAFF",
 }
 
 export enum H264FlickerAdaptiveQuantization {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum H264FramerateControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED"
+  SPECIFIED = "SPECIFIED",
 }
 
 export enum H264FramerateConversionAlgorithm {
   DUPLICATE_DROP = "DUPLICATE_DROP",
-  INTERPOLATE = "INTERPOLATE"
+  INTERPOLATE = "INTERPOLATE",
 }
 
 export enum H264GopBReference {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum H264GopSizeUnits {
   FRAMES = "FRAMES",
-  SECONDS = "SECONDS"
+  SECONDS = "SECONDS",
 }
 
 export enum H264InterlaceMode {
@@ -3162,18 +3154,18 @@ export enum H264InterlaceMode {
   FOLLOW_BOTTOM_FIELD = "FOLLOW_BOTTOM_FIELD",
   FOLLOW_TOP_FIELD = "FOLLOW_TOP_FIELD",
   PROGRESSIVE = "PROGRESSIVE",
-  TOP_FIELD = "TOP_FIELD"
+  TOP_FIELD = "TOP_FIELD",
 }
 
 export enum H264ParControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED"
+  SPECIFIED = "SPECIFIED",
 }
 
 export enum H264QualityTuningLevel {
   MULTI_PASS_HQ = "MULTI_PASS_HQ",
   SINGLE_PASS = "SINGLE_PASS",
-  SINGLE_PASS_HQ = "SINGLE_PASS_HQ"
+  SINGLE_PASS_HQ = "SINGLE_PASS_HQ",
 }
 
 /**
@@ -3201,18 +3193,18 @@ export namespace H264QvbrSettings {
 export enum H264RateControlMode {
   CBR = "CBR",
   QVBR = "QVBR",
-  VBR = "VBR"
+  VBR = "VBR",
 }
 
 export enum H264RepeatPps {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum H264SceneChangeDetect {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
-  TRANSITION_DETECTION = "TRANSITION_DETECTION"
+  TRANSITION_DETECTION = "TRANSITION_DETECTION",
 }
 
 /**
@@ -3426,33 +3418,33 @@ export namespace H264Settings {
 
 export enum H264SlowPal {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum H264SpatialAdaptiveQuantization {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum H264Syntax {
   DEFAULT = "DEFAULT",
-  RP2027 = "RP2027"
+  RP2027 = "RP2027",
 }
 
 export enum H264Telecine {
   HARD = "HARD",
   NONE = "NONE",
-  SOFT = "SOFT"
+  SOFT = "SOFT",
 }
 
 export enum H264TemporalAdaptiveQuantization {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum H264UnregisteredSeiTimecode {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum H265AdaptiveQuantization {
@@ -3461,12 +3453,12 @@ export enum H265AdaptiveQuantization {
   LOW = "LOW",
   MAX = "MAX",
   MEDIUM = "MEDIUM",
-  OFF = "OFF"
+  OFF = "OFF",
 }
 
 export enum H265AlternateTransferFunctionSei {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum H265CodecLevel {
@@ -3483,7 +3475,7 @@ export enum H265CodecLevel {
   LEVEL_5_2 = "LEVEL_5_2",
   LEVEL_6 = "LEVEL_6",
   LEVEL_6_1 = "LEVEL_6_1",
-  LEVEL_6_2 = "LEVEL_6_2"
+  LEVEL_6_2 = "LEVEL_6_2",
 }
 
 export enum H265CodecProfile {
@@ -3494,37 +3486,37 @@ export enum H265CodecProfile {
   MAIN_422_8BIT_HIGH = "MAIN_422_8BIT_HIGH",
   MAIN_422_8BIT_MAIN = "MAIN_422_8BIT_MAIN",
   MAIN_HIGH = "MAIN_HIGH",
-  MAIN_MAIN = "MAIN_MAIN"
+  MAIN_MAIN = "MAIN_MAIN",
 }
 
 export enum H265DynamicSubGop {
   ADAPTIVE = "ADAPTIVE",
-  STATIC = "STATIC"
+  STATIC = "STATIC",
 }
 
 export enum H265FlickerAdaptiveQuantization {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum H265FramerateControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED"
+  SPECIFIED = "SPECIFIED",
 }
 
 export enum H265FramerateConversionAlgorithm {
   DUPLICATE_DROP = "DUPLICATE_DROP",
-  INTERPOLATE = "INTERPOLATE"
+  INTERPOLATE = "INTERPOLATE",
 }
 
 export enum H265GopBReference {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum H265GopSizeUnits {
   FRAMES = "FRAMES",
-  SECONDS = "SECONDS"
+  SECONDS = "SECONDS",
 }
 
 export enum H265InterlaceMode {
@@ -3532,18 +3524,18 @@ export enum H265InterlaceMode {
   FOLLOW_BOTTOM_FIELD = "FOLLOW_BOTTOM_FIELD",
   FOLLOW_TOP_FIELD = "FOLLOW_TOP_FIELD",
   PROGRESSIVE = "PROGRESSIVE",
-  TOP_FIELD = "TOP_FIELD"
+  TOP_FIELD = "TOP_FIELD",
 }
 
 export enum H265ParControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED"
+  SPECIFIED = "SPECIFIED",
 }
 
 export enum H265QualityTuningLevel {
   MULTI_PASS_HQ = "MULTI_PASS_HQ",
   SINGLE_PASS = "SINGLE_PASS",
-  SINGLE_PASS_HQ = "SINGLE_PASS_HQ"
+  SINGLE_PASS_HQ = "SINGLE_PASS_HQ",
 }
 
 /**
@@ -3571,19 +3563,19 @@ export namespace H265QvbrSettings {
 export enum H265RateControlMode {
   CBR = "CBR",
   QVBR = "QVBR",
-  VBR = "VBR"
+  VBR = "VBR",
 }
 
 export enum H265SampleAdaptiveOffsetFilterMode {
   ADAPTIVE = "ADAPTIVE",
   DEFAULT = "DEFAULT",
-  OFF = "OFF"
+  OFF = "OFF",
 }
 
 export enum H265SceneChangeDetect {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
-  TRANSITION_DETECTION = "TRANSITION_DETECTION"
+  TRANSITION_DETECTION = "TRANSITION_DETECTION",
 }
 
 /**
@@ -3795,43 +3787,43 @@ export namespace H265Settings {
 
 export enum H265SlowPal {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum H265SpatialAdaptiveQuantization {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum H265Telecine {
   HARD = "HARD",
   NONE = "NONE",
-  SOFT = "SOFT"
+  SOFT = "SOFT",
 }
 
 export enum H265TemporalAdaptiveQuantization {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum H265TemporalIds {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum H265Tiles {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum H265UnregisteredSeiTimecode {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum H265WriteMp4PackagingType {
   HEV1 = "HEV1",
-  HVC1 = "HVC1"
+  HVC1 = "HVC1",
 }
 
 /**
@@ -3908,7 +3900,7 @@ export namespace Hdr10Metadata {
 
 export enum HlsAdMarkers {
   ELEMENTAL = "ELEMENTAL",
-  ELEMENTAL_SCTE35 = "ELEMENTAL_SCTE35"
+  ELEMENTAL_SCTE35 = "ELEMENTAL_SCTE35",
 }
 
 /**
@@ -3935,14 +3927,14 @@ export namespace HlsAdditionalManifest {
 
 export enum HlsAudioOnlyContainer {
   AUTOMATIC = "AUTOMATIC",
-  M2TS = "M2TS"
+  M2TS = "M2TS",
 }
 
 export enum HlsAudioTrackType {
   ALTERNATE_AUDIO_AUTO_SELECT = "ALTERNATE_AUDIO_AUTO_SELECT",
   ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT = "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT",
   ALTERNATE_AUDIO_NOT_AUTO_SELECT = "ALTERNATE_AUDIO_NOT_AUTO_SELECT",
-  AUDIO_ONLY_VARIANT_STREAM = "AUDIO_ONLY_VARIANT_STREAM"
+  AUDIO_ONLY_VARIANT_STREAM = "AUDIO_ONLY_VARIANT_STREAM",
 }
 
 /**
@@ -3980,22 +3972,22 @@ export namespace HlsCaptionLanguageMapping {
 export enum HlsCaptionLanguageSetting {
   INSERT = "INSERT",
   NONE = "NONE",
-  OMIT = "OMIT"
+  OMIT = "OMIT",
 }
 
 export enum HlsClientCache {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum HlsCodecSpecification {
   RFC_4281 = "RFC_4281",
-  RFC_6381 = "RFC_6381"
+  RFC_6381 = "RFC_6381",
 }
 
 export enum HlsDirectoryStructure {
   SINGLE_DIRECTORY = "SINGLE_DIRECTORY",
-  SUBDIRECTORY_PER_STREAM = "SUBDIRECTORY_PER_STREAM"
+  SUBDIRECTORY_PER_STREAM = "SUBDIRECTORY_PER_STREAM",
 }
 
 /**
@@ -4047,7 +4039,7 @@ export namespace HlsEncryptionSettings {
 
 export enum HlsEncryptionType {
   AES128 = "AES128",
-  SAMPLE_AES = "SAMPLE_AES"
+  SAMPLE_AES = "SAMPLE_AES",
 }
 
 /**
@@ -4189,47 +4181,47 @@ export namespace HlsGroupSettings {
 
 export enum HlsIFrameOnlyManifest {
   EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE"
+  INCLUDE = "INCLUDE",
 }
 
 export enum HlsInitializationVectorInManifest {
   EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE"
+  INCLUDE = "INCLUDE",
 }
 
 export enum HlsKeyProviderType {
   SPEKE = "SPEKE",
-  STATIC_KEY = "STATIC_KEY"
+  STATIC_KEY = "STATIC_KEY",
 }
 
 export enum HlsManifestCompression {
   GZIP = "GZIP",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 export enum HlsManifestDurationFormat {
   FLOATING_POINT = "FLOATING_POINT",
-  INTEGER = "INTEGER"
+  INTEGER = "INTEGER",
 }
 
 export enum HlsOfflineEncrypted {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum HlsOutputSelection {
   MANIFESTS_AND_SEGMENTS = "MANIFESTS_AND_SEGMENTS",
-  SEGMENTS_ONLY = "SEGMENTS_ONLY"
+  SEGMENTS_ONLY = "SEGMENTS_ONLY",
 }
 
 export enum HlsProgramDateTime {
   EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE"
+  INCLUDE = "INCLUDE",
 }
 
 export enum HlsSegmentControl {
   SEGMENTED_FILES = "SEGMENTED_FILES",
-  SINGLE_FILE = "SINGLE_FILE"
+  SINGLE_FILE = "SINGLE_FILE",
 }
 
 /**
@@ -4276,13 +4268,13 @@ export namespace HlsSettings {
 
 export enum HlsStreamInfResolution {
   EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE"
+  INCLUDE = "INCLUDE",
 }
 
 export enum HlsTimedMetadataId3Frame {
   NONE = "NONE",
   PRIV = "PRIV",
-  TDRL = "TDRL"
+  TDRL = "TDRL",
 }
 
 /**
@@ -4343,7 +4335,7 @@ export namespace ImscDestinationSettings {
 
 export enum ImscStylePassthrough {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 /**
@@ -4477,7 +4469,7 @@ export namespace InputClipping {
 
 export enum InputDeblockFilter {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 /**
@@ -4514,18 +4506,18 @@ export namespace InputDecryptionSettings {
 
 export enum InputDenoiseFilter {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum InputFilterEnable {
   AUTO = "AUTO",
   DISABLE = "DISABLE",
-  FORCE = "FORCE"
+  FORCE = "FORCE",
 }
 
 export enum InputPsiControl {
   IGNORE_PSI = "IGNORE_PSI",
-  USE_PSI = "USE_PSI"
+  USE_PSI = "USE_PSI",
 }
 
 export enum InputRotate {
@@ -4533,7 +4525,7 @@ export enum InputRotate {
   DEGREES_180 = "DEGREES_180",
   DEGREES_270 = "DEGREES_270",
   DEGREES_90 = "DEGREES_90",
-  DEGREE_0 = "DEGREE_0"
+  DEGREE_0 = "DEGREE_0",
 }
 
 /**
@@ -4631,7 +4623,7 @@ export namespace InputTemplate {
 export enum InputTimecodeSource {
   EMBEDDED = "EMBEDDED",
   SPECIFIEDSTART = "SPECIFIEDSTART",
-  ZEROBASED = "ZEROBASED"
+  ZEROBASED = "ZEROBASED",
 }
 
 /**
@@ -4704,9 +4696,7 @@ export namespace InsertableImage {
 /**
  * The service encountered an unexpected condition and can't fulfill your request.
  */
-export interface InternalServerErrorException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerErrorException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerErrorException";
   $fault: "server";
   Message?: string;
@@ -4870,7 +4860,7 @@ export namespace JobMessages {
 export enum JobPhase {
   PROBING = "PROBING",
   TRANSCODING = "TRANSCODING",
-  UPLOADING = "UPLOADING"
+  UPLOADING = "UPLOADING",
 }
 
 /**
@@ -4935,7 +4925,7 @@ export enum JobStatus {
   COMPLETE = "COMPLETE",
   ERROR = "ERROR",
   PROGRESSING = "PROGRESSING",
-  SUBMITTED = "SUBMITTED"
+  SUBMITTED = "SUBMITTED",
 }
 
 /**
@@ -5013,7 +5003,7 @@ export namespace JobTemplate {
 export enum JobTemplateListBy {
   CREATION_DATE = "CREATION_DATE",
   NAME = "NAME",
-  SYSTEM = "SYSTEM"
+  SYSTEM = "SYSTEM",
 }
 
 /**
@@ -5264,7 +5254,7 @@ export enum LanguageCode {
   YOR = "YOR",
   ZHA = "ZHA",
   ZHO = "ZHO",
-  ZUL = "ZUL"
+  ZUL = "ZUL",
 }
 
 export interface ListJobTemplatesRequest {
@@ -5504,47 +5494,47 @@ export namespace ListTagsForResourceResponse {
 
 export enum M2tsAudioBufferModel {
   ATSC = "ATSC",
-  DVB = "DVB"
+  DVB = "DVB",
 }
 
 export enum M2tsBufferModel {
   MULTIPLEX = "MULTIPLEX",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 export enum M2tsEbpAudioInterval {
   VIDEO_AND_FIXED_INTERVALS = "VIDEO_AND_FIXED_INTERVALS",
-  VIDEO_INTERVAL = "VIDEO_INTERVAL"
+  VIDEO_INTERVAL = "VIDEO_INTERVAL",
 }
 
 export enum M2tsEbpPlacement {
   VIDEO_AND_AUDIO_PIDS = "VIDEO_AND_AUDIO_PIDS",
-  VIDEO_PID = "VIDEO_PID"
+  VIDEO_PID = "VIDEO_PID",
 }
 
 export enum M2tsEsRateInPes {
   EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE"
+  INCLUDE = "INCLUDE",
 }
 
 export enum M2tsForceTsVideoEbpOrder {
   DEFAULT = "DEFAULT",
-  FORCE = "FORCE"
+  FORCE = "FORCE",
 }
 
 export enum M2tsNielsenId3 {
   INSERT = "INSERT",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 export enum M2tsPcrControl {
   CONFIGURED_PCR_PERIOD = "CONFIGURED_PCR_PERIOD",
-  PCR_EVERY_PES_PACKET = "PCR_EVERY_PES_PACKET"
+  PCR_EVERY_PES_PACKET = "PCR_EVERY_PES_PACKET",
 }
 
 export enum M2tsRateMode {
   CBR = "CBR",
-  VBR = "VBR"
+  VBR = "VBR",
 }
 
 /**
@@ -5566,7 +5556,7 @@ export namespace M2tsScte35Esam {
 
 export enum M2tsScte35Source {
   NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH"
+  PASSTHROUGH = "PASSTHROUGH",
 }
 
 export enum M2tsSegmentationMarkers {
@@ -5575,12 +5565,12 @@ export enum M2tsSegmentationMarkers {
   NONE = "NONE",
   PSI_SEGSTART = "PSI_SEGSTART",
   RAI_ADAPT = "RAI_ADAPT",
-  RAI_SEGSTART = "RAI_SEGSTART"
+  RAI_SEGSTART = "RAI_SEGSTART",
 }
 
 export enum M2tsSegmentationStyle {
   MAINTAIN_CADENCE = "MAINTAIN_CADENCE",
-  RESET_CADENCE = "RESET_CADENCE"
+  RESET_CADENCE = "RESET_CADENCE",
 }
 
 /**
@@ -5777,17 +5767,17 @@ export namespace M2tsSettings {
 
 export enum M3u8NielsenId3 {
   INSERT = "INSERT",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 export enum M3u8PcrControl {
   CONFIGURED_PCR_PERIOD = "CONFIGURED_PCR_PERIOD",
-  PCR_EVERY_PES_PACKET = "PCR_EVERY_PES_PACKET"
+  PCR_EVERY_PES_PACKET = "PCR_EVERY_PES_PACKET",
 }
 
 export enum M3u8Scte35Source {
   NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH"
+  PASSTHROUGH = "PASSTHROUGH",
 }
 
 /**
@@ -5948,7 +5938,7 @@ export namespace MotionImageInsertionFramerate {
 
 export enum MotionImageInsertionMode {
   MOV = "MOV",
-  PNG = "PNG"
+  PNG = "PNG",
 }
 
 /**
@@ -5975,32 +5965,32 @@ export namespace MotionImageInsertionOffset {
 
 export enum MotionImagePlayback {
   ONCE = "ONCE",
-  REPEAT = "REPEAT"
+  REPEAT = "REPEAT",
 }
 
 export enum MovClapAtom {
   EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE"
+  INCLUDE = "INCLUDE",
 }
 
 export enum MovCslgAtom {
   EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE"
+  INCLUDE = "INCLUDE",
 }
 
 export enum MovMpeg2FourCCControl {
   MPEG = "MPEG",
-  XDCAM = "XDCAM"
+  XDCAM = "XDCAM",
 }
 
 export enum MovPaddingControl {
   NONE = "NONE",
-  OMNEON = "OMNEON"
+  OMNEON = "OMNEON",
 }
 
 export enum MovReference {
   EXTERNAL = "EXTERNAL",
-  SELF_CONTAINED = "SELF_CONTAINED"
+  SELF_CONTAINED = "SELF_CONTAINED",
 }
 
 /**
@@ -6069,17 +6059,17 @@ export namespace Mp2Settings {
 
 export enum Mp4CslgAtom {
   EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE"
+  INCLUDE = "INCLUDE",
 }
 
 export enum Mp4FreeSpaceBox {
   EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE"
+  INCLUDE = "INCLUDE",
 }
 
 export enum Mp4MoovPlacement {
   NORMAL = "NORMAL",
-  PROGRESSIVE_DOWNLOAD = "PROGRESSIVE_DOWNLOAD"
+  PROGRESSIVE_DOWNLOAD = "PROGRESSIVE_DOWNLOAD",
 }
 
 /**
@@ -6116,17 +6106,17 @@ export namespace Mp4Settings {
 
 export enum MpdCaptionContainerType {
   FRAGMENTED_MP4 = "FRAGMENTED_MP4",
-  RAW = "RAW"
+  RAW = "RAW",
 }
 
 export enum MpdScte35Esam {
   INSERT = "INSERT",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 export enum MpdScte35Source {
   NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH"
+  PASSTHROUGH = "PASSTHROUGH",
 }
 
 /**
@@ -6160,7 +6150,7 @@ export enum Mpeg2AdaptiveQuantization {
   HIGH = "HIGH",
   LOW = "LOW",
   MEDIUM = "MEDIUM",
-  OFF = "OFF"
+  OFF = "OFF",
 }
 
 export enum Mpeg2CodecLevel {
@@ -6168,32 +6158,32 @@ export enum Mpeg2CodecLevel {
   HIGH = "HIGH",
   HIGH1440 = "HIGH1440",
   LOW = "LOW",
-  MAIN = "MAIN"
+  MAIN = "MAIN",
 }
 
 export enum Mpeg2CodecProfile {
   MAIN = "MAIN",
-  PROFILE_422 = "PROFILE_422"
+  PROFILE_422 = "PROFILE_422",
 }
 
 export enum Mpeg2DynamicSubGop {
   ADAPTIVE = "ADAPTIVE",
-  STATIC = "STATIC"
+  STATIC = "STATIC",
 }
 
 export enum Mpeg2FramerateControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED"
+  SPECIFIED = "SPECIFIED",
 }
 
 export enum Mpeg2FramerateConversionAlgorithm {
   DUPLICATE_DROP = "DUPLICATE_DROP",
-  INTERPOLATE = "INTERPOLATE"
+  INTERPOLATE = "INTERPOLATE",
 }
 
 export enum Mpeg2GopSizeUnits {
   FRAMES = "FRAMES",
-  SECONDS = "SECONDS"
+  SECONDS = "SECONDS",
 }
 
 export enum Mpeg2InterlaceMode {
@@ -6201,7 +6191,7 @@ export enum Mpeg2InterlaceMode {
   FOLLOW_BOTTOM_FIELD = "FOLLOW_BOTTOM_FIELD",
   FOLLOW_TOP_FIELD = "FOLLOW_TOP_FIELD",
   PROGRESSIVE = "PROGRESSIVE",
-  TOP_FIELD = "TOP_FIELD"
+  TOP_FIELD = "TOP_FIELD",
 }
 
 export enum Mpeg2IntraDcPrecision {
@@ -6209,27 +6199,27 @@ export enum Mpeg2IntraDcPrecision {
   INTRA_DC_PRECISION_10 = "INTRA_DC_PRECISION_10",
   INTRA_DC_PRECISION_11 = "INTRA_DC_PRECISION_11",
   INTRA_DC_PRECISION_8 = "INTRA_DC_PRECISION_8",
-  INTRA_DC_PRECISION_9 = "INTRA_DC_PRECISION_9"
+  INTRA_DC_PRECISION_9 = "INTRA_DC_PRECISION_9",
 }
 
 export enum Mpeg2ParControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED"
+  SPECIFIED = "SPECIFIED",
 }
 
 export enum Mpeg2QualityTuningLevel {
   MULTI_PASS = "MULTI_PASS",
-  SINGLE_PASS = "SINGLE_PASS"
+  SINGLE_PASS = "SINGLE_PASS",
 }
 
 export enum Mpeg2RateControlMode {
   CBR = "CBR",
-  VBR = "VBR"
+  VBR = "VBR",
 }
 
 export enum Mpeg2SceneChangeDetect {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 /**
@@ -6403,28 +6393,28 @@ export namespace Mpeg2Settings {
 
 export enum Mpeg2SlowPal {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum Mpeg2SpatialAdaptiveQuantization {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum Mpeg2Syntax {
   DEFAULT = "DEFAULT",
-  D_10 = "D_10"
+  D_10 = "D_10",
 }
 
 export enum Mpeg2Telecine {
   HARD = "HARD",
   NONE = "NONE",
-  SOFT = "SOFT"
+  SOFT = "SOFT",
 }
 
 export enum Mpeg2TemporalAdaptiveQuantization {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 /**
@@ -6451,7 +6441,7 @@ export namespace MsSmoothAdditionalManifest {
 
 export enum MsSmoothAudioDeduplication {
   COMBINE_DUPLICATE_STREAMS = "COMBINE_DUPLICATE_STREAMS",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 /**
@@ -6520,7 +6510,7 @@ export namespace MsSmoothGroupSettings {
 
 export enum MsSmoothManifestEncoding {
   UTF16 = "UTF16",
-  UTF8 = "UTF8"
+  UTF8 = "UTF8",
 }
 
 /**
@@ -6585,7 +6575,7 @@ export enum NoiseReducerFilter {
   MEAN = "MEAN",
   SHARPEN = "SHARPEN",
   SPATIAL = "SPATIAL",
-  TEMPORAL = "TEMPORAL"
+  TEMPORAL = "TEMPORAL",
 }
 
 /**
@@ -6662,9 +6652,7 @@ export namespace NoiseReducerTemporalFilterSettings {
 /**
  * The resource you requested doesn't exist.
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   Message?: string;
@@ -6678,7 +6666,7 @@ export namespace NotFoundException {
 
 export enum Order {
   ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING"
+  DESCENDING = "DESCENDING",
 }
 
 /**
@@ -6868,14 +6856,14 @@ export enum OutputGroupType {
   DASH_ISO_GROUP_SETTINGS = "DASH_ISO_GROUP_SETTINGS",
   FILE_GROUP_SETTINGS = "FILE_GROUP_SETTINGS",
   HLS_GROUP_SETTINGS = "HLS_GROUP_SETTINGS",
-  MS_SMOOTH_GROUP_SETTINGS = "MS_SMOOTH_GROUP_SETTINGS"
+  MS_SMOOTH_GROUP_SETTINGS = "MS_SMOOTH_GROUP_SETTINGS",
 }
 
 export enum OutputSdt {
   SDT_FOLLOW = "SDT_FOLLOW",
   SDT_FOLLOW_IF_PRESENT = "SDT_FOLLOW_IF_PRESENT",
   SDT_MANUAL = "SDT_MANUAL",
-  SDT_NONE = "SDT_NONE"
+  SDT_NONE = "SDT_NONE",
 }
 
 /**
@@ -6950,7 +6938,7 @@ export namespace Preset {
 export enum PresetListBy {
   CREATION_DATE = "CREATION_DATE",
   NAME = "NAME",
-  SYSTEM = "SYSTEM"
+  SYSTEM = "SYSTEM",
 }
 
 /**
@@ -6987,24 +6975,24 @@ export namespace PresetSettings {
 
 export enum PricingPlan {
   ON_DEMAND = "ON_DEMAND",
-  RESERVED = "RESERVED"
+  RESERVED = "RESERVED",
 }
 
 export enum ProresCodecProfile {
   APPLE_PRORES_422 = "APPLE_PRORES_422",
   APPLE_PRORES_422_HQ = "APPLE_PRORES_422_HQ",
   APPLE_PRORES_422_LT = "APPLE_PRORES_422_LT",
-  APPLE_PRORES_422_PROXY = "APPLE_PRORES_422_PROXY"
+  APPLE_PRORES_422_PROXY = "APPLE_PRORES_422_PROXY",
 }
 
 export enum ProresFramerateControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED"
+  SPECIFIED = "SPECIFIED",
 }
 
 export enum ProresFramerateConversionAlgorithm {
   DUPLICATE_DROP = "DUPLICATE_DROP",
-  INTERPOLATE = "INTERPOLATE"
+  INTERPOLATE = "INTERPOLATE",
 }
 
 export enum ProresInterlaceMode {
@@ -7012,12 +7000,12 @@ export enum ProresInterlaceMode {
   FOLLOW_BOTTOM_FIELD = "FOLLOW_BOTTOM_FIELD",
   FOLLOW_TOP_FIELD = "FOLLOW_TOP_FIELD",
   PROGRESSIVE = "PROGRESSIVE",
-  TOP_FIELD = "TOP_FIELD"
+  TOP_FIELD = "TOP_FIELD",
 }
 
 export enum ProresParControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED"
+  SPECIFIED = "SPECIFIED",
 }
 
 /**
@@ -7091,12 +7079,12 @@ export namespace ProresSettings {
 
 export enum ProresSlowPal {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum ProresTelecine {
   HARD = "HARD",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 /**
@@ -7168,12 +7156,12 @@ export namespace Queue {
 
 export enum QueueListBy {
   CREATION_DATE = "CREATION_DATE",
-  NAME = "NAME"
+  NAME = "NAME",
 }
 
 export enum QueueStatus {
   ACTIVE = "ACTIVE",
-  PAUSED = "PAUSED"
+  PAUSED = "PAUSED",
 }
 
 /**
@@ -7237,7 +7225,7 @@ export namespace RemixSettings {
 
 export enum RenewalType {
   AUTO_RENEW = "AUTO_RENEW",
-  EXPIRE = "EXPIRE"
+  EXPIRE = "EXPIRE",
 }
 
 /**
@@ -7311,7 +7299,7 @@ export namespace ReservationPlanSettings {
 
 export enum ReservationPlanStatus {
   ACTIVE = "ACTIVE",
-  EXPIRED = "EXPIRED"
+  EXPIRED = "EXPIRED",
 }
 
 /**
@@ -7339,7 +7327,7 @@ export namespace ResourceTags {
 export enum RespondToAfd {
   NONE = "NONE",
   PASSTHROUGH = "PASSTHROUGH",
-  RESPOND = "RESPOND"
+  RESPOND = "RESPOND",
 }
 
 /**
@@ -7407,17 +7395,17 @@ export enum S3ObjectCannedAcl {
   AUTHENTICATED_READ = "AUTHENTICATED_READ",
   BUCKET_OWNER_FULL_CONTROL = "BUCKET_OWNER_FULL_CONTROL",
   BUCKET_OWNER_READ = "BUCKET_OWNER_READ",
-  PUBLIC_READ = "PUBLIC_READ"
+  PUBLIC_READ = "PUBLIC_READ",
 }
 
 export enum S3ServerSideEncryptionType {
   SERVER_SIDE_ENCRYPTION_KMS = "SERVER_SIDE_ENCRYPTION_KMS",
-  SERVER_SIDE_ENCRYPTION_S3 = "SERVER_SIDE_ENCRYPTION_S3"
+  SERVER_SIDE_ENCRYPTION_S3 = "SERVER_SIDE_ENCRYPTION_S3",
 }
 
 export enum ScalingBehavior {
   DEFAULT = "DEFAULT",
-  STRETCH_TO_OUTPUT = "STRETCH_TO_OUTPUT"
+  STRETCH_TO_OUTPUT = "STRETCH_TO_OUTPUT",
 }
 
 export enum SccDestinationFramerate {
@@ -7425,7 +7413,7 @@ export enum SccDestinationFramerate {
   FRAMERATE_24 = "FRAMERATE_24",
   FRAMERATE_25 = "FRAMERATE_25",
   FRAMERATE_29_97_DROPFRAME = "FRAMERATE_29_97_DROPFRAME",
-  FRAMERATE_29_97_NON_DROPFRAME = "FRAMERATE_29_97_NON_DROPFRAME"
+  FRAMERATE_29_97_NON_DROPFRAME = "FRAMERATE_29_97_NON_DROPFRAME",
 }
 
 /**
@@ -7447,7 +7435,7 @@ export namespace SccDestinationSettings {
 
 export enum SimulateReservedQueue {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 /**
@@ -7567,7 +7555,7 @@ export enum StatusUpdateInterval {
   SECONDS_480 = "SECONDS_480",
   SECONDS_540 = "SECONDS_540",
   SECONDS_60 = "SECONDS_60",
-  SECONDS_600 = "SECONDS_600"
+  SECONDS_600 = "SECONDS_600",
 }
 
 export interface TagResourceRequest {
@@ -7626,7 +7614,7 @@ export enum TeletextPageType {
   PAGE_TYPE_HEARING_IMPAIRED_SUBTITLE = "PAGE_TYPE_HEARING_IMPAIRED_SUBTITLE",
   PAGE_TYPE_INITIAL = "PAGE_TYPE_INITIAL",
   PAGE_TYPE_PROGRAM_SCHEDULE = "PAGE_TYPE_PROGRAM_SCHEDULE",
-  PAGE_TYPE_SUBTITLE = "PAGE_TYPE_SUBTITLE"
+  PAGE_TYPE_SUBTITLE = "PAGE_TYPE_SUBTITLE",
 }
 
 /**
@@ -7682,7 +7670,7 @@ export enum TimecodeBurninPosition {
   MIDDLE_RIGHT = "MIDDLE_RIGHT",
   TOP_CENTER = "TOP_CENTER",
   TOP_LEFT = "TOP_LEFT",
-  TOP_RIGHT = "TOP_RIGHT"
+  TOP_RIGHT = "TOP_RIGHT",
 }
 
 /**
@@ -7720,12 +7708,12 @@ export namespace TimecodeConfig {
 export enum TimecodeSource {
   EMBEDDED = "EMBEDDED",
   SPECIFIEDSTART = "SPECIFIEDSTART",
-  ZEROBASED = "ZEROBASED"
+  ZEROBASED = "ZEROBASED",
 }
 
 export enum TimedMetadata {
   NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH"
+  PASSTHROUGH = "PASSTHROUGH",
 }
 
 /**
@@ -7775,9 +7763,7 @@ export namespace Timing {
 /**
  * Too many requests have been sent in too short of a time. The service limits the rate at which it will accept requests.
  */
-export interface TooManyRequestsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
@@ -7825,12 +7811,12 @@ export namespace TtmlDestinationSettings {
 
 export enum TtmlStylePassthrough {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED"
+  ENABLED = "ENABLED",
 }
 
 export enum Type {
   CUSTOM = "CUSTOM",
-  SYSTEM = "SYSTEM"
+  SYSTEM = "SYSTEM",
 }
 
 export interface UntagResourceRequest {
@@ -8016,7 +8002,7 @@ export enum VideoCodec {
   H_264 = "H_264",
   H_265 = "H_265",
   MPEG2 = "MPEG2",
-  PRORES = "PRORES"
+  PRORES = "PRORES",
 }
 
 /**
@@ -8261,12 +8247,12 @@ export namespace VideoSelector {
 
 export enum VideoTimecodeInsertion {
   DISABLED = "DISABLED",
-  PIC_TIMING_SEI = "PIC_TIMING_SEI"
+  PIC_TIMING_SEI = "PIC_TIMING_SEI",
 }
 
 export enum WavFormat {
   RF64 = "RF64",
-  RIFF = "RIFF"
+  RIFF = "RIFF",
 }
 
 /**

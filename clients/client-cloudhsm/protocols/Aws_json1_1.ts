@@ -1,82 +1,82 @@
 import {
   AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput
+  AddTagsToResourceCommandOutput,
 } from "../commands/AddTagsToResourceCommand";
 import {
   CreateHapgCommandInput,
-  CreateHapgCommandOutput
+  CreateHapgCommandOutput,
 } from "../commands/CreateHapgCommand";
 import {
   CreateHsmCommandInput,
-  CreateHsmCommandOutput
+  CreateHsmCommandOutput,
 } from "../commands/CreateHsmCommand";
 import {
   CreateLunaClientCommandInput,
-  CreateLunaClientCommandOutput
+  CreateLunaClientCommandOutput,
 } from "../commands/CreateLunaClientCommand";
 import {
   DeleteHapgCommandInput,
-  DeleteHapgCommandOutput
+  DeleteHapgCommandOutput,
 } from "../commands/DeleteHapgCommand";
 import {
   DeleteHsmCommandInput,
-  DeleteHsmCommandOutput
+  DeleteHsmCommandOutput,
 } from "../commands/DeleteHsmCommand";
 import {
   DeleteLunaClientCommandInput,
-  DeleteLunaClientCommandOutput
+  DeleteLunaClientCommandOutput,
 } from "../commands/DeleteLunaClientCommand";
 import {
   DescribeHapgCommandInput,
-  DescribeHapgCommandOutput
+  DescribeHapgCommandOutput,
 } from "../commands/DescribeHapgCommand";
 import {
   DescribeHsmCommandInput,
-  DescribeHsmCommandOutput
+  DescribeHsmCommandOutput,
 } from "../commands/DescribeHsmCommand";
 import {
   DescribeLunaClientCommandInput,
-  DescribeLunaClientCommandOutput
+  DescribeLunaClientCommandOutput,
 } from "../commands/DescribeLunaClientCommand";
 import {
   GetConfigCommandInput,
-  GetConfigCommandOutput
+  GetConfigCommandOutput,
 } from "../commands/GetConfigCommand";
 import {
   ListAvailableZonesCommandInput,
-  ListAvailableZonesCommandOutput
+  ListAvailableZonesCommandOutput,
 } from "../commands/ListAvailableZonesCommand";
 import {
   ListHapgsCommandInput,
-  ListHapgsCommandOutput
+  ListHapgsCommandOutput,
 } from "../commands/ListHapgsCommand";
 import {
   ListHsmsCommandInput,
-  ListHsmsCommandOutput
+  ListHsmsCommandOutput,
 } from "../commands/ListHsmsCommand";
 import {
   ListLunaClientsCommandInput,
-  ListLunaClientsCommandOutput
+  ListLunaClientsCommandOutput,
 } from "../commands/ListLunaClientsCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import {
   ModifyHapgCommandInput,
-  ModifyHapgCommandOutput
+  ModifyHapgCommandOutput,
 } from "../commands/ModifyHapgCommand";
 import {
   ModifyHsmCommandInput,
-  ModifyHsmCommandOutput
+  ModifyHsmCommandOutput,
 } from "../commands/ModifyHsmCommand";
 import {
   ModifyLunaClientCommandInput,
-  ModifyLunaClientCommandOutput
+  ModifyLunaClientCommandOutput,
 } from "../commands/ModifyLunaClientCommand";
 import {
   RemoveTagsFromResourceCommandInput,
-  RemoveTagsFromResourceCommandOutput
+  RemoveTagsFromResourceCommandOutput,
 } from "../commands/RemoveTagsFromResourceCommand";
 import {
   AddTagsToResourceRequest,
@@ -122,18 +122,18 @@ import {
   ModifyLunaClientResponse,
   RemoveTagsFromResourceRequest,
   RemoveTagsFromResourceResponse,
-  Tag
+  Tag,
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export async function serializeAws_json1_1AddTagsToResourceCommand(
@@ -141,14 +141,11 @@ export async function serializeAws_json1_1AddTagsToResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.AddTagsToResource";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "CloudHsmFrontendService.AddTagsToResource";
   let body: any = {};
   const wrappedBody: any = {
-    AddTagsToResourceRequest: serializeAws_json1_1AddTagsToResourceRequest(
-      input,
-      context
-    )
+    AddTagsToResourceRequest: serializeAws_json1_1AddTagsToResourceRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -157,7 +154,7 @@ export async function serializeAws_json1_1AddTagsToResourceCommand(
     method: "POST",
     path: "/AddTagsToResource",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -166,11 +163,11 @@ export async function serializeAws_json1_1CreateHapgCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.CreateHapg";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "CloudHsmFrontendService.CreateHapg";
   let body: any = {};
   const wrappedBody: any = {
-    CreateHapgRequest: serializeAws_json1_1CreateHapgRequest(input, context)
+    CreateHapgRequest: serializeAws_json1_1CreateHapgRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -179,7 +176,7 @@ export async function serializeAws_json1_1CreateHapgCommand(
     method: "POST",
     path: "/CreateHapg",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -188,11 +185,11 @@ export async function serializeAws_json1_1CreateHsmCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.CreateHsm";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "CloudHsmFrontendService.CreateHsm";
   let body: any = {};
   const wrappedBody: any = {
-    CreateHsmRequest: serializeAws_json1_1CreateHsmRequest(input, context)
+    CreateHsmRequest: serializeAws_json1_1CreateHsmRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -201,7 +198,7 @@ export async function serializeAws_json1_1CreateHsmCommand(
     method: "POST",
     path: "/CreateHsm",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -210,14 +207,11 @@ export async function serializeAws_json1_1CreateLunaClientCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.CreateLunaClient";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "CloudHsmFrontendService.CreateLunaClient";
   let body: any = {};
   const wrappedBody: any = {
-    CreateLunaClientRequest: serializeAws_json1_1CreateLunaClientRequest(
-      input,
-      context
-    )
+    CreateLunaClientRequest: serializeAws_json1_1CreateLunaClientRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -226,7 +220,7 @@ export async function serializeAws_json1_1CreateLunaClientCommand(
     method: "POST",
     path: "/CreateLunaClient",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -235,11 +229,11 @@ export async function serializeAws_json1_1DeleteHapgCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.DeleteHapg";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "CloudHsmFrontendService.DeleteHapg";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteHapgRequest: serializeAws_json1_1DeleteHapgRequest(input, context)
+    DeleteHapgRequest: serializeAws_json1_1DeleteHapgRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -248,7 +242,7 @@ export async function serializeAws_json1_1DeleteHapgCommand(
     method: "POST",
     path: "/DeleteHapg",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -257,11 +251,11 @@ export async function serializeAws_json1_1DeleteHsmCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.DeleteHsm";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "CloudHsmFrontendService.DeleteHsm";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteHsmRequest: serializeAws_json1_1DeleteHsmRequest(input, context)
+    DeleteHsmRequest: serializeAws_json1_1DeleteHsmRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -270,7 +264,7 @@ export async function serializeAws_json1_1DeleteHsmCommand(
     method: "POST",
     path: "/DeleteHsm",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -279,14 +273,11 @@ export async function serializeAws_json1_1DeleteLunaClientCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.DeleteLunaClient";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "CloudHsmFrontendService.DeleteLunaClient";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteLunaClientRequest: serializeAws_json1_1DeleteLunaClientRequest(
-      input,
-      context
-    )
+    DeleteLunaClientRequest: serializeAws_json1_1DeleteLunaClientRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -295,7 +286,7 @@ export async function serializeAws_json1_1DeleteLunaClientCommand(
     method: "POST",
     path: "/DeleteLunaClient",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -304,11 +295,11 @@ export async function serializeAws_json1_1DescribeHapgCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.DescribeHapg";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "CloudHsmFrontendService.DescribeHapg";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeHapgRequest: serializeAws_json1_1DescribeHapgRequest(input, context)
+    DescribeHapgRequest: serializeAws_json1_1DescribeHapgRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -317,7 +308,7 @@ export async function serializeAws_json1_1DescribeHapgCommand(
     method: "POST",
     path: "/DescribeHapg",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -326,11 +317,11 @@ export async function serializeAws_json1_1DescribeHsmCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.DescribeHsm";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "CloudHsmFrontendService.DescribeHsm";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeHsmRequest: serializeAws_json1_1DescribeHsmRequest(input, context)
+    DescribeHsmRequest: serializeAws_json1_1DescribeHsmRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -339,7 +330,7 @@ export async function serializeAws_json1_1DescribeHsmCommand(
     method: "POST",
     path: "/DescribeHsm",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -348,14 +339,11 @@ export async function serializeAws_json1_1DescribeLunaClientCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.DescribeLunaClient";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "CloudHsmFrontendService.DescribeLunaClient";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeLunaClientRequest: serializeAws_json1_1DescribeLunaClientRequest(
-      input,
-      context
-    )
+    DescribeLunaClientRequest: serializeAws_json1_1DescribeLunaClientRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -364,7 +352,7 @@ export async function serializeAws_json1_1DescribeLunaClientCommand(
     method: "POST",
     path: "/DescribeLunaClient",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -373,11 +361,11 @@ export async function serializeAws_json1_1GetConfigCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.GetConfig";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "CloudHsmFrontendService.GetConfig";
   let body: any = {};
   const wrappedBody: any = {
-    GetConfigRequest: serializeAws_json1_1GetConfigRequest(input, context)
+    GetConfigRequest: serializeAws_json1_1GetConfigRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -386,7 +374,7 @@ export async function serializeAws_json1_1GetConfigCommand(
     method: "POST",
     path: "/GetConfig",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -395,14 +383,11 @@ export async function serializeAws_json1_1ListAvailableZonesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.ListAvailableZones";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "CloudHsmFrontendService.ListAvailableZones";
   let body: any = {};
   const wrappedBody: any = {
-    ListAvailableZonesRequest: serializeAws_json1_1ListAvailableZonesRequest(
-      input,
-      context
-    )
+    ListAvailableZonesRequest: serializeAws_json1_1ListAvailableZonesRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -411,7 +396,7 @@ export async function serializeAws_json1_1ListAvailableZonesCommand(
     method: "POST",
     path: "/ListAvailableZones",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -420,11 +405,11 @@ export async function serializeAws_json1_1ListHapgsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.ListHapgs";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "CloudHsmFrontendService.ListHapgs";
   let body: any = {};
   const wrappedBody: any = {
-    ListHapgsRequest: serializeAws_json1_1ListHapgsRequest(input, context)
+    ListHapgsRequest: serializeAws_json1_1ListHapgsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -433,7 +418,7 @@ export async function serializeAws_json1_1ListHapgsCommand(
     method: "POST",
     path: "/ListHapgs",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -442,11 +427,11 @@ export async function serializeAws_json1_1ListHsmsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.ListHsms";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "CloudHsmFrontendService.ListHsms";
   let body: any = {};
   const wrappedBody: any = {
-    ListHsmsRequest: serializeAws_json1_1ListHsmsRequest(input, context)
+    ListHsmsRequest: serializeAws_json1_1ListHsmsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -455,7 +440,7 @@ export async function serializeAws_json1_1ListHsmsCommand(
     method: "POST",
     path: "/ListHsms",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -464,14 +449,11 @@ export async function serializeAws_json1_1ListLunaClientsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.ListLunaClients";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "CloudHsmFrontendService.ListLunaClients";
   let body: any = {};
   const wrappedBody: any = {
-    ListLunaClientsRequest: serializeAws_json1_1ListLunaClientsRequest(
-      input,
-      context
-    )
+    ListLunaClientsRequest: serializeAws_json1_1ListLunaClientsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -480,7 +462,7 @@ export async function serializeAws_json1_1ListLunaClientsCommand(
     method: "POST",
     path: "/ListLunaClients",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -489,14 +471,11 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.ListTagsForResource";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "CloudHsmFrontendService.ListTagsForResource";
   let body: any = {};
   const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
-      input,
-      context
-    )
+    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -505,7 +484,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     method: "POST",
     path: "/ListTagsForResource",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -514,11 +493,11 @@ export async function serializeAws_json1_1ModifyHapgCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.ModifyHapg";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "CloudHsmFrontendService.ModifyHapg";
   let body: any = {};
   const wrappedBody: any = {
-    ModifyHapgRequest: serializeAws_json1_1ModifyHapgRequest(input, context)
+    ModifyHapgRequest: serializeAws_json1_1ModifyHapgRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -527,7 +506,7 @@ export async function serializeAws_json1_1ModifyHapgCommand(
     method: "POST",
     path: "/ModifyHapg",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -536,11 +515,11 @@ export async function serializeAws_json1_1ModifyHsmCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.ModifyHsm";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "CloudHsmFrontendService.ModifyHsm";
   let body: any = {};
   const wrappedBody: any = {
-    ModifyHsmRequest: serializeAws_json1_1ModifyHsmRequest(input, context)
+    ModifyHsmRequest: serializeAws_json1_1ModifyHsmRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -549,7 +528,7 @@ export async function serializeAws_json1_1ModifyHsmCommand(
     method: "POST",
     path: "/ModifyHsm",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -558,14 +537,11 @@ export async function serializeAws_json1_1ModifyLunaClientCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.ModifyLunaClient";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "CloudHsmFrontendService.ModifyLunaClient";
   let body: any = {};
   const wrappedBody: any = {
-    ModifyLunaClientRequest: serializeAws_json1_1ModifyLunaClientRequest(
-      input,
-      context
-    )
+    ModifyLunaClientRequest: serializeAws_json1_1ModifyLunaClientRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -574,7 +550,7 @@ export async function serializeAws_json1_1ModifyLunaClientCommand(
     method: "POST",
     path: "/ModifyLunaClient",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -583,14 +559,11 @@ export async function serializeAws_json1_1RemoveTagsFromResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "CloudHsmFrontendService.RemoveTagsFromResource";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "CloudHsmFrontendService.RemoveTagsFromResource";
   let body: any = {};
   const wrappedBody: any = {
-    RemoveTagsFromResourceRequest: serializeAws_json1_1RemoveTagsFromResourceRequest(
-      input,
-      context
-    )
+    RemoveTagsFromResourceRequest: serializeAws_json1_1RemoveTagsFromResourceRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -599,7 +572,7 @@ export async function serializeAws_json1_1RemoveTagsFromResourceCommand(
     method: "POST",
     path: "/RemoveTagsFromResource",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -610,59 +583,48 @@ export async function deserializeAws_json1_1AddTagsToResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AddTagsToResourceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1AddTagsToResourceResponse(data, context);
   const response: AddTagsToResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddTagsToResourceResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AddTagsToResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AddTagsToResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(parsedOutput, context);
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.cloudhsm#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -675,59 +637,48 @@ export async function deserializeAws_json1_1CreateHapgCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateHapgCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1CreateHapgResponse(data, context);
   const response: CreateHapgCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateHapgResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateHapgCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateHapgCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(parsedOutput, context);
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.cloudhsm#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -740,59 +691,48 @@ export async function deserializeAws_json1_1CreateHsmCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateHsmCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1CreateHsmResponse(data, context);
   const response: CreateHsmCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateHsmResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateHsmCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateHsmCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(parsedOutput, context);
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.cloudhsm#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -805,59 +745,48 @@ export async function deserializeAws_json1_1CreateLunaClientCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateLunaClientCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1CreateLunaClientResponse(data, context);
   const response: CreateLunaClientCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateLunaClientResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateLunaClientCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateLunaClientCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(parsedOutput, context);
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.cloudhsm#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -870,59 +799,48 @@ export async function deserializeAws_json1_1DeleteHapgCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteHapgCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteHapgResponse(data, context);
   const response: DeleteHapgCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteHapgResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteHapgCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteHapgCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(parsedOutput, context);
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.cloudhsm#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -935,59 +853,48 @@ export async function deserializeAws_json1_1DeleteHsmCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteHsmCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteHsmResponse(data, context);
   const response: DeleteHsmCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteHsmResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteHsmCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteHsmCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(parsedOutput, context);
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.cloudhsm#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1000,59 +907,48 @@ export async function deserializeAws_json1_1DeleteLunaClientCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteLunaClientCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteLunaClientResponse(data, context);
   const response: DeleteLunaClientCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteLunaClientResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteLunaClientCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteLunaClientCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(parsedOutput, context);
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.cloudhsm#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1065,59 +961,48 @@ export async function deserializeAws_json1_1DescribeHapgCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeHapgCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeHapgResponse(data, context);
   const response: DescribeHapgCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeHapgResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeHapgCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeHapgCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(parsedOutput, context);
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.cloudhsm#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1130,59 +1015,48 @@ export async function deserializeAws_json1_1DescribeHsmCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeHsmCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeHsmResponse(data, context);
   const response: DescribeHsmCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeHsmResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeHsmCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeHsmCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(parsedOutput, context);
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.cloudhsm#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1193,64 +1067,50 @@ export async function deserializeAws_json1_1DescribeLunaClientCommand(
   context: __SerdeContext
 ): Promise<DescribeLunaClientCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeLunaClientCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeLunaClientCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeLunaClientResponse(data, context);
   const response: DescribeLunaClientCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeLunaClientResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeLunaClientCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeLunaClientCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(parsedOutput, context);
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.cloudhsm#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1263,59 +1123,48 @@ export async function deserializeAws_json1_1GetConfigCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetConfigCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1GetConfigResponse(data, context);
   const response: GetConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetConfigResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetConfigCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetConfigCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(parsedOutput, context);
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.cloudhsm#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1326,64 +1175,50 @@ export async function deserializeAws_json1_1ListAvailableZonesCommand(
   context: __SerdeContext
 ): Promise<ListAvailableZonesCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListAvailableZonesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListAvailableZonesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1ListAvailableZonesResponse(data, context);
   const response: ListAvailableZonesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAvailableZonesResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListAvailableZonesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListAvailableZonesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(parsedOutput, context);
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.cloudhsm#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1396,59 +1231,48 @@ export async function deserializeAws_json1_1ListHapgsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListHapgsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1ListHapgsResponse(data, context);
   const response: ListHapgsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListHapgsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListHapgsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListHapgsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(parsedOutput, context);
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.cloudhsm#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1461,59 +1285,48 @@ export async function deserializeAws_json1_1ListHsmsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListHsmsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1ListHsmsResponse(data, context);
   const response: ListHsmsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListHsmsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListHsmsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListHsmsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(parsedOutput, context);
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.cloudhsm#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1526,59 +1339,48 @@ export async function deserializeAws_json1_1ListLunaClientsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListLunaClientsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1ListLunaClientsResponse(data, context);
   const response: ListLunaClientsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListLunaClientsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListLunaClientsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListLunaClientsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(parsedOutput, context);
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.cloudhsm#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1589,64 +1391,50 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListTagsForResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(parsedOutput, context);
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.cloudhsm#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1659,59 +1447,48 @@ export async function deserializeAws_json1_1ModifyHapgCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ModifyHapgCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1ModifyHapgResponse(data, context);
   const response: ModifyHapgCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ModifyHapgResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ModifyHapgCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ModifyHapgCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(parsedOutput, context);
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.cloudhsm#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1724,59 +1501,48 @@ export async function deserializeAws_json1_1ModifyHsmCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ModifyHsmCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1ModifyHsmResponse(data, context);
   const response: ModifyHsmCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ModifyHsmResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ModifyHsmCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ModifyHsmCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(parsedOutput, context);
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.cloudhsm#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1789,45 +1555,40 @@ export async function deserializeAws_json1_1ModifyLunaClientCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ModifyLunaClientCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1ModifyLunaClientResponse(data, context);
   const response: ModifyLunaClientCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ModifyLunaClientResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ModifyLunaClientCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ModifyLunaClientCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1838,67 +1599,50 @@ export async function deserializeAws_json1_1RemoveTagsFromResourceCommand(
   context: __SerdeContext
 ): Promise<RemoveTagsFromResourceCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1RemoveTagsFromResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RemoveTagsFromResourceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1RemoveTagsFromResourceResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1RemoveTagsFromResourceResponse(data, context);
   const response: RemoveTagsFromResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RemoveTagsFromResourceResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1RemoveTagsFromResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<RemoveTagsFromResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CloudHsmInternalException":
     case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmInternalExceptionResponse(parsedOutput, context);
       break;
     case "CloudHsmServiceException":
     case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CloudHsmServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.cloudhsm#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudhsm#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1908,15 +1652,12 @@ const deserializeAws_json1_1CloudHsmInternalExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<CloudHsmInternalException> => {
-  const deserialized: any = deserializeAws_json1_1CloudHsmInternalException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1CloudHsmInternalException(output.body, context);
   const contents: CloudHsmInternalException = {
     __type: "CloudHsmInternalException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -1925,15 +1666,12 @@ const deserializeAws_json1_1CloudHsmServiceExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<CloudHsmServiceException> => {
-  const deserialized: any = deserializeAws_json1_1CloudHsmServiceException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1CloudHsmServiceException(output.body, context);
   const contents: CloudHsmServiceException = {
     __type: "CloudHsmServiceException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -1942,15 +1680,12 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidRequestException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidRequestException(output.body, context);
   const contents: InvalidRequestException = {
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -1961,13 +1696,13 @@ const serializeAws_json1_1AddTagsToResourceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
-    bodyParams["ResourceArn"] = input.ResourceArn;
+    bodyParams['ResourceArn'] = input.ResourceArn;
   }
   if (input.TagList !== undefined) {
-    bodyParams["TagList"] = serializeAws_json1_1TagList(input.TagList, context);
+    bodyParams['TagList'] = serializeAws_json1_1TagList(input.TagList, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateHapgRequest = (
   input: CreateHapgRequest,
@@ -1975,10 +1710,10 @@ const serializeAws_json1_1CreateHapgRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Label !== undefined) {
-    bodyParams["Label"] = input.Label;
+    bodyParams['Label'] = input.Label;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateHsmRequest = (
   input: CreateHsmRequest,
@@ -1986,31 +1721,31 @@ const serializeAws_json1_1CreateHsmRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClientToken !== undefined) {
-    bodyParams["ClientToken"] = input.ClientToken;
+    bodyParams['ClientToken'] = input.ClientToken;
   }
   if (input.EniIp !== undefined) {
-    bodyParams["EniIp"] = input.EniIp;
+    bodyParams['EniIp'] = input.EniIp;
   }
   if (input.ExternalId !== undefined) {
-    bodyParams["ExternalId"] = input.ExternalId;
+    bodyParams['ExternalId'] = input.ExternalId;
   }
   if (input.IamRoleArn !== undefined) {
-    bodyParams["IamRoleArn"] = input.IamRoleArn;
+    bodyParams['IamRoleArn'] = input.IamRoleArn;
   }
   if (input.SshKey !== undefined) {
-    bodyParams["SshKey"] = input.SshKey;
+    bodyParams['SshKey'] = input.SshKey;
   }
   if (input.SubnetId !== undefined) {
-    bodyParams["SubnetId"] = input.SubnetId;
+    bodyParams['SubnetId'] = input.SubnetId;
   }
   if (input.SubscriptionType !== undefined) {
-    bodyParams["SubscriptionType"] = input.SubscriptionType;
+    bodyParams['SubscriptionType'] = input.SubscriptionType;
   }
   if (input.SyslogIp !== undefined) {
-    bodyParams["SyslogIp"] = input.SyslogIp;
+    bodyParams['SyslogIp'] = input.SyslogIp;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateLunaClientRequest = (
   input: CreateLunaClientRequest,
@@ -2018,13 +1753,13 @@ const serializeAws_json1_1CreateLunaClientRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Certificate !== undefined) {
-    bodyParams["Certificate"] = input.Certificate;
+    bodyParams['Certificate'] = input.Certificate;
   }
   if (input.Label !== undefined) {
-    bodyParams["Label"] = input.Label;
+    bodyParams['Label'] = input.Label;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteHapgRequest = (
   input: DeleteHapgRequest,
@@ -2032,10 +1767,10 @@ const serializeAws_json1_1DeleteHapgRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.HapgArn !== undefined) {
-    bodyParams["HapgArn"] = input.HapgArn;
+    bodyParams['HapgArn'] = input.HapgArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteHsmRequest = (
   input: DeleteHsmRequest,
@@ -2043,10 +1778,10 @@ const serializeAws_json1_1DeleteHsmRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.HsmArn !== undefined) {
-    bodyParams["HsmArn"] = input.HsmArn;
+    bodyParams['HsmArn'] = input.HsmArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteLunaClientRequest = (
   input: DeleteLunaClientRequest,
@@ -2054,10 +1789,10 @@ const serializeAws_json1_1DeleteLunaClientRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClientArn !== undefined) {
-    bodyParams["ClientArn"] = input.ClientArn;
+    bodyParams['ClientArn'] = input.ClientArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeHapgRequest = (
   input: DescribeHapgRequest,
@@ -2065,10 +1800,10 @@ const serializeAws_json1_1DescribeHapgRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.HapgArn !== undefined) {
-    bodyParams["HapgArn"] = input.HapgArn;
+    bodyParams['HapgArn'] = input.HapgArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeHsmRequest = (
   input: DescribeHsmRequest,
@@ -2076,13 +1811,13 @@ const serializeAws_json1_1DescribeHsmRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.HsmArn !== undefined) {
-    bodyParams["HsmArn"] = input.HsmArn;
+    bodyParams['HsmArn'] = input.HsmArn;
   }
   if (input.HsmSerialNumber !== undefined) {
-    bodyParams["HsmSerialNumber"] = input.HsmSerialNumber;
+    bodyParams['HsmSerialNumber'] = input.HsmSerialNumber;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeLunaClientRequest = (
   input: DescribeLunaClientRequest,
@@ -2090,13 +1825,13 @@ const serializeAws_json1_1DescribeLunaClientRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.CertificateFingerprint !== undefined) {
-    bodyParams["CertificateFingerprint"] = input.CertificateFingerprint;
+    bodyParams['CertificateFingerprint'] = input.CertificateFingerprint;
   }
   if (input.ClientArn !== undefined) {
-    bodyParams["ClientArn"] = input.ClientArn;
+    bodyParams['ClientArn'] = input.ClientArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1GetConfigRequest = (
   input: GetConfigRequest,
@@ -2104,26 +1839,25 @@ const serializeAws_json1_1GetConfigRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClientArn !== undefined) {
-    bodyParams["ClientArn"] = input.ClientArn;
+    bodyParams['ClientArn'] = input.ClientArn;
   }
   if (input.ClientVersion !== undefined) {
-    bodyParams["ClientVersion"] = input.ClientVersion;
+    bodyParams['ClientVersion'] = input.ClientVersion;
   }
   if (input.HapgList !== undefined) {
-    bodyParams["HapgList"] = serializeAws_json1_1HapgList(
-      input.HapgList,
-      context
-    );
+    bodyParams['HapgList'] = serializeAws_json1_1HapgList(input.HapgList, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1HapgList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1ListAvailableZonesRequest = (
   input: ListAvailableZonesRequest,
@@ -2131,7 +1865,7 @@ const serializeAws_json1_1ListAvailableZonesRequest = (
 ): any => {
   let bodyParams: any = {};
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListHapgsRequest = (
   input: ListHapgsRequest,
@@ -2139,10 +1873,10 @@ const serializeAws_json1_1ListHapgsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListHsmsRequest = (
   input: ListHsmsRequest,
@@ -2150,10 +1884,10 @@ const serializeAws_json1_1ListHsmsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListLunaClientsRequest = (
   input: ListLunaClientsRequest,
@@ -2161,10 +1895,10 @@ const serializeAws_json1_1ListLunaClientsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
   input: ListTagsForResourceRequest,
@@ -2172,10 +1906,10 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
-    bodyParams["ResourceArn"] = input.ResourceArn;
+    bodyParams['ResourceArn'] = input.ResourceArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ModifyHapgRequest = (
   input: ModifyHapgRequest,
@@ -2183,19 +1917,16 @@ const serializeAws_json1_1ModifyHapgRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.HapgArn !== undefined) {
-    bodyParams["HapgArn"] = input.HapgArn;
+    bodyParams['HapgArn'] = input.HapgArn;
   }
   if (input.Label !== undefined) {
-    bodyParams["Label"] = input.Label;
+    bodyParams['Label'] = input.Label;
   }
   if (input.PartitionSerialList !== undefined) {
-    bodyParams["PartitionSerialList"] = serializeAws_json1_1PartitionSerialList(
-      input.PartitionSerialList,
-      context
-    );
+    bodyParams['PartitionSerialList'] = serializeAws_json1_1PartitionSerialList(input.PartitionSerialList, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ModifyHsmRequest = (
   input: ModifyHsmRequest,
@@ -2203,25 +1934,25 @@ const serializeAws_json1_1ModifyHsmRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.EniIp !== undefined) {
-    bodyParams["EniIp"] = input.EniIp;
+    bodyParams['EniIp'] = input.EniIp;
   }
   if (input.ExternalId !== undefined) {
-    bodyParams["ExternalId"] = input.ExternalId;
+    bodyParams['ExternalId'] = input.ExternalId;
   }
   if (input.HsmArn !== undefined) {
-    bodyParams["HsmArn"] = input.HsmArn;
+    bodyParams['HsmArn'] = input.HsmArn;
   }
   if (input.IamRoleArn !== undefined) {
-    bodyParams["IamRoleArn"] = input.IamRoleArn;
+    bodyParams['IamRoleArn'] = input.IamRoleArn;
   }
   if (input.SubnetId !== undefined) {
-    bodyParams["SubnetId"] = input.SubnetId;
+    bodyParams['SubnetId'] = input.SubnetId;
   }
   if (input.SyslogIp !== undefined) {
-    bodyParams["SyslogIp"] = input.SyslogIp;
+    bodyParams['SyslogIp'] = input.SyslogIp;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ModifyLunaClientRequest = (
   input: ModifyLunaClientRequest,
@@ -2229,20 +1960,22 @@ const serializeAws_json1_1ModifyLunaClientRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Certificate !== undefined) {
-    bodyParams["Certificate"] = input.Certificate;
+    bodyParams['Certificate'] = input.Certificate;
   }
   if (input.ClientArn !== undefined) {
-    bodyParams["ClientArn"] = input.ClientArn;
+    bodyParams['ClientArn'] = input.ClientArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1PartitionSerialList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1RemoveTagsFromResourceRequest = (
   input: RemoveTagsFromResourceRequest,
@@ -2250,48 +1983,54 @@ const serializeAws_json1_1RemoveTagsFromResourceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
-    bodyParams["ResourceArn"] = input.ResourceArn;
+    bodyParams['ResourceArn'] = input.ResourceArn;
   }
   if (input.TagKeyList !== undefined) {
-    bodyParams["TagKeyList"] = serializeAws_json1_1TagKeyList(
-      input.TagKeyList,
-      context
-    );
+    bodyParams['TagKeyList'] = serializeAws_json1_1TagKeyList(input.TagKeyList, context);
   }
   return bodyParams;
-};
+}
 
-const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+const serializeAws_json1_1Tag = (
+  input: Tag,
+  context: __SerdeContext
+): any => {
   let bodyParams: any = {};
   if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
+    bodyParams['Key'] = input.Key;
   }
   if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
+    bodyParams['Value'] = input.Value;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1TagKeyList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1TagList = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => serializeAws_json1_1Tag(entry, context));
-};
+  return (input || []).map(entry =>
+    serializeAws_json1_1Tag(entry, context)
+  );
+}
 
 const deserializeAws_json1_1AZList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1AddTagsToResourceResponse = (
   output: any,
@@ -2299,20 +2038,22 @@ const deserializeAws_json1_1AddTagsToResourceResponse = (
 ): AddTagsToResourceResponse => {
   let contents: any = {
     __type: "AddTagsToResourceResponse",
-    Status: undefined
+    Status: undefined,
   };
   if (output.Status !== undefined) {
     contents.Status = output.Status;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ClientList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1CloudHsmInternalException = (
   output: any,
@@ -2321,7 +2062,7 @@ const deserializeAws_json1_1CloudHsmInternalException = (
   let contents: any = {
     __type: "CloudHsmInternalException",
     message: undefined,
-    retryable: undefined
+    retryable: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
@@ -2330,7 +2071,7 @@ const deserializeAws_json1_1CloudHsmInternalException = (
     contents.retryable = output.retryable;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CloudHsmServiceException = (
   output: any,
@@ -2339,7 +2080,7 @@ const deserializeAws_json1_1CloudHsmServiceException = (
   let contents: any = {
     __type: "CloudHsmServiceException",
     message: undefined,
-    retryable: undefined
+    retryable: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
@@ -2348,7 +2089,7 @@ const deserializeAws_json1_1CloudHsmServiceException = (
     contents.retryable = output.retryable;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateHapgResponse = (
   output: any,
@@ -2356,13 +2097,13 @@ const deserializeAws_json1_1CreateHapgResponse = (
 ): CreateHapgResponse => {
   let contents: any = {
     __type: "CreateHapgResponse",
-    HapgArn: undefined
+    HapgArn: undefined,
   };
   if (output.HapgArn !== undefined) {
     contents.HapgArn = output.HapgArn;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateHsmResponse = (
   output: any,
@@ -2370,13 +2111,13 @@ const deserializeAws_json1_1CreateHsmResponse = (
 ): CreateHsmResponse => {
   let contents: any = {
     __type: "CreateHsmResponse",
-    HsmArn: undefined
+    HsmArn: undefined,
   };
   if (output.HsmArn !== undefined) {
     contents.HsmArn = output.HsmArn;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateLunaClientResponse = (
   output: any,
@@ -2384,13 +2125,13 @@ const deserializeAws_json1_1CreateLunaClientResponse = (
 ): CreateLunaClientResponse => {
   let contents: any = {
     __type: "CreateLunaClientResponse",
-    ClientArn: undefined
+    ClientArn: undefined,
   };
   if (output.ClientArn !== undefined) {
     contents.ClientArn = output.ClientArn;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeleteHapgResponse = (
   output: any,
@@ -2398,13 +2139,13 @@ const deserializeAws_json1_1DeleteHapgResponse = (
 ): DeleteHapgResponse => {
   let contents: any = {
     __type: "DeleteHapgResponse",
-    Status: undefined
+    Status: undefined,
   };
   if (output.Status !== undefined) {
     contents.Status = output.Status;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeleteHsmResponse = (
   output: any,
@@ -2412,13 +2153,13 @@ const deserializeAws_json1_1DeleteHsmResponse = (
 ): DeleteHsmResponse => {
   let contents: any = {
     __type: "DeleteHsmResponse",
-    Status: undefined
+    Status: undefined,
   };
   if (output.Status !== undefined) {
     contents.Status = output.Status;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeleteLunaClientResponse = (
   output: any,
@@ -2426,13 +2167,13 @@ const deserializeAws_json1_1DeleteLunaClientResponse = (
 ): DeleteLunaClientResponse => {
   let contents: any = {
     __type: "DeleteLunaClientResponse",
-    Status: undefined
+    Status: undefined,
   };
   if (output.Status !== undefined) {
     contents.Status = output.Status;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeHapgResponse = (
   output: any,
@@ -2448,7 +2189,7 @@ const deserializeAws_json1_1DescribeHapgResponse = (
     Label: undefined,
     LastModifiedTimestamp: undefined,
     PartitionSerialList: undefined,
-    State: undefined
+    State: undefined,
   };
   if (output.HapgArn !== undefined) {
     contents.HapgArn = output.HapgArn;
@@ -2457,22 +2198,13 @@ const deserializeAws_json1_1DescribeHapgResponse = (
     contents.HapgSerial = output.HapgSerial;
   }
   if (output.HsmsLastActionFailed !== undefined) {
-    contents.HsmsLastActionFailed = deserializeAws_json1_1HsmList(
-      output.HsmsLastActionFailed,
-      context
-    );
+    contents.HsmsLastActionFailed = deserializeAws_json1_1HsmList(output.HsmsLastActionFailed, context);
   }
   if (output.HsmsPendingDeletion !== undefined) {
-    contents.HsmsPendingDeletion = deserializeAws_json1_1HsmList(
-      output.HsmsPendingDeletion,
-      context
-    );
+    contents.HsmsPendingDeletion = deserializeAws_json1_1HsmList(output.HsmsPendingDeletion, context);
   }
   if (output.HsmsPendingRegistration !== undefined) {
-    contents.HsmsPendingRegistration = deserializeAws_json1_1HsmList(
-      output.HsmsPendingRegistration,
-      context
-    );
+    contents.HsmsPendingRegistration = deserializeAws_json1_1HsmList(output.HsmsPendingRegistration, context);
   }
   if (output.Label !== undefined) {
     contents.Label = output.Label;
@@ -2481,16 +2213,13 @@ const deserializeAws_json1_1DescribeHapgResponse = (
     contents.LastModifiedTimestamp = output.LastModifiedTimestamp;
   }
   if (output.PartitionSerialList !== undefined) {
-    contents.PartitionSerialList = deserializeAws_json1_1PartitionSerialList(
-      output.PartitionSerialList,
-      context
-    );
+    contents.PartitionSerialList = deserializeAws_json1_1PartitionSerialList(output.PartitionSerialList, context);
   }
   if (output.State !== undefined) {
     contents.State = output.State;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeHsmResponse = (
   output: any,
@@ -2518,7 +2247,7 @@ const deserializeAws_json1_1DescribeHsmResponse = (
     SubscriptionStartDate: undefined,
     SubscriptionType: undefined,
     VendorName: undefined,
-    VpcId: undefined
+    VpcId: undefined,
   };
   if (output.AvailabilityZone !== undefined) {
     contents.AvailabilityZone = output.AvailabilityZone;
@@ -2539,10 +2268,7 @@ const deserializeAws_json1_1DescribeHsmResponse = (
     contents.IamRoleArn = output.IamRoleArn;
   }
   if (output.Partitions !== undefined) {
-    contents.Partitions = deserializeAws_json1_1PartitionList(
-      output.Partitions,
-      context
-    );
+    contents.Partitions = deserializeAws_json1_1PartitionList(output.Partitions, context);
   }
   if (output.SerialNumber !== undefined) {
     contents.SerialNumber = output.SerialNumber;
@@ -2587,7 +2313,7 @@ const deserializeAws_json1_1DescribeHsmResponse = (
     contents.VpcId = output.VpcId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeLunaClientResponse = (
   output: any,
@@ -2599,7 +2325,7 @@ const deserializeAws_json1_1DescribeLunaClientResponse = (
     CertificateFingerprint: undefined,
     ClientArn: undefined,
     Label: undefined,
-    LastModifiedTimestamp: undefined
+    LastModifiedTimestamp: undefined,
   };
   if (output.Certificate !== undefined) {
     contents.Certificate = output.Certificate;
@@ -2617,7 +2343,7 @@ const deserializeAws_json1_1DescribeLunaClientResponse = (
     contents.LastModifiedTimestamp = output.LastModifiedTimestamp;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1GetConfigResponse = (
   output: any,
@@ -2627,7 +2353,7 @@ const deserializeAws_json1_1GetConfigResponse = (
     __type: "GetConfigResponse",
     ConfigCred: undefined,
     ConfigFile: undefined,
-    ConfigType: undefined
+    ConfigType: undefined,
   };
   if (output.ConfigCred !== undefined) {
     contents.ConfigCred = output.ConfigCred;
@@ -2639,21 +2365,25 @@ const deserializeAws_json1_1GetConfigResponse = (
     contents.ConfigType = output.ConfigType;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1HapgList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1HsmList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1InvalidRequestException = (
   output: any,
@@ -2662,7 +2392,7 @@ const deserializeAws_json1_1InvalidRequestException = (
   let contents: any = {
     __type: "InvalidRequestException",
     message: undefined,
-    retryable: undefined
+    retryable: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
@@ -2671,7 +2401,7 @@ const deserializeAws_json1_1InvalidRequestException = (
     contents.retryable = output.retryable;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListAvailableZonesResponse = (
   output: any,
@@ -2679,13 +2409,13 @@ const deserializeAws_json1_1ListAvailableZonesResponse = (
 ): ListAvailableZonesResponse => {
   let contents: any = {
     __type: "ListAvailableZonesResponse",
-    AZList: undefined
+    AZList: undefined,
   };
   if (output.AZList !== undefined) {
     contents.AZList = deserializeAws_json1_1AZList(output.AZList, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListHapgsResponse = (
   output: any,
@@ -2694,19 +2424,16 @@ const deserializeAws_json1_1ListHapgsResponse = (
   let contents: any = {
     __type: "ListHapgsResponse",
     HapgList: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.HapgList !== undefined) {
-    contents.HapgList = deserializeAws_json1_1HapgList(
-      output.HapgList,
-      context
-    );
+    contents.HapgList = deserializeAws_json1_1HapgList(output.HapgList, context);
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListHsmsResponse = (
   output: any,
@@ -2715,7 +2442,7 @@ const deserializeAws_json1_1ListHsmsResponse = (
   let contents: any = {
     __type: "ListHsmsResponse",
     HsmList: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.HsmList !== undefined) {
     contents.HsmList = deserializeAws_json1_1HsmList(output.HsmList, context);
@@ -2724,7 +2451,7 @@ const deserializeAws_json1_1ListHsmsResponse = (
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListLunaClientsResponse = (
   output: any,
@@ -2733,19 +2460,16 @@ const deserializeAws_json1_1ListLunaClientsResponse = (
   let contents: any = {
     __type: "ListLunaClientsResponse",
     ClientList: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.ClientList !== undefined) {
-    contents.ClientList = deserializeAws_json1_1ClientList(
-      output.ClientList,
-      context
-    );
+    contents.ClientList = deserializeAws_json1_1ClientList(output.ClientList, context);
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListTagsForResourceResponse = (
   output: any,
@@ -2753,13 +2477,13 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 ): ListTagsForResourceResponse => {
   let contents: any = {
     __type: "ListTagsForResourceResponse",
-    TagList: undefined
+    TagList: undefined,
   };
   if (output.TagList !== undefined) {
     contents.TagList = deserializeAws_json1_1TagList(output.TagList, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ModifyHapgResponse = (
   output: any,
@@ -2767,13 +2491,13 @@ const deserializeAws_json1_1ModifyHapgResponse = (
 ): ModifyHapgResponse => {
   let contents: any = {
     __type: "ModifyHapgResponse",
-    HapgArn: undefined
+    HapgArn: undefined,
   };
   if (output.HapgArn !== undefined) {
     contents.HapgArn = output.HapgArn;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ModifyHsmResponse = (
   output: any,
@@ -2781,13 +2505,13 @@ const deserializeAws_json1_1ModifyHsmResponse = (
 ): ModifyHsmResponse => {
   let contents: any = {
     __type: "ModifyHsmResponse",
-    HsmArn: undefined
+    HsmArn: undefined,
   };
   if (output.HsmArn !== undefined) {
     contents.HsmArn = output.HsmArn;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ModifyLunaClientResponse = (
   output: any,
@@ -2795,27 +2519,31 @@ const deserializeAws_json1_1ModifyLunaClientResponse = (
 ): ModifyLunaClientResponse => {
   let contents: any = {
     __type: "ModifyLunaClientResponse",
-    ClientArn: undefined
+    ClientArn: undefined,
   };
   if (output.ClientArn !== undefined) {
     contents.ClientArn = output.ClientArn;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1PartitionList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1PartitionSerialList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1RemoveTagsFromResourceResponse = (
   output: any,
@@ -2823,13 +2551,13 @@ const deserializeAws_json1_1RemoveTagsFromResourceResponse = (
 ): RemoveTagsFromResourceResponse => {
   let contents: any = {
     __type: "RemoveTagsFromResourceResponse",
-    Status: undefined
+    Status: undefined,
   };
   if (output.Status !== undefined) {
     contents.Status = output.Status;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1Tag = (
   output: any,
@@ -2838,7 +2566,7 @@ const deserializeAws_json1_1Tag = (
   let contents: any = {
     __type: "Tag",
     Key: undefined,
-    Value: undefined
+    Value: undefined,
   };
   if (output.Key !== undefined) {
     contents.Key = output.Key;
@@ -2847,7 +2575,7 @@ const deserializeAws_json1_1Tag = (
     contents.Value = output.Value;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1TagList = (
   output: any,
@@ -2856,7 +2584,7 @@ const deserializeAws_json1_1TagList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
-};
+}
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

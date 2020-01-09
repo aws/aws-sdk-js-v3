@@ -1,17 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  imagebuilderClientResolvedConfig
+  imagebuilderClientResolvedConfig,
 } from "../imagebuilderClient";
-import { CreateImageRequest, CreateImageResponse } from "../models/index";
+import {
+  CreateImageRequest,
+  CreateImageResponse,
+} from "../models/index";
 import {
   deserializeAws_restJson1_1CreateImageCommand,
-  serializeAws_restJson1_1CreateImageCommand
+  serializeAws_restJson1_1CreateImageCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type CreateImageCommandInput = CreateImageRequest;
 export type CreateImageCommandOutput = CreateImageResponse;
 
-export class CreateImageCommand extends $Command<
-  CreateImageCommandInput,
-  CreateImageCommandOutput,
-  imagebuilderClientResolvedConfig
-> {
+export class CreateImageCommand extends $Command<CreateImageCommandInput, CreateImageCommandOutput, imagebuilderClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class CreateImageCommand extends $Command<
     configuration: imagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateImageCommandInput, CreateImageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

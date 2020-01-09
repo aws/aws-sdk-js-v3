@@ -2,87 +2,87 @@ import { ElasticTranscoderClient } from "./ElasticTranscoderClient";
 import {
   CancelJobCommand,
   CancelJobCommandInput,
-  CancelJobCommandOutput
+  CancelJobCommandOutput,
 } from "./commands/CancelJobCommand";
 import {
   CreateJobCommand,
   CreateJobCommandInput,
-  CreateJobCommandOutput
+  CreateJobCommandOutput,
 } from "./commands/CreateJobCommand";
 import {
   CreatePipelineCommand,
   CreatePipelineCommandInput,
-  CreatePipelineCommandOutput
+  CreatePipelineCommandOutput,
 } from "./commands/CreatePipelineCommand";
 import {
   CreatePresetCommand,
   CreatePresetCommandInput,
-  CreatePresetCommandOutput
+  CreatePresetCommandOutput,
 } from "./commands/CreatePresetCommand";
 import {
   DeletePipelineCommand,
   DeletePipelineCommandInput,
-  DeletePipelineCommandOutput
+  DeletePipelineCommandOutput,
 } from "./commands/DeletePipelineCommand";
 import {
   DeletePresetCommand,
   DeletePresetCommandInput,
-  DeletePresetCommandOutput
+  DeletePresetCommandOutput,
 } from "./commands/DeletePresetCommand";
 import {
   ListJobsByPipelineCommand,
   ListJobsByPipelineCommandInput,
-  ListJobsByPipelineCommandOutput
+  ListJobsByPipelineCommandOutput,
 } from "./commands/ListJobsByPipelineCommand";
 import {
   ListJobsByStatusCommand,
   ListJobsByStatusCommandInput,
-  ListJobsByStatusCommandOutput
+  ListJobsByStatusCommandOutput,
 } from "./commands/ListJobsByStatusCommand";
 import {
   ListPipelinesCommand,
   ListPipelinesCommandInput,
-  ListPipelinesCommandOutput
+  ListPipelinesCommandOutput,
 } from "./commands/ListPipelinesCommand";
 import {
   ListPresetsCommand,
   ListPresetsCommandInput,
-  ListPresetsCommandOutput
+  ListPresetsCommandOutput,
 } from "./commands/ListPresetsCommand";
 import {
   ReadJobCommand,
   ReadJobCommandInput,
-  ReadJobCommandOutput
+  ReadJobCommandOutput,
 } from "./commands/ReadJobCommand";
 import {
   ReadPipelineCommand,
   ReadPipelineCommandInput,
-  ReadPipelineCommandOutput
+  ReadPipelineCommandOutput,
 } from "./commands/ReadPipelineCommand";
 import {
   ReadPresetCommand,
   ReadPresetCommandInput,
-  ReadPresetCommandOutput
+  ReadPresetCommandOutput,
 } from "./commands/ReadPresetCommand";
 import {
   TestRoleCommand,
   TestRoleCommandInput,
-  TestRoleCommandOutput
+  TestRoleCommandOutput,
 } from "./commands/TestRoleCommand";
 import {
   UpdatePipelineCommand,
   UpdatePipelineCommandInput,
-  UpdatePipelineCommandOutput
+  UpdatePipelineCommandOutput,
 } from "./commands/UpdatePipelineCommand";
 import {
   UpdatePipelineNotificationsCommand,
   UpdatePipelineNotificationsCommandInput,
-  UpdatePipelineNotificationsCommandOutput
+  UpdatePipelineNotificationsCommandOutput,
 } from "./commands/UpdatePipelineNotificationsCommand";
 import {
   UpdatePipelineStatusCommand,
   UpdatePipelineStatusCommandInput,
-  UpdatePipelineStatusCommandOutput
+  UpdatePipelineStatusCommandOutput,
 } from "./commands/UpdatePipelineStatusCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -106,7 +106,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
    */
   public cancelJob(
     args: CancelJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CancelJobCommandOutput>;
   public cancelJob(
     args: CancelJobCommandInput,
@@ -119,18 +119,16 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public cancelJob(
     args: CancelJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelJobCommandOutput) => void),
     cb?: (err: any, data?: CancelJobCommandOutput) => void
   ): Promise<CancelJobCommandOutput> | void {
     const command = new CancelJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -148,7 +146,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
    */
   public createJob(
     args: CreateJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateJobCommandOutput>;
   public createJob(
     args: CreateJobCommandInput,
@@ -161,18 +159,16 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public createJob(
     args: CreateJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateJobCommandOutput) => void),
     cb?: (err: any, data?: CreateJobCommandOutput) => void
   ): Promise<CreateJobCommandOutput> | void {
     const command = new CreateJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -186,7 +182,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
    */
   public createPipeline(
     args: CreatePipelineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreatePipelineCommandOutput>;
   public createPipeline(
     args: CreatePipelineCommandInput,
@@ -199,18 +195,16 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public createPipeline(
     args: CreatePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePipelineCommandOutput) => void),
     cb?: (err: any, data?: CreatePipelineCommandOutput) => void
   ): Promise<CreatePipelineCommandOutput> | void {
     const command = new CreatePipelineCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -237,7 +231,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
    */
   public createPreset(
     args: CreatePresetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreatePresetCommandOutput>;
   public createPreset(
     args: CreatePresetCommandInput,
@@ -250,18 +244,16 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public createPreset(
     args: CreatePresetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePresetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePresetCommandOutput) => void),
     cb?: (err: any, data?: CreatePresetCommandOutput) => void
   ): Promise<CreatePresetCommandOutput> | void {
     const command = new CreatePresetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -278,7 +270,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
    */
   public deletePipeline(
     args: DeletePipelineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeletePipelineCommandOutput>;
   public deletePipeline(
     args: DeletePipelineCommandInput,
@@ -291,18 +283,16 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public deletePipeline(
     args: DeletePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePipelineCommandOutput) => void),
     cb?: (err: any, data?: DeletePipelineCommandOutput) => void
   ): Promise<DeletePipelineCommandOutput> | void {
     const command = new DeletePipelineCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -319,7 +309,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
    */
   public deletePreset(
     args: DeletePresetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeletePresetCommandOutput>;
   public deletePreset(
     args: DeletePresetCommandInput,
@@ -332,18 +322,16 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public deletePreset(
     args: DeletePresetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePresetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePresetCommandOutput) => void),
     cb?: (err: any, data?: DeletePresetCommandOutput) => void
   ): Promise<DeletePresetCommandOutput> | void {
     const command = new DeletePresetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -359,7 +347,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
    */
   public listJobsByPipeline(
     args: ListJobsByPipelineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListJobsByPipelineCommandOutput>;
   public listJobsByPipeline(
     args: ListJobsByPipelineCommandInput,
@@ -372,18 +360,16 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public listJobsByPipeline(
     args: ListJobsByPipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobsByPipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJobsByPipelineCommandOutput) => void),
     cb?: (err: any, data?: ListJobsByPipelineCommandOutput) => void
   ): Promise<ListJobsByPipelineCommandOutput> | void {
     const command = new ListJobsByPipelineCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -398,7 +384,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
    */
   public listJobsByStatus(
     args: ListJobsByStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListJobsByStatusCommandOutput>;
   public listJobsByStatus(
     args: ListJobsByStatusCommandInput,
@@ -411,18 +397,16 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public listJobsByStatus(
     args: ListJobsByStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobsByStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJobsByStatusCommandOutput) => void),
     cb?: (err: any, data?: ListJobsByStatusCommandOutput) => void
   ): Promise<ListJobsByStatusCommandOutput> | void {
     const command = new ListJobsByStatusCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -436,7 +420,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
    */
   public listPipelines(
     args: ListPipelinesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListPipelinesCommandOutput>;
   public listPipelines(
     args: ListPipelinesCommandInput,
@@ -449,18 +433,16 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public listPipelines(
     args: ListPipelinesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPipelinesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPipelinesCommandOutput) => void),
     cb?: (err: any, data?: ListPipelinesCommandOutput) => void
   ): Promise<ListPipelinesCommandOutput> | void {
     const command = new ListPipelinesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -475,7 +457,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
    */
   public listPresets(
     args: ListPresetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListPresetsCommandOutput>;
   public listPresets(
     args: ListPresetsCommandInput,
@@ -488,18 +470,16 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public listPresets(
     args: ListPresetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPresetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPresetsCommandOutput) => void),
     cb?: (err: any, data?: ListPresetsCommandOutput) => void
   ): Promise<ListPresetsCommandOutput> | void {
     const command = new ListPresetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -513,7 +493,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
    */
   public readJob(
     args: ReadJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ReadJobCommandOutput>;
   public readJob(
     args: ReadJobCommandInput,
@@ -526,18 +506,16 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public readJob(
     args: ReadJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReadJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReadJobCommandOutput) => void),
     cb?: (err: any, data?: ReadJobCommandOutput) => void
   ): Promise<ReadJobCommandOutput> | void {
     const command = new ReadJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -551,7 +529,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
    */
   public readPipeline(
     args: ReadPipelineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ReadPipelineCommandOutput>;
   public readPipeline(
     args: ReadPipelineCommandInput,
@@ -564,18 +542,16 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public readPipeline(
     args: ReadPipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReadPipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReadPipelineCommandOutput) => void),
     cb?: (err: any, data?: ReadPipelineCommandOutput) => void
   ): Promise<ReadPipelineCommandOutput> | void {
     const command = new ReadPipelineCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -589,7 +565,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
    */
   public readPreset(
     args: ReadPresetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ReadPresetCommandOutput>;
   public readPreset(
     args: ReadPresetCommandInput,
@@ -602,18 +578,16 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public readPreset(
     args: ReadPresetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ReadPresetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReadPresetCommandOutput) => void),
     cb?: (err: any, data?: ReadPresetCommandOutput) => void
   ): Promise<ReadPresetCommandOutput> | void {
     const command = new ReadPresetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -632,7 +606,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
    */
   public testRole(
     args: TestRoleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<TestRoleCommandOutput>;
   public testRole(
     args: TestRoleCommandInput,
@@ -645,18 +619,16 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public testRole(
     args: TestRoleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TestRoleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TestRoleCommandOutput) => void),
     cb?: (err: any, data?: TestRoleCommandOutput) => void
   ): Promise<TestRoleCommandOutput> | void {
     const command = new TestRoleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -674,7 +646,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
    */
   public updatePipeline(
     args: UpdatePipelineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdatePipelineCommandOutput>;
   public updatePipeline(
     args: UpdatePipelineCommandInput,
@@ -687,18 +659,16 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public updatePipeline(
     args: UpdatePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePipelineCommandOutput) => void),
     cb?: (err: any, data?: UpdatePipelineCommandOutput) => void
   ): Promise<UpdatePipelineCommandOutput> | void {
     const command = new UpdatePipelineCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -713,7 +683,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
    */
   public updatePipelineNotifications(
     args: UpdatePipelineNotificationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdatePipelineNotificationsCommandOutput>;
   public updatePipelineNotifications(
     args: UpdatePipelineNotificationsCommandInput,
@@ -726,18 +696,16 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public updatePipelineNotifications(
     args: UpdatePipelineNotificationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePipelineNotificationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePipelineNotificationsCommandOutput) => void),
     cb?: (err: any, data?: UpdatePipelineNotificationsCommandOutput) => void
   ): Promise<UpdatePipelineNotificationsCommandOutput> | void {
     const command = new UpdatePipelineNotificationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -756,7 +724,7 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
    */
   public updatePipelineStatus(
     args: UpdatePipelineStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdatePipelineStatusCommandOutput>;
   public updatePipelineStatus(
     args: UpdatePipelineStatusCommandInput,
@@ -769,20 +737,19 @@ export class ElasticTranscoder extends ElasticTranscoderClient {
   ): void;
   public updatePipelineStatus(
     args: UpdatePipelineStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePipelineStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePipelineStatusCommandOutput) => void),
     cb?: (err: any, data?: UpdatePipelineStatusCommandOutput) => void
   ): Promise<UpdatePipelineStatusCommandOutput> | void {
     const command = new UpdatePipelineStatusCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

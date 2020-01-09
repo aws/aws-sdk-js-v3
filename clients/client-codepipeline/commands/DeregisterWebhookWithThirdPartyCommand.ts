@@ -1,20 +1,20 @@
 import {
   CodePipelineClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CodePipelineClient";
 import {
   DeregisterWebhookWithThirdPartyInput,
-  DeregisterWebhookWithThirdPartyOutput
+  DeregisterWebhookWithThirdPartyOutput,
 } from "../models/index";
 import {
   deserializeAws_json1_1DeregisterWebhookWithThirdPartyCommand,
-  serializeAws_json1_1DeregisterWebhookWithThirdPartyCommand
+  serializeAws_json1_1DeregisterWebhookWithThirdPartyCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DeregisterWebhookWithThirdPartyCommandInput = DeregisterWebhookWithThirdPartyInput;
 export type DeregisterWebhookWithThirdPartyCommandOutput = DeregisterWebhookWithThirdPartyOutput;
 
-export class DeregisterWebhookWithThirdPartyCommand extends $Command<
-  DeregisterWebhookWithThirdPartyCommandInput,
-  DeregisterWebhookWithThirdPartyCommandOutput,
-  CodePipelineClientResolvedConfig
-> {
+export class DeregisterWebhookWithThirdPartyCommand extends $Command<DeregisterWebhookWithThirdPartyCommandInput, DeregisterWebhookWithThirdPartyCommandOutput, CodePipelineClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class DeregisterWebhookWithThirdPartyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeregisterWebhookWithThirdPartyCommandInput,
-    DeregisterWebhookWithThirdPartyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeregisterWebhookWithThirdPartyCommandInput, DeregisterWebhookWithThirdPartyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class DeregisterWebhookWithThirdPartyCommand extends $Command<
     input: DeregisterWebhookWithThirdPartyCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeregisterWebhookWithThirdPartyCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeregisterWebhookWithThirdPartyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DeregisterWebhookWithThirdPartyCommandOutput> {
-    return deserializeAws_json1_1DeregisterWebhookWithThirdPartyCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeregisterWebhookWithThirdPartyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,402 +1,402 @@
 import {
   AddCustomAttributesCommandInput,
-  AddCustomAttributesCommandOutput
+  AddCustomAttributesCommandOutput,
 } from "../commands/AddCustomAttributesCommand";
 import {
   AdminAddUserToGroupCommandInput,
-  AdminAddUserToGroupCommandOutput
+  AdminAddUserToGroupCommandOutput,
 } from "../commands/AdminAddUserToGroupCommand";
 import {
   AdminConfirmSignUpCommandInput,
-  AdminConfirmSignUpCommandOutput
+  AdminConfirmSignUpCommandOutput,
 } from "../commands/AdminConfirmSignUpCommand";
 import {
   AdminCreateUserCommandInput,
-  AdminCreateUserCommandOutput
+  AdminCreateUserCommandOutput,
 } from "../commands/AdminCreateUserCommand";
 import {
   AdminDeleteUserAttributesCommandInput,
-  AdminDeleteUserAttributesCommandOutput
+  AdminDeleteUserAttributesCommandOutput,
 } from "../commands/AdminDeleteUserAttributesCommand";
 import {
   AdminDeleteUserCommandInput,
-  AdminDeleteUserCommandOutput
+  AdminDeleteUserCommandOutput,
 } from "../commands/AdminDeleteUserCommand";
 import {
   AdminDisableProviderForUserCommandInput,
-  AdminDisableProviderForUserCommandOutput
+  AdminDisableProviderForUserCommandOutput,
 } from "../commands/AdminDisableProviderForUserCommand";
 import {
   AdminDisableUserCommandInput,
-  AdminDisableUserCommandOutput
+  AdminDisableUserCommandOutput,
 } from "../commands/AdminDisableUserCommand";
 import {
   AdminEnableUserCommandInput,
-  AdminEnableUserCommandOutput
+  AdminEnableUserCommandOutput,
 } from "../commands/AdminEnableUserCommand";
 import {
   AdminForgetDeviceCommandInput,
-  AdminForgetDeviceCommandOutput
+  AdminForgetDeviceCommandOutput,
 } from "../commands/AdminForgetDeviceCommand";
 import {
   AdminGetDeviceCommandInput,
-  AdminGetDeviceCommandOutput
+  AdminGetDeviceCommandOutput,
 } from "../commands/AdminGetDeviceCommand";
 import {
   AdminGetUserCommandInput,
-  AdminGetUserCommandOutput
+  AdminGetUserCommandOutput,
 } from "../commands/AdminGetUserCommand";
 import {
   AdminInitiateAuthCommandInput,
-  AdminInitiateAuthCommandOutput
+  AdminInitiateAuthCommandOutput,
 } from "../commands/AdminInitiateAuthCommand";
 import {
   AdminLinkProviderForUserCommandInput,
-  AdminLinkProviderForUserCommandOutput
+  AdminLinkProviderForUserCommandOutput,
 } from "../commands/AdminLinkProviderForUserCommand";
 import {
   AdminListDevicesCommandInput,
-  AdminListDevicesCommandOutput
+  AdminListDevicesCommandOutput,
 } from "../commands/AdminListDevicesCommand";
 import {
   AdminListGroupsForUserCommandInput,
-  AdminListGroupsForUserCommandOutput
+  AdminListGroupsForUserCommandOutput,
 } from "../commands/AdminListGroupsForUserCommand";
 import {
   AdminListUserAuthEventsCommandInput,
-  AdminListUserAuthEventsCommandOutput
+  AdminListUserAuthEventsCommandOutput,
 } from "../commands/AdminListUserAuthEventsCommand";
 import {
   AdminRemoveUserFromGroupCommandInput,
-  AdminRemoveUserFromGroupCommandOutput
+  AdminRemoveUserFromGroupCommandOutput,
 } from "../commands/AdminRemoveUserFromGroupCommand";
 import {
   AdminResetUserPasswordCommandInput,
-  AdminResetUserPasswordCommandOutput
+  AdminResetUserPasswordCommandOutput,
 } from "../commands/AdminResetUserPasswordCommand";
 import {
   AdminRespondToAuthChallengeCommandInput,
-  AdminRespondToAuthChallengeCommandOutput
+  AdminRespondToAuthChallengeCommandOutput,
 } from "../commands/AdminRespondToAuthChallengeCommand";
 import {
   AdminSetUserMFAPreferenceCommandInput,
-  AdminSetUserMFAPreferenceCommandOutput
+  AdminSetUserMFAPreferenceCommandOutput,
 } from "../commands/AdminSetUserMFAPreferenceCommand";
 import {
   AdminSetUserPasswordCommandInput,
-  AdminSetUserPasswordCommandOutput
+  AdminSetUserPasswordCommandOutput,
 } from "../commands/AdminSetUserPasswordCommand";
 import {
   AdminSetUserSettingsCommandInput,
-  AdminSetUserSettingsCommandOutput
+  AdminSetUserSettingsCommandOutput,
 } from "../commands/AdminSetUserSettingsCommand";
 import {
   AdminUpdateAuthEventFeedbackCommandInput,
-  AdminUpdateAuthEventFeedbackCommandOutput
+  AdminUpdateAuthEventFeedbackCommandOutput,
 } from "../commands/AdminUpdateAuthEventFeedbackCommand";
 import {
   AdminUpdateDeviceStatusCommandInput,
-  AdminUpdateDeviceStatusCommandOutput
+  AdminUpdateDeviceStatusCommandOutput,
 } from "../commands/AdminUpdateDeviceStatusCommand";
 import {
   AdminUpdateUserAttributesCommandInput,
-  AdminUpdateUserAttributesCommandOutput
+  AdminUpdateUserAttributesCommandOutput,
 } from "../commands/AdminUpdateUserAttributesCommand";
 import {
   AdminUserGlobalSignOutCommandInput,
-  AdminUserGlobalSignOutCommandOutput
+  AdminUserGlobalSignOutCommandOutput,
 } from "../commands/AdminUserGlobalSignOutCommand";
 import {
   AssociateSoftwareTokenCommandInput,
-  AssociateSoftwareTokenCommandOutput
+  AssociateSoftwareTokenCommandOutput,
 } from "../commands/AssociateSoftwareTokenCommand";
 import {
   ChangePasswordCommandInput,
-  ChangePasswordCommandOutput
+  ChangePasswordCommandOutput,
 } from "../commands/ChangePasswordCommand";
 import {
   ConfirmDeviceCommandInput,
-  ConfirmDeviceCommandOutput
+  ConfirmDeviceCommandOutput,
 } from "../commands/ConfirmDeviceCommand";
 import {
   ConfirmForgotPasswordCommandInput,
-  ConfirmForgotPasswordCommandOutput
+  ConfirmForgotPasswordCommandOutput,
 } from "../commands/ConfirmForgotPasswordCommand";
 import {
   ConfirmSignUpCommandInput,
-  ConfirmSignUpCommandOutput
+  ConfirmSignUpCommandOutput,
 } from "../commands/ConfirmSignUpCommand";
 import {
   CreateGroupCommandInput,
-  CreateGroupCommandOutput
+  CreateGroupCommandOutput,
 } from "../commands/CreateGroupCommand";
 import {
   CreateIdentityProviderCommandInput,
-  CreateIdentityProviderCommandOutput
+  CreateIdentityProviderCommandOutput,
 } from "../commands/CreateIdentityProviderCommand";
 import {
   CreateResourceServerCommandInput,
-  CreateResourceServerCommandOutput
+  CreateResourceServerCommandOutput,
 } from "../commands/CreateResourceServerCommand";
 import {
   CreateUserImportJobCommandInput,
-  CreateUserImportJobCommandOutput
+  CreateUserImportJobCommandOutput,
 } from "../commands/CreateUserImportJobCommand";
 import {
   CreateUserPoolClientCommandInput,
-  CreateUserPoolClientCommandOutput
+  CreateUserPoolClientCommandOutput,
 } from "../commands/CreateUserPoolClientCommand";
 import {
   CreateUserPoolCommandInput,
-  CreateUserPoolCommandOutput
+  CreateUserPoolCommandOutput,
 } from "../commands/CreateUserPoolCommand";
 import {
   CreateUserPoolDomainCommandInput,
-  CreateUserPoolDomainCommandOutput
+  CreateUserPoolDomainCommandOutput,
 } from "../commands/CreateUserPoolDomainCommand";
 import {
   DeleteGroupCommandInput,
-  DeleteGroupCommandOutput
+  DeleteGroupCommandOutput,
 } from "../commands/DeleteGroupCommand";
 import {
   DeleteIdentityProviderCommandInput,
-  DeleteIdentityProviderCommandOutput
+  DeleteIdentityProviderCommandOutput,
 } from "../commands/DeleteIdentityProviderCommand";
 import {
   DeleteResourceServerCommandInput,
-  DeleteResourceServerCommandOutput
+  DeleteResourceServerCommandOutput,
 } from "../commands/DeleteResourceServerCommand";
 import {
   DeleteUserAttributesCommandInput,
-  DeleteUserAttributesCommandOutput
+  DeleteUserAttributesCommandOutput,
 } from "../commands/DeleteUserAttributesCommand";
 import {
   DeleteUserCommandInput,
-  DeleteUserCommandOutput
+  DeleteUserCommandOutput,
 } from "../commands/DeleteUserCommand";
 import {
   DeleteUserPoolClientCommandInput,
-  DeleteUserPoolClientCommandOutput
+  DeleteUserPoolClientCommandOutput,
 } from "../commands/DeleteUserPoolClientCommand";
 import {
   DeleteUserPoolCommandInput,
-  DeleteUserPoolCommandOutput
+  DeleteUserPoolCommandOutput,
 } from "../commands/DeleteUserPoolCommand";
 import {
   DeleteUserPoolDomainCommandInput,
-  DeleteUserPoolDomainCommandOutput
+  DeleteUserPoolDomainCommandOutput,
 } from "../commands/DeleteUserPoolDomainCommand";
 import {
   DescribeIdentityProviderCommandInput,
-  DescribeIdentityProviderCommandOutput
+  DescribeIdentityProviderCommandOutput,
 } from "../commands/DescribeIdentityProviderCommand";
 import {
   DescribeResourceServerCommandInput,
-  DescribeResourceServerCommandOutput
+  DescribeResourceServerCommandOutput,
 } from "../commands/DescribeResourceServerCommand";
 import {
   DescribeRiskConfigurationCommandInput,
-  DescribeRiskConfigurationCommandOutput
+  DescribeRiskConfigurationCommandOutput,
 } from "../commands/DescribeRiskConfigurationCommand";
 import {
   DescribeUserImportJobCommandInput,
-  DescribeUserImportJobCommandOutput
+  DescribeUserImportJobCommandOutput,
 } from "../commands/DescribeUserImportJobCommand";
 import {
   DescribeUserPoolClientCommandInput,
-  DescribeUserPoolClientCommandOutput
+  DescribeUserPoolClientCommandOutput,
 } from "../commands/DescribeUserPoolClientCommand";
 import {
   DescribeUserPoolCommandInput,
-  DescribeUserPoolCommandOutput
+  DescribeUserPoolCommandOutput,
 } from "../commands/DescribeUserPoolCommand";
 import {
   DescribeUserPoolDomainCommandInput,
-  DescribeUserPoolDomainCommandOutput
+  DescribeUserPoolDomainCommandOutput,
 } from "../commands/DescribeUserPoolDomainCommand";
 import {
   ForgetDeviceCommandInput,
-  ForgetDeviceCommandOutput
+  ForgetDeviceCommandOutput,
 } from "../commands/ForgetDeviceCommand";
 import {
   ForgotPasswordCommandInput,
-  ForgotPasswordCommandOutput
+  ForgotPasswordCommandOutput,
 } from "../commands/ForgotPasswordCommand";
 import {
   GetCSVHeaderCommandInput,
-  GetCSVHeaderCommandOutput
+  GetCSVHeaderCommandOutput,
 } from "../commands/GetCSVHeaderCommand";
 import {
   GetDeviceCommandInput,
-  GetDeviceCommandOutput
+  GetDeviceCommandOutput,
 } from "../commands/GetDeviceCommand";
 import {
   GetGroupCommandInput,
-  GetGroupCommandOutput
+  GetGroupCommandOutput,
 } from "../commands/GetGroupCommand";
 import {
   GetIdentityProviderByIdentifierCommandInput,
-  GetIdentityProviderByIdentifierCommandOutput
+  GetIdentityProviderByIdentifierCommandOutput,
 } from "../commands/GetIdentityProviderByIdentifierCommand";
 import {
   GetSigningCertificateCommandInput,
-  GetSigningCertificateCommandOutput
+  GetSigningCertificateCommandOutput,
 } from "../commands/GetSigningCertificateCommand";
 import {
   GetUICustomizationCommandInput,
-  GetUICustomizationCommandOutput
+  GetUICustomizationCommandOutput,
 } from "../commands/GetUICustomizationCommand";
 import {
   GetUserAttributeVerificationCodeCommandInput,
-  GetUserAttributeVerificationCodeCommandOutput
+  GetUserAttributeVerificationCodeCommandOutput,
 } from "../commands/GetUserAttributeVerificationCodeCommand";
 import {
   GetUserCommandInput,
-  GetUserCommandOutput
+  GetUserCommandOutput,
 } from "../commands/GetUserCommand";
 import {
   GetUserPoolMfaConfigCommandInput,
-  GetUserPoolMfaConfigCommandOutput
+  GetUserPoolMfaConfigCommandOutput,
 } from "../commands/GetUserPoolMfaConfigCommand";
 import {
   GlobalSignOutCommandInput,
-  GlobalSignOutCommandOutput
+  GlobalSignOutCommandOutput,
 } from "../commands/GlobalSignOutCommand";
 import {
   InitiateAuthCommandInput,
-  InitiateAuthCommandOutput
+  InitiateAuthCommandOutput,
 } from "../commands/InitiateAuthCommand";
 import {
   ListDevicesCommandInput,
-  ListDevicesCommandOutput
+  ListDevicesCommandOutput,
 } from "../commands/ListDevicesCommand";
 import {
   ListGroupsCommandInput,
-  ListGroupsCommandOutput
+  ListGroupsCommandOutput,
 } from "../commands/ListGroupsCommand";
 import {
   ListIdentityProvidersCommandInput,
-  ListIdentityProvidersCommandOutput
+  ListIdentityProvidersCommandOutput,
 } from "../commands/ListIdentityProvidersCommand";
 import {
   ListResourceServersCommandInput,
-  ListResourceServersCommandOutput
+  ListResourceServersCommandOutput,
 } from "../commands/ListResourceServersCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import {
   ListUserImportJobsCommandInput,
-  ListUserImportJobsCommandOutput
+  ListUserImportJobsCommandOutput,
 } from "../commands/ListUserImportJobsCommand";
 import {
   ListUserPoolClientsCommandInput,
-  ListUserPoolClientsCommandOutput
+  ListUserPoolClientsCommandOutput,
 } from "../commands/ListUserPoolClientsCommand";
 import {
   ListUserPoolsCommandInput,
-  ListUserPoolsCommandOutput
+  ListUserPoolsCommandOutput,
 } from "../commands/ListUserPoolsCommand";
 import {
   ListUsersCommandInput,
-  ListUsersCommandOutput
+  ListUsersCommandOutput,
 } from "../commands/ListUsersCommand";
 import {
   ListUsersInGroupCommandInput,
-  ListUsersInGroupCommandOutput
+  ListUsersInGroupCommandOutput,
 } from "../commands/ListUsersInGroupCommand";
 import {
   ResendConfirmationCodeCommandInput,
-  ResendConfirmationCodeCommandOutput
+  ResendConfirmationCodeCommandOutput,
 } from "../commands/ResendConfirmationCodeCommand";
 import {
   RespondToAuthChallengeCommandInput,
-  RespondToAuthChallengeCommandOutput
+  RespondToAuthChallengeCommandOutput,
 } from "../commands/RespondToAuthChallengeCommand";
 import {
   SetRiskConfigurationCommandInput,
-  SetRiskConfigurationCommandOutput
+  SetRiskConfigurationCommandOutput,
 } from "../commands/SetRiskConfigurationCommand";
 import {
   SetUICustomizationCommandInput,
-  SetUICustomizationCommandOutput
+  SetUICustomizationCommandOutput,
 } from "../commands/SetUICustomizationCommand";
 import {
   SetUserMFAPreferenceCommandInput,
-  SetUserMFAPreferenceCommandOutput
+  SetUserMFAPreferenceCommandOutput,
 } from "../commands/SetUserMFAPreferenceCommand";
 import {
   SetUserPoolMfaConfigCommandInput,
-  SetUserPoolMfaConfigCommandOutput
+  SetUserPoolMfaConfigCommandOutput,
 } from "../commands/SetUserPoolMfaConfigCommand";
 import {
   SetUserSettingsCommandInput,
-  SetUserSettingsCommandOutput
+  SetUserSettingsCommandOutput,
 } from "../commands/SetUserSettingsCommand";
 import {
   SignUpCommandInput,
-  SignUpCommandOutput
+  SignUpCommandOutput,
 } from "../commands/SignUpCommand";
 import {
   StartUserImportJobCommandInput,
-  StartUserImportJobCommandOutput
+  StartUserImportJobCommandOutput,
 } from "../commands/StartUserImportJobCommand";
 import {
   StopUserImportJobCommandInput,
-  StopUserImportJobCommandOutput
+  StopUserImportJobCommandOutput,
 } from "../commands/StopUserImportJobCommand";
 import {
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "../commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "../commands/UntagResourceCommand";
 import {
   UpdateAuthEventFeedbackCommandInput,
-  UpdateAuthEventFeedbackCommandOutput
+  UpdateAuthEventFeedbackCommandOutput,
 } from "../commands/UpdateAuthEventFeedbackCommand";
 import {
   UpdateDeviceStatusCommandInput,
-  UpdateDeviceStatusCommandOutput
+  UpdateDeviceStatusCommandOutput,
 } from "../commands/UpdateDeviceStatusCommand";
 import {
   UpdateGroupCommandInput,
-  UpdateGroupCommandOutput
+  UpdateGroupCommandOutput,
 } from "../commands/UpdateGroupCommand";
 import {
   UpdateIdentityProviderCommandInput,
-  UpdateIdentityProviderCommandOutput
+  UpdateIdentityProviderCommandOutput,
 } from "../commands/UpdateIdentityProviderCommand";
 import {
   UpdateResourceServerCommandInput,
-  UpdateResourceServerCommandOutput
+  UpdateResourceServerCommandOutput,
 } from "../commands/UpdateResourceServerCommand";
 import {
   UpdateUserAttributesCommandInput,
-  UpdateUserAttributesCommandOutput
+  UpdateUserAttributesCommandOutput,
 } from "../commands/UpdateUserAttributesCommand";
 import {
   UpdateUserPoolClientCommandInput,
-  UpdateUserPoolClientCommandOutput
+  UpdateUserPoolClientCommandOutput,
 } from "../commands/UpdateUserPoolClientCommand";
 import {
   UpdateUserPoolCommandInput,
-  UpdateUserPoolCommandOutput
+  UpdateUserPoolCommandOutput,
 } from "../commands/UpdateUserPoolCommand";
 import {
   UpdateUserPoolDomainCommandInput,
-  UpdateUserPoolDomainCommandOutput
+  UpdateUserPoolDomainCommandOutput,
 } from "../commands/UpdateUserPoolDomainCommand";
 import {
   VerifySoftwareTokenCommandInput,
-  VerifySoftwareTokenCommandOutput
+  VerifySoftwareTokenCommandOutput,
 } from "../commands/VerifySoftwareTokenCommand";
 import {
   VerifyUserAttributeCommandInput,
-  VerifyUserAttributeCommandOutput
+  VerifyUserAttributeCommandOutput,
 } from "../commands/VerifyUserAttributeCommand";
 import {
   AccountRecoverySettingType,
@@ -691,18 +691,18 @@ import {
   VerifySoftwareTokenRequest,
   VerifySoftwareTokenResponse,
   VerifyUserAttributeRequest,
-  VerifyUserAttributeResponse
+  VerifyUserAttributeResponse,
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export async function serializeAws_json1_1AddCustomAttributesCommand(
@@ -710,15 +710,11 @@ export async function serializeAws_json1_1AddCustomAttributesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.AddCustomAttributes";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AddCustomAttributes";
   let body: any = {};
   const wrappedBody: any = {
-    AddCustomAttributesRequest: serializeAws_json1_1AddCustomAttributesRequest(
-      input,
-      context
-    )
+    AddCustomAttributesRequest: serializeAws_json1_1AddCustomAttributesRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -727,7 +723,7 @@ export async function serializeAws_json1_1AddCustomAttributesCommand(
     method: "POST",
     path: "/AddCustomAttributes",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -736,15 +732,11 @@ export async function serializeAws_json1_1AdminAddUserToGroupCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.AdminAddUserToGroup";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AdminAddUserToGroup";
   let body: any = {};
   const wrappedBody: any = {
-    AdminAddUserToGroupRequest: serializeAws_json1_1AdminAddUserToGroupRequest(
-      input,
-      context
-    )
+    AdminAddUserToGroupRequest: serializeAws_json1_1AdminAddUserToGroupRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -753,7 +745,7 @@ export async function serializeAws_json1_1AdminAddUserToGroupCommand(
     method: "POST",
     path: "/AdminAddUserToGroup",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -762,15 +754,11 @@ export async function serializeAws_json1_1AdminConfirmSignUpCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.AdminConfirmSignUp";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AdminConfirmSignUp";
   let body: any = {};
   const wrappedBody: any = {
-    AdminConfirmSignUpRequest: serializeAws_json1_1AdminConfirmSignUpRequest(
-      input,
-      context
-    )
+    AdminConfirmSignUpRequest: serializeAws_json1_1AdminConfirmSignUpRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -779,7 +767,7 @@ export async function serializeAws_json1_1AdminConfirmSignUpCommand(
     method: "POST",
     path: "/AdminConfirmSignUp",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -788,14 +776,11 @@ export async function serializeAws_json1_1AdminCreateUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.AdminCreateUser";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AdminCreateUser";
   let body: any = {};
   const wrappedBody: any = {
-    AdminCreateUserRequest: serializeAws_json1_1AdminCreateUserRequest(
-      input,
-      context
-    )
+    AdminCreateUserRequest: serializeAws_json1_1AdminCreateUserRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -804,7 +789,7 @@ export async function serializeAws_json1_1AdminCreateUserCommand(
     method: "POST",
     path: "/AdminCreateUser",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -813,14 +798,11 @@ export async function serializeAws_json1_1AdminDeleteUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.AdminDeleteUser";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AdminDeleteUser";
   let body: any = {};
   const wrappedBody: any = {
-    AdminDeleteUserRequest: serializeAws_json1_1AdminDeleteUserRequest(
-      input,
-      context
-    )
+    AdminDeleteUserRequest: serializeAws_json1_1AdminDeleteUserRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -829,7 +811,7 @@ export async function serializeAws_json1_1AdminDeleteUserCommand(
     method: "POST",
     path: "/AdminDeleteUser",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -838,15 +820,11 @@ export async function serializeAws_json1_1AdminDeleteUserAttributesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.AdminDeleteUserAttributes";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AdminDeleteUserAttributes";
   let body: any = {};
   const wrappedBody: any = {
-    AdminDeleteUserAttributesRequest: serializeAws_json1_1AdminDeleteUserAttributesRequest(
-      input,
-      context
-    )
+    AdminDeleteUserAttributesRequest: serializeAws_json1_1AdminDeleteUserAttributesRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -855,7 +833,7 @@ export async function serializeAws_json1_1AdminDeleteUserAttributesCommand(
     method: "POST",
     path: "/AdminDeleteUserAttributes",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -864,15 +842,11 @@ export async function serializeAws_json1_1AdminDisableProviderForUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.AdminDisableProviderForUser";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AdminDisableProviderForUser";
   let body: any = {};
   const wrappedBody: any = {
-    AdminDisableProviderForUserRequest: serializeAws_json1_1AdminDisableProviderForUserRequest(
-      input,
-      context
-    )
+    AdminDisableProviderForUserRequest: serializeAws_json1_1AdminDisableProviderForUserRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -881,7 +855,7 @@ export async function serializeAws_json1_1AdminDisableProviderForUserCommand(
     method: "POST",
     path: "/AdminDisableProviderForUser",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -890,15 +864,11 @@ export async function serializeAws_json1_1AdminDisableUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.AdminDisableUser";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AdminDisableUser";
   let body: any = {};
   const wrappedBody: any = {
-    AdminDisableUserRequest: serializeAws_json1_1AdminDisableUserRequest(
-      input,
-      context
-    )
+    AdminDisableUserRequest: serializeAws_json1_1AdminDisableUserRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -907,7 +877,7 @@ export async function serializeAws_json1_1AdminDisableUserCommand(
     method: "POST",
     path: "/AdminDisableUser",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -916,14 +886,11 @@ export async function serializeAws_json1_1AdminEnableUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.AdminEnableUser";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AdminEnableUser";
   let body: any = {};
   const wrappedBody: any = {
-    AdminEnableUserRequest: serializeAws_json1_1AdminEnableUserRequest(
-      input,
-      context
-    )
+    AdminEnableUserRequest: serializeAws_json1_1AdminEnableUserRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -932,7 +899,7 @@ export async function serializeAws_json1_1AdminEnableUserCommand(
     method: "POST",
     path: "/AdminEnableUser",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -941,15 +908,11 @@ export async function serializeAws_json1_1AdminForgetDeviceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.AdminForgetDevice";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AdminForgetDevice";
   let body: any = {};
   const wrappedBody: any = {
-    AdminForgetDeviceRequest: serializeAws_json1_1AdminForgetDeviceRequest(
-      input,
-      context
-    )
+    AdminForgetDeviceRequest: serializeAws_json1_1AdminForgetDeviceRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -958,7 +921,7 @@ export async function serializeAws_json1_1AdminForgetDeviceCommand(
     method: "POST",
     path: "/AdminForgetDevice",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -967,14 +930,11 @@ export async function serializeAws_json1_1AdminGetDeviceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.AdminGetDevice";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AdminGetDevice";
   let body: any = {};
   const wrappedBody: any = {
-    AdminGetDeviceRequest: serializeAws_json1_1AdminGetDeviceRequest(
-      input,
-      context
-    )
+    AdminGetDeviceRequest: serializeAws_json1_1AdminGetDeviceRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -983,7 +943,7 @@ export async function serializeAws_json1_1AdminGetDeviceCommand(
     method: "POST",
     path: "/AdminGetDevice",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -992,11 +952,11 @@ export async function serializeAws_json1_1AdminGetUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.AdminGetUser";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AdminGetUser";
   let body: any = {};
   const wrappedBody: any = {
-    AdminGetUserRequest: serializeAws_json1_1AdminGetUserRequest(input, context)
+    AdminGetUserRequest: serializeAws_json1_1AdminGetUserRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1005,7 +965,7 @@ export async function serializeAws_json1_1AdminGetUserCommand(
     method: "POST",
     path: "/AdminGetUser",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1014,15 +974,11 @@ export async function serializeAws_json1_1AdminInitiateAuthCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.AdminInitiateAuth";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AdminInitiateAuth";
   let body: any = {};
   const wrappedBody: any = {
-    AdminInitiateAuthRequest: serializeAws_json1_1AdminInitiateAuthRequest(
-      input,
-      context
-    )
+    AdminInitiateAuthRequest: serializeAws_json1_1AdminInitiateAuthRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1031,7 +987,7 @@ export async function serializeAws_json1_1AdminInitiateAuthCommand(
     method: "POST",
     path: "/AdminInitiateAuth",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1040,15 +996,11 @@ export async function serializeAws_json1_1AdminLinkProviderForUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.AdminLinkProviderForUser";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AdminLinkProviderForUser";
   let body: any = {};
   const wrappedBody: any = {
-    AdminLinkProviderForUserRequest: serializeAws_json1_1AdminLinkProviderForUserRequest(
-      input,
-      context
-    )
+    AdminLinkProviderForUserRequest: serializeAws_json1_1AdminLinkProviderForUserRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1057,7 +1009,7 @@ export async function serializeAws_json1_1AdminLinkProviderForUserCommand(
     method: "POST",
     path: "/AdminLinkProviderForUser",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1066,15 +1018,11 @@ export async function serializeAws_json1_1AdminListDevicesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.AdminListDevices";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AdminListDevices";
   let body: any = {};
   const wrappedBody: any = {
-    AdminListDevicesRequest: serializeAws_json1_1AdminListDevicesRequest(
-      input,
-      context
-    )
+    AdminListDevicesRequest: serializeAws_json1_1AdminListDevicesRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1083,7 +1031,7 @@ export async function serializeAws_json1_1AdminListDevicesCommand(
     method: "POST",
     path: "/AdminListDevices",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1092,15 +1040,11 @@ export async function serializeAws_json1_1AdminListGroupsForUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.AdminListGroupsForUser";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AdminListGroupsForUser";
   let body: any = {};
   const wrappedBody: any = {
-    AdminListGroupsForUserRequest: serializeAws_json1_1AdminListGroupsForUserRequest(
-      input,
-      context
-    )
+    AdminListGroupsForUserRequest: serializeAws_json1_1AdminListGroupsForUserRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1109,7 +1053,7 @@ export async function serializeAws_json1_1AdminListGroupsForUserCommand(
     method: "POST",
     path: "/AdminListGroupsForUser",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1118,15 +1062,11 @@ export async function serializeAws_json1_1AdminListUserAuthEventsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.AdminListUserAuthEvents";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AdminListUserAuthEvents";
   let body: any = {};
   const wrappedBody: any = {
-    AdminListUserAuthEventsRequest: serializeAws_json1_1AdminListUserAuthEventsRequest(
-      input,
-      context
-    )
+    AdminListUserAuthEventsRequest: serializeAws_json1_1AdminListUserAuthEventsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1135,7 +1075,7 @@ export async function serializeAws_json1_1AdminListUserAuthEventsCommand(
     method: "POST",
     path: "/AdminListUserAuthEvents",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1144,15 +1084,11 @@ export async function serializeAws_json1_1AdminRemoveUserFromGroupCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.AdminRemoveUserFromGroup";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AdminRemoveUserFromGroup";
   let body: any = {};
   const wrappedBody: any = {
-    AdminRemoveUserFromGroupRequest: serializeAws_json1_1AdminRemoveUserFromGroupRequest(
-      input,
-      context
-    )
+    AdminRemoveUserFromGroupRequest: serializeAws_json1_1AdminRemoveUserFromGroupRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1161,7 +1097,7 @@ export async function serializeAws_json1_1AdminRemoveUserFromGroupCommand(
     method: "POST",
     path: "/AdminRemoveUserFromGroup",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1170,15 +1106,11 @@ export async function serializeAws_json1_1AdminResetUserPasswordCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.AdminResetUserPassword";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AdminResetUserPassword";
   let body: any = {};
   const wrappedBody: any = {
-    AdminResetUserPasswordRequest: serializeAws_json1_1AdminResetUserPasswordRequest(
-      input,
-      context
-    )
+    AdminResetUserPasswordRequest: serializeAws_json1_1AdminResetUserPasswordRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1187,7 +1119,7 @@ export async function serializeAws_json1_1AdminResetUserPasswordCommand(
     method: "POST",
     path: "/AdminResetUserPassword",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1196,15 +1128,11 @@ export async function serializeAws_json1_1AdminRespondToAuthChallengeCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.AdminRespondToAuthChallenge";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AdminRespondToAuthChallenge";
   let body: any = {};
   const wrappedBody: any = {
-    AdminRespondToAuthChallengeRequest: serializeAws_json1_1AdminRespondToAuthChallengeRequest(
-      input,
-      context
-    )
+    AdminRespondToAuthChallengeRequest: serializeAws_json1_1AdminRespondToAuthChallengeRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1213,7 +1141,7 @@ export async function serializeAws_json1_1AdminRespondToAuthChallengeCommand(
     method: "POST",
     path: "/AdminRespondToAuthChallenge",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1222,15 +1150,11 @@ export async function serializeAws_json1_1AdminSetUserMFAPreferenceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.AdminSetUserMFAPreference";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AdminSetUserMFAPreference";
   let body: any = {};
   const wrappedBody: any = {
-    AdminSetUserMFAPreferenceRequest: serializeAws_json1_1AdminSetUserMFAPreferenceRequest(
-      input,
-      context
-    )
+    AdminSetUserMFAPreferenceRequest: serializeAws_json1_1AdminSetUserMFAPreferenceRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1239,7 +1163,7 @@ export async function serializeAws_json1_1AdminSetUserMFAPreferenceCommand(
     method: "POST",
     path: "/AdminSetUserMFAPreference",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1248,15 +1172,11 @@ export async function serializeAws_json1_1AdminSetUserPasswordCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.AdminSetUserPassword";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AdminSetUserPassword";
   let body: any = {};
   const wrappedBody: any = {
-    AdminSetUserPasswordRequest: serializeAws_json1_1AdminSetUserPasswordRequest(
-      input,
-      context
-    )
+    AdminSetUserPasswordRequest: serializeAws_json1_1AdminSetUserPasswordRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1265,7 +1185,7 @@ export async function serializeAws_json1_1AdminSetUserPasswordCommand(
     method: "POST",
     path: "/AdminSetUserPassword",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1274,15 +1194,11 @@ export async function serializeAws_json1_1AdminSetUserSettingsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.AdminSetUserSettings";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AdminSetUserSettings";
   let body: any = {};
   const wrappedBody: any = {
-    AdminSetUserSettingsRequest: serializeAws_json1_1AdminSetUserSettingsRequest(
-      input,
-      context
-    )
+    AdminSetUserSettingsRequest: serializeAws_json1_1AdminSetUserSettingsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1291,7 +1207,7 @@ export async function serializeAws_json1_1AdminSetUserSettingsCommand(
     method: "POST",
     path: "/AdminSetUserSettings",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1300,15 +1216,11 @@ export async function serializeAws_json1_1AdminUpdateAuthEventFeedbackCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.AdminUpdateAuthEventFeedback";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AdminUpdateAuthEventFeedback";
   let body: any = {};
   const wrappedBody: any = {
-    AdminUpdateAuthEventFeedbackRequest: serializeAws_json1_1AdminUpdateAuthEventFeedbackRequest(
-      input,
-      context
-    )
+    AdminUpdateAuthEventFeedbackRequest: serializeAws_json1_1AdminUpdateAuthEventFeedbackRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1317,7 +1229,7 @@ export async function serializeAws_json1_1AdminUpdateAuthEventFeedbackCommand(
     method: "POST",
     path: "/AdminUpdateAuthEventFeedback",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1326,15 +1238,11 @@ export async function serializeAws_json1_1AdminUpdateDeviceStatusCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.AdminUpdateDeviceStatus";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AdminUpdateDeviceStatus";
   let body: any = {};
   const wrappedBody: any = {
-    AdminUpdateDeviceStatusRequest: serializeAws_json1_1AdminUpdateDeviceStatusRequest(
-      input,
-      context
-    )
+    AdminUpdateDeviceStatusRequest: serializeAws_json1_1AdminUpdateDeviceStatusRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1343,7 +1251,7 @@ export async function serializeAws_json1_1AdminUpdateDeviceStatusCommand(
     method: "POST",
     path: "/AdminUpdateDeviceStatus",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1352,15 +1260,11 @@ export async function serializeAws_json1_1AdminUpdateUserAttributesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.AdminUpdateUserAttributes";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AdminUpdateUserAttributes";
   let body: any = {};
   const wrappedBody: any = {
-    AdminUpdateUserAttributesRequest: serializeAws_json1_1AdminUpdateUserAttributesRequest(
-      input,
-      context
-    )
+    AdminUpdateUserAttributesRequest: serializeAws_json1_1AdminUpdateUserAttributesRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1369,7 +1273,7 @@ export async function serializeAws_json1_1AdminUpdateUserAttributesCommand(
     method: "POST",
     path: "/AdminUpdateUserAttributes",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1378,15 +1282,11 @@ export async function serializeAws_json1_1AdminUserGlobalSignOutCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.AdminUserGlobalSignOut";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AdminUserGlobalSignOut";
   let body: any = {};
   const wrappedBody: any = {
-    AdminUserGlobalSignOutRequest: serializeAws_json1_1AdminUserGlobalSignOutRequest(
-      input,
-      context
-    )
+    AdminUserGlobalSignOutRequest: serializeAws_json1_1AdminUserGlobalSignOutRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1395,7 +1295,7 @@ export async function serializeAws_json1_1AdminUserGlobalSignOutCommand(
     method: "POST",
     path: "/AdminUserGlobalSignOut",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1404,15 +1304,11 @@ export async function serializeAws_json1_1AssociateSoftwareTokenCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.AssociateSoftwareToken";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.AssociateSoftwareToken";
   let body: any = {};
   const wrappedBody: any = {
-    AssociateSoftwareTokenRequest: serializeAws_json1_1AssociateSoftwareTokenRequest(
-      input,
-      context
-    )
+    AssociateSoftwareTokenRequest: serializeAws_json1_1AssociateSoftwareTokenRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1421,7 +1317,7 @@ export async function serializeAws_json1_1AssociateSoftwareTokenCommand(
     method: "POST",
     path: "/AssociateSoftwareToken",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1430,14 +1326,11 @@ export async function serializeAws_json1_1ChangePasswordCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.ChangePassword";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.ChangePassword";
   let body: any = {};
   const wrappedBody: any = {
-    ChangePasswordRequest: serializeAws_json1_1ChangePasswordRequest(
-      input,
-      context
-    )
+    ChangePasswordRequest: serializeAws_json1_1ChangePasswordRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1446,7 +1339,7 @@ export async function serializeAws_json1_1ChangePasswordCommand(
     method: "POST",
     path: "/ChangePassword",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1455,14 +1348,11 @@ export async function serializeAws_json1_1ConfirmDeviceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.ConfirmDevice";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.ConfirmDevice";
   let body: any = {};
   const wrappedBody: any = {
-    ConfirmDeviceRequest: serializeAws_json1_1ConfirmDeviceRequest(
-      input,
-      context
-    )
+    ConfirmDeviceRequest: serializeAws_json1_1ConfirmDeviceRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1471,7 +1361,7 @@ export async function serializeAws_json1_1ConfirmDeviceCommand(
     method: "POST",
     path: "/ConfirmDevice",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1480,15 +1370,11 @@ export async function serializeAws_json1_1ConfirmForgotPasswordCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.ConfirmForgotPassword";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.ConfirmForgotPassword";
   let body: any = {};
   const wrappedBody: any = {
-    ConfirmForgotPasswordRequest: serializeAws_json1_1ConfirmForgotPasswordRequest(
-      input,
-      context
-    )
+    ConfirmForgotPasswordRequest: serializeAws_json1_1ConfirmForgotPasswordRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1497,7 +1383,7 @@ export async function serializeAws_json1_1ConfirmForgotPasswordCommand(
     method: "POST",
     path: "/ConfirmForgotPassword",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1506,14 +1392,11 @@ export async function serializeAws_json1_1ConfirmSignUpCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.ConfirmSignUp";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.ConfirmSignUp";
   let body: any = {};
   const wrappedBody: any = {
-    ConfirmSignUpRequest: serializeAws_json1_1ConfirmSignUpRequest(
-      input,
-      context
-    )
+    ConfirmSignUpRequest: serializeAws_json1_1ConfirmSignUpRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1522,7 +1405,7 @@ export async function serializeAws_json1_1ConfirmSignUpCommand(
     method: "POST",
     path: "/ConfirmSignUp",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1531,11 +1414,11 @@ export async function serializeAws_json1_1CreateGroupCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.CreateGroup";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.CreateGroup";
   let body: any = {};
   const wrappedBody: any = {
-    CreateGroupRequest: serializeAws_json1_1CreateGroupRequest(input, context)
+    CreateGroupRequest: serializeAws_json1_1CreateGroupRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1544,7 +1427,7 @@ export async function serializeAws_json1_1CreateGroupCommand(
     method: "POST",
     path: "/CreateGroup",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1553,15 +1436,11 @@ export async function serializeAws_json1_1CreateIdentityProviderCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.CreateIdentityProvider";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.CreateIdentityProvider";
   let body: any = {};
   const wrappedBody: any = {
-    CreateIdentityProviderRequest: serializeAws_json1_1CreateIdentityProviderRequest(
-      input,
-      context
-    )
+    CreateIdentityProviderRequest: serializeAws_json1_1CreateIdentityProviderRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1570,7 +1449,7 @@ export async function serializeAws_json1_1CreateIdentityProviderCommand(
     method: "POST",
     path: "/CreateIdentityProvider",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1579,15 +1458,11 @@ export async function serializeAws_json1_1CreateResourceServerCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.CreateResourceServer";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.CreateResourceServer";
   let body: any = {};
   const wrappedBody: any = {
-    CreateResourceServerRequest: serializeAws_json1_1CreateResourceServerRequest(
-      input,
-      context
-    )
+    CreateResourceServerRequest: serializeAws_json1_1CreateResourceServerRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1596,7 +1471,7 @@ export async function serializeAws_json1_1CreateResourceServerCommand(
     method: "POST",
     path: "/CreateResourceServer",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1605,15 +1480,11 @@ export async function serializeAws_json1_1CreateUserImportJobCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.CreateUserImportJob";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.CreateUserImportJob";
   let body: any = {};
   const wrappedBody: any = {
-    CreateUserImportJobRequest: serializeAws_json1_1CreateUserImportJobRequest(
-      input,
-      context
-    )
+    CreateUserImportJobRequest: serializeAws_json1_1CreateUserImportJobRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1622,7 +1493,7 @@ export async function serializeAws_json1_1CreateUserImportJobCommand(
     method: "POST",
     path: "/CreateUserImportJob",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1631,14 +1502,11 @@ export async function serializeAws_json1_1CreateUserPoolCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.CreateUserPool";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.CreateUserPool";
   let body: any = {};
   const wrappedBody: any = {
-    CreateUserPoolRequest: serializeAws_json1_1CreateUserPoolRequest(
-      input,
-      context
-    )
+    CreateUserPoolRequest: serializeAws_json1_1CreateUserPoolRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1647,7 +1515,7 @@ export async function serializeAws_json1_1CreateUserPoolCommand(
     method: "POST",
     path: "/CreateUserPool",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1656,15 +1524,11 @@ export async function serializeAws_json1_1CreateUserPoolClientCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.CreateUserPoolClient";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.CreateUserPoolClient";
   let body: any = {};
   const wrappedBody: any = {
-    CreateUserPoolClientRequest: serializeAws_json1_1CreateUserPoolClientRequest(
-      input,
-      context
-    )
+    CreateUserPoolClientRequest: serializeAws_json1_1CreateUserPoolClientRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1673,7 +1537,7 @@ export async function serializeAws_json1_1CreateUserPoolClientCommand(
     method: "POST",
     path: "/CreateUserPoolClient",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1682,15 +1546,11 @@ export async function serializeAws_json1_1CreateUserPoolDomainCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.CreateUserPoolDomain";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.CreateUserPoolDomain";
   let body: any = {};
   const wrappedBody: any = {
-    CreateUserPoolDomainRequest: serializeAws_json1_1CreateUserPoolDomainRequest(
-      input,
-      context
-    )
+    CreateUserPoolDomainRequest: serializeAws_json1_1CreateUserPoolDomainRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1699,7 +1559,7 @@ export async function serializeAws_json1_1CreateUserPoolDomainCommand(
     method: "POST",
     path: "/CreateUserPoolDomain",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1708,11 +1568,11 @@ export async function serializeAws_json1_1DeleteGroupCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.DeleteGroup";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.DeleteGroup";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteGroupRequest: serializeAws_json1_1DeleteGroupRequest(input, context)
+    DeleteGroupRequest: serializeAws_json1_1DeleteGroupRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1721,7 +1581,7 @@ export async function serializeAws_json1_1DeleteGroupCommand(
     method: "POST",
     path: "/DeleteGroup",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1730,15 +1590,11 @@ export async function serializeAws_json1_1DeleteIdentityProviderCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.DeleteIdentityProvider";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.DeleteIdentityProvider";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteIdentityProviderRequest: serializeAws_json1_1DeleteIdentityProviderRequest(
-      input,
-      context
-    )
+    DeleteIdentityProviderRequest: serializeAws_json1_1DeleteIdentityProviderRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1747,7 +1603,7 @@ export async function serializeAws_json1_1DeleteIdentityProviderCommand(
     method: "POST",
     path: "/DeleteIdentityProvider",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1756,15 +1612,11 @@ export async function serializeAws_json1_1DeleteResourceServerCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.DeleteResourceServer";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.DeleteResourceServer";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteResourceServerRequest: serializeAws_json1_1DeleteResourceServerRequest(
-      input,
-      context
-    )
+    DeleteResourceServerRequest: serializeAws_json1_1DeleteResourceServerRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1773,7 +1625,7 @@ export async function serializeAws_json1_1DeleteResourceServerCommand(
     method: "POST",
     path: "/DeleteResourceServer",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1782,11 +1634,11 @@ export async function serializeAws_json1_1DeleteUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.DeleteUser";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.DeleteUser";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteUserRequest: serializeAws_json1_1DeleteUserRequest(input, context)
+    DeleteUserRequest: serializeAws_json1_1DeleteUserRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1795,7 +1647,7 @@ export async function serializeAws_json1_1DeleteUserCommand(
     method: "POST",
     path: "/DeleteUser",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1804,15 +1656,11 @@ export async function serializeAws_json1_1DeleteUserAttributesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.DeleteUserAttributes";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.DeleteUserAttributes";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteUserAttributesRequest: serializeAws_json1_1DeleteUserAttributesRequest(
-      input,
-      context
-    )
+    DeleteUserAttributesRequest: serializeAws_json1_1DeleteUserAttributesRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1821,7 +1669,7 @@ export async function serializeAws_json1_1DeleteUserAttributesCommand(
     method: "POST",
     path: "/DeleteUserAttributes",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1830,14 +1678,11 @@ export async function serializeAws_json1_1DeleteUserPoolCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.DeleteUserPool";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.DeleteUserPool";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteUserPoolRequest: serializeAws_json1_1DeleteUserPoolRequest(
-      input,
-      context
-    )
+    DeleteUserPoolRequest: serializeAws_json1_1DeleteUserPoolRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1846,7 +1691,7 @@ export async function serializeAws_json1_1DeleteUserPoolCommand(
     method: "POST",
     path: "/DeleteUserPool",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1855,15 +1700,11 @@ export async function serializeAws_json1_1DeleteUserPoolClientCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.DeleteUserPoolClient";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.DeleteUserPoolClient";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteUserPoolClientRequest: serializeAws_json1_1DeleteUserPoolClientRequest(
-      input,
-      context
-    )
+    DeleteUserPoolClientRequest: serializeAws_json1_1DeleteUserPoolClientRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1872,7 +1713,7 @@ export async function serializeAws_json1_1DeleteUserPoolClientCommand(
     method: "POST",
     path: "/DeleteUserPoolClient",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1881,15 +1722,11 @@ export async function serializeAws_json1_1DeleteUserPoolDomainCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.DeleteUserPoolDomain";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.DeleteUserPoolDomain";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteUserPoolDomainRequest: serializeAws_json1_1DeleteUserPoolDomainRequest(
-      input,
-      context
-    )
+    DeleteUserPoolDomainRequest: serializeAws_json1_1DeleteUserPoolDomainRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1898,7 +1735,7 @@ export async function serializeAws_json1_1DeleteUserPoolDomainCommand(
     method: "POST",
     path: "/DeleteUserPoolDomain",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1907,15 +1744,11 @@ export async function serializeAws_json1_1DescribeIdentityProviderCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.DescribeIdentityProvider";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.DescribeIdentityProvider";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeIdentityProviderRequest: serializeAws_json1_1DescribeIdentityProviderRequest(
-      input,
-      context
-    )
+    DescribeIdentityProviderRequest: serializeAws_json1_1DescribeIdentityProviderRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1924,7 +1757,7 @@ export async function serializeAws_json1_1DescribeIdentityProviderCommand(
     method: "POST",
     path: "/DescribeIdentityProvider",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1933,15 +1766,11 @@ export async function serializeAws_json1_1DescribeResourceServerCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.DescribeResourceServer";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.DescribeResourceServer";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeResourceServerRequest: serializeAws_json1_1DescribeResourceServerRequest(
-      input,
-      context
-    )
+    DescribeResourceServerRequest: serializeAws_json1_1DescribeResourceServerRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1950,7 +1779,7 @@ export async function serializeAws_json1_1DescribeResourceServerCommand(
     method: "POST",
     path: "/DescribeResourceServer",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1959,15 +1788,11 @@ export async function serializeAws_json1_1DescribeRiskConfigurationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.DescribeRiskConfiguration";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.DescribeRiskConfiguration";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeRiskConfigurationRequest: serializeAws_json1_1DescribeRiskConfigurationRequest(
-      input,
-      context
-    )
+    DescribeRiskConfigurationRequest: serializeAws_json1_1DescribeRiskConfigurationRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1976,7 +1801,7 @@ export async function serializeAws_json1_1DescribeRiskConfigurationCommand(
     method: "POST",
     path: "/DescribeRiskConfiguration",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -1985,15 +1810,11 @@ export async function serializeAws_json1_1DescribeUserImportJobCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.DescribeUserImportJob";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.DescribeUserImportJob";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeUserImportJobRequest: serializeAws_json1_1DescribeUserImportJobRequest(
-      input,
-      context
-    )
+    DescribeUserImportJobRequest: serializeAws_json1_1DescribeUserImportJobRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2002,7 +1823,7 @@ export async function serializeAws_json1_1DescribeUserImportJobCommand(
     method: "POST",
     path: "/DescribeUserImportJob",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2011,15 +1832,11 @@ export async function serializeAws_json1_1DescribeUserPoolCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.DescribeUserPool";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.DescribeUserPool";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeUserPoolRequest: serializeAws_json1_1DescribeUserPoolRequest(
-      input,
-      context
-    )
+    DescribeUserPoolRequest: serializeAws_json1_1DescribeUserPoolRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2028,7 +1845,7 @@ export async function serializeAws_json1_1DescribeUserPoolCommand(
     method: "POST",
     path: "/DescribeUserPool",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2037,15 +1854,11 @@ export async function serializeAws_json1_1DescribeUserPoolClientCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.DescribeUserPoolClient";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.DescribeUserPoolClient";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeUserPoolClientRequest: serializeAws_json1_1DescribeUserPoolClientRequest(
-      input,
-      context
-    )
+    DescribeUserPoolClientRequest: serializeAws_json1_1DescribeUserPoolClientRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2054,7 +1867,7 @@ export async function serializeAws_json1_1DescribeUserPoolClientCommand(
     method: "POST",
     path: "/DescribeUserPoolClient",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2063,15 +1876,11 @@ export async function serializeAws_json1_1DescribeUserPoolDomainCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.DescribeUserPoolDomain";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.DescribeUserPoolDomain";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeUserPoolDomainRequest: serializeAws_json1_1DescribeUserPoolDomainRequest(
-      input,
-      context
-    )
+    DescribeUserPoolDomainRequest: serializeAws_json1_1DescribeUserPoolDomainRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2080,7 +1889,7 @@ export async function serializeAws_json1_1DescribeUserPoolDomainCommand(
     method: "POST",
     path: "/DescribeUserPoolDomain",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2089,11 +1898,11 @@ export async function serializeAws_json1_1ForgetDeviceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.ForgetDevice";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.ForgetDevice";
   let body: any = {};
   const wrappedBody: any = {
-    ForgetDeviceRequest: serializeAws_json1_1ForgetDeviceRequest(input, context)
+    ForgetDeviceRequest: serializeAws_json1_1ForgetDeviceRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2102,7 +1911,7 @@ export async function serializeAws_json1_1ForgetDeviceCommand(
     method: "POST",
     path: "/ForgetDevice",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2111,14 +1920,11 @@ export async function serializeAws_json1_1ForgotPasswordCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.ForgotPassword";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.ForgotPassword";
   let body: any = {};
   const wrappedBody: any = {
-    ForgotPasswordRequest: serializeAws_json1_1ForgotPasswordRequest(
-      input,
-      context
-    )
+    ForgotPasswordRequest: serializeAws_json1_1ForgotPasswordRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2127,7 +1933,7 @@ export async function serializeAws_json1_1ForgotPasswordCommand(
     method: "POST",
     path: "/ForgotPassword",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2136,11 +1942,11 @@ export async function serializeAws_json1_1GetCSVHeaderCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.GetCSVHeader";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.GetCSVHeader";
   let body: any = {};
   const wrappedBody: any = {
-    GetCSVHeaderRequest: serializeAws_json1_1GetCSVHeaderRequest(input, context)
+    GetCSVHeaderRequest: serializeAws_json1_1GetCSVHeaderRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2149,7 +1955,7 @@ export async function serializeAws_json1_1GetCSVHeaderCommand(
     method: "POST",
     path: "/GetCSVHeader",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2158,11 +1964,11 @@ export async function serializeAws_json1_1GetDeviceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.GetDevice";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.GetDevice";
   let body: any = {};
   const wrappedBody: any = {
-    GetDeviceRequest: serializeAws_json1_1GetDeviceRequest(input, context)
+    GetDeviceRequest: serializeAws_json1_1GetDeviceRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2171,7 +1977,7 @@ export async function serializeAws_json1_1GetDeviceCommand(
     method: "POST",
     path: "/GetDevice",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2180,11 +1986,11 @@ export async function serializeAws_json1_1GetGroupCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.GetGroup";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.GetGroup";
   let body: any = {};
   const wrappedBody: any = {
-    GetGroupRequest: serializeAws_json1_1GetGroupRequest(input, context)
+    GetGroupRequest: serializeAws_json1_1GetGroupRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2193,7 +1999,7 @@ export async function serializeAws_json1_1GetGroupCommand(
     method: "POST",
     path: "/GetGroup",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2202,15 +2008,11 @@ export async function serializeAws_json1_1GetIdentityProviderByIdentifierCommand
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.GetIdentityProviderByIdentifier";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.GetIdentityProviderByIdentifier";
   let body: any = {};
   const wrappedBody: any = {
-    GetIdentityProviderByIdentifierRequest: serializeAws_json1_1GetIdentityProviderByIdentifierRequest(
-      input,
-      context
-    )
+    GetIdentityProviderByIdentifierRequest: serializeAws_json1_1GetIdentityProviderByIdentifierRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2219,7 +2021,7 @@ export async function serializeAws_json1_1GetIdentityProviderByIdentifierCommand
     method: "POST",
     path: "/GetIdentityProviderByIdentifier",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2228,15 +2030,11 @@ export async function serializeAws_json1_1GetSigningCertificateCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.GetSigningCertificate";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.GetSigningCertificate";
   let body: any = {};
   const wrappedBody: any = {
-    GetSigningCertificateRequest: serializeAws_json1_1GetSigningCertificateRequest(
-      input,
-      context
-    )
+    GetSigningCertificateRequest: serializeAws_json1_1GetSigningCertificateRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2245,7 +2043,7 @@ export async function serializeAws_json1_1GetSigningCertificateCommand(
     method: "POST",
     path: "/GetSigningCertificate",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2254,15 +2052,11 @@ export async function serializeAws_json1_1GetUICustomizationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.GetUICustomization";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.GetUICustomization";
   let body: any = {};
   const wrappedBody: any = {
-    GetUICustomizationRequest: serializeAws_json1_1GetUICustomizationRequest(
-      input,
-      context
-    )
+    GetUICustomizationRequest: serializeAws_json1_1GetUICustomizationRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2271,7 +2065,7 @@ export async function serializeAws_json1_1GetUICustomizationCommand(
     method: "POST",
     path: "/GetUICustomization",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2280,11 +2074,11 @@ export async function serializeAws_json1_1GetUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.GetUser";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.GetUser";
   let body: any = {};
   const wrappedBody: any = {
-    GetUserRequest: serializeAws_json1_1GetUserRequest(input, context)
+    GetUserRequest: serializeAws_json1_1GetUserRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2293,7 +2087,7 @@ export async function serializeAws_json1_1GetUserCommand(
     method: "POST",
     path: "/GetUser",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2302,15 +2096,11 @@ export async function serializeAws_json1_1GetUserAttributeVerificationCodeComman
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.GetUserAttributeVerificationCode";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.GetUserAttributeVerificationCode";
   let body: any = {};
   const wrappedBody: any = {
-    GetUserAttributeVerificationCodeRequest: serializeAws_json1_1GetUserAttributeVerificationCodeRequest(
-      input,
-      context
-    )
+    GetUserAttributeVerificationCodeRequest: serializeAws_json1_1GetUserAttributeVerificationCodeRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2319,7 +2109,7 @@ export async function serializeAws_json1_1GetUserAttributeVerificationCodeComman
     method: "POST",
     path: "/GetUserAttributeVerificationCode",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2328,15 +2118,11 @@ export async function serializeAws_json1_1GetUserPoolMfaConfigCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.GetUserPoolMfaConfig";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.GetUserPoolMfaConfig";
   let body: any = {};
   const wrappedBody: any = {
-    GetUserPoolMfaConfigRequest: serializeAws_json1_1GetUserPoolMfaConfigRequest(
-      input,
-      context
-    )
+    GetUserPoolMfaConfigRequest: serializeAws_json1_1GetUserPoolMfaConfigRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2345,7 +2131,7 @@ export async function serializeAws_json1_1GetUserPoolMfaConfigCommand(
     method: "POST",
     path: "/GetUserPoolMfaConfig",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2354,14 +2140,11 @@ export async function serializeAws_json1_1GlobalSignOutCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.GlobalSignOut";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.GlobalSignOut";
   let body: any = {};
   const wrappedBody: any = {
-    GlobalSignOutRequest: serializeAws_json1_1GlobalSignOutRequest(
-      input,
-      context
-    )
+    GlobalSignOutRequest: serializeAws_json1_1GlobalSignOutRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2370,7 +2153,7 @@ export async function serializeAws_json1_1GlobalSignOutCommand(
     method: "POST",
     path: "/GlobalSignOut",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2379,11 +2162,11 @@ export async function serializeAws_json1_1InitiateAuthCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.InitiateAuth";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.InitiateAuth";
   let body: any = {};
   const wrappedBody: any = {
-    InitiateAuthRequest: serializeAws_json1_1InitiateAuthRequest(input, context)
+    InitiateAuthRequest: serializeAws_json1_1InitiateAuthRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2392,7 +2175,7 @@ export async function serializeAws_json1_1InitiateAuthCommand(
     method: "POST",
     path: "/InitiateAuth",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2401,11 +2184,11 @@ export async function serializeAws_json1_1ListDevicesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.ListDevices";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.ListDevices";
   let body: any = {};
   const wrappedBody: any = {
-    ListDevicesRequest: serializeAws_json1_1ListDevicesRequest(input, context)
+    ListDevicesRequest: serializeAws_json1_1ListDevicesRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2414,7 +2197,7 @@ export async function serializeAws_json1_1ListDevicesCommand(
     method: "POST",
     path: "/ListDevices",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2423,11 +2206,11 @@ export async function serializeAws_json1_1ListGroupsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.ListGroups";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.ListGroups";
   let body: any = {};
   const wrappedBody: any = {
-    ListGroupsRequest: serializeAws_json1_1ListGroupsRequest(input, context)
+    ListGroupsRequest: serializeAws_json1_1ListGroupsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2436,7 +2219,7 @@ export async function serializeAws_json1_1ListGroupsCommand(
     method: "POST",
     path: "/ListGroups",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2445,15 +2228,11 @@ export async function serializeAws_json1_1ListIdentityProvidersCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.ListIdentityProviders";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.ListIdentityProviders";
   let body: any = {};
   const wrappedBody: any = {
-    ListIdentityProvidersRequest: serializeAws_json1_1ListIdentityProvidersRequest(
-      input,
-      context
-    )
+    ListIdentityProvidersRequest: serializeAws_json1_1ListIdentityProvidersRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2462,7 +2241,7 @@ export async function serializeAws_json1_1ListIdentityProvidersCommand(
     method: "POST",
     path: "/ListIdentityProviders",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2471,15 +2250,11 @@ export async function serializeAws_json1_1ListResourceServersCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.ListResourceServers";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.ListResourceServers";
   let body: any = {};
   const wrappedBody: any = {
-    ListResourceServersRequest: serializeAws_json1_1ListResourceServersRequest(
-      input,
-      context
-    )
+    ListResourceServersRequest: serializeAws_json1_1ListResourceServersRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2488,7 +2263,7 @@ export async function serializeAws_json1_1ListResourceServersCommand(
     method: "POST",
     path: "/ListResourceServers",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2497,15 +2272,11 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.ListTagsForResource";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.ListTagsForResource";
   let body: any = {};
   const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
-      input,
-      context
-    )
+    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2514,7 +2285,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     method: "POST",
     path: "/ListTagsForResource",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2523,15 +2294,11 @@ export async function serializeAws_json1_1ListUserImportJobsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.ListUserImportJobs";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.ListUserImportJobs";
   let body: any = {};
   const wrappedBody: any = {
-    ListUserImportJobsRequest: serializeAws_json1_1ListUserImportJobsRequest(
-      input,
-      context
-    )
+    ListUserImportJobsRequest: serializeAws_json1_1ListUserImportJobsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2540,7 +2307,7 @@ export async function serializeAws_json1_1ListUserImportJobsCommand(
     method: "POST",
     path: "/ListUserImportJobs",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2549,15 +2316,11 @@ export async function serializeAws_json1_1ListUserPoolClientsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.ListUserPoolClients";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.ListUserPoolClients";
   let body: any = {};
   const wrappedBody: any = {
-    ListUserPoolClientsRequest: serializeAws_json1_1ListUserPoolClientsRequest(
-      input,
-      context
-    )
+    ListUserPoolClientsRequest: serializeAws_json1_1ListUserPoolClientsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2566,7 +2329,7 @@ export async function serializeAws_json1_1ListUserPoolClientsCommand(
     method: "POST",
     path: "/ListUserPoolClients",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2575,14 +2338,11 @@ export async function serializeAws_json1_1ListUserPoolsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.ListUserPools";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.ListUserPools";
   let body: any = {};
   const wrappedBody: any = {
-    ListUserPoolsRequest: serializeAws_json1_1ListUserPoolsRequest(
-      input,
-      context
-    )
+    ListUserPoolsRequest: serializeAws_json1_1ListUserPoolsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2591,7 +2351,7 @@ export async function serializeAws_json1_1ListUserPoolsCommand(
     method: "POST",
     path: "/ListUserPools",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2600,11 +2360,11 @@ export async function serializeAws_json1_1ListUsersCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.ListUsers";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.ListUsers";
   let body: any = {};
   const wrappedBody: any = {
-    ListUsersRequest: serializeAws_json1_1ListUsersRequest(input, context)
+    ListUsersRequest: serializeAws_json1_1ListUsersRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2613,7 +2373,7 @@ export async function serializeAws_json1_1ListUsersCommand(
     method: "POST",
     path: "/ListUsers",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2622,15 +2382,11 @@ export async function serializeAws_json1_1ListUsersInGroupCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.ListUsersInGroup";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.ListUsersInGroup";
   let body: any = {};
   const wrappedBody: any = {
-    ListUsersInGroupRequest: serializeAws_json1_1ListUsersInGroupRequest(
-      input,
-      context
-    )
+    ListUsersInGroupRequest: serializeAws_json1_1ListUsersInGroupRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2639,7 +2395,7 @@ export async function serializeAws_json1_1ListUsersInGroupCommand(
     method: "POST",
     path: "/ListUsersInGroup",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2648,15 +2404,11 @@ export async function serializeAws_json1_1ResendConfirmationCodeCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.ResendConfirmationCode";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.ResendConfirmationCode";
   let body: any = {};
   const wrappedBody: any = {
-    ResendConfirmationCodeRequest: serializeAws_json1_1ResendConfirmationCodeRequest(
-      input,
-      context
-    )
+    ResendConfirmationCodeRequest: serializeAws_json1_1ResendConfirmationCodeRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2665,7 +2417,7 @@ export async function serializeAws_json1_1ResendConfirmationCodeCommand(
     method: "POST",
     path: "/ResendConfirmationCode",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2674,15 +2426,11 @@ export async function serializeAws_json1_1RespondToAuthChallengeCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.RespondToAuthChallenge";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.RespondToAuthChallenge";
   let body: any = {};
   const wrappedBody: any = {
-    RespondToAuthChallengeRequest: serializeAws_json1_1RespondToAuthChallengeRequest(
-      input,
-      context
-    )
+    RespondToAuthChallengeRequest: serializeAws_json1_1RespondToAuthChallengeRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2691,7 +2439,7 @@ export async function serializeAws_json1_1RespondToAuthChallengeCommand(
     method: "POST",
     path: "/RespondToAuthChallenge",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2700,15 +2448,11 @@ export async function serializeAws_json1_1SetRiskConfigurationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.SetRiskConfiguration";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.SetRiskConfiguration";
   let body: any = {};
   const wrappedBody: any = {
-    SetRiskConfigurationRequest: serializeAws_json1_1SetRiskConfigurationRequest(
-      input,
-      context
-    )
+    SetRiskConfigurationRequest: serializeAws_json1_1SetRiskConfigurationRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2717,7 +2461,7 @@ export async function serializeAws_json1_1SetRiskConfigurationCommand(
     method: "POST",
     path: "/SetRiskConfiguration",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2726,15 +2470,11 @@ export async function serializeAws_json1_1SetUICustomizationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.SetUICustomization";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.SetUICustomization";
   let body: any = {};
   const wrappedBody: any = {
-    SetUICustomizationRequest: serializeAws_json1_1SetUICustomizationRequest(
-      input,
-      context
-    )
+    SetUICustomizationRequest: serializeAws_json1_1SetUICustomizationRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2743,7 +2483,7 @@ export async function serializeAws_json1_1SetUICustomizationCommand(
     method: "POST",
     path: "/SetUICustomization",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2752,15 +2492,11 @@ export async function serializeAws_json1_1SetUserMFAPreferenceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.SetUserMFAPreference";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.SetUserMFAPreference";
   let body: any = {};
   const wrappedBody: any = {
-    SetUserMFAPreferenceRequest: serializeAws_json1_1SetUserMFAPreferenceRequest(
-      input,
-      context
-    )
+    SetUserMFAPreferenceRequest: serializeAws_json1_1SetUserMFAPreferenceRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2769,7 +2505,7 @@ export async function serializeAws_json1_1SetUserMFAPreferenceCommand(
     method: "POST",
     path: "/SetUserMFAPreference",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2778,15 +2514,11 @@ export async function serializeAws_json1_1SetUserPoolMfaConfigCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.SetUserPoolMfaConfig";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.SetUserPoolMfaConfig";
   let body: any = {};
   const wrappedBody: any = {
-    SetUserPoolMfaConfigRequest: serializeAws_json1_1SetUserPoolMfaConfigRequest(
-      input,
-      context
-    )
+    SetUserPoolMfaConfigRequest: serializeAws_json1_1SetUserPoolMfaConfigRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2795,7 +2527,7 @@ export async function serializeAws_json1_1SetUserPoolMfaConfigCommand(
     method: "POST",
     path: "/SetUserPoolMfaConfig",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2804,14 +2536,11 @@ export async function serializeAws_json1_1SetUserSettingsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.SetUserSettings";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.SetUserSettings";
   let body: any = {};
   const wrappedBody: any = {
-    SetUserSettingsRequest: serializeAws_json1_1SetUserSettingsRequest(
-      input,
-      context
-    )
+    SetUserSettingsRequest: serializeAws_json1_1SetUserSettingsRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2820,7 +2549,7 @@ export async function serializeAws_json1_1SetUserSettingsCommand(
     method: "POST",
     path: "/SetUserSettings",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2829,11 +2558,11 @@ export async function serializeAws_json1_1SignUpCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.SignUp";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.SignUp";
   let body: any = {};
   const wrappedBody: any = {
-    SignUpRequest: serializeAws_json1_1SignUpRequest(input, context)
+    SignUpRequest: serializeAws_json1_1SignUpRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2842,7 +2571,7 @@ export async function serializeAws_json1_1SignUpCommand(
     method: "POST",
     path: "/SignUp",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2851,15 +2580,11 @@ export async function serializeAws_json1_1StartUserImportJobCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.StartUserImportJob";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.StartUserImportJob";
   let body: any = {};
   const wrappedBody: any = {
-    StartUserImportJobRequest: serializeAws_json1_1StartUserImportJobRequest(
-      input,
-      context
-    )
+    StartUserImportJobRequest: serializeAws_json1_1StartUserImportJobRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2868,7 +2593,7 @@ export async function serializeAws_json1_1StartUserImportJobCommand(
     method: "POST",
     path: "/StartUserImportJob",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2877,15 +2602,11 @@ export async function serializeAws_json1_1StopUserImportJobCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.StopUserImportJob";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.StopUserImportJob";
   let body: any = {};
   const wrappedBody: any = {
-    StopUserImportJobRequest: serializeAws_json1_1StopUserImportJobRequest(
-      input,
-      context
-    )
+    StopUserImportJobRequest: serializeAws_json1_1StopUserImportJobRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2894,7 +2615,7 @@ export async function serializeAws_json1_1StopUserImportJobCommand(
     method: "POST",
     path: "/StopUserImportJob",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2903,11 +2624,11 @@ export async function serializeAws_json1_1TagResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.TagResource";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.TagResource";
   let body: any = {};
   const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
+    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2916,7 +2637,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     method: "POST",
     path: "/TagResource",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2925,14 +2646,11 @@ export async function serializeAws_json1_1UntagResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.UntagResource";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.UntagResource";
   let body: any = {};
   const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
-      input,
-      context
-    )
+    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2941,7 +2659,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     method: "POST",
     path: "/UntagResource",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2950,15 +2668,11 @@ export async function serializeAws_json1_1UpdateAuthEventFeedbackCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.UpdateAuthEventFeedback";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.UpdateAuthEventFeedback";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateAuthEventFeedbackRequest: serializeAws_json1_1UpdateAuthEventFeedbackRequest(
-      input,
-      context
-    )
+    UpdateAuthEventFeedbackRequest: serializeAws_json1_1UpdateAuthEventFeedbackRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2967,7 +2681,7 @@ export async function serializeAws_json1_1UpdateAuthEventFeedbackCommand(
     method: "POST",
     path: "/UpdateAuthEventFeedback",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -2976,15 +2690,11 @@ export async function serializeAws_json1_1UpdateDeviceStatusCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.UpdateDeviceStatus";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.UpdateDeviceStatus";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateDeviceStatusRequest: serializeAws_json1_1UpdateDeviceStatusRequest(
-      input,
-      context
-    )
+    UpdateDeviceStatusRequest: serializeAws_json1_1UpdateDeviceStatusRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2993,7 +2703,7 @@ export async function serializeAws_json1_1UpdateDeviceStatusCommand(
     method: "POST",
     path: "/UpdateDeviceStatus",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -3002,11 +2712,11 @@ export async function serializeAws_json1_1UpdateGroupCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.UpdateGroup";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.UpdateGroup";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateGroupRequest: serializeAws_json1_1UpdateGroupRequest(input, context)
+    UpdateGroupRequest: serializeAws_json1_1UpdateGroupRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -3015,7 +2725,7 @@ export async function serializeAws_json1_1UpdateGroupCommand(
     method: "POST",
     path: "/UpdateGroup",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -3024,15 +2734,11 @@ export async function serializeAws_json1_1UpdateIdentityProviderCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.UpdateIdentityProvider";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.UpdateIdentityProvider";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateIdentityProviderRequest: serializeAws_json1_1UpdateIdentityProviderRequest(
-      input,
-      context
-    )
+    UpdateIdentityProviderRequest: serializeAws_json1_1UpdateIdentityProviderRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -3041,7 +2747,7 @@ export async function serializeAws_json1_1UpdateIdentityProviderCommand(
     method: "POST",
     path: "/UpdateIdentityProvider",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -3050,15 +2756,11 @@ export async function serializeAws_json1_1UpdateResourceServerCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.UpdateResourceServer";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.UpdateResourceServer";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateResourceServerRequest: serializeAws_json1_1UpdateResourceServerRequest(
-      input,
-      context
-    )
+    UpdateResourceServerRequest: serializeAws_json1_1UpdateResourceServerRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -3067,7 +2769,7 @@ export async function serializeAws_json1_1UpdateResourceServerCommand(
     method: "POST",
     path: "/UpdateResourceServer",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -3076,15 +2778,11 @@ export async function serializeAws_json1_1UpdateUserAttributesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.UpdateUserAttributes";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.UpdateUserAttributes";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateUserAttributesRequest: serializeAws_json1_1UpdateUserAttributesRequest(
-      input,
-      context
-    )
+    UpdateUserAttributesRequest: serializeAws_json1_1UpdateUserAttributesRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -3093,7 +2791,7 @@ export async function serializeAws_json1_1UpdateUserAttributesCommand(
     method: "POST",
     path: "/UpdateUserAttributes",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -3102,14 +2800,11 @@ export async function serializeAws_json1_1UpdateUserPoolCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] = "AWSCognitoIdentityProviderService.UpdateUserPool";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.UpdateUserPool";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateUserPoolRequest: serializeAws_json1_1UpdateUserPoolRequest(
-      input,
-      context
-    )
+    UpdateUserPoolRequest: serializeAws_json1_1UpdateUserPoolRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -3118,7 +2813,7 @@ export async function serializeAws_json1_1UpdateUserPoolCommand(
     method: "POST",
     path: "/UpdateUserPool",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -3127,15 +2822,11 @@ export async function serializeAws_json1_1UpdateUserPoolClientCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.UpdateUserPoolClient";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.UpdateUserPoolClient";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateUserPoolClientRequest: serializeAws_json1_1UpdateUserPoolClientRequest(
-      input,
-      context
-    )
+    UpdateUserPoolClientRequest: serializeAws_json1_1UpdateUserPoolClientRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -3144,7 +2835,7 @@ export async function serializeAws_json1_1UpdateUserPoolClientCommand(
     method: "POST",
     path: "/UpdateUserPoolClient",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -3153,15 +2844,11 @@ export async function serializeAws_json1_1UpdateUserPoolDomainCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.UpdateUserPoolDomain";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.UpdateUserPoolDomain";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateUserPoolDomainRequest: serializeAws_json1_1UpdateUserPoolDomainRequest(
-      input,
-      context
-    )
+    UpdateUserPoolDomainRequest: serializeAws_json1_1UpdateUserPoolDomainRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -3170,7 +2857,7 @@ export async function serializeAws_json1_1UpdateUserPoolDomainCommand(
     method: "POST",
     path: "/UpdateUserPoolDomain",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -3179,15 +2866,11 @@ export async function serializeAws_json1_1VerifySoftwareTokenCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.VerifySoftwareToken";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.VerifySoftwareToken";
   let body: any = {};
   const wrappedBody: any = {
-    VerifySoftwareTokenRequest: serializeAws_json1_1VerifySoftwareTokenRequest(
-      input,
-      context
-    )
+    VerifySoftwareTokenRequest: serializeAws_json1_1VerifySoftwareTokenRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -3196,7 +2879,7 @@ export async function serializeAws_json1_1VerifySoftwareTokenCommand(
     method: "POST",
     path: "/VerifySoftwareToken",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -3205,15 +2888,11 @@ export async function serializeAws_json1_1VerifyUserAttributeCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/x-amz-json-1.1";
-  headers["X-Amz-Target"] =
-    "AWSCognitoIdentityProviderService.VerifyUserAttribute";
+  headers['Content-Type'] = "application/x-amz-json-1.1";
+  headers['X-Amz-Target'] = "AWSCognitoIdentityProviderService.VerifyUserAttribute";
   let body: any = {};
   const wrappedBody: any = {
-    VerifyUserAttributeRequest: serializeAws_json1_1VerifyUserAttributeRequest(
-      input,
-      context
-    )
+    VerifyUserAttributeRequest: serializeAws_json1_1VerifyUserAttributeRequest(input, context),
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -3222,7 +2901,7 @@ export async function serializeAws_json1_1VerifyUserAttributeCommand(
     method: "POST",
     path: "/VerifyUserAttribute",
     headers: headers,
-    body: body
+    body: body,
   });
 }
 
@@ -3231,85 +2910,62 @@ export async function deserializeAws_json1_1AddCustomAttributesCommand(
   context: __SerdeContext
 ): Promise<AddCustomAttributesCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AddCustomAttributesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AddCustomAttributesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1AddCustomAttributesResponse(data, context);
   const response: AddCustomAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddCustomAttributesResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AddCustomAttributesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AddCustomAttributesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserImportInProgressException":
     case "com.amazonaws.cognito.identity.idp.model#UserImportInProgressException":
-      response = await deserializeAws_json1_1UserImportInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserImportInProgressExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3320,80 +2976,57 @@ export async function deserializeAws_json1_1AdminAddUserToGroupCommand(
   context: __SerdeContext
 ): Promise<AdminAddUserToGroupCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AdminAddUserToGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AdminAddUserToGroupCommandError(output, context);
   }
   const response: AdminAddUserToGroupCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AdminAddUserToGroupCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AdminAddUserToGroupCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3404,120 +3037,82 @@ export async function deserializeAws_json1_1AdminConfirmSignUpCommand(
   context: __SerdeContext
 ): Promise<AdminConfirmSignUpCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AdminConfirmSignUpCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AdminConfirmSignUpCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1AdminConfirmSignUpResponse(data, context);
   const response: AdminConfirmSignUpCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminConfirmSignUpResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AdminConfirmSignUpCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AdminConfirmSignUpCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyFailedAttemptsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyFailedAttemptsException":
-      response = await deserializeAws_json1_1TooManyFailedAttemptsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyFailedAttemptsExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3530,150 +3125,100 @@ export async function deserializeAws_json1_1AdminCreateUserCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AdminCreateUserCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1AdminCreateUserResponse(data, context);
   const response: AdminCreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminCreateUserResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AdminCreateUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AdminCreateUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CodeDeliveryFailureException":
     case "com.amazonaws.cognito.identity.idp.model#CodeDeliveryFailureException":
-      response = await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(parsedOutput, context);
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidPasswordException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidPasswordException":
-      response = await deserializeAws_json1_1InvalidPasswordExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidPasswordExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "PreconditionNotMetException":
     case "com.amazonaws.cognito.identity.idp.model#PreconditionNotMetException":
-      response = await deserializeAws_json1_1PreconditionNotMetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1PreconditionNotMetExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
       break;
     case "UnsupportedUserStateException":
     case "com.amazonaws.cognito.identity.idp.model#UnsupportedUserStateException":
-      response = await deserializeAws_json1_1UnsupportedUserStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnsupportedUserStateExceptionResponse(parsedOutput, context);
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UsernameExistsException":
     case "com.amazonaws.cognito.identity.idp.model#UsernameExistsException":
-      response = await deserializeAws_json1_1UsernameExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UsernameExistsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3687,74 +3232,54 @@ export async function deserializeAws_json1_1AdminDeleteUserCommand(
     return deserializeAws_json1_1AdminDeleteUserCommandError(output, context);
   }
   const response: AdminDeleteUserCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AdminDeleteUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AdminDeleteUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3765,88 +3290,62 @@ export async function deserializeAws_json1_1AdminDeleteUserAttributesCommand(
   context: __SerdeContext
 ): Promise<AdminDeleteUserAttributesCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AdminDeleteUserAttributesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AdminDeleteUserAttributesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminDeleteUserAttributesResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1AdminDeleteUserAttributesResponse(data, context);
   const response: AdminDeleteUserAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminDeleteUserAttributesResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AdminDeleteUserAttributesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AdminDeleteUserAttributesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3857,95 +3356,66 @@ export async function deserializeAws_json1_1AdminDisableProviderForUserCommand(
   context: __SerdeContext
 ): Promise<AdminDisableProviderForUserCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AdminDisableProviderForUserCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AdminDisableProviderForUserCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminDisableProviderForUserResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1AdminDisableProviderForUserResponse(data, context);
   const response: AdminDisableProviderForUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminDisableProviderForUserResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AdminDisableProviderForUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AdminDisableProviderForUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AliasExistsException":
     case "com.amazonaws.cognito.identity.idp.model#AliasExistsException":
-      response = await deserializeAws_json1_1AliasExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AliasExistsExceptionResponse(parsedOutput, context);
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3958,80 +3428,60 @@ export async function deserializeAws_json1_1AdminDisableUserCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AdminDisableUserCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1AdminDisableUserResponse(data, context);
   const response: AdminDisableUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminDisableUserResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AdminDisableUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AdminDisableUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4044,80 +3494,60 @@ export async function deserializeAws_json1_1AdminEnableUserCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AdminEnableUserCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1AdminEnableUserResponse(data, context);
   const response: AdminEnableUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminEnableUserResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AdminEnableUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AdminEnableUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4131,81 +3561,58 @@ export async function deserializeAws_json1_1AdminForgetDeviceCommand(
     return deserializeAws_json1_1AdminForgetDeviceCommandError(output, context);
   }
   const response: AdminForgetDeviceCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AdminForgetDeviceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AdminForgetDeviceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4218,80 +3625,60 @@ export async function deserializeAws_json1_1AdminGetDeviceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AdminGetDeviceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1AdminGetDeviceResponse(data, context);
   const response: AdminGetDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminGetDeviceResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AdminGetDeviceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AdminGetDeviceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4304,80 +3691,60 @@ export async function deserializeAws_json1_1AdminGetUserCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AdminGetUserCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1AdminGetUserResponse(data, context);
   const response: AdminGetUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminGetUserResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AdminGetUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AdminGetUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4390,143 +3757,96 @@ export async function deserializeAws_json1_1AdminInitiateAuthCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AdminInitiateAuthCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1AdminInitiateAuthResponse(data, context);
   const response: AdminInitiateAuthCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminInitiateAuthResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AdminInitiateAuthCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AdminInitiateAuthCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
       break;
     case "MFAMethodNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#MFAMethodNotFoundException":
-      response = await deserializeAws_json1_1MFAMethodNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1MFAMethodNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4537,95 +3857,66 @@ export async function deserializeAws_json1_1AdminLinkProviderForUserCommand(
   context: __SerdeContext
 ): Promise<AdminLinkProviderForUserCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AdminLinkProviderForUserCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AdminLinkProviderForUserCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminLinkProviderForUserResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1AdminLinkProviderForUserResponse(data, context);
   const response: AdminLinkProviderForUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminLinkProviderForUserResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AdminLinkProviderForUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AdminLinkProviderForUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AliasExistsException":
     case "com.amazonaws.cognito.identity.idp.model#AliasExistsException":
-      response = await deserializeAws_json1_1AliasExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AliasExistsExceptionResponse(parsedOutput, context);
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4638,80 +3929,60 @@ export async function deserializeAws_json1_1AdminListDevicesCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AdminListDevicesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1AdminListDevicesResponse(data, context);
   const response: AdminListDevicesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminListDevicesResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AdminListDevicesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AdminListDevicesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4722,88 +3993,62 @@ export async function deserializeAws_json1_1AdminListGroupsForUserCommand(
   context: __SerdeContext
 ): Promise<AdminListGroupsForUserCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AdminListGroupsForUserCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AdminListGroupsForUserCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminListGroupsForUserResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1AdminListGroupsForUserResponse(data, context);
   const response: AdminListGroupsForUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminListGroupsForUserResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AdminListGroupsForUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AdminListGroupsForUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4814,95 +4059,66 @@ export async function deserializeAws_json1_1AdminListUserAuthEventsCommand(
   context: __SerdeContext
 ): Promise<AdminListUserAuthEventsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AdminListUserAuthEventsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AdminListUserAuthEventsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminListUserAuthEventsResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1AdminListUserAuthEventsResponse(data, context);
   const response: AdminListUserAuthEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminListUserAuthEventsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AdminListUserAuthEventsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AdminListUserAuthEventsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UserPoolAddOnNotEnabledException":
     case "com.amazonaws.cognito.identity.idp.model#UserPoolAddOnNotEnabledException":
-      response = await deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4913,80 +4129,57 @@ export async function deserializeAws_json1_1AdminRemoveUserFromGroupCommand(
   context: __SerdeContext
 ): Promise<AdminRemoveUserFromGroupCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AdminRemoveUserFromGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AdminRemoveUserFromGroupCommandError(output, context);
   }
   const response: AdminRemoveUserFromGroupCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AdminRemoveUserFromGroupCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AdminRemoveUserFromGroupCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4997,137 +4190,90 @@ export async function deserializeAws_json1_1AdminResetUserPasswordCommand(
   context: __SerdeContext
 ): Promise<AdminResetUserPasswordCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AdminResetUserPasswordCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AdminResetUserPasswordCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminResetUserPasswordResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1AdminResetUserPasswordResponse(data, context);
   const response: AdminResetUserPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminResetUserPasswordResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AdminResetUserPasswordCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AdminResetUserPasswordCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidEmailRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(parsedOutput, context);
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5138,186 +4284,118 @@ export async function deserializeAws_json1_1AdminRespondToAuthChallengeCommand(
   context: __SerdeContext
 ): Promise<AdminRespondToAuthChallengeCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AdminRespondToAuthChallengeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AdminRespondToAuthChallengeCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminRespondToAuthChallengeResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1AdminRespondToAuthChallengeResponse(data, context);
   const response: AdminRespondToAuthChallengeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminRespondToAuthChallengeResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AdminRespondToAuthChallengeCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AdminRespondToAuthChallengeCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AliasExistsException":
     case "com.amazonaws.cognito.identity.idp.model#AliasExistsException":
-      response = await deserializeAws_json1_1AliasExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AliasExistsExceptionResponse(parsedOutput, context);
       break;
     case "CodeMismatchException":
     case "com.amazonaws.cognito.identity.idp.model#CodeMismatchException":
-      response = await deserializeAws_json1_1CodeMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CodeMismatchExceptionResponse(parsedOutput, context);
       break;
     case "ExpiredCodeException":
     case "com.amazonaws.cognito.identity.idp.model#ExpiredCodeException":
-      response = await deserializeAws_json1_1ExpiredCodeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ExpiredCodeExceptionResponse(parsedOutput, context);
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidPasswordException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidPasswordException":
-      response = await deserializeAws_json1_1InvalidPasswordExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidPasswordExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
       break;
     case "MFAMethodNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#MFAMethodNotFoundException":
-      response = await deserializeAws_json1_1MFAMethodNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1MFAMethodNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "SoftwareTokenMFANotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#SoftwareTokenMFANotFoundException":
-      response = await deserializeAws_json1_1SoftwareTokenMFANotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1SoftwareTokenMFANotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5328,95 +4406,66 @@ export async function deserializeAws_json1_1AdminSetUserMFAPreferenceCommand(
   context: __SerdeContext
 ): Promise<AdminSetUserMFAPreferenceCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AdminSetUserMFAPreferenceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AdminSetUserMFAPreferenceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminSetUserMFAPreferenceResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1AdminSetUserMFAPreferenceResponse(data, context);
   const response: AdminSetUserMFAPreferenceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminSetUserMFAPreferenceResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AdminSetUserMFAPreferenceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AdminSetUserMFAPreferenceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5427,92 +4476,66 @@ export async function deserializeAws_json1_1AdminSetUserPasswordCommand(
   context: __SerdeContext
 ): Promise<AdminSetUserPasswordCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AdminSetUserPasswordCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AdminSetUserPasswordCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1AdminSetUserPasswordResponse(data, context);
   const response: AdminSetUserPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminSetUserPasswordResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AdminSetUserPasswordCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AdminSetUserPasswordCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidPasswordException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidPasswordException":
-      response = await deserializeAws_json1_1InvalidPasswordExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidPasswordExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5523,78 +4546,58 @@ export async function deserializeAws_json1_1AdminSetUserSettingsCommand(
   context: __SerdeContext
 ): Promise<AdminSetUserSettingsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AdminSetUserSettingsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AdminSetUserSettingsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1AdminSetUserSettingsResponse(data, context);
   const response: AdminSetUserSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminSetUserSettingsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AdminSetUserSettingsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AdminSetUserSettingsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5605,95 +4608,66 @@ export async function deserializeAws_json1_1AdminUpdateAuthEventFeedbackCommand(
   context: __SerdeContext
 ): Promise<AdminUpdateAuthEventFeedbackCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AdminUpdateAuthEventFeedbackCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AdminUpdateAuthEventFeedbackCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminUpdateAuthEventFeedbackResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1AdminUpdateAuthEventFeedbackResponse(data, context);
   const response: AdminUpdateAuthEventFeedbackCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminUpdateAuthEventFeedbackResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AdminUpdateAuthEventFeedbackCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AdminUpdateAuthEventFeedbackCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UserPoolAddOnNotEnabledException":
     case "com.amazonaws.cognito.identity.idp.model#UserPoolAddOnNotEnabledException":
-      response = await deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5704,95 +4678,66 @@ export async function deserializeAws_json1_1AdminUpdateDeviceStatusCommand(
   context: __SerdeContext
 ): Promise<AdminUpdateDeviceStatusCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AdminUpdateDeviceStatusCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AdminUpdateDeviceStatusCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminUpdateDeviceStatusResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1AdminUpdateDeviceStatusResponse(data, context);
   const response: AdminUpdateDeviceStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminUpdateDeviceStatusResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AdminUpdateDeviceStatusCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AdminUpdateDeviceStatusCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5803,137 +4748,90 @@ export async function deserializeAws_json1_1AdminUpdateUserAttributesCommand(
   context: __SerdeContext
 ): Promise<AdminUpdateUserAttributesCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AdminUpdateUserAttributesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AdminUpdateUserAttributesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminUpdateUserAttributesResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1AdminUpdateUserAttributesResponse(data, context);
   const response: AdminUpdateUserAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminUpdateUserAttributesResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AdminUpdateUserAttributesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AdminUpdateUserAttributesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AliasExistsException":
     case "com.amazonaws.cognito.identity.idp.model#AliasExistsException":
-      response = await deserializeAws_json1_1AliasExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AliasExistsExceptionResponse(parsedOutput, context);
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidEmailRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(parsedOutput, context);
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5944,88 +4842,62 @@ export async function deserializeAws_json1_1AdminUserGlobalSignOutCommand(
   context: __SerdeContext
 ): Promise<AdminUserGlobalSignOutCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AdminUserGlobalSignOutCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AdminUserGlobalSignOutCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminUserGlobalSignOutResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1AdminUserGlobalSignOutResponse(data, context);
   const response: AdminUserGlobalSignOutCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminUserGlobalSignOutResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AdminUserGlobalSignOutCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AdminUserGlobalSignOutCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6036,81 +4908,58 @@ export async function deserializeAws_json1_1AssociateSoftwareTokenCommand(
   context: __SerdeContext
 ): Promise<AssociateSoftwareTokenCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AssociateSoftwareTokenCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AssociateSoftwareTokenCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateSoftwareTokenResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1AssociateSoftwareTokenResponse(data, context);
   const response: AssociateSoftwareTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AssociateSoftwareTokenResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AssociateSoftwareTokenCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<AssociateSoftwareTokenCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "SoftwareTokenMFANotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#SoftwareTokenMFANotFoundException":
-      response = await deserializeAws_json1_1SoftwareTokenMFANotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1SoftwareTokenMFANotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6123,108 +4972,76 @@ export async function deserializeAws_json1_1ChangePasswordCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ChangePasswordCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1ChangePasswordResponse(data, context);
   const response: ChangePasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ChangePasswordResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ChangePasswordCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ChangePasswordCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidPasswordException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidPasswordException":
-      response = await deserializeAws_json1_1InvalidPasswordExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidPasswordExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6237,122 +5054,84 @@ export async function deserializeAws_json1_1ConfirmDeviceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ConfirmDeviceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1ConfirmDeviceResponse(data, context);
   const response: ConfirmDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ConfirmDeviceResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ConfirmDeviceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ConfirmDeviceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidPasswordException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidPasswordException":
-      response = await deserializeAws_json1_1InvalidPasswordExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidPasswordExceptionResponse(parsedOutput, context);
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UsernameExistsException":
     case "com.amazonaws.cognito.identity.idp.model#UsernameExistsException":
-      response = await deserializeAws_json1_1UsernameExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UsernameExistsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6363,148 +5142,98 @@ export async function deserializeAws_json1_1ConfirmForgotPasswordCommand(
   context: __SerdeContext
 ): Promise<ConfirmForgotPasswordCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ConfirmForgotPasswordCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ConfirmForgotPasswordCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1ConfirmForgotPasswordResponse(data, context);
   const response: ConfirmForgotPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ConfirmForgotPasswordResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ConfirmForgotPasswordCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ConfirmForgotPasswordCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CodeMismatchException":
     case "com.amazonaws.cognito.identity.idp.model#CodeMismatchException":
-      response = await deserializeAws_json1_1CodeMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CodeMismatchExceptionResponse(parsedOutput, context);
       break;
     case "ExpiredCodeException":
     case "com.amazonaws.cognito.identity.idp.model#ExpiredCodeException":
-      response = await deserializeAws_json1_1ExpiredCodeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ExpiredCodeExceptionResponse(parsedOutput, context);
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidPasswordException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidPasswordException":
-      response = await deserializeAws_json1_1InvalidPasswordExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidPasswordExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyFailedAttemptsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyFailedAttemptsException":
-      response = await deserializeAws_json1_1TooManyFailedAttemptsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyFailedAttemptsExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6517,136 +5246,92 @@ export async function deserializeAws_json1_1ConfirmSignUpCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ConfirmSignUpCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1ConfirmSignUpResponse(data, context);
   const response: ConfirmSignUpCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ConfirmSignUpResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ConfirmSignUpCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ConfirmSignUpCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AliasExistsException":
     case "com.amazonaws.cognito.identity.idp.model#AliasExistsException":
-      response = await deserializeAws_json1_1AliasExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AliasExistsExceptionResponse(parsedOutput, context);
       break;
     case "CodeMismatchException":
     case "com.amazonaws.cognito.identity.idp.model#CodeMismatchException":
-      response = await deserializeAws_json1_1CodeMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CodeMismatchExceptionResponse(parsedOutput, context);
       break;
     case "ExpiredCodeException":
     case "com.amazonaws.cognito.identity.idp.model#ExpiredCodeException":
-      response = await deserializeAws_json1_1ExpiredCodeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ExpiredCodeExceptionResponse(parsedOutput, context);
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyFailedAttemptsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyFailedAttemptsException":
-      response = await deserializeAws_json1_1TooManyFailedAttemptsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyFailedAttemptsExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6659,87 +5344,64 @@ export async function deserializeAws_json1_1CreateGroupCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateGroupCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1CreateGroupResponse(data, context);
   const response: CreateGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateGroupResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateGroupCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateGroupCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "GroupExistsException":
     case "com.amazonaws.cognito.identity.idp.model#GroupExistsException":
-      response = await deserializeAws_json1_1GroupExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1GroupExistsExceptionResponse(parsedOutput, context);
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6750,95 +5412,66 @@ export async function deserializeAws_json1_1CreateIdentityProviderCommand(
   context: __SerdeContext
 ): Promise<CreateIdentityProviderCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateIdentityProviderCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateIdentityProviderCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateIdentityProviderResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1CreateIdentityProviderResponse(data, context);
   const response: CreateIdentityProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateIdentityProviderResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateIdentityProviderCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateIdentityProviderCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateProviderException":
     case "com.amazonaws.cognito.identity.idp.model#DuplicateProviderException":
-      response = await deserializeAws_json1_1DuplicateProviderExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1DuplicateProviderExceptionResponse(parsedOutput, context);
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6849,85 +5482,62 @@ export async function deserializeAws_json1_1CreateResourceServerCommand(
   context: __SerdeContext
 ): Promise<CreateResourceServerCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateResourceServerCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateResourceServerCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1CreateResourceServerResponse(data, context);
   const response: CreateResourceServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateResourceServerResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateResourceServerCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateResourceServerCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6938,92 +5548,66 @@ export async function deserializeAws_json1_1CreateUserImportJobCommand(
   context: __SerdeContext
 ): Promise<CreateUserImportJobCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateUserImportJobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateUserImportJobCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1CreateUserImportJobResponse(data, context);
   const response: CreateUserImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateUserImportJobResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateUserImportJobCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateUserImportJobCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "PreconditionNotMetException":
     case "com.amazonaws.cognito.identity.idp.model#PreconditionNotMetException":
-      response = await deserializeAws_json1_1PreconditionNotMetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1PreconditionNotMetExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -7036,101 +5620,72 @@ export async function deserializeAws_json1_1CreateUserPoolCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateUserPoolCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1CreateUserPoolResponse(data, context);
   const response: CreateUserPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateUserPoolResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateUserPoolCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateUserPoolCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidEmailRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserPoolTaggingException":
     case "com.amazonaws.cognito.identity.idp.model#UserPoolTaggingException":
-      response = await deserializeAws_json1_1UserPoolTaggingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserPoolTaggingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -7141,99 +5696,70 @@ export async function deserializeAws_json1_1CreateUserPoolClientCommand(
   context: __SerdeContext
 ): Promise<CreateUserPoolClientCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateUserPoolClientCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateUserPoolClientCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1CreateUserPoolClientResponse(data, context);
   const response: CreateUserPoolClientCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateUserPoolClientResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateUserPoolClientCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateUserPoolClientCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidOAuthFlowException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidOAuthFlowException":
-      response = await deserializeAws_json1_1InvalidOAuthFlowExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidOAuthFlowExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ScopeDoesNotExistException":
     case "com.amazonaws.cognito.identity.idp.model#ScopeDoesNotExistException":
-      response = await deserializeAws_json1_1ScopeDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ScopeDoesNotExistExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -7244,78 +5770,58 @@ export async function deserializeAws_json1_1CreateUserPoolDomainCommand(
   context: __SerdeContext
 ): Promise<CreateUserPoolDomainCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateUserPoolDomainCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateUserPoolDomainCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1CreateUserPoolDomainResponse(data, context);
   const response: CreateUserPoolDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateUserPoolDomainResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateUserPoolDomainCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateUserPoolDomainCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -7329,67 +5835,50 @@ export async function deserializeAws_json1_1DeleteGroupCommand(
     return deserializeAws_json1_1DeleteGroupCommandError(output, context);
   }
   const response: DeleteGroupCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteGroupCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteGroupCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -7400,80 +5889,57 @@ export async function deserializeAws_json1_1DeleteIdentityProviderCommand(
   context: __SerdeContext
 ): Promise<DeleteIdentityProviderCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteIdentityProviderCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteIdentityProviderCommandError(output, context);
   }
   const response: DeleteIdentityProviderCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteIdentityProviderCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteIdentityProviderCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UnsupportedIdentityProviderException":
     case "com.amazonaws.cognito.identity.idp.model#UnsupportedIdentityProviderException":
-      response = await deserializeAws_json1_1UnsupportedIdentityProviderExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnsupportedIdentityProviderExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -7484,73 +5950,53 @@ export async function deserializeAws_json1_1DeleteResourceServerCommand(
   context: __SerdeContext
 ): Promise<DeleteResourceServerCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteResourceServerCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteResourceServerCommandError(output, context);
   }
   const response: DeleteResourceServerCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteResourceServerCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteResourceServerCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -7564,88 +6010,62 @@ export async function deserializeAws_json1_1DeleteUserCommand(
     return deserializeAws_json1_1DeleteUserCommandError(output, context);
   }
   const response: DeleteUserCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -7656,99 +6076,70 @@ export async function deserializeAws_json1_1DeleteUserAttributesCommand(
   context: __SerdeContext
 ): Promise<DeleteUserAttributesCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteUserAttributesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteUserAttributesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteUserAttributesResponse(data, context);
   const response: DeleteUserAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteUserAttributesResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteUserAttributesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteUserAttributesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -7762,74 +6153,54 @@ export async function deserializeAws_json1_1DeleteUserPoolCommand(
     return deserializeAws_json1_1DeleteUserPoolCommandError(output, context);
   }
   const response: DeleteUserPoolCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteUserPoolCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteUserPoolCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserImportInProgressException":
     case "com.amazonaws.cognito.identity.idp.model#UserImportInProgressException":
-      response = await deserializeAws_json1_1UserImportInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserImportInProgressExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -7840,73 +6211,53 @@ export async function deserializeAws_json1_1DeleteUserPoolClientCommand(
   context: __SerdeContext
 ): Promise<DeleteUserPoolClientCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteUserPoolClientCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteUserPoolClientCommandError(output, context);
   }
   const response: DeleteUserPoolClientCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteUserPoolClientCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteUserPoolClientCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -7917,71 +6268,54 @@ export async function deserializeAws_json1_1DeleteUserPoolDomainCommand(
   context: __SerdeContext
 ): Promise<DeleteUserPoolDomainCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteUserPoolDomainCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteUserPoolDomainCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteUserPoolDomainResponse(data, context);
   const response: DeleteUserPoolDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteUserPoolDomainResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteUserPoolDomainCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteUserPoolDomainCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -7992,81 +6326,58 @@ export async function deserializeAws_json1_1DescribeIdentityProviderCommand(
   context: __SerdeContext
 ): Promise<DescribeIdentityProviderCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeIdentityProviderCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeIdentityProviderCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeIdentityProviderResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeIdentityProviderResponse(data, context);
   const response: DescribeIdentityProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeIdentityProviderResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeIdentityProviderCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeIdentityProviderCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -8077,81 +6388,58 @@ export async function deserializeAws_json1_1DescribeResourceServerCommand(
   context: __SerdeContext
 ): Promise<DescribeResourceServerCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeResourceServerCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeResourceServerCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeResourceServerResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeResourceServerResponse(data, context);
   const response: DescribeResourceServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeResourceServerResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeResourceServerCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeResourceServerCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -8162,88 +6450,62 @@ export async function deserializeAws_json1_1DescribeRiskConfigurationCommand(
   context: __SerdeContext
 ): Promise<DescribeRiskConfigurationCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeRiskConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeRiskConfigurationCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeRiskConfigurationResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeRiskConfigurationResponse(data, context);
   const response: DescribeRiskConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeRiskConfigurationResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeRiskConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeRiskConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserPoolAddOnNotEnabledException":
     case "com.amazonaws.cognito.identity.idp.model#UserPoolAddOnNotEnabledException":
-      response = await deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -8254,78 +6516,58 @@ export async function deserializeAws_json1_1DescribeUserImportJobCommand(
   context: __SerdeContext
 ): Promise<DescribeUserImportJobCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeUserImportJobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeUserImportJobCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeUserImportJobResponse(data, context);
   const response: DescribeUserImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeUserImportJobResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeUserImportJobCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeUserImportJobCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -8338,80 +6580,60 @@ export async function deserializeAws_json1_1DescribeUserPoolCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeUserPoolCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeUserPoolResponse(data, context);
   const response: DescribeUserPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeUserPoolResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeUserPoolCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeUserPoolCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserPoolTaggingException":
     case "com.amazonaws.cognito.identity.idp.model#UserPoolTaggingException":
-      response = await deserializeAws_json1_1UserPoolTaggingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserPoolTaggingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -8422,81 +6644,58 @@ export async function deserializeAws_json1_1DescribeUserPoolClientCommand(
   context: __SerdeContext
 ): Promise<DescribeUserPoolClientCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeUserPoolClientCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeUserPoolClientCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeUserPoolClientResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeUserPoolClientResponse(data, context);
   const response: DescribeUserPoolClientCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeUserPoolClientResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeUserPoolClientCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeUserPoolClientCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -8507,74 +6706,54 @@ export async function deserializeAws_json1_1DescribeUserPoolDomainCommand(
   context: __SerdeContext
 ): Promise<DescribeUserPoolDomainCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeUserPoolDomainCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeUserPoolDomainCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeUserPoolDomainResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeUserPoolDomainResponse(data, context);
   const response: DescribeUserPoolDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeUserPoolDomainResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeUserPoolDomainCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeUserPoolDomainCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -8588,95 +6767,66 @@ export async function deserializeAws_json1_1ForgetDeviceCommand(
     return deserializeAws_json1_1ForgetDeviceCommandError(output, context);
   }
   const response: ForgetDeviceCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ForgetDeviceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ForgetDeviceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -8689,143 +6839,96 @@ export async function deserializeAws_json1_1ForgotPasswordCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ForgotPasswordCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1ForgotPasswordResponse(data, context);
   const response: ForgotPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ForgotPasswordResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ForgotPasswordCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ForgotPasswordCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CodeDeliveryFailureException":
     case "com.amazonaws.cognito.identity.idp.model#CodeDeliveryFailureException":
-      response = await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(parsedOutput, context);
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidEmailRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(parsedOutput, context);
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -8838,73 +6941,56 @@ export async function deserializeAws_json1_1GetCSVHeaderCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetCSVHeaderCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1GetCSVHeaderResponse(data, context);
   const response: GetCSVHeaderCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetCSVHeaderResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetCSVHeaderCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetCSVHeaderCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -8917,101 +7003,72 @@ export async function deserializeAws_json1_1GetDeviceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetDeviceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1GetDeviceResponse(data, context);
   const response: GetDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDeviceResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetDeviceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetDeviceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -9024,73 +7081,56 @@ export async function deserializeAws_json1_1GetGroupCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetGroupCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1GetGroupResponse(data, context);
   const response: GetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetGroupResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetGroupCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetGroupCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -9101,81 +7141,58 @@ export async function deserializeAws_json1_1GetIdentityProviderByIdentifierComma
   context: __SerdeContext
 ): Promise<GetIdentityProviderByIdentifierCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetIdentityProviderByIdentifierCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetIdentityProviderByIdentifierCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1GetIdentityProviderByIdentifierResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1GetIdentityProviderByIdentifierResponse(data, context);
   const response: GetIdentityProviderByIdentifierCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetIdentityProviderByIdentifierResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetIdentityProviderByIdentifierCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetIdentityProviderByIdentifierCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -9186,64 +7203,50 @@ export async function deserializeAws_json1_1GetSigningCertificateCommand(
   context: __SerdeContext
 ): Promise<GetSigningCertificateCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetSigningCertificateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetSigningCertificateCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1GetSigningCertificateResponse(data, context);
   const response: GetSigningCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetSigningCertificateResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetSigningCertificateCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetSigningCertificateCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -9254,78 +7257,58 @@ export async function deserializeAws_json1_1GetUICustomizationCommand(
   context: __SerdeContext
 ): Promise<GetUICustomizationCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetUICustomizationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetUICustomizationCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1GetUICustomizationResponse(data, context);
   const response: GetUICustomizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetUICustomizationResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetUICustomizationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetUICustomizationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -9338,94 +7321,68 @@ export async function deserializeAws_json1_1GetUserCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetUserCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1GetUserResponse(data, context);
   const response: GetUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetUserResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -9436,158 +7393,102 @@ export async function deserializeAws_json1_1GetUserAttributeVerificationCodeComm
   context: __SerdeContext
 ): Promise<GetUserAttributeVerificationCodeCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetUserAttributeVerificationCodeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetUserAttributeVerificationCodeCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1GetUserAttributeVerificationCodeResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1GetUserAttributeVerificationCodeResponse(data, context);
   const response: GetUserAttributeVerificationCodeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetUserAttributeVerificationCodeResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetUserAttributeVerificationCodeCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetUserAttributeVerificationCodeCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CodeDeliveryFailureException":
     case "com.amazonaws.cognito.identity.idp.model#CodeDeliveryFailureException":
-      response = await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(parsedOutput, context);
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidEmailRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(parsedOutput, context);
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -9598,78 +7499,58 @@ export async function deserializeAws_json1_1GetUserPoolMfaConfigCommand(
   context: __SerdeContext
 ): Promise<GetUserPoolMfaConfigCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetUserPoolMfaConfigCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetUserPoolMfaConfigCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1GetUserPoolMfaConfigResponse(data, context);
   const response: GetUserPoolMfaConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetUserPoolMfaConfigResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetUserPoolMfaConfigCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetUserPoolMfaConfigCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -9682,87 +7563,64 @@ export async function deserializeAws_json1_1GlobalSignOutCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GlobalSignOutCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1GlobalSignOutResponse(data, context);
   const response: GlobalSignOutCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GlobalSignOutResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GlobalSignOutCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GlobalSignOutCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -9775,136 +7633,92 @@ export async function deserializeAws_json1_1InitiateAuthCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1InitiateAuthCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1InitiateAuthResponse(data, context);
   const response: InitiateAuthCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "InitiateAuthResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1InitiateAuthCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<InitiateAuthCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -9917,101 +7731,72 @@ export async function deserializeAws_json1_1ListDevicesCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListDevicesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1ListDevicesResponse(data, context);
   const response: ListDevicesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListDevicesResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListDevicesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListDevicesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -10024,73 +7809,56 @@ export async function deserializeAws_json1_1ListGroupsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListGroupsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1ListGroupsResponse(data, context);
   const response: ListGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListGroupsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListGroupsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListGroupsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -10101,78 +7869,58 @@ export async function deserializeAws_json1_1ListIdentityProvidersCommand(
   context: __SerdeContext
 ): Promise<ListIdentityProvidersCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListIdentityProvidersCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListIdentityProvidersCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1ListIdentityProvidersResponse(data, context);
   const response: ListIdentityProvidersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListIdentityProvidersResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListIdentityProvidersCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListIdentityProvidersCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -10183,78 +7931,58 @@ export async function deserializeAws_json1_1ListResourceServersCommand(
   context: __SerdeContext
 ): Promise<ListResourceServersCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListResourceServersCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListResourceServersCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1ListResourceServersResponse(data, context);
   const response: ListResourceServersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListResourceServersResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListResourceServersCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListResourceServersCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -10265,78 +7993,58 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListTagsForResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -10347,78 +8055,58 @@ export async function deserializeAws_json1_1ListUserImportJobsCommand(
   context: __SerdeContext
 ): Promise<ListUserImportJobsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListUserImportJobsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListUserImportJobsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1ListUserImportJobsResponse(data, context);
   const response: ListUserImportJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListUserImportJobsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListUserImportJobsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListUserImportJobsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -10429,78 +8117,58 @@ export async function deserializeAws_json1_1ListUserPoolClientsCommand(
   context: __SerdeContext
 ): Promise<ListUserPoolClientsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListUserPoolClientsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListUserPoolClientsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1ListUserPoolClientsResponse(data, context);
   const response: ListUserPoolClientsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListUserPoolClientsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListUserPoolClientsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListUserPoolClientsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -10513,66 +8181,52 @@ export async function deserializeAws_json1_1ListUserPoolsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListUserPoolsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1ListUserPoolsResponse(data, context);
   const response: ListUserPoolsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListUserPoolsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListUserPoolsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListUserPoolsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -10585,73 +8239,56 @@ export async function deserializeAws_json1_1ListUsersCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListUsersCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1ListUsersResponse(data, context);
   const response: ListUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListUsersResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListUsersCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListUsersCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -10664,73 +8301,56 @@ export async function deserializeAws_json1_1ListUsersInGroupCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListUsersInGroupCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1ListUsersInGroupResponse(data, context);
   const response: ListUsersInGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListUsersInGroupResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListUsersInGroupCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListUsersInGroupCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -10741,144 +8361,94 @@ export async function deserializeAws_json1_1ResendConfirmationCodeCommand(
   context: __SerdeContext
 ): Promise<ResendConfirmationCodeCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ResendConfirmationCodeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ResendConfirmationCodeCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1ResendConfirmationCodeResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1ResendConfirmationCodeResponse(data, context);
   const response: ResendConfirmationCodeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ResendConfirmationCodeResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ResendConfirmationCodeCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ResendConfirmationCodeCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CodeDeliveryFailureException":
     case "com.amazonaws.cognito.identity.idp.model#CodeDeliveryFailureException":
-      response = await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(parsedOutput, context);
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidEmailRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(parsedOutput, context);
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -10889,186 +8459,118 @@ export async function deserializeAws_json1_1RespondToAuthChallengeCommand(
   context: __SerdeContext
 ): Promise<RespondToAuthChallengeCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1RespondToAuthChallengeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RespondToAuthChallengeCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1RespondToAuthChallengeResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1RespondToAuthChallengeResponse(data, context);
   const response: RespondToAuthChallengeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RespondToAuthChallengeResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1RespondToAuthChallengeCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<RespondToAuthChallengeCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AliasExistsException":
     case "com.amazonaws.cognito.identity.idp.model#AliasExistsException":
-      response = await deserializeAws_json1_1AliasExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AliasExistsExceptionResponse(parsedOutput, context);
       break;
     case "CodeMismatchException":
     case "com.amazonaws.cognito.identity.idp.model#CodeMismatchException":
-      response = await deserializeAws_json1_1CodeMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CodeMismatchExceptionResponse(parsedOutput, context);
       break;
     case "ExpiredCodeException":
     case "com.amazonaws.cognito.identity.idp.model#ExpiredCodeException":
-      response = await deserializeAws_json1_1ExpiredCodeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ExpiredCodeExceptionResponse(parsedOutput, context);
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidPasswordException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidPasswordException":
-      response = await deserializeAws_json1_1InvalidPasswordExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidPasswordExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
       break;
     case "MFAMethodNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#MFAMethodNotFoundException":
-      response = await deserializeAws_json1_1MFAMethodNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1MFAMethodNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "SoftwareTokenMFANotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#SoftwareTokenMFANotFoundException":
-      response = await deserializeAws_json1_1SoftwareTokenMFANotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1SoftwareTokenMFANotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -11079,99 +8581,70 @@ export async function deserializeAws_json1_1SetRiskConfigurationCommand(
   context: __SerdeContext
 ): Promise<SetRiskConfigurationCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1SetRiskConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1SetRiskConfigurationCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1SetRiskConfigurationResponse(data, context);
   const response: SetRiskConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SetRiskConfigurationResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1SetRiskConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<SetRiskConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CodeDeliveryFailureException":
     case "com.amazonaws.cognito.identity.idp.model#CodeDeliveryFailureException":
-      response = await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(parsedOutput, context);
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidEmailRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserPoolAddOnNotEnabledException":
     case "com.amazonaws.cognito.identity.idp.model#UserPoolAddOnNotEnabledException":
-      response = await deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -11182,78 +8655,58 @@ export async function deserializeAws_json1_1SetUICustomizationCommand(
   context: __SerdeContext
 ): Promise<SetUICustomizationCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1SetUICustomizationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1SetUICustomizationCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1SetUICustomizationResponse(data, context);
   const response: SetUICustomizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SetUICustomizationResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1SetUICustomizationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<SetUICustomizationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -11264,92 +8717,66 @@ export async function deserializeAws_json1_1SetUserMFAPreferenceCommand(
   context: __SerdeContext
 ): Promise<SetUserMFAPreferenceCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1SetUserMFAPreferenceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1SetUserMFAPreferenceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1SetUserMFAPreferenceResponse(data, context);
   const response: SetUserMFAPreferenceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SetUserMFAPreferenceResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1SetUserMFAPreferenceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<SetUserMFAPreferenceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -11360,92 +8787,66 @@ export async function deserializeAws_json1_1SetUserPoolMfaConfigCommand(
   context: __SerdeContext
 ): Promise<SetUserPoolMfaConfigCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1SetUserPoolMfaConfigCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1SetUserPoolMfaConfigCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1SetUserPoolMfaConfigResponse(data, context);
   const response: SetUserPoolMfaConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SetUserPoolMfaConfigResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1SetUserPoolMfaConfigCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<SetUserPoolMfaConfigCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -11458,87 +8859,64 @@ export async function deserializeAws_json1_1SetUserSettingsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1SetUserSettingsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1SetUserSettingsResponse(data, context);
   const response: SetUserSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SetUserSettingsResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1SetUserSettingsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<SetUserSettingsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -11551,136 +8929,92 @@ export async function deserializeAws_json1_1SignUpCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1SignUpCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1SignUpResponse(data, context);
   const response: SignUpCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SignUpResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1SignUpCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<SignUpCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CodeDeliveryFailureException":
     case "com.amazonaws.cognito.identity.idp.model#CodeDeliveryFailureException":
-      response = await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(parsedOutput, context);
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidEmailRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(parsedOutput, context);
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidPasswordException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidPasswordException":
-      response = await deserializeAws_json1_1InvalidPasswordExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidPasswordExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
       break;
     case "UsernameExistsException":
     case "com.amazonaws.cognito.identity.idp.model#UsernameExistsException":
-      response = await deserializeAws_json1_1UsernameExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UsernameExistsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -11691,85 +9025,62 @@ export async function deserializeAws_json1_1StartUserImportJobCommand(
   context: __SerdeContext
 ): Promise<StartUserImportJobCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StartUserImportJobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartUserImportJobCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1StartUserImportJobResponse(data, context);
   const response: StartUserImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartUserImportJobResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1StartUserImportJobCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<StartUserImportJobCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "PreconditionNotMetException":
     case "com.amazonaws.cognito.identity.idp.model#PreconditionNotMetException":
-      response = await deserializeAws_json1_1PreconditionNotMetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1PreconditionNotMetExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -11782,80 +9093,60 @@ export async function deserializeAws_json1_1StopUserImportJobCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StopUserImportJobCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1StopUserImportJobResponse(data, context);
   const response: StopUserImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopUserImportJobResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1StopUserImportJobCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<StopUserImportJobCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "PreconditionNotMetException":
     case "com.amazonaws.cognito.identity.idp.model#PreconditionNotMetException":
-      response = await deserializeAws_json1_1PreconditionNotMetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1PreconditionNotMetExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -11868,73 +9159,56 @@ export async function deserializeAws_json1_1TagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1TagResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<TagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -11947,73 +9221,56 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UntagResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UntagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -12024,95 +9281,66 @@ export async function deserializeAws_json1_1UpdateAuthEventFeedbackCommand(
   context: __SerdeContext
 ): Promise<UpdateAuthEventFeedbackCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateAuthEventFeedbackCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateAuthEventFeedbackCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateAuthEventFeedbackResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateAuthEventFeedbackResponse(data, context);
   const response: UpdateAuthEventFeedbackCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateAuthEventFeedbackResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateAuthEventFeedbackCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateAuthEventFeedbackCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UserPoolAddOnNotEnabledException":
     case "com.amazonaws.cognito.identity.idp.model#UserPoolAddOnNotEnabledException":
-      response = await deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -12123,106 +9351,74 @@ export async function deserializeAws_json1_1UpdateDeviceStatusCommand(
   context: __SerdeContext
 ): Promise<UpdateDeviceStatusCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateDeviceStatusCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateDeviceStatusCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateDeviceStatusResponse(data, context);
   const response: UpdateDeviceStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateDeviceStatusResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateDeviceStatusCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateDeviceStatusCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -12235,73 +9431,56 @@ export async function deserializeAws_json1_1UpdateGroupCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateGroupCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateGroupResponse(data, context);
   const response: UpdateGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateGroupResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateGroupCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateGroupCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -12312,88 +9491,62 @@ export async function deserializeAws_json1_1UpdateIdentityProviderCommand(
   context: __SerdeContext
 ): Promise<UpdateIdentityProviderCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateIdentityProviderCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateIdentityProviderCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateIdentityProviderResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateIdentityProviderResponse(data, context);
   const response: UpdateIdentityProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateIdentityProviderResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateIdentityProviderCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateIdentityProviderCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UnsupportedIdentityProviderException":
     case "com.amazonaws.cognito.identity.idp.model#UnsupportedIdentityProviderException":
-      response = await deserializeAws_json1_1UnsupportedIdentityProviderExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnsupportedIdentityProviderExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -12404,78 +9557,58 @@ export async function deserializeAws_json1_1UpdateResourceServerCommand(
   context: __SerdeContext
 ): Promise<UpdateResourceServerCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateResourceServerCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateResourceServerCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateResourceServerResponse(data, context);
   const response: UpdateResourceServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateResourceServerResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateResourceServerCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateResourceServerCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -12486,169 +9619,110 @@ export async function deserializeAws_json1_1UpdateUserAttributesCommand(
   context: __SerdeContext
 ): Promise<UpdateUserAttributesCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateUserAttributesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateUserAttributesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateUserAttributesResponse(data, context);
   const response: UpdateUserAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateUserAttributesResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateUserAttributesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateUserAttributesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AliasExistsException":
     case "com.amazonaws.cognito.identity.idp.model#AliasExistsException":
-      response = await deserializeAws_json1_1AliasExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1AliasExistsExceptionResponse(parsedOutput, context);
       break;
     case "CodeDeliveryFailureException":
     case "com.amazonaws.cognito.identity.idp.model#CodeDeliveryFailureException":
-      response = await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CodeDeliveryFailureExceptionResponse(parsedOutput, context);
       break;
     case "CodeMismatchException":
     case "com.amazonaws.cognito.identity.idp.model#CodeMismatchException":
-      response = await deserializeAws_json1_1CodeMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CodeMismatchExceptionResponse(parsedOutput, context);
       break;
     case "ExpiredCodeException":
     case "com.amazonaws.cognito.identity.idp.model#ExpiredCodeException":
-      response = await deserializeAws_json1_1ExpiredCodeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ExpiredCodeExceptionResponse(parsedOutput, context);
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidEmailRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(parsedOutput, context);
       break;
     case "InvalidLambdaResponseException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException":
-      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidLambdaResponseExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UnexpectedLambdaException":
     case "com.amazonaws.cognito.identity.idp.model#UnexpectedLambdaException":
-      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UnexpectedLambdaExceptionResponse(parsedOutput, context);
       break;
     case "UserLambdaValidationException":
     case "com.amazonaws.cognito.identity.idp.model#UserLambdaValidationException":
-      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserLambdaValidationExceptionResponse(parsedOutput, context);
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -12661,115 +9735,80 @@ export async function deserializeAws_json1_1UpdateUserPoolCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateUserPoolCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateUserPoolResponse(data, context);
   const response: UpdateUserPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateUserPoolResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateUserPoolCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateUserPoolCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.cognito.identity.idp.model#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidEmailRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidEmailRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleAccessPolicyException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException":
-      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse(parsedOutput, context);
       break;
     case "InvalidSmsRoleTrustRelationshipException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException":
-      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserImportInProgressException":
     case "com.amazonaws.cognito.identity.idp.model#UserImportInProgressException":
-      response = await deserializeAws_json1_1UserImportInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserImportInProgressExceptionResponse(parsedOutput, context);
       break;
     case "UserPoolTaggingException":
     case "com.amazonaws.cognito.identity.idp.model#UserPoolTaggingException":
-      response = await deserializeAws_json1_1UserPoolTaggingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserPoolTaggingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -12780,99 +9819,70 @@ export async function deserializeAws_json1_1UpdateUserPoolClientCommand(
   context: __SerdeContext
 ): Promise<UpdateUserPoolClientCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateUserPoolClientCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateUserPoolClientCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateUserPoolClientResponse(data, context);
   const response: UpdateUserPoolClientCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateUserPoolClientResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateUserPoolClientCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateUserPoolClientCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.cognito.identity.idp.model#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidOAuthFlowException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidOAuthFlowException":
-      response = await deserializeAws_json1_1InvalidOAuthFlowExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidOAuthFlowExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ScopeDoesNotExistException":
     case "com.amazonaws.cognito.identity.idp.model#ScopeDoesNotExistException":
-      response = await deserializeAws_json1_1ScopeDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ScopeDoesNotExistExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -12883,78 +9893,58 @@ export async function deserializeAws_json1_1UpdateUserPoolDomainCommand(
   context: __SerdeContext
 ): Promise<UpdateUserPoolDomainCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateUserPoolDomainCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateUserPoolDomainCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateUserPoolDomainResponse(data, context);
   const response: UpdateUserPoolDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateUserPoolDomainResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateUserPoolDomainCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateUserPoolDomainCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -12965,127 +9955,86 @@ export async function deserializeAws_json1_1VerifySoftwareTokenCommand(
   context: __SerdeContext
 ): Promise<VerifySoftwareTokenCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1VerifySoftwareTokenCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1VerifySoftwareTokenCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1VerifySoftwareTokenResponse(data, context);
   const response: VerifySoftwareTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "VerifySoftwareTokenResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1VerifySoftwareTokenCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<VerifySoftwareTokenCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CodeMismatchException":
     case "com.amazonaws.cognito.identity.idp.model#CodeMismatchException":
-      response = await deserializeAws_json1_1CodeMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CodeMismatchExceptionResponse(parsedOutput, context);
       break;
     case "EnableSoftwareTokenMFAException":
     case "com.amazonaws.cognito.identity.idp.model#EnableSoftwareTokenMFAException":
-      response = await deserializeAws_json1_1EnableSoftwareTokenMFAExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1EnableSoftwareTokenMFAExceptionResponse(parsedOutput, context);
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidUserPoolConfigurationException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException":
-      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "SoftwareTokenMFANotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#SoftwareTokenMFANotFoundException":
-      response = await deserializeAws_json1_1SoftwareTokenMFANotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1SoftwareTokenMFANotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -13096,120 +10045,82 @@ export async function deserializeAws_json1_1VerifyUserAttributeCommand(
   context: __SerdeContext
 ): Promise<VerifyUserAttributeCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1VerifyUserAttributeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1VerifyUserAttributeCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context);
+  const data: any = await parseBody(output.body, context)
   let contents: any = {};
   contents = deserializeAws_json1_1VerifyUserAttributeResponse(data, context);
   const response: VerifyUserAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "VerifyUserAttributeResponse",
-    ...contents
+    ...contents,
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1VerifyUserAttributeCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<VerifyUserAttributeCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  const errorTypeParts: String = data["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  let errorCode: String = "UnknownError";
+  const errorTypeParts: String = data["__type"].split('#');
+  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CodeMismatchException":
     case "com.amazonaws.cognito.identity.idp.model#CodeMismatchException":
-      response = await deserializeAws_json1_1CodeMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1CodeMismatchExceptionResponse(parsedOutput, context);
       break;
     case "ExpiredCodeException":
     case "com.amazonaws.cognito.identity.idp.model#ExpiredCodeException":
-      response = await deserializeAws_json1_1ExpiredCodeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ExpiredCodeExceptionResponse(parsedOutput, context);
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.identity.idp.model#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.identity.idp.model#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.identity.idp.model#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.identity.idp.model#NotAuthorizedException":
-      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "PasswordResetRequiredException":
     case "com.amazonaws.cognito.identity.idp.model#PasswordResetRequiredException":
-      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1PasswordResetRequiredExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     case "UserNotConfirmedException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotConfirmedException":
-      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotConfirmedExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.cognito.identity.idp.model#UserNotFoundException":
-      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_json1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -13219,15 +10130,12 @@ const deserializeAws_json1_1AliasExistsExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<AliasExistsException> => {
-  const deserialized: any = deserializeAws_json1_1AliasExistsException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1AliasExistsException(output.body, context);
   const contents: AliasExistsException = {
     __type: "AliasExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13236,15 +10144,12 @@ const deserializeAws_json1_1CodeDeliveryFailureExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<CodeDeliveryFailureException> => {
-  const deserialized: any = deserializeAws_json1_1CodeDeliveryFailureException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1CodeDeliveryFailureException(output.body, context);
   const contents: CodeDeliveryFailureException = {
     __type: "CodeDeliveryFailureException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13253,15 +10158,12 @@ const deserializeAws_json1_1CodeMismatchExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<CodeMismatchException> => {
-  const deserialized: any = deserializeAws_json1_1CodeMismatchException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1CodeMismatchException(output.body, context);
   const contents: CodeMismatchException = {
     __type: "CodeMismatchException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13270,15 +10172,12 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
-  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(output.body, context);
   const contents: ConcurrentModificationException = {
     __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13287,15 +10186,12 @@ const deserializeAws_json1_1DuplicateProviderExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<DuplicateProviderException> => {
-  const deserialized: any = deserializeAws_json1_1DuplicateProviderException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1DuplicateProviderException(output.body, context);
   const contents: DuplicateProviderException = {
     __type: "DuplicateProviderException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13304,15 +10200,12 @@ const deserializeAws_json1_1EnableSoftwareTokenMFAExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<EnableSoftwareTokenMFAException> => {
-  const deserialized: any = deserializeAws_json1_1EnableSoftwareTokenMFAException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1EnableSoftwareTokenMFAException(output.body, context);
   const contents: EnableSoftwareTokenMFAException = {
     __type: "EnableSoftwareTokenMFAException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13321,15 +10214,12 @@ const deserializeAws_json1_1ExpiredCodeExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ExpiredCodeException> => {
-  const deserialized: any = deserializeAws_json1_1ExpiredCodeException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ExpiredCodeException(output.body, context);
   const contents: ExpiredCodeException = {
     __type: "ExpiredCodeException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13338,15 +10228,12 @@ const deserializeAws_json1_1GroupExistsExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<GroupExistsException> => {
-  const deserialized: any = deserializeAws_json1_1GroupExistsException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1GroupExistsException(output.body, context);
   const contents: GroupExistsException = {
     __type: "GroupExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13355,15 +10242,12 @@ const deserializeAws_json1_1InternalErrorExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InternalErrorException> => {
-  const deserialized: any = deserializeAws_json1_1InternalErrorException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalErrorException(output.body, context);
   const contents: InternalErrorException = {
     __type: "InternalErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13372,15 +10256,12 @@ const deserializeAws_json1_1InvalidEmailRoleAccessPolicyExceptionResponse = asyn
   output: any,
   context: __SerdeContext
 ): Promise<InvalidEmailRoleAccessPolicyException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidEmailRoleAccessPolicyException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidEmailRoleAccessPolicyException(output.body, context);
   const contents: InvalidEmailRoleAccessPolicyException = {
     __type: "InvalidEmailRoleAccessPolicyException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13389,15 +10270,12 @@ const deserializeAws_json1_1InvalidLambdaResponseExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidLambdaResponseException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidLambdaResponseException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidLambdaResponseException(output.body, context);
   const contents: InvalidLambdaResponseException = {
     __type: "InvalidLambdaResponseException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13406,15 +10284,12 @@ const deserializeAws_json1_1InvalidOAuthFlowExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidOAuthFlowException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidOAuthFlowException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidOAuthFlowException(output.body, context);
   const contents: InvalidOAuthFlowException = {
     __type: "InvalidOAuthFlowException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13423,15 +10298,12 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidParameterException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidParameterException(output.body, context);
   const contents: InvalidParameterException = {
     __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13440,15 +10312,12 @@ const deserializeAws_json1_1InvalidPasswordExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidPasswordException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidPasswordException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidPasswordException(output.body, context);
   const contents: InvalidPasswordException = {
     __type: "InvalidPasswordException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13457,15 +10326,12 @@ const deserializeAws_json1_1InvalidSmsRoleAccessPolicyExceptionResponse = async 
   output: any,
   context: __SerdeContext
 ): Promise<InvalidSmsRoleAccessPolicyException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidSmsRoleAccessPolicyException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidSmsRoleAccessPolicyException(output.body, context);
   const contents: InvalidSmsRoleAccessPolicyException = {
     __type: "InvalidSmsRoleAccessPolicyException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13474,15 +10340,12 @@ const deserializeAws_json1_1InvalidSmsRoleTrustRelationshipExceptionResponse = a
   output: any,
   context: __SerdeContext
 ): Promise<InvalidSmsRoleTrustRelationshipException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidSmsRoleTrustRelationshipException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidSmsRoleTrustRelationshipException(output.body, context);
   const contents: InvalidSmsRoleTrustRelationshipException = {
     __type: "InvalidSmsRoleTrustRelationshipException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13491,15 +10354,12 @@ const deserializeAws_json1_1InvalidUserPoolConfigurationExceptionResponse = asyn
   output: any,
   context: __SerdeContext
 ): Promise<InvalidUserPoolConfigurationException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidUserPoolConfigurationException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidUserPoolConfigurationException(output.body, context);
   const contents: InvalidUserPoolConfigurationException = {
     __type: "InvalidUserPoolConfigurationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13508,15 +10368,12 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1LimitExceededException(output.body, context);
   const contents: LimitExceededException = {
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13525,15 +10382,12 @@ const deserializeAws_json1_1MFAMethodNotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<MFAMethodNotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1MFAMethodNotFoundException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1MFAMethodNotFoundException(output.body, context);
   const contents: MFAMethodNotFoundException = {
     __type: "MFAMethodNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13542,15 +10396,12 @@ const deserializeAws_json1_1NotAuthorizedExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<NotAuthorizedException> => {
-  const deserialized: any = deserializeAws_json1_1NotAuthorizedException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1NotAuthorizedException(output.body, context);
   const contents: NotAuthorizedException = {
     __type: "NotAuthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13559,15 +10410,12 @@ const deserializeAws_json1_1PasswordResetRequiredExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<PasswordResetRequiredException> => {
-  const deserialized: any = deserializeAws_json1_1PasswordResetRequiredException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1PasswordResetRequiredException(output.body, context);
   const contents: PasswordResetRequiredException = {
     __type: "PasswordResetRequiredException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13576,15 +10424,12 @@ const deserializeAws_json1_1PreconditionNotMetExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<PreconditionNotMetException> => {
-  const deserialized: any = deserializeAws_json1_1PreconditionNotMetException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1PreconditionNotMetException(output.body, context);
   const contents: PreconditionNotMetException = {
     __type: "PreconditionNotMetException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13593,15 +10438,12 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(output.body, context);
   const contents: ResourceNotFoundException = {
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13610,15 +10452,12 @@ const deserializeAws_json1_1ScopeDoesNotExistExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ScopeDoesNotExistException> => {
-  const deserialized: any = deserializeAws_json1_1ScopeDoesNotExistException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ScopeDoesNotExistException(output.body, context);
   const contents: ScopeDoesNotExistException = {
     __type: "ScopeDoesNotExistException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13627,15 +10466,12 @@ const deserializeAws_json1_1SoftwareTokenMFANotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<SoftwareTokenMFANotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1SoftwareTokenMFANotFoundException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1SoftwareTokenMFANotFoundException(output.body, context);
   const contents: SoftwareTokenMFANotFoundException = {
     __type: "SoftwareTokenMFANotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13644,15 +10480,12 @@ const deserializeAws_json1_1TooManyFailedAttemptsExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<TooManyFailedAttemptsException> => {
-  const deserialized: any = deserializeAws_json1_1TooManyFailedAttemptsException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1TooManyFailedAttemptsException(output.body, context);
   const contents: TooManyFailedAttemptsException = {
     __type: "TooManyFailedAttemptsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13661,15 +10494,12 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
-  const deserialized: any = deserializeAws_json1_1TooManyRequestsException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1TooManyRequestsException(output.body, context);
   const contents: TooManyRequestsException = {
     __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13678,15 +10508,12 @@ const deserializeAws_json1_1UnexpectedLambdaExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<UnexpectedLambdaException> => {
-  const deserialized: any = deserializeAws_json1_1UnexpectedLambdaException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1UnexpectedLambdaException(output.body, context);
   const contents: UnexpectedLambdaException = {
     __type: "UnexpectedLambdaException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13695,15 +10522,12 @@ const deserializeAws_json1_1UnsupportedIdentityProviderExceptionResponse = async
   output: any,
   context: __SerdeContext
 ): Promise<UnsupportedIdentityProviderException> => {
-  const deserialized: any = deserializeAws_json1_1UnsupportedIdentityProviderException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1UnsupportedIdentityProviderException(output.body, context);
   const contents: UnsupportedIdentityProviderException = {
     __type: "UnsupportedIdentityProviderException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13712,15 +10536,12 @@ const deserializeAws_json1_1UnsupportedUserStateExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<UnsupportedUserStateException> => {
-  const deserialized: any = deserializeAws_json1_1UnsupportedUserStateException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1UnsupportedUserStateException(output.body, context);
   const contents: UnsupportedUserStateException = {
     __type: "UnsupportedUserStateException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13729,15 +10550,12 @@ const deserializeAws_json1_1UserImportInProgressExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<UserImportInProgressException> => {
-  const deserialized: any = deserializeAws_json1_1UserImportInProgressException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1UserImportInProgressException(output.body, context);
   const contents: UserImportInProgressException = {
     __type: "UserImportInProgressException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13746,15 +10564,12 @@ const deserializeAws_json1_1UserLambdaValidationExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<UserLambdaValidationException> => {
-  const deserialized: any = deserializeAws_json1_1UserLambdaValidationException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1UserLambdaValidationException(output.body, context);
   const contents: UserLambdaValidationException = {
     __type: "UserLambdaValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13763,15 +10578,12 @@ const deserializeAws_json1_1UserNotConfirmedExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<UserNotConfirmedException> => {
-  const deserialized: any = deserializeAws_json1_1UserNotConfirmedException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1UserNotConfirmedException(output.body, context);
   const contents: UserNotConfirmedException = {
     __type: "UserNotConfirmedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13780,15 +10592,12 @@ const deserializeAws_json1_1UserNotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<UserNotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1UserNotFoundException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1UserNotFoundException(output.body, context);
   const contents: UserNotFoundException = {
     __type: "UserNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13797,15 +10606,12 @@ const deserializeAws_json1_1UserPoolAddOnNotEnabledExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<UserPoolAddOnNotEnabledException> => {
-  const deserialized: any = deserializeAws_json1_1UserPoolAddOnNotEnabledException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1UserPoolAddOnNotEnabledException(output.body, context);
   const contents: UserPoolAddOnNotEnabledException = {
     __type: "UserPoolAddOnNotEnabledException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13814,15 +10620,12 @@ const deserializeAws_json1_1UserPoolTaggingExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<UserPoolTaggingException> => {
-  const deserialized: any = deserializeAws_json1_1UserPoolTaggingException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1UserPoolTaggingException(output.body, context);
   const contents: UserPoolTaggingException = {
     __type: "UserPoolTaggingException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13831,15 +10634,12 @@ const deserializeAws_json1_1UsernameExistsExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<UsernameExistsException> => {
-  const deserialized: any = deserializeAws_json1_1UsernameExistsException(
-    output.body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1UsernameExistsException(output.body, context);
   const contents: UsernameExistsException = {
     __type: "UsernameExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized
+    ...deserialized,
   };
   return contents;
 };
@@ -13850,15 +10650,10 @@ const serializeAws_json1_1AccountRecoverySettingType = (
 ): any => {
   let bodyParams: any = {};
   if (input.RecoveryMechanisms !== undefined) {
-    bodyParams[
-      "RecoveryMechanisms"
-    ] = serializeAws_json1_1RecoveryMechanismsType(
-      input.RecoveryMechanisms,
-      context
-    );
+    bodyParams['RecoveryMechanisms'] = serializeAws_json1_1RecoveryMechanismsType(input.RecoveryMechanisms, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AccountTakeoverActionType = (
   input: AccountTakeoverActionType,
@@ -13866,13 +10661,13 @@ const serializeAws_json1_1AccountTakeoverActionType = (
 ): any => {
   let bodyParams: any = {};
   if (input.EventAction !== undefined) {
-    bodyParams["EventAction"] = input.EventAction;
+    bodyParams['EventAction'] = input.EventAction;
   }
   if (input.Notify !== undefined) {
-    bodyParams["Notify"] = input.Notify;
+    bodyParams['Notify'] = input.Notify;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AccountTakeoverActionsType = (
   input: AccountTakeoverActionsType,
@@ -13880,25 +10675,16 @@ const serializeAws_json1_1AccountTakeoverActionsType = (
 ): any => {
   let bodyParams: any = {};
   if (input.HighAction !== undefined) {
-    bodyParams["HighAction"] = serializeAws_json1_1AccountTakeoverActionType(
-      input.HighAction,
-      context
-    );
+    bodyParams['HighAction'] = serializeAws_json1_1AccountTakeoverActionType(input.HighAction, context);
   }
   if (input.LowAction !== undefined) {
-    bodyParams["LowAction"] = serializeAws_json1_1AccountTakeoverActionType(
-      input.LowAction,
-      context
-    );
+    bodyParams['LowAction'] = serializeAws_json1_1AccountTakeoverActionType(input.LowAction, context);
   }
   if (input.MediumAction !== undefined) {
-    bodyParams["MediumAction"] = serializeAws_json1_1AccountTakeoverActionType(
-      input.MediumAction,
-      context
-    );
+    bodyParams['MediumAction'] = serializeAws_json1_1AccountTakeoverActionType(input.MediumAction, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AccountTakeoverRiskConfigurationType = (
   input: AccountTakeoverRiskConfigurationType,
@@ -13906,21 +10692,13 @@ const serializeAws_json1_1AccountTakeoverRiskConfigurationType = (
 ): any => {
   let bodyParams: any = {};
   if (input.Actions !== undefined) {
-    bodyParams["Actions"] = serializeAws_json1_1AccountTakeoverActionsType(
-      input.Actions,
-      context
-    );
+    bodyParams['Actions'] = serializeAws_json1_1AccountTakeoverActionsType(input.Actions, context);
   }
   if (input.NotifyConfiguration !== undefined) {
-    bodyParams[
-      "NotifyConfiguration"
-    ] = serializeAws_json1_1NotifyConfigurationType(
-      input.NotifyConfiguration,
-      context
-    );
+    bodyParams['NotifyConfiguration'] = serializeAws_json1_1NotifyConfigurationType(input.NotifyConfiguration, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AddCustomAttributesRequest = (
   input: AddCustomAttributesRequest,
@@ -13928,18 +10706,13 @@ const serializeAws_json1_1AddCustomAttributesRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.CustomAttributes !== undefined) {
-    bodyParams[
-      "CustomAttributes"
-    ] = serializeAws_json1_1CustomAttributesListType(
-      input.CustomAttributes,
-      context
-    );
+    bodyParams['CustomAttributes'] = serializeAws_json1_1CustomAttributesListType(input.CustomAttributes, context);
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AdminAddUserToGroupRequest = (
   input: AdminAddUserToGroupRequest,
@@ -13947,16 +10720,16 @@ const serializeAws_json1_1AdminAddUserToGroupRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.GroupName !== undefined) {
-    bodyParams["GroupName"] = input.GroupName;
+    bodyParams['GroupName'] = input.GroupName;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AdminConfirmSignUpRequest = (
   input: AdminConfirmSignUpRequest,
@@ -13964,19 +10737,16 @@ const serializeAws_json1_1AdminConfirmSignUpRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClientMetadata !== undefined) {
-    bodyParams["ClientMetadata"] = serializeAws_json1_1ClientMetadataType(
-      input.ClientMetadata,
-      context
-    );
+    bodyParams['ClientMetadata'] = serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context);
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AdminCreateUserConfigType = (
   input: AdminCreateUserConfigType,
@@ -13984,21 +10754,16 @@ const serializeAws_json1_1AdminCreateUserConfigType = (
 ): any => {
   let bodyParams: any = {};
   if (input.AllowAdminCreateUserOnly !== undefined) {
-    bodyParams["AllowAdminCreateUserOnly"] = input.AllowAdminCreateUserOnly;
+    bodyParams['AllowAdminCreateUserOnly'] = input.AllowAdminCreateUserOnly;
   }
   if (input.InviteMessageTemplate !== undefined) {
-    bodyParams[
-      "InviteMessageTemplate"
-    ] = serializeAws_json1_1MessageTemplateType(
-      input.InviteMessageTemplate,
-      context
-    );
+    bodyParams['InviteMessageTemplate'] = serializeAws_json1_1MessageTemplateType(input.InviteMessageTemplate, context);
   }
   if (input.UnusedAccountValidityDays !== undefined) {
-    bodyParams["UnusedAccountValidityDays"] = input.UnusedAccountValidityDays;
+    bodyParams['UnusedAccountValidityDays'] = input.UnusedAccountValidityDays;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AdminCreateUserRequest = (
   input: AdminCreateUserRequest,
@@ -14006,48 +10771,34 @@ const serializeAws_json1_1AdminCreateUserRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClientMetadata !== undefined) {
-    bodyParams["ClientMetadata"] = serializeAws_json1_1ClientMetadataType(
-      input.ClientMetadata,
-      context
-    );
+    bodyParams['ClientMetadata'] = serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context);
   }
   if (input.DesiredDeliveryMediums !== undefined) {
-    bodyParams[
-      "DesiredDeliveryMediums"
-    ] = serializeAws_json1_1DeliveryMediumListType(
-      input.DesiredDeliveryMediums,
-      context
-    );
+    bodyParams['DesiredDeliveryMediums'] = serializeAws_json1_1DeliveryMediumListType(input.DesiredDeliveryMediums, context);
   }
   if (input.ForceAliasCreation !== undefined) {
-    bodyParams["ForceAliasCreation"] = input.ForceAliasCreation;
+    bodyParams['ForceAliasCreation'] = input.ForceAliasCreation;
   }
   if (input.MessageAction !== undefined) {
-    bodyParams["MessageAction"] = input.MessageAction;
+    bodyParams['MessageAction'] = input.MessageAction;
   }
   if (input.TemporaryPassword !== undefined) {
-    bodyParams["TemporaryPassword"] = input.TemporaryPassword;
+    bodyParams['TemporaryPassword'] = input.TemporaryPassword;
   }
   if (input.UserAttributes !== undefined) {
-    bodyParams["UserAttributes"] = serializeAws_json1_1AttributeListType(
-      input.UserAttributes,
-      context
-    );
+    bodyParams['UserAttributes'] = serializeAws_json1_1AttributeListType(input.UserAttributes, context);
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   if (input.ValidationData !== undefined) {
-    bodyParams["ValidationData"] = serializeAws_json1_1AttributeListType(
-      input.ValidationData,
-      context
-    );
+    bodyParams['ValidationData'] = serializeAws_json1_1AttributeListType(input.ValidationData, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AdminDeleteUserAttributesRequest = (
   input: AdminDeleteUserAttributesRequest,
@@ -14055,21 +10806,16 @@ const serializeAws_json1_1AdminDeleteUserAttributesRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.UserAttributeNames !== undefined) {
-    bodyParams[
-      "UserAttributeNames"
-    ] = serializeAws_json1_1AttributeNameListType(
-      input.UserAttributeNames,
-      context
-    );
+    bodyParams['UserAttributeNames'] = serializeAws_json1_1AttributeNameListType(input.UserAttributeNames, context);
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AdminDeleteUserRequest = (
   input: AdminDeleteUserRequest,
@@ -14077,13 +10823,13 @@ const serializeAws_json1_1AdminDeleteUserRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AdminDisableProviderForUserRequest = (
   input: AdminDisableProviderForUserRequest,
@@ -14091,16 +10837,13 @@ const serializeAws_json1_1AdminDisableProviderForUserRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.User !== undefined) {
-    bodyParams["User"] = serializeAws_json1_1ProviderUserIdentifierType(
-      input.User,
-      context
-    );
+    bodyParams['User'] = serializeAws_json1_1ProviderUserIdentifierType(input.User, context);
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AdminDisableUserRequest = (
   input: AdminDisableUserRequest,
@@ -14108,13 +10851,13 @@ const serializeAws_json1_1AdminDisableUserRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AdminEnableUserRequest = (
   input: AdminEnableUserRequest,
@@ -14122,13 +10865,13 @@ const serializeAws_json1_1AdminEnableUserRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AdminForgetDeviceRequest = (
   input: AdminForgetDeviceRequest,
@@ -14136,16 +10879,16 @@ const serializeAws_json1_1AdminForgetDeviceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.DeviceKey !== undefined) {
-    bodyParams["DeviceKey"] = input.DeviceKey;
+    bodyParams['DeviceKey'] = input.DeviceKey;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AdminGetDeviceRequest = (
   input: AdminGetDeviceRequest,
@@ -14153,16 +10896,16 @@ const serializeAws_json1_1AdminGetDeviceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.DeviceKey !== undefined) {
-    bodyParams["DeviceKey"] = input.DeviceKey;
+    bodyParams['DeviceKey'] = input.DeviceKey;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AdminGetUserRequest = (
   input: AdminGetUserRequest,
@@ -14170,13 +10913,13 @@ const serializeAws_json1_1AdminGetUserRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AdminInitiateAuthRequest = (
   input: AdminInitiateAuthRequest,
@@ -14184,40 +10927,28 @@ const serializeAws_json1_1AdminInitiateAuthRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AnalyticsMetadata !== undefined) {
-    bodyParams["AnalyticsMetadata"] = serializeAws_json1_1AnalyticsMetadataType(
-      input.AnalyticsMetadata,
-      context
-    );
+    bodyParams['AnalyticsMetadata'] = serializeAws_json1_1AnalyticsMetadataType(input.AnalyticsMetadata, context);
   }
   if (input.AuthFlow !== undefined) {
-    bodyParams["AuthFlow"] = input.AuthFlow;
+    bodyParams['AuthFlow'] = input.AuthFlow;
   }
   if (input.AuthParameters !== undefined) {
-    bodyParams["AuthParameters"] = serializeAws_json1_1AuthParametersType(
-      input.AuthParameters,
-      context
-    );
+    bodyParams['AuthParameters'] = serializeAws_json1_1AuthParametersType(input.AuthParameters, context);
   }
   if (input.ClientId !== undefined) {
-    bodyParams["ClientId"] = input.ClientId;
+    bodyParams['ClientId'] = input.ClientId;
   }
   if (input.ClientMetadata !== undefined) {
-    bodyParams["ClientMetadata"] = serializeAws_json1_1ClientMetadataType(
-      input.ClientMetadata,
-      context
-    );
+    bodyParams['ClientMetadata'] = serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context);
   }
   if (input.ContextData !== undefined) {
-    bodyParams["ContextData"] = serializeAws_json1_1ContextDataType(
-      input.ContextData,
-      context
-    );
+    bodyParams['ContextData'] = serializeAws_json1_1ContextDataType(input.ContextData, context);
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AdminLinkProviderForUserRequest = (
   input: AdminLinkProviderForUserRequest,
@@ -14225,24 +10956,16 @@ const serializeAws_json1_1AdminLinkProviderForUserRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.DestinationUser !== undefined) {
-    bodyParams[
-      "DestinationUser"
-    ] = serializeAws_json1_1ProviderUserIdentifierType(
-      input.DestinationUser,
-      context
-    );
+    bodyParams['DestinationUser'] = serializeAws_json1_1ProviderUserIdentifierType(input.DestinationUser, context);
   }
   if (input.SourceUser !== undefined) {
-    bodyParams["SourceUser"] = serializeAws_json1_1ProviderUserIdentifierType(
-      input.SourceUser,
-      context
-    );
+    bodyParams['SourceUser'] = serializeAws_json1_1ProviderUserIdentifierType(input.SourceUser, context);
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AdminListDevicesRequest = (
   input: AdminListDevicesRequest,
@@ -14250,19 +10973,19 @@ const serializeAws_json1_1AdminListDevicesRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.PaginationToken !== undefined) {
-    bodyParams["PaginationToken"] = input.PaginationToken;
+    bodyParams['PaginationToken'] = input.PaginationToken;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AdminListGroupsForUserRequest = (
   input: AdminListGroupsForUserRequest,
@@ -14270,19 +10993,19 @@ const serializeAws_json1_1AdminListGroupsForUserRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AdminListUserAuthEventsRequest = (
   input: AdminListUserAuthEventsRequest,
@@ -14290,19 +11013,19 @@ const serializeAws_json1_1AdminListUserAuthEventsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
+    bodyParams['MaxResults'] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AdminRemoveUserFromGroupRequest = (
   input: AdminRemoveUserFromGroupRequest,
@@ -14310,16 +11033,16 @@ const serializeAws_json1_1AdminRemoveUserFromGroupRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.GroupName !== undefined) {
-    bodyParams["GroupName"] = input.GroupName;
+    bodyParams['GroupName'] = input.GroupName;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AdminResetUserPasswordRequest = (
   input: AdminResetUserPasswordRequest,
@@ -14327,19 +11050,16 @@ const serializeAws_json1_1AdminResetUserPasswordRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClientMetadata !== undefined) {
-    bodyParams["ClientMetadata"] = serializeAws_json1_1ClientMetadataType(
-      input.ClientMetadata,
-      context
-    );
+    bodyParams['ClientMetadata'] = serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context);
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AdminRespondToAuthChallengeRequest = (
   input: AdminRespondToAuthChallengeRequest,
@@ -14347,45 +11067,31 @@ const serializeAws_json1_1AdminRespondToAuthChallengeRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AnalyticsMetadata !== undefined) {
-    bodyParams["AnalyticsMetadata"] = serializeAws_json1_1AnalyticsMetadataType(
-      input.AnalyticsMetadata,
-      context
-    );
+    bodyParams['AnalyticsMetadata'] = serializeAws_json1_1AnalyticsMetadataType(input.AnalyticsMetadata, context);
   }
   if (input.ChallengeName !== undefined) {
-    bodyParams["ChallengeName"] = input.ChallengeName;
+    bodyParams['ChallengeName'] = input.ChallengeName;
   }
   if (input.ChallengeResponses !== undefined) {
-    bodyParams[
-      "ChallengeResponses"
-    ] = serializeAws_json1_1ChallengeResponsesType(
-      input.ChallengeResponses,
-      context
-    );
+    bodyParams['ChallengeResponses'] = serializeAws_json1_1ChallengeResponsesType(input.ChallengeResponses, context);
   }
   if (input.ClientId !== undefined) {
-    bodyParams["ClientId"] = input.ClientId;
+    bodyParams['ClientId'] = input.ClientId;
   }
   if (input.ClientMetadata !== undefined) {
-    bodyParams["ClientMetadata"] = serializeAws_json1_1ClientMetadataType(
-      input.ClientMetadata,
-      context
-    );
+    bodyParams['ClientMetadata'] = serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context);
   }
   if (input.ContextData !== undefined) {
-    bodyParams["ContextData"] = serializeAws_json1_1ContextDataType(
-      input.ContextData,
-      context
-    );
+    bodyParams['ContextData'] = serializeAws_json1_1ContextDataType(input.ContextData, context);
   }
   if (input.Session !== undefined) {
-    bodyParams["Session"] = input.Session;
+    bodyParams['Session'] = input.Session;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AdminSetUserMFAPreferenceRequest = (
   input: AdminSetUserMFAPreferenceRequest,
@@ -14393,27 +11099,19 @@ const serializeAws_json1_1AdminSetUserMFAPreferenceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.SMSMfaSettings !== undefined) {
-    bodyParams["SMSMfaSettings"] = serializeAws_json1_1SMSMfaSettingsType(
-      input.SMSMfaSettings,
-      context
-    );
+    bodyParams['SMSMfaSettings'] = serializeAws_json1_1SMSMfaSettingsType(input.SMSMfaSettings, context);
   }
   if (input.SoftwareTokenMfaSettings !== undefined) {
-    bodyParams[
-      "SoftwareTokenMfaSettings"
-    ] = serializeAws_json1_1SoftwareTokenMfaSettingsType(
-      input.SoftwareTokenMfaSettings,
-      context
-    );
+    bodyParams['SoftwareTokenMfaSettings'] = serializeAws_json1_1SoftwareTokenMfaSettingsType(input.SoftwareTokenMfaSettings, context);
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AdminSetUserPasswordRequest = (
   input: AdminSetUserPasswordRequest,
@@ -14421,19 +11119,19 @@ const serializeAws_json1_1AdminSetUserPasswordRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Password !== undefined) {
-    bodyParams["Password"] = input.Password;
+    bodyParams['Password'] = input.Password;
   }
   if (input.Permanent !== undefined) {
-    bodyParams["Permanent"] = input.Permanent;
+    bodyParams['Permanent'] = input.Permanent;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AdminSetUserSettingsRequest = (
   input: AdminSetUserSettingsRequest,
@@ -14441,19 +11139,16 @@ const serializeAws_json1_1AdminSetUserSettingsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.MFAOptions !== undefined) {
-    bodyParams["MFAOptions"] = serializeAws_json1_1MFAOptionListType(
-      input.MFAOptions,
-      context
-    );
+    bodyParams['MFAOptions'] = serializeAws_json1_1MFAOptionListType(input.MFAOptions, context);
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AdminUpdateAuthEventFeedbackRequest = (
   input: AdminUpdateAuthEventFeedbackRequest,
@@ -14461,19 +11156,19 @@ const serializeAws_json1_1AdminUpdateAuthEventFeedbackRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.EventId !== undefined) {
-    bodyParams["EventId"] = input.EventId;
+    bodyParams['EventId'] = input.EventId;
   }
   if (input.FeedbackValue !== undefined) {
-    bodyParams["FeedbackValue"] = input.FeedbackValue;
+    bodyParams['FeedbackValue'] = input.FeedbackValue;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AdminUpdateDeviceStatusRequest = (
   input: AdminUpdateDeviceStatusRequest,
@@ -14481,19 +11176,19 @@ const serializeAws_json1_1AdminUpdateDeviceStatusRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.DeviceKey !== undefined) {
-    bodyParams["DeviceKey"] = input.DeviceKey;
+    bodyParams['DeviceKey'] = input.DeviceKey;
   }
   if (input.DeviceRememberedStatus !== undefined) {
-    bodyParams["DeviceRememberedStatus"] = input.DeviceRememberedStatus;
+    bodyParams['DeviceRememberedStatus'] = input.DeviceRememberedStatus;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AdminUpdateUserAttributesRequest = (
   input: AdminUpdateUserAttributesRequest,
@@ -14501,25 +11196,19 @@ const serializeAws_json1_1AdminUpdateUserAttributesRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClientMetadata !== undefined) {
-    bodyParams["ClientMetadata"] = serializeAws_json1_1ClientMetadataType(
-      input.ClientMetadata,
-      context
-    );
+    bodyParams['ClientMetadata'] = serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context);
   }
   if (input.UserAttributes !== undefined) {
-    bodyParams["UserAttributes"] = serializeAws_json1_1AttributeListType(
-      input.UserAttributes,
-      context
-    );
+    bodyParams['UserAttributes'] = serializeAws_json1_1AttributeListType(input.UserAttributes, context);
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AdminUserGlobalSignOutRequest = (
   input: AdminUserGlobalSignOutRequest,
@@ -14527,20 +11216,22 @@ const serializeAws_json1_1AdminUserGlobalSignOutRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AliasAttributesListType = (
   input: Array<AliasAttributeType | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1AnalyticsConfigurationType = (
   input: AnalyticsConfigurationType,
@@ -14548,19 +11239,19 @@ const serializeAws_json1_1AnalyticsConfigurationType = (
 ): any => {
   let bodyParams: any = {};
   if (input.ApplicationId !== undefined) {
-    bodyParams["ApplicationId"] = input.ApplicationId;
+    bodyParams['ApplicationId'] = input.ApplicationId;
   }
   if (input.ExternalId !== undefined) {
-    bodyParams["ExternalId"] = input.ExternalId;
+    bodyParams['ExternalId'] = input.ExternalId;
   }
   if (input.RoleArn !== undefined) {
-    bodyParams["RoleArn"] = input.RoleArn;
+    bodyParams['RoleArn'] = input.RoleArn;
   }
   if (input.UserDataShared !== undefined) {
-    bodyParams["UserDataShared"] = input.UserDataShared;
+    bodyParams['UserDataShared'] = input.UserDataShared;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AnalyticsMetadataType = (
   input: AnalyticsMetadataType,
@@ -14568,10 +11259,10 @@ const serializeAws_json1_1AnalyticsMetadataType = (
 ): any => {
   let bodyParams: any = {};
   if (input.AnalyticsEndpointId !== undefined) {
-    bodyParams["AnalyticsEndpointId"] = input.AnalyticsEndpointId;
+    bodyParams['AnalyticsEndpointId'] = input.AnalyticsEndpointId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AssociateSoftwareTokenRequest = (
   input: AssociateSoftwareTokenRequest,
@@ -14579,13 +11270,13 @@ const serializeAws_json1_1AssociateSoftwareTokenRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AccessToken !== undefined) {
-    bodyParams["AccessToken"] = input.AccessToken;
+    bodyParams['AccessToken'] = input.AccessToken;
   }
   if (input.Session !== undefined) {
-    bodyParams["Session"] = input.Session;
+    bodyParams['Session'] = input.Session;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AttributeListType = (
   input: Array<AttributeType>,
@@ -14594,7 +11285,7 @@ const serializeAws_json1_1AttributeListType = (
   return (input || []).map(entry =>
     serializeAws_json1_1AttributeType(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1AttributeMappingType = (
   input: { [key: string]: string },
@@ -14605,14 +11296,16 @@ const serializeAws_json1_1AttributeMappingType = (
     mapParams[key] = input[key];
   });
   return mapParams;
-};
+}
 
 const serializeAws_json1_1AttributeNameListType = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1AttributeType = (
   input: AttributeType,
@@ -14620,13 +11313,13 @@ const serializeAws_json1_1AttributeType = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
+    bodyParams['Value'] = input.Value;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1AuthParametersType = (
   input: { [key: string]: string },
@@ -14637,21 +11330,25 @@ const serializeAws_json1_1AuthParametersType = (
     mapParams[key] = input[key];
   });
   return mapParams;
-};
+}
 
 const serializeAws_json1_1BlockedIPRangeListType = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1CallbackURLsListType = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1ChallengeResponsesType = (
   input: { [key: string]: string },
@@ -14662,7 +11359,7 @@ const serializeAws_json1_1ChallengeResponsesType = (
     mapParams[key] = input[key];
   });
   return mapParams;
-};
+}
 
 const serializeAws_json1_1ChangePasswordRequest = (
   input: ChangePasswordRequest,
@@ -14670,16 +11367,16 @@ const serializeAws_json1_1ChangePasswordRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AccessToken !== undefined) {
-    bodyParams["AccessToken"] = input.AccessToken;
+    bodyParams['AccessToken'] = input.AccessToken;
   }
   if (input.PreviousPassword !== undefined) {
-    bodyParams["PreviousPassword"] = input.PreviousPassword;
+    bodyParams['PreviousPassword'] = input.PreviousPassword;
   }
   if (input.ProposedPassword !== undefined) {
-    bodyParams["ProposedPassword"] = input.ProposedPassword;
+    bodyParams['ProposedPassword'] = input.ProposedPassword;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ClientMetadataType = (
   input: { [key: string]: string },
@@ -14690,14 +11387,16 @@ const serializeAws_json1_1ClientMetadataType = (
     mapParams[key] = input[key];
   });
   return mapParams;
-};
+}
 
 const serializeAws_json1_1ClientPermissionListType = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1CompromisedCredentialsActionsType = (
   input: CompromisedCredentialsActionsType,
@@ -14705,10 +11404,10 @@ const serializeAws_json1_1CompromisedCredentialsActionsType = (
 ): any => {
   let bodyParams: any = {};
   if (input.EventAction !== undefined) {
-    bodyParams["EventAction"] = input.EventAction;
+    bodyParams['EventAction'] = input.EventAction;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CompromisedCredentialsRiskConfigurationType = (
   input: CompromisedCredentialsRiskConfigurationType,
@@ -14716,21 +11415,13 @@ const serializeAws_json1_1CompromisedCredentialsRiskConfigurationType = (
 ): any => {
   let bodyParams: any = {};
   if (input.Actions !== undefined) {
-    bodyParams[
-      "Actions"
-    ] = serializeAws_json1_1CompromisedCredentialsActionsType(
-      input.Actions,
-      context
-    );
+    bodyParams['Actions'] = serializeAws_json1_1CompromisedCredentialsActionsType(input.Actions, context);
   }
   if (input.EventFilter !== undefined) {
-    bodyParams["EventFilter"] = serializeAws_json1_1EventFiltersType(
-      input.EventFilter,
-      context
-    );
+    bodyParams['EventFilter'] = serializeAws_json1_1EventFiltersType(input.EventFilter, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ConfirmDeviceRequest = (
   input: ConfirmDeviceRequest,
@@ -14738,24 +11429,19 @@ const serializeAws_json1_1ConfirmDeviceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AccessToken !== undefined) {
-    bodyParams["AccessToken"] = input.AccessToken;
+    bodyParams['AccessToken'] = input.AccessToken;
   }
   if (input.DeviceKey !== undefined) {
-    bodyParams["DeviceKey"] = input.DeviceKey;
+    bodyParams['DeviceKey'] = input.DeviceKey;
   }
   if (input.DeviceName !== undefined) {
-    bodyParams["DeviceName"] = input.DeviceName;
+    bodyParams['DeviceName'] = input.DeviceName;
   }
   if (input.DeviceSecretVerifierConfig !== undefined) {
-    bodyParams[
-      "DeviceSecretVerifierConfig"
-    ] = serializeAws_json1_1DeviceSecretVerifierConfigType(
-      input.DeviceSecretVerifierConfig,
-      context
-    );
+    bodyParams['DeviceSecretVerifierConfig'] = serializeAws_json1_1DeviceSecretVerifierConfigType(input.DeviceSecretVerifierConfig, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ConfirmForgotPasswordRequest = (
   input: ConfirmForgotPasswordRequest,
@@ -14763,40 +11449,31 @@ const serializeAws_json1_1ConfirmForgotPasswordRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AnalyticsMetadata !== undefined) {
-    bodyParams["AnalyticsMetadata"] = serializeAws_json1_1AnalyticsMetadataType(
-      input.AnalyticsMetadata,
-      context
-    );
+    bodyParams['AnalyticsMetadata'] = serializeAws_json1_1AnalyticsMetadataType(input.AnalyticsMetadata, context);
   }
   if (input.ClientId !== undefined) {
-    bodyParams["ClientId"] = input.ClientId;
+    bodyParams['ClientId'] = input.ClientId;
   }
   if (input.ClientMetadata !== undefined) {
-    bodyParams["ClientMetadata"] = serializeAws_json1_1ClientMetadataType(
-      input.ClientMetadata,
-      context
-    );
+    bodyParams['ClientMetadata'] = serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context);
   }
   if (input.ConfirmationCode !== undefined) {
-    bodyParams["ConfirmationCode"] = input.ConfirmationCode;
+    bodyParams['ConfirmationCode'] = input.ConfirmationCode;
   }
   if (input.Password !== undefined) {
-    bodyParams["Password"] = input.Password;
+    bodyParams['Password'] = input.Password;
   }
   if (input.SecretHash !== undefined) {
-    bodyParams["SecretHash"] = input.SecretHash;
+    bodyParams['SecretHash'] = input.SecretHash;
   }
   if (input.UserContextData !== undefined) {
-    bodyParams["UserContextData"] = serializeAws_json1_1UserContextDataType(
-      input.UserContextData,
-      context
-    );
+    bodyParams['UserContextData'] = serializeAws_json1_1UserContextDataType(input.UserContextData, context);
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ConfirmSignUpRequest = (
   input: ConfirmSignUpRequest,
@@ -14804,40 +11481,31 @@ const serializeAws_json1_1ConfirmSignUpRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AnalyticsMetadata !== undefined) {
-    bodyParams["AnalyticsMetadata"] = serializeAws_json1_1AnalyticsMetadataType(
-      input.AnalyticsMetadata,
-      context
-    );
+    bodyParams['AnalyticsMetadata'] = serializeAws_json1_1AnalyticsMetadataType(input.AnalyticsMetadata, context);
   }
   if (input.ClientId !== undefined) {
-    bodyParams["ClientId"] = input.ClientId;
+    bodyParams['ClientId'] = input.ClientId;
   }
   if (input.ClientMetadata !== undefined) {
-    bodyParams["ClientMetadata"] = serializeAws_json1_1ClientMetadataType(
-      input.ClientMetadata,
-      context
-    );
+    bodyParams['ClientMetadata'] = serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context);
   }
   if (input.ConfirmationCode !== undefined) {
-    bodyParams["ConfirmationCode"] = input.ConfirmationCode;
+    bodyParams['ConfirmationCode'] = input.ConfirmationCode;
   }
   if (input.ForceAliasCreation !== undefined) {
-    bodyParams["ForceAliasCreation"] = input.ForceAliasCreation;
+    bodyParams['ForceAliasCreation'] = input.ForceAliasCreation;
   }
   if (input.SecretHash !== undefined) {
-    bodyParams["SecretHash"] = input.SecretHash;
+    bodyParams['SecretHash'] = input.SecretHash;
   }
   if (input.UserContextData !== undefined) {
-    bodyParams["UserContextData"] = serializeAws_json1_1UserContextDataType(
-      input.UserContextData,
-      context
-    );
+    bodyParams['UserContextData'] = serializeAws_json1_1UserContextDataType(input.UserContextData, context);
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ContextDataType = (
   input: ContextDataType,
@@ -14845,25 +11513,22 @@ const serializeAws_json1_1ContextDataType = (
 ): any => {
   let bodyParams: any = {};
   if (input.EncodedData !== undefined) {
-    bodyParams["EncodedData"] = input.EncodedData;
+    bodyParams['EncodedData'] = input.EncodedData;
   }
   if (input.HttpHeaders !== undefined) {
-    bodyParams["HttpHeaders"] = serializeAws_json1_1HttpHeaderList(
-      input.HttpHeaders,
-      context
-    );
+    bodyParams['HttpHeaders'] = serializeAws_json1_1HttpHeaderList(input.HttpHeaders, context);
   }
   if (input.IpAddress !== undefined) {
-    bodyParams["IpAddress"] = input.IpAddress;
+    bodyParams['IpAddress'] = input.IpAddress;
   }
   if (input.ServerName !== undefined) {
-    bodyParams["ServerName"] = input.ServerName;
+    bodyParams['ServerName'] = input.ServerName;
   }
   if (input.ServerPath !== undefined) {
-    bodyParams["ServerPath"] = input.ServerPath;
+    bodyParams['ServerPath'] = input.ServerPath;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateGroupRequest = (
   input: CreateGroupRequest,
@@ -14871,22 +11536,22 @@ const serializeAws_json1_1CreateGroupRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
+    bodyParams['Description'] = input.Description;
   }
   if (input.GroupName !== undefined) {
-    bodyParams["GroupName"] = input.GroupName;
+    bodyParams['GroupName'] = input.GroupName;
   }
   if (input.Precedence !== undefined) {
-    bodyParams["Precedence"] = input.Precedence;
+    bodyParams['Precedence'] = input.Precedence;
   }
   if (input.RoleArn !== undefined) {
-    bodyParams["RoleArn"] = input.RoleArn;
+    bodyParams['RoleArn'] = input.RoleArn;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateIdentityProviderRequest = (
   input: CreateIdentityProviderRequest,
@@ -14894,34 +11559,25 @@ const serializeAws_json1_1CreateIdentityProviderRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AttributeMapping !== undefined) {
-    bodyParams["AttributeMapping"] = serializeAws_json1_1AttributeMappingType(
-      input.AttributeMapping,
-      context
-    );
+    bodyParams['AttributeMapping'] = serializeAws_json1_1AttributeMappingType(input.AttributeMapping, context);
   }
   if (input.IdpIdentifiers !== undefined) {
-    bodyParams["IdpIdentifiers"] = serializeAws_json1_1IdpIdentifiersListType(
-      input.IdpIdentifiers,
-      context
-    );
+    bodyParams['IdpIdentifiers'] = serializeAws_json1_1IdpIdentifiersListType(input.IdpIdentifiers, context);
   }
   if (input.ProviderDetails !== undefined) {
-    bodyParams["ProviderDetails"] = serializeAws_json1_1ProviderDetailsType(
-      input.ProviderDetails,
-      context
-    );
+    bodyParams['ProviderDetails'] = serializeAws_json1_1ProviderDetailsType(input.ProviderDetails, context);
   }
   if (input.ProviderName !== undefined) {
-    bodyParams["ProviderName"] = input.ProviderName;
+    bodyParams['ProviderName'] = input.ProviderName;
   }
   if (input.ProviderType !== undefined) {
-    bodyParams["ProviderType"] = input.ProviderType;
+    bodyParams['ProviderType'] = input.ProviderType;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateResourceServerRequest = (
   input: CreateResourceServerRequest,
@@ -14929,22 +11585,19 @@ const serializeAws_json1_1CreateResourceServerRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Identifier !== undefined) {
-    bodyParams["Identifier"] = input.Identifier;
+    bodyParams['Identifier'] = input.Identifier;
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.Scopes !== undefined) {
-    bodyParams["Scopes"] = serializeAws_json1_1ResourceServerScopeListType(
-      input.Scopes,
-      context
-    );
+    bodyParams['Scopes'] = serializeAws_json1_1ResourceServerScopeListType(input.Scopes, context);
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateUserImportJobRequest = (
   input: CreateUserImportJobRequest,
@@ -14952,16 +11605,16 @@ const serializeAws_json1_1CreateUserImportJobRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.CloudWatchLogsRoleArn !== undefined) {
-    bodyParams["CloudWatchLogsRoleArn"] = input.CloudWatchLogsRoleArn;
+    bodyParams['CloudWatchLogsRoleArn'] = input.CloudWatchLogsRoleArn;
   }
   if (input.JobName !== undefined) {
-    bodyParams["JobName"] = input.JobName;
+    bodyParams['JobName'] = input.JobName;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateUserPoolClientRequest = (
   input: CreateUserPoolClientRequest,
@@ -14969,91 +11622,55 @@ const serializeAws_json1_1CreateUserPoolClientRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AllowedOAuthFlows !== undefined) {
-    bodyParams["AllowedOAuthFlows"] = serializeAws_json1_1OAuthFlowsType(
-      input.AllowedOAuthFlows,
-      context
-    );
+    bodyParams['AllowedOAuthFlows'] = serializeAws_json1_1OAuthFlowsType(input.AllowedOAuthFlows, context);
   }
   if (input.AllowedOAuthFlowsUserPoolClient !== undefined) {
-    bodyParams["AllowedOAuthFlowsUserPoolClient"] =
-      input.AllowedOAuthFlowsUserPoolClient;
+    bodyParams['AllowedOAuthFlowsUserPoolClient'] = input.AllowedOAuthFlowsUserPoolClient;
   }
   if (input.AllowedOAuthScopes !== undefined) {
-    bodyParams["AllowedOAuthScopes"] = serializeAws_json1_1ScopeListType(
-      input.AllowedOAuthScopes,
-      context
-    );
+    bodyParams['AllowedOAuthScopes'] = serializeAws_json1_1ScopeListType(input.AllowedOAuthScopes, context);
   }
   if (input.AnalyticsConfiguration !== undefined) {
-    bodyParams[
-      "AnalyticsConfiguration"
-    ] = serializeAws_json1_1AnalyticsConfigurationType(
-      input.AnalyticsConfiguration,
-      context
-    );
+    bodyParams['AnalyticsConfiguration'] = serializeAws_json1_1AnalyticsConfigurationType(input.AnalyticsConfiguration, context);
   }
   if (input.CallbackURLs !== undefined) {
-    bodyParams["CallbackURLs"] = serializeAws_json1_1CallbackURLsListType(
-      input.CallbackURLs,
-      context
-    );
+    bodyParams['CallbackURLs'] = serializeAws_json1_1CallbackURLsListType(input.CallbackURLs, context);
   }
   if (input.ClientName !== undefined) {
-    bodyParams["ClientName"] = input.ClientName;
+    bodyParams['ClientName'] = input.ClientName;
   }
   if (input.DefaultRedirectURI !== undefined) {
-    bodyParams["DefaultRedirectURI"] = input.DefaultRedirectURI;
+    bodyParams['DefaultRedirectURI'] = input.DefaultRedirectURI;
   }
   if (input.ExplicitAuthFlows !== undefined) {
-    bodyParams[
-      "ExplicitAuthFlows"
-    ] = serializeAws_json1_1ExplicitAuthFlowsListType(
-      input.ExplicitAuthFlows,
-      context
-    );
+    bodyParams['ExplicitAuthFlows'] = serializeAws_json1_1ExplicitAuthFlowsListType(input.ExplicitAuthFlows, context);
   }
   if (input.GenerateSecret !== undefined) {
-    bodyParams["GenerateSecret"] = input.GenerateSecret;
+    bodyParams['GenerateSecret'] = input.GenerateSecret;
   }
   if (input.LogoutURLs !== undefined) {
-    bodyParams["LogoutURLs"] = serializeAws_json1_1LogoutURLsListType(
-      input.LogoutURLs,
-      context
-    );
+    bodyParams['LogoutURLs'] = serializeAws_json1_1LogoutURLsListType(input.LogoutURLs, context);
   }
   if (input.PreventUserExistenceErrors !== undefined) {
-    bodyParams["PreventUserExistenceErrors"] = input.PreventUserExistenceErrors;
+    bodyParams['PreventUserExistenceErrors'] = input.PreventUserExistenceErrors;
   }
   if (input.ReadAttributes !== undefined) {
-    bodyParams["ReadAttributes"] = serializeAws_json1_1ClientPermissionListType(
-      input.ReadAttributes,
-      context
-    );
+    bodyParams['ReadAttributes'] = serializeAws_json1_1ClientPermissionListType(input.ReadAttributes, context);
   }
   if (input.RefreshTokenValidity !== undefined) {
-    bodyParams["RefreshTokenValidity"] = input.RefreshTokenValidity;
+    bodyParams['RefreshTokenValidity'] = input.RefreshTokenValidity;
   }
   if (input.SupportedIdentityProviders !== undefined) {
-    bodyParams[
-      "SupportedIdentityProviders"
-    ] = serializeAws_json1_1SupportedIdentityProvidersListType(
-      input.SupportedIdentityProviders,
-      context
-    );
+    bodyParams['SupportedIdentityProviders'] = serializeAws_json1_1SupportedIdentityProvidersListType(input.SupportedIdentityProviders, context);
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   if (input.WriteAttributes !== undefined) {
-    bodyParams[
-      "WriteAttributes"
-    ] = serializeAws_json1_1ClientPermissionListType(
-      input.WriteAttributes,
-      context
-    );
+    bodyParams['WriteAttributes'] = serializeAws_json1_1ClientPermissionListType(input.WriteAttributes, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateUserPoolDomainRequest = (
   input: CreateUserPoolDomainRequest,
@@ -15061,21 +11678,16 @@ const serializeAws_json1_1CreateUserPoolDomainRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.CustomDomainConfig !== undefined) {
-    bodyParams[
-      "CustomDomainConfig"
-    ] = serializeAws_json1_1CustomDomainConfigType(
-      input.CustomDomainConfig,
-      context
-    );
+    bodyParams['CustomDomainConfig'] = serializeAws_json1_1CustomDomainConfigType(input.CustomDomainConfig, context);
   }
   if (input.Domain !== undefined) {
-    bodyParams["Domain"] = input.Domain;
+    bodyParams['Domain'] = input.Domain;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CreateUserPoolRequest = (
   input: CreateUserPoolRequest,
@@ -15083,123 +11695,67 @@ const serializeAws_json1_1CreateUserPoolRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AccountRecoverySetting !== undefined) {
-    bodyParams[
-      "AccountRecoverySetting"
-    ] = serializeAws_json1_1AccountRecoverySettingType(
-      input.AccountRecoverySetting,
-      context
-    );
+    bodyParams['AccountRecoverySetting'] = serializeAws_json1_1AccountRecoverySettingType(input.AccountRecoverySetting, context);
   }
   if (input.AdminCreateUserConfig !== undefined) {
-    bodyParams[
-      "AdminCreateUserConfig"
-    ] = serializeAws_json1_1AdminCreateUserConfigType(
-      input.AdminCreateUserConfig,
-      context
-    );
+    bodyParams['AdminCreateUserConfig'] = serializeAws_json1_1AdminCreateUserConfigType(input.AdminCreateUserConfig, context);
   }
   if (input.AliasAttributes !== undefined) {
-    bodyParams["AliasAttributes"] = serializeAws_json1_1AliasAttributesListType(
-      input.AliasAttributes,
-      context
-    );
+    bodyParams['AliasAttributes'] = serializeAws_json1_1AliasAttributesListType(input.AliasAttributes, context);
   }
   if (input.AutoVerifiedAttributes !== undefined) {
-    bodyParams[
-      "AutoVerifiedAttributes"
-    ] = serializeAws_json1_1VerifiedAttributesListType(
-      input.AutoVerifiedAttributes,
-      context
-    );
+    bodyParams['AutoVerifiedAttributes'] = serializeAws_json1_1VerifiedAttributesListType(input.AutoVerifiedAttributes, context);
   }
   if (input.DeviceConfiguration !== undefined) {
-    bodyParams[
-      "DeviceConfiguration"
-    ] = serializeAws_json1_1DeviceConfigurationType(
-      input.DeviceConfiguration,
-      context
-    );
+    bodyParams['DeviceConfiguration'] = serializeAws_json1_1DeviceConfigurationType(input.DeviceConfiguration, context);
   }
   if (input.EmailConfiguration !== undefined) {
-    bodyParams[
-      "EmailConfiguration"
-    ] = serializeAws_json1_1EmailConfigurationType(
-      input.EmailConfiguration,
-      context
-    );
+    bodyParams['EmailConfiguration'] = serializeAws_json1_1EmailConfigurationType(input.EmailConfiguration, context);
   }
   if (input.EmailVerificationMessage !== undefined) {
-    bodyParams["EmailVerificationMessage"] = input.EmailVerificationMessage;
+    bodyParams['EmailVerificationMessage'] = input.EmailVerificationMessage;
   }
   if (input.EmailVerificationSubject !== undefined) {
-    bodyParams["EmailVerificationSubject"] = input.EmailVerificationSubject;
+    bodyParams['EmailVerificationSubject'] = input.EmailVerificationSubject;
   }
   if (input.LambdaConfig !== undefined) {
-    bodyParams["LambdaConfig"] = serializeAws_json1_1LambdaConfigType(
-      input.LambdaConfig,
-      context
-    );
+    bodyParams['LambdaConfig'] = serializeAws_json1_1LambdaConfigType(input.LambdaConfig, context);
   }
   if (input.MfaConfiguration !== undefined) {
-    bodyParams["MfaConfiguration"] = input.MfaConfiguration;
+    bodyParams['MfaConfiguration'] = input.MfaConfiguration;
   }
   if (input.Policies !== undefined) {
-    bodyParams["Policies"] = serializeAws_json1_1UserPoolPolicyType(
-      input.Policies,
-      context
-    );
+    bodyParams['Policies'] = serializeAws_json1_1UserPoolPolicyType(input.Policies, context);
   }
   if (input.PoolName !== undefined) {
-    bodyParams["PoolName"] = input.PoolName;
+    bodyParams['PoolName'] = input.PoolName;
   }
   if (input.Schema !== undefined) {
-    bodyParams["Schema"] = serializeAws_json1_1SchemaAttributesListType(
-      input.Schema,
-      context
-    );
+    bodyParams['Schema'] = serializeAws_json1_1SchemaAttributesListType(input.Schema, context);
   }
   if (input.SmsAuthenticationMessage !== undefined) {
-    bodyParams["SmsAuthenticationMessage"] = input.SmsAuthenticationMessage;
+    bodyParams['SmsAuthenticationMessage'] = input.SmsAuthenticationMessage;
   }
   if (input.SmsConfiguration !== undefined) {
-    bodyParams["SmsConfiguration"] = serializeAws_json1_1SmsConfigurationType(
-      input.SmsConfiguration,
-      context
-    );
+    bodyParams['SmsConfiguration'] = serializeAws_json1_1SmsConfigurationType(input.SmsConfiguration, context);
   }
   if (input.SmsVerificationMessage !== undefined) {
-    bodyParams["SmsVerificationMessage"] = input.SmsVerificationMessage;
+    bodyParams['SmsVerificationMessage'] = input.SmsVerificationMessage;
   }
   if (input.UserPoolAddOns !== undefined) {
-    bodyParams["UserPoolAddOns"] = serializeAws_json1_1UserPoolAddOnsType(
-      input.UserPoolAddOns,
-      context
-    );
+    bodyParams['UserPoolAddOns'] = serializeAws_json1_1UserPoolAddOnsType(input.UserPoolAddOns, context);
   }
   if (input.UserPoolTags !== undefined) {
-    bodyParams["UserPoolTags"] = serializeAws_json1_1UserPoolTagsType(
-      input.UserPoolTags,
-      context
-    );
+    bodyParams['UserPoolTags'] = serializeAws_json1_1UserPoolTagsType(input.UserPoolTags, context);
   }
   if (input.UsernameAttributes !== undefined) {
-    bodyParams[
-      "UsernameAttributes"
-    ] = serializeAws_json1_1UsernameAttributesListType(
-      input.UsernameAttributes,
-      context
-    );
+    bodyParams['UsernameAttributes'] = serializeAws_json1_1UsernameAttributesListType(input.UsernameAttributes, context);
   }
   if (input.VerificationMessageTemplate !== undefined) {
-    bodyParams[
-      "VerificationMessageTemplate"
-    ] = serializeAws_json1_1VerificationMessageTemplateType(
-      input.VerificationMessageTemplate,
-      context
-    );
+    bodyParams['VerificationMessageTemplate'] = serializeAws_json1_1VerificationMessageTemplateType(input.VerificationMessageTemplate, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1CustomAttributesListType = (
   input: Array<SchemaAttributeType>,
@@ -15208,7 +11764,7 @@ const serializeAws_json1_1CustomAttributesListType = (
   return (input || []).map(entry =>
     serializeAws_json1_1SchemaAttributeType(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1CustomDomainConfigType = (
   input: CustomDomainConfigType,
@@ -15216,10 +11772,10 @@ const serializeAws_json1_1CustomDomainConfigType = (
 ): any => {
   let bodyParams: any = {};
   if (input.CertificateArn !== undefined) {
-    bodyParams["CertificateArn"] = input.CertificateArn;
+    bodyParams['CertificateArn'] = input.CertificateArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteGroupRequest = (
   input: DeleteGroupRequest,
@@ -15227,13 +11783,13 @@ const serializeAws_json1_1DeleteGroupRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.GroupName !== undefined) {
-    bodyParams["GroupName"] = input.GroupName;
+    bodyParams['GroupName'] = input.GroupName;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteIdentityProviderRequest = (
   input: DeleteIdentityProviderRequest,
@@ -15241,13 +11797,13 @@ const serializeAws_json1_1DeleteIdentityProviderRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ProviderName !== undefined) {
-    bodyParams["ProviderName"] = input.ProviderName;
+    bodyParams['ProviderName'] = input.ProviderName;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteResourceServerRequest = (
   input: DeleteResourceServerRequest,
@@ -15255,13 +11811,13 @@ const serializeAws_json1_1DeleteResourceServerRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Identifier !== undefined) {
-    bodyParams["Identifier"] = input.Identifier;
+    bodyParams['Identifier'] = input.Identifier;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteUserAttributesRequest = (
   input: DeleteUserAttributesRequest,
@@ -15269,18 +11825,13 @@ const serializeAws_json1_1DeleteUserAttributesRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AccessToken !== undefined) {
-    bodyParams["AccessToken"] = input.AccessToken;
+    bodyParams['AccessToken'] = input.AccessToken;
   }
   if (input.UserAttributeNames !== undefined) {
-    bodyParams[
-      "UserAttributeNames"
-    ] = serializeAws_json1_1AttributeNameListType(
-      input.UserAttributeNames,
-      context
-    );
+    bodyParams['UserAttributeNames'] = serializeAws_json1_1AttributeNameListType(input.UserAttributeNames, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteUserPoolClientRequest = (
   input: DeleteUserPoolClientRequest,
@@ -15288,13 +11839,13 @@ const serializeAws_json1_1DeleteUserPoolClientRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClientId !== undefined) {
-    bodyParams["ClientId"] = input.ClientId;
+    bodyParams['ClientId'] = input.ClientId;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteUserPoolDomainRequest = (
   input: DeleteUserPoolDomainRequest,
@@ -15302,13 +11853,13 @@ const serializeAws_json1_1DeleteUserPoolDomainRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Domain !== undefined) {
-    bodyParams["Domain"] = input.Domain;
+    bodyParams['Domain'] = input.Domain;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteUserPoolRequest = (
   input: DeleteUserPoolRequest,
@@ -15316,10 +11867,10 @@ const serializeAws_json1_1DeleteUserPoolRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeleteUserRequest = (
   input: DeleteUserRequest,
@@ -15327,17 +11878,19 @@ const serializeAws_json1_1DeleteUserRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AccessToken !== undefined) {
-    bodyParams["AccessToken"] = input.AccessToken;
+    bodyParams['AccessToken'] = input.AccessToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeliveryMediumListType = (
   input: Array<DeliveryMediumType | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1DescribeIdentityProviderRequest = (
   input: DescribeIdentityProviderRequest,
@@ -15345,13 +11898,13 @@ const serializeAws_json1_1DescribeIdentityProviderRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ProviderName !== undefined) {
-    bodyParams["ProviderName"] = input.ProviderName;
+    bodyParams['ProviderName'] = input.ProviderName;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeResourceServerRequest = (
   input: DescribeResourceServerRequest,
@@ -15359,13 +11912,13 @@ const serializeAws_json1_1DescribeResourceServerRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Identifier !== undefined) {
-    bodyParams["Identifier"] = input.Identifier;
+    bodyParams['Identifier'] = input.Identifier;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeRiskConfigurationRequest = (
   input: DescribeRiskConfigurationRequest,
@@ -15373,13 +11926,13 @@ const serializeAws_json1_1DescribeRiskConfigurationRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClientId !== undefined) {
-    bodyParams["ClientId"] = input.ClientId;
+    bodyParams['ClientId'] = input.ClientId;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeUserImportJobRequest = (
   input: DescribeUserImportJobRequest,
@@ -15387,13 +11940,13 @@ const serializeAws_json1_1DescribeUserImportJobRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.JobId !== undefined) {
-    bodyParams["JobId"] = input.JobId;
+    bodyParams['JobId'] = input.JobId;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeUserPoolClientRequest = (
   input: DescribeUserPoolClientRequest,
@@ -15401,13 +11954,13 @@ const serializeAws_json1_1DescribeUserPoolClientRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClientId !== undefined) {
-    bodyParams["ClientId"] = input.ClientId;
+    bodyParams['ClientId'] = input.ClientId;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeUserPoolDomainRequest = (
   input: DescribeUserPoolDomainRequest,
@@ -15415,10 +11968,10 @@ const serializeAws_json1_1DescribeUserPoolDomainRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Domain !== undefined) {
-    bodyParams["Domain"] = input.Domain;
+    bodyParams['Domain'] = input.Domain;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DescribeUserPoolRequest = (
   input: DescribeUserPoolRequest,
@@ -15426,10 +11979,10 @@ const serializeAws_json1_1DescribeUserPoolRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeviceConfigurationType = (
   input: DeviceConfigurationType,
@@ -15437,15 +11990,13 @@ const serializeAws_json1_1DeviceConfigurationType = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChallengeRequiredOnNewDevice !== undefined) {
-    bodyParams["ChallengeRequiredOnNewDevice"] =
-      input.ChallengeRequiredOnNewDevice;
+    bodyParams['ChallengeRequiredOnNewDevice'] = input.ChallengeRequiredOnNewDevice;
   }
   if (input.DeviceOnlyRememberedOnUserPrompt !== undefined) {
-    bodyParams["DeviceOnlyRememberedOnUserPrompt"] =
-      input.DeviceOnlyRememberedOnUserPrompt;
+    bodyParams['DeviceOnlyRememberedOnUserPrompt'] = input.DeviceOnlyRememberedOnUserPrompt;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1DeviceSecretVerifierConfigType = (
   input: DeviceSecretVerifierConfigType,
@@ -15453,13 +12004,13 @@ const serializeAws_json1_1DeviceSecretVerifierConfigType = (
 ): any => {
   let bodyParams: any = {};
   if (input.PasswordVerifier !== undefined) {
-    bodyParams["PasswordVerifier"] = input.PasswordVerifier;
+    bodyParams['PasswordVerifier'] = input.PasswordVerifier;
   }
   if (input.Salt !== undefined) {
-    bodyParams["Salt"] = input.Salt;
+    bodyParams['Salt'] = input.Salt;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1EmailConfigurationType = (
   input: EmailConfigurationType,
@@ -15467,36 +12018,40 @@ const serializeAws_json1_1EmailConfigurationType = (
 ): any => {
   let bodyParams: any = {};
   if (input.ConfigurationSet !== undefined) {
-    bodyParams["ConfigurationSet"] = input.ConfigurationSet;
+    bodyParams['ConfigurationSet'] = input.ConfigurationSet;
   }
   if (input.EmailSendingAccount !== undefined) {
-    bodyParams["EmailSendingAccount"] = input.EmailSendingAccount;
+    bodyParams['EmailSendingAccount'] = input.EmailSendingAccount;
   }
   if (input.From !== undefined) {
-    bodyParams["From"] = input.From;
+    bodyParams['From'] = input.From;
   }
   if (input.ReplyToEmailAddress !== undefined) {
-    bodyParams["ReplyToEmailAddress"] = input.ReplyToEmailAddress;
+    bodyParams['ReplyToEmailAddress'] = input.ReplyToEmailAddress;
   }
   if (input.SourceArn !== undefined) {
-    bodyParams["SourceArn"] = input.SourceArn;
+    bodyParams['SourceArn'] = input.SourceArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1EventFiltersType = (
   input: Array<EventFilterType | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1ExplicitAuthFlowsListType = (
   input: Array<ExplicitAuthFlowsType | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1ForgetDeviceRequest = (
   input: ForgetDeviceRequest,
@@ -15504,13 +12059,13 @@ const serializeAws_json1_1ForgetDeviceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AccessToken !== undefined) {
-    bodyParams["AccessToken"] = input.AccessToken;
+    bodyParams['AccessToken'] = input.AccessToken;
   }
   if (input.DeviceKey !== undefined) {
-    bodyParams["DeviceKey"] = input.DeviceKey;
+    bodyParams['DeviceKey'] = input.DeviceKey;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ForgotPasswordRequest = (
   input: ForgotPasswordRequest,
@@ -15518,34 +12073,25 @@ const serializeAws_json1_1ForgotPasswordRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AnalyticsMetadata !== undefined) {
-    bodyParams["AnalyticsMetadata"] = serializeAws_json1_1AnalyticsMetadataType(
-      input.AnalyticsMetadata,
-      context
-    );
+    bodyParams['AnalyticsMetadata'] = serializeAws_json1_1AnalyticsMetadataType(input.AnalyticsMetadata, context);
   }
   if (input.ClientId !== undefined) {
-    bodyParams["ClientId"] = input.ClientId;
+    bodyParams['ClientId'] = input.ClientId;
   }
   if (input.ClientMetadata !== undefined) {
-    bodyParams["ClientMetadata"] = serializeAws_json1_1ClientMetadataType(
-      input.ClientMetadata,
-      context
-    );
+    bodyParams['ClientMetadata'] = serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context);
   }
   if (input.SecretHash !== undefined) {
-    bodyParams["SecretHash"] = input.SecretHash;
+    bodyParams['SecretHash'] = input.SecretHash;
   }
   if (input.UserContextData !== undefined) {
-    bodyParams["UserContextData"] = serializeAws_json1_1UserContextDataType(
-      input.UserContextData,
-      context
-    );
+    bodyParams['UserContextData'] = serializeAws_json1_1UserContextDataType(input.UserContextData, context);
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1GetCSVHeaderRequest = (
   input: GetCSVHeaderRequest,
@@ -15553,10 +12099,10 @@ const serializeAws_json1_1GetCSVHeaderRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1GetDeviceRequest = (
   input: GetDeviceRequest,
@@ -15564,13 +12110,13 @@ const serializeAws_json1_1GetDeviceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AccessToken !== undefined) {
-    bodyParams["AccessToken"] = input.AccessToken;
+    bodyParams['AccessToken'] = input.AccessToken;
   }
   if (input.DeviceKey !== undefined) {
-    bodyParams["DeviceKey"] = input.DeviceKey;
+    bodyParams['DeviceKey'] = input.DeviceKey;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1GetGroupRequest = (
   input: GetGroupRequest,
@@ -15578,13 +12124,13 @@ const serializeAws_json1_1GetGroupRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.GroupName !== undefined) {
-    bodyParams["GroupName"] = input.GroupName;
+    bodyParams['GroupName'] = input.GroupName;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1GetIdentityProviderByIdentifierRequest = (
   input: GetIdentityProviderByIdentifierRequest,
@@ -15592,13 +12138,13 @@ const serializeAws_json1_1GetIdentityProviderByIdentifierRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.IdpIdentifier !== undefined) {
-    bodyParams["IdpIdentifier"] = input.IdpIdentifier;
+    bodyParams['IdpIdentifier'] = input.IdpIdentifier;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1GetSigningCertificateRequest = (
   input: GetSigningCertificateRequest,
@@ -15606,10 +12152,10 @@ const serializeAws_json1_1GetSigningCertificateRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1GetUICustomizationRequest = (
   input: GetUICustomizationRequest,
@@ -15617,13 +12163,13 @@ const serializeAws_json1_1GetUICustomizationRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClientId !== undefined) {
-    bodyParams["ClientId"] = input.ClientId;
+    bodyParams['ClientId'] = input.ClientId;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1GetUserAttributeVerificationCodeRequest = (
   input: GetUserAttributeVerificationCodeRequest,
@@ -15631,19 +12177,16 @@ const serializeAws_json1_1GetUserAttributeVerificationCodeRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AccessToken !== undefined) {
-    bodyParams["AccessToken"] = input.AccessToken;
+    bodyParams['AccessToken'] = input.AccessToken;
   }
   if (input.AttributeName !== undefined) {
-    bodyParams["AttributeName"] = input.AttributeName;
+    bodyParams['AttributeName'] = input.AttributeName;
   }
   if (input.ClientMetadata !== undefined) {
-    bodyParams["ClientMetadata"] = serializeAws_json1_1ClientMetadataType(
-      input.ClientMetadata,
-      context
-    );
+    bodyParams['ClientMetadata'] = serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1GetUserPoolMfaConfigRequest = (
   input: GetUserPoolMfaConfigRequest,
@@ -15651,10 +12194,10 @@ const serializeAws_json1_1GetUserPoolMfaConfigRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1GetUserRequest = (
   input: GetUserRequest,
@@ -15662,10 +12205,10 @@ const serializeAws_json1_1GetUserRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AccessToken !== undefined) {
-    bodyParams["AccessToken"] = input.AccessToken;
+    bodyParams['AccessToken'] = input.AccessToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1GlobalSignOutRequest = (
   input: GlobalSignOutRequest,
@@ -15673,10 +12216,10 @@ const serializeAws_json1_1GlobalSignOutRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AccessToken !== undefined) {
-    bodyParams["AccessToken"] = input.AccessToken;
+    bodyParams['AccessToken'] = input.AccessToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1HttpHeader = (
   input: HttpHeader,
@@ -15684,13 +12227,13 @@ const serializeAws_json1_1HttpHeader = (
 ): any => {
   let bodyParams: any = {};
   if (input.headerName !== undefined) {
-    bodyParams["headerName"] = input.headerName;
+    bodyParams['headerName'] = input.headerName;
   }
   if (input.headerValue !== undefined) {
-    bodyParams["headerValue"] = input.headerValue;
+    bodyParams['headerValue'] = input.headerValue;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1HttpHeaderList = (
   input: Array<HttpHeader>,
@@ -15699,14 +12242,16 @@ const serializeAws_json1_1HttpHeaderList = (
   return (input || []).map(entry =>
     serializeAws_json1_1HttpHeader(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1IdpIdentifiersListType = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1InitiateAuthRequest = (
   input: InitiateAuthRequest,
@@ -15714,37 +12259,25 @@ const serializeAws_json1_1InitiateAuthRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AnalyticsMetadata !== undefined) {
-    bodyParams["AnalyticsMetadata"] = serializeAws_json1_1AnalyticsMetadataType(
-      input.AnalyticsMetadata,
-      context
-    );
+    bodyParams['AnalyticsMetadata'] = serializeAws_json1_1AnalyticsMetadataType(input.AnalyticsMetadata, context);
   }
   if (input.AuthFlow !== undefined) {
-    bodyParams["AuthFlow"] = input.AuthFlow;
+    bodyParams['AuthFlow'] = input.AuthFlow;
   }
   if (input.AuthParameters !== undefined) {
-    bodyParams["AuthParameters"] = serializeAws_json1_1AuthParametersType(
-      input.AuthParameters,
-      context
-    );
+    bodyParams['AuthParameters'] = serializeAws_json1_1AuthParametersType(input.AuthParameters, context);
   }
   if (input.ClientId !== undefined) {
-    bodyParams["ClientId"] = input.ClientId;
+    bodyParams['ClientId'] = input.ClientId;
   }
   if (input.ClientMetadata !== undefined) {
-    bodyParams["ClientMetadata"] = serializeAws_json1_1ClientMetadataType(
-      input.ClientMetadata,
-      context
-    );
+    bodyParams['ClientMetadata'] = serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context);
   }
   if (input.UserContextData !== undefined) {
-    bodyParams["UserContextData"] = serializeAws_json1_1UserContextDataType(
-      input.UserContextData,
-      context
-    );
+    bodyParams['UserContextData'] = serializeAws_json1_1UserContextDataType(input.UserContextData, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1LambdaConfigType = (
   input: LambdaConfigType,
@@ -15752,38 +12285,37 @@ const serializeAws_json1_1LambdaConfigType = (
 ): any => {
   let bodyParams: any = {};
   if (input.CreateAuthChallenge !== undefined) {
-    bodyParams["CreateAuthChallenge"] = input.CreateAuthChallenge;
+    bodyParams['CreateAuthChallenge'] = input.CreateAuthChallenge;
   }
   if (input.CustomMessage !== undefined) {
-    bodyParams["CustomMessage"] = input.CustomMessage;
+    bodyParams['CustomMessage'] = input.CustomMessage;
   }
   if (input.DefineAuthChallenge !== undefined) {
-    bodyParams["DefineAuthChallenge"] = input.DefineAuthChallenge;
+    bodyParams['DefineAuthChallenge'] = input.DefineAuthChallenge;
   }
   if (input.PostAuthentication !== undefined) {
-    bodyParams["PostAuthentication"] = input.PostAuthentication;
+    bodyParams['PostAuthentication'] = input.PostAuthentication;
   }
   if (input.PostConfirmation !== undefined) {
-    bodyParams["PostConfirmation"] = input.PostConfirmation;
+    bodyParams['PostConfirmation'] = input.PostConfirmation;
   }
   if (input.PreAuthentication !== undefined) {
-    bodyParams["PreAuthentication"] = input.PreAuthentication;
+    bodyParams['PreAuthentication'] = input.PreAuthentication;
   }
   if (input.PreSignUp !== undefined) {
-    bodyParams["PreSignUp"] = input.PreSignUp;
+    bodyParams['PreSignUp'] = input.PreSignUp;
   }
   if (input.PreTokenGeneration !== undefined) {
-    bodyParams["PreTokenGeneration"] = input.PreTokenGeneration;
+    bodyParams['PreTokenGeneration'] = input.PreTokenGeneration;
   }
   if (input.UserMigration !== undefined) {
-    bodyParams["UserMigration"] = input.UserMigration;
+    bodyParams['UserMigration'] = input.UserMigration;
   }
   if (input.VerifyAuthChallengeResponse !== undefined) {
-    bodyParams["VerifyAuthChallengeResponse"] =
-      input.VerifyAuthChallengeResponse;
+    bodyParams['VerifyAuthChallengeResponse'] = input.VerifyAuthChallengeResponse;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListDevicesRequest = (
   input: ListDevicesRequest,
@@ -15791,16 +12323,16 @@ const serializeAws_json1_1ListDevicesRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AccessToken !== undefined) {
-    bodyParams["AccessToken"] = input.AccessToken;
+    bodyParams['AccessToken'] = input.AccessToken;
   }
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.PaginationToken !== undefined) {
-    bodyParams["PaginationToken"] = input.PaginationToken;
+    bodyParams['PaginationToken'] = input.PaginationToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListGroupsRequest = (
   input: ListGroupsRequest,
@@ -15808,16 +12340,16 @@ const serializeAws_json1_1ListGroupsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListIdentityProvidersRequest = (
   input: ListIdentityProvidersRequest,
@@ -15825,16 +12357,16 @@ const serializeAws_json1_1ListIdentityProvidersRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
+    bodyParams['MaxResults'] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListResourceServersRequest = (
   input: ListResourceServersRequest,
@@ -15842,16 +12374,16 @@ const serializeAws_json1_1ListResourceServersRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
+    bodyParams['MaxResults'] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
   input: ListTagsForResourceRequest,
@@ -15859,10 +12391,10 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
-    bodyParams["ResourceArn"] = input.ResourceArn;
+    bodyParams['ResourceArn'] = input.ResourceArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListUserImportJobsRequest = (
   input: ListUserImportJobsRequest,
@@ -15870,16 +12402,16 @@ const serializeAws_json1_1ListUserImportJobsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
+    bodyParams['MaxResults'] = input.MaxResults;
   }
   if (input.PaginationToken !== undefined) {
-    bodyParams["PaginationToken"] = input.PaginationToken;
+    bodyParams['PaginationToken'] = input.PaginationToken;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListUserPoolClientsRequest = (
   input: ListUserPoolClientsRequest,
@@ -15887,16 +12419,16 @@ const serializeAws_json1_1ListUserPoolClientsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
+    bodyParams['MaxResults'] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListUserPoolsRequest = (
   input: ListUserPoolsRequest,
@@ -15904,13 +12436,13 @@ const serializeAws_json1_1ListUserPoolsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
+    bodyParams['MaxResults'] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListUsersInGroupRequest = (
   input: ListUsersInGroupRequest,
@@ -15918,19 +12450,19 @@ const serializeAws_json1_1ListUsersInGroupRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.GroupName !== undefined) {
-    bodyParams["GroupName"] = input.GroupName;
+    bodyParams['GroupName'] = input.GroupName;
   }
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ListUsersRequest = (
   input: ListUsersRequest,
@@ -15938,34 +12470,31 @@ const serializeAws_json1_1ListUsersRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AttributesToGet !== undefined) {
-    bodyParams[
-      "AttributesToGet"
-    ] = serializeAws_json1_1SearchedAttributeNamesListType(
-      input.AttributesToGet,
-      context
-    );
+    bodyParams['AttributesToGet'] = serializeAws_json1_1SearchedAttributeNamesListType(input.AttributesToGet, context);
   }
   if (input.Filter !== undefined) {
-    bodyParams["Filter"] = input.Filter;
+    bodyParams['Filter'] = input.Filter;
   }
   if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
+    bodyParams['Limit'] = input.Limit;
   }
   if (input.PaginationToken !== undefined) {
-    bodyParams["PaginationToken"] = input.PaginationToken;
+    bodyParams['PaginationToken'] = input.PaginationToken;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1LogoutURLsListType = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1MFAOptionListType = (
   input: Array<MFAOptionType>,
@@ -15974,7 +12503,7 @@ const serializeAws_json1_1MFAOptionListType = (
   return (input || []).map(entry =>
     serializeAws_json1_1MFAOptionType(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1MFAOptionType = (
   input: MFAOptionType,
@@ -15982,13 +12511,13 @@ const serializeAws_json1_1MFAOptionType = (
 ): any => {
   let bodyParams: any = {};
   if (input.AttributeName !== undefined) {
-    bodyParams["AttributeName"] = input.AttributeName;
+    bodyParams['AttributeName'] = input.AttributeName;
   }
   if (input.DeliveryMedium !== undefined) {
-    bodyParams["DeliveryMedium"] = input.DeliveryMedium;
+    bodyParams['DeliveryMedium'] = input.DeliveryMedium;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1MessageTemplateType = (
   input: MessageTemplateType,
@@ -15996,16 +12525,16 @@ const serializeAws_json1_1MessageTemplateType = (
 ): any => {
   let bodyParams: any = {};
   if (input.EmailMessage !== undefined) {
-    bodyParams["EmailMessage"] = input.EmailMessage;
+    bodyParams['EmailMessage'] = input.EmailMessage;
   }
   if (input.EmailSubject !== undefined) {
-    bodyParams["EmailSubject"] = input.EmailSubject;
+    bodyParams['EmailSubject'] = input.EmailSubject;
   }
   if (input.SMSMessage !== undefined) {
-    bodyParams["SMSMessage"] = input.SMSMessage;
+    bodyParams['SMSMessage'] = input.SMSMessage;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1NotifyConfigurationType = (
   input: NotifyConfigurationType,
@@ -16013,34 +12542,25 @@ const serializeAws_json1_1NotifyConfigurationType = (
 ): any => {
   let bodyParams: any = {};
   if (input.BlockEmail !== undefined) {
-    bodyParams["BlockEmail"] = serializeAws_json1_1NotifyEmailType(
-      input.BlockEmail,
-      context
-    );
+    bodyParams['BlockEmail'] = serializeAws_json1_1NotifyEmailType(input.BlockEmail, context);
   }
   if (input.From !== undefined) {
-    bodyParams["From"] = input.From;
+    bodyParams['From'] = input.From;
   }
   if (input.MfaEmail !== undefined) {
-    bodyParams["MfaEmail"] = serializeAws_json1_1NotifyEmailType(
-      input.MfaEmail,
-      context
-    );
+    bodyParams['MfaEmail'] = serializeAws_json1_1NotifyEmailType(input.MfaEmail, context);
   }
   if (input.NoActionEmail !== undefined) {
-    bodyParams["NoActionEmail"] = serializeAws_json1_1NotifyEmailType(
-      input.NoActionEmail,
-      context
-    );
+    bodyParams['NoActionEmail'] = serializeAws_json1_1NotifyEmailType(input.NoActionEmail, context);
   }
   if (input.ReplyTo !== undefined) {
-    bodyParams["ReplyTo"] = input.ReplyTo;
+    bodyParams['ReplyTo'] = input.ReplyTo;
   }
   if (input.SourceArn !== undefined) {
-    bodyParams["SourceArn"] = input.SourceArn;
+    bodyParams['SourceArn'] = input.SourceArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1NotifyEmailType = (
   input: NotifyEmailType,
@@ -16048,16 +12568,16 @@ const serializeAws_json1_1NotifyEmailType = (
 ): any => {
   let bodyParams: any = {};
   if (input.HtmlBody !== undefined) {
-    bodyParams["HtmlBody"] = input.HtmlBody;
+    bodyParams['HtmlBody'] = input.HtmlBody;
   }
   if (input.Subject !== undefined) {
-    bodyParams["Subject"] = input.Subject;
+    bodyParams['Subject'] = input.Subject;
   }
   if (input.TextBody !== undefined) {
-    bodyParams["TextBody"] = input.TextBody;
+    bodyParams['TextBody'] = input.TextBody;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1NumberAttributeConstraintsType = (
   input: NumberAttributeConstraintsType,
@@ -16065,20 +12585,22 @@ const serializeAws_json1_1NumberAttributeConstraintsType = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxValue !== undefined) {
-    bodyParams["MaxValue"] = input.MaxValue;
+    bodyParams['MaxValue'] = input.MaxValue;
   }
   if (input.MinValue !== undefined) {
-    bodyParams["MinValue"] = input.MinValue;
+    bodyParams['MinValue'] = input.MinValue;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1OAuthFlowsType = (
   input: Array<OAuthFlowType | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1PasswordPolicyType = (
   input: PasswordPolicyType,
@@ -16086,26 +12608,25 @@ const serializeAws_json1_1PasswordPolicyType = (
 ): any => {
   let bodyParams: any = {};
   if (input.MinimumLength !== undefined) {
-    bodyParams["MinimumLength"] = input.MinimumLength;
+    bodyParams['MinimumLength'] = input.MinimumLength;
   }
   if (input.RequireLowercase !== undefined) {
-    bodyParams["RequireLowercase"] = input.RequireLowercase;
+    bodyParams['RequireLowercase'] = input.RequireLowercase;
   }
   if (input.RequireNumbers !== undefined) {
-    bodyParams["RequireNumbers"] = input.RequireNumbers;
+    bodyParams['RequireNumbers'] = input.RequireNumbers;
   }
   if (input.RequireSymbols !== undefined) {
-    bodyParams["RequireSymbols"] = input.RequireSymbols;
+    bodyParams['RequireSymbols'] = input.RequireSymbols;
   }
   if (input.RequireUppercase !== undefined) {
-    bodyParams["RequireUppercase"] = input.RequireUppercase;
+    bodyParams['RequireUppercase'] = input.RequireUppercase;
   }
   if (input.TemporaryPasswordValidityDays !== undefined) {
-    bodyParams["TemporaryPasswordValidityDays"] =
-      input.TemporaryPasswordValidityDays;
+    bodyParams['TemporaryPasswordValidityDays'] = input.TemporaryPasswordValidityDays;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ProviderDetailsType = (
   input: { [key: string]: string },
@@ -16116,7 +12637,7 @@ const serializeAws_json1_1ProviderDetailsType = (
     mapParams[key] = input[key];
   });
   return mapParams;
-};
+}
 
 const serializeAws_json1_1ProviderUserIdentifierType = (
   input: ProviderUserIdentifierType,
@@ -16124,16 +12645,16 @@ const serializeAws_json1_1ProviderUserIdentifierType = (
 ): any => {
   let bodyParams: any = {};
   if (input.ProviderAttributeName !== undefined) {
-    bodyParams["ProviderAttributeName"] = input.ProviderAttributeName;
+    bodyParams['ProviderAttributeName'] = input.ProviderAttributeName;
   }
   if (input.ProviderAttributeValue !== undefined) {
-    bodyParams["ProviderAttributeValue"] = input.ProviderAttributeValue;
+    bodyParams['ProviderAttributeValue'] = input.ProviderAttributeValue;
   }
   if (input.ProviderName !== undefined) {
-    bodyParams["ProviderName"] = input.ProviderName;
+    bodyParams['ProviderName'] = input.ProviderName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1RecoveryMechanismsType = (
   input: Array<RecoveryOptionType>,
@@ -16142,7 +12663,7 @@ const serializeAws_json1_1RecoveryMechanismsType = (
   return (input || []).map(entry =>
     serializeAws_json1_1RecoveryOptionType(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1RecoveryOptionType = (
   input: RecoveryOptionType,
@@ -16150,13 +12671,13 @@ const serializeAws_json1_1RecoveryOptionType = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.Priority !== undefined) {
-    bodyParams["Priority"] = input.Priority;
+    bodyParams['Priority'] = input.Priority;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ResendConfirmationCodeRequest = (
   input: ResendConfirmationCodeRequest,
@@ -16164,34 +12685,25 @@ const serializeAws_json1_1ResendConfirmationCodeRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AnalyticsMetadata !== undefined) {
-    bodyParams["AnalyticsMetadata"] = serializeAws_json1_1AnalyticsMetadataType(
-      input.AnalyticsMetadata,
-      context
-    );
+    bodyParams['AnalyticsMetadata'] = serializeAws_json1_1AnalyticsMetadataType(input.AnalyticsMetadata, context);
   }
   if (input.ClientId !== undefined) {
-    bodyParams["ClientId"] = input.ClientId;
+    bodyParams['ClientId'] = input.ClientId;
   }
   if (input.ClientMetadata !== undefined) {
-    bodyParams["ClientMetadata"] = serializeAws_json1_1ClientMetadataType(
-      input.ClientMetadata,
-      context
-    );
+    bodyParams['ClientMetadata'] = serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context);
   }
   if (input.SecretHash !== undefined) {
-    bodyParams["SecretHash"] = input.SecretHash;
+    bodyParams['SecretHash'] = input.SecretHash;
   }
   if (input.UserContextData !== undefined) {
-    bodyParams["UserContextData"] = serializeAws_json1_1UserContextDataType(
-      input.UserContextData,
-      context
-    );
+    bodyParams['UserContextData'] = serializeAws_json1_1UserContextDataType(input.UserContextData, context);
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1ResourceServerScopeListType = (
   input: Array<ResourceServerScopeType>,
@@ -16200,7 +12712,7 @@ const serializeAws_json1_1ResourceServerScopeListType = (
   return (input || []).map(entry =>
     serializeAws_json1_1ResourceServerScopeType(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1ResourceServerScopeType = (
   input: ResourceServerScopeType,
@@ -16208,13 +12720,13 @@ const serializeAws_json1_1ResourceServerScopeType = (
 ): any => {
   let bodyParams: any = {};
   if (input.ScopeDescription !== undefined) {
-    bodyParams["ScopeDescription"] = input.ScopeDescription;
+    bodyParams['ScopeDescription'] = input.ScopeDescription;
   }
   if (input.ScopeName !== undefined) {
-    bodyParams["ScopeName"] = input.ScopeName;
+    bodyParams['ScopeName'] = input.ScopeName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1RespondToAuthChallengeRequest = (
   input: RespondToAuthChallengeRequest,
@@ -16222,42 +12734,28 @@ const serializeAws_json1_1RespondToAuthChallengeRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AnalyticsMetadata !== undefined) {
-    bodyParams["AnalyticsMetadata"] = serializeAws_json1_1AnalyticsMetadataType(
-      input.AnalyticsMetadata,
-      context
-    );
+    bodyParams['AnalyticsMetadata'] = serializeAws_json1_1AnalyticsMetadataType(input.AnalyticsMetadata, context);
   }
   if (input.ChallengeName !== undefined) {
-    bodyParams["ChallengeName"] = input.ChallengeName;
+    bodyParams['ChallengeName'] = input.ChallengeName;
   }
   if (input.ChallengeResponses !== undefined) {
-    bodyParams[
-      "ChallengeResponses"
-    ] = serializeAws_json1_1ChallengeResponsesType(
-      input.ChallengeResponses,
-      context
-    );
+    bodyParams['ChallengeResponses'] = serializeAws_json1_1ChallengeResponsesType(input.ChallengeResponses, context);
   }
   if (input.ClientId !== undefined) {
-    bodyParams["ClientId"] = input.ClientId;
+    bodyParams['ClientId'] = input.ClientId;
   }
   if (input.ClientMetadata !== undefined) {
-    bodyParams["ClientMetadata"] = serializeAws_json1_1ClientMetadataType(
-      input.ClientMetadata,
-      context
-    );
+    bodyParams['ClientMetadata'] = serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context);
   }
   if (input.Session !== undefined) {
-    bodyParams["Session"] = input.Session;
+    bodyParams['Session'] = input.Session;
   }
   if (input.UserContextData !== undefined) {
-    bodyParams["UserContextData"] = serializeAws_json1_1UserContextDataType(
-      input.UserContextData,
-      context
-    );
+    bodyParams['UserContextData'] = serializeAws_json1_1UserContextDataType(input.UserContextData, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1RiskExceptionConfigurationType = (
   input: RiskExceptionConfigurationType,
@@ -16265,23 +12763,13 @@ const serializeAws_json1_1RiskExceptionConfigurationType = (
 ): any => {
   let bodyParams: any = {};
   if (input.BlockedIPRangeList !== undefined) {
-    bodyParams[
-      "BlockedIPRangeList"
-    ] = serializeAws_json1_1BlockedIPRangeListType(
-      input.BlockedIPRangeList,
-      context
-    );
+    bodyParams['BlockedIPRangeList'] = serializeAws_json1_1BlockedIPRangeListType(input.BlockedIPRangeList, context);
   }
   if (input.SkippedIPRangeList !== undefined) {
-    bodyParams[
-      "SkippedIPRangeList"
-    ] = serializeAws_json1_1SkippedIPRangeListType(
-      input.SkippedIPRangeList,
-      context
-    );
+    bodyParams['SkippedIPRangeList'] = serializeAws_json1_1SkippedIPRangeListType(input.SkippedIPRangeList, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1SMSMfaSettingsType = (
   input: SMSMfaSettingsType,
@@ -16289,13 +12777,13 @@ const serializeAws_json1_1SMSMfaSettingsType = (
 ): any => {
   let bodyParams: any = {};
   if (input.Enabled !== undefined) {
-    bodyParams["Enabled"] = input.Enabled;
+    bodyParams['Enabled'] = input.Enabled;
   }
   if (input.PreferredMfa !== undefined) {
-    bodyParams["PreferredMfa"] = input.PreferredMfa;
+    bodyParams['PreferredMfa'] = input.PreferredMfa;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1SchemaAttributeType = (
   input: SchemaAttributeType,
@@ -16303,38 +12791,28 @@ const serializeAws_json1_1SchemaAttributeType = (
 ): any => {
   let bodyParams: any = {};
   if (input.AttributeDataType !== undefined) {
-    bodyParams["AttributeDataType"] = input.AttributeDataType;
+    bodyParams['AttributeDataType'] = input.AttributeDataType;
   }
   if (input.DeveloperOnlyAttribute !== undefined) {
-    bodyParams["DeveloperOnlyAttribute"] = input.DeveloperOnlyAttribute;
+    bodyParams['DeveloperOnlyAttribute'] = input.DeveloperOnlyAttribute;
   }
   if (input.Mutable !== undefined) {
-    bodyParams["Mutable"] = input.Mutable;
+    bodyParams['Mutable'] = input.Mutable;
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.NumberAttributeConstraints !== undefined) {
-    bodyParams[
-      "NumberAttributeConstraints"
-    ] = serializeAws_json1_1NumberAttributeConstraintsType(
-      input.NumberAttributeConstraints,
-      context
-    );
+    bodyParams['NumberAttributeConstraints'] = serializeAws_json1_1NumberAttributeConstraintsType(input.NumberAttributeConstraints, context);
   }
   if (input.Required !== undefined) {
-    bodyParams["Required"] = input.Required;
+    bodyParams['Required'] = input.Required;
   }
   if (input.StringAttributeConstraints !== undefined) {
-    bodyParams[
-      "StringAttributeConstraints"
-    ] = serializeAws_json1_1StringAttributeConstraintsType(
-      input.StringAttributeConstraints,
-      context
-    );
+    bodyParams['StringAttributeConstraints'] = serializeAws_json1_1StringAttributeConstraintsType(input.StringAttributeConstraints, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1SchemaAttributesListType = (
   input: Array<SchemaAttributeType>,
@@ -16343,21 +12821,25 @@ const serializeAws_json1_1SchemaAttributesListType = (
   return (input || []).map(entry =>
     serializeAws_json1_1SchemaAttributeType(entry, context)
   );
-};
+}
 
 const serializeAws_json1_1ScopeListType = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1SearchedAttributeNamesListType = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1SetRiskConfigurationRequest = (
   input: SetRiskConfigurationRequest,
@@ -16365,37 +12847,22 @@ const serializeAws_json1_1SetRiskConfigurationRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AccountTakeoverRiskConfiguration !== undefined) {
-    bodyParams[
-      "AccountTakeoverRiskConfiguration"
-    ] = serializeAws_json1_1AccountTakeoverRiskConfigurationType(
-      input.AccountTakeoverRiskConfiguration,
-      context
-    );
+    bodyParams['AccountTakeoverRiskConfiguration'] = serializeAws_json1_1AccountTakeoverRiskConfigurationType(input.AccountTakeoverRiskConfiguration, context);
   }
   if (input.ClientId !== undefined) {
-    bodyParams["ClientId"] = input.ClientId;
+    bodyParams['ClientId'] = input.ClientId;
   }
   if (input.CompromisedCredentialsRiskConfiguration !== undefined) {
-    bodyParams[
-      "CompromisedCredentialsRiskConfiguration"
-    ] = serializeAws_json1_1CompromisedCredentialsRiskConfigurationType(
-      input.CompromisedCredentialsRiskConfiguration,
-      context
-    );
+    bodyParams['CompromisedCredentialsRiskConfiguration'] = serializeAws_json1_1CompromisedCredentialsRiskConfigurationType(input.CompromisedCredentialsRiskConfiguration, context);
   }
   if (input.RiskExceptionConfiguration !== undefined) {
-    bodyParams[
-      "RiskExceptionConfiguration"
-    ] = serializeAws_json1_1RiskExceptionConfigurationType(
-      input.RiskExceptionConfiguration,
-      context
-    );
+    bodyParams['RiskExceptionConfiguration'] = serializeAws_json1_1RiskExceptionConfigurationType(input.RiskExceptionConfiguration, context);
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1SetUICustomizationRequest = (
   input: SetUICustomizationRequest,
@@ -16403,19 +12870,19 @@ const serializeAws_json1_1SetUICustomizationRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.CSS !== undefined) {
-    bodyParams["CSS"] = input.CSS;
+    bodyParams['CSS'] = input.CSS;
   }
   if (input.ClientId !== undefined) {
-    bodyParams["ClientId"] = input.ClientId;
+    bodyParams['ClientId'] = input.ClientId;
   }
   if (input.ImageFile !== undefined) {
-    bodyParams["ImageFile"] = context.base64Encoder(input.ImageFile);
+    bodyParams['ImageFile'] = context.base64Encoder(input.ImageFile);
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1SetUserMFAPreferenceRequest = (
   input: SetUserMFAPreferenceRequest,
@@ -16423,24 +12890,16 @@ const serializeAws_json1_1SetUserMFAPreferenceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AccessToken !== undefined) {
-    bodyParams["AccessToken"] = input.AccessToken;
+    bodyParams['AccessToken'] = input.AccessToken;
   }
   if (input.SMSMfaSettings !== undefined) {
-    bodyParams["SMSMfaSettings"] = serializeAws_json1_1SMSMfaSettingsType(
-      input.SMSMfaSettings,
-      context
-    );
+    bodyParams['SMSMfaSettings'] = serializeAws_json1_1SMSMfaSettingsType(input.SMSMfaSettings, context);
   }
   if (input.SoftwareTokenMfaSettings !== undefined) {
-    bodyParams[
-      "SoftwareTokenMfaSettings"
-    ] = serializeAws_json1_1SoftwareTokenMfaSettingsType(
-      input.SoftwareTokenMfaSettings,
-      context
-    );
+    bodyParams['SoftwareTokenMfaSettings'] = serializeAws_json1_1SoftwareTokenMfaSettingsType(input.SoftwareTokenMfaSettings, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1SetUserPoolMfaConfigRequest = (
   input: SetUserPoolMfaConfigRequest,
@@ -16448,27 +12907,19 @@ const serializeAws_json1_1SetUserPoolMfaConfigRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.MfaConfiguration !== undefined) {
-    bodyParams["MfaConfiguration"] = input.MfaConfiguration;
+    bodyParams['MfaConfiguration'] = input.MfaConfiguration;
   }
   if (input.SmsMfaConfiguration !== undefined) {
-    bodyParams["SmsMfaConfiguration"] = serializeAws_json1_1SmsMfaConfigType(
-      input.SmsMfaConfiguration,
-      context
-    );
+    bodyParams['SmsMfaConfiguration'] = serializeAws_json1_1SmsMfaConfigType(input.SmsMfaConfiguration, context);
   }
   if (input.SoftwareTokenMfaConfiguration !== undefined) {
-    bodyParams[
-      "SoftwareTokenMfaConfiguration"
-    ] = serializeAws_json1_1SoftwareTokenMfaConfigType(
-      input.SoftwareTokenMfaConfiguration,
-      context
-    );
+    bodyParams['SoftwareTokenMfaConfiguration'] = serializeAws_json1_1SoftwareTokenMfaConfigType(input.SoftwareTokenMfaConfiguration, context);
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1SetUserSettingsRequest = (
   input: SetUserSettingsRequest,
@@ -16476,16 +12927,13 @@ const serializeAws_json1_1SetUserSettingsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AccessToken !== undefined) {
-    bodyParams["AccessToken"] = input.AccessToken;
+    bodyParams['AccessToken'] = input.AccessToken;
   }
   if (input.MFAOptions !== undefined) {
-    bodyParams["MFAOptions"] = serializeAws_json1_1MFAOptionListType(
-      input.MFAOptions,
-      context
-    );
+    bodyParams['MFAOptions'] = serializeAws_json1_1MFAOptionListType(input.MFAOptions, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1SignUpRequest = (
   input: SignUpRequest,
@@ -16493,56 +12941,43 @@ const serializeAws_json1_1SignUpRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AnalyticsMetadata !== undefined) {
-    bodyParams["AnalyticsMetadata"] = serializeAws_json1_1AnalyticsMetadataType(
-      input.AnalyticsMetadata,
-      context
-    );
+    bodyParams['AnalyticsMetadata'] = serializeAws_json1_1AnalyticsMetadataType(input.AnalyticsMetadata, context);
   }
   if (input.ClientId !== undefined) {
-    bodyParams["ClientId"] = input.ClientId;
+    bodyParams['ClientId'] = input.ClientId;
   }
   if (input.ClientMetadata !== undefined) {
-    bodyParams["ClientMetadata"] = serializeAws_json1_1ClientMetadataType(
-      input.ClientMetadata,
-      context
-    );
+    bodyParams['ClientMetadata'] = serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context);
   }
   if (input.Password !== undefined) {
-    bodyParams["Password"] = input.Password;
+    bodyParams['Password'] = input.Password;
   }
   if (input.SecretHash !== undefined) {
-    bodyParams["SecretHash"] = input.SecretHash;
+    bodyParams['SecretHash'] = input.SecretHash;
   }
   if (input.UserAttributes !== undefined) {
-    bodyParams["UserAttributes"] = serializeAws_json1_1AttributeListType(
-      input.UserAttributes,
-      context
-    );
+    bodyParams['UserAttributes'] = serializeAws_json1_1AttributeListType(input.UserAttributes, context);
   }
   if (input.UserContextData !== undefined) {
-    bodyParams["UserContextData"] = serializeAws_json1_1UserContextDataType(
-      input.UserContextData,
-      context
-    );
+    bodyParams['UserContextData'] = serializeAws_json1_1UserContextDataType(input.UserContextData, context);
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   if (input.ValidationData !== undefined) {
-    bodyParams["ValidationData"] = serializeAws_json1_1AttributeListType(
-      input.ValidationData,
-      context
-    );
+    bodyParams['ValidationData'] = serializeAws_json1_1AttributeListType(input.ValidationData, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1SkippedIPRangeListType = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1SmsConfigurationType = (
   input: SmsConfigurationType,
@@ -16550,13 +12985,13 @@ const serializeAws_json1_1SmsConfigurationType = (
 ): any => {
   let bodyParams: any = {};
   if (input.ExternalId !== undefined) {
-    bodyParams["ExternalId"] = input.ExternalId;
+    bodyParams['ExternalId'] = input.ExternalId;
   }
   if (input.SnsCallerArn !== undefined) {
-    bodyParams["SnsCallerArn"] = input.SnsCallerArn;
+    bodyParams['SnsCallerArn'] = input.SnsCallerArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1SmsMfaConfigType = (
   input: SmsMfaConfigType,
@@ -16564,16 +12999,13 @@ const serializeAws_json1_1SmsMfaConfigType = (
 ): any => {
   let bodyParams: any = {};
   if (input.SmsAuthenticationMessage !== undefined) {
-    bodyParams["SmsAuthenticationMessage"] = input.SmsAuthenticationMessage;
+    bodyParams['SmsAuthenticationMessage'] = input.SmsAuthenticationMessage;
   }
   if (input.SmsConfiguration !== undefined) {
-    bodyParams["SmsConfiguration"] = serializeAws_json1_1SmsConfigurationType(
-      input.SmsConfiguration,
-      context
-    );
+    bodyParams['SmsConfiguration'] = serializeAws_json1_1SmsConfigurationType(input.SmsConfiguration, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1SoftwareTokenMfaConfigType = (
   input: SoftwareTokenMfaConfigType,
@@ -16581,10 +13013,10 @@ const serializeAws_json1_1SoftwareTokenMfaConfigType = (
 ): any => {
   let bodyParams: any = {};
   if (input.Enabled !== undefined) {
-    bodyParams["Enabled"] = input.Enabled;
+    bodyParams['Enabled'] = input.Enabled;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1SoftwareTokenMfaSettingsType = (
   input: SoftwareTokenMfaSettingsType,
@@ -16592,13 +13024,13 @@ const serializeAws_json1_1SoftwareTokenMfaSettingsType = (
 ): any => {
   let bodyParams: any = {};
   if (input.Enabled !== undefined) {
-    bodyParams["Enabled"] = input.Enabled;
+    bodyParams['Enabled'] = input.Enabled;
   }
   if (input.PreferredMfa !== undefined) {
-    bodyParams["PreferredMfa"] = input.PreferredMfa;
+    bodyParams['PreferredMfa'] = input.PreferredMfa;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1StartUserImportJobRequest = (
   input: StartUserImportJobRequest,
@@ -16606,13 +13038,13 @@ const serializeAws_json1_1StartUserImportJobRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.JobId !== undefined) {
-    bodyParams["JobId"] = input.JobId;
+    bodyParams['JobId'] = input.JobId;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1StopUserImportJobRequest = (
   input: StopUserImportJobRequest,
@@ -16620,13 +13052,13 @@ const serializeAws_json1_1StopUserImportJobRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.JobId !== undefined) {
-    bodyParams["JobId"] = input.JobId;
+    bodyParams['JobId'] = input.JobId;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1StringAttributeConstraintsType = (
   input: StringAttributeConstraintsType,
@@ -16634,20 +13066,22 @@ const serializeAws_json1_1StringAttributeConstraintsType = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxLength !== undefined) {
-    bodyParams["MaxLength"] = input.MaxLength;
+    bodyParams['MaxLength'] = input.MaxLength;
   }
   if (input.MinLength !== undefined) {
-    bodyParams["MinLength"] = input.MinLength;
+    bodyParams['MinLength'] = input.MinLength;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1SupportedIdentityProvidersListType = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1TagResourceRequest = (
   input: TagResourceRequest,
@@ -16655,16 +13089,13 @@ const serializeAws_json1_1TagResourceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
-    bodyParams["ResourceArn"] = input.ResourceArn;
+    bodyParams['ResourceArn'] = input.ResourceArn;
   }
   if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1UserPoolTagsType(
-      input.Tags,
-      context
-    );
+    bodyParams['Tags'] = serializeAws_json1_1UserPoolTagsType(input.Tags, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UntagResourceRequest = (
   input: UntagResourceRequest,
@@ -16672,16 +13103,13 @@ const serializeAws_json1_1UntagResourceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
-    bodyParams["ResourceArn"] = input.ResourceArn;
+    bodyParams['ResourceArn'] = input.ResourceArn;
   }
   if (input.TagKeys !== undefined) {
-    bodyParams["TagKeys"] = serializeAws_json1_1UserPoolTagsListType(
-      input.TagKeys,
-      context
-    );
+    bodyParams['TagKeys'] = serializeAws_json1_1UserPoolTagsListType(input.TagKeys, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateAuthEventFeedbackRequest = (
   input: UpdateAuthEventFeedbackRequest,
@@ -16689,22 +13117,22 @@ const serializeAws_json1_1UpdateAuthEventFeedbackRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.EventId !== undefined) {
-    bodyParams["EventId"] = input.EventId;
+    bodyParams['EventId'] = input.EventId;
   }
   if (input.FeedbackToken !== undefined) {
-    bodyParams["FeedbackToken"] = input.FeedbackToken;
+    bodyParams['FeedbackToken'] = input.FeedbackToken;
   }
   if (input.FeedbackValue !== undefined) {
-    bodyParams["FeedbackValue"] = input.FeedbackValue;
+    bodyParams['FeedbackValue'] = input.FeedbackValue;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateDeviceStatusRequest = (
   input: UpdateDeviceStatusRequest,
@@ -16712,16 +13140,16 @@ const serializeAws_json1_1UpdateDeviceStatusRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AccessToken !== undefined) {
-    bodyParams["AccessToken"] = input.AccessToken;
+    bodyParams['AccessToken'] = input.AccessToken;
   }
   if (input.DeviceKey !== undefined) {
-    bodyParams["DeviceKey"] = input.DeviceKey;
+    bodyParams['DeviceKey'] = input.DeviceKey;
   }
   if (input.DeviceRememberedStatus !== undefined) {
-    bodyParams["DeviceRememberedStatus"] = input.DeviceRememberedStatus;
+    bodyParams['DeviceRememberedStatus'] = input.DeviceRememberedStatus;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateGroupRequest = (
   input: UpdateGroupRequest,
@@ -16729,22 +13157,22 @@ const serializeAws_json1_1UpdateGroupRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
+    bodyParams['Description'] = input.Description;
   }
   if (input.GroupName !== undefined) {
-    bodyParams["GroupName"] = input.GroupName;
+    bodyParams['GroupName'] = input.GroupName;
   }
   if (input.Precedence !== undefined) {
-    bodyParams["Precedence"] = input.Precedence;
+    bodyParams['Precedence'] = input.Precedence;
   }
   if (input.RoleArn !== undefined) {
-    bodyParams["RoleArn"] = input.RoleArn;
+    bodyParams['RoleArn'] = input.RoleArn;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateIdentityProviderRequest = (
   input: UpdateIdentityProviderRequest,
@@ -16752,31 +13180,22 @@ const serializeAws_json1_1UpdateIdentityProviderRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AttributeMapping !== undefined) {
-    bodyParams["AttributeMapping"] = serializeAws_json1_1AttributeMappingType(
-      input.AttributeMapping,
-      context
-    );
+    bodyParams['AttributeMapping'] = serializeAws_json1_1AttributeMappingType(input.AttributeMapping, context);
   }
   if (input.IdpIdentifiers !== undefined) {
-    bodyParams["IdpIdentifiers"] = serializeAws_json1_1IdpIdentifiersListType(
-      input.IdpIdentifiers,
-      context
-    );
+    bodyParams['IdpIdentifiers'] = serializeAws_json1_1IdpIdentifiersListType(input.IdpIdentifiers, context);
   }
   if (input.ProviderDetails !== undefined) {
-    bodyParams["ProviderDetails"] = serializeAws_json1_1ProviderDetailsType(
-      input.ProviderDetails,
-      context
-    );
+    bodyParams['ProviderDetails'] = serializeAws_json1_1ProviderDetailsType(input.ProviderDetails, context);
   }
   if (input.ProviderName !== undefined) {
-    bodyParams["ProviderName"] = input.ProviderName;
+    bodyParams['ProviderName'] = input.ProviderName;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateResourceServerRequest = (
   input: UpdateResourceServerRequest,
@@ -16784,22 +13203,19 @@ const serializeAws_json1_1UpdateResourceServerRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Identifier !== undefined) {
-    bodyParams["Identifier"] = input.Identifier;
+    bodyParams['Identifier'] = input.Identifier;
   }
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.Scopes !== undefined) {
-    bodyParams["Scopes"] = serializeAws_json1_1ResourceServerScopeListType(
-      input.Scopes,
-      context
-    );
+    bodyParams['Scopes'] = serializeAws_json1_1ResourceServerScopeListType(input.Scopes, context);
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateUserAttributesRequest = (
   input: UpdateUserAttributesRequest,
@@ -16807,22 +13223,16 @@ const serializeAws_json1_1UpdateUserAttributesRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AccessToken !== undefined) {
-    bodyParams["AccessToken"] = input.AccessToken;
+    bodyParams['AccessToken'] = input.AccessToken;
   }
   if (input.ClientMetadata !== undefined) {
-    bodyParams["ClientMetadata"] = serializeAws_json1_1ClientMetadataType(
-      input.ClientMetadata,
-      context
-    );
+    bodyParams['ClientMetadata'] = serializeAws_json1_1ClientMetadataType(input.ClientMetadata, context);
   }
   if (input.UserAttributes !== undefined) {
-    bodyParams["UserAttributes"] = serializeAws_json1_1AttributeListType(
-      input.UserAttributes,
-      context
-    );
+    bodyParams['UserAttributes'] = serializeAws_json1_1AttributeListType(input.UserAttributes, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateUserPoolClientRequest = (
   input: UpdateUserPoolClientRequest,
@@ -16830,91 +13240,55 @@ const serializeAws_json1_1UpdateUserPoolClientRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AllowedOAuthFlows !== undefined) {
-    bodyParams["AllowedOAuthFlows"] = serializeAws_json1_1OAuthFlowsType(
-      input.AllowedOAuthFlows,
-      context
-    );
+    bodyParams['AllowedOAuthFlows'] = serializeAws_json1_1OAuthFlowsType(input.AllowedOAuthFlows, context);
   }
   if (input.AllowedOAuthFlowsUserPoolClient !== undefined) {
-    bodyParams["AllowedOAuthFlowsUserPoolClient"] =
-      input.AllowedOAuthFlowsUserPoolClient;
+    bodyParams['AllowedOAuthFlowsUserPoolClient'] = input.AllowedOAuthFlowsUserPoolClient;
   }
   if (input.AllowedOAuthScopes !== undefined) {
-    bodyParams["AllowedOAuthScopes"] = serializeAws_json1_1ScopeListType(
-      input.AllowedOAuthScopes,
-      context
-    );
+    bodyParams['AllowedOAuthScopes'] = serializeAws_json1_1ScopeListType(input.AllowedOAuthScopes, context);
   }
   if (input.AnalyticsConfiguration !== undefined) {
-    bodyParams[
-      "AnalyticsConfiguration"
-    ] = serializeAws_json1_1AnalyticsConfigurationType(
-      input.AnalyticsConfiguration,
-      context
-    );
+    bodyParams['AnalyticsConfiguration'] = serializeAws_json1_1AnalyticsConfigurationType(input.AnalyticsConfiguration, context);
   }
   if (input.CallbackURLs !== undefined) {
-    bodyParams["CallbackURLs"] = serializeAws_json1_1CallbackURLsListType(
-      input.CallbackURLs,
-      context
-    );
+    bodyParams['CallbackURLs'] = serializeAws_json1_1CallbackURLsListType(input.CallbackURLs, context);
   }
   if (input.ClientId !== undefined) {
-    bodyParams["ClientId"] = input.ClientId;
+    bodyParams['ClientId'] = input.ClientId;
   }
   if (input.ClientName !== undefined) {
-    bodyParams["ClientName"] = input.ClientName;
+    bodyParams['ClientName'] = input.ClientName;
   }
   if (input.DefaultRedirectURI !== undefined) {
-    bodyParams["DefaultRedirectURI"] = input.DefaultRedirectURI;
+    bodyParams['DefaultRedirectURI'] = input.DefaultRedirectURI;
   }
   if (input.ExplicitAuthFlows !== undefined) {
-    bodyParams[
-      "ExplicitAuthFlows"
-    ] = serializeAws_json1_1ExplicitAuthFlowsListType(
-      input.ExplicitAuthFlows,
-      context
-    );
+    bodyParams['ExplicitAuthFlows'] = serializeAws_json1_1ExplicitAuthFlowsListType(input.ExplicitAuthFlows, context);
   }
   if (input.LogoutURLs !== undefined) {
-    bodyParams["LogoutURLs"] = serializeAws_json1_1LogoutURLsListType(
-      input.LogoutURLs,
-      context
-    );
+    bodyParams['LogoutURLs'] = serializeAws_json1_1LogoutURLsListType(input.LogoutURLs, context);
   }
   if (input.PreventUserExistenceErrors !== undefined) {
-    bodyParams["PreventUserExistenceErrors"] = input.PreventUserExistenceErrors;
+    bodyParams['PreventUserExistenceErrors'] = input.PreventUserExistenceErrors;
   }
   if (input.ReadAttributes !== undefined) {
-    bodyParams["ReadAttributes"] = serializeAws_json1_1ClientPermissionListType(
-      input.ReadAttributes,
-      context
-    );
+    bodyParams['ReadAttributes'] = serializeAws_json1_1ClientPermissionListType(input.ReadAttributes, context);
   }
   if (input.RefreshTokenValidity !== undefined) {
-    bodyParams["RefreshTokenValidity"] = input.RefreshTokenValidity;
+    bodyParams['RefreshTokenValidity'] = input.RefreshTokenValidity;
   }
   if (input.SupportedIdentityProviders !== undefined) {
-    bodyParams[
-      "SupportedIdentityProviders"
-    ] = serializeAws_json1_1SupportedIdentityProvidersListType(
-      input.SupportedIdentityProviders,
-      context
-    );
+    bodyParams['SupportedIdentityProviders'] = serializeAws_json1_1SupportedIdentityProvidersListType(input.SupportedIdentityProviders, context);
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   if (input.WriteAttributes !== undefined) {
-    bodyParams[
-      "WriteAttributes"
-    ] = serializeAws_json1_1ClientPermissionListType(
-      input.WriteAttributes,
-      context
-    );
+    bodyParams['WriteAttributes'] = serializeAws_json1_1ClientPermissionListType(input.WriteAttributes, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateUserPoolDomainRequest = (
   input: UpdateUserPoolDomainRequest,
@@ -16922,21 +13296,16 @@ const serializeAws_json1_1UpdateUserPoolDomainRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.CustomDomainConfig !== undefined) {
-    bodyParams[
-      "CustomDomainConfig"
-    ] = serializeAws_json1_1CustomDomainConfigType(
-      input.CustomDomainConfig,
-      context
-    );
+    bodyParams['CustomDomainConfig'] = serializeAws_json1_1CustomDomainConfigType(input.CustomDomainConfig, context);
   }
   if (input.Domain !== undefined) {
-    bodyParams["Domain"] = input.Domain;
+    bodyParams['Domain'] = input.Domain;
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UpdateUserPoolRequest = (
   input: UpdateUserPoolRequest,
@@ -16944,103 +13313,58 @@ const serializeAws_json1_1UpdateUserPoolRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AccountRecoverySetting !== undefined) {
-    bodyParams[
-      "AccountRecoverySetting"
-    ] = serializeAws_json1_1AccountRecoverySettingType(
-      input.AccountRecoverySetting,
-      context
-    );
+    bodyParams['AccountRecoverySetting'] = serializeAws_json1_1AccountRecoverySettingType(input.AccountRecoverySetting, context);
   }
   if (input.AdminCreateUserConfig !== undefined) {
-    bodyParams[
-      "AdminCreateUserConfig"
-    ] = serializeAws_json1_1AdminCreateUserConfigType(
-      input.AdminCreateUserConfig,
-      context
-    );
+    bodyParams['AdminCreateUserConfig'] = serializeAws_json1_1AdminCreateUserConfigType(input.AdminCreateUserConfig, context);
   }
   if (input.AutoVerifiedAttributes !== undefined) {
-    bodyParams[
-      "AutoVerifiedAttributes"
-    ] = serializeAws_json1_1VerifiedAttributesListType(
-      input.AutoVerifiedAttributes,
-      context
-    );
+    bodyParams['AutoVerifiedAttributes'] = serializeAws_json1_1VerifiedAttributesListType(input.AutoVerifiedAttributes, context);
   }
   if (input.DeviceConfiguration !== undefined) {
-    bodyParams[
-      "DeviceConfiguration"
-    ] = serializeAws_json1_1DeviceConfigurationType(
-      input.DeviceConfiguration,
-      context
-    );
+    bodyParams['DeviceConfiguration'] = serializeAws_json1_1DeviceConfigurationType(input.DeviceConfiguration, context);
   }
   if (input.EmailConfiguration !== undefined) {
-    bodyParams[
-      "EmailConfiguration"
-    ] = serializeAws_json1_1EmailConfigurationType(
-      input.EmailConfiguration,
-      context
-    );
+    bodyParams['EmailConfiguration'] = serializeAws_json1_1EmailConfigurationType(input.EmailConfiguration, context);
   }
   if (input.EmailVerificationMessage !== undefined) {
-    bodyParams["EmailVerificationMessage"] = input.EmailVerificationMessage;
+    bodyParams['EmailVerificationMessage'] = input.EmailVerificationMessage;
   }
   if (input.EmailVerificationSubject !== undefined) {
-    bodyParams["EmailVerificationSubject"] = input.EmailVerificationSubject;
+    bodyParams['EmailVerificationSubject'] = input.EmailVerificationSubject;
   }
   if (input.LambdaConfig !== undefined) {
-    bodyParams["LambdaConfig"] = serializeAws_json1_1LambdaConfigType(
-      input.LambdaConfig,
-      context
-    );
+    bodyParams['LambdaConfig'] = serializeAws_json1_1LambdaConfigType(input.LambdaConfig, context);
   }
   if (input.MfaConfiguration !== undefined) {
-    bodyParams["MfaConfiguration"] = input.MfaConfiguration;
+    bodyParams['MfaConfiguration'] = input.MfaConfiguration;
   }
   if (input.Policies !== undefined) {
-    bodyParams["Policies"] = serializeAws_json1_1UserPoolPolicyType(
-      input.Policies,
-      context
-    );
+    bodyParams['Policies'] = serializeAws_json1_1UserPoolPolicyType(input.Policies, context);
   }
   if (input.SmsAuthenticationMessage !== undefined) {
-    bodyParams["SmsAuthenticationMessage"] = input.SmsAuthenticationMessage;
+    bodyParams['SmsAuthenticationMessage'] = input.SmsAuthenticationMessage;
   }
   if (input.SmsConfiguration !== undefined) {
-    bodyParams["SmsConfiguration"] = serializeAws_json1_1SmsConfigurationType(
-      input.SmsConfiguration,
-      context
-    );
+    bodyParams['SmsConfiguration'] = serializeAws_json1_1SmsConfigurationType(input.SmsConfiguration, context);
   }
   if (input.SmsVerificationMessage !== undefined) {
-    bodyParams["SmsVerificationMessage"] = input.SmsVerificationMessage;
+    bodyParams['SmsVerificationMessage'] = input.SmsVerificationMessage;
   }
   if (input.UserPoolAddOns !== undefined) {
-    bodyParams["UserPoolAddOns"] = serializeAws_json1_1UserPoolAddOnsType(
-      input.UserPoolAddOns,
-      context
-    );
+    bodyParams['UserPoolAddOns'] = serializeAws_json1_1UserPoolAddOnsType(input.UserPoolAddOns, context);
   }
   if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
+    bodyParams['UserPoolId'] = input.UserPoolId;
   }
   if (input.UserPoolTags !== undefined) {
-    bodyParams["UserPoolTags"] = serializeAws_json1_1UserPoolTagsType(
-      input.UserPoolTags,
-      context
-    );
+    bodyParams['UserPoolTags'] = serializeAws_json1_1UserPoolTagsType(input.UserPoolTags, context);
   }
   if (input.VerificationMessageTemplate !== undefined) {
-    bodyParams[
-      "VerificationMessageTemplate"
-    ] = serializeAws_json1_1VerificationMessageTemplateType(
-      input.VerificationMessageTemplate,
-      context
-    );
+    bodyParams['VerificationMessageTemplate'] = serializeAws_json1_1VerificationMessageTemplateType(input.VerificationMessageTemplate, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UserContextDataType = (
   input: UserContextDataType,
@@ -17048,10 +13372,10 @@ const serializeAws_json1_1UserContextDataType = (
 ): any => {
   let bodyParams: any = {};
   if (input.EncodedData !== undefined) {
-    bodyParams["EncodedData"] = input.EncodedData;
+    bodyParams['EncodedData'] = input.EncodedData;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UserPoolAddOnsType = (
   input: UserPoolAddOnsType,
@@ -17059,10 +13383,10 @@ const serializeAws_json1_1UserPoolAddOnsType = (
 ): any => {
   let bodyParams: any = {};
   if (input.AdvancedSecurityMode !== undefined) {
-    bodyParams["AdvancedSecurityMode"] = input.AdvancedSecurityMode;
+    bodyParams['AdvancedSecurityMode'] = input.AdvancedSecurityMode;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UserPoolPolicyType = (
   input: UserPoolPolicyType,
@@ -17070,20 +13394,19 @@ const serializeAws_json1_1UserPoolPolicyType = (
 ): any => {
   let bodyParams: any = {};
   if (input.PasswordPolicy !== undefined) {
-    bodyParams["PasswordPolicy"] = serializeAws_json1_1PasswordPolicyType(
-      input.PasswordPolicy,
-      context
-    );
+    bodyParams['PasswordPolicy'] = serializeAws_json1_1PasswordPolicyType(input.PasswordPolicy, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1UserPoolTagsListType = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1UserPoolTagsType = (
   input: { [key: string]: string },
@@ -17094,14 +13417,16 @@ const serializeAws_json1_1UserPoolTagsType = (
     mapParams[key] = input[key];
   });
   return mapParams;
-};
+}
 
 const serializeAws_json1_1UsernameAttributesListType = (
   input: Array<UsernameAttributeType | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1VerificationMessageTemplateType = (
   input: VerificationMessageTemplateType,
@@ -17109,32 +13434,34 @@ const serializeAws_json1_1VerificationMessageTemplateType = (
 ): any => {
   let bodyParams: any = {};
   if (input.DefaultEmailOption !== undefined) {
-    bodyParams["DefaultEmailOption"] = input.DefaultEmailOption;
+    bodyParams['DefaultEmailOption'] = input.DefaultEmailOption;
   }
   if (input.EmailMessage !== undefined) {
-    bodyParams["EmailMessage"] = input.EmailMessage;
+    bodyParams['EmailMessage'] = input.EmailMessage;
   }
   if (input.EmailMessageByLink !== undefined) {
-    bodyParams["EmailMessageByLink"] = input.EmailMessageByLink;
+    bodyParams['EmailMessageByLink'] = input.EmailMessageByLink;
   }
   if (input.EmailSubject !== undefined) {
-    bodyParams["EmailSubject"] = input.EmailSubject;
+    bodyParams['EmailSubject'] = input.EmailSubject;
   }
   if (input.EmailSubjectByLink !== undefined) {
-    bodyParams["EmailSubjectByLink"] = input.EmailSubjectByLink;
+    bodyParams['EmailSubjectByLink'] = input.EmailSubjectByLink;
   }
   if (input.SmsMessage !== undefined) {
-    bodyParams["SmsMessage"] = input.SmsMessage;
+    bodyParams['SmsMessage'] = input.SmsMessage;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1VerifiedAttributesListType = (
   input: Array<VerifiedAttributeType | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_json1_1VerifySoftwareTokenRequest = (
   input: VerifySoftwareTokenRequest,
@@ -17142,19 +13469,19 @@ const serializeAws_json1_1VerifySoftwareTokenRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AccessToken !== undefined) {
-    bodyParams["AccessToken"] = input.AccessToken;
+    bodyParams['AccessToken'] = input.AccessToken;
   }
   if (input.FriendlyDeviceName !== undefined) {
-    bodyParams["FriendlyDeviceName"] = input.FriendlyDeviceName;
+    bodyParams['FriendlyDeviceName'] = input.FriendlyDeviceName;
   }
   if (input.Session !== undefined) {
-    bodyParams["Session"] = input.Session;
+    bodyParams['Session'] = input.Session;
   }
   if (input.UserCode !== undefined) {
-    bodyParams["UserCode"] = input.UserCode;
+    bodyParams['UserCode'] = input.UserCode;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_json1_1VerifyUserAttributeRequest = (
   input: VerifyUserAttributeRequest,
@@ -17162,16 +13489,16 @@ const serializeAws_json1_1VerifyUserAttributeRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AccessToken !== undefined) {
-    bodyParams["AccessToken"] = input.AccessToken;
+    bodyParams['AccessToken'] = input.AccessToken;
   }
   if (input.AttributeName !== undefined) {
-    bodyParams["AttributeName"] = input.AttributeName;
+    bodyParams['AttributeName'] = input.AttributeName;
   }
   if (input.Code !== undefined) {
-    bodyParams["Code"] = input.Code;
+    bodyParams['Code'] = input.Code;
   }
   return bodyParams;
-};
+}
 
 const deserializeAws_json1_1AccountRecoverySettingType = (
   output: any,
@@ -17179,16 +13506,13 @@ const deserializeAws_json1_1AccountRecoverySettingType = (
 ): AccountRecoverySettingType => {
   let contents: any = {
     __type: "AccountRecoverySettingType",
-    RecoveryMechanisms: undefined
+    RecoveryMechanisms: undefined,
   };
   if (output.RecoveryMechanisms !== undefined) {
-    contents.RecoveryMechanisms = deserializeAws_json1_1RecoveryMechanismsType(
-      output.RecoveryMechanisms,
-      context
-    );
+    contents.RecoveryMechanisms = deserializeAws_json1_1RecoveryMechanismsType(output.RecoveryMechanisms, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AccountTakeoverActionType = (
   output: any,
@@ -17197,7 +13521,7 @@ const deserializeAws_json1_1AccountTakeoverActionType = (
   let contents: any = {
     __type: "AccountTakeoverActionType",
     EventAction: undefined,
-    Notify: undefined
+    Notify: undefined,
   };
   if (output.EventAction !== undefined) {
     contents.EventAction = output.EventAction;
@@ -17206,7 +13530,7 @@ const deserializeAws_json1_1AccountTakeoverActionType = (
     contents.Notify = output.Notify;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AccountTakeoverActionsType = (
   output: any,
@@ -17216,28 +13540,19 @@ const deserializeAws_json1_1AccountTakeoverActionsType = (
     __type: "AccountTakeoverActionsType",
     HighAction: undefined,
     LowAction: undefined,
-    MediumAction: undefined
+    MediumAction: undefined,
   };
   if (output.HighAction !== undefined) {
-    contents.HighAction = deserializeAws_json1_1AccountTakeoverActionType(
-      output.HighAction,
-      context
-    );
+    contents.HighAction = deserializeAws_json1_1AccountTakeoverActionType(output.HighAction, context);
   }
   if (output.LowAction !== undefined) {
-    contents.LowAction = deserializeAws_json1_1AccountTakeoverActionType(
-      output.LowAction,
-      context
-    );
+    contents.LowAction = deserializeAws_json1_1AccountTakeoverActionType(output.LowAction, context);
   }
   if (output.MediumAction !== undefined) {
-    contents.MediumAction = deserializeAws_json1_1AccountTakeoverActionType(
-      output.MediumAction,
-      context
-    );
+    contents.MediumAction = deserializeAws_json1_1AccountTakeoverActionType(output.MediumAction, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AccountTakeoverRiskConfigurationType = (
   output: any,
@@ -17246,42 +13561,36 @@ const deserializeAws_json1_1AccountTakeoverRiskConfigurationType = (
   let contents: any = {
     __type: "AccountTakeoverRiskConfigurationType",
     Actions: undefined,
-    NotifyConfiguration: undefined
+    NotifyConfiguration: undefined,
   };
   if (output.Actions !== undefined) {
-    contents.Actions = deserializeAws_json1_1AccountTakeoverActionsType(
-      output.Actions,
-      context
-    );
+    contents.Actions = deserializeAws_json1_1AccountTakeoverActionsType(output.Actions, context);
   }
   if (output.NotifyConfiguration !== undefined) {
-    contents.NotifyConfiguration = deserializeAws_json1_1NotifyConfigurationType(
-      output.NotifyConfiguration,
-      context
-    );
+    contents.NotifyConfiguration = deserializeAws_json1_1NotifyConfigurationType(output.NotifyConfiguration, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AddCustomAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): AddCustomAttributesResponse => {
   let contents: any = {
-    __type: "AddCustomAttributesResponse"
+    __type: "AddCustomAttributesResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1AdminConfirmSignUpResponse = (
   output: any,
   context: __SerdeContext
 ): AdminConfirmSignUpResponse => {
   let contents: any = {
-    __type: "AdminConfirmSignUpResponse"
+    __type: "AdminConfirmSignUpResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1AdminCreateUserConfigType = (
   output: any,
@@ -17291,22 +13600,19 @@ const deserializeAws_json1_1AdminCreateUserConfigType = (
     __type: "AdminCreateUserConfigType",
     AllowAdminCreateUserOnly: undefined,
     InviteMessageTemplate: undefined,
-    UnusedAccountValidityDays: undefined
+    UnusedAccountValidityDays: undefined,
   };
   if (output.AllowAdminCreateUserOnly !== undefined) {
     contents.AllowAdminCreateUserOnly = output.AllowAdminCreateUserOnly;
   }
   if (output.InviteMessageTemplate !== undefined) {
-    contents.InviteMessageTemplate = deserializeAws_json1_1MessageTemplateType(
-      output.InviteMessageTemplate,
-      context
-    );
+    contents.InviteMessageTemplate = deserializeAws_json1_1MessageTemplateType(output.InviteMessageTemplate, context);
   }
   if (output.UnusedAccountValidityDays !== undefined) {
     contents.UnusedAccountValidityDays = output.UnusedAccountValidityDays;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AdminCreateUserResponse = (
   output: any,
@@ -17314,53 +13620,53 @@ const deserializeAws_json1_1AdminCreateUserResponse = (
 ): AdminCreateUserResponse => {
   let contents: any = {
     __type: "AdminCreateUserResponse",
-    User: undefined
+    User: undefined,
   };
   if (output.User !== undefined) {
     contents.User = deserializeAws_json1_1UserType(output.User, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AdminDeleteUserAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): AdminDeleteUserAttributesResponse => {
   let contents: any = {
-    __type: "AdminDeleteUserAttributesResponse"
+    __type: "AdminDeleteUserAttributesResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1AdminDisableProviderForUserResponse = (
   output: any,
   context: __SerdeContext
 ): AdminDisableProviderForUserResponse => {
   let contents: any = {
-    __type: "AdminDisableProviderForUserResponse"
+    __type: "AdminDisableProviderForUserResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1AdminDisableUserResponse = (
   output: any,
   context: __SerdeContext
 ): AdminDisableUserResponse => {
   let contents: any = {
-    __type: "AdminDisableUserResponse"
+    __type: "AdminDisableUserResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1AdminEnableUserResponse = (
   output: any,
   context: __SerdeContext
 ): AdminEnableUserResponse => {
   let contents: any = {
-    __type: "AdminEnableUserResponse"
+    __type: "AdminEnableUserResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1AdminGetDeviceResponse = (
   output: any,
@@ -17368,13 +13674,13 @@ const deserializeAws_json1_1AdminGetDeviceResponse = (
 ): AdminGetDeviceResponse => {
   let contents: any = {
     __type: "AdminGetDeviceResponse",
-    Device: undefined
+    Device: undefined,
   };
   if (output.Device !== undefined) {
     contents.Device = deserializeAws_json1_1DeviceType(output.Device, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AdminGetUserResponse = (
   output: any,
@@ -17390,45 +13696,28 @@ const deserializeAws_json1_1AdminGetUserResponse = (
     UserLastModifiedDate: undefined,
     UserMFASettingList: undefined,
     UserStatus: undefined,
-    Username: undefined
+    Username: undefined,
   };
   if (output.Enabled !== undefined) {
     contents.Enabled = output.Enabled;
   }
   if (output.MFAOptions !== undefined) {
-    contents.MFAOptions = deserializeAws_json1_1MFAOptionListType(
-      output.MFAOptions,
-      context
-    );
+    contents.MFAOptions = deserializeAws_json1_1MFAOptionListType(output.MFAOptions, context);
   }
   if (output.PreferredMfaSetting !== undefined) {
     contents.PreferredMfaSetting = output.PreferredMfaSetting;
   }
   if (output.UserAttributes !== undefined) {
-    contents.UserAttributes = deserializeAws_json1_1AttributeListType(
-      output.UserAttributes,
-      context
-    );
+    contents.UserAttributes = deserializeAws_json1_1AttributeListType(output.UserAttributes, context);
   }
   if (output.UserCreateDate !== undefined) {
-    contents.UserCreateDate = new Date(
-      output.UserCreateDate % 1 != 0
-        ? Math.round(output.UserCreateDate * 1000)
-        : output.UserCreateDate
-    );
+    contents.UserCreateDate = new Date(output.UserCreateDate % 1 != 0 ? Math.round(output.UserCreateDate * 1000) : output.UserCreateDate);
   }
   if (output.UserLastModifiedDate !== undefined) {
-    contents.UserLastModifiedDate = new Date(
-      output.UserLastModifiedDate % 1 != 0
-        ? Math.round(output.UserLastModifiedDate * 1000)
-        : output.UserLastModifiedDate
-    );
+    contents.UserLastModifiedDate = new Date(output.UserLastModifiedDate % 1 != 0 ? Math.round(output.UserLastModifiedDate * 1000) : output.UserLastModifiedDate);
   }
   if (output.UserMFASettingList !== undefined) {
-    contents.UserMFASettingList = deserializeAws_json1_1UserMFASettingListType(
-      output.UserMFASettingList,
-      context
-    );
+    contents.UserMFASettingList = deserializeAws_json1_1UserMFASettingListType(output.UserMFASettingList, context);
   }
   if (output.UserStatus !== undefined) {
     contents.UserStatus = output.UserStatus;
@@ -17437,7 +13726,7 @@ const deserializeAws_json1_1AdminGetUserResponse = (
     contents.Username = output.Username;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AdminInitiateAuthResponse = (
   output: any,
@@ -17448,38 +13737,32 @@ const deserializeAws_json1_1AdminInitiateAuthResponse = (
     AuthenticationResult: undefined,
     ChallengeName: undefined,
     ChallengeParameters: undefined,
-    Session: undefined
+    Session: undefined,
   };
   if (output.AuthenticationResult !== undefined) {
-    contents.AuthenticationResult = deserializeAws_json1_1AuthenticationResultType(
-      output.AuthenticationResult,
-      context
-    );
+    contents.AuthenticationResult = deserializeAws_json1_1AuthenticationResultType(output.AuthenticationResult, context);
   }
   if (output.ChallengeName !== undefined) {
     contents.ChallengeName = output.ChallengeName;
   }
   if (output.ChallengeParameters !== undefined) {
-    contents.ChallengeParameters = deserializeAws_json1_1ChallengeParametersType(
-      output.ChallengeParameters,
-      context
-    );
+    contents.ChallengeParameters = deserializeAws_json1_1ChallengeParametersType(output.ChallengeParameters, context);
   }
   if (output.Session !== undefined) {
     contents.Session = output.Session;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AdminLinkProviderForUserResponse = (
   output: any,
   context: __SerdeContext
 ): AdminLinkProviderForUserResponse => {
   let contents: any = {
-    __type: "AdminLinkProviderForUserResponse"
+    __type: "AdminLinkProviderForUserResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1AdminListDevicesResponse = (
   output: any,
@@ -17488,19 +13771,16 @@ const deserializeAws_json1_1AdminListDevicesResponse = (
   let contents: any = {
     __type: "AdminListDevicesResponse",
     Devices: undefined,
-    PaginationToken: undefined
+    PaginationToken: undefined,
   };
   if (output.Devices !== undefined) {
-    contents.Devices = deserializeAws_json1_1DeviceListType(
-      output.Devices,
-      context
-    );
+    contents.Devices = deserializeAws_json1_1DeviceListType(output.Devices, context);
   }
   if (output.PaginationToken !== undefined) {
     contents.PaginationToken = output.PaginationToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AdminListGroupsForUserResponse = (
   output: any,
@@ -17509,19 +13789,16 @@ const deserializeAws_json1_1AdminListGroupsForUserResponse = (
   let contents: any = {
     __type: "AdminListGroupsForUserResponse",
     Groups: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.Groups !== undefined) {
-    contents.Groups = deserializeAws_json1_1GroupListType(
-      output.Groups,
-      context
-    );
+    contents.Groups = deserializeAws_json1_1GroupListType(output.Groups, context);
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AdminListUserAuthEventsResponse = (
   output: any,
@@ -17530,29 +13807,26 @@ const deserializeAws_json1_1AdminListUserAuthEventsResponse = (
   let contents: any = {
     __type: "AdminListUserAuthEventsResponse",
     AuthEvents: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.AuthEvents !== undefined) {
-    contents.AuthEvents = deserializeAws_json1_1AuthEventsType(
-      output.AuthEvents,
-      context
-    );
+    contents.AuthEvents = deserializeAws_json1_1AuthEventsType(output.AuthEvents, context);
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AdminResetUserPasswordResponse = (
   output: any,
   context: __SerdeContext
 ): AdminResetUserPasswordResponse => {
   let contents: any = {
-    __type: "AdminResetUserPasswordResponse"
+    __type: "AdminResetUserPasswordResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1AdminRespondToAuthChallengeResponse = (
   output: any,
@@ -17563,105 +13837,101 @@ const deserializeAws_json1_1AdminRespondToAuthChallengeResponse = (
     AuthenticationResult: undefined,
     ChallengeName: undefined,
     ChallengeParameters: undefined,
-    Session: undefined
+    Session: undefined,
   };
   if (output.AuthenticationResult !== undefined) {
-    contents.AuthenticationResult = deserializeAws_json1_1AuthenticationResultType(
-      output.AuthenticationResult,
-      context
-    );
+    contents.AuthenticationResult = deserializeAws_json1_1AuthenticationResultType(output.AuthenticationResult, context);
   }
   if (output.ChallengeName !== undefined) {
     contents.ChallengeName = output.ChallengeName;
   }
   if (output.ChallengeParameters !== undefined) {
-    contents.ChallengeParameters = deserializeAws_json1_1ChallengeParametersType(
-      output.ChallengeParameters,
-      context
-    );
+    contents.ChallengeParameters = deserializeAws_json1_1ChallengeParametersType(output.ChallengeParameters, context);
   }
   if (output.Session !== undefined) {
     contents.Session = output.Session;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AdminSetUserMFAPreferenceResponse = (
   output: any,
   context: __SerdeContext
 ): AdminSetUserMFAPreferenceResponse => {
   let contents: any = {
-    __type: "AdminSetUserMFAPreferenceResponse"
+    __type: "AdminSetUserMFAPreferenceResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1AdminSetUserPasswordResponse = (
   output: any,
   context: __SerdeContext
 ): AdminSetUserPasswordResponse => {
   let contents: any = {
-    __type: "AdminSetUserPasswordResponse"
+    __type: "AdminSetUserPasswordResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1AdminSetUserSettingsResponse = (
   output: any,
   context: __SerdeContext
 ): AdminSetUserSettingsResponse => {
   let contents: any = {
-    __type: "AdminSetUserSettingsResponse"
+    __type: "AdminSetUserSettingsResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1AdminUpdateAuthEventFeedbackResponse = (
   output: any,
   context: __SerdeContext
 ): AdminUpdateAuthEventFeedbackResponse => {
   let contents: any = {
-    __type: "AdminUpdateAuthEventFeedbackResponse"
+    __type: "AdminUpdateAuthEventFeedbackResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1AdminUpdateDeviceStatusResponse = (
   output: any,
   context: __SerdeContext
 ): AdminUpdateDeviceStatusResponse => {
   let contents: any = {
-    __type: "AdminUpdateDeviceStatusResponse"
+    __type: "AdminUpdateDeviceStatusResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1AdminUpdateUserAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): AdminUpdateUserAttributesResponse => {
   let contents: any = {
-    __type: "AdminUpdateUserAttributesResponse"
+    __type: "AdminUpdateUserAttributesResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1AdminUserGlobalSignOutResponse = (
   output: any,
   context: __SerdeContext
 ): AdminUserGlobalSignOutResponse => {
   let contents: any = {
-    __type: "AdminUserGlobalSignOutResponse"
+    __type: "AdminUserGlobalSignOutResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1AliasAttributesListType = (
   output: any,
   context: __SerdeContext
 ): Array<AliasAttributeType | string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1AliasExistsException = (
   output: any,
@@ -17669,13 +13939,13 @@ const deserializeAws_json1_1AliasExistsException = (
 ): AliasExistsException => {
   let contents: any = {
     __type: "AliasExistsException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AnalyticsConfigurationType = (
   output: any,
@@ -17686,7 +13956,7 @@ const deserializeAws_json1_1AnalyticsConfigurationType = (
     ApplicationId: undefined,
     ExternalId: undefined,
     RoleArn: undefined,
-    UserDataShared: undefined
+    UserDataShared: undefined,
   };
   if (output.ApplicationId !== undefined) {
     contents.ApplicationId = output.ApplicationId;
@@ -17701,7 +13971,7 @@ const deserializeAws_json1_1AnalyticsConfigurationType = (
     contents.UserDataShared = output.UserDataShared;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AssociateSoftwareTokenResponse = (
   output: any,
@@ -17710,7 +13980,7 @@ const deserializeAws_json1_1AssociateSoftwareTokenResponse = (
   let contents: any = {
     __type: "AssociateSoftwareTokenResponse",
     SecretCode: undefined,
-    Session: undefined
+    Session: undefined,
   };
   if (output.SecretCode !== undefined) {
     contents.SecretCode = output.SecretCode;
@@ -17719,7 +13989,7 @@ const deserializeAws_json1_1AssociateSoftwareTokenResponse = (
     contents.Session = output.Session;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AttributeListType = (
   output: any,
@@ -17728,7 +13998,7 @@ const deserializeAws_json1_1AttributeListType = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AttributeType(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1AttributeMappingType = (
   output: any,
@@ -17739,7 +14009,7 @@ const deserializeAws_json1_1AttributeMappingType = (
     mapParams[key] = output[key];
   });
   return mapParams;
-};
+}
 
 const deserializeAws_json1_1AttributeType = (
   output: any,
@@ -17748,7 +14018,7 @@ const deserializeAws_json1_1AttributeType = (
   let contents: any = {
     __type: "AttributeType",
     Name: undefined,
-    Value: undefined
+    Value: undefined,
   };
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -17757,7 +14027,7 @@ const deserializeAws_json1_1AttributeType = (
     contents.Value = output.Value;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AuthEventType = (
   output: any,
@@ -17772,32 +14042,19 @@ const deserializeAws_json1_1AuthEventType = (
     EventId: undefined,
     EventResponse: undefined,
     EventRisk: undefined,
-    EventType: undefined
+    EventType: undefined,
   };
   if (output.ChallengeResponses !== undefined) {
-    contents.ChallengeResponses = deserializeAws_json1_1ChallengeResponseListType(
-      output.ChallengeResponses,
-      context
-    );
+    contents.ChallengeResponses = deserializeAws_json1_1ChallengeResponseListType(output.ChallengeResponses, context);
   }
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(output.CreationDate % 1 != 0 ? Math.round(output.CreationDate * 1000) : output.CreationDate);
   }
   if (output.EventContextData !== undefined) {
-    contents.EventContextData = deserializeAws_json1_1EventContextDataType(
-      output.EventContextData,
-      context
-    );
+    contents.EventContextData = deserializeAws_json1_1EventContextDataType(output.EventContextData, context);
   }
   if (output.EventFeedback !== undefined) {
-    contents.EventFeedback = deserializeAws_json1_1EventFeedbackType(
-      output.EventFeedback,
-      context
-    );
+    contents.EventFeedback = deserializeAws_json1_1EventFeedbackType(output.EventFeedback, context);
   }
   if (output.EventId !== undefined) {
     contents.EventId = output.EventId;
@@ -17806,16 +14063,13 @@ const deserializeAws_json1_1AuthEventType = (
     contents.EventResponse = output.EventResponse;
   }
   if (output.EventRisk !== undefined) {
-    contents.EventRisk = deserializeAws_json1_1EventRiskType(
-      output.EventRisk,
-      context
-    );
+    contents.EventRisk = deserializeAws_json1_1EventRiskType(output.EventRisk, context);
   }
   if (output.EventType !== undefined) {
     contents.EventType = output.EventType;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1AuthEventsType = (
   output: any,
@@ -17824,7 +14078,7 @@ const deserializeAws_json1_1AuthEventsType = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AuthEventType(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1AuthenticationResultType = (
   output: any,
@@ -17837,7 +14091,7 @@ const deserializeAws_json1_1AuthenticationResultType = (
     IdToken: undefined,
     NewDeviceMetadata: undefined,
     RefreshToken: undefined,
-    TokenType: undefined
+    TokenType: undefined,
   };
   if (output.AccessToken !== undefined) {
     contents.AccessToken = output.AccessToken;
@@ -17849,10 +14103,7 @@ const deserializeAws_json1_1AuthenticationResultType = (
     contents.IdToken = output.IdToken;
   }
   if (output.NewDeviceMetadata !== undefined) {
-    contents.NewDeviceMetadata = deserializeAws_json1_1NewDeviceMetadataType(
-      output.NewDeviceMetadata,
-      context
-    );
+    contents.NewDeviceMetadata = deserializeAws_json1_1NewDeviceMetadataType(output.NewDeviceMetadata, context);
   }
   if (output.RefreshToken !== undefined) {
     contents.RefreshToken = output.RefreshToken;
@@ -17861,21 +14112,25 @@ const deserializeAws_json1_1AuthenticationResultType = (
     contents.TokenType = output.TokenType;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1BlockedIPRangeListType = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1CallbackURLsListType = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1ChallengeParametersType = (
   output: any,
@@ -17886,7 +14141,7 @@ const deserializeAws_json1_1ChallengeParametersType = (
     mapParams[key] = output[key];
   });
   return mapParams;
-};
+}
 
 const deserializeAws_json1_1ChallengeResponseListType = (
   output: any,
@@ -17895,7 +14150,7 @@ const deserializeAws_json1_1ChallengeResponseListType = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ChallengeResponseType(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1ChallengeResponseType = (
   output: any,
@@ -17904,7 +14159,7 @@ const deserializeAws_json1_1ChallengeResponseType = (
   let contents: any = {
     __type: "ChallengeResponseType",
     ChallengeName: undefined,
-    ChallengeResponse: undefined
+    ChallengeResponse: undefined,
   };
   if (output.ChallengeName !== undefined) {
     contents.ChallengeName = output.ChallengeName;
@@ -17913,24 +14168,26 @@ const deserializeAws_json1_1ChallengeResponseType = (
     contents.ChallengeResponse = output.ChallengeResponse;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ChangePasswordResponse = (
   output: any,
   context: __SerdeContext
 ): ChangePasswordResponse => {
   let contents: any = {
-    __type: "ChangePasswordResponse"
+    __type: "ChangePasswordResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1ClientPermissionListType = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1CodeDeliveryDetailsListType = (
   output: any,
@@ -17939,7 +14196,7 @@ const deserializeAws_json1_1CodeDeliveryDetailsListType = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CodeDeliveryDetailsType(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1CodeDeliveryDetailsType = (
   output: any,
@@ -17949,7 +14206,7 @@ const deserializeAws_json1_1CodeDeliveryDetailsType = (
     __type: "CodeDeliveryDetailsType",
     AttributeName: undefined,
     DeliveryMedium: undefined,
-    Destination: undefined
+    Destination: undefined,
   };
   if (output.AttributeName !== undefined) {
     contents.AttributeName = output.AttributeName;
@@ -17961,7 +14218,7 @@ const deserializeAws_json1_1CodeDeliveryDetailsType = (
     contents.Destination = output.Destination;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CodeDeliveryFailureException = (
   output: any,
@@ -17969,13 +14226,13 @@ const deserializeAws_json1_1CodeDeliveryFailureException = (
 ): CodeDeliveryFailureException => {
   let contents: any = {
     __type: "CodeDeliveryFailureException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CodeMismatchException = (
   output: any,
@@ -17983,13 +14240,13 @@ const deserializeAws_json1_1CodeMismatchException = (
 ): CodeMismatchException => {
   let contents: any = {
     __type: "CodeMismatchException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CompromisedCredentialsActionsType = (
   output: any,
@@ -17997,13 +14254,13 @@ const deserializeAws_json1_1CompromisedCredentialsActionsType = (
 ): CompromisedCredentialsActionsType => {
   let contents: any = {
     __type: "CompromisedCredentialsActionsType",
-    EventAction: undefined
+    EventAction: undefined,
   };
   if (output.EventAction !== undefined) {
     contents.EventAction = output.EventAction;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CompromisedCredentialsRiskConfigurationType = (
   output: any,
@@ -18012,22 +14269,16 @@ const deserializeAws_json1_1CompromisedCredentialsRiskConfigurationType = (
   let contents: any = {
     __type: "CompromisedCredentialsRiskConfigurationType",
     Actions: undefined,
-    EventFilter: undefined
+    EventFilter: undefined,
   };
   if (output.Actions !== undefined) {
-    contents.Actions = deserializeAws_json1_1CompromisedCredentialsActionsType(
-      output.Actions,
-      context
-    );
+    contents.Actions = deserializeAws_json1_1CompromisedCredentialsActionsType(output.Actions, context);
   }
   if (output.EventFilter !== undefined) {
-    contents.EventFilter = deserializeAws_json1_1EventFiltersType(
-      output.EventFilter,
-      context
-    );
+    contents.EventFilter = deserializeAws_json1_1EventFiltersType(output.EventFilter, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ConcurrentModificationException = (
   output: any,
@@ -18035,13 +14286,13 @@ const deserializeAws_json1_1ConcurrentModificationException = (
 ): ConcurrentModificationException => {
   let contents: any = {
     __type: "ConcurrentModificationException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ConfirmDeviceResponse = (
   output: any,
@@ -18049,33 +14300,33 @@ const deserializeAws_json1_1ConfirmDeviceResponse = (
 ): ConfirmDeviceResponse => {
   let contents: any = {
     __type: "ConfirmDeviceResponse",
-    UserConfirmationNecessary: undefined
+    UserConfirmationNecessary: undefined,
   };
   if (output.UserConfirmationNecessary !== undefined) {
     contents.UserConfirmationNecessary = output.UserConfirmationNecessary;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ConfirmForgotPasswordResponse = (
   output: any,
   context: __SerdeContext
 ): ConfirmForgotPasswordResponse => {
   let contents: any = {
-    __type: "ConfirmForgotPasswordResponse"
+    __type: "ConfirmForgotPasswordResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1ConfirmSignUpResponse = (
   output: any,
   context: __SerdeContext
 ): ConfirmSignUpResponse => {
   let contents: any = {
-    __type: "ConfirmSignUpResponse"
+    __type: "ConfirmSignUpResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateGroupResponse = (
   output: any,
@@ -18083,13 +14334,13 @@ const deserializeAws_json1_1CreateGroupResponse = (
 ): CreateGroupResponse => {
   let contents: any = {
     __type: "CreateGroupResponse",
-    Group: undefined
+    Group: undefined,
   };
   if (output.Group !== undefined) {
     contents.Group = deserializeAws_json1_1GroupType(output.Group, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateIdentityProviderResponse = (
   output: any,
@@ -18097,16 +14348,13 @@ const deserializeAws_json1_1CreateIdentityProviderResponse = (
 ): CreateIdentityProviderResponse => {
   let contents: any = {
     __type: "CreateIdentityProviderResponse",
-    IdentityProvider: undefined
+    IdentityProvider: undefined,
   };
   if (output.IdentityProvider !== undefined) {
-    contents.IdentityProvider = deserializeAws_json1_1IdentityProviderType(
-      output.IdentityProvider,
-      context
-    );
+    contents.IdentityProvider = deserializeAws_json1_1IdentityProviderType(output.IdentityProvider, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateResourceServerResponse = (
   output: any,
@@ -18114,16 +14362,13 @@ const deserializeAws_json1_1CreateResourceServerResponse = (
 ): CreateResourceServerResponse => {
   let contents: any = {
     __type: "CreateResourceServerResponse",
-    ResourceServer: undefined
+    ResourceServer: undefined,
   };
   if (output.ResourceServer !== undefined) {
-    contents.ResourceServer = deserializeAws_json1_1ResourceServerType(
-      output.ResourceServer,
-      context
-    );
+    contents.ResourceServer = deserializeAws_json1_1ResourceServerType(output.ResourceServer, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateUserImportJobResponse = (
   output: any,
@@ -18131,16 +14376,13 @@ const deserializeAws_json1_1CreateUserImportJobResponse = (
 ): CreateUserImportJobResponse => {
   let contents: any = {
     __type: "CreateUserImportJobResponse",
-    UserImportJob: undefined
+    UserImportJob: undefined,
   };
   if (output.UserImportJob !== undefined) {
-    contents.UserImportJob = deserializeAws_json1_1UserImportJobType(
-      output.UserImportJob,
-      context
-    );
+    contents.UserImportJob = deserializeAws_json1_1UserImportJobType(output.UserImportJob, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateUserPoolClientResponse = (
   output: any,
@@ -18148,16 +14390,13 @@ const deserializeAws_json1_1CreateUserPoolClientResponse = (
 ): CreateUserPoolClientResponse => {
   let contents: any = {
     __type: "CreateUserPoolClientResponse",
-    UserPoolClient: undefined
+    UserPoolClient: undefined,
   };
   if (output.UserPoolClient !== undefined) {
-    contents.UserPoolClient = deserializeAws_json1_1UserPoolClientType(
-      output.UserPoolClient,
-      context
-    );
+    contents.UserPoolClient = deserializeAws_json1_1UserPoolClientType(output.UserPoolClient, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateUserPoolDomainResponse = (
   output: any,
@@ -18165,13 +14404,13 @@ const deserializeAws_json1_1CreateUserPoolDomainResponse = (
 ): CreateUserPoolDomainResponse => {
   let contents: any = {
     __type: "CreateUserPoolDomainResponse",
-    CloudFrontDomain: undefined
+    CloudFrontDomain: undefined,
   };
   if (output.CloudFrontDomain !== undefined) {
     contents.CloudFrontDomain = output.CloudFrontDomain;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CreateUserPoolResponse = (
   output: any,
@@ -18179,16 +14418,13 @@ const deserializeAws_json1_1CreateUserPoolResponse = (
 ): CreateUserPoolResponse => {
   let contents: any = {
     __type: "CreateUserPoolResponse",
-    UserPool: undefined
+    UserPool: undefined,
   };
   if (output.UserPool !== undefined) {
-    contents.UserPool = deserializeAws_json1_1UserPoolType(
-      output.UserPool,
-      context
-    );
+    contents.UserPool = deserializeAws_json1_1UserPoolType(output.UserPool, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1CustomDomainConfigType = (
   output: any,
@@ -18196,33 +14432,33 @@ const deserializeAws_json1_1CustomDomainConfigType = (
 ): CustomDomainConfigType => {
   let contents: any = {
     __type: "CustomDomainConfigType",
-    CertificateArn: undefined
+    CertificateArn: undefined,
   };
   if (output.CertificateArn !== undefined) {
     contents.CertificateArn = output.CertificateArn;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeleteUserAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteUserAttributesResponse => {
   let contents: any = {
-    __type: "DeleteUserAttributesResponse"
+    __type: "DeleteUserAttributesResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeleteUserPoolDomainResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteUserPoolDomainResponse => {
   let contents: any = {
-    __type: "DeleteUserPoolDomainResponse"
+    __type: "DeleteUserPoolDomainResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeIdentityProviderResponse = (
   output: any,
@@ -18230,16 +14466,13 @@ const deserializeAws_json1_1DescribeIdentityProviderResponse = (
 ): DescribeIdentityProviderResponse => {
   let contents: any = {
     __type: "DescribeIdentityProviderResponse",
-    IdentityProvider: undefined
+    IdentityProvider: undefined,
   };
   if (output.IdentityProvider !== undefined) {
-    contents.IdentityProvider = deserializeAws_json1_1IdentityProviderType(
-      output.IdentityProvider,
-      context
-    );
+    contents.IdentityProvider = deserializeAws_json1_1IdentityProviderType(output.IdentityProvider, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeResourceServerResponse = (
   output: any,
@@ -18247,16 +14480,13 @@ const deserializeAws_json1_1DescribeResourceServerResponse = (
 ): DescribeResourceServerResponse => {
   let contents: any = {
     __type: "DescribeResourceServerResponse",
-    ResourceServer: undefined
+    ResourceServer: undefined,
   };
   if (output.ResourceServer !== undefined) {
-    contents.ResourceServer = deserializeAws_json1_1ResourceServerType(
-      output.ResourceServer,
-      context
-    );
+    contents.ResourceServer = deserializeAws_json1_1ResourceServerType(output.ResourceServer, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeRiskConfigurationResponse = (
   output: any,
@@ -18264,16 +14494,13 @@ const deserializeAws_json1_1DescribeRiskConfigurationResponse = (
 ): DescribeRiskConfigurationResponse => {
   let contents: any = {
     __type: "DescribeRiskConfigurationResponse",
-    RiskConfiguration: undefined
+    RiskConfiguration: undefined,
   };
   if (output.RiskConfiguration !== undefined) {
-    contents.RiskConfiguration = deserializeAws_json1_1RiskConfigurationType(
-      output.RiskConfiguration,
-      context
-    );
+    contents.RiskConfiguration = deserializeAws_json1_1RiskConfigurationType(output.RiskConfiguration, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeUserImportJobResponse = (
   output: any,
@@ -18281,16 +14508,13 @@ const deserializeAws_json1_1DescribeUserImportJobResponse = (
 ): DescribeUserImportJobResponse => {
   let contents: any = {
     __type: "DescribeUserImportJobResponse",
-    UserImportJob: undefined
+    UserImportJob: undefined,
   };
   if (output.UserImportJob !== undefined) {
-    contents.UserImportJob = deserializeAws_json1_1UserImportJobType(
-      output.UserImportJob,
-      context
-    );
+    contents.UserImportJob = deserializeAws_json1_1UserImportJobType(output.UserImportJob, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeUserPoolClientResponse = (
   output: any,
@@ -18298,16 +14522,13 @@ const deserializeAws_json1_1DescribeUserPoolClientResponse = (
 ): DescribeUserPoolClientResponse => {
   let contents: any = {
     __type: "DescribeUserPoolClientResponse",
-    UserPoolClient: undefined
+    UserPoolClient: undefined,
   };
   if (output.UserPoolClient !== undefined) {
-    contents.UserPoolClient = deserializeAws_json1_1UserPoolClientType(
-      output.UserPoolClient,
-      context
-    );
+    contents.UserPoolClient = deserializeAws_json1_1UserPoolClientType(output.UserPoolClient, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeUserPoolDomainResponse = (
   output: any,
@@ -18315,16 +14536,13 @@ const deserializeAws_json1_1DescribeUserPoolDomainResponse = (
 ): DescribeUserPoolDomainResponse => {
   let contents: any = {
     __type: "DescribeUserPoolDomainResponse",
-    DomainDescription: undefined
+    DomainDescription: undefined,
   };
   if (output.DomainDescription !== undefined) {
-    contents.DomainDescription = deserializeAws_json1_1DomainDescriptionType(
-      output.DomainDescription,
-      context
-    );
+    contents.DomainDescription = deserializeAws_json1_1DomainDescriptionType(output.DomainDescription, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DescribeUserPoolResponse = (
   output: any,
@@ -18332,16 +14550,13 @@ const deserializeAws_json1_1DescribeUserPoolResponse = (
 ): DescribeUserPoolResponse => {
   let contents: any = {
     __type: "DescribeUserPoolResponse",
-    UserPool: undefined
+    UserPool: undefined,
   };
   if (output.UserPool !== undefined) {
-    contents.UserPool = deserializeAws_json1_1UserPoolType(
-      output.UserPool,
-      context
-    );
+    contents.UserPool = deserializeAws_json1_1UserPoolType(output.UserPool, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeviceConfigurationType = (
   output: any,
@@ -18350,17 +14565,16 @@ const deserializeAws_json1_1DeviceConfigurationType = (
   let contents: any = {
     __type: "DeviceConfigurationType",
     ChallengeRequiredOnNewDevice: undefined,
-    DeviceOnlyRememberedOnUserPrompt: undefined
+    DeviceOnlyRememberedOnUserPrompt: undefined,
   };
   if (output.ChallengeRequiredOnNewDevice !== undefined) {
     contents.ChallengeRequiredOnNewDevice = output.ChallengeRequiredOnNewDevice;
   }
   if (output.DeviceOnlyRememberedOnUserPrompt !== undefined) {
-    contents.DeviceOnlyRememberedOnUserPrompt =
-      output.DeviceOnlyRememberedOnUserPrompt;
+    contents.DeviceOnlyRememberedOnUserPrompt = output.DeviceOnlyRememberedOnUserPrompt;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DeviceListType = (
   output: any,
@@ -18369,7 +14583,7 @@ const deserializeAws_json1_1DeviceListType = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DeviceType(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1DeviceType = (
   output: any,
@@ -18381,40 +14595,25 @@ const deserializeAws_json1_1DeviceType = (
     DeviceCreateDate: undefined,
     DeviceKey: undefined,
     DeviceLastAuthenticatedDate: undefined,
-    DeviceLastModifiedDate: undefined
+    DeviceLastModifiedDate: undefined,
   };
   if (output.DeviceAttributes !== undefined) {
-    contents.DeviceAttributes = deserializeAws_json1_1AttributeListType(
-      output.DeviceAttributes,
-      context
-    );
+    contents.DeviceAttributes = deserializeAws_json1_1AttributeListType(output.DeviceAttributes, context);
   }
   if (output.DeviceCreateDate !== undefined) {
-    contents.DeviceCreateDate = new Date(
-      output.DeviceCreateDate % 1 != 0
-        ? Math.round(output.DeviceCreateDate * 1000)
-        : output.DeviceCreateDate
-    );
+    contents.DeviceCreateDate = new Date(output.DeviceCreateDate % 1 != 0 ? Math.round(output.DeviceCreateDate * 1000) : output.DeviceCreateDate);
   }
   if (output.DeviceKey !== undefined) {
     contents.DeviceKey = output.DeviceKey;
   }
   if (output.DeviceLastAuthenticatedDate !== undefined) {
-    contents.DeviceLastAuthenticatedDate = new Date(
-      output.DeviceLastAuthenticatedDate % 1 != 0
-        ? Math.round(output.DeviceLastAuthenticatedDate * 1000)
-        : output.DeviceLastAuthenticatedDate
-    );
+    contents.DeviceLastAuthenticatedDate = new Date(output.DeviceLastAuthenticatedDate % 1 != 0 ? Math.round(output.DeviceLastAuthenticatedDate * 1000) : output.DeviceLastAuthenticatedDate);
   }
   if (output.DeviceLastModifiedDate !== undefined) {
-    contents.DeviceLastModifiedDate = new Date(
-      output.DeviceLastModifiedDate % 1 != 0
-        ? Math.round(output.DeviceLastModifiedDate * 1000)
-        : output.DeviceLastModifiedDate
-    );
+    contents.DeviceLastModifiedDate = new Date(output.DeviceLastModifiedDate % 1 != 0 ? Math.round(output.DeviceLastModifiedDate * 1000) : output.DeviceLastModifiedDate);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DomainDescriptionType = (
   output: any,
@@ -18429,7 +14628,7 @@ const deserializeAws_json1_1DomainDescriptionType = (
     S3Bucket: undefined,
     Status: undefined,
     UserPoolId: undefined,
-    Version: undefined
+    Version: undefined,
   };
   if (output.AWSAccountId !== undefined) {
     contents.AWSAccountId = output.AWSAccountId;
@@ -18438,10 +14637,7 @@ const deserializeAws_json1_1DomainDescriptionType = (
     contents.CloudFrontDistribution = output.CloudFrontDistribution;
   }
   if (output.CustomDomainConfig !== undefined) {
-    contents.CustomDomainConfig = deserializeAws_json1_1CustomDomainConfigType(
-      output.CustomDomainConfig,
-      context
-    );
+    contents.CustomDomainConfig = deserializeAws_json1_1CustomDomainConfigType(output.CustomDomainConfig, context);
   }
   if (output.Domain !== undefined) {
     contents.Domain = output.Domain;
@@ -18459,7 +14655,7 @@ const deserializeAws_json1_1DomainDescriptionType = (
     contents.Version = output.Version;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1DuplicateProviderException = (
   output: any,
@@ -18467,13 +14663,13 @@ const deserializeAws_json1_1DuplicateProviderException = (
 ): DuplicateProviderException => {
   let contents: any = {
     __type: "DuplicateProviderException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1EmailConfigurationType = (
   output: any,
@@ -18485,7 +14681,7 @@ const deserializeAws_json1_1EmailConfigurationType = (
     EmailSendingAccount: undefined,
     From: undefined,
     ReplyToEmailAddress: undefined,
-    SourceArn: undefined
+    SourceArn: undefined,
   };
   if (output.ConfigurationSet !== undefined) {
     contents.ConfigurationSet = output.ConfigurationSet;
@@ -18503,7 +14699,7 @@ const deserializeAws_json1_1EmailConfigurationType = (
     contents.SourceArn = output.SourceArn;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1EnableSoftwareTokenMFAException = (
   output: any,
@@ -18511,13 +14707,13 @@ const deserializeAws_json1_1EnableSoftwareTokenMFAException = (
 ): EnableSoftwareTokenMFAException => {
   let contents: any = {
     __type: "EnableSoftwareTokenMFAException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1EventContextDataType = (
   output: any,
@@ -18529,7 +14725,7 @@ const deserializeAws_json1_1EventContextDataType = (
     Country: undefined,
     DeviceName: undefined,
     IpAddress: undefined,
-    Timezone: undefined
+    Timezone: undefined,
   };
   if (output.City !== undefined) {
     contents.City = output.City;
@@ -18547,7 +14743,7 @@ const deserializeAws_json1_1EventContextDataType = (
     contents.Timezone = output.Timezone;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1EventFeedbackType = (
   output: any,
@@ -18557,14 +14753,10 @@ const deserializeAws_json1_1EventFeedbackType = (
     __type: "EventFeedbackType",
     FeedbackDate: undefined,
     FeedbackValue: undefined,
-    Provider: undefined
+    Provider: undefined,
   };
   if (output.FeedbackDate !== undefined) {
-    contents.FeedbackDate = new Date(
-      output.FeedbackDate % 1 != 0
-        ? Math.round(output.FeedbackDate * 1000)
-        : output.FeedbackDate
-    );
+    contents.FeedbackDate = new Date(output.FeedbackDate % 1 != 0 ? Math.round(output.FeedbackDate * 1000) : output.FeedbackDate);
   }
   if (output.FeedbackValue !== undefined) {
     contents.FeedbackValue = output.FeedbackValue;
@@ -18573,14 +14765,16 @@ const deserializeAws_json1_1EventFeedbackType = (
     contents.Provider = output.Provider;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1EventFiltersType = (
   output: any,
   context: __SerdeContext
 ): Array<EventFilterType | string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1EventRiskType = (
   output: any,
@@ -18589,7 +14783,7 @@ const deserializeAws_json1_1EventRiskType = (
   let contents: any = {
     __type: "EventRiskType",
     RiskDecision: undefined,
-    RiskLevel: undefined
+    RiskLevel: undefined,
   };
   if (output.RiskDecision !== undefined) {
     contents.RiskDecision = output.RiskDecision;
@@ -18598,7 +14792,7 @@ const deserializeAws_json1_1EventRiskType = (
     contents.RiskLevel = output.RiskLevel;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ExpiredCodeException = (
   output: any,
@@ -18606,20 +14800,22 @@ const deserializeAws_json1_1ExpiredCodeException = (
 ): ExpiredCodeException => {
   let contents: any = {
     __type: "ExpiredCodeException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ExplicitAuthFlowsListType = (
   output: any,
   context: __SerdeContext
 ): Array<ExplicitAuthFlowsType | string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1ForgotPasswordResponse = (
   output: any,
@@ -18627,16 +14823,13 @@ const deserializeAws_json1_1ForgotPasswordResponse = (
 ): ForgotPasswordResponse => {
   let contents: any = {
     __type: "ForgotPasswordResponse",
-    CodeDeliveryDetails: undefined
+    CodeDeliveryDetails: undefined,
   };
   if (output.CodeDeliveryDetails !== undefined) {
-    contents.CodeDeliveryDetails = deserializeAws_json1_1CodeDeliveryDetailsType(
-      output.CodeDeliveryDetails,
-      context
-    );
+    contents.CodeDeliveryDetails = deserializeAws_json1_1CodeDeliveryDetailsType(output.CodeDeliveryDetails, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1GetCSVHeaderResponse = (
   output: any,
@@ -18645,19 +14838,16 @@ const deserializeAws_json1_1GetCSVHeaderResponse = (
   let contents: any = {
     __type: "GetCSVHeaderResponse",
     CSVHeader: undefined,
-    UserPoolId: undefined
+    UserPoolId: undefined,
   };
   if (output.CSVHeader !== undefined) {
-    contents.CSVHeader = deserializeAws_json1_1ListOfStringTypes(
-      output.CSVHeader,
-      context
-    );
+    contents.CSVHeader = deserializeAws_json1_1ListOfStringTypes(output.CSVHeader, context);
   }
   if (output.UserPoolId !== undefined) {
     contents.UserPoolId = output.UserPoolId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1GetDeviceResponse = (
   output: any,
@@ -18665,13 +14855,13 @@ const deserializeAws_json1_1GetDeviceResponse = (
 ): GetDeviceResponse => {
   let contents: any = {
     __type: "GetDeviceResponse",
-    Device: undefined
+    Device: undefined,
   };
   if (output.Device !== undefined) {
     contents.Device = deserializeAws_json1_1DeviceType(output.Device, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1GetGroupResponse = (
   output: any,
@@ -18679,13 +14869,13 @@ const deserializeAws_json1_1GetGroupResponse = (
 ): GetGroupResponse => {
   let contents: any = {
     __type: "GetGroupResponse",
-    Group: undefined
+    Group: undefined,
   };
   if (output.Group !== undefined) {
     contents.Group = deserializeAws_json1_1GroupType(output.Group, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1GetIdentityProviderByIdentifierResponse = (
   output: any,
@@ -18693,16 +14883,13 @@ const deserializeAws_json1_1GetIdentityProviderByIdentifierResponse = (
 ): GetIdentityProviderByIdentifierResponse => {
   let contents: any = {
     __type: "GetIdentityProviderByIdentifierResponse",
-    IdentityProvider: undefined
+    IdentityProvider: undefined,
   };
   if (output.IdentityProvider !== undefined) {
-    contents.IdentityProvider = deserializeAws_json1_1IdentityProviderType(
-      output.IdentityProvider,
-      context
-    );
+    contents.IdentityProvider = deserializeAws_json1_1IdentityProviderType(output.IdentityProvider, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1GetSigningCertificateResponse = (
   output: any,
@@ -18710,13 +14897,13 @@ const deserializeAws_json1_1GetSigningCertificateResponse = (
 ): GetSigningCertificateResponse => {
   let contents: any = {
     __type: "GetSigningCertificateResponse",
-    Certificate: undefined
+    Certificate: undefined,
   };
   if (output.Certificate !== undefined) {
     contents.Certificate = output.Certificate;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1GetUICustomizationResponse = (
   output: any,
@@ -18724,16 +14911,13 @@ const deserializeAws_json1_1GetUICustomizationResponse = (
 ): GetUICustomizationResponse => {
   let contents: any = {
     __type: "GetUICustomizationResponse",
-    UICustomization: undefined
+    UICustomization: undefined,
   };
   if (output.UICustomization !== undefined) {
-    contents.UICustomization = deserializeAws_json1_1UICustomizationType(
-      output.UICustomization,
-      context
-    );
+    contents.UICustomization = deserializeAws_json1_1UICustomizationType(output.UICustomization, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1GetUserAttributeVerificationCodeResponse = (
   output: any,
@@ -18741,16 +14925,13 @@ const deserializeAws_json1_1GetUserAttributeVerificationCodeResponse = (
 ): GetUserAttributeVerificationCodeResponse => {
   let contents: any = {
     __type: "GetUserAttributeVerificationCodeResponse",
-    CodeDeliveryDetails: undefined
+    CodeDeliveryDetails: undefined,
   };
   if (output.CodeDeliveryDetails !== undefined) {
-    contents.CodeDeliveryDetails = deserializeAws_json1_1CodeDeliveryDetailsType(
-      output.CodeDeliveryDetails,
-      context
-    );
+    contents.CodeDeliveryDetails = deserializeAws_json1_1CodeDeliveryDetailsType(output.CodeDeliveryDetails, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1GetUserPoolMfaConfigResponse = (
   output: any,
@@ -18760,25 +14941,19 @@ const deserializeAws_json1_1GetUserPoolMfaConfigResponse = (
     __type: "GetUserPoolMfaConfigResponse",
     MfaConfiguration: undefined,
     SmsMfaConfiguration: undefined,
-    SoftwareTokenMfaConfiguration: undefined
+    SoftwareTokenMfaConfiguration: undefined,
   };
   if (output.MfaConfiguration !== undefined) {
     contents.MfaConfiguration = output.MfaConfiguration;
   }
   if (output.SmsMfaConfiguration !== undefined) {
-    contents.SmsMfaConfiguration = deserializeAws_json1_1SmsMfaConfigType(
-      output.SmsMfaConfiguration,
-      context
-    );
+    contents.SmsMfaConfiguration = deserializeAws_json1_1SmsMfaConfigType(output.SmsMfaConfiguration, context);
   }
   if (output.SoftwareTokenMfaConfiguration !== undefined) {
-    contents.SoftwareTokenMfaConfiguration = deserializeAws_json1_1SoftwareTokenMfaConfigType(
-      output.SoftwareTokenMfaConfiguration,
-      context
-    );
+    contents.SoftwareTokenMfaConfiguration = deserializeAws_json1_1SoftwareTokenMfaConfigType(output.SoftwareTokenMfaConfiguration, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1GetUserResponse = (
   output: any,
@@ -18790,44 +14965,35 @@ const deserializeAws_json1_1GetUserResponse = (
     PreferredMfaSetting: undefined,
     UserAttributes: undefined,
     UserMFASettingList: undefined,
-    Username: undefined
+    Username: undefined,
   };
   if (output.MFAOptions !== undefined) {
-    contents.MFAOptions = deserializeAws_json1_1MFAOptionListType(
-      output.MFAOptions,
-      context
-    );
+    contents.MFAOptions = deserializeAws_json1_1MFAOptionListType(output.MFAOptions, context);
   }
   if (output.PreferredMfaSetting !== undefined) {
     contents.PreferredMfaSetting = output.PreferredMfaSetting;
   }
   if (output.UserAttributes !== undefined) {
-    contents.UserAttributes = deserializeAws_json1_1AttributeListType(
-      output.UserAttributes,
-      context
-    );
+    contents.UserAttributes = deserializeAws_json1_1AttributeListType(output.UserAttributes, context);
   }
   if (output.UserMFASettingList !== undefined) {
-    contents.UserMFASettingList = deserializeAws_json1_1UserMFASettingListType(
-      output.UserMFASettingList,
-      context
-    );
+    contents.UserMFASettingList = deserializeAws_json1_1UserMFASettingListType(output.UserMFASettingList, context);
   }
   if (output.Username !== undefined) {
     contents.Username = output.Username;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1GlobalSignOutResponse = (
   output: any,
   context: __SerdeContext
 ): GlobalSignOutResponse => {
   let contents: any = {
-    __type: "GlobalSignOutResponse"
+    __type: "GlobalSignOutResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1GroupExistsException = (
   output: any,
@@ -18835,13 +15001,13 @@ const deserializeAws_json1_1GroupExistsException = (
 ): GroupExistsException => {
   let contents: any = {
     __type: "GroupExistsException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1GroupListType = (
   output: any,
@@ -18850,7 +15016,7 @@ const deserializeAws_json1_1GroupListType = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1GroupType(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1GroupType = (
   output: any,
@@ -18864,14 +15030,10 @@ const deserializeAws_json1_1GroupType = (
     LastModifiedDate: undefined,
     Precedence: undefined,
     RoleArn: undefined,
-    UserPoolId: undefined
+    UserPoolId: undefined,
   };
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(output.CreationDate % 1 != 0 ? Math.round(output.CreationDate * 1000) : output.CreationDate);
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -18880,11 +15042,7 @@ const deserializeAws_json1_1GroupType = (
     contents.GroupName = output.GroupName;
   }
   if (output.LastModifiedDate !== undefined) {
-    contents.LastModifiedDate = new Date(
-      output.LastModifiedDate % 1 != 0
-        ? Math.round(output.LastModifiedDate * 1000)
-        : output.LastModifiedDate
-    );
+    contents.LastModifiedDate = new Date(output.LastModifiedDate % 1 != 0 ? Math.round(output.LastModifiedDate * 1000) : output.LastModifiedDate);
   }
   if (output.Precedence !== undefined) {
     contents.Precedence = output.Precedence;
@@ -18896,7 +15054,7 @@ const deserializeAws_json1_1GroupType = (
     contents.UserPoolId = output.UserPoolId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1IdentityProviderType = (
   output: any,
@@ -18911,39 +15069,22 @@ const deserializeAws_json1_1IdentityProviderType = (
     ProviderDetails: undefined,
     ProviderName: undefined,
     ProviderType: undefined,
-    UserPoolId: undefined
+    UserPoolId: undefined,
   };
   if (output.AttributeMapping !== undefined) {
-    contents.AttributeMapping = deserializeAws_json1_1AttributeMappingType(
-      output.AttributeMapping,
-      context
-    );
+    contents.AttributeMapping = deserializeAws_json1_1AttributeMappingType(output.AttributeMapping, context);
   }
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(output.CreationDate % 1 != 0 ? Math.round(output.CreationDate * 1000) : output.CreationDate);
   }
   if (output.IdpIdentifiers !== undefined) {
-    contents.IdpIdentifiers = deserializeAws_json1_1IdpIdentifiersListType(
-      output.IdpIdentifiers,
-      context
-    );
+    contents.IdpIdentifiers = deserializeAws_json1_1IdpIdentifiersListType(output.IdpIdentifiers, context);
   }
   if (output.LastModifiedDate !== undefined) {
-    contents.LastModifiedDate = new Date(
-      output.LastModifiedDate % 1 != 0
-        ? Math.round(output.LastModifiedDate * 1000)
-        : output.LastModifiedDate
-    );
+    contents.LastModifiedDate = new Date(output.LastModifiedDate % 1 != 0 ? Math.round(output.LastModifiedDate * 1000) : output.LastModifiedDate);
   }
   if (output.ProviderDetails !== undefined) {
-    contents.ProviderDetails = deserializeAws_json1_1ProviderDetailsType(
-      output.ProviderDetails,
-      context
-    );
+    contents.ProviderDetails = deserializeAws_json1_1ProviderDetailsType(output.ProviderDetails, context);
   }
   if (output.ProviderName !== undefined) {
     contents.ProviderName = output.ProviderName;
@@ -18955,14 +15096,16 @@ const deserializeAws_json1_1IdentityProviderType = (
     contents.UserPoolId = output.UserPoolId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1IdpIdentifiersListType = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1InitiateAuthResponse = (
   output: any,
@@ -18973,28 +15116,22 @@ const deserializeAws_json1_1InitiateAuthResponse = (
     AuthenticationResult: undefined,
     ChallengeName: undefined,
     ChallengeParameters: undefined,
-    Session: undefined
+    Session: undefined,
   };
   if (output.AuthenticationResult !== undefined) {
-    contents.AuthenticationResult = deserializeAws_json1_1AuthenticationResultType(
-      output.AuthenticationResult,
-      context
-    );
+    contents.AuthenticationResult = deserializeAws_json1_1AuthenticationResultType(output.AuthenticationResult, context);
   }
   if (output.ChallengeName !== undefined) {
     contents.ChallengeName = output.ChallengeName;
   }
   if (output.ChallengeParameters !== undefined) {
-    contents.ChallengeParameters = deserializeAws_json1_1ChallengeParametersType(
-      output.ChallengeParameters,
-      context
-    );
+    contents.ChallengeParameters = deserializeAws_json1_1ChallengeParametersType(output.ChallengeParameters, context);
   }
   if (output.Session !== undefined) {
     contents.Session = output.Session;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InternalErrorException = (
   output: any,
@@ -19002,13 +15139,13 @@ const deserializeAws_json1_1InternalErrorException = (
 ): InternalErrorException => {
   let contents: any = {
     __type: "InternalErrorException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InvalidEmailRoleAccessPolicyException = (
   output: any,
@@ -19016,13 +15153,13 @@ const deserializeAws_json1_1InvalidEmailRoleAccessPolicyException = (
 ): InvalidEmailRoleAccessPolicyException => {
   let contents: any = {
     __type: "InvalidEmailRoleAccessPolicyException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InvalidLambdaResponseException = (
   output: any,
@@ -19030,13 +15167,13 @@ const deserializeAws_json1_1InvalidLambdaResponseException = (
 ): InvalidLambdaResponseException => {
   let contents: any = {
     __type: "InvalidLambdaResponseException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InvalidOAuthFlowException = (
   output: any,
@@ -19044,13 +15181,13 @@ const deserializeAws_json1_1InvalidOAuthFlowException = (
 ): InvalidOAuthFlowException => {
   let contents: any = {
     __type: "InvalidOAuthFlowException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InvalidParameterException = (
   output: any,
@@ -19058,13 +15195,13 @@ const deserializeAws_json1_1InvalidParameterException = (
 ): InvalidParameterException => {
   let contents: any = {
     __type: "InvalidParameterException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InvalidPasswordException = (
   output: any,
@@ -19072,13 +15209,13 @@ const deserializeAws_json1_1InvalidPasswordException = (
 ): InvalidPasswordException => {
   let contents: any = {
     __type: "InvalidPasswordException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InvalidSmsRoleAccessPolicyException = (
   output: any,
@@ -19086,13 +15223,13 @@ const deserializeAws_json1_1InvalidSmsRoleAccessPolicyException = (
 ): InvalidSmsRoleAccessPolicyException => {
   let contents: any = {
     __type: "InvalidSmsRoleAccessPolicyException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InvalidSmsRoleTrustRelationshipException = (
   output: any,
@@ -19100,13 +15237,13 @@ const deserializeAws_json1_1InvalidSmsRoleTrustRelationshipException = (
 ): InvalidSmsRoleTrustRelationshipException => {
   let contents: any = {
     __type: "InvalidSmsRoleTrustRelationshipException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1InvalidUserPoolConfigurationException = (
   output: any,
@@ -19114,13 +15251,13 @@ const deserializeAws_json1_1InvalidUserPoolConfigurationException = (
 ): InvalidUserPoolConfigurationException => {
   let contents: any = {
     __type: "InvalidUserPoolConfigurationException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1LambdaConfigType = (
   output: any,
@@ -19137,7 +15274,7 @@ const deserializeAws_json1_1LambdaConfigType = (
     PreSignUp: undefined,
     PreTokenGeneration: undefined,
     UserMigration: undefined,
-    VerifyAuthChallengeResponse: undefined
+    VerifyAuthChallengeResponse: undefined,
   };
   if (output.CreateAuthChallenge !== undefined) {
     contents.CreateAuthChallenge = output.CreateAuthChallenge;
@@ -19170,7 +15307,7 @@ const deserializeAws_json1_1LambdaConfigType = (
     contents.VerifyAuthChallengeResponse = output.VerifyAuthChallengeResponse;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1LimitExceededException = (
   output: any,
@@ -19178,13 +15315,13 @@ const deserializeAws_json1_1LimitExceededException = (
 ): LimitExceededException => {
   let contents: any = {
     __type: "LimitExceededException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListDevicesResponse = (
   output: any,
@@ -19193,19 +15330,16 @@ const deserializeAws_json1_1ListDevicesResponse = (
   let contents: any = {
     __type: "ListDevicesResponse",
     Devices: undefined,
-    PaginationToken: undefined
+    PaginationToken: undefined,
   };
   if (output.Devices !== undefined) {
-    contents.Devices = deserializeAws_json1_1DeviceListType(
-      output.Devices,
-      context
-    );
+    contents.Devices = deserializeAws_json1_1DeviceListType(output.Devices, context);
   }
   if (output.PaginationToken !== undefined) {
     contents.PaginationToken = output.PaginationToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListGroupsResponse = (
   output: any,
@@ -19214,19 +15348,16 @@ const deserializeAws_json1_1ListGroupsResponse = (
   let contents: any = {
     __type: "ListGroupsResponse",
     Groups: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   if (output.Groups !== undefined) {
-    contents.Groups = deserializeAws_json1_1GroupListType(
-      output.Groups,
-      context
-    );
+    contents.Groups = deserializeAws_json1_1GroupListType(output.Groups, context);
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListIdentityProvidersResponse = (
   output: any,
@@ -19235,26 +15366,25 @@ const deserializeAws_json1_1ListIdentityProvidersResponse = (
   let contents: any = {
     __type: "ListIdentityProvidersResponse",
     NextToken: undefined,
-    Providers: undefined
+    Providers: undefined,
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   if (output.Providers !== undefined) {
-    contents.Providers = deserializeAws_json1_1ProvidersListType(
-      output.Providers,
-      context
-    );
+    contents.Providers = deserializeAws_json1_1ProvidersListType(output.Providers, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListOfStringTypes = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1ListResourceServersResponse = (
   output: any,
@@ -19263,19 +15393,16 @@ const deserializeAws_json1_1ListResourceServersResponse = (
   let contents: any = {
     __type: "ListResourceServersResponse",
     NextToken: undefined,
-    ResourceServers: undefined
+    ResourceServers: undefined,
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   if (output.ResourceServers !== undefined) {
-    contents.ResourceServers = deserializeAws_json1_1ResourceServersListType(
-      output.ResourceServers,
-      context
-    );
+    contents.ResourceServers = deserializeAws_json1_1ResourceServersListType(output.ResourceServers, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListTagsForResourceResponse = (
   output: any,
@@ -19283,16 +15410,13 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 ): ListTagsForResourceResponse => {
   let contents: any = {
     __type: "ListTagsForResourceResponse",
-    Tags: undefined
+    Tags: undefined,
   };
   if (output.Tags !== undefined) {
-    contents.Tags = deserializeAws_json1_1UserPoolTagsType(
-      output.Tags,
-      context
-    );
+    contents.Tags = deserializeAws_json1_1UserPoolTagsType(output.Tags, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListUserImportJobsResponse = (
   output: any,
@@ -19301,19 +15425,16 @@ const deserializeAws_json1_1ListUserImportJobsResponse = (
   let contents: any = {
     __type: "ListUserImportJobsResponse",
     PaginationToken: undefined,
-    UserImportJobs: undefined
+    UserImportJobs: undefined,
   };
   if (output.PaginationToken !== undefined) {
     contents.PaginationToken = output.PaginationToken;
   }
   if (output.UserImportJobs !== undefined) {
-    contents.UserImportJobs = deserializeAws_json1_1UserImportJobsListType(
-      output.UserImportJobs,
-      context
-    );
+    contents.UserImportJobs = deserializeAws_json1_1UserImportJobsListType(output.UserImportJobs, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListUserPoolClientsResponse = (
   output: any,
@@ -19322,19 +15443,16 @@ const deserializeAws_json1_1ListUserPoolClientsResponse = (
   let contents: any = {
     __type: "ListUserPoolClientsResponse",
     NextToken: undefined,
-    UserPoolClients: undefined
+    UserPoolClients: undefined,
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   if (output.UserPoolClients !== undefined) {
-    contents.UserPoolClients = deserializeAws_json1_1UserPoolClientListType(
-      output.UserPoolClients,
-      context
-    );
+    contents.UserPoolClients = deserializeAws_json1_1UserPoolClientListType(output.UserPoolClients, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListUserPoolsResponse = (
   output: any,
@@ -19343,19 +15461,16 @@ const deserializeAws_json1_1ListUserPoolsResponse = (
   let contents: any = {
     __type: "ListUserPoolsResponse",
     NextToken: undefined,
-    UserPools: undefined
+    UserPools: undefined,
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   if (output.UserPools !== undefined) {
-    contents.UserPools = deserializeAws_json1_1UserPoolListType(
-      output.UserPools,
-      context
-    );
+    contents.UserPools = deserializeAws_json1_1UserPoolListType(output.UserPools, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListUsersInGroupResponse = (
   output: any,
@@ -19364,7 +15479,7 @@ const deserializeAws_json1_1ListUsersInGroupResponse = (
   let contents: any = {
     __type: "ListUsersInGroupResponse",
     NextToken: undefined,
-    Users: undefined
+    Users: undefined,
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
@@ -19373,7 +15488,7 @@ const deserializeAws_json1_1ListUsersInGroupResponse = (
     contents.Users = deserializeAws_json1_1UsersListType(output.Users, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ListUsersResponse = (
   output: any,
@@ -19382,7 +15497,7 @@ const deserializeAws_json1_1ListUsersResponse = (
   let contents: any = {
     __type: "ListUsersResponse",
     PaginationToken: undefined,
-    Users: undefined
+    Users: undefined,
   };
   if (output.PaginationToken !== undefined) {
     contents.PaginationToken = output.PaginationToken;
@@ -19391,14 +15506,16 @@ const deserializeAws_json1_1ListUsersResponse = (
     contents.Users = deserializeAws_json1_1UsersListType(output.Users, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1LogoutURLsListType = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1MFAMethodNotFoundException = (
   output: any,
@@ -19406,13 +15523,13 @@ const deserializeAws_json1_1MFAMethodNotFoundException = (
 ): MFAMethodNotFoundException => {
   let contents: any = {
     __type: "MFAMethodNotFoundException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1MFAOptionListType = (
   output: any,
@@ -19421,7 +15538,7 @@ const deserializeAws_json1_1MFAOptionListType = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MFAOptionType(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1MFAOptionType = (
   output: any,
@@ -19430,7 +15547,7 @@ const deserializeAws_json1_1MFAOptionType = (
   let contents: any = {
     __type: "MFAOptionType",
     AttributeName: undefined,
-    DeliveryMedium: undefined
+    DeliveryMedium: undefined,
   };
   if (output.AttributeName !== undefined) {
     contents.AttributeName = output.AttributeName;
@@ -19439,7 +15556,7 @@ const deserializeAws_json1_1MFAOptionType = (
     contents.DeliveryMedium = output.DeliveryMedium;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1MessageTemplateType = (
   output: any,
@@ -19449,7 +15566,7 @@ const deserializeAws_json1_1MessageTemplateType = (
     __type: "MessageTemplateType",
     EmailMessage: undefined,
     EmailSubject: undefined,
-    SMSMessage: undefined
+    SMSMessage: undefined,
   };
   if (output.EmailMessage !== undefined) {
     contents.EmailMessage = output.EmailMessage;
@@ -19461,7 +15578,7 @@ const deserializeAws_json1_1MessageTemplateType = (
     contents.SMSMessage = output.SMSMessage;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1NewDeviceMetadataType = (
   output: any,
@@ -19470,7 +15587,7 @@ const deserializeAws_json1_1NewDeviceMetadataType = (
   let contents: any = {
     __type: "NewDeviceMetadataType",
     DeviceGroupKey: undefined,
-    DeviceKey: undefined
+    DeviceKey: undefined,
   };
   if (output.DeviceGroupKey !== undefined) {
     contents.DeviceGroupKey = output.DeviceGroupKey;
@@ -19479,7 +15596,7 @@ const deserializeAws_json1_1NewDeviceMetadataType = (
     contents.DeviceKey = output.DeviceKey;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1NotAuthorizedException = (
   output: any,
@@ -19487,13 +15604,13 @@ const deserializeAws_json1_1NotAuthorizedException = (
 ): NotAuthorizedException => {
   let contents: any = {
     __type: "NotAuthorizedException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1NotifyConfigurationType = (
   output: any,
@@ -19506,28 +15623,19 @@ const deserializeAws_json1_1NotifyConfigurationType = (
     MfaEmail: undefined,
     NoActionEmail: undefined,
     ReplyTo: undefined,
-    SourceArn: undefined
+    SourceArn: undefined,
   };
   if (output.BlockEmail !== undefined) {
-    contents.BlockEmail = deserializeAws_json1_1NotifyEmailType(
-      output.BlockEmail,
-      context
-    );
+    contents.BlockEmail = deserializeAws_json1_1NotifyEmailType(output.BlockEmail, context);
   }
   if (output.From !== undefined) {
     contents.From = output.From;
   }
   if (output.MfaEmail !== undefined) {
-    contents.MfaEmail = deserializeAws_json1_1NotifyEmailType(
-      output.MfaEmail,
-      context
-    );
+    contents.MfaEmail = deserializeAws_json1_1NotifyEmailType(output.MfaEmail, context);
   }
   if (output.NoActionEmail !== undefined) {
-    contents.NoActionEmail = deserializeAws_json1_1NotifyEmailType(
-      output.NoActionEmail,
-      context
-    );
+    contents.NoActionEmail = deserializeAws_json1_1NotifyEmailType(output.NoActionEmail, context);
   }
   if (output.ReplyTo !== undefined) {
     contents.ReplyTo = output.ReplyTo;
@@ -19536,7 +15644,7 @@ const deserializeAws_json1_1NotifyConfigurationType = (
     contents.SourceArn = output.SourceArn;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1NotifyEmailType = (
   output: any,
@@ -19546,7 +15654,7 @@ const deserializeAws_json1_1NotifyEmailType = (
     __type: "NotifyEmailType",
     HtmlBody: undefined,
     Subject: undefined,
-    TextBody: undefined
+    TextBody: undefined,
   };
   if (output.HtmlBody !== undefined) {
     contents.HtmlBody = output.HtmlBody;
@@ -19558,7 +15666,7 @@ const deserializeAws_json1_1NotifyEmailType = (
     contents.TextBody = output.TextBody;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1NumberAttributeConstraintsType = (
   output: any,
@@ -19567,7 +15675,7 @@ const deserializeAws_json1_1NumberAttributeConstraintsType = (
   let contents: any = {
     __type: "NumberAttributeConstraintsType",
     MaxValue: undefined,
-    MinValue: undefined
+    MinValue: undefined,
   };
   if (output.MaxValue !== undefined) {
     contents.MaxValue = output.MaxValue;
@@ -19576,14 +15684,16 @@ const deserializeAws_json1_1NumberAttributeConstraintsType = (
     contents.MinValue = output.MinValue;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1OAuthFlowsType = (
   output: any,
   context: __SerdeContext
 ): Array<OAuthFlowType | string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1PasswordPolicyType = (
   output: any,
@@ -19596,7 +15706,7 @@ const deserializeAws_json1_1PasswordPolicyType = (
     RequireNumbers: undefined,
     RequireSymbols: undefined,
     RequireUppercase: undefined,
-    TemporaryPasswordValidityDays: undefined
+    TemporaryPasswordValidityDays: undefined,
   };
   if (output.MinimumLength !== undefined) {
     contents.MinimumLength = output.MinimumLength;
@@ -19614,11 +15724,10 @@ const deserializeAws_json1_1PasswordPolicyType = (
     contents.RequireUppercase = output.RequireUppercase;
   }
   if (output.TemporaryPasswordValidityDays !== undefined) {
-    contents.TemporaryPasswordValidityDays =
-      output.TemporaryPasswordValidityDays;
+    contents.TemporaryPasswordValidityDays = output.TemporaryPasswordValidityDays;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1PasswordResetRequiredException = (
   output: any,
@@ -19626,13 +15735,13 @@ const deserializeAws_json1_1PasswordResetRequiredException = (
 ): PasswordResetRequiredException => {
   let contents: any = {
     __type: "PasswordResetRequiredException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1PreconditionNotMetException = (
   output: any,
@@ -19640,13 +15749,13 @@ const deserializeAws_json1_1PreconditionNotMetException = (
 ): PreconditionNotMetException => {
   let contents: any = {
     __type: "PreconditionNotMetException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ProviderDescription = (
   output: any,
@@ -19657,21 +15766,13 @@ const deserializeAws_json1_1ProviderDescription = (
     CreationDate: undefined,
     LastModifiedDate: undefined,
     ProviderName: undefined,
-    ProviderType: undefined
+    ProviderType: undefined,
   };
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(output.CreationDate % 1 != 0 ? Math.round(output.CreationDate * 1000) : output.CreationDate);
   }
   if (output.LastModifiedDate !== undefined) {
-    contents.LastModifiedDate = new Date(
-      output.LastModifiedDate % 1 != 0
-        ? Math.round(output.LastModifiedDate * 1000)
-        : output.LastModifiedDate
-    );
+    contents.LastModifiedDate = new Date(output.LastModifiedDate % 1 != 0 ? Math.round(output.LastModifiedDate * 1000) : output.LastModifiedDate);
   }
   if (output.ProviderName !== undefined) {
     contents.ProviderName = output.ProviderName;
@@ -19680,7 +15781,7 @@ const deserializeAws_json1_1ProviderDescription = (
     contents.ProviderType = output.ProviderType;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ProviderDetailsType = (
   output: any,
@@ -19691,7 +15792,7 @@ const deserializeAws_json1_1ProviderDetailsType = (
     mapParams[key] = output[key];
   });
   return mapParams;
-};
+}
 
 const deserializeAws_json1_1ProvidersListType = (
   output: any,
@@ -19700,7 +15801,7 @@ const deserializeAws_json1_1ProvidersListType = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ProviderDescription(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1RecoveryMechanismsType = (
   output: any,
@@ -19709,7 +15810,7 @@ const deserializeAws_json1_1RecoveryMechanismsType = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RecoveryOptionType(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1RecoveryOptionType = (
   output: any,
@@ -19718,7 +15819,7 @@ const deserializeAws_json1_1RecoveryOptionType = (
   let contents: any = {
     __type: "RecoveryOptionType",
     Name: undefined,
-    Priority: undefined
+    Priority: undefined,
   };
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -19727,7 +15828,7 @@ const deserializeAws_json1_1RecoveryOptionType = (
     contents.Priority = output.Priority;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ResendConfirmationCodeResponse = (
   output: any,
@@ -19735,16 +15836,13 @@ const deserializeAws_json1_1ResendConfirmationCodeResponse = (
 ): ResendConfirmationCodeResponse => {
   let contents: any = {
     __type: "ResendConfirmationCodeResponse",
-    CodeDeliveryDetails: undefined
+    CodeDeliveryDetails: undefined,
   };
   if (output.CodeDeliveryDetails !== undefined) {
-    contents.CodeDeliveryDetails = deserializeAws_json1_1CodeDeliveryDetailsType(
-      output.CodeDeliveryDetails,
-      context
-    );
+    contents.CodeDeliveryDetails = deserializeAws_json1_1CodeDeliveryDetailsType(output.CodeDeliveryDetails, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
@@ -19752,13 +15850,13 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   let contents: any = {
     __type: "ResourceNotFoundException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ResourceServerScopeListType = (
   output: any,
@@ -19767,7 +15865,7 @@ const deserializeAws_json1_1ResourceServerScopeListType = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourceServerScopeType(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1ResourceServerScopeType = (
   output: any,
@@ -19776,7 +15874,7 @@ const deserializeAws_json1_1ResourceServerScopeType = (
   let contents: any = {
     __type: "ResourceServerScopeType",
     ScopeDescription: undefined,
-    ScopeName: undefined
+    ScopeName: undefined,
   };
   if (output.ScopeDescription !== undefined) {
     contents.ScopeDescription = output.ScopeDescription;
@@ -19785,7 +15883,7 @@ const deserializeAws_json1_1ResourceServerScopeType = (
     contents.ScopeName = output.ScopeName;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ResourceServerType = (
   output: any,
@@ -19796,7 +15894,7 @@ const deserializeAws_json1_1ResourceServerType = (
     Identifier: undefined,
     Name: undefined,
     Scopes: undefined,
-    UserPoolId: undefined
+    UserPoolId: undefined,
   };
   if (output.Identifier !== undefined) {
     contents.Identifier = output.Identifier;
@@ -19805,16 +15903,13 @@ const deserializeAws_json1_1ResourceServerType = (
     contents.Name = output.Name;
   }
   if (output.Scopes !== undefined) {
-    contents.Scopes = deserializeAws_json1_1ResourceServerScopeListType(
-      output.Scopes,
-      context
-    );
+    contents.Scopes = deserializeAws_json1_1ResourceServerScopeListType(output.Scopes, context);
   }
   if (output.UserPoolId !== undefined) {
     contents.UserPoolId = output.UserPoolId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ResourceServersListType = (
   output: any,
@@ -19823,7 +15918,7 @@ const deserializeAws_json1_1ResourceServersListType = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourceServerType(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1RespondToAuthChallengeResponse = (
   output: any,
@@ -19834,28 +15929,22 @@ const deserializeAws_json1_1RespondToAuthChallengeResponse = (
     AuthenticationResult: undefined,
     ChallengeName: undefined,
     ChallengeParameters: undefined,
-    Session: undefined
+    Session: undefined,
   };
   if (output.AuthenticationResult !== undefined) {
-    contents.AuthenticationResult = deserializeAws_json1_1AuthenticationResultType(
-      output.AuthenticationResult,
-      context
-    );
+    contents.AuthenticationResult = deserializeAws_json1_1AuthenticationResultType(output.AuthenticationResult, context);
   }
   if (output.ChallengeName !== undefined) {
     contents.ChallengeName = output.ChallengeName;
   }
   if (output.ChallengeParameters !== undefined) {
-    contents.ChallengeParameters = deserializeAws_json1_1ChallengeParametersType(
-      output.ChallengeParameters,
-      context
-    );
+    contents.ChallengeParameters = deserializeAws_json1_1ChallengeParametersType(output.ChallengeParameters, context);
   }
   if (output.Session !== undefined) {
     contents.Session = output.Session;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1RiskConfigurationType = (
   output: any,
@@ -19868,41 +15957,28 @@ const deserializeAws_json1_1RiskConfigurationType = (
     CompromisedCredentialsRiskConfiguration: undefined,
     LastModifiedDate: undefined,
     RiskExceptionConfiguration: undefined,
-    UserPoolId: undefined
+    UserPoolId: undefined,
   };
   if (output.AccountTakeoverRiskConfiguration !== undefined) {
-    contents.AccountTakeoverRiskConfiguration = deserializeAws_json1_1AccountTakeoverRiskConfigurationType(
-      output.AccountTakeoverRiskConfiguration,
-      context
-    );
+    contents.AccountTakeoverRiskConfiguration = deserializeAws_json1_1AccountTakeoverRiskConfigurationType(output.AccountTakeoverRiskConfiguration, context);
   }
   if (output.ClientId !== undefined) {
     contents.ClientId = output.ClientId;
   }
   if (output.CompromisedCredentialsRiskConfiguration !== undefined) {
-    contents.CompromisedCredentialsRiskConfiguration = deserializeAws_json1_1CompromisedCredentialsRiskConfigurationType(
-      output.CompromisedCredentialsRiskConfiguration,
-      context
-    );
+    contents.CompromisedCredentialsRiskConfiguration = deserializeAws_json1_1CompromisedCredentialsRiskConfigurationType(output.CompromisedCredentialsRiskConfiguration, context);
   }
   if (output.LastModifiedDate !== undefined) {
-    contents.LastModifiedDate = new Date(
-      output.LastModifiedDate % 1 != 0
-        ? Math.round(output.LastModifiedDate * 1000)
-        : output.LastModifiedDate
-    );
+    contents.LastModifiedDate = new Date(output.LastModifiedDate % 1 != 0 ? Math.round(output.LastModifiedDate * 1000) : output.LastModifiedDate);
   }
   if (output.RiskExceptionConfiguration !== undefined) {
-    contents.RiskExceptionConfiguration = deserializeAws_json1_1RiskExceptionConfigurationType(
-      output.RiskExceptionConfiguration,
-      context
-    );
+    contents.RiskExceptionConfiguration = deserializeAws_json1_1RiskExceptionConfigurationType(output.RiskExceptionConfiguration, context);
   }
   if (output.UserPoolId !== undefined) {
     contents.UserPoolId = output.UserPoolId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1RiskExceptionConfigurationType = (
   output: any,
@@ -19911,22 +15987,16 @@ const deserializeAws_json1_1RiskExceptionConfigurationType = (
   let contents: any = {
     __type: "RiskExceptionConfigurationType",
     BlockedIPRangeList: undefined,
-    SkippedIPRangeList: undefined
+    SkippedIPRangeList: undefined,
   };
   if (output.BlockedIPRangeList !== undefined) {
-    contents.BlockedIPRangeList = deserializeAws_json1_1BlockedIPRangeListType(
-      output.BlockedIPRangeList,
-      context
-    );
+    contents.BlockedIPRangeList = deserializeAws_json1_1BlockedIPRangeListType(output.BlockedIPRangeList, context);
   }
   if (output.SkippedIPRangeList !== undefined) {
-    contents.SkippedIPRangeList = deserializeAws_json1_1SkippedIPRangeListType(
-      output.SkippedIPRangeList,
-      context
-    );
+    contents.SkippedIPRangeList = deserializeAws_json1_1SkippedIPRangeListType(output.SkippedIPRangeList, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1SchemaAttributeType = (
   output: any,
@@ -19940,7 +16010,7 @@ const deserializeAws_json1_1SchemaAttributeType = (
     Name: undefined,
     NumberAttributeConstraints: undefined,
     Required: undefined,
-    StringAttributeConstraints: undefined
+    StringAttributeConstraints: undefined,
   };
   if (output.AttributeDataType !== undefined) {
     contents.AttributeDataType = output.AttributeDataType;
@@ -19955,22 +16025,16 @@ const deserializeAws_json1_1SchemaAttributeType = (
     contents.Name = output.Name;
   }
   if (output.NumberAttributeConstraints !== undefined) {
-    contents.NumberAttributeConstraints = deserializeAws_json1_1NumberAttributeConstraintsType(
-      output.NumberAttributeConstraints,
-      context
-    );
+    contents.NumberAttributeConstraints = deserializeAws_json1_1NumberAttributeConstraintsType(output.NumberAttributeConstraints, context);
   }
   if (output.Required !== undefined) {
     contents.Required = output.Required;
   }
   if (output.StringAttributeConstraints !== undefined) {
-    contents.StringAttributeConstraints = deserializeAws_json1_1StringAttributeConstraintsType(
-      output.StringAttributeConstraints,
-      context
-    );
+    contents.StringAttributeConstraints = deserializeAws_json1_1StringAttributeConstraintsType(output.StringAttributeConstraints, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1SchemaAttributesListType = (
   output: any,
@@ -19979,7 +16043,7 @@ const deserializeAws_json1_1SchemaAttributesListType = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SchemaAttributeType(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1ScopeDoesNotExistException = (
   output: any,
@@ -19987,20 +16051,22 @@ const deserializeAws_json1_1ScopeDoesNotExistException = (
 ): ScopeDoesNotExistException => {
   let contents: any = {
     __type: "ScopeDoesNotExistException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1ScopeListType = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1SetRiskConfigurationResponse = (
   output: any,
@@ -20008,16 +16074,13 @@ const deserializeAws_json1_1SetRiskConfigurationResponse = (
 ): SetRiskConfigurationResponse => {
   let contents: any = {
     __type: "SetRiskConfigurationResponse",
-    RiskConfiguration: undefined
+    RiskConfiguration: undefined,
   };
   if (output.RiskConfiguration !== undefined) {
-    contents.RiskConfiguration = deserializeAws_json1_1RiskConfigurationType(
-      output.RiskConfiguration,
-      context
-    );
+    contents.RiskConfiguration = deserializeAws_json1_1RiskConfigurationType(output.RiskConfiguration, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1SetUICustomizationResponse = (
   output: any,
@@ -20025,26 +16088,23 @@ const deserializeAws_json1_1SetUICustomizationResponse = (
 ): SetUICustomizationResponse => {
   let contents: any = {
     __type: "SetUICustomizationResponse",
-    UICustomization: undefined
+    UICustomization: undefined,
   };
   if (output.UICustomization !== undefined) {
-    contents.UICustomization = deserializeAws_json1_1UICustomizationType(
-      output.UICustomization,
-      context
-    );
+    contents.UICustomization = deserializeAws_json1_1UICustomizationType(output.UICustomization, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1SetUserMFAPreferenceResponse = (
   output: any,
   context: __SerdeContext
 ): SetUserMFAPreferenceResponse => {
   let contents: any = {
-    __type: "SetUserMFAPreferenceResponse"
+    __type: "SetUserMFAPreferenceResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1SetUserPoolMfaConfigResponse = (
   output: any,
@@ -20054,35 +16114,29 @@ const deserializeAws_json1_1SetUserPoolMfaConfigResponse = (
     __type: "SetUserPoolMfaConfigResponse",
     MfaConfiguration: undefined,
     SmsMfaConfiguration: undefined,
-    SoftwareTokenMfaConfiguration: undefined
+    SoftwareTokenMfaConfiguration: undefined,
   };
   if (output.MfaConfiguration !== undefined) {
     contents.MfaConfiguration = output.MfaConfiguration;
   }
   if (output.SmsMfaConfiguration !== undefined) {
-    contents.SmsMfaConfiguration = deserializeAws_json1_1SmsMfaConfigType(
-      output.SmsMfaConfiguration,
-      context
-    );
+    contents.SmsMfaConfiguration = deserializeAws_json1_1SmsMfaConfigType(output.SmsMfaConfiguration, context);
   }
   if (output.SoftwareTokenMfaConfiguration !== undefined) {
-    contents.SoftwareTokenMfaConfiguration = deserializeAws_json1_1SoftwareTokenMfaConfigType(
-      output.SoftwareTokenMfaConfiguration,
-      context
-    );
+    contents.SoftwareTokenMfaConfiguration = deserializeAws_json1_1SoftwareTokenMfaConfigType(output.SoftwareTokenMfaConfiguration, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1SetUserSettingsResponse = (
   output: any,
   context: __SerdeContext
 ): SetUserSettingsResponse => {
   let contents: any = {
-    __type: "SetUserSettingsResponse"
+    __type: "SetUserSettingsResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1SignUpResponse = (
   output: any,
@@ -20092,13 +16146,10 @@ const deserializeAws_json1_1SignUpResponse = (
     __type: "SignUpResponse",
     CodeDeliveryDetails: undefined,
     UserConfirmed: undefined,
-    UserSub: undefined
+    UserSub: undefined,
   };
   if (output.CodeDeliveryDetails !== undefined) {
-    contents.CodeDeliveryDetails = deserializeAws_json1_1CodeDeliveryDetailsType(
-      output.CodeDeliveryDetails,
-      context
-    );
+    contents.CodeDeliveryDetails = deserializeAws_json1_1CodeDeliveryDetailsType(output.CodeDeliveryDetails, context);
   }
   if (output.UserConfirmed !== undefined) {
     contents.UserConfirmed = output.UserConfirmed;
@@ -20107,14 +16158,16 @@ const deserializeAws_json1_1SignUpResponse = (
     contents.UserSub = output.UserSub;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1SkippedIPRangeListType = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1SmsConfigurationType = (
   output: any,
@@ -20123,7 +16176,7 @@ const deserializeAws_json1_1SmsConfigurationType = (
   let contents: any = {
     __type: "SmsConfigurationType",
     ExternalId: undefined,
-    SnsCallerArn: undefined
+    SnsCallerArn: undefined,
   };
   if (output.ExternalId !== undefined) {
     contents.ExternalId = output.ExternalId;
@@ -20132,7 +16185,7 @@ const deserializeAws_json1_1SmsConfigurationType = (
     contents.SnsCallerArn = output.SnsCallerArn;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1SmsMfaConfigType = (
   output: any,
@@ -20141,19 +16194,16 @@ const deserializeAws_json1_1SmsMfaConfigType = (
   let contents: any = {
     __type: "SmsMfaConfigType",
     SmsAuthenticationMessage: undefined,
-    SmsConfiguration: undefined
+    SmsConfiguration: undefined,
   };
   if (output.SmsAuthenticationMessage !== undefined) {
     contents.SmsAuthenticationMessage = output.SmsAuthenticationMessage;
   }
   if (output.SmsConfiguration !== undefined) {
-    contents.SmsConfiguration = deserializeAws_json1_1SmsConfigurationType(
-      output.SmsConfiguration,
-      context
-    );
+    contents.SmsConfiguration = deserializeAws_json1_1SmsConfigurationType(output.SmsConfiguration, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1SoftwareTokenMFANotFoundException = (
   output: any,
@@ -20161,13 +16211,13 @@ const deserializeAws_json1_1SoftwareTokenMFANotFoundException = (
 ): SoftwareTokenMFANotFoundException => {
   let contents: any = {
     __type: "SoftwareTokenMFANotFoundException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1SoftwareTokenMfaConfigType = (
   output: any,
@@ -20175,13 +16225,13 @@ const deserializeAws_json1_1SoftwareTokenMfaConfigType = (
 ): SoftwareTokenMfaConfigType => {
   let contents: any = {
     __type: "SoftwareTokenMfaConfigType",
-    Enabled: undefined
+    Enabled: undefined,
   };
   if (output.Enabled !== undefined) {
     contents.Enabled = output.Enabled;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1StartUserImportJobResponse = (
   output: any,
@@ -20189,16 +16239,13 @@ const deserializeAws_json1_1StartUserImportJobResponse = (
 ): StartUserImportJobResponse => {
   let contents: any = {
     __type: "StartUserImportJobResponse",
-    UserImportJob: undefined
+    UserImportJob: undefined,
   };
   if (output.UserImportJob !== undefined) {
-    contents.UserImportJob = deserializeAws_json1_1UserImportJobType(
-      output.UserImportJob,
-      context
-    );
+    contents.UserImportJob = deserializeAws_json1_1UserImportJobType(output.UserImportJob, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1StopUserImportJobResponse = (
   output: any,
@@ -20206,16 +16253,13 @@ const deserializeAws_json1_1StopUserImportJobResponse = (
 ): StopUserImportJobResponse => {
   let contents: any = {
     __type: "StopUserImportJobResponse",
-    UserImportJob: undefined
+    UserImportJob: undefined,
   };
   if (output.UserImportJob !== undefined) {
-    contents.UserImportJob = deserializeAws_json1_1UserImportJobType(
-      output.UserImportJob,
-      context
-    );
+    contents.UserImportJob = deserializeAws_json1_1UserImportJobType(output.UserImportJob, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1StringAttributeConstraintsType = (
   output: any,
@@ -20224,7 +16268,7 @@ const deserializeAws_json1_1StringAttributeConstraintsType = (
   let contents: any = {
     __type: "StringAttributeConstraintsType",
     MaxLength: undefined,
-    MinLength: undefined
+    MinLength: undefined,
   };
   if (output.MaxLength !== undefined) {
     contents.MaxLength = output.MaxLength;
@@ -20233,24 +16277,26 @@ const deserializeAws_json1_1StringAttributeConstraintsType = (
     contents.MinLength = output.MinLength;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1SupportedIdentityProvidersListType = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1TagResourceResponse = (
   output: any,
   context: __SerdeContext
 ): TagResourceResponse => {
   let contents: any = {
-    __type: "TagResourceResponse"
+    __type: "TagResourceResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1TooManyFailedAttemptsException = (
   output: any,
@@ -20258,13 +16304,13 @@ const deserializeAws_json1_1TooManyFailedAttemptsException = (
 ): TooManyFailedAttemptsException => {
   let contents: any = {
     __type: "TooManyFailedAttemptsException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1TooManyRequestsException = (
   output: any,
@@ -20272,13 +16318,13 @@ const deserializeAws_json1_1TooManyRequestsException = (
 ): TooManyRequestsException => {
   let contents: any = {
     __type: "TooManyRequestsException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UICustomizationType = (
   output: any,
@@ -20292,7 +16338,7 @@ const deserializeAws_json1_1UICustomizationType = (
     CreationDate: undefined,
     ImageUrl: undefined,
     LastModifiedDate: undefined,
-    UserPoolId: undefined
+    UserPoolId: undefined,
   };
   if (output.CSS !== undefined) {
     contents.CSS = output.CSS;
@@ -20304,27 +16350,19 @@ const deserializeAws_json1_1UICustomizationType = (
     contents.ClientId = output.ClientId;
   }
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(output.CreationDate % 1 != 0 ? Math.round(output.CreationDate * 1000) : output.CreationDate);
   }
   if (output.ImageUrl !== undefined) {
     contents.ImageUrl = output.ImageUrl;
   }
   if (output.LastModifiedDate !== undefined) {
-    contents.LastModifiedDate = new Date(
-      output.LastModifiedDate % 1 != 0
-        ? Math.round(output.LastModifiedDate * 1000)
-        : output.LastModifiedDate
-    );
+    contents.LastModifiedDate = new Date(output.LastModifiedDate % 1 != 0 ? Math.round(output.LastModifiedDate * 1000) : output.LastModifiedDate);
   }
   if (output.UserPoolId !== undefined) {
     contents.UserPoolId = output.UserPoolId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UnexpectedLambdaException = (
   output: any,
@@ -20332,13 +16370,13 @@ const deserializeAws_json1_1UnexpectedLambdaException = (
 ): UnexpectedLambdaException => {
   let contents: any = {
     __type: "UnexpectedLambdaException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UnsupportedIdentityProviderException = (
   output: any,
@@ -20346,13 +16384,13 @@ const deserializeAws_json1_1UnsupportedIdentityProviderException = (
 ): UnsupportedIdentityProviderException => {
   let contents: any = {
     __type: "UnsupportedIdentityProviderException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UnsupportedUserStateException = (
   output: any,
@@ -20360,43 +16398,43 @@ const deserializeAws_json1_1UnsupportedUserStateException = (
 ): UnsupportedUserStateException => {
   let contents: any = {
     __type: "UnsupportedUserStateException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UntagResourceResponse = (
   output: any,
   context: __SerdeContext
 ): UntagResourceResponse => {
   let contents: any = {
-    __type: "UntagResourceResponse"
+    __type: "UntagResourceResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateAuthEventFeedbackResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateAuthEventFeedbackResponse => {
   let contents: any = {
-    __type: "UpdateAuthEventFeedbackResponse"
+    __type: "UpdateAuthEventFeedbackResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateDeviceStatusResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateDeviceStatusResponse => {
   let contents: any = {
-    __type: "UpdateDeviceStatusResponse"
+    __type: "UpdateDeviceStatusResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateGroupResponse = (
   output: any,
@@ -20404,13 +16442,13 @@ const deserializeAws_json1_1UpdateGroupResponse = (
 ): UpdateGroupResponse => {
   let contents: any = {
     __type: "UpdateGroupResponse",
-    Group: undefined
+    Group: undefined,
   };
   if (output.Group !== undefined) {
     contents.Group = deserializeAws_json1_1GroupType(output.Group, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateIdentityProviderResponse = (
   output: any,
@@ -20418,16 +16456,13 @@ const deserializeAws_json1_1UpdateIdentityProviderResponse = (
 ): UpdateIdentityProviderResponse => {
   let contents: any = {
     __type: "UpdateIdentityProviderResponse",
-    IdentityProvider: undefined
+    IdentityProvider: undefined,
   };
   if (output.IdentityProvider !== undefined) {
-    contents.IdentityProvider = deserializeAws_json1_1IdentityProviderType(
-      output.IdentityProvider,
-      context
-    );
+    contents.IdentityProvider = deserializeAws_json1_1IdentityProviderType(output.IdentityProvider, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateResourceServerResponse = (
   output: any,
@@ -20435,16 +16470,13 @@ const deserializeAws_json1_1UpdateResourceServerResponse = (
 ): UpdateResourceServerResponse => {
   let contents: any = {
     __type: "UpdateResourceServerResponse",
-    ResourceServer: undefined
+    ResourceServer: undefined,
   };
   if (output.ResourceServer !== undefined) {
-    contents.ResourceServer = deserializeAws_json1_1ResourceServerType(
-      output.ResourceServer,
-      context
-    );
+    contents.ResourceServer = deserializeAws_json1_1ResourceServerType(output.ResourceServer, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateUserAttributesResponse = (
   output: any,
@@ -20452,16 +16484,13 @@ const deserializeAws_json1_1UpdateUserAttributesResponse = (
 ): UpdateUserAttributesResponse => {
   let contents: any = {
     __type: "UpdateUserAttributesResponse",
-    CodeDeliveryDetailsList: undefined
+    CodeDeliveryDetailsList: undefined,
   };
   if (output.CodeDeliveryDetailsList !== undefined) {
-    contents.CodeDeliveryDetailsList = deserializeAws_json1_1CodeDeliveryDetailsListType(
-      output.CodeDeliveryDetailsList,
-      context
-    );
+    contents.CodeDeliveryDetailsList = deserializeAws_json1_1CodeDeliveryDetailsListType(output.CodeDeliveryDetailsList, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateUserPoolClientResponse = (
   output: any,
@@ -20469,16 +16498,13 @@ const deserializeAws_json1_1UpdateUserPoolClientResponse = (
 ): UpdateUserPoolClientResponse => {
   let contents: any = {
     __type: "UpdateUserPoolClientResponse",
-    UserPoolClient: undefined
+    UserPoolClient: undefined,
   };
   if (output.UserPoolClient !== undefined) {
-    contents.UserPoolClient = deserializeAws_json1_1UserPoolClientType(
-      output.UserPoolClient,
-      context
-    );
+    contents.UserPoolClient = deserializeAws_json1_1UserPoolClientType(output.UserPoolClient, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateUserPoolDomainResponse = (
   output: any,
@@ -20486,23 +16512,23 @@ const deserializeAws_json1_1UpdateUserPoolDomainResponse = (
 ): UpdateUserPoolDomainResponse => {
   let contents: any = {
     __type: "UpdateUserPoolDomainResponse",
-    CloudFrontDomain: undefined
+    CloudFrontDomain: undefined,
   };
   if (output.CloudFrontDomain !== undefined) {
     contents.CloudFrontDomain = output.CloudFrontDomain;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UpdateUserPoolResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateUserPoolResponse => {
   let contents: any = {
-    __type: "UpdateUserPoolResponse"
+    __type: "UpdateUserPoolResponse",
   };
   return contents;
-};
+}
 
 const deserializeAws_json1_1UserImportInProgressException = (
   output: any,
@@ -20510,13 +16536,13 @@ const deserializeAws_json1_1UserImportInProgressException = (
 ): UserImportInProgressException => {
   let contents: any = {
     __type: "UserImportInProgressException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UserImportJobType = (
   output: any,
@@ -20536,27 +16562,19 @@ const deserializeAws_json1_1UserImportJobType = (
     SkippedUsers: undefined,
     StartDate: undefined,
     Status: undefined,
-    UserPoolId: undefined
+    UserPoolId: undefined,
   };
   if (output.CloudWatchLogsRoleArn !== undefined) {
     contents.CloudWatchLogsRoleArn = output.CloudWatchLogsRoleArn;
   }
   if (output.CompletionDate !== undefined) {
-    contents.CompletionDate = new Date(
-      output.CompletionDate % 1 != 0
-        ? Math.round(output.CompletionDate * 1000)
-        : output.CompletionDate
-    );
+    contents.CompletionDate = new Date(output.CompletionDate % 1 != 0 ? Math.round(output.CompletionDate * 1000) : output.CompletionDate);
   }
   if (output.CompletionMessage !== undefined) {
     contents.CompletionMessage = output.CompletionMessage;
   }
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(output.CreationDate % 1 != 0 ? Math.round(output.CreationDate * 1000) : output.CreationDate);
   }
   if (output.FailedUsers !== undefined) {
     contents.FailedUsers = output.FailedUsers;
@@ -20577,11 +16595,7 @@ const deserializeAws_json1_1UserImportJobType = (
     contents.SkippedUsers = output.SkippedUsers;
   }
   if (output.StartDate !== undefined) {
-    contents.StartDate = new Date(
-      output.StartDate % 1 != 0
-        ? Math.round(output.StartDate * 1000)
-        : output.StartDate
-    );
+    contents.StartDate = new Date(output.StartDate % 1 != 0 ? Math.round(output.StartDate * 1000) : output.StartDate);
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
@@ -20590,7 +16604,7 @@ const deserializeAws_json1_1UserImportJobType = (
     contents.UserPoolId = output.UserPoolId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UserImportJobsListType = (
   output: any,
@@ -20599,7 +16613,7 @@ const deserializeAws_json1_1UserImportJobsListType = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1UserImportJobType(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1UserLambdaValidationException = (
   output: any,
@@ -20607,20 +16621,22 @@ const deserializeAws_json1_1UserLambdaValidationException = (
 ): UserLambdaValidationException => {
   let contents: any = {
     __type: "UserLambdaValidationException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UserMFASettingListType = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1UserNotConfirmedException = (
   output: any,
@@ -20628,13 +16644,13 @@ const deserializeAws_json1_1UserNotConfirmedException = (
 ): UserNotConfirmedException => {
   let contents: any = {
     __type: "UserNotConfirmedException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UserNotFoundException = (
   output: any,
@@ -20642,13 +16658,13 @@ const deserializeAws_json1_1UserNotFoundException = (
 ): UserNotFoundException => {
   let contents: any = {
     __type: "UserNotFoundException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UserPoolAddOnNotEnabledException = (
   output: any,
@@ -20656,13 +16672,13 @@ const deserializeAws_json1_1UserPoolAddOnNotEnabledException = (
 ): UserPoolAddOnNotEnabledException => {
   let contents: any = {
     __type: "UserPoolAddOnNotEnabledException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UserPoolAddOnsType = (
   output: any,
@@ -20670,13 +16686,13 @@ const deserializeAws_json1_1UserPoolAddOnsType = (
 ): UserPoolAddOnsType => {
   let contents: any = {
     __type: "UserPoolAddOnsType",
-    AdvancedSecurityMode: undefined
+    AdvancedSecurityMode: undefined,
   };
   if (output.AdvancedSecurityMode !== undefined) {
     contents.AdvancedSecurityMode = output.AdvancedSecurityMode;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UserPoolClientDescription = (
   output: any,
@@ -20686,7 +16702,7 @@ const deserializeAws_json1_1UserPoolClientDescription = (
     __type: "UserPoolClientDescription",
     ClientId: undefined,
     ClientName: undefined,
-    UserPoolId: undefined
+    UserPoolId: undefined,
   };
   if (output.ClientId !== undefined) {
     contents.ClientId = output.ClientId;
@@ -20698,7 +16714,7 @@ const deserializeAws_json1_1UserPoolClientDescription = (
     contents.UserPoolId = output.UserPoolId;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UserPoolClientListType = (
   output: any,
@@ -20707,7 +16723,7 @@ const deserializeAws_json1_1UserPoolClientListType = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1UserPoolClientDescription(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1UserPoolClientType = (
   output: any,
@@ -20733,35 +16749,22 @@ const deserializeAws_json1_1UserPoolClientType = (
     RefreshTokenValidity: undefined,
     SupportedIdentityProviders: undefined,
     UserPoolId: undefined,
-    WriteAttributes: undefined
+    WriteAttributes: undefined,
   };
   if (output.AllowedOAuthFlows !== undefined) {
-    contents.AllowedOAuthFlows = deserializeAws_json1_1OAuthFlowsType(
-      output.AllowedOAuthFlows,
-      context
-    );
+    contents.AllowedOAuthFlows = deserializeAws_json1_1OAuthFlowsType(output.AllowedOAuthFlows, context);
   }
   if (output.AllowedOAuthFlowsUserPoolClient !== undefined) {
-    contents.AllowedOAuthFlowsUserPoolClient =
-      output.AllowedOAuthFlowsUserPoolClient;
+    contents.AllowedOAuthFlowsUserPoolClient = output.AllowedOAuthFlowsUserPoolClient;
   }
   if (output.AllowedOAuthScopes !== undefined) {
-    contents.AllowedOAuthScopes = deserializeAws_json1_1ScopeListType(
-      output.AllowedOAuthScopes,
-      context
-    );
+    contents.AllowedOAuthScopes = deserializeAws_json1_1ScopeListType(output.AllowedOAuthScopes, context);
   }
   if (output.AnalyticsConfiguration !== undefined) {
-    contents.AnalyticsConfiguration = deserializeAws_json1_1AnalyticsConfigurationType(
-      output.AnalyticsConfiguration,
-      context
-    );
+    contents.AnalyticsConfiguration = deserializeAws_json1_1AnalyticsConfigurationType(output.AnalyticsConfiguration, context);
   }
   if (output.CallbackURLs !== undefined) {
-    contents.CallbackURLs = deserializeAws_json1_1CallbackURLsListType(
-      output.CallbackURLs,
-      context
-    );
+    contents.CallbackURLs = deserializeAws_json1_1CallbackURLsListType(output.CallbackURLs, context);
   }
   if (output.ClientId !== undefined) {
     contents.ClientId = output.ClientId;
@@ -20773,63 +16776,40 @@ const deserializeAws_json1_1UserPoolClientType = (
     contents.ClientSecret = output.ClientSecret;
   }
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(output.CreationDate % 1 != 0 ? Math.round(output.CreationDate * 1000) : output.CreationDate);
   }
   if (output.DefaultRedirectURI !== undefined) {
     contents.DefaultRedirectURI = output.DefaultRedirectURI;
   }
   if (output.ExplicitAuthFlows !== undefined) {
-    contents.ExplicitAuthFlows = deserializeAws_json1_1ExplicitAuthFlowsListType(
-      output.ExplicitAuthFlows,
-      context
-    );
+    contents.ExplicitAuthFlows = deserializeAws_json1_1ExplicitAuthFlowsListType(output.ExplicitAuthFlows, context);
   }
   if (output.LastModifiedDate !== undefined) {
-    contents.LastModifiedDate = new Date(
-      output.LastModifiedDate % 1 != 0
-        ? Math.round(output.LastModifiedDate * 1000)
-        : output.LastModifiedDate
-    );
+    contents.LastModifiedDate = new Date(output.LastModifiedDate % 1 != 0 ? Math.round(output.LastModifiedDate * 1000) : output.LastModifiedDate);
   }
   if (output.LogoutURLs !== undefined) {
-    contents.LogoutURLs = deserializeAws_json1_1LogoutURLsListType(
-      output.LogoutURLs,
-      context
-    );
+    contents.LogoutURLs = deserializeAws_json1_1LogoutURLsListType(output.LogoutURLs, context);
   }
   if (output.PreventUserExistenceErrors !== undefined) {
     contents.PreventUserExistenceErrors = output.PreventUserExistenceErrors;
   }
   if (output.ReadAttributes !== undefined) {
-    contents.ReadAttributes = deserializeAws_json1_1ClientPermissionListType(
-      output.ReadAttributes,
-      context
-    );
+    contents.ReadAttributes = deserializeAws_json1_1ClientPermissionListType(output.ReadAttributes, context);
   }
   if (output.RefreshTokenValidity !== undefined) {
     contents.RefreshTokenValidity = output.RefreshTokenValidity;
   }
   if (output.SupportedIdentityProviders !== undefined) {
-    contents.SupportedIdentityProviders = deserializeAws_json1_1SupportedIdentityProvidersListType(
-      output.SupportedIdentityProviders,
-      context
-    );
+    contents.SupportedIdentityProviders = deserializeAws_json1_1SupportedIdentityProvidersListType(output.SupportedIdentityProviders, context);
   }
   if (output.UserPoolId !== undefined) {
     contents.UserPoolId = output.UserPoolId;
   }
   if (output.WriteAttributes !== undefined) {
-    contents.WriteAttributes = deserializeAws_json1_1ClientPermissionListType(
-      output.WriteAttributes,
-      context
-    );
+    contents.WriteAttributes = deserializeAws_json1_1ClientPermissionListType(output.WriteAttributes, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UserPoolDescriptionType = (
   output: any,
@@ -20842,30 +16822,19 @@ const deserializeAws_json1_1UserPoolDescriptionType = (
     LambdaConfig: undefined,
     LastModifiedDate: undefined,
     Name: undefined,
-    Status: undefined
+    Status: undefined,
   };
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(output.CreationDate % 1 != 0 ? Math.round(output.CreationDate * 1000) : output.CreationDate);
   }
   if (output.Id !== undefined) {
     contents.Id = output.Id;
   }
   if (output.LambdaConfig !== undefined) {
-    contents.LambdaConfig = deserializeAws_json1_1LambdaConfigType(
-      output.LambdaConfig,
-      context
-    );
+    contents.LambdaConfig = deserializeAws_json1_1LambdaConfigType(output.LambdaConfig, context);
   }
   if (output.LastModifiedDate !== undefined) {
-    contents.LastModifiedDate = new Date(
-      output.LastModifiedDate % 1 != 0
-        ? Math.round(output.LastModifiedDate * 1000)
-        : output.LastModifiedDate
-    );
+    contents.LastModifiedDate = new Date(output.LastModifiedDate % 1 != 0 ? Math.round(output.LastModifiedDate * 1000) : output.LastModifiedDate);
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -20874,7 +16843,7 @@ const deserializeAws_json1_1UserPoolDescriptionType = (
     contents.Status = output.Status;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UserPoolListType = (
   output: any,
@@ -20883,7 +16852,7 @@ const deserializeAws_json1_1UserPoolListType = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1UserPoolDescriptionType(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1UserPoolPolicyType = (
   output: any,
@@ -20891,16 +16860,13 @@ const deserializeAws_json1_1UserPoolPolicyType = (
 ): UserPoolPolicyType => {
   let contents: any = {
     __type: "UserPoolPolicyType",
-    PasswordPolicy: undefined
+    PasswordPolicy: undefined,
   };
   if (output.PasswordPolicy !== undefined) {
-    contents.PasswordPolicy = deserializeAws_json1_1PasswordPolicyType(
-      output.PasswordPolicy,
-      context
-    );
+    contents.PasswordPolicy = deserializeAws_json1_1PasswordPolicyType(output.PasswordPolicy, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UserPoolTaggingException = (
   output: any,
@@ -20908,13 +16874,13 @@ const deserializeAws_json1_1UserPoolTaggingException = (
 ): UserPoolTaggingException => {
   let contents: any = {
     __type: "UserPoolTaggingException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UserPoolTagsType = (
   output: any,
@@ -20925,7 +16891,7 @@ const deserializeAws_json1_1UserPoolTagsType = (
     mapParams[key] = output[key];
   });
   return mapParams;
-};
+}
 
 const deserializeAws_json1_1UserPoolType = (
   output: any,
@@ -20962,59 +16928,37 @@ const deserializeAws_json1_1UserPoolType = (
     UserPoolAddOns: undefined,
     UserPoolTags: undefined,
     UsernameAttributes: undefined,
-    VerificationMessageTemplate: undefined
+    VerificationMessageTemplate: undefined,
   };
   if (output.AccountRecoverySetting !== undefined) {
-    contents.AccountRecoverySetting = deserializeAws_json1_1AccountRecoverySettingType(
-      output.AccountRecoverySetting,
-      context
-    );
+    contents.AccountRecoverySetting = deserializeAws_json1_1AccountRecoverySettingType(output.AccountRecoverySetting, context);
   }
   if (output.AdminCreateUserConfig !== undefined) {
-    contents.AdminCreateUserConfig = deserializeAws_json1_1AdminCreateUserConfigType(
-      output.AdminCreateUserConfig,
-      context
-    );
+    contents.AdminCreateUserConfig = deserializeAws_json1_1AdminCreateUserConfigType(output.AdminCreateUserConfig, context);
   }
   if (output.AliasAttributes !== undefined) {
-    contents.AliasAttributes = deserializeAws_json1_1AliasAttributesListType(
-      output.AliasAttributes,
-      context
-    );
+    contents.AliasAttributes = deserializeAws_json1_1AliasAttributesListType(output.AliasAttributes, context);
   }
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
   }
   if (output.AutoVerifiedAttributes !== undefined) {
-    contents.AutoVerifiedAttributes = deserializeAws_json1_1VerifiedAttributesListType(
-      output.AutoVerifiedAttributes,
-      context
-    );
+    contents.AutoVerifiedAttributes = deserializeAws_json1_1VerifiedAttributesListType(output.AutoVerifiedAttributes, context);
   }
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(output.CreationDate % 1 != 0 ? Math.round(output.CreationDate * 1000) : output.CreationDate);
   }
   if (output.CustomDomain !== undefined) {
     contents.CustomDomain = output.CustomDomain;
   }
   if (output.DeviceConfiguration !== undefined) {
-    contents.DeviceConfiguration = deserializeAws_json1_1DeviceConfigurationType(
-      output.DeviceConfiguration,
-      context
-    );
+    contents.DeviceConfiguration = deserializeAws_json1_1DeviceConfigurationType(output.DeviceConfiguration, context);
   }
   if (output.Domain !== undefined) {
     contents.Domain = output.Domain;
   }
   if (output.EmailConfiguration !== undefined) {
-    contents.EmailConfiguration = deserializeAws_json1_1EmailConfigurationType(
-      output.EmailConfiguration,
-      context
-    );
+    contents.EmailConfiguration = deserializeAws_json1_1EmailConfigurationType(output.EmailConfiguration, context);
   }
   if (output.EmailConfigurationFailure !== undefined) {
     contents.EmailConfigurationFailure = output.EmailConfigurationFailure;
@@ -21032,17 +16976,10 @@ const deserializeAws_json1_1UserPoolType = (
     contents.Id = output.Id;
   }
   if (output.LambdaConfig !== undefined) {
-    contents.LambdaConfig = deserializeAws_json1_1LambdaConfigType(
-      output.LambdaConfig,
-      context
-    );
+    contents.LambdaConfig = deserializeAws_json1_1LambdaConfigType(output.LambdaConfig, context);
   }
   if (output.LastModifiedDate !== undefined) {
-    contents.LastModifiedDate = new Date(
-      output.LastModifiedDate % 1 != 0
-        ? Math.round(output.LastModifiedDate * 1000)
-        : output.LastModifiedDate
-    );
+    contents.LastModifiedDate = new Date(output.LastModifiedDate % 1 != 0 ? Math.round(output.LastModifiedDate * 1000) : output.LastModifiedDate);
   }
   if (output.MfaConfiguration !== undefined) {
     contents.MfaConfiguration = output.MfaConfiguration;
@@ -21051,25 +16988,16 @@ const deserializeAws_json1_1UserPoolType = (
     contents.Name = output.Name;
   }
   if (output.Policies !== undefined) {
-    contents.Policies = deserializeAws_json1_1UserPoolPolicyType(
-      output.Policies,
-      context
-    );
+    contents.Policies = deserializeAws_json1_1UserPoolPolicyType(output.Policies, context);
   }
   if (output.SchemaAttributes !== undefined) {
-    contents.SchemaAttributes = deserializeAws_json1_1SchemaAttributesListType(
-      output.SchemaAttributes,
-      context
-    );
+    contents.SchemaAttributes = deserializeAws_json1_1SchemaAttributesListType(output.SchemaAttributes, context);
   }
   if (output.SmsAuthenticationMessage !== undefined) {
     contents.SmsAuthenticationMessage = output.SmsAuthenticationMessage;
   }
   if (output.SmsConfiguration !== undefined) {
-    contents.SmsConfiguration = deserializeAws_json1_1SmsConfigurationType(
-      output.SmsConfiguration,
-      context
-    );
+    contents.SmsConfiguration = deserializeAws_json1_1SmsConfigurationType(output.SmsConfiguration, context);
   }
   if (output.SmsConfigurationFailure !== undefined) {
     contents.SmsConfigurationFailure = output.SmsConfigurationFailure;
@@ -21081,31 +17009,19 @@ const deserializeAws_json1_1UserPoolType = (
     contents.Status = output.Status;
   }
   if (output.UserPoolAddOns !== undefined) {
-    contents.UserPoolAddOns = deserializeAws_json1_1UserPoolAddOnsType(
-      output.UserPoolAddOns,
-      context
-    );
+    contents.UserPoolAddOns = deserializeAws_json1_1UserPoolAddOnsType(output.UserPoolAddOns, context);
   }
   if (output.UserPoolTags !== undefined) {
-    contents.UserPoolTags = deserializeAws_json1_1UserPoolTagsType(
-      output.UserPoolTags,
-      context
-    );
+    contents.UserPoolTags = deserializeAws_json1_1UserPoolTagsType(output.UserPoolTags, context);
   }
   if (output.UsernameAttributes !== undefined) {
-    contents.UsernameAttributes = deserializeAws_json1_1UsernameAttributesListType(
-      output.UsernameAttributes,
-      context
-    );
+    contents.UsernameAttributes = deserializeAws_json1_1UsernameAttributesListType(output.UsernameAttributes, context);
   }
   if (output.VerificationMessageTemplate !== undefined) {
-    contents.VerificationMessageTemplate = deserializeAws_json1_1VerificationMessageTemplateType(
-      output.VerificationMessageTemplate,
-      context
-    );
+    contents.VerificationMessageTemplate = deserializeAws_json1_1VerificationMessageTemplateType(output.VerificationMessageTemplate, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UserType = (
   output: any,
@@ -21119,36 +17035,22 @@ const deserializeAws_json1_1UserType = (
     UserCreateDate: undefined,
     UserLastModifiedDate: undefined,
     UserStatus: undefined,
-    Username: undefined
+    Username: undefined,
   };
   if (output.Attributes !== undefined) {
-    contents.Attributes = deserializeAws_json1_1AttributeListType(
-      output.Attributes,
-      context
-    );
+    contents.Attributes = deserializeAws_json1_1AttributeListType(output.Attributes, context);
   }
   if (output.Enabled !== undefined) {
     contents.Enabled = output.Enabled;
   }
   if (output.MFAOptions !== undefined) {
-    contents.MFAOptions = deserializeAws_json1_1MFAOptionListType(
-      output.MFAOptions,
-      context
-    );
+    contents.MFAOptions = deserializeAws_json1_1MFAOptionListType(output.MFAOptions, context);
   }
   if (output.UserCreateDate !== undefined) {
-    contents.UserCreateDate = new Date(
-      output.UserCreateDate % 1 != 0
-        ? Math.round(output.UserCreateDate * 1000)
-        : output.UserCreateDate
-    );
+    contents.UserCreateDate = new Date(output.UserCreateDate % 1 != 0 ? Math.round(output.UserCreateDate * 1000) : output.UserCreateDate);
   }
   if (output.UserLastModifiedDate !== undefined) {
-    contents.UserLastModifiedDate = new Date(
-      output.UserLastModifiedDate % 1 != 0
-        ? Math.round(output.UserLastModifiedDate * 1000)
-        : output.UserLastModifiedDate
-    );
+    contents.UserLastModifiedDate = new Date(output.UserLastModifiedDate % 1 != 0 ? Math.round(output.UserLastModifiedDate * 1000) : output.UserLastModifiedDate);
   }
   if (output.UserStatus !== undefined) {
     contents.UserStatus = output.UserStatus;
@@ -21157,14 +17059,16 @@ const deserializeAws_json1_1UserType = (
     contents.Username = output.Username;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UsernameAttributesListType = (
   output: any,
   context: __SerdeContext
 ): Array<UsernameAttributeType | string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1UsernameExistsException = (
   output: any,
@@ -21172,13 +17076,13 @@ const deserializeAws_json1_1UsernameExistsException = (
 ): UsernameExistsException => {
   let contents: any = {
     __type: "UsernameExistsException",
-    message: undefined
+    message: undefined,
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1UsersListType = (
   output: any,
@@ -21187,7 +17091,7 @@ const deserializeAws_json1_1UsersListType = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1UserType(entry, context)
   );
-};
+}
 
 const deserializeAws_json1_1VerificationMessageTemplateType = (
   output: any,
@@ -21200,7 +17104,7 @@ const deserializeAws_json1_1VerificationMessageTemplateType = (
     EmailMessageByLink: undefined,
     EmailSubject: undefined,
     EmailSubjectByLink: undefined,
-    SmsMessage: undefined
+    SmsMessage: undefined,
   };
   if (output.DefaultEmailOption !== undefined) {
     contents.DefaultEmailOption = output.DefaultEmailOption;
@@ -21221,14 +17125,16 @@ const deserializeAws_json1_1VerificationMessageTemplateType = (
     contents.SmsMessage = output.SmsMessage;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1VerifiedAttributesListType = (
   output: any,
   context: __SerdeContext
 ): Array<VerifiedAttributeType | string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_json1_1VerifySoftwareTokenResponse = (
   output: any,
@@ -21237,7 +17143,7 @@ const deserializeAws_json1_1VerifySoftwareTokenResponse = (
   let contents: any = {
     __type: "VerifySoftwareTokenResponse",
     Session: undefined,
-    Status: undefined
+    Status: undefined,
   };
   if (output.Session !== undefined) {
     contents.Session = output.Session;
@@ -21246,17 +17152,17 @@ const deserializeAws_json1_1VerifySoftwareTokenResponse = (
     contents.Status = output.Status;
   }
   return contents;
-};
+}
 
 const deserializeAws_json1_1VerifyUserAttributeResponse = (
   output: any,
   context: __SerdeContext
 ): VerifyUserAttributeResponse => {
   let contents: any = {
-    __type: "VerifyUserAttributeResponse"
+    __type: "VerifyUserAttributeResponse",
   };
   return contents;
-};
+}
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

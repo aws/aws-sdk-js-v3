@@ -4,9 +4,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 /**
  * The resource specified in your request already exists.
  */
-export interface AlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -21,9 +19,7 @@ export namespace AlreadyExistsException {
 /**
  * The input you provided is invalid.
  */
-export interface BadRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BadRequestException";
   $fault: "client";
   Message?: string;
@@ -96,9 +92,7 @@ export interface CreateConfigurationSetEventDestinationRequest {
 }
 
 export namespace CreateConfigurationSetEventDestinationRequest {
-  export function isa(
-    o: any
-  ): o is CreateConfigurationSetEventDestinationRequest {
+  export function isa(o: any): o is CreateConfigurationSetEventDestinationRequest {
     return _smithy.isa(o, "CreateConfigurationSetEventDestinationRequest");
   }
 }
@@ -106,15 +100,12 @@ export namespace CreateConfigurationSetEventDestinationRequest {
 /**
  * An empty object that indicates that the event destination was created successfully.
  */
-export interface CreateConfigurationSetEventDestinationResponse
-  extends $MetadataBearer {
+export interface CreateConfigurationSetEventDestinationResponse extends $MetadataBearer {
   __type?: "CreateConfigurationSetEventDestinationResponse";
 }
 
 export namespace CreateConfigurationSetEventDestinationResponse {
-  export function isa(
-    o: any
-  ): o is CreateConfigurationSetEventDestinationResponse {
+  export function isa(o: any): o is CreateConfigurationSetEventDestinationResponse {
     return _smithy.isa(o, "CreateConfigurationSetEventDestinationResponse");
   }
 }
@@ -163,9 +154,7 @@ export interface DeleteConfigurationSetEventDestinationRequest {
 }
 
 export namespace DeleteConfigurationSetEventDestinationRequest {
-  export function isa(
-    o: any
-  ): o is DeleteConfigurationSetEventDestinationRequest {
+  export function isa(o: any): o is DeleteConfigurationSetEventDestinationRequest {
     return _smithy.isa(o, "DeleteConfigurationSetEventDestinationRequest");
   }
 }
@@ -173,15 +162,12 @@ export namespace DeleteConfigurationSetEventDestinationRequest {
 /**
  * An empty object that indicates that the event destination was deleted successfully.
  */
-export interface DeleteConfigurationSetEventDestinationResponse
-  extends $MetadataBearer {
+export interface DeleteConfigurationSetEventDestinationResponse extends $MetadataBearer {
   __type?: "DeleteConfigurationSetEventDestinationResponse";
 }
 
 export namespace DeleteConfigurationSetEventDestinationResponse {
-  export function isa(
-    o: any
-  ): o is DeleteConfigurationSetEventDestinationResponse {
+  export function isa(o: any): o is DeleteConfigurationSetEventDestinationResponse {
     return _smithy.isa(o, "DeleteConfigurationSetEventDestinationResponse");
   }
 }
@@ -299,7 +285,7 @@ export enum EventType {
   FAILED = "FAILED",
   INITIATED_CALL = "INITIATED_CALL",
   NO_ANSWER = "NO_ANSWER",
-  RINGING = "RINGING"
+  RINGING = "RINGING",
 }
 
 export interface GetConfigurationSetEventDestinationsRequest {
@@ -311,9 +297,7 @@ export interface GetConfigurationSetEventDestinationsRequest {
 }
 
 export namespace GetConfigurationSetEventDestinationsRequest {
-  export function isa(
-    o: any
-  ): o is GetConfigurationSetEventDestinationsRequest {
+  export function isa(o: any): o is GetConfigurationSetEventDestinationsRequest {
     return _smithy.isa(o, "GetConfigurationSetEventDestinationsRequest");
   }
 }
@@ -321,8 +305,7 @@ export namespace GetConfigurationSetEventDestinationsRequest {
 /**
  * An object that contains information about an event destination.
  */
-export interface GetConfigurationSetEventDestinationsResponse
-  extends $MetadataBearer {
+export interface GetConfigurationSetEventDestinationsResponse extends $MetadataBearer {
   __type?: "GetConfigurationSetEventDestinationsResponse";
   /**
    * An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.
@@ -331,9 +314,7 @@ export interface GetConfigurationSetEventDestinationsResponse
 }
 
 export namespace GetConfigurationSetEventDestinationsResponse {
-  export function isa(
-    o: any
-  ): o is GetConfigurationSetEventDestinationsResponse {
+  export function isa(o: any): o is GetConfigurationSetEventDestinationsResponse {
     return _smithy.isa(o, "GetConfigurationSetEventDestinationsResponse");
   }
 }
@@ -341,9 +322,7 @@ export namespace GetConfigurationSetEventDestinationsResponse {
 /**
  * The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.
  */
-export interface InternalServiceErrorException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServiceErrorException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServiceErrorException";
   $fault: "server";
   Message?: string;
@@ -380,9 +359,7 @@ export namespace KinesisFirehoseDestination {
 /**
  * There are too many instances of the specified resource type.
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -438,9 +415,7 @@ export namespace ListConfigurationSetsResponse {
 /**
  * The resource you attempted to access doesn't exist.
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   Message?: string;
@@ -580,9 +555,7 @@ export namespace SnsDestination {
 /**
  * You've issued too many requests to the resource. Wait a few minutes, and then try again.
  */
-export interface TooManyRequestsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
@@ -616,9 +589,7 @@ export interface UpdateConfigurationSetEventDestinationRequest {
 }
 
 export namespace UpdateConfigurationSetEventDestinationRequest {
-  export function isa(
-    o: any
-  ): o is UpdateConfigurationSetEventDestinationRequest {
+  export function isa(o: any): o is UpdateConfigurationSetEventDestinationRequest {
     return _smithy.isa(o, "UpdateConfigurationSetEventDestinationRequest");
   }
 }
@@ -626,15 +597,12 @@ export namespace UpdateConfigurationSetEventDestinationRequest {
 /**
  * An empty object that indicates that the event destination was updated successfully.
  */
-export interface UpdateConfigurationSetEventDestinationResponse
-  extends $MetadataBearer {
+export interface UpdateConfigurationSetEventDestinationResponse extends $MetadataBearer {
   __type?: "UpdateConfigurationSetEventDestinationResponse";
 }
 
 export namespace UpdateConfigurationSetEventDestinationResponse {
-  export function isa(
-    o: any
-  ): o is UpdateConfigurationSetEventDestinationResponse {
+  export function isa(o: any): o is UpdateConfigurationSetEventDestinationResponse {
     return _smithy.isa(o, "UpdateConfigurationSetEventDestinationResponse");
   }
 }

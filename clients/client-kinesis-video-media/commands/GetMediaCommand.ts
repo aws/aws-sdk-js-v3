@@ -1,17 +1,20 @@
 import {
   KinesisVideoMediaClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../KinesisVideoMediaClient";
-import { GetMediaInput, GetMediaOutput } from "../models/index";
+import {
+  GetMediaInput,
+  GetMediaOutput,
+} from "../models/index";
 import {
   deserializeAws_restJson1_1GetMediaCommand,
-  serializeAws_restJson1_1GetMediaCommand
+  serializeAws_restJson1_1GetMediaCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type GetMediaCommandInput = GetMediaInput;
 export type GetMediaCommandOutput = GetMediaOutput;
 
-export class GetMediaCommand extends $Command<
-  GetMediaCommandInput,
-  GetMediaCommandOutput,
-  KinesisVideoMediaClientResolvedConfig
-> {
+export class GetMediaCommand extends $Command<GetMediaCommandInput, GetMediaCommandOutput, KinesisVideoMediaClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class GetMediaCommand extends $Command<
     configuration: KinesisVideoMediaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetMediaCommandInput, GetMediaCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

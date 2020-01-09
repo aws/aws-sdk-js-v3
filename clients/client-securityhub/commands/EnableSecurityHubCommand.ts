@@ -1,20 +1,20 @@
 import {
   SecurityHubClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../SecurityHubClient";
 import {
   EnableSecurityHubRequest,
-  EnableSecurityHubResponse
+  EnableSecurityHubResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1EnableSecurityHubCommand,
-  serializeAws_restJson1_1EnableSecurityHubCommand
+  serializeAws_restJson1_1EnableSecurityHubCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type EnableSecurityHubCommandInput = EnableSecurityHubRequest;
 export type EnableSecurityHubCommandOutput = EnableSecurityHubResponse;
 
-export class EnableSecurityHubCommand extends $Command<
-  EnableSecurityHubCommandInput,
-  EnableSecurityHubCommandOutput,
-  SecurityHubClientResolvedConfig
-> {
+export class EnableSecurityHubCommand extends $Command<EnableSecurityHubCommandInput, EnableSecurityHubCommandOutput, SecurityHubClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,15 +44,13 @@ export class EnableSecurityHubCommand extends $Command<
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<EnableSecurityHubCommandInput, EnableSecurityHubCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

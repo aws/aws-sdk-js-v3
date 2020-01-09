@@ -414,9 +414,7 @@ export namespace BackendEnvironment {
  *         </p>
  *
  */
-export interface BadRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BadRequestException";
   $fault: "client";
   message?: string;
@@ -1769,9 +1767,7 @@ export namespace DeleteWebhookResult {
  *         </p>
  *
  */
-export interface DependentServiceFailureException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DependentServiceFailureException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DependentServiceFailureException";
   $fault: "server";
   message?: string;
@@ -1870,7 +1866,7 @@ export enum DomainStatus {
   PENDING_DEPLOYMENT = "PENDING_DEPLOYMENT",
   PENDING_VERIFICATION = "PENDING_VERIFICATION",
   REQUESTING_CERTIFICATE = "REQUESTING_CERTIFICATE",
-  UPDATING = "UPDATING"
+  UPDATING = "UPDATING",
 }
 
 /**
@@ -2340,9 +2336,7 @@ export namespace GetWebhookResult {
  *         </p>
  *
  */
-export interface InternalFailureException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalFailureException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalFailureException";
   $fault: "server";
   message?: string;
@@ -2395,7 +2389,7 @@ export enum JobStatus {
   PENDING = "PENDING",
   PROVISIONING = "PROVISIONING",
   RUNNING = "RUNNING",
-  SUCCEED = "SUCCEED"
+  SUCCEED = "SUCCEED",
 }
 
 /**
@@ -2502,7 +2496,7 @@ export enum JobType {
   MANUAL = "MANUAL",
   RELEASE = "RELEASE",
   RETRY = "RETRY",
-  WEB_HOOK = "WEB_HOOK"
+  WEB_HOOK = "WEB_HOOK",
 }
 
 /**
@@ -2512,9 +2506,7 @@ export enum JobType {
  *         </p>
  *
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -3170,9 +3162,7 @@ export namespace ListWebhooksResult {
  *         </p>
  *
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   message?: string;
@@ -3185,7 +3175,7 @@ export namespace NotFoundException {
 }
 
 export enum Platform {
-  WEB = "WEB"
+  WEB = "WEB",
 }
 
 /**
@@ -3247,9 +3237,7 @@ export namespace ProductionBranch {
  *         </p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   code: string | undefined;
@@ -3267,7 +3255,7 @@ export enum Stage {
   DEVELOPMENT = "DEVELOPMENT",
   EXPERIMENTAL = "EXPERIMENTAL",
   PRODUCTION = "PRODUCTION",
-  PULL_REQUEST = "PULL_REQUEST"
+  PULL_REQUEST = "PULL_REQUEST",
 }
 
 /**
@@ -3781,9 +3769,7 @@ export namespace TagResourceResponse {
  *         </p>
  *
  */
-export interface UnauthorizedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnauthorizedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "UnauthorizedException";
   $fault: "client";
   message?: string;

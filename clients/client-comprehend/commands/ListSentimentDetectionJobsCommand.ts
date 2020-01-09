@@ -1,20 +1,20 @@
 import {
   ComprehendClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ComprehendClient";
 import {
   ListSentimentDetectionJobsRequest,
-  ListSentimentDetectionJobsResponse
+  ListSentimentDetectionJobsResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1ListSentimentDetectionJobsCommand,
-  serializeAws_json1_1ListSentimentDetectionJobsCommand
+  serializeAws_json1_1ListSentimentDetectionJobsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type ListSentimentDetectionJobsCommandInput = ListSentimentDetectionJobsRequest;
 export type ListSentimentDetectionJobsCommandOutput = ListSentimentDetectionJobsResponse;
 
-export class ListSentimentDetectionJobsCommand extends $Command<
-  ListSentimentDetectionJobsCommandInput,
-  ListSentimentDetectionJobsCommandOutput,
-  ComprehendClientResolvedConfig
-> {
+export class ListSentimentDetectionJobsCommand extends $Command<ListSentimentDetectionJobsCommandInput, ListSentimentDetectionJobsCommandOutput, ComprehendClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class ListSentimentDetectionJobsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListSentimentDetectionJobsCommandInput,
-    ListSentimentDetectionJobsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListSentimentDetectionJobsCommandInput, ListSentimentDetectionJobsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class ListSentimentDetectionJobsCommand extends $Command<
     input: ListSentimentDetectionJobsCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListSentimentDetectionJobsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListSentimentDetectionJobsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListSentimentDetectionJobsCommandOutput> {
-    return deserializeAws_json1_1ListSentimentDetectionJobsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListSentimentDetectionJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

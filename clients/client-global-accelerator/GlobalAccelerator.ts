@@ -2,87 +2,87 @@ import { GlobalAcceleratorClient } from "./GlobalAcceleratorClient";
 import {
   CreateAcceleratorCommand,
   CreateAcceleratorCommandInput,
-  CreateAcceleratorCommandOutput
+  CreateAcceleratorCommandOutput,
 } from "./commands/CreateAcceleratorCommand";
 import {
   CreateEndpointGroupCommand,
   CreateEndpointGroupCommandInput,
-  CreateEndpointGroupCommandOutput
+  CreateEndpointGroupCommandOutput,
 } from "./commands/CreateEndpointGroupCommand";
 import {
   CreateListenerCommand,
   CreateListenerCommandInput,
-  CreateListenerCommandOutput
+  CreateListenerCommandOutput,
 } from "./commands/CreateListenerCommand";
 import {
   DeleteAcceleratorCommand,
   DeleteAcceleratorCommandInput,
-  DeleteAcceleratorCommandOutput
+  DeleteAcceleratorCommandOutput,
 } from "./commands/DeleteAcceleratorCommand";
 import {
   DeleteEndpointGroupCommand,
   DeleteEndpointGroupCommandInput,
-  DeleteEndpointGroupCommandOutput
+  DeleteEndpointGroupCommandOutput,
 } from "./commands/DeleteEndpointGroupCommand";
 import {
   DeleteListenerCommand,
   DeleteListenerCommandInput,
-  DeleteListenerCommandOutput
+  DeleteListenerCommandOutput,
 } from "./commands/DeleteListenerCommand";
 import {
   DescribeAcceleratorAttributesCommand,
   DescribeAcceleratorAttributesCommandInput,
-  DescribeAcceleratorAttributesCommandOutput
+  DescribeAcceleratorAttributesCommandOutput,
 } from "./commands/DescribeAcceleratorAttributesCommand";
 import {
   DescribeAcceleratorCommand,
   DescribeAcceleratorCommandInput,
-  DescribeAcceleratorCommandOutput
+  DescribeAcceleratorCommandOutput,
 } from "./commands/DescribeAcceleratorCommand";
 import {
   DescribeEndpointGroupCommand,
   DescribeEndpointGroupCommandInput,
-  DescribeEndpointGroupCommandOutput
+  DescribeEndpointGroupCommandOutput,
 } from "./commands/DescribeEndpointGroupCommand";
 import {
   DescribeListenerCommand,
   DescribeListenerCommandInput,
-  DescribeListenerCommandOutput
+  DescribeListenerCommandOutput,
 } from "./commands/DescribeListenerCommand";
 import {
   ListAcceleratorsCommand,
   ListAcceleratorsCommandInput,
-  ListAcceleratorsCommandOutput
+  ListAcceleratorsCommandOutput,
 } from "./commands/ListAcceleratorsCommand";
 import {
   ListEndpointGroupsCommand,
   ListEndpointGroupsCommandInput,
-  ListEndpointGroupsCommandOutput
+  ListEndpointGroupsCommandOutput,
 } from "./commands/ListEndpointGroupsCommand";
 import {
   ListListenersCommand,
   ListListenersCommandInput,
-  ListListenersCommandOutput
+  ListListenersCommandOutput,
 } from "./commands/ListListenersCommand";
 import {
   UpdateAcceleratorAttributesCommand,
   UpdateAcceleratorAttributesCommandInput,
-  UpdateAcceleratorAttributesCommandOutput
+  UpdateAcceleratorAttributesCommandOutput,
 } from "./commands/UpdateAcceleratorAttributesCommand";
 import {
   UpdateAcceleratorCommand,
   UpdateAcceleratorCommandInput,
-  UpdateAcceleratorCommandOutput
+  UpdateAcceleratorCommandOutput,
 } from "./commands/UpdateAcceleratorCommand";
 import {
   UpdateEndpointGroupCommand,
   UpdateEndpointGroupCommandInput,
-  UpdateEndpointGroupCommandOutput
+  UpdateEndpointGroupCommandOutput,
 } from "./commands/UpdateEndpointGroupCommand";
 import {
   UpdateListenerCommand,
   UpdateListenerCommandInput,
-  UpdateListenerCommandOutput
+  UpdateListenerCommandOutput,
 } from "./commands/UpdateListenerCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -93,7 +93,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  * 			AWS Global Accelerator API actions, data types, and errors. For more information about Global Accelerator features, see the <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/Welcome.html">AWS Global Accelerator Developer Guide</a>. </p>
  * 		       <p>AWS Global Accelerator is a network layer service in which you create accelerators to improve availability and performance for
  * 			internet applications used by a global audience. </p>
- *
+ * 		
  * 		       <important>
  * 			         <p>You must specify the US-West-2 (Oregon) Region to create or update accelerators.</p>
  * 		       </important>
@@ -127,7 +127,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             <dd>
  * 					          <p>A network zone services the static IP addresses for your accelerator from a unique IP subnet. Similar to an
  * 						AWS Availability Zone, a network zone is an isolated unit with its own set of physical infrastructure.
- *
+ * 						
  * 						When you configure an accelerator, Global Accelerator allocates two IPv4 addresses for it. If one IP address from a
  * 						network zone becomes unavailable due to IP address blocking by certain client networks, or network
  * 						disruptions, then client applications can retry on the healthy static IP address from the other isolated
@@ -159,7 +159,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  * 				        </dd>
  *          </dl>
  *
- *
+ * 	
  */
 export class GlobalAccelerator extends GlobalAcceleratorClient {
   /**
@@ -167,18 +167,18 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
    * 		       <p>Create an accelerator. An accelerator includes one or more listeners that process inbound connections and direct traffic
    * 			to one or more endpoint groups, each of which includes endpoints, such as Network Load Balancers. To see an AWS CLI
    * 			example of creating an accelerator, scroll down to <b>Example</b>.</p>
-   *
+   * 		
    * 		       <important>
    * 			         <p>You must specify the US-West-2 (Oregon) Region to create or update accelerators.</p>
    * 		       </important>
    *
    *
-   *
-   *
+   * 		
+   * 	
    */
   public createAccelerator(
     args: CreateAcceleratorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateAcceleratorCommandOutput>;
   public createAccelerator(
     args: CreateAcceleratorCommandInput,
@@ -191,18 +191,16 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public createAccelerator(
     args: CreateAcceleratorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAcceleratorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAcceleratorCommandOutput) => void),
     cb?: (err: any, data?: CreateAcceleratorCommandOutput) => void
   ): Promise<CreateAcceleratorCommandOutput> | void {
     const command = new CreateAcceleratorCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -213,12 +211,12 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
    * 		       <p>Create an endpoint group for the specified listener. An endpoint group is a collection of endpoints in one AWS
    * 			Region. To see an AWS CLI example of creating an endpoint group, scroll down to <b>Example</b>.</p>
    *
-   *
-   *
+   * 		
+   * 	
    */
   public createEndpointGroup(
     args: CreateEndpointGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateEndpointGroupCommandOutput>;
   public createEndpointGroup(
     args: CreateEndpointGroupCommandInput,
@@ -231,18 +229,16 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public createEndpointGroup(
     args: CreateEndpointGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateEndpointGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEndpointGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateEndpointGroupCommandOutput) => void
   ): Promise<CreateEndpointGroupCommandOutput> | void {
     const command = new CreateEndpointGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -254,12 +250,12 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
    * 			IP addresses on a port, port range, or list of port ranges that you specify. To see an AWS CLI example of creating a
    * 			listener, scroll down to <b>Example</b>.</p>
    *
-   *
-   *
+   * 		
+   * 	
    */
   public createListener(
     args: CreateListenerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateListenerCommandOutput>;
   public createListener(
     args: CreateListenerCommandInput,
@@ -272,18 +268,16 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public createListener(
     args: CreateListenerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateListenerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateListenerCommandOutput) => void),
     cb?: (err: any, data?: CreateListenerCommandOutput) => void
   ): Promise<CreateListenerCommandOutput> | void {
     const command = new CreateListenerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -293,11 +287,11 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
    *
    * 		       <p>Delete an accelerator. Note: before you can delete an accelerator, you must disable it and remove all dependent resources
    * 			(listeners and endpoint groups).</p>
-   *
+   * 	
    */
   public deleteAccelerator(
     args: DeleteAcceleratorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteAcceleratorCommandOutput>;
   public deleteAccelerator(
     args: DeleteAcceleratorCommandInput,
@@ -310,18 +304,16 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public deleteAccelerator(
     args: DeleteAcceleratorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAcceleratorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAcceleratorCommandOutput) => void),
     cb?: (err: any, data?: DeleteAcceleratorCommandOutput) => void
   ): Promise<DeleteAcceleratorCommandOutput> | void {
     const command = new DeleteAcceleratorCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -330,11 +322,11 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   /**
    *
    * 		       <p>Delete an endpoint group from a listener.</p>
-   *
+   * 	
    */
   public deleteEndpointGroup(
     args: DeleteEndpointGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteEndpointGroupCommandOutput>;
   public deleteEndpointGroup(
     args: DeleteEndpointGroupCommandInput,
@@ -347,18 +339,16 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public deleteEndpointGroup(
     args: DeleteEndpointGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteEndpointGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEndpointGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteEndpointGroupCommandOutput) => void
   ): Promise<DeleteEndpointGroupCommandOutput> | void {
     const command = new DeleteEndpointGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -367,11 +357,11 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   /**
    *
    * 		       <p>Delete a listener from an accelerator.</p>
-   *
+   * 	
    */
   public deleteListener(
     args: DeleteListenerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteListenerCommandOutput>;
   public deleteListener(
     args: DeleteListenerCommandInput,
@@ -384,18 +374,16 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public deleteListener(
     args: DeleteListenerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteListenerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteListenerCommandOutput) => void),
     cb?: (err: any, data?: DeleteListenerCommandOutput) => void
   ): Promise<DeleteListenerCommandOutput> | void {
     const command = new DeleteListenerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -405,12 +393,12 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
    *
    * 		       <p>Describe an accelerator. To see an AWS CLI example of describing an accelerator, scroll down to <b>Example</b>.</p>
    *
-   *
-   *
+   * 		
+   * 	
    */
   public describeAccelerator(
     args: DescribeAcceleratorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeAcceleratorCommandOutput>;
   public describeAccelerator(
     args: DescribeAcceleratorCommandInput,
@@ -423,18 +411,16 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public describeAccelerator(
     args: DescribeAcceleratorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAcceleratorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAcceleratorCommandOutput) => void),
     cb?: (err: any, data?: DescribeAcceleratorCommandOutput) => void
   ): Promise<DescribeAcceleratorCommandOutput> | void {
     const command = new DescribeAcceleratorCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -443,11 +429,11 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   /**
    *
    * 		       <p>Describe the attributes of an accelerator.</p>
-   *
+   * 	
    */
   public describeAcceleratorAttributes(
     args: DescribeAcceleratorAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeAcceleratorAttributesCommandOutput>;
   public describeAcceleratorAttributes(
     args: DescribeAcceleratorAttributesCommandInput,
@@ -460,18 +446,16 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public describeAcceleratorAttributes(
     args: DescribeAcceleratorAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAcceleratorAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAcceleratorAttributesCommandOutput) => void),
     cb?: (err: any, data?: DescribeAcceleratorAttributesCommandOutput) => void
   ): Promise<DescribeAcceleratorAttributesCommandOutput> | void {
     const command = new DescribeAcceleratorAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -480,11 +464,11 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   /**
    *
    * 		       <p>Describe an endpoint group.</p>
-   *
+   * 	
    */
   public describeEndpointGroup(
     args: DescribeEndpointGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeEndpointGroupCommandOutput>;
   public describeEndpointGroup(
     args: DescribeEndpointGroupCommandInput,
@@ -497,18 +481,16 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public describeEndpointGroup(
     args: DescribeEndpointGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeEndpointGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEndpointGroupCommandOutput) => void),
     cb?: (err: any, data?: DescribeEndpointGroupCommandOutput) => void
   ): Promise<DescribeEndpointGroupCommandOutput> | void {
     const command = new DescribeEndpointGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -517,11 +499,11 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   /**
    *
    * 		       <p>Describe a listener.</p>
-   *
+   * 	
    */
   public describeListener(
     args: DescribeListenerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeListenerCommandOutput>;
   public describeListener(
     args: DescribeListenerCommandInput,
@@ -534,18 +516,16 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public describeListener(
     args: DescribeListenerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeListenerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeListenerCommandOutput) => void),
     cb?: (err: any, data?: DescribeListenerCommandOutput) => void
   ): Promise<DescribeListenerCommandOutput> | void {
     const command = new DescribeListenerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -554,11 +534,11 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   /**
    *
    * 		       <p>List the accelerators for an AWS account.</p>
-   *
+   * 	
    */
   public listAccelerators(
     args: ListAcceleratorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListAcceleratorsCommandOutput>;
   public listAccelerators(
     args: ListAcceleratorsCommandInput,
@@ -571,18 +551,16 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public listAccelerators(
     args: ListAcceleratorsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAcceleratorsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAcceleratorsCommandOutput) => void),
     cb?: (err: any, data?: ListAcceleratorsCommandOutput) => void
   ): Promise<ListAcceleratorsCommandOutput> | void {
     const command = new ListAcceleratorsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -591,11 +569,11 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   /**
    *
    * 		       <p>List the endpoint groups that are associated with a listener.</p>
-   *
+   * 	
    */
   public listEndpointGroups(
     args: ListEndpointGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListEndpointGroupsCommandOutput>;
   public listEndpointGroups(
     args: ListEndpointGroupsCommandInput,
@@ -608,18 +586,16 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public listEndpointGroups(
     args: ListEndpointGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListEndpointGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEndpointGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListEndpointGroupsCommandOutput) => void
   ): Promise<ListEndpointGroupsCommandOutput> | void {
     const command = new ListEndpointGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -628,11 +604,11 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   /**
    *
    * 		       <p>List the listeners for an accelerator.</p>
-   *
+   * 	
    */
   public listListeners(
     args: ListListenersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListListenersCommandOutput>;
   public listListeners(
     args: ListListenersCommandInput,
@@ -645,18 +621,16 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public listListeners(
     args: ListListenersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListListenersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListListenersCommandOutput) => void),
     cb?: (err: any, data?: ListListenersCommandOutput) => void
   ): Promise<ListListenersCommandOutput> | void {
     const command = new ListListenersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -666,18 +640,18 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
    *
    * 		       <p>Update an accelerator. To see an AWS CLI example of updating an accelerator,
    * 			scroll down to <b>Example</b>.</p>
-   *
+   * 		
    * 		       <important>
    * 			         <p>You must specify the US-West-2 (Oregon) Region to create or update accelerators.</p>
    * 		       </important>
-   *
-   *
-   *
-   *
+   * 		
+   * 		
+   * 		
+   * 	
    */
   public updateAccelerator(
     args: UpdateAcceleratorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateAcceleratorCommandOutput>;
   public updateAccelerator(
     args: UpdateAcceleratorCommandInput,
@@ -690,18 +664,16 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public updateAccelerator(
     args: UpdateAcceleratorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAcceleratorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAcceleratorCommandOutput) => void),
     cb?: (err: any, data?: UpdateAcceleratorCommandOutput) => void
   ): Promise<UpdateAcceleratorCommandOutput> | void {
     const command = new UpdateAcceleratorCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -712,13 +684,13 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
    * 		       <p>Update the attributes for an accelerator. To see an AWS CLI example of updating an accelerator to enable flow logs,
    * 			scroll down to <b>Example</b>.</p>
    *
+   * 		
    *
-   *
-   *
+   * 	
    */
   public updateAcceleratorAttributes(
     args: UpdateAcceleratorAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateAcceleratorAttributesCommandOutput>;
   public updateAcceleratorAttributes(
     args: UpdateAcceleratorAttributesCommandInput,
@@ -731,18 +703,16 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public updateAcceleratorAttributes(
     args: UpdateAcceleratorAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAcceleratorAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAcceleratorAttributesCommandOutput) => void),
     cb?: (err: any, data?: UpdateAcceleratorAttributesCommandOutput) => void
   ): Promise<UpdateAcceleratorAttributesCommandOutput> | void {
     const command = new UpdateAcceleratorAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -752,12 +722,12 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
    *
    * 		       <p>Update an endpoint group. To see an AWS CLI example of updating an endpoint group, scroll down to <b>Example</b>.</p>
    *
-   *
-   *
+   * 		
+   * 	
    */
   public updateEndpointGroup(
     args: UpdateEndpointGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateEndpointGroupCommandOutput>;
   public updateEndpointGroup(
     args: UpdateEndpointGroupCommandInput,
@@ -770,18 +740,16 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public updateEndpointGroup(
     args: UpdateEndpointGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateEndpointGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEndpointGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateEndpointGroupCommandOutput) => void
   ): Promise<UpdateEndpointGroupCommandOutput> | void {
     const command = new UpdateEndpointGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -790,11 +758,11 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   /**
    *
    * 		       <p>Update a listener.</p>
-   *
+   * 	
    */
   public updateListener(
     args: UpdateListenerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateListenerCommandOutput>;
   public updateListener(
     args: UpdateListenerCommandInput,
@@ -807,20 +775,19 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   ): void;
   public updateListener(
     args: UpdateListenerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateListenerCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateListenerCommandOutput) => void),
     cb?: (err: any, data?: UpdateListenerCommandOutput) => void
   ): Promise<UpdateListenerCommandOutput> | void {
     const command = new UpdateListenerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

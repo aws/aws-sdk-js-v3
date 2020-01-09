@@ -1273,7 +1273,7 @@ async function deserializeAws_json1_1CompareFacesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1310,7 +1310,6 @@ async function deserializeAws_json1_1CompareFacesCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -1348,7 +1347,7 @@ async function deserializeAws_json1_1CreateCollectionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1377,7 +1376,6 @@ async function deserializeAws_json1_1CreateCollectionCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -1415,7 +1413,7 @@ async function deserializeAws_json1_1CreateProjectCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1448,7 +1446,6 @@ async function deserializeAws_json1_1CreateProjectCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -1486,7 +1483,7 @@ async function deserializeAws_json1_1CreateProjectVersionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1523,7 +1520,6 @@ async function deserializeAws_json1_1CreateProjectVersionCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -1561,7 +1557,7 @@ async function deserializeAws_json1_1CreateStreamProcessorCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1594,7 +1590,6 @@ async function deserializeAws_json1_1CreateStreamProcessorCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -1632,7 +1627,7 @@ async function deserializeAws_json1_1DeleteCollectionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1661,7 +1656,6 @@ async function deserializeAws_json1_1DeleteCollectionCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -1699,7 +1693,7 @@ async function deserializeAws_json1_1DeleteFacesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1728,7 +1722,6 @@ async function deserializeAws_json1_1DeleteFacesCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -1766,7 +1759,7 @@ async function deserializeAws_json1_1DeleteStreamProcessorCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1799,7 +1792,6 @@ async function deserializeAws_json1_1DeleteStreamProcessorCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -1837,7 +1829,7 @@ async function deserializeAws_json1_1DescribeCollectionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1866,7 +1858,6 @@ async function deserializeAws_json1_1DescribeCollectionCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -1904,7 +1895,7 @@ async function deserializeAws_json1_1DescribeProjectVersionsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1937,7 +1928,6 @@ async function deserializeAws_json1_1DescribeProjectVersionsCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -1975,7 +1965,7 @@ async function deserializeAws_json1_1DescribeProjectsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2004,7 +1994,6 @@ async function deserializeAws_json1_1DescribeProjectsCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -2042,7 +2031,7 @@ async function deserializeAws_json1_1DescribeStreamProcessorCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2071,7 +2060,6 @@ async function deserializeAws_json1_1DescribeStreamProcessorCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -2109,7 +2097,7 @@ async function deserializeAws_json1_1DetectCustomLabelsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2158,7 +2146,6 @@ async function deserializeAws_json1_1DetectCustomLabelsCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -2196,7 +2183,7 @@ async function deserializeAws_json1_1DetectFacesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2233,7 +2220,6 @@ async function deserializeAws_json1_1DetectFacesCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -2271,7 +2257,7 @@ async function deserializeAws_json1_1DetectLabelsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2308,7 +2294,6 @@ async function deserializeAws_json1_1DetectLabelsCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -2346,7 +2331,7 @@ async function deserializeAws_json1_1DetectModerationLabelsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2387,7 +2372,6 @@ async function deserializeAws_json1_1DetectModerationLabelsCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -2425,7 +2409,7 @@ async function deserializeAws_json1_1DetectTextCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2462,7 +2446,6 @@ async function deserializeAws_json1_1DetectTextCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -2500,7 +2483,7 @@ async function deserializeAws_json1_1GetCelebrityInfoCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2529,7 +2512,6 @@ async function deserializeAws_json1_1GetCelebrityInfoCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -2567,7 +2549,7 @@ async function deserializeAws_json1_1GetCelebrityRecognitionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2600,7 +2582,6 @@ async function deserializeAws_json1_1GetCelebrityRecognitionCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -2638,7 +2619,7 @@ async function deserializeAws_json1_1GetContentModerationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2671,7 +2652,6 @@ async function deserializeAws_json1_1GetContentModerationCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -2709,7 +2689,7 @@ async function deserializeAws_json1_1GetFaceDetectionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2742,7 +2722,6 @@ async function deserializeAws_json1_1GetFaceDetectionCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -2780,7 +2759,7 @@ async function deserializeAws_json1_1GetFaceSearchCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2813,7 +2792,6 @@ async function deserializeAws_json1_1GetFaceSearchCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -2851,7 +2829,7 @@ async function deserializeAws_json1_1GetLabelDetectionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2884,7 +2862,6 @@ async function deserializeAws_json1_1GetLabelDetectionCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -2922,7 +2899,7 @@ async function deserializeAws_json1_1GetPersonTrackingCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2955,7 +2932,6 @@ async function deserializeAws_json1_1GetPersonTrackingCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -2993,7 +2969,7 @@ async function deserializeAws_json1_1IndexFacesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3034,7 +3010,6 @@ async function deserializeAws_json1_1IndexFacesCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -3072,7 +3047,7 @@ async function deserializeAws_json1_1ListCollectionsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3105,7 +3080,6 @@ async function deserializeAws_json1_1ListCollectionsCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -3143,7 +3117,7 @@ async function deserializeAws_json1_1ListFacesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3176,7 +3150,6 @@ async function deserializeAws_json1_1ListFacesCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -3214,7 +3187,7 @@ async function deserializeAws_json1_1ListStreamProcessorsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3243,7 +3216,6 @@ async function deserializeAws_json1_1ListStreamProcessorsCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -3281,7 +3253,7 @@ async function deserializeAws_json1_1RecognizeCelebritiesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3318,7 +3290,6 @@ async function deserializeAws_json1_1RecognizeCelebritiesCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -3356,7 +3327,7 @@ async function deserializeAws_json1_1SearchFacesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3385,7 +3356,6 @@ async function deserializeAws_json1_1SearchFacesCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -3423,7 +3393,7 @@ async function deserializeAws_json1_1SearchFacesByImageCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3464,7 +3434,6 @@ async function deserializeAws_json1_1SearchFacesByImageCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -3502,7 +3471,7 @@ async function deserializeAws_json1_1StartCelebrityRecognitionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3543,7 +3512,6 @@ async function deserializeAws_json1_1StartCelebrityRecognitionCommandError(
       response = await deserializeAws_json1_1VideoTooLargeExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -3581,7 +3549,7 @@ async function deserializeAws_json1_1StartContentModerationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3622,7 +3590,6 @@ async function deserializeAws_json1_1StartContentModerationCommandError(
       response = await deserializeAws_json1_1VideoTooLargeExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -3660,7 +3627,7 @@ async function deserializeAws_json1_1StartFaceDetectionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3701,7 +3668,6 @@ async function deserializeAws_json1_1StartFaceDetectionCommandError(
       response = await deserializeAws_json1_1VideoTooLargeExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -3739,7 +3705,7 @@ async function deserializeAws_json1_1StartFaceSearchCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3784,7 +3750,6 @@ async function deserializeAws_json1_1StartFaceSearchCommandError(
       response = await deserializeAws_json1_1VideoTooLargeExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -3822,7 +3787,7 @@ async function deserializeAws_json1_1StartLabelDetectionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3863,7 +3828,6 @@ async function deserializeAws_json1_1StartLabelDetectionCommandError(
       response = await deserializeAws_json1_1VideoTooLargeExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -3901,7 +3865,7 @@ async function deserializeAws_json1_1StartPersonTrackingCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3942,7 +3906,6 @@ async function deserializeAws_json1_1StartPersonTrackingCommandError(
       response = await deserializeAws_json1_1VideoTooLargeExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -3980,7 +3943,7 @@ async function deserializeAws_json1_1StartProjectVersionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4017,7 +3980,6 @@ async function deserializeAws_json1_1StartProjectVersionCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -4055,7 +4017,7 @@ async function deserializeAws_json1_1StartStreamProcessorCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4088,7 +4050,6 @@ async function deserializeAws_json1_1StartStreamProcessorCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -4126,7 +4087,7 @@ async function deserializeAws_json1_1StopProjectVersionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4159,7 +4120,6 @@ async function deserializeAws_json1_1StopProjectVersionCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",
@@ -4197,7 +4157,7 @@ async function deserializeAws_json1_1StopStreamProcessorCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4230,7 +4190,6 @@ async function deserializeAws_json1_1StopStreamProcessorCommandError(
       response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.rekognitionservice#${errorCode}`,
         $fault: "client",

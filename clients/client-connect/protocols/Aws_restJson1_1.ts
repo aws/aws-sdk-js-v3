@@ -1,102 +1,102 @@
 import {
   CreateUserCommandInput,
-  CreateUserCommandOutput
+  CreateUserCommandOutput,
 } from "../commands/CreateUserCommand";
 import {
   DeleteUserCommandInput,
-  DeleteUserCommandOutput
+  DeleteUserCommandOutput,
 } from "../commands/DeleteUserCommand";
 import {
   DescribeUserCommandInput,
-  DescribeUserCommandOutput
+  DescribeUserCommandOutput,
 } from "../commands/DescribeUserCommand";
 import {
   DescribeUserHierarchyGroupCommandInput,
-  DescribeUserHierarchyGroupCommandOutput
+  DescribeUserHierarchyGroupCommandOutput,
 } from "../commands/DescribeUserHierarchyGroupCommand";
 import {
   DescribeUserHierarchyStructureCommandInput,
-  DescribeUserHierarchyStructureCommandOutput
+  DescribeUserHierarchyStructureCommandOutput,
 } from "../commands/DescribeUserHierarchyStructureCommand";
 import {
   GetContactAttributesCommandInput,
-  GetContactAttributesCommandOutput
+  GetContactAttributesCommandOutput,
 } from "../commands/GetContactAttributesCommand";
 import {
   GetCurrentMetricDataCommandInput,
-  GetCurrentMetricDataCommandOutput
+  GetCurrentMetricDataCommandOutput,
 } from "../commands/GetCurrentMetricDataCommand";
 import {
   GetFederationTokenCommandInput,
-  GetFederationTokenCommandOutput
+  GetFederationTokenCommandOutput,
 } from "../commands/GetFederationTokenCommand";
 import {
   GetMetricDataCommandInput,
-  GetMetricDataCommandOutput
+  GetMetricDataCommandOutput,
 } from "../commands/GetMetricDataCommand";
 import {
   ListContactFlowsCommandInput,
-  ListContactFlowsCommandOutput
+  ListContactFlowsCommandOutput,
 } from "../commands/ListContactFlowsCommand";
 import {
   ListHoursOfOperationsCommandInput,
-  ListHoursOfOperationsCommandOutput
+  ListHoursOfOperationsCommandOutput,
 } from "../commands/ListHoursOfOperationsCommand";
 import {
   ListPhoneNumbersCommandInput,
-  ListPhoneNumbersCommandOutput
+  ListPhoneNumbersCommandOutput,
 } from "../commands/ListPhoneNumbersCommand";
 import {
   ListQueuesCommandInput,
-  ListQueuesCommandOutput
+  ListQueuesCommandOutput,
 } from "../commands/ListQueuesCommand";
 import {
   ListRoutingProfilesCommandInput,
-  ListRoutingProfilesCommandOutput
+  ListRoutingProfilesCommandOutput,
 } from "../commands/ListRoutingProfilesCommand";
 import {
   ListSecurityProfilesCommandInput,
-  ListSecurityProfilesCommandOutput
+  ListSecurityProfilesCommandOutput,
 } from "../commands/ListSecurityProfilesCommand";
 import {
   ListUserHierarchyGroupsCommandInput,
-  ListUserHierarchyGroupsCommandOutput
+  ListUserHierarchyGroupsCommandOutput,
 } from "../commands/ListUserHierarchyGroupsCommand";
 import {
   ListUsersCommandInput,
-  ListUsersCommandOutput
+  ListUsersCommandOutput,
 } from "../commands/ListUsersCommand";
 import {
   StartOutboundVoiceContactCommandInput,
-  StartOutboundVoiceContactCommandOutput
+  StartOutboundVoiceContactCommandOutput,
 } from "../commands/StartOutboundVoiceContactCommand";
 import {
   StopContactCommandInput,
-  StopContactCommandOutput
+  StopContactCommandOutput,
 } from "../commands/StopContactCommand";
 import {
   UpdateContactAttributesCommandInput,
-  UpdateContactAttributesCommandOutput
+  UpdateContactAttributesCommandOutput,
 } from "../commands/UpdateContactAttributesCommand";
 import {
   UpdateUserHierarchyCommandInput,
-  UpdateUserHierarchyCommandOutput
+  UpdateUserHierarchyCommandOutput,
 } from "../commands/UpdateUserHierarchyCommand";
 import {
   UpdateUserIdentityInfoCommandInput,
-  UpdateUserIdentityInfoCommandOutput
+  UpdateUserIdentityInfoCommandOutput,
 } from "../commands/UpdateUserIdentityInfoCommand";
 import {
   UpdateUserPhoneConfigCommandInput,
-  UpdateUserPhoneConfigCommandOutput
+  UpdateUserPhoneConfigCommandOutput,
 } from "../commands/UpdateUserPhoneConfigCommand";
 import {
   UpdateUserRoutingProfileCommandInput,
-  UpdateUserRoutingProfileCommandOutput
+  UpdateUserRoutingProfileCommandOutput,
 } from "../commands/UpdateUserRoutingProfileCommand";
 import {
   UpdateUserSecurityProfilesCommandInput,
-  UpdateUserSecurityProfilesCommandOutput
+  UpdateUserSecurityProfilesCommandOutput,
 } from "../commands/UpdateUserSecurityProfilesCommand";
 import {
   Channel,
@@ -137,18 +137,18 @@ import {
   UserIdentityInfo,
   UserNotFoundException,
   UserPhoneConfig,
-  UserSummary
+  UserSummary,
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export async function serializeAws_restJson1_1CreateUserCommand(
@@ -156,53 +156,42 @@ export async function serializeAws_restJson1_1CreateUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/users/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: any = input.InstanceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+      throw new Error('Empty value provided for input HTTP label: InstanceId.');
     }
-    resolvedPath = resolvedPath.replace("{InstanceId}", labelValue);
+    resolvedPath = resolvedPath.replace('{InstanceId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
+    throw new Error('No value provided for input HTTP label: InstanceId.');
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.DirectoryUserId !== undefined) {
-    bodyParams["DirectoryUserId"] = input.DirectoryUserId;
+    bodyParams['DirectoryUserId'] = input.DirectoryUserId;
   }
   if (input.HierarchyGroupId !== undefined) {
-    bodyParams["HierarchyGroupId"] = input.HierarchyGroupId;
+    bodyParams['HierarchyGroupId'] = input.HierarchyGroupId;
   }
   if (input.IdentityInfo !== undefined) {
-    bodyParams["IdentityInfo"] = serializeAws_restJson1_1UserIdentityInfo(
-      input.IdentityInfo,
-      context
-    );
+    bodyParams['IdentityInfo'] = serializeAws_restJson1_1UserIdentityInfo(input.IdentityInfo, context);
   }
   if (input.Password !== undefined) {
-    bodyParams["Password"] = input.Password;
+    bodyParams['Password'] = input.Password;
   }
   if (input.PhoneConfig !== undefined) {
-    bodyParams["PhoneConfig"] = serializeAws_restJson1_1UserPhoneConfig(
-      input.PhoneConfig,
-      context
-    );
+    bodyParams['PhoneConfig'] = serializeAws_restJson1_1UserPhoneConfig(input.PhoneConfig, context);
   }
   if (input.RoutingProfileId !== undefined) {
-    bodyParams["RoutingProfileId"] = input.RoutingProfileId;
+    bodyParams['RoutingProfileId'] = input.RoutingProfileId;
   }
   if (input.SecurityProfileIds !== undefined) {
-    bodyParams[
-      "SecurityProfileIds"
-    ] = serializeAws_restJson1_1SecurityProfileIds(
-      input.SecurityProfileIds,
-      context
-    );
+    bodyParams['SecurityProfileIds'] = serializeAws_restJson1_1SecurityProfileIds(input.SecurityProfileIds, context);
   }
   if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
+    bodyParams['Username'] = input.Username;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -211,7 +200,7 @@ export async function serializeAws_restJson1_1CreateUserCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -220,32 +209,32 @@ export async function serializeAws_restJson1_1DeleteUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/users/{InstanceId}/{UserId}";
   if (input.InstanceId !== undefined) {
     const labelValue: any = input.InstanceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+      throw new Error('Empty value provided for input HTTP label: InstanceId.');
     }
-    resolvedPath = resolvedPath.replace("{InstanceId}", labelValue);
+    resolvedPath = resolvedPath.replace('{InstanceId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
+    throw new Error('No value provided for input HTTP label: InstanceId.');
   }
   if (input.UserId !== undefined) {
     const labelValue: any = input.UserId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: UserId.");
+      throw new Error('Empty value provided for input HTTP label: UserId.');
     }
-    resolvedPath = resolvedPath.replace("{UserId}", labelValue);
+    resolvedPath = resolvedPath.replace('{UserId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: UserId.");
+    throw new Error('No value provided for input HTTP label: UserId.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -254,32 +243,32 @@ export async function serializeAws_restJson1_1DescribeUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/users/{InstanceId}/{UserId}";
   if (input.InstanceId !== undefined) {
     const labelValue: any = input.InstanceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+      throw new Error('Empty value provided for input HTTP label: InstanceId.');
     }
-    resolvedPath = resolvedPath.replace("{InstanceId}", labelValue);
+    resolvedPath = resolvedPath.replace('{InstanceId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
+    throw new Error('No value provided for input HTTP label: InstanceId.');
   }
   if (input.UserId !== undefined) {
     const labelValue: any = input.UserId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: UserId.");
+      throw new Error('Empty value provided for input HTTP label: UserId.');
     }
-    resolvedPath = resolvedPath.replace("{UserId}", labelValue);
+    resolvedPath = resolvedPath.replace('{UserId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: UserId.");
+    throw new Error('No value provided for input HTTP label: UserId.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -288,36 +277,32 @@ export async function serializeAws_restJson1_1DescribeUserHierarchyGroupCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}";
   if (input.HierarchyGroupId !== undefined) {
     const labelValue: any = input.HierarchyGroupId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: HierarchyGroupId."
-      );
+      throw new Error('Empty value provided for input HTTP label: HierarchyGroupId.');
     }
-    resolvedPath = resolvedPath.replace("{HierarchyGroupId}", labelValue);
+    resolvedPath = resolvedPath.replace('{HierarchyGroupId}', labelValue);
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: HierarchyGroupId."
-    );
+    throw new Error('No value provided for input HTTP label: HierarchyGroupId.');
   }
   if (input.InstanceId !== undefined) {
     const labelValue: any = input.InstanceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+      throw new Error('Empty value provided for input HTTP label: InstanceId.');
     }
-    resolvedPath = resolvedPath.replace("{InstanceId}", labelValue);
+    resolvedPath = resolvedPath.replace('{InstanceId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
+    throw new Error('No value provided for input HTTP label: InstanceId.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -326,23 +311,23 @@ export async function serializeAws_restJson1_1DescribeUserHierarchyStructureComm
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/user-hierarchy-structure/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: any = input.InstanceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+      throw new Error('Empty value provided for input HTTP label: InstanceId.');
     }
-    resolvedPath = resolvedPath.replace("{InstanceId}", labelValue);
+    resolvedPath = resolvedPath.replace('{InstanceId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
+    throw new Error('No value provided for input HTTP label: InstanceId.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -351,36 +336,32 @@ export async function serializeAws_restJson1_1GetContactAttributesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/contact/attributes/{InstanceId}/{InitialContactId}";
   if (input.InitialContactId !== undefined) {
     const labelValue: any = input.InitialContactId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: InitialContactId."
-      );
+      throw new Error('Empty value provided for input HTTP label: InitialContactId.');
     }
-    resolvedPath = resolvedPath.replace("{InitialContactId}", labelValue);
+    resolvedPath = resolvedPath.replace('{InitialContactId}', labelValue);
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: InitialContactId."
-    );
+    throw new Error('No value provided for input HTTP label: InitialContactId.');
   }
   if (input.InstanceId !== undefined) {
     const labelValue: any = input.InstanceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+      throw new Error('Empty value provided for input HTTP label: InstanceId.');
     }
-    resolvedPath = resolvedPath.replace("{InstanceId}", labelValue);
+    resolvedPath = resolvedPath.replace('{InstanceId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
+    throw new Error('No value provided for input HTTP label: InstanceId.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -389,42 +370,33 @@ export async function serializeAws_restJson1_1GetCurrentMetricDataCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/metrics/current/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: any = input.InstanceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+      throw new Error('Empty value provided for input HTTP label: InstanceId.');
     }
-    resolvedPath = resolvedPath.replace("{InstanceId}", labelValue);
+    resolvedPath = resolvedPath.replace('{InstanceId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
+    throw new Error('No value provided for input HTTP label: InstanceId.');
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.CurrentMetrics !== undefined) {
-    bodyParams["CurrentMetrics"] = serializeAws_restJson1_1CurrentMetrics(
-      input.CurrentMetrics,
-      context
-    );
+    bodyParams['CurrentMetrics'] = serializeAws_restJson1_1CurrentMetrics(input.CurrentMetrics, context);
   }
   if (input.Filters !== undefined) {
-    bodyParams["Filters"] = serializeAws_restJson1_1Filters(
-      input.Filters,
-      context
-    );
+    bodyParams['Filters'] = serializeAws_restJson1_1Filters(input.Filters, context);
   }
   if (input.Groupings !== undefined) {
-    bodyParams["Groupings"] = serializeAws_restJson1_1Groupings(
-      input.Groupings,
-      context
-    );
+    bodyParams['Groupings'] = serializeAws_restJson1_1Groupings(input.Groupings, context);
   }
   if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
+    bodyParams['MaxResults'] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -433,7 +405,7 @@ export async function serializeAws_restJson1_1GetCurrentMetricDataCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -442,23 +414,23 @@ export async function serializeAws_restJson1_1GetFederationTokenCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/user/federate/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: any = input.InstanceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+      throw new Error('Empty value provided for input HTTP label: InstanceId.');
     }
-    resolvedPath = resolvedPath.replace("{InstanceId}", labelValue);
+    resolvedPath = resolvedPath.replace('{InstanceId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
+    throw new Error('No value provided for input HTTP label: InstanceId.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -467,48 +439,39 @@ export async function serializeAws_restJson1_1GetMetricDataCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/metrics/historical/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: any = input.InstanceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+      throw new Error('Empty value provided for input HTTP label: InstanceId.');
     }
-    resolvedPath = resolvedPath.replace("{InstanceId}", labelValue);
+    resolvedPath = resolvedPath.replace('{InstanceId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
+    throw new Error('No value provided for input HTTP label: InstanceId.');
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.EndTime !== undefined) {
-    bodyParams["EndTime"] = Math.round(input.EndTime.getTime() / 1000);
+    bodyParams['EndTime'] = Math.round(input.EndTime.getTime() / 1000);
   }
   if (input.Filters !== undefined) {
-    bodyParams["Filters"] = serializeAws_restJson1_1Filters(
-      input.Filters,
-      context
-    );
+    bodyParams['Filters'] = serializeAws_restJson1_1Filters(input.Filters, context);
   }
   if (input.Groupings !== undefined) {
-    bodyParams["Groupings"] = serializeAws_restJson1_1Groupings(
-      input.Groupings,
-      context
-    );
+    bodyParams['Groupings'] = serializeAws_restJson1_1Groupings(input.Groupings, context);
   }
   if (input.HistoricalMetrics !== undefined) {
-    bodyParams["HistoricalMetrics"] = serializeAws_restJson1_1HistoricalMetrics(
-      input.HistoricalMetrics,
-      context
-    );
+    bodyParams['HistoricalMetrics'] = serializeAws_restJson1_1HistoricalMetrics(input.HistoricalMetrics, context);
   }
   if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
+    bodyParams['MaxResults'] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
+    bodyParams['NextToken'] = input.NextToken;
   }
   if (input.StartTime !== undefined) {
-    bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
+    bodyParams['StartTime'] = Math.round(input.StartTime.getTime() / 1000);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -517,7 +480,7 @@ export async function serializeAws_restJson1_1GetMetricDataCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -526,26 +489,26 @@ export async function serializeAws_restJson1_1ListContactFlowsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/contact-flows-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: any = input.InstanceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+      throw new Error('Empty value provided for input HTTP label: InstanceId.');
     }
-    resolvedPath = resolvedPath.replace("{InstanceId}", labelValue);
+    resolvedPath = resolvedPath.replace('{InstanceId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
+    throw new Error('No value provided for input HTTP label: InstanceId.');
   }
   const query: any = {};
   if (input.ContactFlowTypes !== undefined) {
-    query["contactFlowTypes"] = input.ContactFlowTypes;
+    query['contactFlowTypes'] = input.ContactFlowTypes;
   }
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query['maxResults'] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query['nextToken'] = input.NextToken.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -553,7 +516,7 @@ export async function serializeAws_restJson1_1ListContactFlowsCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -562,23 +525,23 @@ export async function serializeAws_restJson1_1ListHoursOfOperationsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/hours-of-operations-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: any = input.InstanceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+      throw new Error('Empty value provided for input HTTP label: InstanceId.');
     }
-    resolvedPath = resolvedPath.replace("{InstanceId}", labelValue);
+    resolvedPath = resolvedPath.replace('{InstanceId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
+    throw new Error('No value provided for input HTTP label: InstanceId.');
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query['maxResults'] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query['nextToken'] = input.NextToken.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -586,7 +549,7 @@ export async function serializeAws_restJson1_1ListHoursOfOperationsCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -595,29 +558,29 @@ export async function serializeAws_restJson1_1ListPhoneNumbersCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/phone-numbers-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: any = input.InstanceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+      throw new Error('Empty value provided for input HTTP label: InstanceId.');
     }
-    resolvedPath = resolvedPath.replace("{InstanceId}", labelValue);
+    resolvedPath = resolvedPath.replace('{InstanceId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
+    throw new Error('No value provided for input HTTP label: InstanceId.');
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query['maxResults'] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query['nextToken'] = input.NextToken.toString();
   }
   if (input.PhoneNumberCountryCodes !== undefined) {
-    query["phoneNumberCountryCodes"] = input.PhoneNumberCountryCodes;
+    query['phoneNumberCountryCodes'] = input.PhoneNumberCountryCodes;
   }
   if (input.PhoneNumberTypes !== undefined) {
-    query["phoneNumberTypes"] = input.PhoneNumberTypes;
+    query['phoneNumberTypes'] = input.PhoneNumberTypes;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -625,7 +588,7 @@ export async function serializeAws_restJson1_1ListPhoneNumbersCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -634,26 +597,26 @@ export async function serializeAws_restJson1_1ListQueuesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/queues-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: any = input.InstanceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+      throw new Error('Empty value provided for input HTTP label: InstanceId.');
     }
-    resolvedPath = resolvedPath.replace("{InstanceId}", labelValue);
+    resolvedPath = resolvedPath.replace('{InstanceId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
+    throw new Error('No value provided for input HTTP label: InstanceId.');
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query['maxResults'] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query['nextToken'] = input.NextToken.toString();
   }
   if (input.QueueTypes !== undefined) {
-    query["queueTypes"] = input.QueueTypes;
+    query['queueTypes'] = input.QueueTypes;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -661,7 +624,7 @@ export async function serializeAws_restJson1_1ListQueuesCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -670,23 +633,23 @@ export async function serializeAws_restJson1_1ListRoutingProfilesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/routing-profiles-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: any = input.InstanceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+      throw new Error('Empty value provided for input HTTP label: InstanceId.');
     }
-    resolvedPath = resolvedPath.replace("{InstanceId}", labelValue);
+    resolvedPath = resolvedPath.replace('{InstanceId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
+    throw new Error('No value provided for input HTTP label: InstanceId.');
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query['maxResults'] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query['nextToken'] = input.NextToken.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -694,7 +657,7 @@ export async function serializeAws_restJson1_1ListRoutingProfilesCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -703,23 +666,23 @@ export async function serializeAws_restJson1_1ListSecurityProfilesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/security-profiles-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: any = input.InstanceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+      throw new Error('Empty value provided for input HTTP label: InstanceId.');
     }
-    resolvedPath = resolvedPath.replace("{InstanceId}", labelValue);
+    resolvedPath = resolvedPath.replace('{InstanceId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
+    throw new Error('No value provided for input HTTP label: InstanceId.');
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query['maxResults'] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query['nextToken'] = input.NextToken.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -727,7 +690,7 @@ export async function serializeAws_restJson1_1ListSecurityProfilesCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -736,23 +699,23 @@ export async function serializeAws_restJson1_1ListUserHierarchyGroupsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/user-hierarchy-groups-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: any = input.InstanceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+      throw new Error('Empty value provided for input HTTP label: InstanceId.');
     }
-    resolvedPath = resolvedPath.replace("{InstanceId}", labelValue);
+    resolvedPath = resolvedPath.replace('{InstanceId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
+    throw new Error('No value provided for input HTTP label: InstanceId.');
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query['maxResults'] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query['nextToken'] = input.NextToken.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -760,7 +723,7 @@ export async function serializeAws_restJson1_1ListUserHierarchyGroupsCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -769,23 +732,23 @@ export async function serializeAws_restJson1_1ListUsersCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/users-summary/{InstanceId}";
   if (input.InstanceId !== undefined) {
     const labelValue: any = input.InstanceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+      throw new Error('Empty value provided for input HTTP label: InstanceId.');
     }
-    resolvedPath = resolvedPath.replace("{InstanceId}", labelValue);
+    resolvedPath = resolvedPath.replace('{InstanceId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
+    throw new Error('No value provided for input HTTP label: InstanceId.');
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query['maxResults'] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query['nextToken'] = input.NextToken.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -793,7 +756,7 @@ export async function serializeAws_restJson1_1ListUsersCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -802,33 +765,30 @@ export async function serializeAws_restJson1_1StartOutboundVoiceContactCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/contact/outbound-voice";
   let body: any = {};
   const bodyParams: any = {};
   if (input.Attributes !== undefined) {
-    bodyParams["Attributes"] = serializeAws_restJson1_1Attributes(
-      input.Attributes,
-      context
-    );
+    bodyParams['Attributes'] = serializeAws_restJson1_1Attributes(input.Attributes, context);
   }
   if (input.ClientToken !== undefined) {
-    bodyParams["ClientToken"] = input.ClientToken;
+    bodyParams['ClientToken'] = input.ClientToken;
   }
   if (input.ContactFlowId !== undefined) {
-    bodyParams["ContactFlowId"] = input.ContactFlowId;
+    bodyParams['ContactFlowId'] = input.ContactFlowId;
   }
   if (input.DestinationPhoneNumber !== undefined) {
-    bodyParams["DestinationPhoneNumber"] = input.DestinationPhoneNumber;
+    bodyParams['DestinationPhoneNumber'] = input.DestinationPhoneNumber;
   }
   if (input.InstanceId !== undefined) {
-    bodyParams["InstanceId"] = input.InstanceId;
+    bodyParams['InstanceId'] = input.InstanceId;
   }
   if (input.QueueId !== undefined) {
-    bodyParams["QueueId"] = input.QueueId;
+    bodyParams['QueueId'] = input.QueueId;
   }
   if (input.SourcePhoneNumber !== undefined) {
-    bodyParams["SourcePhoneNumber"] = input.SourcePhoneNumber;
+    bodyParams['SourcePhoneNumber'] = input.SourcePhoneNumber;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -837,7 +797,7 @@ export async function serializeAws_restJson1_1StartOutboundVoiceContactCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -846,15 +806,15 @@ export async function serializeAws_restJson1_1StopContactCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/contact/stop";
   let body: any = {};
   const bodyParams: any = {};
   if (input.ContactId !== undefined) {
-    bodyParams["ContactId"] = input.ContactId;
+    bodyParams['ContactId'] = input.ContactId;
   }
   if (input.InstanceId !== undefined) {
-    bodyParams["InstanceId"] = input.InstanceId;
+    bodyParams['InstanceId'] = input.InstanceId;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -863,7 +823,7 @@ export async function serializeAws_restJson1_1StopContactCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -872,21 +832,18 @@ export async function serializeAws_restJson1_1UpdateContactAttributesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/contact/attributes";
   let body: any = {};
   const bodyParams: any = {};
   if (input.Attributes !== undefined) {
-    bodyParams["Attributes"] = serializeAws_restJson1_1Attributes(
-      input.Attributes,
-      context
-    );
+    bodyParams['Attributes'] = serializeAws_restJson1_1Attributes(input.Attributes, context);
   }
   if (input.InitialContactId !== undefined) {
-    bodyParams["InitialContactId"] = input.InitialContactId;
+    bodyParams['InitialContactId'] = input.InitialContactId;
   }
   if (input.InstanceId !== undefined) {
-    bodyParams["InstanceId"] = input.InstanceId;
+    bodyParams['InstanceId'] = input.InstanceId;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -895,7 +852,7 @@ export async function serializeAws_restJson1_1UpdateContactAttributesCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -904,30 +861,30 @@ export async function serializeAws_restJson1_1UpdateUserHierarchyCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/users/{InstanceId}/{UserId}/hierarchy";
   if (input.InstanceId !== undefined) {
     const labelValue: any = input.InstanceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+      throw new Error('Empty value provided for input HTTP label: InstanceId.');
     }
-    resolvedPath = resolvedPath.replace("{InstanceId}", labelValue);
+    resolvedPath = resolvedPath.replace('{InstanceId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
+    throw new Error('No value provided for input HTTP label: InstanceId.');
   }
   if (input.UserId !== undefined) {
     const labelValue: any = input.UserId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: UserId.");
+      throw new Error('Empty value provided for input HTTP label: UserId.');
     }
-    resolvedPath = resolvedPath.replace("{UserId}", labelValue);
+    resolvedPath = resolvedPath.replace('{UserId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: UserId.");
+    throw new Error('No value provided for input HTTP label: UserId.');
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.HierarchyGroupId !== undefined) {
-    bodyParams["HierarchyGroupId"] = input.HierarchyGroupId;
+    bodyParams['HierarchyGroupId'] = input.HierarchyGroupId;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -936,7 +893,7 @@ export async function serializeAws_restJson1_1UpdateUserHierarchyCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -945,33 +902,30 @@ export async function serializeAws_restJson1_1UpdateUserIdentityInfoCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/users/{InstanceId}/{UserId}/identity-info";
   if (input.InstanceId !== undefined) {
     const labelValue: any = input.InstanceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+      throw new Error('Empty value provided for input HTTP label: InstanceId.');
     }
-    resolvedPath = resolvedPath.replace("{InstanceId}", labelValue);
+    resolvedPath = resolvedPath.replace('{InstanceId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
+    throw new Error('No value provided for input HTTP label: InstanceId.');
   }
   if (input.UserId !== undefined) {
     const labelValue: any = input.UserId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: UserId.");
+      throw new Error('Empty value provided for input HTTP label: UserId.');
     }
-    resolvedPath = resolvedPath.replace("{UserId}", labelValue);
+    resolvedPath = resolvedPath.replace('{UserId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: UserId.");
+    throw new Error('No value provided for input HTTP label: UserId.');
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.IdentityInfo !== undefined) {
-    bodyParams["IdentityInfo"] = serializeAws_restJson1_1UserIdentityInfo(
-      input.IdentityInfo,
-      context
-    );
+    bodyParams['IdentityInfo'] = serializeAws_restJson1_1UserIdentityInfo(input.IdentityInfo, context);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -980,7 +934,7 @@ export async function serializeAws_restJson1_1UpdateUserIdentityInfoCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -989,33 +943,30 @@ export async function serializeAws_restJson1_1UpdateUserPhoneConfigCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/users/{InstanceId}/{UserId}/phone-config";
   if (input.InstanceId !== undefined) {
     const labelValue: any = input.InstanceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+      throw new Error('Empty value provided for input HTTP label: InstanceId.');
     }
-    resolvedPath = resolvedPath.replace("{InstanceId}", labelValue);
+    resolvedPath = resolvedPath.replace('{InstanceId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
+    throw new Error('No value provided for input HTTP label: InstanceId.');
   }
   if (input.UserId !== undefined) {
     const labelValue: any = input.UserId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: UserId.");
+      throw new Error('Empty value provided for input HTTP label: UserId.');
     }
-    resolvedPath = resolvedPath.replace("{UserId}", labelValue);
+    resolvedPath = resolvedPath.replace('{UserId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: UserId.");
+    throw new Error('No value provided for input HTTP label: UserId.');
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.PhoneConfig !== undefined) {
-    bodyParams["PhoneConfig"] = serializeAws_restJson1_1UserPhoneConfig(
-      input.PhoneConfig,
-      context
-    );
+    bodyParams['PhoneConfig'] = serializeAws_restJson1_1UserPhoneConfig(input.PhoneConfig, context);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -1024,7 +975,7 @@ export async function serializeAws_restJson1_1UpdateUserPhoneConfigCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -1033,30 +984,30 @@ export async function serializeAws_restJson1_1UpdateUserRoutingProfileCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/users/{InstanceId}/{UserId}/routing-profile";
   if (input.InstanceId !== undefined) {
     const labelValue: any = input.InstanceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+      throw new Error('Empty value provided for input HTTP label: InstanceId.');
     }
-    resolvedPath = resolvedPath.replace("{InstanceId}", labelValue);
+    resolvedPath = resolvedPath.replace('{InstanceId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
+    throw new Error('No value provided for input HTTP label: InstanceId.');
   }
   if (input.UserId !== undefined) {
     const labelValue: any = input.UserId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: UserId.");
+      throw new Error('Empty value provided for input HTTP label: UserId.');
     }
-    resolvedPath = resolvedPath.replace("{UserId}", labelValue);
+    resolvedPath = resolvedPath.replace('{UserId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: UserId.");
+    throw new Error('No value provided for input HTTP label: UserId.');
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.RoutingProfileId !== undefined) {
-    bodyParams["RoutingProfileId"] = input.RoutingProfileId;
+    bodyParams['RoutingProfileId'] = input.RoutingProfileId;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -1065,7 +1016,7 @@ export async function serializeAws_restJson1_1UpdateUserRoutingProfileCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -1074,35 +1025,30 @@ export async function serializeAws_restJson1_1UpdateUserSecurityProfilesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/users/{InstanceId}/{UserId}/security-profiles";
   if (input.InstanceId !== undefined) {
     const labelValue: any = input.InstanceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+      throw new Error('Empty value provided for input HTTP label: InstanceId.');
     }
-    resolvedPath = resolvedPath.replace("{InstanceId}", labelValue);
+    resolvedPath = resolvedPath.replace('{InstanceId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
+    throw new Error('No value provided for input HTTP label: InstanceId.');
   }
   if (input.UserId !== undefined) {
     const labelValue: any = input.UserId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: UserId.");
+      throw new Error('Empty value provided for input HTTP label: UserId.');
     }
-    resolvedPath = resolvedPath.replace("{UserId}", labelValue);
+    resolvedPath = resolvedPath.replace('{UserId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: UserId.");
+    throw new Error('No value provided for input HTTP label: UserId.');
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.SecurityProfileIds !== undefined) {
-    bodyParams[
-      "SecurityProfileIds"
-    ] = serializeAws_restJson1_1SecurityProfileIds(
-      input.SecurityProfileIds,
-      context
-    );
+    bodyParams['SecurityProfileIds'] = serializeAws_restJson1_1SecurityProfileIds(input.SecurityProfileIds, context);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -1111,7 +1057,7 @@ export async function serializeAws_restJson1_1UpdateUserSecurityProfilesCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -1126,7 +1072,7 @@ export async function deserializeAws_restJson1_1CreateUserCommand(
     $metadata: deserializeMetadata(output),
     __type: "CreateUserResponse",
     UserArn: undefined,
-    UserId: undefined
+    UserId: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.UserArn !== undefined) {
@@ -1140,74 +1086,52 @@ export async function deserializeAws_restJson1_1CreateUserCommand(
 
 async function deserializeAws_restJson1_1CreateUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "DuplicateResourceException":
     case "com.amazonaws.amazonconnectservice.v20170808#DuplicateResourceException":
-      response = await deserializeAws_restJson1_1DuplicateResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1DuplicateResourceExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.amazonconnectservice.v20170808#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1221,67 +1145,51 @@ export async function deserializeAws_restJson1_1DeleteUserCommand(
     return deserializeAws_restJson1_1DeleteUserCommandError(output, context);
   }
   const contents: DeleteUserCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DeleteUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1297,7 +1205,7 @@ export async function deserializeAws_restJson1_1DescribeUserCommand(
   const contents: DescribeUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeUserResponse",
-    User: undefined
+    User: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.User !== undefined) {
@@ -1308,60 +1216,44 @@ export async function deserializeAws_restJson1_1DescribeUserCommand(
 
 async function deserializeAws_restJson1_1DescribeUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1372,82 +1264,60 @@ export async function deserializeAws_restJson1_1DescribeUserHierarchyGroupComman
   context: __SerdeContext
 ): Promise<DescribeUserHierarchyGroupCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeUserHierarchyGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeUserHierarchyGroupCommandError(output, context);
   }
   const contents: DescribeUserHierarchyGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeUserHierarchyGroupResponse",
-    HierarchyGroup: undefined
+    HierarchyGroup: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.HierarchyGroup !== undefined) {
-    contents.HierarchyGroup = deserializeAws_restJson1_1HierarchyGroup(
-      data.HierarchyGroup,
-      context
-    );
+    contents.HierarchyGroup = deserializeAws_restJson1_1HierarchyGroup(data.HierarchyGroup, context);
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DescribeUserHierarchyGroupCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeUserHierarchyGroupCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1458,82 +1328,60 @@ export async function deserializeAws_restJson1_1DescribeUserHierarchyStructureCo
   context: __SerdeContext
 ): Promise<DescribeUserHierarchyStructureCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeUserHierarchyStructureCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeUserHierarchyStructureCommandError(output, context);
   }
   const contents: DescribeUserHierarchyStructureCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeUserHierarchyStructureResponse",
-    HierarchyStructure: undefined
+    HierarchyStructure: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.HierarchyStructure !== undefined) {
-    contents.HierarchyStructure = deserializeAws_restJson1_1HierarchyStructure(
-      data.HierarchyStructure,
-      context
-    );
+    contents.HierarchyStructure = deserializeAws_restJson1_1HierarchyStructure(data.HierarchyStructure, context);
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DescribeUserHierarchyStructureCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeUserHierarchyStructureCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1544,68 +1392,52 @@ export async function deserializeAws_restJson1_1GetContactAttributesCommand(
   context: __SerdeContext
 ): Promise<GetContactAttributesCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetContactAttributesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetContactAttributesCommandError(output, context);
   }
   const contents: GetContactAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetContactAttributesResponse",
-    Attributes: undefined
+    Attributes: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Attributes !== undefined) {
-    contents.Attributes = deserializeAws_restJson1_1Attributes(
-      data.Attributes,
-      context
-    );
+    contents.Attributes = deserializeAws_restJson1_1Attributes(data.Attributes, context);
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1GetContactAttributesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetContactAttributesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1616,31 +1448,21 @@ export async function deserializeAws_restJson1_1GetCurrentMetricDataCommand(
   context: __SerdeContext
 ): Promise<GetCurrentMetricDataCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetCurrentMetricDataCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetCurrentMetricDataCommandError(output, context);
   }
   const contents: GetCurrentMetricDataCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetCurrentMetricDataResponse",
     DataSnapshotTime: undefined,
     MetricResults: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.DataSnapshotTime !== undefined) {
-    contents.DataSnapshotTime = new Date(
-      data.DataSnapshotTime % 1 != 0
-        ? Math.round(data.DataSnapshotTime * 1000)
-        : data.DataSnapshotTime
-    );
+    contents.DataSnapshotTime = new Date(data.DataSnapshotTime % 1 != 0 ? Math.round(data.DataSnapshotTime * 1000) : data.DataSnapshotTime);
   }
   if (data.MetricResults !== undefined) {
-    contents.MetricResults = deserializeAws_restJson1_1CurrentMetricResults(
-      data.MetricResults,
-      context
-    );
+    contents.MetricResults = deserializeAws_restJson1_1CurrentMetricResults(data.MetricResults, context);
   }
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
@@ -1650,60 +1472,44 @@ export async function deserializeAws_restJson1_1GetCurrentMetricDataCommand(
 
 async function deserializeAws_restJson1_1GetCurrentMetricDataCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetCurrentMetricDataCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1714,89 +1520,64 @@ export async function deserializeAws_restJson1_1GetFederationTokenCommand(
   context: __SerdeContext
 ): Promise<GetFederationTokenCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetFederationTokenCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetFederationTokenCommandError(output, context);
   }
   const contents: GetFederationTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetFederationTokenResponse",
-    Credentials: undefined
+    Credentials: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Credentials !== undefined) {
-    contents.Credentials = deserializeAws_restJson1_1Credentials(
-      data.Credentials,
-      context
-    );
+    contents.Credentials = deserializeAws_restJson1_1Credentials(data.Credentials, context);
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1GetFederationTokenCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetFederationTokenCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "DuplicateResourceException":
     case "com.amazonaws.amazonconnectservice.v20170808#DuplicateResourceException":
-      response = await deserializeAws_restJson1_1DuplicateResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1DuplicateResourceExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "UserNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#UserNotFoundException":
-      response = await deserializeAws_restJson1_1UserNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1UserNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1813,14 +1594,11 @@ export async function deserializeAws_restJson1_1GetMetricDataCommand(
     $metadata: deserializeMetadata(output),
     __type: "GetMetricDataResponse",
     MetricResults: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.MetricResults !== undefined) {
-    contents.MetricResults = deserializeAws_restJson1_1HistoricalMetricResults(
-      data.MetricResults,
-      context
-    );
+    contents.MetricResults = deserializeAws_restJson1_1HistoricalMetricResults(data.MetricResults, context);
   }
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
@@ -1830,60 +1608,44 @@ export async function deserializeAws_restJson1_1GetMetricDataCommand(
 
 async function deserializeAws_restJson1_1GetMetricDataCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetMetricDataCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1894,23 +1656,17 @@ export async function deserializeAws_restJson1_1ListContactFlowsCommand(
   context: __SerdeContext
 ): Promise<ListContactFlowsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListContactFlowsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListContactFlowsCommandError(output, context);
   }
   const contents: ListContactFlowsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListContactFlowsResponse",
     ContactFlowSummaryList: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.ContactFlowSummaryList !== undefined) {
-    contents.ContactFlowSummaryList = deserializeAws_restJson1_1ContactFlowSummaryList(
-      data.ContactFlowSummaryList,
-      context
-    );
+    contents.ContactFlowSummaryList = deserializeAws_restJson1_1ContactFlowSummaryList(data.ContactFlowSummaryList, context);
   }
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
@@ -1920,60 +1676,44 @@ export async function deserializeAws_restJson1_1ListContactFlowsCommand(
 
 async function deserializeAws_restJson1_1ListContactFlowsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListContactFlowsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1984,23 +1724,17 @@ export async function deserializeAws_restJson1_1ListHoursOfOperationsCommand(
   context: __SerdeContext
 ): Promise<ListHoursOfOperationsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListHoursOfOperationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListHoursOfOperationsCommandError(output, context);
   }
   const contents: ListHoursOfOperationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListHoursOfOperationsResponse",
     HoursOfOperationSummaryList: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.HoursOfOperationSummaryList !== undefined) {
-    contents.HoursOfOperationSummaryList = deserializeAws_restJson1_1HoursOfOperationSummaryList(
-      data.HoursOfOperationSummaryList,
-      context
-    );
+    contents.HoursOfOperationSummaryList = deserializeAws_restJson1_1HoursOfOperationSummaryList(data.HoursOfOperationSummaryList, context);
   }
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
@@ -2010,60 +1744,44 @@ export async function deserializeAws_restJson1_1ListHoursOfOperationsCommand(
 
 async function deserializeAws_restJson1_1ListHoursOfOperationsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListHoursOfOperationsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2074,86 +1792,64 @@ export async function deserializeAws_restJson1_1ListPhoneNumbersCommand(
   context: __SerdeContext
 ): Promise<ListPhoneNumbersCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListPhoneNumbersCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListPhoneNumbersCommandError(output, context);
   }
   const contents: ListPhoneNumbersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListPhoneNumbersResponse",
     NextToken: undefined,
-    PhoneNumberSummaryList: undefined
+    PhoneNumberSummaryList: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
   }
   if (data.PhoneNumberSummaryList !== undefined) {
-    contents.PhoneNumberSummaryList = deserializeAws_restJson1_1PhoneNumberSummaryList(
-      data.PhoneNumberSummaryList,
-      context
-    );
+    contents.PhoneNumberSummaryList = deserializeAws_restJson1_1PhoneNumberSummaryList(data.PhoneNumberSummaryList, context);
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1ListPhoneNumbersCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListPhoneNumbersCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2170,77 +1866,58 @@ export async function deserializeAws_restJson1_1ListQueuesCommand(
     $metadata: deserializeMetadata(output),
     __type: "ListQueuesResponse",
     NextToken: undefined,
-    QueueSummaryList: undefined
+    QueueSummaryList: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
   }
   if (data.QueueSummaryList !== undefined) {
-    contents.QueueSummaryList = deserializeAws_restJson1_1QueueSummaryList(
-      data.QueueSummaryList,
-      context
-    );
+    contents.QueueSummaryList = deserializeAws_restJson1_1QueueSummaryList(data.QueueSummaryList, context);
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1ListQueuesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListQueuesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2251,86 +1928,64 @@ export async function deserializeAws_restJson1_1ListRoutingProfilesCommand(
   context: __SerdeContext
 ): Promise<ListRoutingProfilesCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListRoutingProfilesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListRoutingProfilesCommandError(output, context);
   }
   const contents: ListRoutingProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListRoutingProfilesResponse",
     NextToken: undefined,
-    RoutingProfileSummaryList: undefined
+    RoutingProfileSummaryList: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
   }
   if (data.RoutingProfileSummaryList !== undefined) {
-    contents.RoutingProfileSummaryList = deserializeAws_restJson1_1RoutingProfileSummaryList(
-      data.RoutingProfileSummaryList,
-      context
-    );
+    contents.RoutingProfileSummaryList = deserializeAws_restJson1_1RoutingProfileSummaryList(data.RoutingProfileSummaryList, context);
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1ListRoutingProfilesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListRoutingProfilesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2341,86 +1996,64 @@ export async function deserializeAws_restJson1_1ListSecurityProfilesCommand(
   context: __SerdeContext
 ): Promise<ListSecurityProfilesCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListSecurityProfilesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListSecurityProfilesCommandError(output, context);
   }
   const contents: ListSecurityProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListSecurityProfilesResponse",
     NextToken: undefined,
-    SecurityProfileSummaryList: undefined
+    SecurityProfileSummaryList: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
   }
   if (data.SecurityProfileSummaryList !== undefined) {
-    contents.SecurityProfileSummaryList = deserializeAws_restJson1_1SecurityProfileSummaryList(
-      data.SecurityProfileSummaryList,
-      context
-    );
+    contents.SecurityProfileSummaryList = deserializeAws_restJson1_1SecurityProfileSummaryList(data.SecurityProfileSummaryList, context);
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1ListSecurityProfilesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListSecurityProfilesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2431,86 +2064,64 @@ export async function deserializeAws_restJson1_1ListUserHierarchyGroupsCommand(
   context: __SerdeContext
 ): Promise<ListUserHierarchyGroupsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListUserHierarchyGroupsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListUserHierarchyGroupsCommandError(output, context);
   }
   const contents: ListUserHierarchyGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListUserHierarchyGroupsResponse",
     NextToken: undefined,
-    UserHierarchyGroupSummaryList: undefined
+    UserHierarchyGroupSummaryList: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
   }
   if (data.UserHierarchyGroupSummaryList !== undefined) {
-    contents.UserHierarchyGroupSummaryList = deserializeAws_restJson1_1HierarchyGroupSummaryList(
-      data.UserHierarchyGroupSummaryList,
-      context
-    );
+    contents.UserHierarchyGroupSummaryList = deserializeAws_restJson1_1HierarchyGroupSummaryList(data.UserHierarchyGroupSummaryList, context);
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1ListUserHierarchyGroupsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListUserHierarchyGroupsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2527,77 +2138,58 @@ export async function deserializeAws_restJson1_1ListUsersCommand(
     $metadata: deserializeMetadata(output),
     __type: "ListUsersResponse",
     NextToken: undefined,
-    UserSummaryList: undefined
+    UserSummaryList: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
   }
   if (data.UserSummaryList !== undefined) {
-    contents.UserSummaryList = deserializeAws_restJson1_1UserSummaryList(
-      data.UserSummaryList,
-      context
-    );
+    contents.UserSummaryList = deserializeAws_restJson1_1UserSummaryList(data.UserSummaryList, context);
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1ListUsersCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListUsersCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2608,15 +2200,12 @@ export async function deserializeAws_restJson1_1StartOutboundVoiceContactCommand
   context: __SerdeContext
 ): Promise<StartOutboundVoiceContactCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1StartOutboundVoiceContactCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1StartOutboundVoiceContactCommandError(output, context);
   }
   const contents: StartOutboundVoiceContactCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartOutboundVoiceContactResponse",
-    ContactId: undefined
+    ContactId: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.ContactId !== undefined) {
@@ -2627,74 +2216,52 @@ export async function deserializeAws_restJson1_1StartOutboundVoiceContactCommand
 
 async function deserializeAws_restJson1_1StartOutboundVoiceContactCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<StartOutboundVoiceContactCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "DestinationNotAllowedException":
     case "com.amazonaws.amazonconnectservice.v20170808#DestinationNotAllowedException":
-      response = await deserializeAws_restJson1_1DestinationNotAllowedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1DestinationNotAllowedExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.amazonconnectservice.v20170808#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "OutboundContactNotPermittedException":
     case "com.amazonaws.amazonconnectservice.v20170808#OutboundContactNotPermittedException":
-      response = await deserializeAws_restJson1_1OutboundContactNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1OutboundContactNotPermittedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2709,67 +2276,51 @@ export async function deserializeAws_restJson1_1StopContactCommand(
   }
   const contents: StopContactCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopContactResponse"
+    __type: "StopContactResponse",
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1StopContactCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<StopContactCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "ContactNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ContactNotFoundException":
-      response = await deserializeAws_restJson1_1ContactNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ContactNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2780,67 +2331,51 @@ export async function deserializeAws_restJson1_1UpdateContactAttributesCommand(
   context: __SerdeContext
 ): Promise<UpdateContactAttributesCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1UpdateContactAttributesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateContactAttributesCommandError(output, context);
   }
   const contents: UpdateContactAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateContactAttributesResponse"
+    __type: "UpdateContactAttributesResponse",
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UpdateContactAttributesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateContactAttributesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2851,73 +2386,54 @@ export async function deserializeAws_restJson1_1UpdateUserHierarchyCommand(
   context: __SerdeContext
 ): Promise<UpdateUserHierarchyCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1UpdateUserHierarchyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateUserHierarchyCommandError(output, context);
   }
   const contents: UpdateUserHierarchyCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UpdateUserHierarchyCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateUserHierarchyCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2928,73 +2444,54 @@ export async function deserializeAws_restJson1_1UpdateUserIdentityInfoCommand(
   context: __SerdeContext
 ): Promise<UpdateUserIdentityInfoCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1UpdateUserIdentityInfoCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateUserIdentityInfoCommandError(output, context);
   }
   const contents: UpdateUserIdentityInfoCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UpdateUserIdentityInfoCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateUserIdentityInfoCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3005,73 +2502,54 @@ export async function deserializeAws_restJson1_1UpdateUserPhoneConfigCommand(
   context: __SerdeContext
 ): Promise<UpdateUserPhoneConfigCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1UpdateUserPhoneConfigCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateUserPhoneConfigCommandError(output, context);
   }
   const contents: UpdateUserPhoneConfigCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UpdateUserPhoneConfigCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateUserPhoneConfigCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3082,73 +2560,54 @@ export async function deserializeAws_restJson1_1UpdateUserRoutingProfileCommand(
   context: __SerdeContext
 ): Promise<UpdateUserRoutingProfileCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1UpdateUserRoutingProfileCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateUserRoutingProfileCommandError(output, context);
   }
   const contents: UpdateUserRoutingProfileCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UpdateUserRoutingProfileCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateUserRoutingProfileCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3159,73 +2618,54 @@ export async function deserializeAws_restJson1_1UpdateUserSecurityProfilesComman
   context: __SerdeContext
 ): Promise<UpdateUserSecurityProfilesCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1UpdateUserSecurityProfilesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateUserSecurityProfilesCommandError(output, context);
   }
   const contents: UpdateUserSecurityProfilesCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UpdateUserSecurityProfilesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateUserSecurityProfilesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "InvalidRequestException":
     case "com.amazonaws.amazonconnectservice.v20170808#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "ThrottlingException":
     case "com.amazonaws.amazonconnectservice.v20170808#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3239,7 +2679,7 @@ const deserializeAws_restJson1_1ContactNotFoundExceptionResponse = async (
     __type: "ContactNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -3256,7 +2696,7 @@ const deserializeAws_restJson1_1DestinationNotAllowedExceptionResponse = async (
     __type: "DestinationNotAllowedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -3273,7 +2713,7 @@ const deserializeAws_restJson1_1DuplicateResourceExceptionResponse = async (
     __type: "DuplicateResourceException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -3290,7 +2730,7 @@ const deserializeAws_restJson1_1InternalServiceExceptionResponse = async (
     __type: "InternalServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -3307,7 +2747,7 @@ const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
     __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -3324,7 +2764,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -3341,7 +2781,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -3358,7 +2798,7 @@ const deserializeAws_restJson1_1OutboundContactNotPermittedExceptionResponse = a
     __type: "OutboundContactNotPermittedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -3375,7 +2815,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -3392,7 +2832,7 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
     __type: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -3409,7 +2849,7 @@ const deserializeAws_restJson1_1UserNotFoundExceptionResponse = async (
     __type: "UserNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -3427,14 +2867,16 @@ const serializeAws_restJson1_1Attributes = (
     mapParams[key] = input[key];
   });
   return mapParams;
-};
+}
 
 const serializeAws_restJson1_1Channels = (
   input: Array<Channel | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_restJson1_1CurrentMetric = (
   input: CurrentMetric,
@@ -3442,13 +2884,13 @@ const serializeAws_restJson1_1CurrentMetric = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.Unit !== undefined) {
-    bodyParams["Unit"] = input.Unit;
+    bodyParams['Unit'] = input.Unit;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1CurrentMetrics = (
   input: Array<CurrentMetric>,
@@ -3457,7 +2899,7 @@ const serializeAws_restJson1_1CurrentMetrics = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1CurrentMetric(entry, context)
   );
-};
+}
 
 const serializeAws_restJson1_1Filters = (
   input: Filters,
@@ -3465,26 +2907,22 @@ const serializeAws_restJson1_1Filters = (
 ): any => {
   let bodyParams: any = {};
   if (input.Channels !== undefined) {
-    bodyParams["Channels"] = serializeAws_restJson1_1Channels(
-      input.Channels,
-      context
-    );
+    bodyParams['Channels'] = serializeAws_restJson1_1Channels(input.Channels, context);
   }
   if (input.Queues !== undefined) {
-    bodyParams["Queues"] = serializeAws_restJson1_1Queues(
-      input.Queues,
-      context
-    );
+    bodyParams['Queues'] = serializeAws_restJson1_1Queues(input.Queues, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1Groupings = (
   input: Array<Grouping | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_restJson1_1HistoricalMetric = (
   input: HistoricalMetric,
@@ -3492,22 +2930,19 @@ const serializeAws_restJson1_1HistoricalMetric = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
+    bodyParams['Name'] = input.Name;
   }
   if (input.Statistic !== undefined) {
-    bodyParams["Statistic"] = input.Statistic;
+    bodyParams['Statistic'] = input.Statistic;
   }
   if (input.Threshold !== undefined) {
-    bodyParams["Threshold"] = serializeAws_restJson1_1Threshold(
-      input.Threshold,
-      context
-    );
+    bodyParams['Threshold'] = serializeAws_restJson1_1Threshold(input.Threshold, context);
   }
   if (input.Unit !== undefined) {
-    bodyParams["Unit"] = input.Unit;
+    bodyParams['Unit'] = input.Unit;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1HistoricalMetrics = (
   input: Array<HistoricalMetric>,
@@ -3516,14 +2951,16 @@ const serializeAws_restJson1_1HistoricalMetrics = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1HistoricalMetric(entry, context)
   );
-};
+}
 
 const serializeAws_restJson1_1Queues = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_restJson1_1Threshold = (
   input: Threshold,
@@ -3531,20 +2968,22 @@ const serializeAws_restJson1_1Threshold = (
 ): any => {
   let bodyParams: any = {};
   if (input.Comparison !== undefined) {
-    bodyParams["Comparison"] = input.Comparison;
+    bodyParams['Comparison'] = input.Comparison;
   }
   if (input.ThresholdValue !== undefined) {
-    bodyParams["ThresholdValue"] = input.ThresholdValue;
+    bodyParams['ThresholdValue'] = input.ThresholdValue;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1SecurityProfileIds = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_restJson1_1UserIdentityInfo = (
   input: UserIdentityInfo,
@@ -3552,16 +2991,16 @@ const serializeAws_restJson1_1UserIdentityInfo = (
 ): any => {
   let bodyParams: any = {};
   if (input.Email !== undefined) {
-    bodyParams["Email"] = input.Email;
+    bodyParams['Email'] = input.Email;
   }
   if (input.FirstName !== undefined) {
-    bodyParams["FirstName"] = input.FirstName;
+    bodyParams['FirstName'] = input.FirstName;
   }
   if (input.LastName !== undefined) {
-    bodyParams["LastName"] = input.LastName;
+    bodyParams['LastName'] = input.LastName;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1UserPhoneConfig = (
   input: UserPhoneConfig,
@@ -3569,19 +3008,19 @@ const serializeAws_restJson1_1UserPhoneConfig = (
 ): any => {
   let bodyParams: any = {};
   if (input.AfterContactWorkTimeLimit !== undefined) {
-    bodyParams["AfterContactWorkTimeLimit"] = input.AfterContactWorkTimeLimit;
+    bodyParams['AfterContactWorkTimeLimit'] = input.AfterContactWorkTimeLimit;
   }
   if (input.AutoAccept !== undefined) {
-    bodyParams["AutoAccept"] = input.AutoAccept;
+    bodyParams['AutoAccept'] = input.AutoAccept;
   }
   if (input.DeskPhoneNumber !== undefined) {
-    bodyParams["DeskPhoneNumber"] = input.DeskPhoneNumber;
+    bodyParams['DeskPhoneNumber'] = input.DeskPhoneNumber;
   }
   if (input.PhoneType !== undefined) {
-    bodyParams["PhoneType"] = input.PhoneType;
+    bodyParams['PhoneType'] = input.PhoneType;
   }
   return bodyParams;
-};
+}
 
 const deserializeAws_restJson1_1Attributes = (
   output: any,
@@ -3592,7 +3031,7 @@ const deserializeAws_restJson1_1Attributes = (
     mapParams[key] = output[key];
   });
   return mapParams;
-};
+}
 
 const deserializeAws_restJson1_1CurrentMetric = (
   output: any,
@@ -3601,7 +3040,7 @@ const deserializeAws_restJson1_1CurrentMetric = (
   let contents: any = {
     __type: "CurrentMetric",
     Name: undefined,
-    Unit: undefined
+    Unit: undefined,
   };
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -3610,7 +3049,7 @@ const deserializeAws_restJson1_1CurrentMetric = (
     contents.Unit = output.Unit;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1CurrentMetricData = (
   output: any,
@@ -3619,19 +3058,16 @@ const deserializeAws_restJson1_1CurrentMetricData = (
   let contents: any = {
     __type: "CurrentMetricData",
     Metric: undefined,
-    Value: undefined
+    Value: undefined,
   };
   if (output.Metric !== undefined) {
-    contents.Metric = deserializeAws_restJson1_1CurrentMetric(
-      output.Metric,
-      context
-    );
+    contents.Metric = deserializeAws_restJson1_1CurrentMetric(output.Metric, context);
   }
   if (output.Value !== undefined) {
     contents.Value = output.Value;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1CurrentMetricDataCollections = (
   output: any,
@@ -3640,7 +3076,7 @@ const deserializeAws_restJson1_1CurrentMetricDataCollections = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CurrentMetricData(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1CurrentMetricResult = (
   output: any,
@@ -3649,22 +3085,16 @@ const deserializeAws_restJson1_1CurrentMetricResult = (
   let contents: any = {
     __type: "CurrentMetricResult",
     Collections: undefined,
-    Dimensions: undefined
+    Dimensions: undefined,
   };
   if (output.Collections !== undefined) {
-    contents.Collections = deserializeAws_restJson1_1CurrentMetricDataCollections(
-      output.Collections,
-      context
-    );
+    contents.Collections = deserializeAws_restJson1_1CurrentMetricDataCollections(output.Collections, context);
   }
   if (output.Dimensions !== undefined) {
-    contents.Dimensions = deserializeAws_restJson1_1Dimensions(
-      output.Dimensions,
-      context
-    );
+    contents.Dimensions = deserializeAws_restJson1_1Dimensions(output.Dimensions, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1CurrentMetricResults = (
   output: any,
@@ -3673,7 +3103,7 @@ const deserializeAws_restJson1_1CurrentMetricResults = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CurrentMetricResult(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1Dimensions = (
   output: any,
@@ -3682,19 +3112,16 @@ const deserializeAws_restJson1_1Dimensions = (
   let contents: any = {
     __type: "Dimensions",
     Channel: undefined,
-    Queue: undefined
+    Queue: undefined,
   };
   if (output.Channel !== undefined) {
     contents.Channel = output.Channel;
   }
   if (output.Queue !== undefined) {
-    contents.Queue = deserializeAws_restJson1_1QueueReference(
-      output.Queue,
-      context
-    );
+    contents.Queue = deserializeAws_restJson1_1QueueReference(output.Queue, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1HistoricalMetric = (
   output: any,
@@ -3705,7 +3132,7 @@ const deserializeAws_restJson1_1HistoricalMetric = (
     Name: undefined,
     Statistic: undefined,
     Threshold: undefined,
-    Unit: undefined
+    Unit: undefined,
   };
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -3714,16 +3141,13 @@ const deserializeAws_restJson1_1HistoricalMetric = (
     contents.Statistic = output.Statistic;
   }
   if (output.Threshold !== undefined) {
-    contents.Threshold = deserializeAws_restJson1_1Threshold(
-      output.Threshold,
-      context
-    );
+    contents.Threshold = deserializeAws_restJson1_1Threshold(output.Threshold, context);
   }
   if (output.Unit !== undefined) {
     contents.Unit = output.Unit;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1HistoricalMetricData = (
   output: any,
@@ -3732,19 +3156,16 @@ const deserializeAws_restJson1_1HistoricalMetricData = (
   let contents: any = {
     __type: "HistoricalMetricData",
     Metric: undefined,
-    Value: undefined
+    Value: undefined,
   };
   if (output.Metric !== undefined) {
-    contents.Metric = deserializeAws_restJson1_1HistoricalMetric(
-      output.Metric,
-      context
-    );
+    contents.Metric = deserializeAws_restJson1_1HistoricalMetric(output.Metric, context);
   }
   if (output.Value !== undefined) {
     contents.Value = output.Value;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1HistoricalMetricDataCollections = (
   output: any,
@@ -3753,7 +3174,7 @@ const deserializeAws_restJson1_1HistoricalMetricDataCollections = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1HistoricalMetricData(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1HistoricalMetricResult = (
   output: any,
@@ -3762,22 +3183,16 @@ const deserializeAws_restJson1_1HistoricalMetricResult = (
   let contents: any = {
     __type: "HistoricalMetricResult",
     Collections: undefined,
-    Dimensions: undefined
+    Dimensions: undefined,
   };
   if (output.Collections !== undefined) {
-    contents.Collections = deserializeAws_restJson1_1HistoricalMetricDataCollections(
-      output.Collections,
-      context
-    );
+    contents.Collections = deserializeAws_restJson1_1HistoricalMetricDataCollections(output.Collections, context);
   }
   if (output.Dimensions !== undefined) {
-    contents.Dimensions = deserializeAws_restJson1_1Dimensions(
-      output.Dimensions,
-      context
-    );
+    contents.Dimensions = deserializeAws_restJson1_1Dimensions(output.Dimensions, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1HistoricalMetricResults = (
   output: any,
@@ -3786,7 +3201,7 @@ const deserializeAws_restJson1_1HistoricalMetricResults = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1HistoricalMetricResult(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1QueueReference = (
   output: any,
@@ -3795,7 +3210,7 @@ const deserializeAws_restJson1_1QueueReference = (
   let contents: any = {
     __type: "QueueReference",
     Arn: undefined,
-    Id: undefined
+    Id: undefined,
   };
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
@@ -3804,7 +3219,7 @@ const deserializeAws_restJson1_1QueueReference = (
     contents.Id = output.Id;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1Threshold = (
   output: any,
@@ -3813,7 +3228,7 @@ const deserializeAws_restJson1_1Threshold = (
   let contents: any = {
     __type: "Threshold",
     Comparison: undefined,
-    ThresholdValue: undefined
+    ThresholdValue: undefined,
   };
   if (output.Comparison !== undefined) {
     contents.Comparison = output.Comparison;
@@ -3822,7 +3237,7 @@ const deserializeAws_restJson1_1Threshold = (
     contents.ThresholdValue = output.ThresholdValue;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1ContactFlowSummary = (
   output: any,
@@ -3833,7 +3248,7 @@ const deserializeAws_restJson1_1ContactFlowSummary = (
     Arn: undefined,
     ContactFlowType: undefined,
     Id: undefined,
-    Name: undefined
+    Name: undefined,
   };
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
@@ -3848,7 +3263,7 @@ const deserializeAws_restJson1_1ContactFlowSummary = (
     contents.Name = output.Name;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1ContactFlowSummaryList = (
   output: any,
@@ -3857,7 +3272,7 @@ const deserializeAws_restJson1_1ContactFlowSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ContactFlowSummary(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1Credentials = (
   output: any,
@@ -3868,30 +3283,22 @@ const deserializeAws_restJson1_1Credentials = (
     AccessToken: undefined,
     AccessTokenExpiration: undefined,
     RefreshToken: undefined,
-    RefreshTokenExpiration: undefined
+    RefreshTokenExpiration: undefined,
   };
   if (output.AccessToken !== undefined) {
     contents.AccessToken = output.AccessToken;
   }
   if (output.AccessTokenExpiration !== undefined) {
-    contents.AccessTokenExpiration = new Date(
-      output.AccessTokenExpiration % 1 != 0
-        ? Math.round(output.AccessTokenExpiration * 1000)
-        : output.AccessTokenExpiration
-    );
+    contents.AccessTokenExpiration = new Date(output.AccessTokenExpiration % 1 != 0 ? Math.round(output.AccessTokenExpiration * 1000) : output.AccessTokenExpiration);
   }
   if (output.RefreshToken !== undefined) {
     contents.RefreshToken = output.RefreshToken;
   }
   if (output.RefreshTokenExpiration !== undefined) {
-    contents.RefreshTokenExpiration = new Date(
-      output.RefreshTokenExpiration % 1 != 0
-        ? Math.round(output.RefreshTokenExpiration * 1000)
-        : output.RefreshTokenExpiration
-    );
+    contents.RefreshTokenExpiration = new Date(output.RefreshTokenExpiration % 1 != 0 ? Math.round(output.RefreshTokenExpiration * 1000) : output.RefreshTokenExpiration);
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1HierarchyGroup = (
   output: any,
@@ -3903,16 +3310,13 @@ const deserializeAws_restJson1_1HierarchyGroup = (
     HierarchyPath: undefined,
     Id: undefined,
     LevelId: undefined,
-    Name: undefined
+    Name: undefined,
   };
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
   }
   if (output.HierarchyPath !== undefined) {
-    contents.HierarchyPath = deserializeAws_restJson1_1HierarchyPath(
-      output.HierarchyPath,
-      context
-    );
+    contents.HierarchyPath = deserializeAws_restJson1_1HierarchyPath(output.HierarchyPath, context);
   }
   if (output.Id !== undefined) {
     contents.Id = output.Id;
@@ -3924,7 +3328,7 @@ const deserializeAws_restJson1_1HierarchyGroup = (
     contents.Name = output.Name;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1HierarchyGroupSummary = (
   output: any,
@@ -3934,7 +3338,7 @@ const deserializeAws_restJson1_1HierarchyGroupSummary = (
     __type: "HierarchyGroupSummary",
     Arn: undefined,
     Id: undefined,
-    Name: undefined
+    Name: undefined,
   };
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
@@ -3946,7 +3350,7 @@ const deserializeAws_restJson1_1HierarchyGroupSummary = (
     contents.Name = output.Name;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1HierarchyGroupSummaryList = (
   output: any,
@@ -3955,7 +3359,7 @@ const deserializeAws_restJson1_1HierarchyGroupSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1HierarchyGroupSummary(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1HierarchyLevel = (
   output: any,
@@ -3965,7 +3369,7 @@ const deserializeAws_restJson1_1HierarchyLevel = (
     __type: "HierarchyLevel",
     Arn: undefined,
     Id: undefined,
-    Name: undefined
+    Name: undefined,
   };
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
@@ -3977,7 +3381,7 @@ const deserializeAws_restJson1_1HierarchyLevel = (
     contents.Name = output.Name;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1HierarchyPath = (
   output: any,
@@ -3989,40 +3393,25 @@ const deserializeAws_restJson1_1HierarchyPath = (
     LevelFour: undefined,
     LevelOne: undefined,
     LevelThree: undefined,
-    LevelTwo: undefined
+    LevelTwo: undefined,
   };
   if (output.LevelFive !== undefined) {
-    contents.LevelFive = deserializeAws_restJson1_1HierarchyGroupSummary(
-      output.LevelFive,
-      context
-    );
+    contents.LevelFive = deserializeAws_restJson1_1HierarchyGroupSummary(output.LevelFive, context);
   }
   if (output.LevelFour !== undefined) {
-    contents.LevelFour = deserializeAws_restJson1_1HierarchyGroupSummary(
-      output.LevelFour,
-      context
-    );
+    contents.LevelFour = deserializeAws_restJson1_1HierarchyGroupSummary(output.LevelFour, context);
   }
   if (output.LevelOne !== undefined) {
-    contents.LevelOne = deserializeAws_restJson1_1HierarchyGroupSummary(
-      output.LevelOne,
-      context
-    );
+    contents.LevelOne = deserializeAws_restJson1_1HierarchyGroupSummary(output.LevelOne, context);
   }
   if (output.LevelThree !== undefined) {
-    contents.LevelThree = deserializeAws_restJson1_1HierarchyGroupSummary(
-      output.LevelThree,
-      context
-    );
+    contents.LevelThree = deserializeAws_restJson1_1HierarchyGroupSummary(output.LevelThree, context);
   }
   if (output.LevelTwo !== undefined) {
-    contents.LevelTwo = deserializeAws_restJson1_1HierarchyGroupSummary(
-      output.LevelTwo,
-      context
-    );
+    contents.LevelTwo = deserializeAws_restJson1_1HierarchyGroupSummary(output.LevelTwo, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1HierarchyStructure = (
   output: any,
@@ -4034,40 +3423,25 @@ const deserializeAws_restJson1_1HierarchyStructure = (
     LevelFour: undefined,
     LevelOne: undefined,
     LevelThree: undefined,
-    LevelTwo: undefined
+    LevelTwo: undefined,
   };
   if (output.LevelFive !== undefined) {
-    contents.LevelFive = deserializeAws_restJson1_1HierarchyLevel(
-      output.LevelFive,
-      context
-    );
+    contents.LevelFive = deserializeAws_restJson1_1HierarchyLevel(output.LevelFive, context);
   }
   if (output.LevelFour !== undefined) {
-    contents.LevelFour = deserializeAws_restJson1_1HierarchyLevel(
-      output.LevelFour,
-      context
-    );
+    contents.LevelFour = deserializeAws_restJson1_1HierarchyLevel(output.LevelFour, context);
   }
   if (output.LevelOne !== undefined) {
-    contents.LevelOne = deserializeAws_restJson1_1HierarchyLevel(
-      output.LevelOne,
-      context
-    );
+    contents.LevelOne = deserializeAws_restJson1_1HierarchyLevel(output.LevelOne, context);
   }
   if (output.LevelThree !== undefined) {
-    contents.LevelThree = deserializeAws_restJson1_1HierarchyLevel(
-      output.LevelThree,
-      context
-    );
+    contents.LevelThree = deserializeAws_restJson1_1HierarchyLevel(output.LevelThree, context);
   }
   if (output.LevelTwo !== undefined) {
-    contents.LevelTwo = deserializeAws_restJson1_1HierarchyLevel(
-      output.LevelTwo,
-      context
-    );
+    contents.LevelTwo = deserializeAws_restJson1_1HierarchyLevel(output.LevelTwo, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1HoursOfOperationSummary = (
   output: any,
@@ -4077,7 +3451,7 @@ const deserializeAws_restJson1_1HoursOfOperationSummary = (
     __type: "HoursOfOperationSummary",
     Arn: undefined,
     Id: undefined,
-    Name: undefined
+    Name: undefined,
   };
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
@@ -4089,7 +3463,7 @@ const deserializeAws_restJson1_1HoursOfOperationSummary = (
     contents.Name = output.Name;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1HoursOfOperationSummaryList = (
   output: any,
@@ -4098,7 +3472,7 @@ const deserializeAws_restJson1_1HoursOfOperationSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1HoursOfOperationSummary(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1PhoneNumberSummary = (
   output: any,
@@ -4110,7 +3484,7 @@ const deserializeAws_restJson1_1PhoneNumberSummary = (
     Id: undefined,
     PhoneNumber: undefined,
     PhoneNumberCountryCode: undefined,
-    PhoneNumberType: undefined
+    PhoneNumberType: undefined,
   };
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
@@ -4128,7 +3502,7 @@ const deserializeAws_restJson1_1PhoneNumberSummary = (
     contents.PhoneNumberType = output.PhoneNumberType;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1PhoneNumberSummaryList = (
   output: any,
@@ -4137,7 +3511,7 @@ const deserializeAws_restJson1_1PhoneNumberSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PhoneNumberSummary(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1QueueSummary = (
   output: any,
@@ -4148,7 +3522,7 @@ const deserializeAws_restJson1_1QueueSummary = (
     Arn: undefined,
     Id: undefined,
     Name: undefined,
-    QueueType: undefined
+    QueueType: undefined,
   };
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
@@ -4163,7 +3537,7 @@ const deserializeAws_restJson1_1QueueSummary = (
     contents.QueueType = output.QueueType;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1QueueSummaryList = (
   output: any,
@@ -4172,7 +3546,7 @@ const deserializeAws_restJson1_1QueueSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1QueueSummary(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1RoutingProfileSummary = (
   output: any,
@@ -4182,7 +3556,7 @@ const deserializeAws_restJson1_1RoutingProfileSummary = (
     __type: "RoutingProfileSummary",
     Arn: undefined,
     Id: undefined,
-    Name: undefined
+    Name: undefined,
   };
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
@@ -4194,7 +3568,7 @@ const deserializeAws_restJson1_1RoutingProfileSummary = (
     contents.Name = output.Name;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1RoutingProfileSummaryList = (
   output: any,
@@ -4203,14 +3577,16 @@ const deserializeAws_restJson1_1RoutingProfileSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1RoutingProfileSummary(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1SecurityProfileIds = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_restJson1_1SecurityProfileSummary = (
   output: any,
@@ -4220,7 +3596,7 @@ const deserializeAws_restJson1_1SecurityProfileSummary = (
     __type: "SecurityProfileSummary",
     Arn: undefined,
     Id: undefined,
-    Name: undefined
+    Name: undefined,
   };
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
@@ -4232,7 +3608,7 @@ const deserializeAws_restJson1_1SecurityProfileSummary = (
     contents.Name = output.Name;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1SecurityProfileSummaryList = (
   output: any,
@@ -4241,7 +3617,7 @@ const deserializeAws_restJson1_1SecurityProfileSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SecurityProfileSummary(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1User = (
   output: any,
@@ -4257,7 +3633,7 @@ const deserializeAws_restJson1_1User = (
     PhoneConfig: undefined,
     RoutingProfileId: undefined,
     SecurityProfileIds: undefined,
-    Username: undefined
+    Username: undefined,
   };
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
@@ -4272,31 +3648,22 @@ const deserializeAws_restJson1_1User = (
     contents.Id = output.Id;
   }
   if (output.IdentityInfo !== undefined) {
-    contents.IdentityInfo = deserializeAws_restJson1_1UserIdentityInfo(
-      output.IdentityInfo,
-      context
-    );
+    contents.IdentityInfo = deserializeAws_restJson1_1UserIdentityInfo(output.IdentityInfo, context);
   }
   if (output.PhoneConfig !== undefined) {
-    contents.PhoneConfig = deserializeAws_restJson1_1UserPhoneConfig(
-      output.PhoneConfig,
-      context
-    );
+    contents.PhoneConfig = deserializeAws_restJson1_1UserPhoneConfig(output.PhoneConfig, context);
   }
   if (output.RoutingProfileId !== undefined) {
     contents.RoutingProfileId = output.RoutingProfileId;
   }
   if (output.SecurityProfileIds !== undefined) {
-    contents.SecurityProfileIds = deserializeAws_restJson1_1SecurityProfileIds(
-      output.SecurityProfileIds,
-      context
-    );
+    contents.SecurityProfileIds = deserializeAws_restJson1_1SecurityProfileIds(output.SecurityProfileIds, context);
   }
   if (output.Username !== undefined) {
     contents.Username = output.Username;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1UserIdentityInfo = (
   output: any,
@@ -4306,7 +3673,7 @@ const deserializeAws_restJson1_1UserIdentityInfo = (
     __type: "UserIdentityInfo",
     Email: undefined,
     FirstName: undefined,
-    LastName: undefined
+    LastName: undefined,
   };
   if (output.Email !== undefined) {
     contents.Email = output.Email;
@@ -4318,7 +3685,7 @@ const deserializeAws_restJson1_1UserIdentityInfo = (
     contents.LastName = output.LastName;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1UserPhoneConfig = (
   output: any,
@@ -4329,7 +3696,7 @@ const deserializeAws_restJson1_1UserPhoneConfig = (
     AfterContactWorkTimeLimit: undefined,
     AutoAccept: undefined,
     DeskPhoneNumber: undefined,
-    PhoneType: undefined
+    PhoneType: undefined,
   };
   if (output.AfterContactWorkTimeLimit !== undefined) {
     contents.AfterContactWorkTimeLimit = output.AfterContactWorkTimeLimit;
@@ -4344,7 +3711,7 @@ const deserializeAws_restJson1_1UserPhoneConfig = (
     contents.PhoneType = output.PhoneType;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1UserSummary = (
   output: any,
@@ -4354,7 +3721,7 @@ const deserializeAws_restJson1_1UserSummary = (
     __type: "UserSummary",
     Arn: undefined,
     Id: undefined,
-    Username: undefined
+    Username: undefined,
   };
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
@@ -4366,7 +3733,7 @@ const deserializeAws_restJson1_1UserSummary = (
     contents.Username = output.Username;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1UserSummaryList = (
   output: any,
@@ -4375,7 +3742,7 @@ const deserializeAws_restJson1_1UserSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1UserSummary(entry, context)
   );
-};
+}
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

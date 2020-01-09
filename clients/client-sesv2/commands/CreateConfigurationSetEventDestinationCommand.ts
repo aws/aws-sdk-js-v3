@@ -1,20 +1,20 @@
 import {
   SESv2ClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../SESv2Client";
 import {
   CreateConfigurationSetEventDestinationRequest,
-  CreateConfigurationSetEventDestinationResponse
+  CreateConfigurationSetEventDestinationResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateConfigurationSetEventDestinationCommand,
-  serializeAws_restJson1_1CreateConfigurationSetEventDestinationCommand
+  serializeAws_restJson1_1CreateConfigurationSetEventDestinationCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,23 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type CreateConfigurationSetEventDestinationCommandInput = CreateConfigurationSetEventDestinationRequest;
 export type CreateConfigurationSetEventDestinationCommandOutput = CreateConfigurationSetEventDestinationResponse;
 
-export class CreateConfigurationSetEventDestinationCommand extends $Command<
-  CreateConfigurationSetEventDestinationCommandInput,
-  CreateConfigurationSetEventDestinationCommandOutput,
-  SESv2ClientResolvedConfig
-> {
+export class CreateConfigurationSetEventDestinationCommand extends $Command<CreateConfigurationSetEventDestinationCommandInput, CreateConfigurationSetEventDestinationCommandOutput, SESv2ClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: CreateConfigurationSetEventDestinationCommandInput
-  ) {
+  constructor(readonly input: CreateConfigurationSetEventDestinationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -49,19 +43,14 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateConfigurationSetEventDestinationCommandInput,
-    CreateConfigurationSetEventDestinationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateConfigurationSetEventDestinationCommandInput, CreateConfigurationSetEventDestinationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -74,20 +63,14 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command<
     input: CreateConfigurationSetEventDestinationCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateConfigurationSetEventDestinationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateConfigurationSetEventDestinationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<CreateConfigurationSetEventDestinationCommandOutput> {
-    return deserializeAws_restJson1_1CreateConfigurationSetEventDestinationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateConfigurationSetEventDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

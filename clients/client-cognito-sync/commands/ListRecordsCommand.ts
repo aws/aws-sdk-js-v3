@@ -1,17 +1,20 @@
 import {
   CognitoSyncClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CognitoSyncClient";
-import { ListRecordsRequest, ListRecordsResponse } from "../models/index";
+import {
+  ListRecordsRequest,
+  ListRecordsResponse,
+} from "../models/index";
 import {
   deserializeAws_restJson1_1ListRecordsCommand,
-  serializeAws_restJson1_1ListRecordsCommand
+  serializeAws_restJson1_1ListRecordsCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type ListRecordsCommandInput = ListRecordsRequest;
 export type ListRecordsCommandOutput = ListRecordsResponse;
 
-export class ListRecordsCommand extends $Command<
-  ListRecordsCommandInput,
-  ListRecordsCommandOutput,
-  CognitoSyncClientResolvedConfig
-> {
+export class ListRecordsCommand extends $Command<ListRecordsCommandInput, ListRecordsCommandOutput, CognitoSyncClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class ListRecordsCommand extends $Command<
     configuration: CognitoSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListRecordsCommandInput, ListRecordsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

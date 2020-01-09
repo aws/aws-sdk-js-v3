@@ -1,17 +1,20 @@
 import {
   CloudDirectoryClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CloudDirectoryClient";
-import { DetachPolicyRequest, DetachPolicyResponse } from "../models/index";
+import {
+  DetachPolicyRequest,
+  DetachPolicyResponse,
+} from "../models/index";
 import {
   deserializeAws_restJson1_1DetachPolicyCommand,
-  serializeAws_restJson1_1DetachPolicyCommand
+  serializeAws_restJson1_1DetachPolicyCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DetachPolicyCommandInput = DetachPolicyRequest;
 export type DetachPolicyCommandOutput = DetachPolicyResponse;
 
-export class DetachPolicyCommand extends $Command<
-  DetachPolicyCommandInput,
-  DetachPolicyCommandOutput,
-  CloudDirectoryClientResolvedConfig
-> {
+export class DetachPolicyCommand extends $Command<DetachPolicyCommandInput, DetachPolicyCommandOutput, CloudDirectoryClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class DetachPolicyCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DetachPolicyCommandInput, DetachPolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

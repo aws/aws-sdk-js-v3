@@ -27,5 +27,5 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   runtime: "node",
   signingName: "ec2-instance-connect",
   credentialDefaultProvider,
-  regionDefaultProvider
+  regionDefaultProvider,
 };

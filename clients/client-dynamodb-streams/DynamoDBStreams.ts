@@ -2,22 +2,22 @@ import { DynamoDBStreamsClient } from "./DynamoDBStreamsClient";
 import {
   DescribeStreamCommand,
   DescribeStreamCommandInput,
-  DescribeStreamCommandOutput
+  DescribeStreamCommandOutput,
 } from "./commands/DescribeStreamCommand";
 import {
   GetRecordsCommand,
   GetRecordsCommandInput,
-  GetRecordsCommandOutput
+  GetRecordsCommandOutput,
 } from "./commands/GetRecordsCommand";
 import {
   GetShardIteratorCommand,
   GetShardIteratorCommandInput,
-  GetShardIteratorCommandOutput
+  GetShardIteratorCommandOutput,
 } from "./commands/GetShardIteratorCommand";
 import {
   ListStreamsCommand,
   ListStreamsCommandInput,
-  ListStreamsCommandOutput
+  ListStreamsCommandOutput,
 } from "./commands/ListStreamsCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -49,7 +49,7 @@ export class DynamoDBStreams extends DynamoDBStreamsClient {
    */
   public describeStream(
     args: DescribeStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeStreamCommandOutput>;
   public describeStream(
     args: DescribeStreamCommandInput,
@@ -62,18 +62,16 @@ export class DynamoDBStreams extends DynamoDBStreamsClient {
   ): void;
   public describeStream(
     args: DescribeStreamCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStreamCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStreamCommandOutput) => void),
     cb?: (err: any, data?: DescribeStreamCommandOutput) => void
   ): Promise<DescribeStreamCommandOutput> | void {
     const command = new DescribeStreamCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -97,7 +95,7 @@ export class DynamoDBStreams extends DynamoDBStreamsClient {
    */
   public getRecords(
     args: GetRecordsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetRecordsCommandOutput>;
   public getRecords(
     args: GetRecordsCommandInput,
@@ -110,18 +108,16 @@ export class DynamoDBStreams extends DynamoDBStreamsClient {
   ): void;
   public getRecords(
     args: GetRecordsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRecordsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRecordsCommandOutput) => void),
     cb?: (err: any, data?: GetRecordsCommandOutput) => void
   ): Promise<GetRecordsCommandOutput> | void {
     const command = new GetRecordsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -142,7 +138,7 @@ export class DynamoDBStreams extends DynamoDBStreamsClient {
    */
   public getShardIterator(
     args: GetShardIteratorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetShardIteratorCommandOutput>;
   public getShardIterator(
     args: GetShardIteratorCommandInput,
@@ -155,18 +151,16 @@ export class DynamoDBStreams extends DynamoDBStreamsClient {
   ): void;
   public getShardIterator(
     args: GetShardIteratorCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetShardIteratorCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetShardIteratorCommandOutput) => void),
     cb?: (err: any, data?: GetShardIteratorCommandOutput) => void
   ): Promise<GetShardIteratorCommandOutput> | void {
     const command = new GetShardIteratorCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -185,7 +179,7 @@ export class DynamoDBStreams extends DynamoDBStreamsClient {
    */
   public listStreams(
     args: ListStreamsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListStreamsCommandOutput>;
   public listStreams(
     args: ListStreamsCommandInput,
@@ -198,20 +192,19 @@ export class DynamoDBStreams extends DynamoDBStreamsClient {
   ): void;
   public listStreams(
     args: ListStreamsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListStreamsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStreamsCommandOutput) => void),
     cb?: (err: any, data?: ListStreamsCommandOutput) => void
   ): Promise<ListStreamsCommandOutput> | void {
     const command = new ListStreamsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

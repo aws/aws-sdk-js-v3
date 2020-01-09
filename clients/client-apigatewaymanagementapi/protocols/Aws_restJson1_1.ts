@@ -1,32 +1,32 @@
 import {
   DeleteConnectionCommandInput,
-  DeleteConnectionCommandOutput
+  DeleteConnectionCommandOutput,
 } from "../commands/DeleteConnectionCommand";
 import {
   GetConnectionCommandInput,
-  GetConnectionCommandOutput
+  GetConnectionCommandOutput,
 } from "../commands/GetConnectionCommand";
 import {
   PostToConnectionCommandInput,
-  PostToConnectionCommandOutput
+  PostToConnectionCommandOutput,
 } from "../commands/PostToConnectionCommand";
 import {
   ForbiddenException,
   GoneException,
   Identity,
   LimitExceededException,
-  PayloadTooLargeException
+  PayloadTooLargeException,
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export async function serializeAws_restJson1_1DeleteConnectionCommand(
@@ -34,25 +34,23 @@ export async function serializeAws_restJson1_1DeleteConnectionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/@connections/{ConnectionId}";
   if (input.ConnectionId !== undefined) {
     const labelValue: any = input.ConnectionId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConnectionId."
-      );
+      throw new Error('Empty value provided for input HTTP label: ConnectionId.');
     }
-    resolvedPath = resolvedPath.replace("{ConnectionId}", labelValue);
+    resolvedPath = resolvedPath.replace('{ConnectionId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: ConnectionId.");
+    throw new Error('No value provided for input HTTP label: ConnectionId.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -61,25 +59,23 @@ export async function serializeAws_restJson1_1GetConnectionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/@connections/{ConnectionId}";
   if (input.ConnectionId !== undefined) {
     const labelValue: any = input.ConnectionId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConnectionId."
-      );
+      throw new Error('Empty value provided for input HTTP label: ConnectionId.');
     }
-    resolvedPath = resolvedPath.replace("{ConnectionId}", labelValue);
+    resolvedPath = resolvedPath.replace('{ConnectionId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: ConnectionId.");
+    throw new Error('No value provided for input HTTP label: ConnectionId.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -88,18 +84,16 @@ export async function serializeAws_restJson1_1PostToConnectionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/octet-stream";
+  headers['Content-Type'] = "application/octet-stream";
   let resolvedPath = "/@connections/{ConnectionId}";
   if (input.ConnectionId !== undefined) {
     const labelValue: any = input.ConnectionId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConnectionId."
-      );
+      throw new Error('Empty value provided for input HTTP label: ConnectionId.');
     }
-    resolvedPath = resolvedPath.replace("{ConnectionId}", labelValue);
+    resolvedPath = resolvedPath.replace('{ConnectionId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: ConnectionId.");
+    throw new Error('No value provided for input HTTP label: ConnectionId.');
   }
   let body: any = {};
   if (input.Data !== undefined) {
@@ -111,7 +105,7 @@ export async function serializeAws_restJson1_1PostToConnectionCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -120,59 +114,46 @@ export async function deserializeAws_restJson1_1DeleteConnectionCommand(
   context: __SerdeContext
 ): Promise<DeleteConnectionCommandOutput> {
   if (output.statusCode !== 204) {
-    return deserializeAws_restJson1_1DeleteConnectionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteConnectionCommandError(output, context);
   }
   const contents: DeleteConnectionCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DeleteConnectionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteConnectionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.apigatewaymanagementapi#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
       break;
     case "GoneException":
     case "com.amazonaws.apigatewaymanagementapi#GoneException":
-      response = await deserializeAws_restJson1_1GoneExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1GoneExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.apigatewaymanagementapi#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewaymanagementapi#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -190,17 +171,14 @@ export async function deserializeAws_restJson1_1GetConnectionCommand(
     __type: "GetConnectionResponse",
     ConnectedAt: undefined,
     Identity: undefined,
-    LastActiveAt: undefined
+    LastActiveAt: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.connectedAt !== undefined) {
     contents.ConnectedAt = new Date(data.connectedAt);
   }
   if (data.identity !== undefined) {
-    contents.Identity = deserializeAws_restJson1_1Identity(
-      data.identity,
-      context
-    );
+    contents.Identity = deserializeAws_restJson1_1Identity(data.identity, context);
   }
   if (data.lastActiveAt !== undefined) {
     contents.LastActiveAt = new Date(data.lastActiveAt);
@@ -210,46 +188,36 @@ export async function deserializeAws_restJson1_1GetConnectionCommand(
 
 async function deserializeAws_restJson1_1GetConnectionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetConnectionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.apigatewaymanagementapi#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
       break;
     case "GoneException":
     case "com.amazonaws.apigatewaymanagementapi#GoneException":
-      response = await deserializeAws_restJson1_1GoneExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1GoneExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.apigatewaymanagementapi#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewaymanagementapi#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -260,66 +228,50 @@ export async function deserializeAws_restJson1_1PostToConnectionCommand(
   context: __SerdeContext
 ): Promise<PostToConnectionCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1PostToConnectionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PostToConnectionCommandError(output, context);
   }
   const contents: PostToConnectionCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1PostToConnectionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<PostToConnectionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.apigatewaymanagementapi#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
       break;
     case "GoneException":
     case "com.amazonaws.apigatewaymanagementapi#GoneException":
-      response = await deserializeAws_restJson1_1GoneExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1GoneExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.apigatewaymanagementapi#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "PayloadTooLargeException":
     case "com.amazonaws.apigatewaymanagementapi#PayloadTooLargeException":
-      response = await deserializeAws_restJson1_1PayloadTooLargeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1PayloadTooLargeExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewaymanagementapi#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -332,7 +284,7 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
   const contents: ForbiddenException = {
     __type: "ForbiddenException",
     $fault: "client",
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return contents;
 };
@@ -344,7 +296,7 @@ const deserializeAws_restJson1_1GoneExceptionResponse = async (
   const contents: GoneException = {
     __type: "GoneException",
     $fault: "client",
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return contents;
 };
@@ -356,7 +308,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
   const contents: LimitExceededException = {
     __type: "LimitExceededException",
     $fault: "client",
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return contents;
 };
@@ -369,7 +321,7 @@ const deserializeAws_restJson1_1PayloadTooLargeExceptionResponse = async (
     __type: "PayloadTooLargeException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined
+    Message: undefined,
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -385,7 +337,7 @@ const deserializeAws_restJson1_1Identity = (
   let contents: any = {
     __type: "Identity",
     SourceIp: undefined,
-    UserAgent: undefined
+    UserAgent: undefined,
   };
   if (output.sourceIp !== undefined) {
     contents.SourceIp = output.sourceIp;
@@ -394,7 +346,7 @@ const deserializeAws_restJson1_1Identity = (
     contents.UserAgent = output.userAgent;
   }
   return contents;
-};
+}
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

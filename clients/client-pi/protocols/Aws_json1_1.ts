@@ -106,7 +106,7 @@ async function deserializeAws_json1_1DescribeDimensionKeysCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -123,7 +123,6 @@ async function deserializeAws_json1_1DescribeDimensionKeysCommandError(
       response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `amazonaws.pi.v20180227#${errorCode}`,
         $fault: "client",
@@ -161,7 +160,7 @@ async function deserializeAws_json1_1GetResourceMetricsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -178,7 +177,6 @@ async function deserializeAws_json1_1GetResourceMetricsCommandError(
       response = await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `amazonaws.pi.v20180227#${errorCode}`,
         $fault: "client",

@@ -131,7 +131,7 @@ async function deserializeAws_json1_1CreateHomeRegionControlCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -156,7 +156,6 @@ async function deserializeAws_json1_1CreateHomeRegionControlCommandError(
       response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmigrationhubmultiaccount#${errorCode}`,
         $fault: "client",
@@ -194,7 +193,7 @@ async function deserializeAws_json1_1DescribeHomeRegionControlsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -215,7 +214,6 @@ async function deserializeAws_json1_1DescribeHomeRegionControlsCommandError(
       response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmigrationhubmultiaccount#${errorCode}`,
         $fault: "client",
@@ -253,7 +251,7 @@ async function deserializeAws_json1_1GetHomeRegionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -274,7 +272,6 @@ async function deserializeAws_json1_1GetHomeRegionCommandError(
       response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmigrationhubmultiaccount#${errorCode}`,
         $fault: "client",

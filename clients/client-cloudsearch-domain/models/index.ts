@@ -50,16 +50,14 @@ export namespace BucketInfo {
   }
 }
 
-export type ContentType = "application/json" | "application/xml";
+export type ContentType = "application/json" | "application/xml"
 
 /**
  *
  *       <p>Information about any problems encountered while processing an upload request.</p>
  *
  */
-export interface DocumentServiceException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DocumentServiceException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DocumentServiceException";
   $fault: "client";
   /**
@@ -261,16 +259,14 @@ export namespace Hits {
   }
 }
 
-export type QueryParser = "dismax" | "lucene" | "simple" | "structured";
+export type QueryParser = "dismax" | "lucene" | "simple" | "structured"
 
 /**
  *
  *       <p>Information about any problems encountered while processing a search request.</p>
  *
  */
-export interface SearchException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface SearchException extends _smithy.SmithyException, $MetadataBearer {
   __type: "SearchException";
   $fault: "client";
   /**

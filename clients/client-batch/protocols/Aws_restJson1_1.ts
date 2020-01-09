@@ -1,66 +1,66 @@
 import {
   CancelJobCommandInput,
-  CancelJobCommandOutput
+  CancelJobCommandOutput,
 } from "../commands/CancelJobCommand";
 import {
   CreateComputeEnvironmentCommandInput,
-  CreateComputeEnvironmentCommandOutput
+  CreateComputeEnvironmentCommandOutput,
 } from "../commands/CreateComputeEnvironmentCommand";
 import {
   CreateJobQueueCommandInput,
-  CreateJobQueueCommandOutput
+  CreateJobQueueCommandOutput,
 } from "../commands/CreateJobQueueCommand";
 import {
   DeleteComputeEnvironmentCommandInput,
-  DeleteComputeEnvironmentCommandOutput
+  DeleteComputeEnvironmentCommandOutput,
 } from "../commands/DeleteComputeEnvironmentCommand";
 import {
   DeleteJobQueueCommandInput,
-  DeleteJobQueueCommandOutput
+  DeleteJobQueueCommandOutput,
 } from "../commands/DeleteJobQueueCommand";
 import {
   DeregisterJobDefinitionCommandInput,
-  DeregisterJobDefinitionCommandOutput
+  DeregisterJobDefinitionCommandOutput,
 } from "../commands/DeregisterJobDefinitionCommand";
 import {
   DescribeComputeEnvironmentsCommandInput,
-  DescribeComputeEnvironmentsCommandOutput
+  DescribeComputeEnvironmentsCommandOutput,
 } from "../commands/DescribeComputeEnvironmentsCommand";
 import {
   DescribeJobDefinitionsCommandInput,
-  DescribeJobDefinitionsCommandOutput
+  DescribeJobDefinitionsCommandOutput,
 } from "../commands/DescribeJobDefinitionsCommand";
 import {
   DescribeJobQueuesCommandInput,
-  DescribeJobQueuesCommandOutput
+  DescribeJobQueuesCommandOutput,
 } from "../commands/DescribeJobQueuesCommand";
 import {
   DescribeJobsCommandInput,
-  DescribeJobsCommandOutput
+  DescribeJobsCommandOutput,
 } from "../commands/DescribeJobsCommand";
 import {
   ListJobsCommandInput,
-  ListJobsCommandOutput
+  ListJobsCommandOutput,
 } from "../commands/ListJobsCommand";
 import {
   RegisterJobDefinitionCommandInput,
-  RegisterJobDefinitionCommandOutput
+  RegisterJobDefinitionCommandOutput,
 } from "../commands/RegisterJobDefinitionCommand";
 import {
   SubmitJobCommandInput,
-  SubmitJobCommandOutput
+  SubmitJobCommandOutput,
 } from "../commands/SubmitJobCommand";
 import {
   TerminateJobCommandInput,
-  TerminateJobCommandOutput
+  TerminateJobCommandOutput,
 } from "../commands/TerminateJobCommand";
 import {
   UpdateComputeEnvironmentCommandInput,
-  UpdateComputeEnvironmentCommandOutput
+  UpdateComputeEnvironmentCommandOutput,
 } from "../commands/UpdateComputeEnvironmentCommand";
 import {
   UpdateJobQueueCommandInput,
-  UpdateJobQueueCommandOutput
+  UpdateJobQueueCommandOutput,
 } from "../commands/UpdateJobQueueCommand";
 import {
   ArrayProperties,
@@ -101,18 +101,18 @@ import {
   RetryStrategy,
   ServerException,
   Ulimit,
-  Volume
+  Volume,
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export async function serializeAws_restJson1_1CancelJobCommand(
@@ -120,15 +120,15 @@ export async function serializeAws_restJson1_1CancelJobCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/v1/canceljob";
   let body: any = {};
   const bodyParams: any = {};
   if (input.jobId !== undefined) {
-    bodyParams["jobId"] = input.jobId;
+    bodyParams['jobId'] = input.jobId;
   }
   if (input.reason !== undefined) {
-    bodyParams["reason"] = input.reason;
+    bodyParams['reason'] = input.reason;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -137,7 +137,7 @@ export async function serializeAws_restJson1_1CancelJobCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -146,27 +146,24 @@ export async function serializeAws_restJson1_1CreateComputeEnvironmentCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/v1/createcomputeenvironment";
   let body: any = {};
   const bodyParams: any = {};
   if (input.computeEnvironmentName !== undefined) {
-    bodyParams["computeEnvironmentName"] = input.computeEnvironmentName;
+    bodyParams['computeEnvironmentName'] = input.computeEnvironmentName;
   }
   if (input.computeResources !== undefined) {
-    bodyParams["computeResources"] = serializeAws_restJson1_1ComputeResource(
-      input.computeResources,
-      context
-    );
+    bodyParams['computeResources'] = serializeAws_restJson1_1ComputeResource(input.computeResources, context);
   }
   if (input.serviceRole !== undefined) {
-    bodyParams["serviceRole"] = input.serviceRole;
+    bodyParams['serviceRole'] = input.serviceRole;
   }
   if (input.state !== undefined) {
-    bodyParams["state"] = input.state;
+    bodyParams['state'] = input.state;
   }
   if (input.type !== undefined) {
-    bodyParams["type"] = input.type;
+    bodyParams['type'] = input.type;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -175,7 +172,7 @@ export async function serializeAws_restJson1_1CreateComputeEnvironmentCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -184,26 +181,21 @@ export async function serializeAws_restJson1_1CreateJobQueueCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/v1/createjobqueue";
   let body: any = {};
   const bodyParams: any = {};
   if (input.computeEnvironmentOrder !== undefined) {
-    bodyParams[
-      "computeEnvironmentOrder"
-    ] = serializeAws_restJson1_1ComputeEnvironmentOrders(
-      input.computeEnvironmentOrder,
-      context
-    );
+    bodyParams['computeEnvironmentOrder'] = serializeAws_restJson1_1ComputeEnvironmentOrders(input.computeEnvironmentOrder, context);
   }
   if (input.jobQueueName !== undefined) {
-    bodyParams["jobQueueName"] = input.jobQueueName;
+    bodyParams['jobQueueName'] = input.jobQueueName;
   }
   if (input.priority !== undefined) {
-    bodyParams["priority"] = input.priority;
+    bodyParams['priority'] = input.priority;
   }
   if (input.state !== undefined) {
-    bodyParams["state"] = input.state;
+    bodyParams['state'] = input.state;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -212,7 +204,7 @@ export async function serializeAws_restJson1_1CreateJobQueueCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -221,12 +213,12 @@ export async function serializeAws_restJson1_1DeleteComputeEnvironmentCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/v1/deletecomputeenvironment";
   let body: any = {};
   const bodyParams: any = {};
   if (input.computeEnvironment !== undefined) {
-    bodyParams["computeEnvironment"] = input.computeEnvironment;
+    bodyParams['computeEnvironment'] = input.computeEnvironment;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -235,7 +227,7 @@ export async function serializeAws_restJson1_1DeleteComputeEnvironmentCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -244,12 +236,12 @@ export async function serializeAws_restJson1_1DeleteJobQueueCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/v1/deletejobqueue";
   let body: any = {};
   const bodyParams: any = {};
   if (input.jobQueue !== undefined) {
-    bodyParams["jobQueue"] = input.jobQueue;
+    bodyParams['jobQueue'] = input.jobQueue;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -258,7 +250,7 @@ export async function serializeAws_restJson1_1DeleteJobQueueCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -267,12 +259,12 @@ export async function serializeAws_restJson1_1DeregisterJobDefinitionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/v1/deregisterjobdefinition";
   let body: any = {};
   const bodyParams: any = {};
   if (input.jobDefinition !== undefined) {
-    bodyParams["jobDefinition"] = input.jobDefinition;
+    bodyParams['jobDefinition'] = input.jobDefinition;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -281,7 +273,7 @@ export async function serializeAws_restJson1_1DeregisterJobDefinitionCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -290,21 +282,18 @@ export async function serializeAws_restJson1_1DescribeComputeEnvironmentsCommand
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/v1/describecomputeenvironments";
   let body: any = {};
   const bodyParams: any = {};
   if (input.computeEnvironments !== undefined) {
-    bodyParams["computeEnvironments"] = serializeAws_restJson1_1StringList(
-      input.computeEnvironments,
-      context
-    );
+    bodyParams['computeEnvironments'] = serializeAws_restJson1_1StringList(input.computeEnvironments, context);
   }
   if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
+    bodyParams['maxResults'] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
+    bodyParams['nextToken'] = input.nextToken;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -313,7 +302,7 @@ export async function serializeAws_restJson1_1DescribeComputeEnvironmentsCommand
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -322,27 +311,24 @@ export async function serializeAws_restJson1_1DescribeJobDefinitionsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/v1/describejobdefinitions";
   let body: any = {};
   const bodyParams: any = {};
   if (input.jobDefinitionName !== undefined) {
-    bodyParams["jobDefinitionName"] = input.jobDefinitionName;
+    bodyParams['jobDefinitionName'] = input.jobDefinitionName;
   }
   if (input.jobDefinitions !== undefined) {
-    bodyParams["jobDefinitions"] = serializeAws_restJson1_1StringList(
-      input.jobDefinitions,
-      context
-    );
+    bodyParams['jobDefinitions'] = serializeAws_restJson1_1StringList(input.jobDefinitions, context);
   }
   if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
+    bodyParams['maxResults'] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
+    bodyParams['nextToken'] = input.nextToken;
   }
   if (input.status !== undefined) {
-    bodyParams["status"] = input.status;
+    bodyParams['status'] = input.status;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -351,7 +337,7 @@ export async function serializeAws_restJson1_1DescribeJobDefinitionsCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -360,21 +346,18 @@ export async function serializeAws_restJson1_1DescribeJobQueuesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/v1/describejobqueues";
   let body: any = {};
   const bodyParams: any = {};
   if (input.jobQueues !== undefined) {
-    bodyParams["jobQueues"] = serializeAws_restJson1_1StringList(
-      input.jobQueues,
-      context
-    );
+    bodyParams['jobQueues'] = serializeAws_restJson1_1StringList(input.jobQueues, context);
   }
   if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
+    bodyParams['maxResults'] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
+    bodyParams['nextToken'] = input.nextToken;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -383,7 +366,7 @@ export async function serializeAws_restJson1_1DescribeJobQueuesCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -392,15 +375,12 @@ export async function serializeAws_restJson1_1DescribeJobsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/v1/describejobs";
   let body: any = {};
   const bodyParams: any = {};
   if (input.jobs !== undefined) {
-    bodyParams["jobs"] = serializeAws_restJson1_1StringList(
-      input.jobs,
-      context
-    );
+    bodyParams['jobs'] = serializeAws_restJson1_1StringList(input.jobs, context);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -409,7 +389,7 @@ export async function serializeAws_restJson1_1DescribeJobsCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -418,27 +398,27 @@ export async function serializeAws_restJson1_1ListJobsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/v1/listjobs";
   let body: any = {};
   const bodyParams: any = {};
   if (input.arrayJobId !== undefined) {
-    bodyParams["arrayJobId"] = input.arrayJobId;
+    bodyParams['arrayJobId'] = input.arrayJobId;
   }
   if (input.jobQueue !== undefined) {
-    bodyParams["jobQueue"] = input.jobQueue;
+    bodyParams['jobQueue'] = input.jobQueue;
   }
   if (input.jobStatus !== undefined) {
-    bodyParams["jobStatus"] = input.jobStatus;
+    bodyParams['jobStatus'] = input.jobStatus;
   }
   if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
+    bodyParams['maxResults'] = input.maxResults;
   }
   if (input.multiNodeJobId !== undefined) {
-    bodyParams["multiNodeJobId"] = input.multiNodeJobId;
+    bodyParams['multiNodeJobId'] = input.multiNodeJobId;
   }
   if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
+    bodyParams['nextToken'] = input.nextToken;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -447,7 +427,7 @@ export async function serializeAws_restJson1_1ListJobsCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -456,47 +436,30 @@ export async function serializeAws_restJson1_1RegisterJobDefinitionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/v1/registerjobdefinition";
   let body: any = {};
   const bodyParams: any = {};
   if (input.containerProperties !== undefined) {
-    bodyParams[
-      "containerProperties"
-    ] = serializeAws_restJson1_1ContainerProperties(
-      input.containerProperties,
-      context
-    );
+    bodyParams['containerProperties'] = serializeAws_restJson1_1ContainerProperties(input.containerProperties, context);
   }
   if (input.jobDefinitionName !== undefined) {
-    bodyParams["jobDefinitionName"] = input.jobDefinitionName;
+    bodyParams['jobDefinitionName'] = input.jobDefinitionName;
   }
   if (input.nodeProperties !== undefined) {
-    bodyParams["nodeProperties"] = serializeAws_restJson1_1NodeProperties(
-      input.nodeProperties,
-      context
-    );
+    bodyParams['nodeProperties'] = serializeAws_restJson1_1NodeProperties(input.nodeProperties, context);
   }
   if (input.parameters !== undefined) {
-    bodyParams["parameters"] = serializeAws_restJson1_1ParametersMap(
-      input.parameters,
-      context
-    );
+    bodyParams['parameters'] = serializeAws_restJson1_1ParametersMap(input.parameters, context);
   }
   if (input.retryStrategy !== undefined) {
-    bodyParams["retryStrategy"] = serializeAws_restJson1_1RetryStrategy(
-      input.retryStrategy,
-      context
-    );
+    bodyParams['retryStrategy'] = serializeAws_restJson1_1RetryStrategy(input.retryStrategy, context);
   }
   if (input.timeout !== undefined) {
-    bodyParams["timeout"] = serializeAws_restJson1_1JobTimeout(
-      input.timeout,
-      context
-    );
+    bodyParams['timeout'] = serializeAws_restJson1_1JobTimeout(input.timeout, context);
   }
   if (input.type !== undefined) {
-    bodyParams["type"] = input.type;
+    bodyParams['type'] = input.type;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -505,7 +468,7 @@ export async function serializeAws_restJson1_1RegisterJobDefinitionCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -514,62 +477,39 @@ export async function serializeAws_restJson1_1SubmitJobCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/v1/submitjob";
   let body: any = {};
   const bodyParams: any = {};
   if (input.arrayProperties !== undefined) {
-    bodyParams["arrayProperties"] = serializeAws_restJson1_1ArrayProperties(
-      input.arrayProperties,
-      context
-    );
+    bodyParams['arrayProperties'] = serializeAws_restJson1_1ArrayProperties(input.arrayProperties, context);
   }
   if (input.containerOverrides !== undefined) {
-    bodyParams[
-      "containerOverrides"
-    ] = serializeAws_restJson1_1ContainerOverrides(
-      input.containerOverrides,
-      context
-    );
+    bodyParams['containerOverrides'] = serializeAws_restJson1_1ContainerOverrides(input.containerOverrides, context);
   }
   if (input.dependsOn !== undefined) {
-    bodyParams["dependsOn"] = serializeAws_restJson1_1JobDependencyList(
-      input.dependsOn,
-      context
-    );
+    bodyParams['dependsOn'] = serializeAws_restJson1_1JobDependencyList(input.dependsOn, context);
   }
   if (input.jobDefinition !== undefined) {
-    bodyParams["jobDefinition"] = input.jobDefinition;
+    bodyParams['jobDefinition'] = input.jobDefinition;
   }
   if (input.jobName !== undefined) {
-    bodyParams["jobName"] = input.jobName;
+    bodyParams['jobName'] = input.jobName;
   }
   if (input.jobQueue !== undefined) {
-    bodyParams["jobQueue"] = input.jobQueue;
+    bodyParams['jobQueue'] = input.jobQueue;
   }
   if (input.nodeOverrides !== undefined) {
-    bodyParams["nodeOverrides"] = serializeAws_restJson1_1NodeOverrides(
-      input.nodeOverrides,
-      context
-    );
+    bodyParams['nodeOverrides'] = serializeAws_restJson1_1NodeOverrides(input.nodeOverrides, context);
   }
   if (input.parameters !== undefined) {
-    bodyParams["parameters"] = serializeAws_restJson1_1ParametersMap(
-      input.parameters,
-      context
-    );
+    bodyParams['parameters'] = serializeAws_restJson1_1ParametersMap(input.parameters, context);
   }
   if (input.retryStrategy !== undefined) {
-    bodyParams["retryStrategy"] = serializeAws_restJson1_1RetryStrategy(
-      input.retryStrategy,
-      context
-    );
+    bodyParams['retryStrategy'] = serializeAws_restJson1_1RetryStrategy(input.retryStrategy, context);
   }
   if (input.timeout !== undefined) {
-    bodyParams["timeout"] = serializeAws_restJson1_1JobTimeout(
-      input.timeout,
-      context
-    );
+    bodyParams['timeout'] = serializeAws_restJson1_1JobTimeout(input.timeout, context);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -578,7 +518,7 @@ export async function serializeAws_restJson1_1SubmitJobCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -587,15 +527,15 @@ export async function serializeAws_restJson1_1TerminateJobCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/v1/terminatejob";
   let body: any = {};
   const bodyParams: any = {};
   if (input.jobId !== undefined) {
-    bodyParams["jobId"] = input.jobId;
+    bodyParams['jobId'] = input.jobId;
   }
   if (input.reason !== undefined) {
-    bodyParams["reason"] = input.reason;
+    bodyParams['reason'] = input.reason;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -604,7 +544,7 @@ export async function serializeAws_restJson1_1TerminateJobCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -613,26 +553,21 @@ export async function serializeAws_restJson1_1UpdateComputeEnvironmentCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/v1/updatecomputeenvironment";
   let body: any = {};
   const bodyParams: any = {};
   if (input.computeEnvironment !== undefined) {
-    bodyParams["computeEnvironment"] = input.computeEnvironment;
+    bodyParams['computeEnvironment'] = input.computeEnvironment;
   }
   if (input.computeResources !== undefined) {
-    bodyParams[
-      "computeResources"
-    ] = serializeAws_restJson1_1ComputeResourceUpdate(
-      input.computeResources,
-      context
-    );
+    bodyParams['computeResources'] = serializeAws_restJson1_1ComputeResourceUpdate(input.computeResources, context);
   }
   if (input.serviceRole !== undefined) {
-    bodyParams["serviceRole"] = input.serviceRole;
+    bodyParams['serviceRole'] = input.serviceRole;
   }
   if (input.state !== undefined) {
-    bodyParams["state"] = input.state;
+    bodyParams['state'] = input.state;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -641,7 +576,7 @@ export async function serializeAws_restJson1_1UpdateComputeEnvironmentCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -650,26 +585,21 @@ export async function serializeAws_restJson1_1UpdateJobQueueCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/v1/updatejobqueue";
   let body: any = {};
   const bodyParams: any = {};
   if (input.computeEnvironmentOrder !== undefined) {
-    bodyParams[
-      "computeEnvironmentOrder"
-    ] = serializeAws_restJson1_1ComputeEnvironmentOrders(
-      input.computeEnvironmentOrder,
-      context
-    );
+    bodyParams['computeEnvironmentOrder'] = serializeAws_restJson1_1ComputeEnvironmentOrders(input.computeEnvironmentOrder, context);
   }
   if (input.jobQueue !== undefined) {
-    bodyParams["jobQueue"] = input.jobQueue;
+    bodyParams['jobQueue'] = input.jobQueue;
   }
   if (input.priority !== undefined) {
-    bodyParams["priority"] = input.priority;
+    bodyParams['priority'] = input.priority;
   }
   if (input.state !== undefined) {
-    bodyParams["state"] = input.state;
+    bodyParams['state'] = input.state;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -678,7 +608,7 @@ export async function serializeAws_restJson1_1UpdateJobQueueCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -691,46 +621,39 @@ export async function deserializeAws_restJson1_1CancelJobCommand(
   }
   const contents: CancelJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelJobResponse"
+    __type: "CancelJobResponse",
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1CancelJobCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CancelJobCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -741,16 +664,13 @@ export async function deserializeAws_restJson1_1CreateComputeEnvironmentCommand(
   context: __SerdeContext
 ): Promise<CreateComputeEnvironmentCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1CreateComputeEnvironmentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateComputeEnvironmentCommandError(output, context);
   }
   const contents: CreateComputeEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateComputeEnvironmentResponse",
     computeEnvironmentArn: undefined,
-    computeEnvironmentName: undefined
+    computeEnvironmentName: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.computeEnvironmentArn !== undefined) {
@@ -764,39 +684,32 @@ export async function deserializeAws_restJson1_1CreateComputeEnvironmentCommand(
 
 async function deserializeAws_restJson1_1CreateComputeEnvironmentCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateComputeEnvironmentCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -807,16 +720,13 @@ export async function deserializeAws_restJson1_1CreateJobQueueCommand(
   context: __SerdeContext
 ): Promise<CreateJobQueueCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1CreateJobQueueCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateJobQueueCommandError(output, context);
   }
   const contents: CreateJobQueueCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateJobQueueResponse",
     jobQueueArn: undefined,
-    jobQueueName: undefined
+    jobQueueName: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.jobQueueArn !== undefined) {
@@ -830,39 +740,32 @@ export async function deserializeAws_restJson1_1CreateJobQueueCommand(
 
 async function deserializeAws_restJson1_1CreateJobQueueCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<CreateJobQueueCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -873,53 +776,43 @@ export async function deserializeAws_restJson1_1DeleteComputeEnvironmentCommand(
   context: __SerdeContext
 ): Promise<DeleteComputeEnvironmentCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DeleteComputeEnvironmentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteComputeEnvironmentCommandError(output, context);
   }
   const contents: DeleteComputeEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteComputeEnvironmentResponse"
+    __type: "DeleteComputeEnvironmentResponse",
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DeleteComputeEnvironmentCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteComputeEnvironmentCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -930,53 +823,43 @@ export async function deserializeAws_restJson1_1DeleteJobQueueCommand(
   context: __SerdeContext
 ): Promise<DeleteJobQueueCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DeleteJobQueueCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteJobQueueCommandError(output, context);
   }
   const contents: DeleteJobQueueCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteJobQueueResponse"
+    __type: "DeleteJobQueueResponse",
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DeleteJobQueueCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteJobQueueCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -987,53 +870,43 @@ export async function deserializeAws_restJson1_1DeregisterJobDefinitionCommand(
   context: __SerdeContext
 ): Promise<DeregisterJobDefinitionCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DeregisterJobDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeregisterJobDefinitionCommandError(output, context);
   }
   const contents: DeregisterJobDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeregisterJobDefinitionResponse"
+    __type: "DeregisterJobDefinitionResponse",
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DeregisterJobDefinitionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeregisterJobDefinitionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1044,23 +917,17 @@ export async function deserializeAws_restJson1_1DescribeComputeEnvironmentsComma
   context: __SerdeContext
 ): Promise<DescribeComputeEnvironmentsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeComputeEnvironmentsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeComputeEnvironmentsCommandError(output, context);
   }
   const contents: DescribeComputeEnvironmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeComputeEnvironmentsResponse",
     computeEnvironments: undefined,
-    nextToken: undefined
+    nextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.computeEnvironments !== undefined) {
-    contents.computeEnvironments = deserializeAws_restJson1_1ComputeEnvironmentDetailList(
-      data.computeEnvironments,
-      context
-    );
+    contents.computeEnvironments = deserializeAws_restJson1_1ComputeEnvironmentDetailList(data.computeEnvironments, context);
   }
   if (data.nextToken !== undefined) {
     contents.nextToken = data.nextToken;
@@ -1070,39 +937,32 @@ export async function deserializeAws_restJson1_1DescribeComputeEnvironmentsComma
 
 async function deserializeAws_restJson1_1DescribeComputeEnvironmentsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeComputeEnvironmentsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1113,23 +973,17 @@ export async function deserializeAws_restJson1_1DescribeJobDefinitionsCommand(
   context: __SerdeContext
 ): Promise<DescribeJobDefinitionsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeJobDefinitionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeJobDefinitionsCommandError(output, context);
   }
   const contents: DescribeJobDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeJobDefinitionsResponse",
     jobDefinitions: undefined,
-    nextToken: undefined
+    nextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.jobDefinitions !== undefined) {
-    contents.jobDefinitions = deserializeAws_restJson1_1JobDefinitionList(
-      data.jobDefinitions,
-      context
-    );
+    contents.jobDefinitions = deserializeAws_restJson1_1JobDefinitionList(data.jobDefinitions, context);
   }
   if (data.nextToken !== undefined) {
     contents.nextToken = data.nextToken;
@@ -1139,39 +993,32 @@ export async function deserializeAws_restJson1_1DescribeJobDefinitionsCommand(
 
 async function deserializeAws_restJson1_1DescribeJobDefinitionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeJobDefinitionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1182,23 +1029,17 @@ export async function deserializeAws_restJson1_1DescribeJobQueuesCommand(
   context: __SerdeContext
 ): Promise<DescribeJobQueuesCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeJobQueuesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeJobQueuesCommandError(output, context);
   }
   const contents: DescribeJobQueuesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeJobQueuesResponse",
     jobQueues: undefined,
-    nextToken: undefined
+    nextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.jobQueues !== undefined) {
-    contents.jobQueues = deserializeAws_restJson1_1JobQueueDetailList(
-      data.jobQueues,
-      context
-    );
+    contents.jobQueues = deserializeAws_restJson1_1JobQueueDetailList(data.jobQueues, context);
   }
   if (data.nextToken !== undefined) {
     contents.nextToken = data.nextToken;
@@ -1208,39 +1049,32 @@ export async function deserializeAws_restJson1_1DescribeJobQueuesCommand(
 
 async function deserializeAws_restJson1_1DescribeJobQueuesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeJobQueuesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1256,7 +1090,7 @@ export async function deserializeAws_restJson1_1DescribeJobsCommand(
   const contents: DescribeJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeJobsResponse",
-    jobs: undefined
+    jobs: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.jobs !== undefined) {
@@ -1267,39 +1101,32 @@ export async function deserializeAws_restJson1_1DescribeJobsCommand(
 
 async function deserializeAws_restJson1_1DescribeJobsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeJobsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1316,14 +1143,11 @@ export async function deserializeAws_restJson1_1ListJobsCommand(
     $metadata: deserializeMetadata(output),
     __type: "ListJobsResponse",
     jobSummaryList: undefined,
-    nextToken: undefined
+    nextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.jobSummaryList !== undefined) {
-    contents.jobSummaryList = deserializeAws_restJson1_1JobSummaryList(
-      data.jobSummaryList,
-      context
-    );
+    contents.jobSummaryList = deserializeAws_restJson1_1JobSummaryList(data.jobSummaryList, context);
   }
   if (data.nextToken !== undefined) {
     contents.nextToken = data.nextToken;
@@ -1333,39 +1157,32 @@ export async function deserializeAws_restJson1_1ListJobsCommand(
 
 async function deserializeAws_restJson1_1ListJobsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListJobsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1376,17 +1193,14 @@ export async function deserializeAws_restJson1_1RegisterJobDefinitionCommand(
   context: __SerdeContext
 ): Promise<RegisterJobDefinitionCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1RegisterJobDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RegisterJobDefinitionCommandError(output, context);
   }
   const contents: RegisterJobDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RegisterJobDefinitionResponse",
     jobDefinitionArn: undefined,
     jobDefinitionName: undefined,
-    revision: undefined
+    revision: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.jobDefinitionArn !== undefined) {
@@ -1403,39 +1217,32 @@ export async function deserializeAws_restJson1_1RegisterJobDefinitionCommand(
 
 async function deserializeAws_restJson1_1RegisterJobDefinitionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<RegisterJobDefinitionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1452,7 +1259,7 @@ export async function deserializeAws_restJson1_1SubmitJobCommand(
     $metadata: deserializeMetadata(output),
     __type: "SubmitJobResponse",
     jobId: undefined,
-    jobName: undefined
+    jobName: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.jobId !== undefined) {
@@ -1466,39 +1273,32 @@ export async function deserializeAws_restJson1_1SubmitJobCommand(
 
 async function deserializeAws_restJson1_1SubmitJobCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<SubmitJobCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1513,46 +1313,39 @@ export async function deserializeAws_restJson1_1TerminateJobCommand(
   }
   const contents: TerminateJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TerminateJobResponse"
+    __type: "TerminateJobResponse",
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1TerminateJobCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<TerminateJobCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1563,16 +1356,13 @@ export async function deserializeAws_restJson1_1UpdateComputeEnvironmentCommand(
   context: __SerdeContext
 ): Promise<UpdateComputeEnvironmentCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1UpdateComputeEnvironmentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateComputeEnvironmentCommandError(output, context);
   }
   const contents: UpdateComputeEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateComputeEnvironmentResponse",
     computeEnvironmentArn: undefined,
-    computeEnvironmentName: undefined
+    computeEnvironmentName: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.computeEnvironmentArn !== undefined) {
@@ -1586,39 +1376,32 @@ export async function deserializeAws_restJson1_1UpdateComputeEnvironmentCommand(
 
 async function deserializeAws_restJson1_1UpdateComputeEnvironmentCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateComputeEnvironmentCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1629,16 +1412,13 @@ export async function deserializeAws_restJson1_1UpdateJobQueueCommand(
   context: __SerdeContext
 ): Promise<UpdateJobQueueCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1UpdateJobQueueCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateJobQueueCommandError(output, context);
   }
   const contents: UpdateJobQueueCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateJobQueueResponse",
     jobQueueArn: undefined,
-    jobQueueName: undefined
+    jobQueueName: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.jobQueueArn !== undefined) {
@@ -1652,39 +1432,32 @@ export async function deserializeAws_restJson1_1UpdateJobQueueCommand(
 
 async function deserializeAws_restJson1_1UpdateJobQueueCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateJobQueueCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
       break;
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
-      response = await deserializeAws_restJson1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1698,7 +1471,7 @@ const deserializeAws_restJson1_1ClientExceptionResponse = async (
     __type: "ClientException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined
+    message: undefined,
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -1715,7 +1488,7 @@ const deserializeAws_restJson1_1ServerExceptionResponse = async (
     __type: "ServerException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    message: undefined
+    message: undefined,
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -1730,10 +1503,10 @@ const serializeAws_restJson1_1ArrayProperties = (
 ): any => {
   let bodyParams: any = {};
   if (input.size !== undefined) {
-    bodyParams["size"] = input.size;
+    bodyParams['size'] = input.size;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1ComputeEnvironmentOrder = (
   input: ComputeEnvironmentOrder,
@@ -1741,13 +1514,13 @@ const serializeAws_restJson1_1ComputeEnvironmentOrder = (
 ): any => {
   let bodyParams: any = {};
   if (input.computeEnvironment !== undefined) {
-    bodyParams["computeEnvironment"] = input.computeEnvironment;
+    bodyParams['computeEnvironment'] = input.computeEnvironment;
   }
   if (input.order !== undefined) {
-    bodyParams["order"] = input.order;
+    bodyParams['order'] = input.order;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1ComputeEnvironmentOrders = (
   input: Array<ComputeEnvironmentOrder>,
@@ -1756,7 +1529,7 @@ const serializeAws_restJson1_1ComputeEnvironmentOrders = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1ComputeEnvironmentOrder(entry, context)
   );
-};
+}
 
 const serializeAws_restJson1_1ComputeResource = (
   input: ComputeResource,
@@ -1764,69 +1537,55 @@ const serializeAws_restJson1_1ComputeResource = (
 ): any => {
   let bodyParams: any = {};
   if (input.allocationStrategy !== undefined) {
-    bodyParams["allocationStrategy"] = input.allocationStrategy;
+    bodyParams['allocationStrategy'] = input.allocationStrategy;
   }
   if (input.bidPercentage !== undefined) {
-    bodyParams["bidPercentage"] = input.bidPercentage;
+    bodyParams['bidPercentage'] = input.bidPercentage;
   }
   if (input.desiredvCpus !== undefined) {
-    bodyParams["desiredvCpus"] = input.desiredvCpus;
+    bodyParams['desiredvCpus'] = input.desiredvCpus;
   }
   if (input.ec2KeyPair !== undefined) {
-    bodyParams["ec2KeyPair"] = input.ec2KeyPair;
+    bodyParams['ec2KeyPair'] = input.ec2KeyPair;
   }
   if (input.imageId !== undefined) {
-    bodyParams["imageId"] = input.imageId;
+    bodyParams['imageId'] = input.imageId;
   }
   if (input.instanceRole !== undefined) {
-    bodyParams["instanceRole"] = input.instanceRole;
+    bodyParams['instanceRole'] = input.instanceRole;
   }
   if (input.instanceTypes !== undefined) {
-    bodyParams["instanceTypes"] = serializeAws_restJson1_1StringList(
-      input.instanceTypes,
-      context
-    );
+    bodyParams['instanceTypes'] = serializeAws_restJson1_1StringList(input.instanceTypes, context);
   }
   if (input.launchTemplate !== undefined) {
-    bodyParams[
-      "launchTemplate"
-    ] = serializeAws_restJson1_1LaunchTemplateSpecification(
-      input.launchTemplate,
-      context
-    );
+    bodyParams['launchTemplate'] = serializeAws_restJson1_1LaunchTemplateSpecification(input.launchTemplate, context);
   }
   if (input.maxvCpus !== undefined) {
-    bodyParams["maxvCpus"] = input.maxvCpus;
+    bodyParams['maxvCpus'] = input.maxvCpus;
   }
   if (input.minvCpus !== undefined) {
-    bodyParams["minvCpus"] = input.minvCpus;
+    bodyParams['minvCpus'] = input.minvCpus;
   }
   if (input.placementGroup !== undefined) {
-    bodyParams["placementGroup"] = input.placementGroup;
+    bodyParams['placementGroup'] = input.placementGroup;
   }
   if (input.securityGroupIds !== undefined) {
-    bodyParams["securityGroupIds"] = serializeAws_restJson1_1StringList(
-      input.securityGroupIds,
-      context
-    );
+    bodyParams['securityGroupIds'] = serializeAws_restJson1_1StringList(input.securityGroupIds, context);
   }
   if (input.spotIamFleetRole !== undefined) {
-    bodyParams["spotIamFleetRole"] = input.spotIamFleetRole;
+    bodyParams['spotIamFleetRole'] = input.spotIamFleetRole;
   }
   if (input.subnets !== undefined) {
-    bodyParams["subnets"] = serializeAws_restJson1_1StringList(
-      input.subnets,
-      context
-    );
+    bodyParams['subnets'] = serializeAws_restJson1_1StringList(input.subnets, context);
   }
   if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagsMap(input.tags, context);
+    bodyParams['tags'] = serializeAws_restJson1_1TagsMap(input.tags, context);
   }
   if (input.type !== undefined) {
-    bodyParams["type"] = input.type;
+    bodyParams['type'] = input.type;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1ComputeResourceUpdate = (
   input: ComputeResourceUpdate,
@@ -1834,16 +1593,16 @@ const serializeAws_restJson1_1ComputeResourceUpdate = (
 ): any => {
   let bodyParams: any = {};
   if (input.desiredvCpus !== undefined) {
-    bodyParams["desiredvCpus"] = input.desiredvCpus;
+    bodyParams['desiredvCpus'] = input.desiredvCpus;
   }
   if (input.maxvCpus !== undefined) {
-    bodyParams["maxvCpus"] = input.maxvCpus;
+    bodyParams['maxvCpus'] = input.maxvCpus;
   }
   if (input.minvCpus !== undefined) {
-    bodyParams["minvCpus"] = input.minvCpus;
+    bodyParams['minvCpus'] = input.minvCpus;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1ContainerOverrides = (
   input: ContainerOverrides,
@@ -1851,36 +1610,25 @@ const serializeAws_restJson1_1ContainerOverrides = (
 ): any => {
   let bodyParams: any = {};
   if (input.command !== undefined) {
-    bodyParams["command"] = serializeAws_restJson1_1StringList(
-      input.command,
-      context
-    );
+    bodyParams['command'] = serializeAws_restJson1_1StringList(input.command, context);
   }
   if (input.environment !== undefined) {
-    bodyParams["environment"] = serializeAws_restJson1_1EnvironmentVariables(
-      input.environment,
-      context
-    );
+    bodyParams['environment'] = serializeAws_restJson1_1EnvironmentVariables(input.environment, context);
   }
   if (input.instanceType !== undefined) {
-    bodyParams["instanceType"] = input.instanceType;
+    bodyParams['instanceType'] = input.instanceType;
   }
   if (input.memory !== undefined) {
-    bodyParams["memory"] = input.memory;
+    bodyParams['memory'] = input.memory;
   }
   if (input.resourceRequirements !== undefined) {
-    bodyParams[
-      "resourceRequirements"
-    ] = serializeAws_restJson1_1ResourceRequirements(
-      input.resourceRequirements,
-      context
-    );
+    bodyParams['resourceRequirements'] = serializeAws_restJson1_1ResourceRequirements(input.resourceRequirements, context);
   }
   if (input.vcpus !== undefined) {
-    bodyParams["vcpus"] = input.vcpus;
+    bodyParams['vcpus'] = input.vcpus;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1ContainerProperties = (
   input: ContainerProperties,
@@ -1888,75 +1636,52 @@ const serializeAws_restJson1_1ContainerProperties = (
 ): any => {
   let bodyParams: any = {};
   if (input.command !== undefined) {
-    bodyParams["command"] = serializeAws_restJson1_1StringList(
-      input.command,
-      context
-    );
+    bodyParams['command'] = serializeAws_restJson1_1StringList(input.command, context);
   }
   if (input.environment !== undefined) {
-    bodyParams["environment"] = serializeAws_restJson1_1EnvironmentVariables(
-      input.environment,
-      context
-    );
+    bodyParams['environment'] = serializeAws_restJson1_1EnvironmentVariables(input.environment, context);
   }
   if (input.image !== undefined) {
-    bodyParams["image"] = input.image;
+    bodyParams['image'] = input.image;
   }
   if (input.instanceType !== undefined) {
-    bodyParams["instanceType"] = input.instanceType;
+    bodyParams['instanceType'] = input.instanceType;
   }
   if (input.jobRoleArn !== undefined) {
-    bodyParams["jobRoleArn"] = input.jobRoleArn;
+    bodyParams['jobRoleArn'] = input.jobRoleArn;
   }
   if (input.linuxParameters !== undefined) {
-    bodyParams["linuxParameters"] = serializeAws_restJson1_1LinuxParameters(
-      input.linuxParameters,
-      context
-    );
+    bodyParams['linuxParameters'] = serializeAws_restJson1_1LinuxParameters(input.linuxParameters, context);
   }
   if (input.memory !== undefined) {
-    bodyParams["memory"] = input.memory;
+    bodyParams['memory'] = input.memory;
   }
   if (input.mountPoints !== undefined) {
-    bodyParams["mountPoints"] = serializeAws_restJson1_1MountPoints(
-      input.mountPoints,
-      context
-    );
+    bodyParams['mountPoints'] = serializeAws_restJson1_1MountPoints(input.mountPoints, context);
   }
   if (input.privileged !== undefined) {
-    bodyParams["privileged"] = input.privileged;
+    bodyParams['privileged'] = input.privileged;
   }
   if (input.readonlyRootFilesystem !== undefined) {
-    bodyParams["readonlyRootFilesystem"] = input.readonlyRootFilesystem;
+    bodyParams['readonlyRootFilesystem'] = input.readonlyRootFilesystem;
   }
   if (input.resourceRequirements !== undefined) {
-    bodyParams[
-      "resourceRequirements"
-    ] = serializeAws_restJson1_1ResourceRequirements(
-      input.resourceRequirements,
-      context
-    );
+    bodyParams['resourceRequirements'] = serializeAws_restJson1_1ResourceRequirements(input.resourceRequirements, context);
   }
   if (input.ulimits !== undefined) {
-    bodyParams["ulimits"] = serializeAws_restJson1_1Ulimits(
-      input.ulimits,
-      context
-    );
+    bodyParams['ulimits'] = serializeAws_restJson1_1Ulimits(input.ulimits, context);
   }
   if (input.user !== undefined) {
-    bodyParams["user"] = input.user;
+    bodyParams['user'] = input.user;
   }
   if (input.vcpus !== undefined) {
-    bodyParams["vcpus"] = input.vcpus;
+    bodyParams['vcpus'] = input.vcpus;
   }
   if (input.volumes !== undefined) {
-    bodyParams["volumes"] = serializeAws_restJson1_1Volumes(
-      input.volumes,
-      context
-    );
+    bodyParams['volumes'] = serializeAws_restJson1_1Volumes(input.volumes, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1Device = (
   input: Device,
@@ -1964,26 +1689,25 @@ const serializeAws_restJson1_1Device = (
 ): any => {
   let bodyParams: any = {};
   if (input.containerPath !== undefined) {
-    bodyParams["containerPath"] = input.containerPath;
+    bodyParams['containerPath'] = input.containerPath;
   }
   if (input.hostPath !== undefined) {
-    bodyParams["hostPath"] = input.hostPath;
+    bodyParams['hostPath'] = input.hostPath;
   }
   if (input.permissions !== undefined) {
-    bodyParams["permissions"] = serializeAws_restJson1_1DeviceCgroupPermissions(
-      input.permissions,
-      context
-    );
+    bodyParams['permissions'] = serializeAws_restJson1_1DeviceCgroupPermissions(input.permissions, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1DeviceCgroupPermissions = (
   input: Array<DeviceCgroupPermission | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_restJson1_1DevicesList = (
   input: Array<Device>,
@@ -1992,7 +1716,7 @@ const serializeAws_restJson1_1DevicesList = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1Device(entry, context)
   );
-};
+}
 
 const serializeAws_restJson1_1EnvironmentVariables = (
   input: Array<KeyValuePair>,
@@ -2001,7 +1725,7 @@ const serializeAws_restJson1_1EnvironmentVariables = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1KeyValuePair(entry, context)
   );
-};
+}
 
 const serializeAws_restJson1_1Host = (
   input: Host,
@@ -2009,10 +1733,10 @@ const serializeAws_restJson1_1Host = (
 ): any => {
   let bodyParams: any = {};
   if (input.sourcePath !== undefined) {
-    bodyParams["sourcePath"] = input.sourcePath;
+    bodyParams['sourcePath'] = input.sourcePath;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1JobDependency = (
   input: JobDependency,
@@ -2020,13 +1744,13 @@ const serializeAws_restJson1_1JobDependency = (
 ): any => {
   let bodyParams: any = {};
   if (input.jobId !== undefined) {
-    bodyParams["jobId"] = input.jobId;
+    bodyParams['jobId'] = input.jobId;
   }
   if (input.type !== undefined) {
-    bodyParams["type"] = input.type;
+    bodyParams['type'] = input.type;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1JobDependencyList = (
   input: Array<JobDependency>,
@@ -2035,7 +1759,7 @@ const serializeAws_restJson1_1JobDependencyList = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1JobDependency(entry, context)
   );
-};
+}
 
 const serializeAws_restJson1_1JobTimeout = (
   input: JobTimeout,
@@ -2043,10 +1767,10 @@ const serializeAws_restJson1_1JobTimeout = (
 ): any => {
   let bodyParams: any = {};
   if (input.attemptDurationSeconds !== undefined) {
-    bodyParams["attemptDurationSeconds"] = input.attemptDurationSeconds;
+    bodyParams['attemptDurationSeconds'] = input.attemptDurationSeconds;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1KeyValuePair = (
   input: KeyValuePair,
@@ -2054,13 +1778,13 @@ const serializeAws_restJson1_1KeyValuePair = (
 ): any => {
   let bodyParams: any = {};
   if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
+    bodyParams['name'] = input.name;
   }
   if (input.value !== undefined) {
-    bodyParams["value"] = input.value;
+    bodyParams['value'] = input.value;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1LaunchTemplateSpecification = (
   input: LaunchTemplateSpecification,
@@ -2068,16 +1792,16 @@ const serializeAws_restJson1_1LaunchTemplateSpecification = (
 ): any => {
   let bodyParams: any = {};
   if (input.launchTemplateId !== undefined) {
-    bodyParams["launchTemplateId"] = input.launchTemplateId;
+    bodyParams['launchTemplateId'] = input.launchTemplateId;
   }
   if (input.launchTemplateName !== undefined) {
-    bodyParams["launchTemplateName"] = input.launchTemplateName;
+    bodyParams['launchTemplateName'] = input.launchTemplateName;
   }
   if (input.version !== undefined) {
-    bodyParams["version"] = input.version;
+    bodyParams['version'] = input.version;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1LinuxParameters = (
   input: LinuxParameters,
@@ -2085,13 +1809,10 @@ const serializeAws_restJson1_1LinuxParameters = (
 ): any => {
   let bodyParams: any = {};
   if (input.devices !== undefined) {
-    bodyParams["devices"] = serializeAws_restJson1_1DevicesList(
-      input.devices,
-      context
-    );
+    bodyParams['devices'] = serializeAws_restJson1_1DevicesList(input.devices, context);
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1MountPoint = (
   input: MountPoint,
@@ -2099,16 +1820,16 @@ const serializeAws_restJson1_1MountPoint = (
 ): any => {
   let bodyParams: any = {};
   if (input.containerPath !== undefined) {
-    bodyParams["containerPath"] = input.containerPath;
+    bodyParams['containerPath'] = input.containerPath;
   }
   if (input.readOnly !== undefined) {
-    bodyParams["readOnly"] = input.readOnly;
+    bodyParams['readOnly'] = input.readOnly;
   }
   if (input.sourceVolume !== undefined) {
-    bodyParams["sourceVolume"] = input.sourceVolume;
+    bodyParams['sourceVolume'] = input.sourceVolume;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1MountPoints = (
   input: Array<MountPoint>,
@@ -2117,7 +1838,7 @@ const serializeAws_restJson1_1MountPoints = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1MountPoint(entry, context)
   );
-};
+}
 
 const serializeAws_restJson1_1NodeOverrides = (
   input: NodeOverrides,
@@ -2125,18 +1846,13 @@ const serializeAws_restJson1_1NodeOverrides = (
 ): any => {
   let bodyParams: any = {};
   if (input.nodePropertyOverrides !== undefined) {
-    bodyParams[
-      "nodePropertyOverrides"
-    ] = serializeAws_restJson1_1NodePropertyOverrides(
-      input.nodePropertyOverrides,
-      context
-    );
+    bodyParams['nodePropertyOverrides'] = serializeAws_restJson1_1NodePropertyOverrides(input.nodePropertyOverrides, context);
   }
   if (input.numNodes !== undefined) {
-    bodyParams["numNodes"] = input.numNodes;
+    bodyParams['numNodes'] = input.numNodes;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1NodeProperties = (
   input: NodeProperties,
@@ -2144,21 +1860,16 @@ const serializeAws_restJson1_1NodeProperties = (
 ): any => {
   let bodyParams: any = {};
   if (input.mainNode !== undefined) {
-    bodyParams["mainNode"] = input.mainNode;
+    bodyParams['mainNode'] = input.mainNode;
   }
   if (input.nodeRangeProperties !== undefined) {
-    bodyParams[
-      "nodeRangeProperties"
-    ] = serializeAws_restJson1_1NodeRangeProperties(
-      input.nodeRangeProperties,
-      context
-    );
+    bodyParams['nodeRangeProperties'] = serializeAws_restJson1_1NodeRangeProperties(input.nodeRangeProperties, context);
   }
   if (input.numNodes !== undefined) {
-    bodyParams["numNodes"] = input.numNodes;
+    bodyParams['numNodes'] = input.numNodes;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1NodePropertyOverride = (
   input: NodePropertyOverride,
@@ -2166,18 +1877,13 @@ const serializeAws_restJson1_1NodePropertyOverride = (
 ): any => {
   let bodyParams: any = {};
   if (input.containerOverrides !== undefined) {
-    bodyParams[
-      "containerOverrides"
-    ] = serializeAws_restJson1_1ContainerOverrides(
-      input.containerOverrides,
-      context
-    );
+    bodyParams['containerOverrides'] = serializeAws_restJson1_1ContainerOverrides(input.containerOverrides, context);
   }
   if (input.targetNodes !== undefined) {
-    bodyParams["targetNodes"] = input.targetNodes;
+    bodyParams['targetNodes'] = input.targetNodes;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1NodePropertyOverrides = (
   input: Array<NodePropertyOverride>,
@@ -2186,7 +1892,7 @@ const serializeAws_restJson1_1NodePropertyOverrides = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1NodePropertyOverride(entry, context)
   );
-};
+}
 
 const serializeAws_restJson1_1NodeRangeProperties = (
   input: Array<NodeRangeProperty>,
@@ -2195,7 +1901,7 @@ const serializeAws_restJson1_1NodeRangeProperties = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1NodeRangeProperty(entry, context)
   );
-};
+}
 
 const serializeAws_restJson1_1NodeRangeProperty = (
   input: NodeRangeProperty,
@@ -2203,16 +1909,13 @@ const serializeAws_restJson1_1NodeRangeProperty = (
 ): any => {
   let bodyParams: any = {};
   if (input.container !== undefined) {
-    bodyParams["container"] = serializeAws_restJson1_1ContainerProperties(
-      input.container,
-      context
-    );
+    bodyParams['container'] = serializeAws_restJson1_1ContainerProperties(input.container, context);
   }
   if (input.targetNodes !== undefined) {
-    bodyParams["targetNodes"] = input.targetNodes;
+    bodyParams['targetNodes'] = input.targetNodes;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1ParametersMap = (
   input: { [key: string]: string },
@@ -2223,7 +1926,7 @@ const serializeAws_restJson1_1ParametersMap = (
     mapParams[key] = input[key];
   });
   return mapParams;
-};
+}
 
 const serializeAws_restJson1_1ResourceRequirement = (
   input: ResourceRequirement,
@@ -2231,13 +1934,13 @@ const serializeAws_restJson1_1ResourceRequirement = (
 ): any => {
   let bodyParams: any = {};
   if (input.type !== undefined) {
-    bodyParams["type"] = input.type;
+    bodyParams['type'] = input.type;
   }
   if (input.value !== undefined) {
-    bodyParams["value"] = input.value;
+    bodyParams['value'] = input.value;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1ResourceRequirements = (
   input: Array<ResourceRequirement>,
@@ -2246,7 +1949,7 @@ const serializeAws_restJson1_1ResourceRequirements = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1ResourceRequirement(entry, context)
   );
-};
+}
 
 const serializeAws_restJson1_1RetryStrategy = (
   input: RetryStrategy,
@@ -2254,17 +1957,19 @@ const serializeAws_restJson1_1RetryStrategy = (
 ): any => {
   let bodyParams: any = {};
   if (input.attempts !== undefined) {
-    bodyParams["attempts"] = input.attempts;
+    bodyParams['attempts'] = input.attempts;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1StringList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_restJson1_1TagsMap = (
   input: { [key: string]: string },
@@ -2275,7 +1980,7 @@ const serializeAws_restJson1_1TagsMap = (
     mapParams[key] = input[key];
   });
   return mapParams;
-};
+}
 
 const serializeAws_restJson1_1Ulimit = (
   input: Ulimit,
@@ -2283,16 +1988,16 @@ const serializeAws_restJson1_1Ulimit = (
 ): any => {
   let bodyParams: any = {};
   if (input.hardLimit !== undefined) {
-    bodyParams["hardLimit"] = input.hardLimit;
+    bodyParams['hardLimit'] = input.hardLimit;
   }
   if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
+    bodyParams['name'] = input.name;
   }
   if (input.softLimit !== undefined) {
-    bodyParams["softLimit"] = input.softLimit;
+    bodyParams['softLimit'] = input.softLimit;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1Ulimits = (
   input: Array<Ulimit>,
@@ -2301,7 +2006,7 @@ const serializeAws_restJson1_1Ulimits = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1Ulimit(entry, context)
   );
-};
+}
 
 const serializeAws_restJson1_1Volume = (
   input: Volume,
@@ -2309,13 +2014,13 @@ const serializeAws_restJson1_1Volume = (
 ): any => {
   let bodyParams: any = {};
   if (input.host !== undefined) {
-    bodyParams["host"] = serializeAws_restJson1_1Host(input.host, context);
+    bodyParams['host'] = serializeAws_restJson1_1Host(input.host, context);
   }
   if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
+    bodyParams['name'] = input.name;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1Volumes = (
   input: Array<Volume>,
@@ -2324,7 +2029,7 @@ const serializeAws_restJson1_1Volumes = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1Volume(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1ArrayJobStatusSummary = (
   output: any,
@@ -2335,7 +2040,7 @@ const deserializeAws_restJson1_1ArrayJobStatusSummary = (
     mapParams[key] = output[key];
   });
   return mapParams;
-};
+}
 
 const deserializeAws_restJson1_1ArrayPropertiesDetail = (
   output: any,
@@ -2345,7 +2050,7 @@ const deserializeAws_restJson1_1ArrayPropertiesDetail = (
     __type: "ArrayPropertiesDetail",
     index: undefined,
     size: undefined,
-    statusSummary: undefined
+    statusSummary: undefined,
   };
   if (output.index !== undefined) {
     contents.index = output.index;
@@ -2354,13 +2059,10 @@ const deserializeAws_restJson1_1ArrayPropertiesDetail = (
     contents.size = output.size;
   }
   if (output.statusSummary !== undefined) {
-    contents.statusSummary = deserializeAws_restJson1_1ArrayJobStatusSummary(
-      output.statusSummary,
-      context
-    );
+    contents.statusSummary = deserializeAws_restJson1_1ArrayJobStatusSummary(output.statusSummary, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1ArrayPropertiesSummary = (
   output: any,
@@ -2369,7 +2071,7 @@ const deserializeAws_restJson1_1ArrayPropertiesSummary = (
   let contents: any = {
     __type: "ArrayPropertiesSummary",
     index: undefined,
-    size: undefined
+    size: undefined,
   };
   if (output.index !== undefined) {
     contents.index = output.index;
@@ -2378,7 +2080,7 @@ const deserializeAws_restJson1_1ArrayPropertiesSummary = (
     contents.size = output.size;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1AttemptContainerDetail = (
   output: any,
@@ -2391,7 +2093,7 @@ const deserializeAws_restJson1_1AttemptContainerDetail = (
     logStreamName: undefined,
     networkInterfaces: undefined,
     reason: undefined,
-    taskArn: undefined
+    taskArn: undefined,
   };
   if (output.containerInstanceArn !== undefined) {
     contents.containerInstanceArn = output.containerInstanceArn;
@@ -2403,10 +2105,7 @@ const deserializeAws_restJson1_1AttemptContainerDetail = (
     contents.logStreamName = output.logStreamName;
   }
   if (output.networkInterfaces !== undefined) {
-    contents.networkInterfaces = deserializeAws_restJson1_1NetworkInterfaceList(
-      output.networkInterfaces,
-      context
-    );
+    contents.networkInterfaces = deserializeAws_restJson1_1NetworkInterfaceList(output.networkInterfaces, context);
   }
   if (output.reason !== undefined) {
     contents.reason = output.reason;
@@ -2415,7 +2114,7 @@ const deserializeAws_restJson1_1AttemptContainerDetail = (
     contents.taskArn = output.taskArn;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1AttemptDetail = (
   output: any,
@@ -2426,13 +2125,10 @@ const deserializeAws_restJson1_1AttemptDetail = (
     container: undefined,
     startedAt: undefined,
     statusReason: undefined,
-    stoppedAt: undefined
+    stoppedAt: undefined,
   };
   if (output.container !== undefined) {
-    contents.container = deserializeAws_restJson1_1AttemptContainerDetail(
-      output.container,
-      context
-    );
+    contents.container = deserializeAws_restJson1_1AttemptContainerDetail(output.container, context);
   }
   if (output.startedAt !== undefined) {
     contents.startedAt = output.startedAt;
@@ -2444,7 +2140,7 @@ const deserializeAws_restJson1_1AttemptDetail = (
     contents.stoppedAt = output.stoppedAt;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1AttemptDetails = (
   output: any,
@@ -2453,7 +2149,7 @@ const deserializeAws_restJson1_1AttemptDetails = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AttemptDetail(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1ComputeEnvironmentDetail = (
   output: any,
@@ -2469,7 +2165,7 @@ const deserializeAws_restJson1_1ComputeEnvironmentDetail = (
     state: undefined,
     status: undefined,
     statusReason: undefined,
-    type: undefined
+    type: undefined,
   };
   if (output.computeEnvironmentArn !== undefined) {
     contents.computeEnvironmentArn = output.computeEnvironmentArn;
@@ -2478,10 +2174,7 @@ const deserializeAws_restJson1_1ComputeEnvironmentDetail = (
     contents.computeEnvironmentName = output.computeEnvironmentName;
   }
   if (output.computeResources !== undefined) {
-    contents.computeResources = deserializeAws_restJson1_1ComputeResource(
-      output.computeResources,
-      context
-    );
+    contents.computeResources = deserializeAws_restJson1_1ComputeResource(output.computeResources, context);
   }
   if (output.ecsClusterArn !== undefined) {
     contents.ecsClusterArn = output.ecsClusterArn;
@@ -2502,7 +2195,7 @@ const deserializeAws_restJson1_1ComputeEnvironmentDetail = (
     contents.type = output.type;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1ComputeEnvironmentDetailList = (
   output: any,
@@ -2511,7 +2204,7 @@ const deserializeAws_restJson1_1ComputeEnvironmentDetailList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ComputeEnvironmentDetail(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1ComputeEnvironmentOrder = (
   output: any,
@@ -2520,7 +2213,7 @@ const deserializeAws_restJson1_1ComputeEnvironmentOrder = (
   let contents: any = {
     __type: "ComputeEnvironmentOrder",
     computeEnvironment: undefined,
-    order: undefined
+    order: undefined,
   };
   if (output.computeEnvironment !== undefined) {
     contents.computeEnvironment = output.computeEnvironment;
@@ -2529,7 +2222,7 @@ const deserializeAws_restJson1_1ComputeEnvironmentOrder = (
     contents.order = output.order;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1ComputeEnvironmentOrders = (
   output: any,
@@ -2538,7 +2231,7 @@ const deserializeAws_restJson1_1ComputeEnvironmentOrders = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ComputeEnvironmentOrder(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1ComputeResource = (
   output: any,
@@ -2561,7 +2254,7 @@ const deserializeAws_restJson1_1ComputeResource = (
     spotIamFleetRole: undefined,
     subnets: undefined,
     tags: undefined,
-    type: undefined
+    type: undefined,
   };
   if (output.allocationStrategy !== undefined) {
     contents.allocationStrategy = output.allocationStrategy;
@@ -2582,16 +2275,10 @@ const deserializeAws_restJson1_1ComputeResource = (
     contents.instanceRole = output.instanceRole;
   }
   if (output.instanceTypes !== undefined) {
-    contents.instanceTypes = deserializeAws_restJson1_1StringList(
-      output.instanceTypes,
-      context
-    );
+    contents.instanceTypes = deserializeAws_restJson1_1StringList(output.instanceTypes, context);
   }
   if (output.launchTemplate !== undefined) {
-    contents.launchTemplate = deserializeAws_restJson1_1LaunchTemplateSpecification(
-      output.launchTemplate,
-      context
-    );
+    contents.launchTemplate = deserializeAws_restJson1_1LaunchTemplateSpecification(output.launchTemplate, context);
   }
   if (output.maxvCpus !== undefined) {
     contents.maxvCpus = output.maxvCpus;
@@ -2603,19 +2290,13 @@ const deserializeAws_restJson1_1ComputeResource = (
     contents.placementGroup = output.placementGroup;
   }
   if (output.securityGroupIds !== undefined) {
-    contents.securityGroupIds = deserializeAws_restJson1_1StringList(
-      output.securityGroupIds,
-      context
-    );
+    contents.securityGroupIds = deserializeAws_restJson1_1StringList(output.securityGroupIds, context);
   }
   if (output.spotIamFleetRole !== undefined) {
     contents.spotIamFleetRole = output.spotIamFleetRole;
   }
   if (output.subnets !== undefined) {
-    contents.subnets = deserializeAws_restJson1_1StringList(
-      output.subnets,
-      context
-    );
+    contents.subnets = deserializeAws_restJson1_1StringList(output.subnets, context);
   }
   if (output.tags !== undefined) {
     contents.tags = deserializeAws_restJson1_1TagsMap(output.tags, context);
@@ -2624,7 +2305,7 @@ const deserializeAws_restJson1_1ComputeResource = (
     contents.type = output.type;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1ContainerDetail = (
   output: any,
@@ -2652,22 +2333,16 @@ const deserializeAws_restJson1_1ContainerDetail = (
     ulimits: undefined,
     user: undefined,
     vcpus: undefined,
-    volumes: undefined
+    volumes: undefined,
   };
   if (output.command !== undefined) {
-    contents.command = deserializeAws_restJson1_1StringList(
-      output.command,
-      context
-    );
+    contents.command = deserializeAws_restJson1_1StringList(output.command, context);
   }
   if (output.containerInstanceArn !== undefined) {
     contents.containerInstanceArn = output.containerInstanceArn;
   }
   if (output.environment !== undefined) {
-    contents.environment = deserializeAws_restJson1_1EnvironmentVariables(
-      output.environment,
-      context
-    );
+    contents.environment = deserializeAws_restJson1_1EnvironmentVariables(output.environment, context);
   }
   if (output.exitCode !== undefined) {
     contents.exitCode = output.exitCode;
@@ -2682,10 +2357,7 @@ const deserializeAws_restJson1_1ContainerDetail = (
     contents.jobRoleArn = output.jobRoleArn;
   }
   if (output.linuxParameters !== undefined) {
-    contents.linuxParameters = deserializeAws_restJson1_1LinuxParameters(
-      output.linuxParameters,
-      context
-    );
+    contents.linuxParameters = deserializeAws_restJson1_1LinuxParameters(output.linuxParameters, context);
   }
   if (output.logStreamName !== undefined) {
     contents.logStreamName = output.logStreamName;
@@ -2694,16 +2366,10 @@ const deserializeAws_restJson1_1ContainerDetail = (
     contents.memory = output.memory;
   }
   if (output.mountPoints !== undefined) {
-    contents.mountPoints = deserializeAws_restJson1_1MountPoints(
-      output.mountPoints,
-      context
-    );
+    contents.mountPoints = deserializeAws_restJson1_1MountPoints(output.mountPoints, context);
   }
   if (output.networkInterfaces !== undefined) {
-    contents.networkInterfaces = deserializeAws_restJson1_1NetworkInterfaceList(
-      output.networkInterfaces,
-      context
-    );
+    contents.networkInterfaces = deserializeAws_restJson1_1NetworkInterfaceList(output.networkInterfaces, context);
   }
   if (output.privileged !== undefined) {
     contents.privileged = output.privileged;
@@ -2715,19 +2381,13 @@ const deserializeAws_restJson1_1ContainerDetail = (
     contents.reason = output.reason;
   }
   if (output.resourceRequirements !== undefined) {
-    contents.resourceRequirements = deserializeAws_restJson1_1ResourceRequirements(
-      output.resourceRequirements,
-      context
-    );
+    contents.resourceRequirements = deserializeAws_restJson1_1ResourceRequirements(output.resourceRequirements, context);
   }
   if (output.taskArn !== undefined) {
     contents.taskArn = output.taskArn;
   }
   if (output.ulimits !== undefined) {
-    contents.ulimits = deserializeAws_restJson1_1Ulimits(
-      output.ulimits,
-      context
-    );
+    contents.ulimits = deserializeAws_restJson1_1Ulimits(output.ulimits, context);
   }
   if (output.user !== undefined) {
     contents.user = output.user;
@@ -2736,13 +2396,10 @@ const deserializeAws_restJson1_1ContainerDetail = (
     contents.vcpus = output.vcpus;
   }
   if (output.volumes !== undefined) {
-    contents.volumes = deserializeAws_restJson1_1Volumes(
-      output.volumes,
-      context
-    );
+    contents.volumes = deserializeAws_restJson1_1Volumes(output.volumes, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1ContainerProperties = (
   output: any,
@@ -2764,19 +2421,13 @@ const deserializeAws_restJson1_1ContainerProperties = (
     ulimits: undefined,
     user: undefined,
     vcpus: undefined,
-    volumes: undefined
+    volumes: undefined,
   };
   if (output.command !== undefined) {
-    contents.command = deserializeAws_restJson1_1StringList(
-      output.command,
-      context
-    );
+    contents.command = deserializeAws_restJson1_1StringList(output.command, context);
   }
   if (output.environment !== undefined) {
-    contents.environment = deserializeAws_restJson1_1EnvironmentVariables(
-      output.environment,
-      context
-    );
+    contents.environment = deserializeAws_restJson1_1EnvironmentVariables(output.environment, context);
   }
   if (output.image !== undefined) {
     contents.image = output.image;
@@ -2788,19 +2439,13 @@ const deserializeAws_restJson1_1ContainerProperties = (
     contents.jobRoleArn = output.jobRoleArn;
   }
   if (output.linuxParameters !== undefined) {
-    contents.linuxParameters = deserializeAws_restJson1_1LinuxParameters(
-      output.linuxParameters,
-      context
-    );
+    contents.linuxParameters = deserializeAws_restJson1_1LinuxParameters(output.linuxParameters, context);
   }
   if (output.memory !== undefined) {
     contents.memory = output.memory;
   }
   if (output.mountPoints !== undefined) {
-    contents.mountPoints = deserializeAws_restJson1_1MountPoints(
-      output.mountPoints,
-      context
-    );
+    contents.mountPoints = deserializeAws_restJson1_1MountPoints(output.mountPoints, context);
   }
   if (output.privileged !== undefined) {
     contents.privileged = output.privileged;
@@ -2809,16 +2454,10 @@ const deserializeAws_restJson1_1ContainerProperties = (
     contents.readonlyRootFilesystem = output.readonlyRootFilesystem;
   }
   if (output.resourceRequirements !== undefined) {
-    contents.resourceRequirements = deserializeAws_restJson1_1ResourceRequirements(
-      output.resourceRequirements,
-      context
-    );
+    contents.resourceRequirements = deserializeAws_restJson1_1ResourceRequirements(output.resourceRequirements, context);
   }
   if (output.ulimits !== undefined) {
-    contents.ulimits = deserializeAws_restJson1_1Ulimits(
-      output.ulimits,
-      context
-    );
+    contents.ulimits = deserializeAws_restJson1_1Ulimits(output.ulimits, context);
   }
   if (output.user !== undefined) {
     contents.user = output.user;
@@ -2827,13 +2466,10 @@ const deserializeAws_restJson1_1ContainerProperties = (
     contents.vcpus = output.vcpus;
   }
   if (output.volumes !== undefined) {
-    contents.volumes = deserializeAws_restJson1_1Volumes(
-      output.volumes,
-      context
-    );
+    contents.volumes = deserializeAws_restJson1_1Volumes(output.volumes, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1ContainerSummary = (
   output: any,
@@ -2842,7 +2478,7 @@ const deserializeAws_restJson1_1ContainerSummary = (
   let contents: any = {
     __type: "ContainerSummary",
     exitCode: undefined,
-    reason: undefined
+    reason: undefined,
   };
   if (output.exitCode !== undefined) {
     contents.exitCode = output.exitCode;
@@ -2851,7 +2487,7 @@ const deserializeAws_restJson1_1ContainerSummary = (
     contents.reason = output.reason;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1Device = (
   output: any,
@@ -2861,7 +2497,7 @@ const deserializeAws_restJson1_1Device = (
     __type: "Device",
     containerPath: undefined,
     hostPath: undefined,
-    permissions: undefined
+    permissions: undefined,
   };
   if (output.containerPath !== undefined) {
     contents.containerPath = output.containerPath;
@@ -2870,20 +2506,19 @@ const deserializeAws_restJson1_1Device = (
     contents.hostPath = output.hostPath;
   }
   if (output.permissions !== undefined) {
-    contents.permissions = deserializeAws_restJson1_1DeviceCgroupPermissions(
-      output.permissions,
-      context
-    );
+    contents.permissions = deserializeAws_restJson1_1DeviceCgroupPermissions(output.permissions, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1DeviceCgroupPermissions = (
   output: any,
   context: __SerdeContext
 ): Array<DeviceCgroupPermission | string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_restJson1_1DevicesList = (
   output: any,
@@ -2892,7 +2527,7 @@ const deserializeAws_restJson1_1DevicesList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Device(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1EnvironmentVariables = (
   output: any,
@@ -2901,7 +2536,7 @@ const deserializeAws_restJson1_1EnvironmentVariables = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1KeyValuePair(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1Host = (
   output: any,
@@ -2909,13 +2544,13 @@ const deserializeAws_restJson1_1Host = (
 ): Host => {
   let contents: any = {
     __type: "Host",
-    sourcePath: undefined
+    sourcePath: undefined,
   };
   if (output.sourcePath !== undefined) {
     contents.sourcePath = output.sourcePath;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1JobDefinition = (
   output: any,
@@ -2932,13 +2567,10 @@ const deserializeAws_restJson1_1JobDefinition = (
     revision: undefined,
     status: undefined,
     timeout: undefined,
-    type: undefined
+    type: undefined,
   };
   if (output.containerProperties !== undefined) {
-    contents.containerProperties = deserializeAws_restJson1_1ContainerProperties(
-      output.containerProperties,
-      context
-    );
+    contents.containerProperties = deserializeAws_restJson1_1ContainerProperties(output.containerProperties, context);
   }
   if (output.jobDefinitionArn !== undefined) {
     contents.jobDefinitionArn = output.jobDefinitionArn;
@@ -2947,22 +2579,13 @@ const deserializeAws_restJson1_1JobDefinition = (
     contents.jobDefinitionName = output.jobDefinitionName;
   }
   if (output.nodeProperties !== undefined) {
-    contents.nodeProperties = deserializeAws_restJson1_1NodeProperties(
-      output.nodeProperties,
-      context
-    );
+    contents.nodeProperties = deserializeAws_restJson1_1NodeProperties(output.nodeProperties, context);
   }
   if (output.parameters !== undefined) {
-    contents.parameters = deserializeAws_restJson1_1ParametersMap(
-      output.parameters,
-      context
-    );
+    contents.parameters = deserializeAws_restJson1_1ParametersMap(output.parameters, context);
   }
   if (output.retryStrategy !== undefined) {
-    contents.retryStrategy = deserializeAws_restJson1_1RetryStrategy(
-      output.retryStrategy,
-      context
-    );
+    contents.retryStrategy = deserializeAws_restJson1_1RetryStrategy(output.retryStrategy, context);
   }
   if (output.revision !== undefined) {
     contents.revision = output.revision;
@@ -2971,16 +2594,13 @@ const deserializeAws_restJson1_1JobDefinition = (
     contents.status = output.status;
   }
   if (output.timeout !== undefined) {
-    contents.timeout = deserializeAws_restJson1_1JobTimeout(
-      output.timeout,
-      context
-    );
+    contents.timeout = deserializeAws_restJson1_1JobTimeout(output.timeout, context);
   }
   if (output.type !== undefined) {
     contents.type = output.type;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1JobDefinitionList = (
   output: any,
@@ -2989,7 +2609,7 @@ const deserializeAws_restJson1_1JobDefinitionList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1JobDefinition(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1JobDependency = (
   output: any,
@@ -2998,7 +2618,7 @@ const deserializeAws_restJson1_1JobDependency = (
   let contents: any = {
     __type: "JobDependency",
     jobId: undefined,
-    type: undefined
+    type: undefined,
   };
   if (output.jobId !== undefined) {
     contents.jobId = output.jobId;
@@ -3007,7 +2627,7 @@ const deserializeAws_restJson1_1JobDependency = (
     contents.type = output.type;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1JobDependencyList = (
   output: any,
@@ -3016,7 +2636,7 @@ const deserializeAws_restJson1_1JobDependencyList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1JobDependency(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1JobDetail = (
   output: any,
@@ -3041,34 +2661,22 @@ const deserializeAws_restJson1_1JobDetail = (
     status: undefined,
     statusReason: undefined,
     stoppedAt: undefined,
-    timeout: undefined
+    timeout: undefined,
   };
   if (output.arrayProperties !== undefined) {
-    contents.arrayProperties = deserializeAws_restJson1_1ArrayPropertiesDetail(
-      output.arrayProperties,
-      context
-    );
+    contents.arrayProperties = deserializeAws_restJson1_1ArrayPropertiesDetail(output.arrayProperties, context);
   }
   if (output.attempts !== undefined) {
-    contents.attempts = deserializeAws_restJson1_1AttemptDetails(
-      output.attempts,
-      context
-    );
+    contents.attempts = deserializeAws_restJson1_1AttemptDetails(output.attempts, context);
   }
   if (output.container !== undefined) {
-    contents.container = deserializeAws_restJson1_1ContainerDetail(
-      output.container,
-      context
-    );
+    contents.container = deserializeAws_restJson1_1ContainerDetail(output.container, context);
   }
   if (output.createdAt !== undefined) {
     contents.createdAt = output.createdAt;
   }
   if (output.dependsOn !== undefined) {
-    contents.dependsOn = deserializeAws_restJson1_1JobDependencyList(
-      output.dependsOn,
-      context
-    );
+    contents.dependsOn = deserializeAws_restJson1_1JobDependencyList(output.dependsOn, context);
   }
   if (output.jobDefinition !== undefined) {
     contents.jobDefinition = output.jobDefinition;
@@ -3083,28 +2691,16 @@ const deserializeAws_restJson1_1JobDetail = (
     contents.jobQueue = output.jobQueue;
   }
   if (output.nodeDetails !== undefined) {
-    contents.nodeDetails = deserializeAws_restJson1_1NodeDetails(
-      output.nodeDetails,
-      context
-    );
+    contents.nodeDetails = deserializeAws_restJson1_1NodeDetails(output.nodeDetails, context);
   }
   if (output.nodeProperties !== undefined) {
-    contents.nodeProperties = deserializeAws_restJson1_1NodeProperties(
-      output.nodeProperties,
-      context
-    );
+    contents.nodeProperties = deserializeAws_restJson1_1NodeProperties(output.nodeProperties, context);
   }
   if (output.parameters !== undefined) {
-    contents.parameters = deserializeAws_restJson1_1ParametersMap(
-      output.parameters,
-      context
-    );
+    contents.parameters = deserializeAws_restJson1_1ParametersMap(output.parameters, context);
   }
   if (output.retryStrategy !== undefined) {
-    contents.retryStrategy = deserializeAws_restJson1_1RetryStrategy(
-      output.retryStrategy,
-      context
-    );
+    contents.retryStrategy = deserializeAws_restJson1_1RetryStrategy(output.retryStrategy, context);
   }
   if (output.startedAt !== undefined) {
     contents.startedAt = output.startedAt;
@@ -3119,13 +2715,10 @@ const deserializeAws_restJson1_1JobDetail = (
     contents.stoppedAt = output.stoppedAt;
   }
   if (output.timeout !== undefined) {
-    contents.timeout = deserializeAws_restJson1_1JobTimeout(
-      output.timeout,
-      context
-    );
+    contents.timeout = deserializeAws_restJson1_1JobTimeout(output.timeout, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1JobDetailList = (
   output: any,
@@ -3134,7 +2727,7 @@ const deserializeAws_restJson1_1JobDetailList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1JobDetail(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1JobQueueDetail = (
   output: any,
@@ -3148,13 +2741,10 @@ const deserializeAws_restJson1_1JobQueueDetail = (
     priority: undefined,
     state: undefined,
     status: undefined,
-    statusReason: undefined
+    statusReason: undefined,
   };
   if (output.computeEnvironmentOrder !== undefined) {
-    contents.computeEnvironmentOrder = deserializeAws_restJson1_1ComputeEnvironmentOrders(
-      output.computeEnvironmentOrder,
-      context
-    );
+    contents.computeEnvironmentOrder = deserializeAws_restJson1_1ComputeEnvironmentOrders(output.computeEnvironmentOrder, context);
   }
   if (output.jobQueueArn !== undefined) {
     contents.jobQueueArn = output.jobQueueArn;
@@ -3175,7 +2765,7 @@ const deserializeAws_restJson1_1JobQueueDetail = (
     contents.statusReason = output.statusReason;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1JobQueueDetailList = (
   output: any,
@@ -3184,7 +2774,7 @@ const deserializeAws_restJson1_1JobQueueDetailList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1JobQueueDetail(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1JobSummary = (
   output: any,
@@ -3201,19 +2791,13 @@ const deserializeAws_restJson1_1JobSummary = (
     startedAt: undefined,
     status: undefined,
     statusReason: undefined,
-    stoppedAt: undefined
+    stoppedAt: undefined,
   };
   if (output.arrayProperties !== undefined) {
-    contents.arrayProperties = deserializeAws_restJson1_1ArrayPropertiesSummary(
-      output.arrayProperties,
-      context
-    );
+    contents.arrayProperties = deserializeAws_restJson1_1ArrayPropertiesSummary(output.arrayProperties, context);
   }
   if (output.container !== undefined) {
-    contents.container = deserializeAws_restJson1_1ContainerSummary(
-      output.container,
-      context
-    );
+    contents.container = deserializeAws_restJson1_1ContainerSummary(output.container, context);
   }
   if (output.createdAt !== undefined) {
     contents.createdAt = output.createdAt;
@@ -3225,10 +2809,7 @@ const deserializeAws_restJson1_1JobSummary = (
     contents.jobName = output.jobName;
   }
   if (output.nodeProperties !== undefined) {
-    contents.nodeProperties = deserializeAws_restJson1_1NodePropertiesSummary(
-      output.nodeProperties,
-      context
-    );
+    contents.nodeProperties = deserializeAws_restJson1_1NodePropertiesSummary(output.nodeProperties, context);
   }
   if (output.startedAt !== undefined) {
     contents.startedAt = output.startedAt;
@@ -3243,7 +2824,7 @@ const deserializeAws_restJson1_1JobSummary = (
     contents.stoppedAt = output.stoppedAt;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1JobSummaryList = (
   output: any,
@@ -3252,7 +2833,7 @@ const deserializeAws_restJson1_1JobSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1JobSummary(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1JobTimeout = (
   output: any,
@@ -3260,13 +2841,13 @@ const deserializeAws_restJson1_1JobTimeout = (
 ): JobTimeout => {
   let contents: any = {
     __type: "JobTimeout",
-    attemptDurationSeconds: undefined
+    attemptDurationSeconds: undefined,
   };
   if (output.attemptDurationSeconds !== undefined) {
     contents.attemptDurationSeconds = output.attemptDurationSeconds;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1KeyValuePair = (
   output: any,
@@ -3275,7 +2856,7 @@ const deserializeAws_restJson1_1KeyValuePair = (
   let contents: any = {
     __type: "KeyValuePair",
     name: undefined,
-    value: undefined
+    value: undefined,
   };
   if (output.name !== undefined) {
     contents.name = output.name;
@@ -3284,7 +2865,7 @@ const deserializeAws_restJson1_1KeyValuePair = (
     contents.value = output.value;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1LaunchTemplateSpecification = (
   output: any,
@@ -3294,7 +2875,7 @@ const deserializeAws_restJson1_1LaunchTemplateSpecification = (
     __type: "LaunchTemplateSpecification",
     launchTemplateId: undefined,
     launchTemplateName: undefined,
-    version: undefined
+    version: undefined,
   };
   if (output.launchTemplateId !== undefined) {
     contents.launchTemplateId = output.launchTemplateId;
@@ -3306,7 +2887,7 @@ const deserializeAws_restJson1_1LaunchTemplateSpecification = (
     contents.version = output.version;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1LinuxParameters = (
   output: any,
@@ -3314,16 +2895,13 @@ const deserializeAws_restJson1_1LinuxParameters = (
 ): LinuxParameters => {
   let contents: any = {
     __type: "LinuxParameters",
-    devices: undefined
+    devices: undefined,
   };
   if (output.devices !== undefined) {
-    contents.devices = deserializeAws_restJson1_1DevicesList(
-      output.devices,
-      context
-    );
+    contents.devices = deserializeAws_restJson1_1DevicesList(output.devices, context);
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1MountPoint = (
   output: any,
@@ -3333,7 +2911,7 @@ const deserializeAws_restJson1_1MountPoint = (
     __type: "MountPoint",
     containerPath: undefined,
     readOnly: undefined,
-    sourceVolume: undefined
+    sourceVolume: undefined,
   };
   if (output.containerPath !== undefined) {
     contents.containerPath = output.containerPath;
@@ -3345,7 +2923,7 @@ const deserializeAws_restJson1_1MountPoint = (
     contents.sourceVolume = output.sourceVolume;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1MountPoints = (
   output: any,
@@ -3354,7 +2932,7 @@ const deserializeAws_restJson1_1MountPoints = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1MountPoint(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1NetworkInterface = (
   output: any,
@@ -3364,7 +2942,7 @@ const deserializeAws_restJson1_1NetworkInterface = (
     __type: "NetworkInterface",
     attachmentId: undefined,
     ipv6Address: undefined,
-    privateIpv4Address: undefined
+    privateIpv4Address: undefined,
   };
   if (output.attachmentId !== undefined) {
     contents.attachmentId = output.attachmentId;
@@ -3376,7 +2954,7 @@ const deserializeAws_restJson1_1NetworkInterface = (
     contents.privateIpv4Address = output.privateIpv4Address;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1NetworkInterfaceList = (
   output: any,
@@ -3385,7 +2963,7 @@ const deserializeAws_restJson1_1NetworkInterfaceList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1NetworkInterface(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1NodeDetails = (
   output: any,
@@ -3394,7 +2972,7 @@ const deserializeAws_restJson1_1NodeDetails = (
   let contents: any = {
     __type: "NodeDetails",
     isMainNode: undefined,
-    nodeIndex: undefined
+    nodeIndex: undefined,
   };
   if (output.isMainNode !== undefined) {
     contents.isMainNode = output.isMainNode;
@@ -3403,7 +2981,7 @@ const deserializeAws_restJson1_1NodeDetails = (
     contents.nodeIndex = output.nodeIndex;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1NodeProperties = (
   output: any,
@@ -3413,22 +2991,19 @@ const deserializeAws_restJson1_1NodeProperties = (
     __type: "NodeProperties",
     mainNode: undefined,
     nodeRangeProperties: undefined,
-    numNodes: undefined
+    numNodes: undefined,
   };
   if (output.mainNode !== undefined) {
     contents.mainNode = output.mainNode;
   }
   if (output.nodeRangeProperties !== undefined) {
-    contents.nodeRangeProperties = deserializeAws_restJson1_1NodeRangeProperties(
-      output.nodeRangeProperties,
-      context
-    );
+    contents.nodeRangeProperties = deserializeAws_restJson1_1NodeRangeProperties(output.nodeRangeProperties, context);
   }
   if (output.numNodes !== undefined) {
     contents.numNodes = output.numNodes;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1NodePropertiesSummary = (
   output: any,
@@ -3438,7 +3013,7 @@ const deserializeAws_restJson1_1NodePropertiesSummary = (
     __type: "NodePropertiesSummary",
     isMainNode: undefined,
     nodeIndex: undefined,
-    numNodes: undefined
+    numNodes: undefined,
   };
   if (output.isMainNode !== undefined) {
     contents.isMainNode = output.isMainNode;
@@ -3450,7 +3025,7 @@ const deserializeAws_restJson1_1NodePropertiesSummary = (
     contents.numNodes = output.numNodes;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1NodeRangeProperties = (
   output: any,
@@ -3459,7 +3034,7 @@ const deserializeAws_restJson1_1NodeRangeProperties = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1NodeRangeProperty(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1NodeRangeProperty = (
   output: any,
@@ -3468,19 +3043,16 @@ const deserializeAws_restJson1_1NodeRangeProperty = (
   let contents: any = {
     __type: "NodeRangeProperty",
     container: undefined,
-    targetNodes: undefined
+    targetNodes: undefined,
   };
   if (output.container !== undefined) {
-    contents.container = deserializeAws_restJson1_1ContainerProperties(
-      output.container,
-      context
-    );
+    contents.container = deserializeAws_restJson1_1ContainerProperties(output.container, context);
   }
   if (output.targetNodes !== undefined) {
     contents.targetNodes = output.targetNodes;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1ParametersMap = (
   output: any,
@@ -3491,7 +3063,7 @@ const deserializeAws_restJson1_1ParametersMap = (
     mapParams[key] = output[key];
   });
   return mapParams;
-};
+}
 
 const deserializeAws_restJson1_1ResourceRequirement = (
   output: any,
@@ -3500,7 +3072,7 @@ const deserializeAws_restJson1_1ResourceRequirement = (
   let contents: any = {
     __type: "ResourceRequirement",
     type: undefined,
-    value: undefined
+    value: undefined,
   };
   if (output.type !== undefined) {
     contents.type = output.type;
@@ -3509,7 +3081,7 @@ const deserializeAws_restJson1_1ResourceRequirement = (
     contents.value = output.value;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1ResourceRequirements = (
   output: any,
@@ -3518,7 +3090,7 @@ const deserializeAws_restJson1_1ResourceRequirements = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ResourceRequirement(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1RetryStrategy = (
   output: any,
@@ -3526,20 +3098,22 @@ const deserializeAws_restJson1_1RetryStrategy = (
 ): RetryStrategy => {
   let contents: any = {
     __type: "RetryStrategy",
-    attempts: undefined
+    attempts: undefined,
   };
   if (output.attempts !== undefined) {
     contents.attempts = output.attempts;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1StringList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_restJson1_1TagsMap = (
   output: any,
@@ -3550,7 +3124,7 @@ const deserializeAws_restJson1_1TagsMap = (
     mapParams[key] = output[key];
   });
   return mapParams;
-};
+}
 
 const deserializeAws_restJson1_1Ulimit = (
   output: any,
@@ -3560,7 +3134,7 @@ const deserializeAws_restJson1_1Ulimit = (
     __type: "Ulimit",
     hardLimit: undefined,
     name: undefined,
-    softLimit: undefined
+    softLimit: undefined,
   };
   if (output.hardLimit !== undefined) {
     contents.hardLimit = output.hardLimit;
@@ -3572,7 +3146,7 @@ const deserializeAws_restJson1_1Ulimit = (
     contents.softLimit = output.softLimit;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1Ulimits = (
   output: any,
@@ -3581,7 +3155,7 @@ const deserializeAws_restJson1_1Ulimits = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Ulimit(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1Volume = (
   output: any,
@@ -3590,7 +3164,7 @@ const deserializeAws_restJson1_1Volume = (
   let contents: any = {
     __type: "Volume",
     host: undefined,
-    name: undefined
+    name: undefined,
   };
   if (output.host !== undefined) {
     contents.host = deserializeAws_restJson1_1Host(output.host, context);
@@ -3599,7 +3173,7 @@ const deserializeAws_restJson1_1Volume = (
     contents.name = output.name;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1Volumes = (
   output: any,
@@ -3608,7 +3182,7 @@ const deserializeAws_restJson1_1Volumes = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Volume(entry, context)
   );
-};
+}
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

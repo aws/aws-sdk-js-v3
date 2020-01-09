@@ -554,7 +554,7 @@ async function deserializeAws_json1_1CreateContainerCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -571,7 +571,6 @@ async function deserializeAws_json1_1CreateContainerCommandError(
       response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediastore#${errorCode}`,
         $fault: "client",
@@ -609,7 +608,7 @@ async function deserializeAws_json1_1DeleteContainerCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -626,7 +625,6 @@ async function deserializeAws_json1_1DeleteContainerCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediastore#${errorCode}`,
         $fault: "client",
@@ -664,7 +662,7 @@ async function deserializeAws_json1_1DeleteContainerPolicyCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -685,7 +683,6 @@ async function deserializeAws_json1_1DeleteContainerPolicyCommandError(
       response = await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediastore#${errorCode}`,
         $fault: "client",
@@ -723,7 +720,7 @@ async function deserializeAws_json1_1DeleteCorsPolicyCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -744,7 +741,6 @@ async function deserializeAws_json1_1DeleteCorsPolicyCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediastore#${errorCode}`,
         $fault: "client",
@@ -782,7 +778,7 @@ async function deserializeAws_json1_1DeleteLifecyclePolicyCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -803,7 +799,6 @@ async function deserializeAws_json1_1DeleteLifecyclePolicyCommandError(
       response = await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediastore#${errorCode}`,
         $fault: "client",
@@ -841,7 +836,7 @@ async function deserializeAws_json1_1DescribeContainerCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -854,7 +849,6 @@ async function deserializeAws_json1_1DescribeContainerCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediastore#${errorCode}`,
         $fault: "client",
@@ -892,7 +886,7 @@ async function deserializeAws_json1_1GetContainerPolicyCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -913,7 +907,6 @@ async function deserializeAws_json1_1GetContainerPolicyCommandError(
       response = await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediastore#${errorCode}`,
         $fault: "client",
@@ -951,7 +944,7 @@ async function deserializeAws_json1_1GetCorsPolicyCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -972,7 +965,6 @@ async function deserializeAws_json1_1GetCorsPolicyCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediastore#${errorCode}`,
         $fault: "client",
@@ -1010,7 +1002,7 @@ async function deserializeAws_json1_1GetLifecyclePolicyCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1031,7 +1023,6 @@ async function deserializeAws_json1_1GetLifecyclePolicyCommandError(
       response = await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediastore#${errorCode}`,
         $fault: "client",
@@ -1069,7 +1060,7 @@ async function deserializeAws_json1_1ListContainersCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1078,7 +1069,6 @@ async function deserializeAws_json1_1ListContainersCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediastore#${errorCode}`,
         $fault: "client",
@@ -1116,7 +1106,7 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1133,7 +1123,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediastore#${errorCode}`,
         $fault: "client",
@@ -1171,7 +1160,7 @@ async function deserializeAws_json1_1PutContainerPolicyCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1188,7 +1177,6 @@ async function deserializeAws_json1_1PutContainerPolicyCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediastore#${errorCode}`,
         $fault: "client",
@@ -1226,7 +1214,7 @@ async function deserializeAws_json1_1PutCorsPolicyCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1243,7 +1231,6 @@ async function deserializeAws_json1_1PutCorsPolicyCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediastore#${errorCode}`,
         $fault: "client",
@@ -1281,7 +1268,7 @@ async function deserializeAws_json1_1PutLifecyclePolicyCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1298,7 +1285,6 @@ async function deserializeAws_json1_1PutLifecyclePolicyCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediastore#${errorCode}`,
         $fault: "client",
@@ -1336,7 +1322,7 @@ async function deserializeAws_json1_1StartAccessLoggingCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1353,7 +1339,6 @@ async function deserializeAws_json1_1StartAccessLoggingCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediastore#${errorCode}`,
         $fault: "client",
@@ -1391,7 +1376,7 @@ async function deserializeAws_json1_1StopAccessLoggingCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1408,7 +1393,6 @@ async function deserializeAws_json1_1StopAccessLoggingCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediastore#${errorCode}`,
         $fault: "client",
@@ -1446,7 +1430,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1463,7 +1447,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediastore#${errorCode}`,
         $fault: "client",
@@ -1501,7 +1484,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1518,7 +1501,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediastore#${errorCode}`,
         $fault: "client",

@@ -457,7 +457,7 @@ async function deserializeAws_json1_1AddAttachmentsToSetCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -482,7 +482,6 @@ async function deserializeAws_json1_1AddAttachmentsToSetCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awssupportapi.operation#${errorCode}`,
         $fault: "client",
@@ -520,7 +519,7 @@ async function deserializeAws_json1_1AddCommunicationToCaseCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -541,7 +540,6 @@ async function deserializeAws_json1_1AddCommunicationToCaseCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awssupportapi.operation#${errorCode}`,
         $fault: "client",
@@ -579,7 +577,7 @@ async function deserializeAws_json1_1CreateCaseCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -600,7 +598,6 @@ async function deserializeAws_json1_1CreateCaseCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awssupportapi.operation#${errorCode}`,
         $fault: "client",
@@ -638,7 +635,7 @@ async function deserializeAws_json1_1DescribeAttachmentCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -655,7 +652,6 @@ async function deserializeAws_json1_1DescribeAttachmentCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awssupportapi.operation#${errorCode}`,
         $fault: "client",
@@ -693,7 +689,7 @@ async function deserializeAws_json1_1DescribeCasesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -706,7 +702,6 @@ async function deserializeAws_json1_1DescribeCasesCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awssupportapi.operation#${errorCode}`,
         $fault: "client",
@@ -744,7 +739,7 @@ async function deserializeAws_json1_1DescribeCommunicationsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -757,7 +752,6 @@ async function deserializeAws_json1_1DescribeCommunicationsCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awssupportapi.operation#${errorCode}`,
         $fault: "client",
@@ -795,7 +789,7 @@ async function deserializeAws_json1_1DescribeServicesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -804,7 +798,6 @@ async function deserializeAws_json1_1DescribeServicesCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awssupportapi.operation#${errorCode}`,
         $fault: "client",
@@ -842,7 +835,7 @@ async function deserializeAws_json1_1DescribeSeverityLevelsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -851,7 +844,6 @@ async function deserializeAws_json1_1DescribeSeverityLevelsCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awssupportapi.operation#${errorCode}`,
         $fault: "client",
@@ -889,7 +881,7 @@ async function deserializeAws_json1_1ResolveCaseCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -902,7 +894,6 @@ async function deserializeAws_json1_1ResolveCaseCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awssupportapi.operation#${errorCode}`,
         $fault: "client",
@@ -940,7 +931,7 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesC
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -949,7 +940,6 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesC
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awssupportapi.trustedadvisor#${errorCode}`,
         $fault: "client",
@@ -987,7 +977,7 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommandErr
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -996,7 +986,6 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommandErr
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awssupportapi.trustedadvisor#${errorCode}`,
         $fault: "client",
@@ -1034,7 +1023,7 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1043,7 +1032,6 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awssupportapi.trustedadvisor#${errorCode}`,
         $fault: "client",
@@ -1081,7 +1069,7 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorChecksCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1090,7 +1078,6 @@ async function deserializeAws_json1_1DescribeTrustedAdvisorChecksCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awssupportapi.trustedadvisor#${errorCode}`,
         $fault: "client",
@@ -1128,7 +1115,7 @@ async function deserializeAws_json1_1RefreshTrustedAdvisorCheckCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1137,7 +1124,6 @@ async function deserializeAws_json1_1RefreshTrustedAdvisorCheckCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.awssupportapi.trustedadvisor#${errorCode}`,
         $fault: "client",

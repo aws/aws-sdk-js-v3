@@ -1,17 +1,20 @@
 import {
   BackupClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../BackupClient";
-import { DeleteBackupPlanInput, DeleteBackupPlanOutput } from "../models/index";
+import {
+  DeleteBackupPlanInput,
+  DeleteBackupPlanOutput,
+} from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteBackupPlanCommand,
-  serializeAws_restJson1_1DeleteBackupPlanCommand
+  serializeAws_restJson1_1DeleteBackupPlanCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DeleteBackupPlanCommandInput = DeleteBackupPlanInput;
 export type DeleteBackupPlanCommandOutput = DeleteBackupPlanOutput;
 
-export class DeleteBackupPlanCommand extends $Command<
-  DeleteBackupPlanCommandInput,
-  DeleteBackupPlanCommandOutput,
-  BackupClientResolvedConfig
-> {
+export class DeleteBackupPlanCommand extends $Command<DeleteBackupPlanCommandInput, DeleteBackupPlanCommandOutput, BackupClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class DeleteBackupPlanCommand extends $Command<
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteBackupPlanCommandInput, DeleteBackupPlanCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

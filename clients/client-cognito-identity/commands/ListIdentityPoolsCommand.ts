@@ -1,20 +1,20 @@
 import {
   CognitoIdentityClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CognitoIdentityClient";
 import {
   ListIdentityPoolsInput,
-  ListIdentityPoolsResponse
+  ListIdentityPoolsResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1ListIdentityPoolsCommand,
-  serializeAws_json1_1ListIdentityPoolsCommand
+  serializeAws_json1_1ListIdentityPoolsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type ListIdentityPoolsCommandInput = ListIdentityPoolsInput;
 export type ListIdentityPoolsCommandOutput = ListIdentityPoolsResponse;
 
-export class ListIdentityPoolsCommand extends $Command<
-  ListIdentityPoolsCommandInput,
-  ListIdentityPoolsCommandOutput,
-  CognitoIdentityClientResolvedConfig
-> {
+export class ListIdentityPoolsCommand extends $Command<ListIdentityPoolsCommandInput, ListIdentityPoolsCommandOutput, CognitoIdentityClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,15 +44,13 @@ export class ListIdentityPoolsCommand extends $Command<
     configuration: CognitoIdentityClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListIdentityPoolsCommandInput, ListIdentityPoolsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

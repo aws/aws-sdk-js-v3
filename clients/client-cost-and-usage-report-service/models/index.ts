@@ -12,19 +12,19 @@ export enum AWSRegion {
   STOCKHOLM = "eu-north-1",
   SYDNEY = "ap-southeast-2",
   TOKYO = "ap-northeast-1",
-  US_STANDARD = "us-east-1"
+  US_STANDARD = "us-east-1",
 }
 
 export enum AdditionalArtifact {
   ATHENA = "ATHENA",
   QUICKSIGHT = "QUICKSIGHT",
-  REDSHIFT = "REDSHIFT"
+  REDSHIFT = "REDSHIFT",
 }
 
 export enum CompressionFormat {
   GZIP = "GZIP",
   Parquet = "Parquet",
-  ZIP = "ZIP"
+  ZIP = "ZIP",
 }
 
 /**
@@ -131,9 +131,7 @@ export namespace DescribeReportDefinitionsResponse {
  *          <p>A report with the specified name already exists in the account. Specify a different report name.</p>
  *
  */
-export interface DuplicateReportNameException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DuplicateReportNameException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DuplicateReportNameException";
   $fault: "client";
   /**
@@ -155,9 +153,7 @@ export namespace DuplicateReportNameException {
  *          <p>An error on the server occurred during the processing of your request. Try again later.</p>
  *
  */
-export interface InternalErrorException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalErrorException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalErrorException";
   $fault: "server";
   /**
@@ -348,7 +344,7 @@ export namespace ReportDefinition {
 
 export enum ReportFormat {
   CSV = "textORcsv",
-  Parquet = "Parquet"
+  Parquet = "Parquet",
 }
 
 /**
@@ -356,9 +352,7 @@ export enum ReportFormat {
  *          <p>This account already has five reports defined. To define a new report, you must delete an existing report.</p>
  *
  */
-export interface ReportLimitReachedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ReportLimitReachedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ReportLimitReachedException";
   $fault: "client";
   /**
@@ -377,16 +371,16 @@ export namespace ReportLimitReachedException {
 
 export enum ReportVersioning {
   CREATE_NEW_REPORT = "CREATE_NEW_REPORT",
-  OVERWRITE_REPORT = "OVERWRITE_REPORT"
+  OVERWRITE_REPORT = "OVERWRITE_REPORT",
 }
 
 export enum SchemaElement {
-  RESOURCES = "RESOURCES"
+  RESOURCES = "RESOURCES",
 }
 
 export enum TimeUnit {
   DAILY = "DAILY",
-  HOURLY = "HOURLY"
+  HOURLY = "HOURLY",
 }
 
 /**
@@ -394,9 +388,7 @@ export enum TimeUnit {
  *          <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  *
  */
-export interface ValidationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ValidationException";
   $fault: "client";
   /**

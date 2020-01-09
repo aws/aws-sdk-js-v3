@@ -7,9 +7,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *       missing. Check the field values, and try again.</p>
  *
  */
-export interface BadRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BadRequestException";
   $fault: "client";
   message?: string;
@@ -26,9 +24,7 @@ export namespace BadRequestException {
  *          <p> There was a conflict processing the request. Try your request again. </p>
  *
  */
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConflictException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ConflictException";
   $fault: "client";
   message?: string;
@@ -45,9 +41,7 @@ export namespace ConflictException {
  *          <p>An internal Amazon Lex error occurred. Try your request again.</p>
  *
  */
-export interface InternalFailureException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalFailureException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalFailureException";
   $fault: "server";
   message?: string;
@@ -64,9 +58,7 @@ export namespace InternalFailureException {
  *          <p>The request exceeded a limit. Try your request again.</p>
  *
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -85,9 +77,7 @@ export namespace LimitExceededException {
  *       again.</p>
  *
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   message?: string;
@@ -105,9 +95,7 @@ export namespace NotFoundException {
  *       in the request. Check the resource's checksum and try again.</p>
  *
  */
-export interface PreconditionFailedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface PreconditionFailedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "PreconditionFailedException";
   $fault: "client";
   message?: string;
@@ -424,14 +412,14 @@ export namespace BuiltinSlotTypeMetadata {
 export enum ChannelStatus {
   CREATED = "CREATED",
   FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS"
+  IN_PROGRESS = "IN_PROGRESS",
 }
 
 export enum ChannelType {
   FACEBOOK = "Facebook",
   KIK = "Kik",
   SLACK = "Slack",
-  TWILIO_SMS = "Twilio-Sms"
+  TWILIO_SMS = "Twilio-Sms",
 }
 
 /**
@@ -467,7 +455,7 @@ export namespace CodeHook {
 export enum ContentType {
   CUSTOM_PAYLOAD = "CustomPayload",
   PLAIN_TEXT = "PlainText",
-  SSML = "SSML"
+  SSML = "SSML",
 }
 
 export interface CreateBotVersionRequest {
@@ -1139,12 +1127,12 @@ export namespace EnumerationValue {
 export enum ExportStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
-  READY = "READY"
+  READY = "READY",
 }
 
 export enum ExportType {
   ALEXA_SKILLS_KIT = "ALEXA_SKILLS_KIT",
-  LEX = "LEX"
+  LEX = "LEX",
 }
 
 /**
@@ -1228,7 +1216,7 @@ export namespace FulfillmentActivity {
 
 export enum FulfillmentActivityType {
   CODE_HOOK = "CodeHook",
-  RETURN_INTENT = "ReturnIntent"
+  RETURN_INTENT = "ReturnIntent",
 }
 
 export interface GetBotAliasRequest {
@@ -2783,7 +2771,7 @@ export namespace GetUtterancesViewResponse {
 export enum ImportStatus {
   COMPLETE = "COMPLETE",
   FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS"
+  IN_PROGRESS = "IN_PROGRESS",
 }
 
 /**
@@ -2867,12 +2855,12 @@ export namespace IntentMetadata {
 export enum Locale {
   DE_DE = "de-DE",
   EN_GB = "en-GB",
-  EN_US = "en-US"
+  EN_US = "en-US",
 }
 
 export enum MergeStrategy {
   FAIL_ON_CONFLICT = "FAIL_ON_CONFLICT",
-  OVERWRITE_LATEST = "OVERWRITE_LATEST"
+  OVERWRITE_LATEST = "OVERWRITE_LATEST",
 }
 
 /**
@@ -2913,7 +2901,7 @@ export namespace Message {
 
 export enum ProcessBehavior {
   BUILD = "BUILD",
-  SAVE = "SAVE"
+  SAVE = "SAVE",
 }
 
 /**
@@ -3920,7 +3908,7 @@ export enum ReferenceType {
   BOT = "Bot",
   BOTALIAS = "BotAlias",
   BOTCHANNEL = "BotChannel",
-  INTENT = "Intent"
+  INTENT = "Intent",
 }
 
 /**
@@ -3940,9 +3928,7 @@ export enum ReferenceType {
  *          </p>
  *
  */
-export interface ResourceInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   /**
@@ -3998,7 +3984,7 @@ export namespace ResourceReference {
 export enum ResourceType {
   BOT = "BOT",
   INTENT = "INTENT",
-  SLOT_TYPE = "SLOT_TYPE"
+  SLOT_TYPE = "SLOT_TYPE",
 }
 
 /**
@@ -4088,7 +4074,7 @@ export namespace Slot {
 
 export enum SlotConstraint {
   OPTIONAL = "Optional",
-  REQUIRED = "Required"
+  REQUIRED = "Required",
 }
 
 /**
@@ -4143,7 +4129,7 @@ export namespace SlotTypeMetadata {
 
 export enum SlotValueSelectionStrategy {
   ORIGINAL_VALUE = "ORIGINAL_VALUE",
-  TOP_RESOLUTION = "TOP_RESOLUTION"
+  TOP_RESOLUTION = "TOP_RESOLUTION",
 }
 
 export interface StartImportRequest {
@@ -4288,12 +4274,12 @@ export enum Status {
   FAILED = "FAILED",
   NOT_BUILT = "NOT_BUILT",
   READY = "READY",
-  READY_BASIC_TESTING = "READY_BASIC_TESTING"
+  READY_BASIC_TESTING = "READY_BASIC_TESTING",
 }
 
 export enum StatusType {
   DETECTED = "Detected",
-  MISSED = "Missed"
+  MISSED = "Missed",
 }
 
 /**

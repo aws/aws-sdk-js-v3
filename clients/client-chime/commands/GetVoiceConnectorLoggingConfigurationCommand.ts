@@ -1,20 +1,20 @@
 import {
   ChimeClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ChimeClient";
 import {
   GetVoiceConnectorLoggingConfigurationRequest,
-  GetVoiceConnectorLoggingConfigurationResponse
+  GetVoiceConnectorLoggingConfigurationResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1GetVoiceConnectorLoggingConfigurationCommand,
-  serializeAws_restJson1_1GetVoiceConnectorLoggingConfigurationCommand
+  serializeAws_restJson1_1GetVoiceConnectorLoggingConfigurationCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,23 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type GetVoiceConnectorLoggingConfigurationCommandInput = GetVoiceConnectorLoggingConfigurationRequest;
 export type GetVoiceConnectorLoggingConfigurationCommandOutput = GetVoiceConnectorLoggingConfigurationResponse;
 
-export class GetVoiceConnectorLoggingConfigurationCommand extends $Command<
-  GetVoiceConnectorLoggingConfigurationCommandInput,
-  GetVoiceConnectorLoggingConfigurationCommandOutput,
-  ChimeClientResolvedConfig
-> {
+export class GetVoiceConnectorLoggingConfigurationCommand extends $Command<GetVoiceConnectorLoggingConfigurationCommandInput, GetVoiceConnectorLoggingConfigurationCommandOutput, ChimeClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: GetVoiceConnectorLoggingConfigurationCommandInput
-  ) {
+  constructor(readonly input: GetVoiceConnectorLoggingConfigurationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -49,19 +43,14 @@ export class GetVoiceConnectorLoggingConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetVoiceConnectorLoggingConfigurationCommandInput,
-    GetVoiceConnectorLoggingConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetVoiceConnectorLoggingConfigurationCommandInput, GetVoiceConnectorLoggingConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -74,20 +63,14 @@ export class GetVoiceConnectorLoggingConfigurationCommand extends $Command<
     input: GetVoiceConnectorLoggingConfigurationCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetVoiceConnectorLoggingConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetVoiceConnectorLoggingConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<GetVoiceConnectorLoggingConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1GetVoiceConnectorLoggingConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetVoiceConnectorLoggingConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

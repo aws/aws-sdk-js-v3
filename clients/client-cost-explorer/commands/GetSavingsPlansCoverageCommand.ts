@@ -1,20 +1,20 @@
 import {
   CostExplorerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CostExplorerClient";
 import {
   GetSavingsPlansCoverageRequest,
-  GetSavingsPlansCoverageResponse
+  GetSavingsPlansCoverageResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1GetSavingsPlansCoverageCommand,
-  serializeAws_json1_1GetSavingsPlansCoverageCommand
+  serializeAws_json1_1GetSavingsPlansCoverageCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type GetSavingsPlansCoverageCommandInput = GetSavingsPlansCoverageRequest;
 export type GetSavingsPlansCoverageCommandOutput = GetSavingsPlansCoverageResponse;
 
-export class GetSavingsPlansCoverageCommand extends $Command<
-  GetSavingsPlansCoverageCommandInput,
-  GetSavingsPlansCoverageCommandOutput,
-  CostExplorerClientResolvedConfig
-> {
+export class GetSavingsPlansCoverageCommand extends $Command<GetSavingsPlansCoverageCommandInput, GetSavingsPlansCoverageCommandOutput, CostExplorerClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class GetSavingsPlansCoverageCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetSavingsPlansCoverageCommandInput,
-    GetSavingsPlansCoverageCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetSavingsPlansCoverageCommandInput, GetSavingsPlansCoverageCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -79,10 +70,7 @@ export class GetSavingsPlansCoverageCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<GetSavingsPlansCoverageCommandOutput> {
-    return deserializeAws_json1_1GetSavingsPlansCoverageCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetSavingsPlansCoverageCommand(output, context);
   }
 
   // Start section: command_body_extra

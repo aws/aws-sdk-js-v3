@@ -830,7 +830,7 @@ export namespace APNSVoipSandboxChannelResponse {
 export enum Action {
   DEEP_LINK = "DEEP_LINK",
   OPEN_APP = "OPEN_APP",
-  URL = "URL"
+  URL = "URL",
 }
 
 /**
@@ -1235,7 +1235,7 @@ export namespace AttributeDimension {
 
 export enum AttributeType {
   EXCLUSIVE = "EXCLUSIVE",
-  INCLUSIVE = "INCLUSIVE"
+  INCLUSIVE = "INCLUSIVE",
 }
 
 /**
@@ -1268,9 +1268,7 @@ export namespace AttributesResource {
 /**
  * <p>Provides information about an API request or response.</p>
  */
-export interface BadRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BadRequestException";
   $fault: "client";
   /**
@@ -1820,7 +1818,7 @@ export enum CampaignStatus {
   EXECUTING = "EXECUTING",
   PAUSED = "PAUSED",
   PENDING_NEXT_RUN = "PENDING_NEXT_RUN",
-  SCHEDULED = "SCHEDULED"
+  SCHEDULED = "SCHEDULED",
 }
 
 /**
@@ -1913,7 +1911,7 @@ export enum ChannelType {
   EMAIL = "EMAIL",
   GCM = "GCM",
   SMS = "SMS",
-  VOICE = "VOICE"
+  VOICE = "VOICE",
 }
 
 /**
@@ -3087,12 +3085,12 @@ export enum DeliveryStatus {
   SUCCESSFUL = "SUCCESSFUL",
   TEMPORARY_FAILURE = "TEMPORARY_FAILURE",
   THROTTLED = "THROTTLED",
-  UNKNOWN_FAILURE = "UNKNOWN_FAILURE"
+  UNKNOWN_FAILURE = "UNKNOWN_FAILURE",
 }
 
 export enum DimensionType {
   EXCLUSIVE = "EXCLUSIVE",
-  INCLUSIVE = "INCLUSIVE"
+  INCLUSIVE = "INCLUSIVE",
 }
 
 /**
@@ -3156,7 +3154,7 @@ export enum Duration {
   DAY_14 = "DAY_14",
   DAY_30 = "DAY_30",
   DAY_7 = "DAY_7",
-  HR_24 = "HR_24"
+  HR_24 = "HR_24",
 }
 
 /**
@@ -4341,15 +4339,13 @@ export namespace ExportJobsResponse {
 
 export enum FilterType {
   ENDPOINT = "ENDPOINT",
-  SYSTEM = "SYSTEM"
+  SYSTEM = "SYSTEM",
 }
 
 /**
  * <p>Provides information about an API request or response.</p>
  */
-export interface ForbiddenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ForbiddenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ForbiddenException";
   $fault: "client";
   /**
@@ -4371,7 +4367,7 @@ export namespace ForbiddenException {
 
 export enum Format {
   CSV = "CSV",
-  JSON = "JSON"
+  JSON = "JSON",
 }
 
 export enum Frequency {
@@ -4380,7 +4376,7 @@ export enum Frequency {
   HOURLY = "HOURLY",
   MONTHLY = "MONTHLY",
   ONCE = "ONCE",
-  WEEKLY = "WEEKLY"
+  WEEKLY = "WEEKLY",
 }
 
 /**
@@ -5583,15 +5579,12 @@ export namespace GetJourneyExecutionActivityMetricsRequest {
   }
 }
 
-export interface GetJourneyExecutionActivityMetricsResponse
-  extends $MetadataBearer {
+export interface GetJourneyExecutionActivityMetricsResponse extends $MetadataBearer {
   __type?: "GetJourneyExecutionActivityMetricsResponse";
   /**
    * <p>Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey activity, and provides information about that query.</p>
    */
-  JourneyExecutionActivityMetricsResponse:
-    | JourneyExecutionActivityMetricsResponse
-    | undefined;
+  JourneyExecutionActivityMetricsResponse: JourneyExecutionActivityMetricsResponse | undefined;
 }
 
 export namespace GetJourneyExecutionActivityMetricsResponse {
@@ -5695,9 +5688,7 @@ export interface GetPushTemplateResponse extends $MetadataBearer {
   /**
    * <p>Provides information about the content and settings for a message template that can be used in messages that are sent through a push notification channel.</p>
    */
-  PushNotificationTemplateResponse:
-    | PushNotificationTemplateResponse
-    | undefined;
+  PushNotificationTemplateResponse: PushNotificationTemplateResponse | undefined;
 }
 
 export namespace GetPushTemplateResponse {
@@ -6317,15 +6308,13 @@ export namespace ImportJobsResponse {
 export enum Include {
   ALL = "ALL",
   ANY = "ANY",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 /**
  * <p>Provides information about an API request or response.</p>
  */
-export interface InternalServerErrorException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerErrorException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerErrorException";
   $fault: "server";
   /**
@@ -6376,7 +6365,7 @@ export enum JobStatus {
   INITIALIZING = "INITIALIZING",
   PENDING_JOB = "PENDING_JOB",
   PREPARING_FOR_INITIALIZATION = "PREPARING_FOR_INITIALIZATION",
-  PROCESSING = "PROCESSING"
+  PROCESSING = "PROCESSING",
 }
 
 /**
@@ -7065,15 +7054,13 @@ export namespace MessageResult {
 
 export enum MessageType {
   PROMOTIONAL = "PROMOTIONAL",
-  TRANSACTIONAL = "TRANSACTIONAL"
+  TRANSACTIONAL = "TRANSACTIONAL",
 }
 
 /**
  * <p>Provides information about an API request or response.</p>
  */
-export interface MethodNotAllowedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MethodNotAllowedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "MethodNotAllowedException";
   $fault: "client";
   /**
@@ -7117,7 +7104,7 @@ export namespace MetricDimension {
 
 export enum Mode {
   DELIVERY = "DELIVERY",
-  FILTER = "FILTER"
+  FILTER = "FILTER",
 }
 
 /**
@@ -7172,9 +7159,7 @@ export namespace MultiConditionalSplitActivity {
 /**
  * <p>Provides information about an API request or response.</p>
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   /**
@@ -7301,7 +7286,7 @@ export namespace NumberValidateResponse {
 
 export enum Operator {
   ALL = "ALL",
-  ANY = "ANY"
+  ANY = "ANY",
 }
 
 export interface PhoneNumberValidateRequest {
@@ -7696,7 +7681,7 @@ export namespace RecencyDimension {
 
 export enum RecencyType {
   ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE"
+  INACTIVE = "INACTIVE",
 }
 
 export interface RemoveAttributesRequest {
@@ -8408,7 +8393,7 @@ export namespace SegmentResponse {
 
 export enum SegmentType {
   DIMENSIONAL = "DIMENSIONAL",
-  IMPORT = "IMPORT"
+  IMPORT = "IMPORT",
 }
 
 /**
@@ -8696,7 +8681,7 @@ export namespace SimpleEmailPart {
 export enum SourceType {
   ALL = "ALL",
   ANY = "ANY",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 /**
@@ -8726,7 +8711,7 @@ export enum State {
   CANCELLED = "CANCELLED",
   CLOSED = "CLOSED",
   COMPLETED = "COMPLETED",
-  DRAFT = "DRAFT"
+  DRAFT = "DRAFT",
 }
 
 export interface TagResourceRequest {
@@ -8870,7 +8855,7 @@ export enum TemplateType {
   EMAIL = "EMAIL",
   PUSH = "PUSH",
   SMS = "SMS",
-  VOICE = "VOICE"
+  VOICE = "VOICE",
 }
 
 /**
@@ -8898,9 +8883,7 @@ export namespace TemplatesResponse {
 /**
  * <p>Provides information about an API request or response.</p>
  */
-export interface TooManyRequestsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TooManyRequestsException";
   $fault: "client";
   /**
@@ -8975,7 +8958,7 @@ export namespace TreatmentResource {
 export enum Type {
   ALL = "ALL",
   ANY = "ANY",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 export interface UntagResourceRequest {

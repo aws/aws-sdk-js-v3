@@ -1,17 +1,20 @@
 import {
   APIGatewayClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../APIGatewayClient";
-import { BasePathMapping, CreateBasePathMappingRequest } from "../models/index";
+import {
+  BasePathMapping,
+  CreateBasePathMappingRequest,
+} from "../models/index";
 import {
   deserializeAws_restJson1_1CreateBasePathMappingCommand,
-  serializeAws_restJson1_1CreateBasePathMappingCommand
+  serializeAws_restJson1_1CreateBasePathMappingCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type CreateBasePathMappingCommandInput = CreateBasePathMappingRequest;
 export type CreateBasePathMappingCommandOutput = BasePathMapping;
 
-export class CreateBasePathMappingCommand extends $Command<
-  CreateBasePathMappingCommandInput,
-  CreateBasePathMappingCommandOutput,
-  APIGatewayClientResolvedConfig
-> {
+export class CreateBasePathMappingCommand extends $Command<CreateBasePathMappingCommandInput, CreateBasePathMappingCommandOutput, APIGatewayClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,19 +43,14 @@ export class CreateBasePathMappingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateBasePathMappingCommandInput,
-    CreateBasePathMappingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateBasePathMappingCommandInput, CreateBasePathMappingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -76,10 +70,7 @@ export class CreateBasePathMappingCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<CreateBasePathMappingCommandOutput> {
-    return deserializeAws_restJson1_1CreateBasePathMappingCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateBasePathMappingCommand(output, context);
   }
 
   // Start section: command_body_extra

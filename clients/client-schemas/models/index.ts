@@ -1,9 +1,7 @@
 import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export interface BadRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BadRequestException";
   $fault: "client";
   /**
@@ -26,12 +24,10 @@ export namespace BadRequestException {
 export enum CodeGenerationStatus {
   CREATE_COMPLETE = "CREATE_COMPLETE",
   CREATE_FAILED = "CREATE_FAILED",
-  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS"
+  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
 }
 
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConflictException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ConflictException";
   $fault: "client";
   /**
@@ -481,7 +477,7 @@ export namespace DescribeSchemaResponse {
 
 export enum DiscovererState {
   STARTED = "STARTED",
-  STOPPED = "STOPPED"
+  STOPPED = "STOPPED",
 }
 
 export interface DiscovererSummary {
@@ -514,9 +510,7 @@ export namespace DiscovererSummary {
   }
 }
 
-export interface ForbiddenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ForbiddenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ForbiddenException";
   $fault: "client";
   /**
@@ -591,9 +585,7 @@ export namespace GetDiscoveredSchemaResponse {
   }
 }
 
-export interface GoneException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface GoneException extends _smithy.SmithyException, $MetadataBearer {
   __type: "GoneException";
   $fault: "client";
   /**
@@ -613,9 +605,7 @@ export namespace GoneException {
   }
 }
 
-export interface InternalServerErrorException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerErrorException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerErrorException";
   $fault: "server";
   /**
@@ -817,9 +807,7 @@ export namespace LockServiceLinkedRoleResponse {
   }
 }
 
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   /**
@@ -1044,9 +1032,7 @@ export namespace SearchSchemasResponse {
   }
 }
 
-export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceUnavailableException";
   $fault: "server";
   /**
@@ -1141,9 +1127,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TooManyRequestsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TooManyRequestsException";
   $fault: "client";
   /**
@@ -1164,12 +1148,10 @@ export namespace TooManyRequestsException {
 }
 
 export enum Type {
-  OpenApi3 = "OpenApi3"
+  OpenApi3 = "OpenApi3",
 }
 
-export interface UnauthorizedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnauthorizedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "UnauthorizedException";
   $fault: "client";
   /**

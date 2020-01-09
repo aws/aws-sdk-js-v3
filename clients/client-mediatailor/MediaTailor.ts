@@ -2,37 +2,37 @@ import { MediaTailorClient } from "./MediaTailorClient";
 import {
   DeletePlaybackConfigurationCommand,
   DeletePlaybackConfigurationCommandInput,
-  DeletePlaybackConfigurationCommandOutput
+  DeletePlaybackConfigurationCommandOutput,
 } from "./commands/DeletePlaybackConfigurationCommand";
 import {
   GetPlaybackConfigurationCommand,
   GetPlaybackConfigurationCommandInput,
-  GetPlaybackConfigurationCommandOutput
+  GetPlaybackConfigurationCommandOutput,
 } from "./commands/GetPlaybackConfigurationCommand";
 import {
   ListPlaybackConfigurationsCommand,
   ListPlaybackConfigurationsCommandInput,
-  ListPlaybackConfigurationsCommandOutput
+  ListPlaybackConfigurationsCommandOutput,
 } from "./commands/ListPlaybackConfigurationsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   PutPlaybackConfigurationCommand,
   PutPlaybackConfigurationCommandInput,
-  PutPlaybackConfigurationCommandOutput
+  PutPlaybackConfigurationCommandOutput,
 } from "./commands/PutPlaybackConfigurationCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -45,7 +45,7 @@ export class MediaTailor extends MediaTailorClient {
    */
   public deletePlaybackConfiguration(
     args: DeletePlaybackConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeletePlaybackConfigurationCommandOutput>;
   public deletePlaybackConfiguration(
     args: DeletePlaybackConfigurationCommandInput,
@@ -58,18 +58,16 @@ export class MediaTailor extends MediaTailorClient {
   ): void;
   public deletePlaybackConfiguration(
     args: DeletePlaybackConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePlaybackConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePlaybackConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DeletePlaybackConfigurationCommandOutput) => void
   ): Promise<DeletePlaybackConfigurationCommandOutput> | void {
     const command = new DeletePlaybackConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -80,7 +78,7 @@ export class MediaTailor extends MediaTailorClient {
    */
   public getPlaybackConfiguration(
     args: GetPlaybackConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetPlaybackConfigurationCommandOutput>;
   public getPlaybackConfiguration(
     args: GetPlaybackConfigurationCommandInput,
@@ -93,18 +91,16 @@ export class MediaTailor extends MediaTailorClient {
   ): void;
   public getPlaybackConfiguration(
     args: GetPlaybackConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPlaybackConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPlaybackConfigurationCommandOutput) => void),
     cb?: (err: any, data?: GetPlaybackConfigurationCommandOutput) => void
   ): Promise<GetPlaybackConfigurationCommandOutput> | void {
     const command = new GetPlaybackConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -115,7 +111,7 @@ export class MediaTailor extends MediaTailorClient {
    */
   public listPlaybackConfigurations(
     args: ListPlaybackConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListPlaybackConfigurationsCommandOutput>;
   public listPlaybackConfigurations(
     args: ListPlaybackConfigurationsCommandInput,
@@ -128,18 +124,16 @@ export class MediaTailor extends MediaTailorClient {
   ): void;
   public listPlaybackConfigurations(
     args: ListPlaybackConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPlaybackConfigurationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPlaybackConfigurationsCommandOutput) => void),
     cb?: (err: any, data?: ListPlaybackConfigurationsCommandOutput) => void
   ): Promise<ListPlaybackConfigurationsCommandOutput> | void {
     const command = new ListPlaybackConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -150,7 +144,7 @@ export class MediaTailor extends MediaTailorClient {
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListTagsForResourceCommandOutput>;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -163,18 +157,16 @@ export class MediaTailor extends MediaTailorClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -185,7 +177,7 @@ export class MediaTailor extends MediaTailorClient {
    */
   public putPlaybackConfiguration(
     args: PutPlaybackConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<PutPlaybackConfigurationCommandOutput>;
   public putPlaybackConfiguration(
     args: PutPlaybackConfigurationCommandInput,
@@ -198,18 +190,16 @@ export class MediaTailor extends MediaTailorClient {
   ): void;
   public putPlaybackConfiguration(
     args: PutPlaybackConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutPlaybackConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutPlaybackConfigurationCommandOutput) => void),
     cb?: (err: any, data?: PutPlaybackConfigurationCommandOutput) => void
   ): Promise<PutPlaybackConfigurationCommandOutput> | void {
     const command = new PutPlaybackConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -220,7 +210,7 @@ export class MediaTailor extends MediaTailorClient {
    */
   public tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<TagResourceCommandOutput>;
   public tagResource(
     args: TagResourceCommandInput,
@@ -233,18 +223,16 @@ export class MediaTailor extends MediaTailorClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -255,7 +243,7 @@ export class MediaTailor extends MediaTailorClient {
    */
   public untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UntagResourceCommandOutput>;
   public untagResource(
     args: UntagResourceCommandInput,
@@ -268,20 +256,19 @@ export class MediaTailor extends MediaTailorClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

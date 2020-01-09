@@ -1,17 +1,20 @@
 import {
   CodeBuildClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CodeBuildClient";
-import { CreateWebhookInput, CreateWebhookOutput } from "../models/index";
+import {
+  CreateWebhookInput,
+  CreateWebhookOutput,
+} from "../models/index";
 import {
   deserializeAws_json1_1CreateWebhookCommand,
-  serializeAws_json1_1CreateWebhookCommand
+  serializeAws_json1_1CreateWebhookCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type CreateWebhookCommandInput = CreateWebhookInput;
 export type CreateWebhookCommandOutput = CreateWebhookOutput;
 
-export class CreateWebhookCommand extends $Command<
-  CreateWebhookCommandInput,
-  CreateWebhookCommandOutput,
-  CodeBuildClientResolvedConfig
-> {
+export class CreateWebhookCommand extends $Command<CreateWebhookCommandInput, CreateWebhookCommandOutput, CodeBuildClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class CreateWebhookCommand extends $Command<
     configuration: CodeBuildClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateWebhookCommandInput, CreateWebhookCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

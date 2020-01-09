@@ -959,7 +959,7 @@ async function deserializeAws_json1_1AddInstanceFleetCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -972,7 +972,6 @@ async function deserializeAws_json1_1AddInstanceFleetCommandError(
       response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -1010,7 +1009,7 @@ async function deserializeAws_json1_1AddInstanceGroupsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1019,7 +1018,6 @@ async function deserializeAws_json1_1AddInstanceGroupsCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -1057,7 +1055,7 @@ async function deserializeAws_json1_1AddJobFlowStepsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1066,7 +1064,6 @@ async function deserializeAws_json1_1AddJobFlowStepsCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -1104,7 +1101,7 @@ async function deserializeAws_json1_1AddTagsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1117,7 +1114,6 @@ async function deserializeAws_json1_1AddTagsCommandError(
       response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -1155,7 +1151,7 @@ async function deserializeAws_json1_1CancelStepsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1168,7 +1164,6 @@ async function deserializeAws_json1_1CancelStepsCommandError(
       response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -1206,7 +1201,7 @@ async function deserializeAws_json1_1CreateSecurityConfigurationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1219,7 +1214,6 @@ async function deserializeAws_json1_1CreateSecurityConfigurationCommandError(
       response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -1257,7 +1251,7 @@ async function deserializeAws_json1_1DeleteSecurityConfigurationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1270,7 +1264,6 @@ async function deserializeAws_json1_1DeleteSecurityConfigurationCommandError(
       response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -1308,7 +1301,7 @@ async function deserializeAws_json1_1DescribeClusterCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1321,7 +1314,6 @@ async function deserializeAws_json1_1DescribeClusterCommandError(
       response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -1359,7 +1351,7 @@ async function deserializeAws_json1_1DescribeJobFlowsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1368,7 +1360,6 @@ async function deserializeAws_json1_1DescribeJobFlowsCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -1406,7 +1397,7 @@ async function deserializeAws_json1_1DescribeSecurityConfigurationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1419,7 +1410,6 @@ async function deserializeAws_json1_1DescribeSecurityConfigurationCommandError(
       response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -1457,7 +1447,7 @@ async function deserializeAws_json1_1DescribeStepCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1470,7 +1460,6 @@ async function deserializeAws_json1_1DescribeStepCommandError(
       response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -1508,7 +1497,7 @@ async function deserializeAws_json1_1GetBlockPublicAccessConfigurationCommandErr
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1521,7 +1510,6 @@ async function deserializeAws_json1_1GetBlockPublicAccessConfigurationCommandErr
       response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -1559,7 +1547,7 @@ async function deserializeAws_json1_1ListBootstrapActionsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1572,7 +1560,6 @@ async function deserializeAws_json1_1ListBootstrapActionsCommandError(
       response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -1610,7 +1597,7 @@ async function deserializeAws_json1_1ListClustersCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1623,7 +1610,6 @@ async function deserializeAws_json1_1ListClustersCommandError(
       response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -1661,7 +1647,7 @@ async function deserializeAws_json1_1ListInstanceFleetsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1674,7 +1660,6 @@ async function deserializeAws_json1_1ListInstanceFleetsCommandError(
       response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -1712,7 +1697,7 @@ async function deserializeAws_json1_1ListInstanceGroupsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1725,7 +1710,6 @@ async function deserializeAws_json1_1ListInstanceGroupsCommandError(
       response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -1763,7 +1747,7 @@ async function deserializeAws_json1_1ListInstancesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1776,7 +1760,6 @@ async function deserializeAws_json1_1ListInstancesCommandError(
       response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -1814,7 +1797,7 @@ async function deserializeAws_json1_1ListSecurityConfigurationsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1827,7 +1810,6 @@ async function deserializeAws_json1_1ListSecurityConfigurationsCommandError(
       response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -1865,7 +1847,7 @@ async function deserializeAws_json1_1ListStepsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1878,7 +1860,6 @@ async function deserializeAws_json1_1ListStepsCommandError(
       response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -1916,7 +1897,7 @@ async function deserializeAws_json1_1ModifyClusterCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1929,7 +1910,6 @@ async function deserializeAws_json1_1ModifyClusterCommandError(
       response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -1962,7 +1942,7 @@ async function deserializeAws_json1_1ModifyInstanceFleetCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1975,7 +1955,6 @@ async function deserializeAws_json1_1ModifyInstanceFleetCommandError(
       response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -2008,7 +1987,7 @@ async function deserializeAws_json1_1ModifyInstanceGroupsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2017,7 +1996,6 @@ async function deserializeAws_json1_1ModifyInstanceGroupsCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -2051,12 +2029,11 @@ async function deserializeAws_json1_1PutAutoScalingPolicyCommandError(
 ): Promise<PutAutoScalingPolicyCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -2094,7 +2071,7 @@ async function deserializeAws_json1_1PutBlockPublicAccessConfigurationCommandErr
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2107,7 +2084,6 @@ async function deserializeAws_json1_1PutBlockPublicAccessConfigurationCommandErr
       response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -2141,12 +2117,11 @@ async function deserializeAws_json1_1RemoveAutoScalingPolicyCommandError(
 ): Promise<RemoveAutoScalingPolicyCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -2184,7 +2159,7 @@ async function deserializeAws_json1_1RemoveTagsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2197,7 +2172,6 @@ async function deserializeAws_json1_1RemoveTagsCommandError(
       response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -2235,7 +2209,7 @@ async function deserializeAws_json1_1RunJobFlowCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2244,7 +2218,6 @@ async function deserializeAws_json1_1RunJobFlowCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -2277,7 +2250,7 @@ async function deserializeAws_json1_1SetTerminationProtectionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2286,7 +2259,6 @@ async function deserializeAws_json1_1SetTerminationProtectionCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -2319,7 +2291,7 @@ async function deserializeAws_json1_1SetVisibleToAllUsersCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2328,7 +2300,6 @@ async function deserializeAws_json1_1SetVisibleToAllUsersCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
@@ -2361,7 +2332,7 @@ async function deserializeAws_json1_1TerminateJobFlowsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2370,7 +2341,6 @@ async function deserializeAws_json1_1TerminateJobFlowsCommandError(
       response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",

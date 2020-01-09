@@ -475,9 +475,7 @@ export namespace BatchItemError {
  *       with fewer documents.</p>
  *
  */
-export interface BatchSizeLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BatchSizeLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BatchSizeLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -626,9 +624,7 @@ export namespace ClassifyDocumentResponse {
  *          <p>Concurrent modification of the tags associated with an Amazon Comprehend resource is not supported. </p>
  *
  */
-export interface ConcurrentModificationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ConcurrentModificationException";
   $fault: "client";
   Message?: string;
@@ -1003,8 +999,7 @@ export namespace DescribeDocumentClassificationJobRequest {
   }
 }
 
-export interface DescribeDocumentClassificationJobResponse
-  extends $MetadataBearer {
+export interface DescribeDocumentClassificationJobResponse extends $MetadataBearer {
   __type?: "DescribeDocumentClassificationJobResponse";
   /**
    *
@@ -1066,15 +1061,12 @@ export interface DescribeDominantLanguageDetectionJobRequest {
 }
 
 export namespace DescribeDominantLanguageDetectionJobRequest {
-  export function isa(
-    o: any
-  ): o is DescribeDominantLanguageDetectionJobRequest {
+  export function isa(o: any): o is DescribeDominantLanguageDetectionJobRequest {
     return _smithy.isa(o, "DescribeDominantLanguageDetectionJobRequest");
   }
 }
 
-export interface DescribeDominantLanguageDetectionJobResponse
-  extends $MetadataBearer {
+export interface DescribeDominantLanguageDetectionJobResponse extends $MetadataBearer {
   __type?: "DescribeDominantLanguageDetectionJobResponse";
   /**
    *
@@ -1086,9 +1078,7 @@ export interface DescribeDominantLanguageDetectionJobResponse
 }
 
 export namespace DescribeDominantLanguageDetectionJobResponse {
-  export function isa(
-    o: any
-  ): o is DescribeDominantLanguageDetectionJobResponse {
+  export function isa(o: any): o is DescribeDominantLanguageDetectionJobResponse {
     return _smithy.isa(o, "DescribeDominantLanguageDetectionJobResponse");
   }
 }
@@ -1207,8 +1197,7 @@ export namespace DescribeKeyPhrasesDetectionJobRequest {
   }
 }
 
-export interface DescribeKeyPhrasesDetectionJobResponse
-  extends $MetadataBearer {
+export interface DescribeKeyPhrasesDetectionJobResponse extends $MetadataBearer {
   __type?: "DescribeKeyPhrasesDetectionJobResponse";
   /**
    *
@@ -2260,7 +2249,7 @@ export enum EndpointStatus {
   DELETING = "DELETING",
   FAILED = "FAILED",
   IN_SERVICE = "IN_SERVICE",
-  UPDATING = "UPDATING"
+  UPDATING = "UPDATING",
 }
 
 /**
@@ -2748,9 +2737,7 @@ export interface EntityRecognizerMetadataEntityTypesListItem {
 }
 
 export namespace EntityRecognizerMetadataEntityTypesListItem {
-  export function isa(
-    o: any
-  ): o is EntityRecognizerMetadataEntityTypesListItem {
+  export function isa(o: any): o is EntityRecognizerMetadataEntityTypesListItem {
     return _smithy.isa(o, "EntityRecognizerMetadataEntityTypesListItem");
   }
 }
@@ -2882,7 +2869,7 @@ export enum EntityType {
   OTHER = "OTHER",
   PERSON = "PERSON",
   QUANTITY = "QUANTITY",
-  TITLE = "TITLE"
+  TITLE = "TITLE",
 }
 
 /**
@@ -2996,7 +2983,7 @@ export namespace InputDataConfig {
 
 export enum InputFormat {
   ONE_DOC_PER_FILE = "ONE_DOC_PER_FILE",
-  ONE_DOC_PER_LINE = "ONE_DOC_PER_LINE"
+  ONE_DOC_PER_LINE = "ONE_DOC_PER_LINE",
 }
 
 /**
@@ -3004,9 +2991,7 @@ export enum InputFormat {
  *          <p>An internal server error occurred. Retry your request.</p>
  *
  */
-export interface InternalServerException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerException";
   $fault: "server";
   Message?: string;
@@ -3024,9 +3009,7 @@ export namespace InternalServerException {
  *       Specify a different filter.</p>
  *
  */
-export interface InvalidFilterException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidFilterException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidFilterException";
   $fault: "client";
   Message?: string;
@@ -3044,9 +3027,7 @@ export namespace InvalidFilterException {
  *       is invalid.</p>
  *
  */
-export interface InvalidRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRequestException";
   $fault: "client";
   Message?: string;
@@ -3063,9 +3044,7 @@ export namespace InvalidRequestException {
  *          <p>The specified job was not found. Check the job ID and try again.</p>
  *
  */
-export interface JobNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface JobNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "JobNotFoundException";
   $fault: "client";
   Message?: string;
@@ -3083,7 +3062,7 @@ export enum JobStatus {
   IN_PROGRESS = "IN_PROGRESS",
   STOPPED = "STOPPED",
   STOP_REQUESTED = "STOP_REQUESTED",
-  SUBMITTED = "SUBMITTED"
+  SUBMITTED = "SUBMITTED",
 }
 
 /**
@@ -3301,9 +3280,7 @@ export namespace KeyPhrasesDetectionJobProperties {
  *          <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and re-enter it.</p>
  *
  */
-export interface KmsKeyValidationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface KmsKeyValidationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "KmsKeyValidationException";
   $fault: "client";
   Message?: string;
@@ -3327,7 +3304,7 @@ export enum LanguageCode {
   KO = "ko",
   PT = "pt",
   ZH = "zh",
-  ZH_TW = "zh-TW"
+  ZH_TW = "zh-TW",
 }
 
 export interface ListDocumentClassificationJobsRequest {
@@ -3361,17 +3338,14 @@ export namespace ListDocumentClassificationJobsRequest {
   }
 }
 
-export interface ListDocumentClassificationJobsResponse
-  extends $MetadataBearer {
+export interface ListDocumentClassificationJobsResponse extends $MetadataBearer {
   __type?: "ListDocumentClassificationJobsResponse";
   /**
    *
    *          <p>A list containing the properties of each job returned.</p>
    *
    */
-  DocumentClassificationJobPropertiesList?: Array<
-    DocumentClassificationJobProperties
-  >;
+  DocumentClassificationJobPropertiesList?: Array<DocumentClassificationJobProperties>;
 
   /**
    *
@@ -3472,17 +3446,14 @@ export namespace ListDominantLanguageDetectionJobsRequest {
   }
 }
 
-export interface ListDominantLanguageDetectionJobsResponse
-  extends $MetadataBearer {
+export interface ListDominantLanguageDetectionJobsResponse extends $MetadataBearer {
   __type?: "ListDominantLanguageDetectionJobsResponse";
   /**
    *
    *          <p>A list containing the properties of each job that is returned.</p>
    *
    */
-  DominantLanguageDetectionJobPropertiesList?: Array<
-    DominantLanguageDetectionJobProperties
-  >;
+  DominantLanguageDetectionJobPropertiesList?: Array<DominantLanguageDetectionJobProperties>;
 
   /**
    *
@@ -3697,9 +3668,7 @@ export interface ListKeyPhrasesDetectionJobsResponse extends $MetadataBearer {
    *          <p>A list containing the properties of each job that is returned.</p>
    *
    */
-  KeyPhrasesDetectionJobPropertiesList?: Array<
-    KeyPhrasesDetectionJobProperties
-  >;
+  KeyPhrasesDetectionJobPropertiesList?: Array<KeyPhrasesDetectionJobProperties>;
 
   /**
    *
@@ -3870,7 +3839,7 @@ export enum ModelStatus {
   STOP_REQUESTED = "STOP_REQUESTED",
   SUBMITTED = "SUBMITTED",
   TRAINED = "TRAINED",
-  TRAINING = "TRAINING"
+  TRAINING = "TRAINING",
 }
 
 /**
@@ -3975,7 +3944,7 @@ export enum PartOfSpeechTagType {
   PUNCT = "PUNCT",
   SCONJ = "SCONJ",
   SYM = "SYM",
-  VERB = "VERB"
+  VERB = "VERB",
 }
 
 /**
@@ -3983,9 +3952,7 @@ export enum PartOfSpeechTagType {
  *          <p>The specified name is already in use. Use a different name and try your request again.</p>
  *
  */
-export interface ResourceInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   Message?: string;
@@ -4002,9 +3969,7 @@ export namespace ResourceInUseException {
  *          <p>The maximum number of recognizers per account has been exceeded. Review the recognizers, perform cleanup, and then try your request again.</p>
  *
  */
-export interface ResourceLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -4021,9 +3986,7 @@ export namespace ResourceLimitExceededException {
  *          <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -4041,9 +4004,7 @@ export namespace ResourceNotFoundException {
  *       the <code>TRAINED</code> state and try your request again.</p>
  *
  */
-export interface ResourceUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceUnavailableException";
   $fault: "client";
   Message?: string;
@@ -4267,7 +4228,7 @@ export enum SentimentType {
   MIXED = "MIXED",
   NEGATIVE = "NEGATIVE",
   NEUTRAL = "NEUTRAL",
-  POSITIVE = "POSITIVE"
+  POSITIVE = "POSITIVE",
 }
 
 export interface StartDocumentClassificationJobRequest {
@@ -4350,8 +4311,7 @@ export namespace StartDocumentClassificationJobRequest {
   }
 }
 
-export interface StartDocumentClassificationJobResponse
-  extends $MetadataBearer {
+export interface StartDocumentClassificationJobResponse extends $MetadataBearer {
   __type?: "StartDocumentClassificationJobResponse";
   /**
    *
@@ -4467,8 +4427,7 @@ export namespace StartDominantLanguageDetectionJobRequest {
   }
 }
 
-export interface StartDominantLanguageDetectionJobResponse
-  extends $MetadataBearer {
+export interface StartDominantLanguageDetectionJobResponse extends $MetadataBearer {
   __type?: "StartDominantLanguageDetectionJobResponse";
   /**
    *
@@ -5015,8 +4974,7 @@ export namespace StopDominantLanguageDetectionJobRequest {
   }
 }
 
-export interface StopDominantLanguageDetectionJobResponse
-  extends $MetadataBearer {
+export interface StopDominantLanguageDetectionJobResponse extends $MetadataBearer {
   __type?: "StopDominantLanguageDetectionJobResponse";
   /**
    *
@@ -5180,8 +5138,7 @@ export namespace StopTrainingDocumentClassifierRequest {
   }
 }
 
-export interface StopTrainingDocumentClassifierResponse
-  extends $MetadataBearer {
+export interface StopTrainingDocumentClassifierResponse extends $MetadataBearer {
   __type?: "StopTrainingDocumentClassifierResponse";
 }
 
@@ -5223,7 +5180,7 @@ export enum SyntaxLanguageCode {
   ES = "es",
   FR = "fr",
   IT = "it",
-  PT = "pt"
+  PT = "pt",
 }
 
 /**
@@ -5345,9 +5302,7 @@ export namespace TagResourceResponse {
  *          <p>The size of the input text exceeds the limit. Use a smaller document.</p>
  *
  */
-export interface TextSizeLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TextSizeLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TextSizeLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -5364,9 +5319,7 @@ export namespace TextSizeLimitExceededException {
  *          <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
  */
-export interface TooManyRequestsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
@@ -5383,9 +5336,7 @@ export namespace TooManyRequestsException {
  *          <p>The request contains more tag keys than can be associated with a resource (50 tag keys per resource).</p>
  *
  */
-export interface TooManyTagKeysException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TooManyTagKeysException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TooManyTagKeysException";
   $fault: "client";
   Message?: string;
@@ -5403,9 +5354,7 @@ export namespace TooManyTagKeysException {
  *       number of tags includes both existing tags and those included in your current request.    </p>
  *
  */
-export interface TooManyTagsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TooManyTagsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TooManyTagsException";
   $fault: "client";
   Message?: string;
@@ -5586,9 +5535,7 @@ export namespace TopicsDetectionJobProperties {
  *       all supported languages. For a list of supported languages, see <a>supported-languages</a>. </p>
  *
  */
-export interface UnsupportedLanguageException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnsupportedLanguageException extends _smithy.SmithyException, $MetadataBearer {
   __type: "UnsupportedLanguageException";
   $fault: "client";
   Message?: string;

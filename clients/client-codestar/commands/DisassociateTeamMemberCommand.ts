@@ -1,20 +1,20 @@
 import {
   CodeStarClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CodeStarClient";
 import {
   DisassociateTeamMemberRequest,
-  DisassociateTeamMemberResult
+  DisassociateTeamMemberResult,
 } from "../models/index";
 import {
   deserializeAws_json1_1DisassociateTeamMemberCommand,
-  serializeAws_json1_1DisassociateTeamMemberCommand
+  serializeAws_json1_1DisassociateTeamMemberCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DisassociateTeamMemberCommandInput = DisassociateTeamMemberRequest;
 export type DisassociateTeamMemberCommandOutput = DisassociateTeamMemberResult;
 
-export class DisassociateTeamMemberCommand extends $Command<
-  DisassociateTeamMemberCommandInput,
-  DisassociateTeamMemberCommandOutput,
-  CodeStarClientResolvedConfig
-> {
+export class DisassociateTeamMemberCommand extends $Command<DisassociateTeamMemberCommandInput, DisassociateTeamMemberCommandOutput, CodeStarClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class DisassociateTeamMemberCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeStarClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateTeamMemberCommandInput,
-    DisassociateTeamMemberCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateTeamMemberCommandInput, DisassociateTeamMemberCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

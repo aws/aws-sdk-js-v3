@@ -1,20 +1,20 @@
 import {
   EKSClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../EKSClient";
 import {
   UpdateClusterConfigRequest,
-  UpdateClusterConfigResponse
+  UpdateClusterConfigResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateClusterConfigCommand,
-  serializeAws_restJson1_1UpdateClusterConfigCommand
+  serializeAws_restJson1_1UpdateClusterConfigCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type UpdateClusterConfigCommandInput = UpdateClusterConfigRequest;
 export type UpdateClusterConfigCommandOutput = UpdateClusterConfigResponse;
 
-export class UpdateClusterConfigCommand extends $Command<
-  UpdateClusterConfigCommandInput,
-  UpdateClusterConfigCommandOutput,
-  EKSClientResolvedConfig
-> {
+export class UpdateClusterConfigCommand extends $Command<UpdateClusterConfigCommandInput, UpdateClusterConfigCommandOutput, EKSClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class UpdateClusterConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateClusterConfigCommandInput,
-    UpdateClusterConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateClusterConfigCommandInput, UpdateClusterConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -79,10 +70,7 @@ export class UpdateClusterConfigCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UpdateClusterConfigCommandOutput> {
-    return deserializeAws_restJson1_1UpdateClusterConfigCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateClusterConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

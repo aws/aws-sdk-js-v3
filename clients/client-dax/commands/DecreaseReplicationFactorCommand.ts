@@ -1,20 +1,20 @@
 import {
   DAXClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../DAXClient";
 import {
   DecreaseReplicationFactorRequest,
-  DecreaseReplicationFactorResponse
+  DecreaseReplicationFactorResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1DecreaseReplicationFactorCommand,
-  serializeAws_json1_1DecreaseReplicationFactorCommand
+  serializeAws_json1_1DecreaseReplicationFactorCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DecreaseReplicationFactorCommandInput = DecreaseReplicationFactorRequest;
 export type DecreaseReplicationFactorCommandOutput = DecreaseReplicationFactorResponse;
 
-export class DecreaseReplicationFactorCommand extends $Command<
-  DecreaseReplicationFactorCommandInput,
-  DecreaseReplicationFactorCommandOutput,
-  DAXClientResolvedConfig
-> {
+export class DecreaseReplicationFactorCommand extends $Command<DecreaseReplicationFactorCommandInput, DecreaseReplicationFactorCommandOutput, DAXClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class DecreaseReplicationFactorCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DAXClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DecreaseReplicationFactorCommandInput,
-    DecreaseReplicationFactorCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DecreaseReplicationFactorCommandInput, DecreaseReplicationFactorCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -79,10 +70,7 @@ export class DecreaseReplicationFactorCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DecreaseReplicationFactorCommandOutput> {
-    return deserializeAws_json1_1DecreaseReplicationFactorCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DecreaseReplicationFactorCommand(output, context);
   }
 
   // Start section: command_body_extra

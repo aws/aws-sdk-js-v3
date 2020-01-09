@@ -189,7 +189,7 @@ async function deserializeAws_json1_1GetResourcesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -210,7 +210,6 @@ async function deserializeAws_json1_1GetResourcesCommandError(
       response = await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tagging.router.service.model.v20170126#${errorCode}`,
         $fault: "client",
@@ -248,7 +247,7 @@ async function deserializeAws_json1_1GetTagKeysCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -269,7 +268,6 @@ async function deserializeAws_json1_1GetTagKeysCommandError(
       response = await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tagging.router.service.model.v20170126#${errorCode}`,
         $fault: "client",
@@ -307,7 +305,7 @@ async function deserializeAws_json1_1GetTagValuesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -328,7 +326,6 @@ async function deserializeAws_json1_1GetTagValuesCommandError(
       response = await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tagging.router.service.model.v20170126#${errorCode}`,
         $fault: "client",
@@ -366,7 +363,7 @@ async function deserializeAws_json1_1TagResourcesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -383,7 +380,6 @@ async function deserializeAws_json1_1TagResourcesCommandError(
       response = await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tagging.router.service.model.v20170126#${errorCode}`,
         $fault: "client",
@@ -421,7 +417,7 @@ async function deserializeAws_json1_1UntagResourcesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -438,7 +434,6 @@ async function deserializeAws_json1_1UntagResourcesCommandError(
       response = await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tagging.router.service.model.v20170126#${errorCode}`,
         $fault: "client",

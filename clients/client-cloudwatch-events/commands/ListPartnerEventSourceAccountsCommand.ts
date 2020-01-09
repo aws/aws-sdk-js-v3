@@ -1,20 +1,20 @@
 import {
   CloudWatchEventsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CloudWatchEventsClient";
 import {
   ListPartnerEventSourceAccountsRequest,
-  ListPartnerEventSourceAccountsResponse
+  ListPartnerEventSourceAccountsResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1ListPartnerEventSourceAccountsCommand,
-  serializeAws_json1_1ListPartnerEventSourceAccountsCommand
+  serializeAws_json1_1ListPartnerEventSourceAccountsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type ListPartnerEventSourceAccountsCommandInput = ListPartnerEventSourceAccountsRequest;
 export type ListPartnerEventSourceAccountsCommandOutput = ListPartnerEventSourceAccountsResponse;
 
-export class ListPartnerEventSourceAccountsCommand extends $Command<
-  ListPartnerEventSourceAccountsCommandInput,
-  ListPartnerEventSourceAccountsCommandOutput,
-  CloudWatchEventsClientResolvedConfig
-> {
+export class ListPartnerEventSourceAccountsCommand extends $Command<ListPartnerEventSourceAccountsCommandInput, ListPartnerEventSourceAccountsCommandOutput, CloudWatchEventsClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class ListPartnerEventSourceAccountsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchEventsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListPartnerEventSourceAccountsCommandInput,
-    ListPartnerEventSourceAccountsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListPartnerEventSourceAccountsCommandInput, ListPartnerEventSourceAccountsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class ListPartnerEventSourceAccountsCommand extends $Command<
     input: ListPartnerEventSourceAccountsCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListPartnerEventSourceAccountsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListPartnerEventSourceAccountsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListPartnerEventSourceAccountsCommandOutput> {
-    return deserializeAws_json1_1ListPartnerEventSourceAccountsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListPartnerEventSourceAccountsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -2,392 +2,392 @@ import { WAFClient } from "./WAFClient";
 import {
   CreateByteMatchSetCommand,
   CreateByteMatchSetCommandInput,
-  CreateByteMatchSetCommandOutput
+  CreateByteMatchSetCommandOutput,
 } from "./commands/CreateByteMatchSetCommand";
 import {
   CreateGeoMatchSetCommand,
   CreateGeoMatchSetCommandInput,
-  CreateGeoMatchSetCommandOutput
+  CreateGeoMatchSetCommandOutput,
 } from "./commands/CreateGeoMatchSetCommand";
 import {
   CreateIPSetCommand,
   CreateIPSetCommandInput,
-  CreateIPSetCommandOutput
+  CreateIPSetCommandOutput,
 } from "./commands/CreateIPSetCommand";
 import {
   CreateRateBasedRuleCommand,
   CreateRateBasedRuleCommandInput,
-  CreateRateBasedRuleCommandOutput
+  CreateRateBasedRuleCommandOutput,
 } from "./commands/CreateRateBasedRuleCommand";
 import {
   CreateRegexMatchSetCommand,
   CreateRegexMatchSetCommandInput,
-  CreateRegexMatchSetCommandOutput
+  CreateRegexMatchSetCommandOutput,
 } from "./commands/CreateRegexMatchSetCommand";
 import {
   CreateRegexPatternSetCommand,
   CreateRegexPatternSetCommandInput,
-  CreateRegexPatternSetCommandOutput
+  CreateRegexPatternSetCommandOutput,
 } from "./commands/CreateRegexPatternSetCommand";
 import {
   CreateRuleCommand,
   CreateRuleCommandInput,
-  CreateRuleCommandOutput
+  CreateRuleCommandOutput,
 } from "./commands/CreateRuleCommand";
 import {
   CreateRuleGroupCommand,
   CreateRuleGroupCommandInput,
-  CreateRuleGroupCommandOutput
+  CreateRuleGroupCommandOutput,
 } from "./commands/CreateRuleGroupCommand";
 import {
   CreateSizeConstraintSetCommand,
   CreateSizeConstraintSetCommandInput,
-  CreateSizeConstraintSetCommandOutput
+  CreateSizeConstraintSetCommandOutput,
 } from "./commands/CreateSizeConstraintSetCommand";
 import {
   CreateSqlInjectionMatchSetCommand,
   CreateSqlInjectionMatchSetCommandInput,
-  CreateSqlInjectionMatchSetCommandOutput
+  CreateSqlInjectionMatchSetCommandOutput,
 } from "./commands/CreateSqlInjectionMatchSetCommand";
 import {
   CreateWebACLCommand,
   CreateWebACLCommandInput,
-  CreateWebACLCommandOutput
+  CreateWebACLCommandOutput,
 } from "./commands/CreateWebACLCommand";
 import {
   CreateXssMatchSetCommand,
   CreateXssMatchSetCommandInput,
-  CreateXssMatchSetCommandOutput
+  CreateXssMatchSetCommandOutput,
 } from "./commands/CreateXssMatchSetCommand";
 import {
   DeleteByteMatchSetCommand,
   DeleteByteMatchSetCommandInput,
-  DeleteByteMatchSetCommandOutput
+  DeleteByteMatchSetCommandOutput,
 } from "./commands/DeleteByteMatchSetCommand";
 import {
   DeleteGeoMatchSetCommand,
   DeleteGeoMatchSetCommandInput,
-  DeleteGeoMatchSetCommandOutput
+  DeleteGeoMatchSetCommandOutput,
 } from "./commands/DeleteGeoMatchSetCommand";
 import {
   DeleteIPSetCommand,
   DeleteIPSetCommandInput,
-  DeleteIPSetCommandOutput
+  DeleteIPSetCommandOutput,
 } from "./commands/DeleteIPSetCommand";
 import {
   DeleteLoggingConfigurationCommand,
   DeleteLoggingConfigurationCommandInput,
-  DeleteLoggingConfigurationCommandOutput
+  DeleteLoggingConfigurationCommandOutput,
 } from "./commands/DeleteLoggingConfigurationCommand";
 import {
   DeletePermissionPolicyCommand,
   DeletePermissionPolicyCommandInput,
-  DeletePermissionPolicyCommandOutput
+  DeletePermissionPolicyCommandOutput,
 } from "./commands/DeletePermissionPolicyCommand";
 import {
   DeleteRateBasedRuleCommand,
   DeleteRateBasedRuleCommandInput,
-  DeleteRateBasedRuleCommandOutput
+  DeleteRateBasedRuleCommandOutput,
 } from "./commands/DeleteRateBasedRuleCommand";
 import {
   DeleteRegexMatchSetCommand,
   DeleteRegexMatchSetCommandInput,
-  DeleteRegexMatchSetCommandOutput
+  DeleteRegexMatchSetCommandOutput,
 } from "./commands/DeleteRegexMatchSetCommand";
 import {
   DeleteRegexPatternSetCommand,
   DeleteRegexPatternSetCommandInput,
-  DeleteRegexPatternSetCommandOutput
+  DeleteRegexPatternSetCommandOutput,
 } from "./commands/DeleteRegexPatternSetCommand";
 import {
   DeleteRuleCommand,
   DeleteRuleCommandInput,
-  DeleteRuleCommandOutput
+  DeleteRuleCommandOutput,
 } from "./commands/DeleteRuleCommand";
 import {
   DeleteRuleGroupCommand,
   DeleteRuleGroupCommandInput,
-  DeleteRuleGroupCommandOutput
+  DeleteRuleGroupCommandOutput,
 } from "./commands/DeleteRuleGroupCommand";
 import {
   DeleteSizeConstraintSetCommand,
   DeleteSizeConstraintSetCommandInput,
-  DeleteSizeConstraintSetCommandOutput
+  DeleteSizeConstraintSetCommandOutput,
 } from "./commands/DeleteSizeConstraintSetCommand";
 import {
   DeleteSqlInjectionMatchSetCommand,
   DeleteSqlInjectionMatchSetCommandInput,
-  DeleteSqlInjectionMatchSetCommandOutput
+  DeleteSqlInjectionMatchSetCommandOutput,
 } from "./commands/DeleteSqlInjectionMatchSetCommand";
 import {
   DeleteWebACLCommand,
   DeleteWebACLCommandInput,
-  DeleteWebACLCommandOutput
+  DeleteWebACLCommandOutput,
 } from "./commands/DeleteWebACLCommand";
 import {
   DeleteXssMatchSetCommand,
   DeleteXssMatchSetCommandInput,
-  DeleteXssMatchSetCommandOutput
+  DeleteXssMatchSetCommandOutput,
 } from "./commands/DeleteXssMatchSetCommand";
 import {
   GetByteMatchSetCommand,
   GetByteMatchSetCommandInput,
-  GetByteMatchSetCommandOutput
+  GetByteMatchSetCommandOutput,
 } from "./commands/GetByteMatchSetCommand";
 import {
   GetChangeTokenCommand,
   GetChangeTokenCommandInput,
-  GetChangeTokenCommandOutput
+  GetChangeTokenCommandOutput,
 } from "./commands/GetChangeTokenCommand";
 import {
   GetChangeTokenStatusCommand,
   GetChangeTokenStatusCommandInput,
-  GetChangeTokenStatusCommandOutput
+  GetChangeTokenStatusCommandOutput,
 } from "./commands/GetChangeTokenStatusCommand";
 import {
   GetGeoMatchSetCommand,
   GetGeoMatchSetCommandInput,
-  GetGeoMatchSetCommandOutput
+  GetGeoMatchSetCommandOutput,
 } from "./commands/GetGeoMatchSetCommand";
 import {
   GetIPSetCommand,
   GetIPSetCommandInput,
-  GetIPSetCommandOutput
+  GetIPSetCommandOutput,
 } from "./commands/GetIPSetCommand";
 import {
   GetLoggingConfigurationCommand,
   GetLoggingConfigurationCommandInput,
-  GetLoggingConfigurationCommandOutput
+  GetLoggingConfigurationCommandOutput,
 } from "./commands/GetLoggingConfigurationCommand";
 import {
   GetPermissionPolicyCommand,
   GetPermissionPolicyCommandInput,
-  GetPermissionPolicyCommandOutput
+  GetPermissionPolicyCommandOutput,
 } from "./commands/GetPermissionPolicyCommand";
 import {
   GetRateBasedRuleCommand,
   GetRateBasedRuleCommandInput,
-  GetRateBasedRuleCommandOutput
+  GetRateBasedRuleCommandOutput,
 } from "./commands/GetRateBasedRuleCommand";
 import {
   GetRateBasedRuleManagedKeysCommand,
   GetRateBasedRuleManagedKeysCommandInput,
-  GetRateBasedRuleManagedKeysCommandOutput
+  GetRateBasedRuleManagedKeysCommandOutput,
 } from "./commands/GetRateBasedRuleManagedKeysCommand";
 import {
   GetRegexMatchSetCommand,
   GetRegexMatchSetCommandInput,
-  GetRegexMatchSetCommandOutput
+  GetRegexMatchSetCommandOutput,
 } from "./commands/GetRegexMatchSetCommand";
 import {
   GetRegexPatternSetCommand,
   GetRegexPatternSetCommandInput,
-  GetRegexPatternSetCommandOutput
+  GetRegexPatternSetCommandOutput,
 } from "./commands/GetRegexPatternSetCommand";
 import {
   GetRuleCommand,
   GetRuleCommandInput,
-  GetRuleCommandOutput
+  GetRuleCommandOutput,
 } from "./commands/GetRuleCommand";
 import {
   GetRuleGroupCommand,
   GetRuleGroupCommandInput,
-  GetRuleGroupCommandOutput
+  GetRuleGroupCommandOutput,
 } from "./commands/GetRuleGroupCommand";
 import {
   GetSampledRequestsCommand,
   GetSampledRequestsCommandInput,
-  GetSampledRequestsCommandOutput
+  GetSampledRequestsCommandOutput,
 } from "./commands/GetSampledRequestsCommand";
 import {
   GetSizeConstraintSetCommand,
   GetSizeConstraintSetCommandInput,
-  GetSizeConstraintSetCommandOutput
+  GetSizeConstraintSetCommandOutput,
 } from "./commands/GetSizeConstraintSetCommand";
 import {
   GetSqlInjectionMatchSetCommand,
   GetSqlInjectionMatchSetCommandInput,
-  GetSqlInjectionMatchSetCommandOutput
+  GetSqlInjectionMatchSetCommandOutput,
 } from "./commands/GetSqlInjectionMatchSetCommand";
 import {
   GetWebACLCommand,
   GetWebACLCommandInput,
-  GetWebACLCommandOutput
+  GetWebACLCommandOutput,
 } from "./commands/GetWebACLCommand";
 import {
   GetXssMatchSetCommand,
   GetXssMatchSetCommandInput,
-  GetXssMatchSetCommandOutput
+  GetXssMatchSetCommandOutput,
 } from "./commands/GetXssMatchSetCommand";
 import {
   ListActivatedRulesInRuleGroupCommand,
   ListActivatedRulesInRuleGroupCommandInput,
-  ListActivatedRulesInRuleGroupCommandOutput
+  ListActivatedRulesInRuleGroupCommandOutput,
 } from "./commands/ListActivatedRulesInRuleGroupCommand";
 import {
   ListByteMatchSetsCommand,
   ListByteMatchSetsCommandInput,
-  ListByteMatchSetsCommandOutput
+  ListByteMatchSetsCommandOutput,
 } from "./commands/ListByteMatchSetsCommand";
 import {
   ListGeoMatchSetsCommand,
   ListGeoMatchSetsCommandInput,
-  ListGeoMatchSetsCommandOutput
+  ListGeoMatchSetsCommandOutput,
 } from "./commands/ListGeoMatchSetsCommand";
 import {
   ListIPSetsCommand,
   ListIPSetsCommandInput,
-  ListIPSetsCommandOutput
+  ListIPSetsCommandOutput,
 } from "./commands/ListIPSetsCommand";
 import {
   ListLoggingConfigurationsCommand,
   ListLoggingConfigurationsCommandInput,
-  ListLoggingConfigurationsCommandOutput
+  ListLoggingConfigurationsCommandOutput,
 } from "./commands/ListLoggingConfigurationsCommand";
 import {
   ListRateBasedRulesCommand,
   ListRateBasedRulesCommandInput,
-  ListRateBasedRulesCommandOutput
+  ListRateBasedRulesCommandOutput,
 } from "./commands/ListRateBasedRulesCommand";
 import {
   ListRegexMatchSetsCommand,
   ListRegexMatchSetsCommandInput,
-  ListRegexMatchSetsCommandOutput
+  ListRegexMatchSetsCommandOutput,
 } from "./commands/ListRegexMatchSetsCommand";
 import {
   ListRegexPatternSetsCommand,
   ListRegexPatternSetsCommandInput,
-  ListRegexPatternSetsCommandOutput
+  ListRegexPatternSetsCommandOutput,
 } from "./commands/ListRegexPatternSetsCommand";
 import {
   ListRuleGroupsCommand,
   ListRuleGroupsCommandInput,
-  ListRuleGroupsCommandOutput
+  ListRuleGroupsCommandOutput,
 } from "./commands/ListRuleGroupsCommand";
 import {
   ListRulesCommand,
   ListRulesCommandInput,
-  ListRulesCommandOutput
+  ListRulesCommandOutput,
 } from "./commands/ListRulesCommand";
 import {
   ListSizeConstraintSetsCommand,
   ListSizeConstraintSetsCommandInput,
-  ListSizeConstraintSetsCommandOutput
+  ListSizeConstraintSetsCommandOutput,
 } from "./commands/ListSizeConstraintSetsCommand";
 import {
   ListSqlInjectionMatchSetsCommand,
   ListSqlInjectionMatchSetsCommandInput,
-  ListSqlInjectionMatchSetsCommandOutput
+  ListSqlInjectionMatchSetsCommandOutput,
 } from "./commands/ListSqlInjectionMatchSetsCommand";
 import {
   ListSubscribedRuleGroupsCommand,
   ListSubscribedRuleGroupsCommandInput,
-  ListSubscribedRuleGroupsCommandOutput
+  ListSubscribedRuleGroupsCommandOutput,
 } from "./commands/ListSubscribedRuleGroupsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   ListWebACLsCommand,
   ListWebACLsCommandInput,
-  ListWebACLsCommandOutput
+  ListWebACLsCommandOutput,
 } from "./commands/ListWebACLsCommand";
 import {
   ListXssMatchSetsCommand,
   ListXssMatchSetsCommandInput,
-  ListXssMatchSetsCommandOutput
+  ListXssMatchSetsCommandOutput,
 } from "./commands/ListXssMatchSetsCommand";
 import {
   PutLoggingConfigurationCommand,
   PutLoggingConfigurationCommandInput,
-  PutLoggingConfigurationCommandOutput
+  PutLoggingConfigurationCommandOutput,
 } from "./commands/PutLoggingConfigurationCommand";
 import {
   PutPermissionPolicyCommand,
   PutPermissionPolicyCommandInput,
-  PutPermissionPolicyCommandOutput
+  PutPermissionPolicyCommandOutput,
 } from "./commands/PutPermissionPolicyCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateByteMatchSetCommand,
   UpdateByteMatchSetCommandInput,
-  UpdateByteMatchSetCommandOutput
+  UpdateByteMatchSetCommandOutput,
 } from "./commands/UpdateByteMatchSetCommand";
 import {
   UpdateGeoMatchSetCommand,
   UpdateGeoMatchSetCommandInput,
-  UpdateGeoMatchSetCommandOutput
+  UpdateGeoMatchSetCommandOutput,
 } from "./commands/UpdateGeoMatchSetCommand";
 import {
   UpdateIPSetCommand,
   UpdateIPSetCommandInput,
-  UpdateIPSetCommandOutput
+  UpdateIPSetCommandOutput,
 } from "./commands/UpdateIPSetCommand";
 import {
   UpdateRateBasedRuleCommand,
   UpdateRateBasedRuleCommandInput,
-  UpdateRateBasedRuleCommandOutput
+  UpdateRateBasedRuleCommandOutput,
 } from "./commands/UpdateRateBasedRuleCommand";
 import {
   UpdateRegexMatchSetCommand,
   UpdateRegexMatchSetCommandInput,
-  UpdateRegexMatchSetCommandOutput
+  UpdateRegexMatchSetCommandOutput,
 } from "./commands/UpdateRegexMatchSetCommand";
 import {
   UpdateRegexPatternSetCommand,
   UpdateRegexPatternSetCommandInput,
-  UpdateRegexPatternSetCommandOutput
+  UpdateRegexPatternSetCommandOutput,
 } from "./commands/UpdateRegexPatternSetCommand";
 import {
   UpdateRuleCommand,
   UpdateRuleCommandInput,
-  UpdateRuleCommandOutput
+  UpdateRuleCommandOutput,
 } from "./commands/UpdateRuleCommand";
 import {
   UpdateRuleGroupCommand,
   UpdateRuleGroupCommandInput,
-  UpdateRuleGroupCommandOutput
+  UpdateRuleGroupCommandOutput,
 } from "./commands/UpdateRuleGroupCommand";
 import {
   UpdateSizeConstraintSetCommand,
   UpdateSizeConstraintSetCommandInput,
-  UpdateSizeConstraintSetCommandOutput
+  UpdateSizeConstraintSetCommandOutput,
 } from "./commands/UpdateSizeConstraintSetCommand";
 import {
   UpdateSqlInjectionMatchSetCommand,
   UpdateSqlInjectionMatchSetCommandInput,
-  UpdateSqlInjectionMatchSetCommandOutput
+  UpdateSqlInjectionMatchSetCommandOutput,
 } from "./commands/UpdateSqlInjectionMatchSetCommand";
 import {
   UpdateWebACLCommand,
   UpdateWebACLCommandInput,
-  UpdateWebACLCommandOutput
+  UpdateWebACLCommandOutput,
 } from "./commands/UpdateWebACLCommand";
 import {
   UpdateXssMatchSetCommand,
   UpdateXssMatchSetCommandInput,
-  UpdateXssMatchSetCommandOutput
+  UpdateXssMatchSetCommandOutput,
 } from "./commands/UpdateXssMatchSetCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  *
- *
+ * 		
  * 		       <p>This is the <i>AWS WAF API Reference</i> for using AWS WAF with Amazon CloudFront. The AWS WAF actions and data types listed in the reference are available for protecting Amazon CloudFront distributions. You can use these actions and data types via the endpoint <i>waf.amazonaws.com</i>. This guide is for developers who need detailed information about the AWS WAF API actions,
  * 			data types, and errors. For detailed information about AWS WAF features and an overview of how to use the AWS WAF API, see the
- * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
- *
+ * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>		
+ * 	
  */
 export class WAF extends WAFClient {
   /**
@@ -415,12 +415,12 @@ export class WAF extends WAFClient {
    *             </li>
    *          </ol>
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
-   * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
+   * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>		
+   * 	
    */
   public createByteMatchSet(
     args: CreateByteMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateByteMatchSetCommandOutput>;
   public createByteMatchSet(
     args: CreateByteMatchSetCommandInput,
@@ -433,18 +433,16 @@ export class WAF extends WAFClient {
   ): void;
   public createByteMatchSet(
     args: CreateByteMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateByteMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateByteMatchSetCommandOutput) => void),
     cb?: (err: any, data?: CreateByteMatchSetCommandOutput) => void
   ): Promise<CreateByteMatchSetCommandOutput> | void {
     const command = new CreateByteMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -473,11 +471,11 @@ export class WAF extends WAFClient {
    *          </ol>
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
+   * 	
    */
   public createGeoMatchSet(
     args: CreateGeoMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateGeoMatchSetCommandOutput>;
   public createGeoMatchSet(
     args: CreateGeoMatchSetCommandInput,
@@ -490,18 +488,16 @@ export class WAF extends WAFClient {
   ): void;
   public createGeoMatchSet(
     args: CreateGeoMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGeoMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGeoMatchSetCommandOutput) => void),
     cb?: (err: any, data?: CreateGeoMatchSetCommandOutput) => void
   ): Promise<CreateGeoMatchSetCommandOutput> | void {
     const command = new CreateGeoMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -535,11 +531,11 @@ export class WAF extends WAFClient {
    *          </ol>
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
+   * 	
    */
   public createIPSet(
     args: CreateIPSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateIPSetCommandOutput>;
   public createIPSet(
     args: CreateIPSetCommandInput,
@@ -552,18 +548,16 @@ export class WAF extends WAFClient {
   ): void;
   public createIPSet(
     args: CreateIPSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateIPSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIPSetCommandOutput) => void),
     cb?: (err: any, data?: CreateIPSetCommandOutput) => void
   ): Promise<CreateIPSetCommandOutput> | void {
     const command = new CreateIPSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -601,11 +595,11 @@ export class WAF extends WAFClient {
    *          a rate of more than 15,000 requests every five minutes. If both conditions are met and the
    *          rate is exceeded, AWS WAF blocks the requests. If the rate drops below 15,000 for a
    *          five-minute period, AWS WAF no longer blocks the requests.</p>
-   *
+   * 		
    * 		       <p>As a second example, suppose you want to limit requests to a particular page on your site. To do this, you could add the following to a
    *             <code>RateBasedRule</code>:</p>
-   *
-   *
+   * 			
+   * 			
    *          <ul>
    *             <li>
    *                <p>A <code>ByteMatchSet</code> with <code>FieldToMatch</code> of <code>URI</code>
@@ -622,8 +616,8 @@ export class WAF extends WAFClient {
    *          </ul>
    *          <p>Further, you specify a <code>RateLimit</code> of 15,000.</p>
    *          <p>By adding this <code>RateBasedRule</code> to a <code>WebACL</code>, you could limit requests to your login page without affecting the rest of your site.</p>
-   *
-   *
+   * 		
+   * 		
    *          <p>To create and configure a <code>RateBasedRule</code>, perform the following
    *          steps:</p>
    *          <ol>
@@ -661,7 +655,7 @@ export class WAF extends WAFClient {
    */
   public createRateBasedRule(
     args: CreateRateBasedRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateRateBasedRuleCommandOutput>;
   public createRateBasedRule(
     args: CreateRateBasedRuleCommandInput,
@@ -674,18 +668,16 @@ export class WAF extends WAFClient {
   ): void;
   public createRateBasedRule(
     args: CreateRateBasedRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRateBasedRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRateBasedRuleCommandOutput) => void),
     cb?: (err: any, data?: CreateRateBasedRuleCommandOutput) => void
   ): Promise<CreateRateBasedRuleCommandOutput> | void {
     const command = new CreateRateBasedRuleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -721,7 +713,7 @@ export class WAF extends WAFClient {
    */
   public createRegexMatchSet(
     args: CreateRegexMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateRegexMatchSetCommandOutput>;
   public createRegexMatchSet(
     args: CreateRegexMatchSetCommandInput,
@@ -734,18 +726,16 @@ export class WAF extends WAFClient {
   ): void;
   public createRegexMatchSet(
     args: CreateRegexMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRegexMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRegexMatchSetCommandOutput) => void),
     cb?: (err: any, data?: CreateRegexMatchSetCommandOutput) => void
   ): Promise<CreateRegexMatchSetCommandOutput> | void {
     const command = new CreateRegexMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -772,12 +762,12 @@ export class WAF extends WAFClient {
    *             </li>
    *          </ol>
    *          <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
-   *             <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>		
    *
    */
   public createRegexPatternSet(
     args: CreateRegexPatternSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateRegexPatternSetCommandOutput>;
   public createRegexPatternSet(
     args: CreateRegexPatternSetCommandInput,
@@ -790,18 +780,16 @@ export class WAF extends WAFClient {
   ): void;
   public createRegexPatternSet(
     args: CreateRegexPatternSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRegexPatternSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRegexPatternSetCommandOutput) => void),
     cb?: (err: any, data?: CreateRegexPatternSetCommandOutput) => void
   ): Promise<CreateRegexPatternSetCommandOutput> | void {
     const command = new CreateRegexPatternSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -853,11 +841,11 @@ export class WAF extends WAFClient {
    *          </ol>
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
+   * 	
    */
   public createRule(
     args: CreateRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateRuleCommandOutput>;
   public createRule(
     args: CreateRuleCommandInput,
@@ -870,18 +858,16 @@ export class WAF extends WAFClient {
   ): void;
   public createRule(
     args: CreateRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRuleCommandOutput) => void),
     cb?: (err: any, data?: CreateRuleCommandOutput) => void
   ): Promise<CreateRuleCommandOutput> | void {
     const command = new CreateRuleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -903,12 +889,12 @@ export class WAF extends WAFClient {
    *             </li>
    *          </ul>
    *          <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
-   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>	
    *
    */
   public createRuleGroup(
     args: CreateRuleGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateRuleGroupCommandOutput>;
   public createRuleGroup(
     args: CreateRuleGroupCommandInput,
@@ -921,18 +907,16 @@ export class WAF extends WAFClient {
   ): void;
   public createRuleGroup(
     args: CreateRuleGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRuleGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRuleGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateRuleGroupCommandOutput) => void
   ): Promise<CreateRuleGroupCommandOutput> | void {
     const command = new CreateRuleGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -963,12 +947,12 @@ export class WAF extends WAFClient {
    *             </li>
    *          </ol>
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
-   * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
+   * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>		
+   * 	
    */
   public createSizeConstraintSet(
     args: CreateSizeConstraintSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateSizeConstraintSetCommandOutput>;
   public createSizeConstraintSet(
     args: CreateSizeConstraintSetCommandInput,
@@ -981,18 +965,16 @@ export class WAF extends WAFClient {
   ): void;
   public createSizeConstraintSet(
     args: CreateSizeConstraintSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSizeConstraintSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSizeConstraintSetCommandOutput) => void),
     cb?: (err: any, data?: CreateSizeConstraintSetCommandOutput) => void
   ): Promise<CreateSizeConstraintSetCommandOutput> | void {
     const command = new CreateSizeConstraintSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1022,11 +1004,11 @@ export class WAF extends WAFClient {
    *          </ol>
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
+   * 	
    */
   public createSqlInjectionMatchSet(
     args: CreateSqlInjectionMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateSqlInjectionMatchSetCommandOutput>;
   public createSqlInjectionMatchSet(
     args: CreateSqlInjectionMatchSetCommandInput,
@@ -1039,18 +1021,16 @@ export class WAF extends WAFClient {
   ): void;
   public createSqlInjectionMatchSet(
     args: CreateSqlInjectionMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSqlInjectionMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSqlInjectionMatchSetCommandOutput) => void),
     cb?: (err: any, data?: CreateSqlInjectionMatchSetCommandOutput) => void
   ): Promise<CreateSqlInjectionMatchSetCommandOutput> | void {
     const command = new CreateSqlInjectionMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1059,9 +1039,9 @@ export class WAF extends WAFClient {
   /**
    *
    * 		       <p>Creates a <code>WebACL</code>, which contains the <code>Rules</code> that identify the CloudFront web requests that you want to allow, block, or count.
-   * 			AWS WAF evaluates <code>Rules</code> in order based on the value of <code>Priority</code> for each <code>Rule</code>.</p>
+   * 			AWS WAF evaluates <code>Rules</code> in order based on the value of <code>Priority</code> for each <code>Rule</code>.</p>			
    * 		       <p>You also specify a default action, either <code>ALLOW</code> or <code>BLOCK</code>. If a web request doesn't match
-   * 			any of the <code>Rules</code> in a <code>WebACL</code>, AWS WAF responds to the request with the default action. </p>
+   * 			any of the <code>Rules</code> in a <code>WebACL</code>, AWS WAF responds to the request with the default action. </p>			
    * 		       <p>To create and configure a <code>WebACL</code>, perform the following steps:</p>
    * 		       <ol>
    *             <li>
@@ -1090,11 +1070,11 @@ export class WAF extends WAFClient {
    *             </li>
    *          </ol>
    * 		       <p>For more information about how to use the AWS WAF API, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
+   * 	
    */
   public createWebACL(
     args: CreateWebACLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateWebACLCommandOutput>;
   public createWebACL(
     args: CreateWebACLCommandInput,
@@ -1107,18 +1087,16 @@ export class WAF extends WAFClient {
   ): void;
   public createWebACL(
     args: CreateWebACLCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateWebACLCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWebACLCommandOutput) => void),
     cb?: (err: any, data?: CreateWebACLCommandOutput) => void
   ): Promise<CreateWebACLCommandOutput> | void {
     const command = new CreateWebACLCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1148,11 +1126,11 @@ export class WAF extends WAFClient {
    *          </ol>
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
+   * 	
    */
   public createXssMatchSet(
     args: CreateXssMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateXssMatchSetCommandOutput>;
   public createXssMatchSet(
     args: CreateXssMatchSetCommandInput,
@@ -1165,18 +1143,16 @@ export class WAF extends WAFClient {
   ): void;
   public createXssMatchSet(
     args: CreateXssMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateXssMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateXssMatchSetCommandOutput) => void),
     cb?: (err: any, data?: CreateXssMatchSetCommandOutput) => void
   ): Promise<CreateXssMatchSetCommandOutput> | void {
     const command = new CreateXssMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1185,8 +1161,8 @@ export class WAF extends WAFClient {
   /**
    *
    * 		       <p>Permanently deletes a <a>ByteMatchSet</a>. You can't delete a <code>ByteMatchSet</code> if it's still used in any <code>Rules</code>
-   * 			or if it still includes any <a>ByteMatchTuple</a> objects (any filters).</p>
-   * 		       <p>If you just want to remove a <code>ByteMatchSet</code> from a <code>Rule</code>, use <a>UpdateRule</a>.</p>
+   * 			or if it still includes any <a>ByteMatchTuple</a> objects (any filters).</p>		
+   * 		       <p>If you just want to remove a <code>ByteMatchSet</code> from a <code>Rule</code>, use <a>UpdateRule</a>.</p>		
    * 		       <p>To permanently delete a <code>ByteMatchSet</code>, perform the following steps:</p>
    * 		       <ol>
    *             <li>
@@ -1200,11 +1176,11 @@ export class WAF extends WAFClient {
    *                <p>Submit a <code>DeleteByteMatchSet</code> request.</p>
    *             </li>
    *          </ol>
-   *
+   * 	
    */
   public deleteByteMatchSet(
     args: DeleteByteMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteByteMatchSetCommandOutput>;
   public deleteByteMatchSet(
     args: DeleteByteMatchSetCommandInput,
@@ -1217,18 +1193,16 @@ export class WAF extends WAFClient {
   ): void;
   public deleteByteMatchSet(
     args: DeleteByteMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteByteMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteByteMatchSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteByteMatchSetCommandOutput) => void
   ): Promise<DeleteByteMatchSetCommandOutput> | void {
     const command = new DeleteByteMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1252,11 +1226,11 @@ export class WAF extends WAFClient {
    *                <p>Submit a <code>DeleteGeoMatchSet</code> request.</p>
    *             </li>
    *          </ol>
-   *
+   * 	
    */
   public deleteGeoMatchSet(
     args: DeleteGeoMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteGeoMatchSetCommandOutput>;
   public deleteGeoMatchSet(
     args: DeleteGeoMatchSetCommandInput,
@@ -1269,18 +1243,16 @@ export class WAF extends WAFClient {
   ): void;
   public deleteGeoMatchSet(
     args: DeleteGeoMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGeoMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGeoMatchSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteGeoMatchSetCommandOutput) => void
   ): Promise<DeleteGeoMatchSetCommandOutput> | void {
     const command = new DeleteGeoMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1304,11 +1276,11 @@ export class WAF extends WAFClient {
    *                <p>Submit a <code>DeleteIPSet</code> request.</p>
    *             </li>
    *          </ol>
-   *
+   * 	
    */
   public deleteIPSet(
     args: DeleteIPSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteIPSetCommandOutput>;
   public deleteIPSet(
     args: DeleteIPSetCommandInput,
@@ -1321,18 +1293,16 @@ export class WAF extends WAFClient {
   ): void;
   public deleteIPSet(
     args: DeleteIPSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteIPSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIPSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteIPSetCommandOutput) => void
   ): Promise<DeleteIPSetCommandOutput> | void {
     const command = new DeleteIPSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1346,7 +1316,7 @@ export class WAF extends WAFClient {
    */
   public deleteLoggingConfiguration(
     args: DeleteLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteLoggingConfigurationCommandOutput>;
   public deleteLoggingConfiguration(
     args: DeleteLoggingConfigurationCommandInput,
@@ -1359,18 +1329,16 @@ export class WAF extends WAFClient {
   ): void;
   public deleteLoggingConfiguration(
     args: DeleteLoggingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLoggingConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLoggingConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DeleteLoggingConfigurationCommandOutput) => void
   ): Promise<DeleteLoggingConfigurationCommandOutput> | void {
     const command = new DeleteLoggingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1384,7 +1352,7 @@ export class WAF extends WAFClient {
    */
   public deletePermissionPolicy(
     args: DeletePermissionPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeletePermissionPolicyCommandOutput>;
   public deletePermissionPolicy(
     args: DeletePermissionPolicyCommandInput,
@@ -1397,18 +1365,16 @@ export class WAF extends WAFClient {
   ): void;
   public deletePermissionPolicy(
     args: DeletePermissionPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePermissionPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePermissionPolicyCommandOutput) => void),
     cb?: (err: any, data?: DeletePermissionPolicyCommandOutput) => void
   ): Promise<DeletePermissionPolicyCommandOutput> | void {
     const command = new DeletePermissionPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1440,7 +1406,7 @@ export class WAF extends WAFClient {
    */
   public deleteRateBasedRule(
     args: DeleteRateBasedRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteRateBasedRuleCommandOutput>;
   public deleteRateBasedRule(
     args: DeleteRateBasedRuleCommandInput,
@@ -1453,18 +1419,16 @@ export class WAF extends WAFClient {
   ): void;
   public deleteRateBasedRule(
     args: DeleteRateBasedRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRateBasedRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRateBasedRuleCommandOutput) => void),
     cb?: (err: any, data?: DeleteRateBasedRuleCommandOutput) => void
   ): Promise<DeleteRateBasedRuleCommandOutput> | void {
     const command = new DeleteRateBasedRuleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1473,8 +1437,8 @@ export class WAF extends WAFClient {
   /**
    *
    *          <p>Permanently deletes a <a>RegexMatchSet</a>. You can't delete a <code>RegexMatchSet</code> if it's still used in any <code>Rules</code>
-   *         or if it still includes any <code>RegexMatchTuples</code> objects (any filters).</p>
-   * 		       <p>If you just want to remove a <code>RegexMatchSet</code> from a <code>Rule</code>, use <a>UpdateRule</a>.</p>
+   *         or if it still includes any <code>RegexMatchTuples</code> objects (any filters).</p>		
+   * 		       <p>If you just want to remove a <code>RegexMatchSet</code> from a <code>Rule</code>, use <a>UpdateRule</a>.</p>		
    * 		       <p>To permanently delete a <code>RegexMatchSet</code>, perform the following steps:</p>
    * 		       <ol>
    *             <li>
@@ -1492,7 +1456,7 @@ export class WAF extends WAFClient {
    */
   public deleteRegexMatchSet(
     args: DeleteRegexMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteRegexMatchSetCommandOutput>;
   public deleteRegexMatchSet(
     args: DeleteRegexMatchSetCommandInput,
@@ -1505,18 +1469,16 @@ export class WAF extends WAFClient {
   ): void;
   public deleteRegexMatchSet(
     args: DeleteRegexMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRegexMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRegexMatchSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteRegexMatchSetCommandOutput) => void
   ): Promise<DeleteRegexMatchSetCommandOutput> | void {
     const command = new DeleteRegexMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1530,7 +1492,7 @@ export class WAF extends WAFClient {
    */
   public deleteRegexPatternSet(
     args: DeleteRegexPatternSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteRegexPatternSetCommandOutput>;
   public deleteRegexPatternSet(
     args: DeleteRegexPatternSetCommandInput,
@@ -1543,18 +1505,16 @@ export class WAF extends WAFClient {
   ): void;
   public deleteRegexPatternSet(
     args: DeleteRegexPatternSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRegexPatternSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRegexPatternSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteRegexPatternSetCommandOutput) => void
   ): Promise<DeleteRegexPatternSetCommandOutput> | void {
     const command = new DeleteRegexPatternSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1578,11 +1538,11 @@ export class WAF extends WAFClient {
    *                <p>Submit a <code>DeleteRule</code> request.</p>
    *             </li>
    *          </ol>
-   *
+   * 	
    */
   public deleteRule(
     args: DeleteRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteRuleCommandOutput>;
   public deleteRule(
     args: DeleteRuleCommandInput,
@@ -1595,18 +1555,16 @@ export class WAF extends WAFClient {
   ): void;
   public deleteRule(
     args: DeleteRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRuleCommandOutput) => void),
     cb?: (err: any, data?: DeleteRuleCommandOutput) => void
   ): Promise<DeleteRuleCommandOutput> | void {
     const command = new DeleteRuleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1634,7 +1592,7 @@ export class WAF extends WAFClient {
    */
   public deleteRuleGroup(
     args: DeleteRuleGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteRuleGroupCommandOutput>;
   public deleteRuleGroup(
     args: DeleteRuleGroupCommandInput,
@@ -1647,18 +1605,16 @@ export class WAF extends WAFClient {
   ): void;
   public deleteRuleGroup(
     args: DeleteRuleGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRuleGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRuleGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteRuleGroupCommandOutput) => void
   ): Promise<DeleteRuleGroupCommandOutput> | void {
     const command = new DeleteRuleGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1667,8 +1623,8 @@ export class WAF extends WAFClient {
   /**
    *
    * 		       <p>Permanently deletes a <a>SizeConstraintSet</a>. You can't delete a <code>SizeConstraintSet</code> if it's still used in any <code>Rules</code>
-   * 			or if it still includes any <a>SizeConstraint</a> objects (any filters).</p>
-   * 		       <p>If you just want to remove a <code>SizeConstraintSet</code> from a <code>Rule</code>, use <a>UpdateRule</a>.</p>
+   * 			or if it still includes any <a>SizeConstraint</a> objects (any filters).</p>		
+   * 		       <p>If you just want to remove a <code>SizeConstraintSet</code> from a <code>Rule</code>, use <a>UpdateRule</a>.</p>		
    * 		       <p>To permanently delete a <code>SizeConstraintSet</code>, perform the following steps:</p>
    * 		       <ol>
    *             <li>
@@ -1682,11 +1638,11 @@ export class WAF extends WAFClient {
    *                <p>Submit a <code>DeleteSizeConstraintSet</code> request.</p>
    *             </li>
    *          </ol>
-   *
+   * 	
    */
   public deleteSizeConstraintSet(
     args: DeleteSizeConstraintSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteSizeConstraintSetCommandOutput>;
   public deleteSizeConstraintSet(
     args: DeleteSizeConstraintSetCommandInput,
@@ -1699,18 +1655,16 @@ export class WAF extends WAFClient {
   ): void;
   public deleteSizeConstraintSet(
     args: DeleteSizeConstraintSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSizeConstraintSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSizeConstraintSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteSizeConstraintSetCommandOutput) => void
   ): Promise<DeleteSizeConstraintSetCommandOutput> | void {
     const command = new DeleteSizeConstraintSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1735,11 +1689,11 @@ export class WAF extends WAFClient {
    *                <p>Submit a <code>DeleteSqlInjectionMatchSet</code> request.</p>
    *             </li>
    *          </ol>
-   *
+   * 	
    */
   public deleteSqlInjectionMatchSet(
     args: DeleteSqlInjectionMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteSqlInjectionMatchSetCommandOutput>;
   public deleteSqlInjectionMatchSet(
     args: DeleteSqlInjectionMatchSetCommandInput,
@@ -1752,18 +1706,16 @@ export class WAF extends WAFClient {
   ): void;
   public deleteSqlInjectionMatchSet(
     args: DeleteSqlInjectionMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSqlInjectionMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSqlInjectionMatchSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteSqlInjectionMatchSetCommandOutput) => void
   ): Promise<DeleteSqlInjectionMatchSetCommandOutput> | void {
     const command = new DeleteSqlInjectionMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1785,11 +1737,11 @@ export class WAF extends WAFClient {
    *                <p>Submit a <code>DeleteWebACL</code> request.</p>
    *             </li>
    *          </ol>
-   *
+   * 	
    */
   public deleteWebACL(
     args: DeleteWebACLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteWebACLCommandOutput>;
   public deleteWebACL(
     args: DeleteWebACLCommandInput,
@@ -1802,18 +1754,16 @@ export class WAF extends WAFClient {
   ): void;
   public deleteWebACL(
     args: DeleteWebACLCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteWebACLCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWebACLCommandOutput) => void),
     cb?: (err: any, data?: DeleteWebACLCommandOutput) => void
   ): Promise<DeleteWebACLCommandOutput> | void {
     const command = new DeleteWebACLCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1838,11 +1788,11 @@ export class WAF extends WAFClient {
    *                <p>Submit a <code>DeleteXssMatchSet</code> request.</p>
    *             </li>
    *          </ol>
-   *
+   * 	
    */
   public deleteXssMatchSet(
     args: DeleteXssMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteXssMatchSetCommandOutput>;
   public deleteXssMatchSet(
     args: DeleteXssMatchSetCommandInput,
@@ -1855,18 +1805,16 @@ export class WAF extends WAFClient {
   ): void;
   public deleteXssMatchSet(
     args: DeleteXssMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteXssMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteXssMatchSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteXssMatchSetCommandOutput) => void
   ): Promise<DeleteXssMatchSetCommandOutput> | void {
     const command = new DeleteXssMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1875,11 +1823,11 @@ export class WAF extends WAFClient {
   /**
    *
    * 		       <p>Returns the <a>ByteMatchSet</a> specified by <code>ByteMatchSetId</code>.</p>
-   *
+   * 	
    */
   public getByteMatchSet(
     args: GetByteMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetByteMatchSetCommandOutput>;
   public getByteMatchSet(
     args: GetByteMatchSetCommandInput,
@@ -1892,18 +1840,16 @@ export class WAF extends WAFClient {
   ): void;
   public getByteMatchSet(
     args: GetByteMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetByteMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetByteMatchSetCommandOutput) => void),
     cb?: (err: any, data?: GetByteMatchSetCommandOutput) => void
   ): Promise<GetByteMatchSetCommandOutput> | void {
     const command = new GetByteMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1918,11 +1864,11 @@ export class WAF extends WAFClient {
    * 		       <p>When you use a change token in a create, update, or delete request, the status of the change token changes to <code>PENDING</code>,
    * 			which indicates that AWS WAF is propagating the change to all AWS WAF servers. Use <code>GetChangeTokenStatus</code> to determine the
    * 			status of your change token.</p>
-   *
+   * 	
    */
   public getChangeToken(
     args: GetChangeTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetChangeTokenCommandOutput>;
   public getChangeToken(
     args: GetChangeTokenCommandInput,
@@ -1935,18 +1881,16 @@ export class WAF extends WAFClient {
   ): void;
   public getChangeToken(
     args: GetChangeTokenCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetChangeTokenCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetChangeTokenCommandOutput) => void),
     cb?: (err: any, data?: GetChangeTokenCommandOutput) => void
   ): Promise<GetChangeTokenCommandOutput> | void {
     const command = new GetChangeTokenCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1971,11 +1915,11 @@ export class WAF extends WAFClient {
    *                   <code>INSYNC</code>: Propagation is complete.</p>
    *             </li>
    *          </ul>
-   *
+   * 	
    */
   public getChangeTokenStatus(
     args: GetChangeTokenStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetChangeTokenStatusCommandOutput>;
   public getChangeTokenStatus(
     args: GetChangeTokenStatusCommandInput,
@@ -1988,18 +1932,16 @@ export class WAF extends WAFClient {
   ): void;
   public getChangeTokenStatus(
     args: GetChangeTokenStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetChangeTokenStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetChangeTokenStatusCommandOutput) => void),
     cb?: (err: any, data?: GetChangeTokenStatusCommandOutput) => void
   ): Promise<GetChangeTokenStatusCommandOutput> | void {
     const command = new GetChangeTokenStatusCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2012,7 +1954,7 @@ export class WAF extends WAFClient {
    */
   public getGeoMatchSet(
     args: GetGeoMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetGeoMatchSetCommandOutput>;
   public getGeoMatchSet(
     args: GetGeoMatchSetCommandInput,
@@ -2025,18 +1967,16 @@ export class WAF extends WAFClient {
   ): void;
   public getGeoMatchSet(
     args: GetGeoMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGeoMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGeoMatchSetCommandOutput) => void),
     cb?: (err: any, data?: GetGeoMatchSetCommandOutput) => void
   ): Promise<GetGeoMatchSetCommandOutput> | void {
     const command = new GetGeoMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2045,11 +1985,11 @@ export class WAF extends WAFClient {
   /**
    *
    * 		       <p>Returns the <a>IPSet</a> that is specified by <code>IPSetId</code>.</p>
-   *
+   * 	
    */
   public getIPSet(
     args: GetIPSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetIPSetCommandOutput>;
   public getIPSet(
     args: GetIPSetCommandInput,
@@ -2062,18 +2002,16 @@ export class WAF extends WAFClient {
   ): void;
   public getIPSet(
     args: GetIPSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetIPSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIPSetCommandOutput) => void),
     cb?: (err: any, data?: GetIPSetCommandOutput) => void
   ): Promise<GetIPSetCommandOutput> | void {
     const command = new GetIPSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2086,7 +2024,7 @@ export class WAF extends WAFClient {
    */
   public getLoggingConfiguration(
     args: GetLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetLoggingConfigurationCommandOutput>;
   public getLoggingConfiguration(
     args: GetLoggingConfigurationCommandInput,
@@ -2099,18 +2037,16 @@ export class WAF extends WAFClient {
   ): void;
   public getLoggingConfiguration(
     args: GetLoggingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLoggingConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLoggingConfigurationCommandOutput) => void),
     cb?: (err: any, data?: GetLoggingConfigurationCommandOutput) => void
   ): Promise<GetLoggingConfigurationCommandOutput> | void {
     const command = new GetLoggingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2123,7 +2059,7 @@ export class WAF extends WAFClient {
    */
   public getPermissionPolicy(
     args: GetPermissionPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetPermissionPolicyCommandOutput>;
   public getPermissionPolicy(
     args: GetPermissionPolicyCommandInput,
@@ -2136,18 +2072,16 @@ export class WAF extends WAFClient {
   ): void;
   public getPermissionPolicy(
     args: GetPermissionPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPermissionPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPermissionPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetPermissionPolicyCommandOutput) => void
   ): Promise<GetPermissionPolicyCommandOutput> | void {
     const command = new GetPermissionPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2162,7 +2096,7 @@ export class WAF extends WAFClient {
    */
   public getRateBasedRule(
     args: GetRateBasedRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetRateBasedRuleCommandOutput>;
   public getRateBasedRule(
     args: GetRateBasedRuleCommandInput,
@@ -2175,18 +2109,16 @@ export class WAF extends WAFClient {
   ): void;
   public getRateBasedRule(
     args: GetRateBasedRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRateBasedRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRateBasedRuleCommandOutput) => void),
     cb?: (err: any, data?: GetRateBasedRuleCommandOutput) => void
   ): Promise<GetRateBasedRuleCommandOutput> | void {
     const command = new GetRateBasedRuleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2201,7 +2133,7 @@ export class WAF extends WAFClient {
    */
   public getRateBasedRuleManagedKeys(
     args: GetRateBasedRuleManagedKeysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetRateBasedRuleManagedKeysCommandOutput>;
   public getRateBasedRuleManagedKeys(
     args: GetRateBasedRuleManagedKeysCommandInput,
@@ -2214,18 +2146,16 @@ export class WAF extends WAFClient {
   ): void;
   public getRateBasedRuleManagedKeys(
     args: GetRateBasedRuleManagedKeysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRateBasedRuleManagedKeysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRateBasedRuleManagedKeysCommandOutput) => void),
     cb?: (err: any, data?: GetRateBasedRuleManagedKeysCommandOutput) => void
   ): Promise<GetRateBasedRuleManagedKeysCommandOutput> | void {
     const command = new GetRateBasedRuleManagedKeysCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2238,7 +2168,7 @@ export class WAF extends WAFClient {
    */
   public getRegexMatchSet(
     args: GetRegexMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetRegexMatchSetCommandOutput>;
   public getRegexMatchSet(
     args: GetRegexMatchSetCommandInput,
@@ -2251,18 +2181,16 @@ export class WAF extends WAFClient {
   ): void;
   public getRegexMatchSet(
     args: GetRegexMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRegexMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRegexMatchSetCommandOutput) => void),
     cb?: (err: any, data?: GetRegexMatchSetCommandOutput) => void
   ): Promise<GetRegexMatchSetCommandOutput> | void {
     const command = new GetRegexMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2275,7 +2203,7 @@ export class WAF extends WAFClient {
    */
   public getRegexPatternSet(
     args: GetRegexPatternSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetRegexPatternSetCommandOutput>;
   public getRegexPatternSet(
     args: GetRegexPatternSetCommandInput,
@@ -2288,18 +2216,16 @@ export class WAF extends WAFClient {
   ): void;
   public getRegexPatternSet(
     args: GetRegexPatternSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRegexPatternSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRegexPatternSetCommandOutput) => void),
     cb?: (err: any, data?: GetRegexPatternSetCommandOutput) => void
   ): Promise<GetRegexPatternSetCommandOutput> | void {
     const command = new GetRegexPatternSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2308,11 +2234,11 @@ export class WAF extends WAFClient {
   /**
    *
    * 		       <p>Returns the <a>Rule</a> that is specified by the <code>RuleId</code> that you included in the <code>GetRule</code> request.</p>
-   *
+   * 	
    */
   public getRule(
     args: GetRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetRuleCommandOutput>;
   public getRule(
     args: GetRuleCommandInput,
@@ -2325,18 +2251,16 @@ export class WAF extends WAFClient {
   ): void;
   public getRule(
     args: GetRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRuleCommandOutput) => void),
     cb?: (err: any, data?: GetRuleCommandOutput) => void
   ): Promise<GetRuleCommandOutput> | void {
     const command = new GetRuleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2350,7 +2274,7 @@ export class WAF extends WAFClient {
    */
   public getRuleGroup(
     args: GetRuleGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetRuleGroupCommandOutput>;
   public getRuleGroup(
     args: GetRuleGroupCommandInput,
@@ -2363,18 +2287,16 @@ export class WAF extends WAFClient {
   ): void;
   public getRuleGroup(
     args: GetRuleGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRuleGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRuleGroupCommandOutput) => void),
     cb?: (err: any, data?: GetRuleGroupCommandOutput) => void
   ): Promise<GetRuleGroupCommandOutput> | void {
     const command = new GetRuleGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2387,11 +2309,11 @@ export class WAF extends WAFClient {
    *             <code>GetSampledRequests</code> returns a time range, which is usually the time range that you specified. However, if your resource
    * 			(such as a CloudFront distribution) received 5,000 requests before the specified time range elapsed, <code>GetSampledRequests</code>
    * 			returns an updated time range. This new time range indicates the actual period during which AWS WAF selected the requests in the sample.</p>
-   *
+   * 	
    */
   public getSampledRequests(
     args: GetSampledRequestsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetSampledRequestsCommandOutput>;
   public getSampledRequests(
     args: GetSampledRequestsCommandInput,
@@ -2404,18 +2326,16 @@ export class WAF extends WAFClient {
   ): void;
   public getSampledRequests(
     args: GetSampledRequestsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSampledRequestsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSampledRequestsCommandOutput) => void),
     cb?: (err: any, data?: GetSampledRequestsCommandOutput) => void
   ): Promise<GetSampledRequestsCommandOutput> | void {
     const command = new GetSampledRequestsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2424,11 +2344,11 @@ export class WAF extends WAFClient {
   /**
    *
    * 		       <p>Returns the <a>SizeConstraintSet</a> specified by <code>SizeConstraintSetId</code>.</p>
-   *
+   * 	
    */
   public getSizeConstraintSet(
     args: GetSizeConstraintSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetSizeConstraintSetCommandOutput>;
   public getSizeConstraintSet(
     args: GetSizeConstraintSetCommandInput,
@@ -2441,18 +2361,16 @@ export class WAF extends WAFClient {
   ): void;
   public getSizeConstraintSet(
     args: GetSizeConstraintSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSizeConstraintSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSizeConstraintSetCommandOutput) => void),
     cb?: (err: any, data?: GetSizeConstraintSetCommandOutput) => void
   ): Promise<GetSizeConstraintSetCommandOutput> | void {
     const command = new GetSizeConstraintSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2461,11 +2379,11 @@ export class WAF extends WAFClient {
   /**
    *
    * 		       <p>Returns the <a>SqlInjectionMatchSet</a> that is specified by <code>SqlInjectionMatchSetId</code>.</p>
-   *
+   * 	
    */
   public getSqlInjectionMatchSet(
     args: GetSqlInjectionMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetSqlInjectionMatchSetCommandOutput>;
   public getSqlInjectionMatchSet(
     args: GetSqlInjectionMatchSetCommandInput,
@@ -2478,18 +2396,16 @@ export class WAF extends WAFClient {
   ): void;
   public getSqlInjectionMatchSet(
     args: GetSqlInjectionMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSqlInjectionMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSqlInjectionMatchSetCommandOutput) => void),
     cb?: (err: any, data?: GetSqlInjectionMatchSetCommandOutput) => void
   ): Promise<GetSqlInjectionMatchSetCommandOutput> | void {
     const command = new GetSqlInjectionMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2498,11 +2414,11 @@ export class WAF extends WAFClient {
   /**
    *
    * 		       <p>Returns the <a>WebACL</a> that is specified by <code>WebACLId</code>.</p>
-   *
+   * 	
    */
   public getWebACL(
     args: GetWebACLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetWebACLCommandOutput>;
   public getWebACL(
     args: GetWebACLCommandInput,
@@ -2515,18 +2431,16 @@ export class WAF extends WAFClient {
   ): void;
   public getWebACL(
     args: GetWebACLCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetWebACLCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWebACLCommandOutput) => void),
     cb?: (err: any, data?: GetWebACLCommandOutput) => void
   ): Promise<GetWebACLCommandOutput> | void {
     const command = new GetWebACLCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2535,11 +2449,11 @@ export class WAF extends WAFClient {
   /**
    *
    * 		       <p>Returns the <a>XssMatchSet</a> that is specified by <code>XssMatchSetId</code>.</p>
-   *
+   * 	
    */
   public getXssMatchSet(
     args: GetXssMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetXssMatchSetCommandOutput>;
   public getXssMatchSet(
     args: GetXssMatchSetCommandInput,
@@ -2552,18 +2466,16 @@ export class WAF extends WAFClient {
   ): void;
   public getXssMatchSet(
     args: GetXssMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetXssMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetXssMatchSetCommandOutput) => void),
     cb?: (err: any, data?: GetXssMatchSetCommandOutput) => void
   ): Promise<GetXssMatchSetCommandOutput> | void {
     const command = new GetXssMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2576,7 +2488,7 @@ export class WAF extends WAFClient {
    */
   public listActivatedRulesInRuleGroup(
     args: ListActivatedRulesInRuleGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListActivatedRulesInRuleGroupCommandOutput>;
   public listActivatedRulesInRuleGroup(
     args: ListActivatedRulesInRuleGroupCommandInput,
@@ -2589,18 +2501,16 @@ export class WAF extends WAFClient {
   ): void;
   public listActivatedRulesInRuleGroup(
     args: ListActivatedRulesInRuleGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListActivatedRulesInRuleGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListActivatedRulesInRuleGroupCommandOutput) => void),
     cb?: (err: any, data?: ListActivatedRulesInRuleGroupCommandOutput) => void
   ): Promise<ListActivatedRulesInRuleGroupCommandOutput> | void {
     const command = new ListActivatedRulesInRuleGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2609,11 +2519,11 @@ export class WAF extends WAFClient {
   /**
    *
    * 		       <p>Returns an array of <a>ByteMatchSetSummary</a> objects.</p>
-   *
+   * 	
    */
   public listByteMatchSets(
     args: ListByteMatchSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListByteMatchSetsCommandOutput>;
   public listByteMatchSets(
     args: ListByteMatchSetsCommandInput,
@@ -2626,18 +2536,16 @@ export class WAF extends WAFClient {
   ): void;
   public listByteMatchSets(
     args: ListByteMatchSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListByteMatchSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListByteMatchSetsCommandOutput) => void),
     cb?: (err: any, data?: ListByteMatchSetsCommandOutput) => void
   ): Promise<ListByteMatchSetsCommandOutput> | void {
     const command = new ListByteMatchSetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2650,7 +2558,7 @@ export class WAF extends WAFClient {
    */
   public listGeoMatchSets(
     args: ListGeoMatchSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListGeoMatchSetsCommandOutput>;
   public listGeoMatchSets(
     args: ListGeoMatchSetsCommandInput,
@@ -2663,18 +2571,16 @@ export class WAF extends WAFClient {
   ): void;
   public listGeoMatchSets(
     args: ListGeoMatchSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGeoMatchSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGeoMatchSetsCommandOutput) => void),
     cb?: (err: any, data?: ListGeoMatchSetsCommandOutput) => void
   ): Promise<ListGeoMatchSetsCommandOutput> | void {
     const command = new ListGeoMatchSetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2683,11 +2589,11 @@ export class WAF extends WAFClient {
   /**
    *
    * 		       <p>Returns an array of <a>IPSetSummary</a> objects in the response.</p>
-   *
+   * 	
    */
   public listIPSets(
     args: ListIPSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListIPSetsCommandOutput>;
   public listIPSets(
     args: ListIPSetsCommandInput,
@@ -2700,18 +2606,16 @@ export class WAF extends WAFClient {
   ): void;
   public listIPSets(
     args: ListIPSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListIPSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListIPSetsCommandOutput) => void),
     cb?: (err: any, data?: ListIPSetsCommandOutput) => void
   ): Promise<ListIPSetsCommandOutput> | void {
     const command = new ListIPSetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2724,7 +2628,7 @@ export class WAF extends WAFClient {
    */
   public listLoggingConfigurations(
     args: ListLoggingConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListLoggingConfigurationsCommandOutput>;
   public listLoggingConfigurations(
     args: ListLoggingConfigurationsCommandInput,
@@ -2737,18 +2641,16 @@ export class WAF extends WAFClient {
   ): void;
   public listLoggingConfigurations(
     args: ListLoggingConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListLoggingConfigurationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLoggingConfigurationsCommandOutput) => void),
     cb?: (err: any, data?: ListLoggingConfigurationsCommandOutput) => void
   ): Promise<ListLoggingConfigurationsCommandOutput> | void {
     const command = new ListLoggingConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2761,7 +2663,7 @@ export class WAF extends WAFClient {
    */
   public listRateBasedRules(
     args: ListRateBasedRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListRateBasedRulesCommandOutput>;
   public listRateBasedRules(
     args: ListRateBasedRulesCommandInput,
@@ -2774,18 +2676,16 @@ export class WAF extends WAFClient {
   ): void;
   public listRateBasedRules(
     args: ListRateBasedRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRateBasedRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRateBasedRulesCommandOutput) => void),
     cb?: (err: any, data?: ListRateBasedRulesCommandOutput) => void
   ): Promise<ListRateBasedRulesCommandOutput> | void {
     const command = new ListRateBasedRulesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2798,7 +2698,7 @@ export class WAF extends WAFClient {
    */
   public listRegexMatchSets(
     args: ListRegexMatchSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListRegexMatchSetsCommandOutput>;
   public listRegexMatchSets(
     args: ListRegexMatchSetsCommandInput,
@@ -2811,18 +2711,16 @@ export class WAF extends WAFClient {
   ): void;
   public listRegexMatchSets(
     args: ListRegexMatchSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRegexMatchSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRegexMatchSetsCommandOutput) => void),
     cb?: (err: any, data?: ListRegexMatchSetsCommandOutput) => void
   ): Promise<ListRegexMatchSetsCommandOutput> | void {
     const command = new ListRegexMatchSetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2835,7 +2733,7 @@ export class WAF extends WAFClient {
    */
   public listRegexPatternSets(
     args: ListRegexPatternSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListRegexPatternSetsCommandOutput>;
   public listRegexPatternSets(
     args: ListRegexPatternSetsCommandInput,
@@ -2848,18 +2746,16 @@ export class WAF extends WAFClient {
   ): void;
   public listRegexPatternSets(
     args: ListRegexPatternSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRegexPatternSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRegexPatternSetsCommandOutput) => void),
     cb?: (err: any, data?: ListRegexPatternSetsCommandOutput) => void
   ): Promise<ListRegexPatternSetsCommandOutput> | void {
     const command = new ListRegexPatternSetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2872,7 +2768,7 @@ export class WAF extends WAFClient {
    */
   public listRuleGroups(
     args: ListRuleGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListRuleGroupsCommandOutput>;
   public listRuleGroups(
     args: ListRuleGroupsCommandInput,
@@ -2885,18 +2781,16 @@ export class WAF extends WAFClient {
   ): void;
   public listRuleGroups(
     args: ListRuleGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRuleGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRuleGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListRuleGroupsCommandOutput) => void
   ): Promise<ListRuleGroupsCommandOutput> | void {
     const command = new ListRuleGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2905,11 +2799,11 @@ export class WAF extends WAFClient {
   /**
    *
    * 		       <p>Returns an array of <a>RuleSummary</a> objects.</p>
-   *
+   * 	
    */
   public listRules(
     args: ListRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListRulesCommandOutput>;
   public listRules(
     args: ListRulesCommandInput,
@@ -2922,18 +2816,16 @@ export class WAF extends WAFClient {
   ): void;
   public listRules(
     args: ListRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRulesCommandOutput) => void),
     cb?: (err: any, data?: ListRulesCommandOutput) => void
   ): Promise<ListRulesCommandOutput> | void {
     const command = new ListRulesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2942,11 +2834,11 @@ export class WAF extends WAFClient {
   /**
    *
    * 		       <p>Returns an array of <a>SizeConstraintSetSummary</a> objects.</p>
-   *
+   * 	
    */
   public listSizeConstraintSets(
     args: ListSizeConstraintSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListSizeConstraintSetsCommandOutput>;
   public listSizeConstraintSets(
     args: ListSizeConstraintSetsCommandInput,
@@ -2959,18 +2851,16 @@ export class WAF extends WAFClient {
   ): void;
   public listSizeConstraintSets(
     args: ListSizeConstraintSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSizeConstraintSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSizeConstraintSetsCommandOutput) => void),
     cb?: (err: any, data?: ListSizeConstraintSetsCommandOutput) => void
   ): Promise<ListSizeConstraintSetsCommandOutput> | void {
     const command = new ListSizeConstraintSetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2979,11 +2869,11 @@ export class WAF extends WAFClient {
   /**
    *
    * 		       <p>Returns an array of <a>SqlInjectionMatchSet</a> objects.</p>
-   *
+   * 	
    */
   public listSqlInjectionMatchSets(
     args: ListSqlInjectionMatchSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListSqlInjectionMatchSetsCommandOutput>;
   public listSqlInjectionMatchSets(
     args: ListSqlInjectionMatchSetsCommandInput,
@@ -2996,18 +2886,16 @@ export class WAF extends WAFClient {
   ): void;
   public listSqlInjectionMatchSets(
     args: ListSqlInjectionMatchSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSqlInjectionMatchSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSqlInjectionMatchSetsCommandOutput) => void),
     cb?: (err: any, data?: ListSqlInjectionMatchSetsCommandOutput) => void
   ): Promise<ListSqlInjectionMatchSetsCommandOutput> | void {
     const command = new ListSqlInjectionMatchSetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3020,7 +2908,7 @@ export class WAF extends WAFClient {
    */
   public listSubscribedRuleGroups(
     args: ListSubscribedRuleGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListSubscribedRuleGroupsCommandOutput>;
   public listSubscribedRuleGroups(
     args: ListSubscribedRuleGroupsCommandInput,
@@ -3033,18 +2921,16 @@ export class WAF extends WAFClient {
   ): void;
   public listSubscribedRuleGroups(
     args: ListSubscribedRuleGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSubscribedRuleGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSubscribedRuleGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListSubscribedRuleGroupsCommandOutput) => void
   ): Promise<ListSubscribedRuleGroupsCommandOutput> | void {
     const command = new ListSubscribedRuleGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3052,7 +2938,7 @@ export class WAF extends WAFClient {
 
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListTagsForResourceCommandOutput>;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -3065,18 +2951,16 @@ export class WAF extends WAFClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3085,11 +2969,11 @@ export class WAF extends WAFClient {
   /**
    *
    * 		       <p>Returns an array of <a>WebACLSummary</a> objects in the response.</p>
-   *
+   * 	
    */
   public listWebACLs(
     args: ListWebACLsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListWebACLsCommandOutput>;
   public listWebACLs(
     args: ListWebACLsCommandInput,
@@ -3102,18 +2986,16 @@ export class WAF extends WAFClient {
   ): void;
   public listWebACLs(
     args: ListWebACLsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListWebACLsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWebACLsCommandOutput) => void),
     cb?: (err: any, data?: ListWebACLsCommandOutput) => void
   ): Promise<ListWebACLsCommandOutput> | void {
     const command = new ListWebACLsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3122,11 +3004,11 @@ export class WAF extends WAFClient {
   /**
    *
    * 		       <p>Returns an array of <a>XssMatchSet</a> objects.</p>
-   *
+   * 	
    */
   public listXssMatchSets(
     args: ListXssMatchSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListXssMatchSetsCommandOutput>;
   public listXssMatchSets(
     args: ListXssMatchSetsCommandInput,
@@ -3139,18 +3021,16 @@ export class WAF extends WAFClient {
   ): void;
   public listXssMatchSets(
     args: ListXssMatchSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListXssMatchSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListXssMatchSetsCommandOutput) => void),
     cb?: (err: any, data?: ListXssMatchSetsCommandOutput) => void
   ): Promise<ListXssMatchSetsCommandOutput> | void {
     const command = new ListXssMatchSetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3174,13 +3054,13 @@ export class WAF extends WAFClient {
    *                <p>Associate that firehose to your web ACL using a <code>PutLoggingConfiguration</code> request.</p>
    *             </li>
    *          </ol>
-   *
+   * 	
    *          <p>When you successfully enable logging using a <code>PutLoggingConfiguration</code> request, AWS WAF will create a service linked role with the necessary permissions to write logs to the Amazon Kinesis Data Firehose.  For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging Web ACL Traffic Information</a> in the <i>AWS WAF Developer Guide</i>.</p>
    *
    */
   public putLoggingConfiguration(
     args: PutLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<PutLoggingConfigurationCommandOutput>;
   public putLoggingConfiguration(
     args: PutLoggingConfigurationCommandInput,
@@ -3193,18 +3073,16 @@ export class WAF extends WAFClient {
   ): void;
   public putLoggingConfiguration(
     args: PutLoggingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutLoggingConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutLoggingConfigurationCommandOutput) => void),
     cb?: (err: any, data?: PutLoggingConfigurationCommandOutput) => void
   ): Promise<PutLoggingConfigurationCommandOutput> | void {
     const command = new PutLoggingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3250,7 +3128,7 @@ export class WAF extends WAFClient {
    */
   public putPermissionPolicy(
     args: PutPermissionPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<PutPermissionPolicyCommandOutput>;
   public putPermissionPolicy(
     args: PutPermissionPolicyCommandInput,
@@ -3263,18 +3141,16 @@ export class WAF extends WAFClient {
   ): void;
   public putPermissionPolicy(
     args: PutPermissionPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutPermissionPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutPermissionPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutPermissionPolicyCommandOutput) => void
   ): Promise<PutPermissionPolicyCommandOutput> | void {
     const command = new PutPermissionPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3282,7 +3158,7 @@ export class WAF extends WAFClient {
 
   public tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<TagResourceCommandOutput>;
   public tagResource(
     args: TagResourceCommandInput,
@@ -3295,18 +3171,16 @@ export class WAF extends WAFClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3314,7 +3188,7 @@ export class WAF extends WAFClient {
 
   public untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UntagResourceCommandOutput>;
   public untagResource(
     args: UntagResourceCommandInput,
@@ -3327,18 +3201,16 @@ export class WAF extends WAFClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3368,7 +3240,7 @@ export class WAF extends WAFClient {
    *             </li>
    *          </ul>
    * 		       <p>For example, you can add a <code>ByteMatchSetUpdate</code> object that matches web requests in which <code>User-Agent</code> headers contain
-   * 			the string <code>BadBot</code>. You can then configure AWS WAF to block those requests.</p>
+   * 			the string <code>BadBot</code>. You can then configure AWS WAF to block those requests.</p>		
    * 		       <p>To create and configure a <code>ByteMatchSet</code>, perform the following steps:</p>
    * 		       <ol>
    *             <li>
@@ -3385,11 +3257,11 @@ export class WAF extends WAFClient {
    *          </ol>
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
+   * 	
    */
   public updateByteMatchSet(
     args: UpdateByteMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateByteMatchSetCommandOutput>;
   public updateByteMatchSet(
     args: UpdateByteMatchSetCommandInput,
@@ -3402,18 +3274,16 @@ export class WAF extends WAFClient {
   ): void;
   public updateByteMatchSet(
     args: UpdateByteMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateByteMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateByteMatchSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateByteMatchSetCommandOutput) => void
   ): Promise<UpdateByteMatchSetCommandOutput> | void {
     const command = new UpdateByteMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3434,7 +3304,7 @@ export class WAF extends WAFClient {
    *                <p>The <code>Value</code>, which is a two character code for the country to add to the <code>GeoMatchConstraint</code> object. Valid codes are listed in <a>GeoMatchConstraint$Value</a>.</p>
    *             </li>
    *          </ul>
-   *
+   * 		    	
    * 		       <p>To create and configure an <code>GeoMatchSet</code>, perform the following steps:</p>
    * 		       <ol>
    *             <li>
@@ -3449,14 +3319,14 @@ export class WAF extends WAFClient {
    *             </li>
    *          </ol>
    * 		       <p>When you update an <code>GeoMatchSet</code>, you specify the country that you want to add and/or the country that you want to delete.
-   * 			If you want to change a country, you delete the existing country and add the new one.</p>
+   * 			If you want to change a country, you delete the existing country and add the new one.</p>		
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
+   * 	
    */
   public updateGeoMatchSet(
     args: UpdateGeoMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateGeoMatchSetCommandOutput>;
   public updateGeoMatchSet(
     args: UpdateGeoMatchSetCommandInput,
@@ -3469,18 +3339,16 @@ export class WAF extends WAFClient {
   ): void;
   public updateGeoMatchSet(
     args: UpdateGeoMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGeoMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGeoMatchSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateGeoMatchSetCommandOutput) => void
   ): Promise<UpdateGeoMatchSetCommandOutput> | void {
     const command = new UpdateGeoMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3558,7 +3426,7 @@ export class WAF extends WAFClient {
    */
   public updateIPSet(
     args: UpdateIPSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateIPSetCommandOutput>;
   public updateIPSet(
     args: UpdateIPSetCommandInput,
@@ -3571,18 +3439,16 @@ export class WAF extends WAFClient {
   ): void;
   public updateIPSet(
     args: UpdateIPSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateIPSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateIPSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateIPSetCommandOutput) => void
   ): Promise<UpdateIPSetCommandOutput> | void {
     const command = new UpdateIPSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3616,11 +3482,11 @@ export class WAF extends WAFClient {
    *          in the request must contain the value <code>BadBot</code>. Further, requests that match
    *          these two conditions much be received at a rate of more than 15,000 every five minutes. If
    *          the rate drops below this limit, AWS WAF no longer blocks the requests.</p>
-   *
+   * 		
    * 		       <p>As a second example, suppose you want to limit requests to a particular page on your site. To do this, you could add the following to a
    *             <code>RateBasedRule</code>:</p>
-   *
-   *
+   * 			
+   * 			
    *          <ul>
    *             <li>
    *                <p>A <code>ByteMatchSet</code> with <code>FieldToMatch</code> of <code>URI</code>
@@ -3641,7 +3507,7 @@ export class WAF extends WAFClient {
    */
   public updateRateBasedRule(
     args: UpdateRateBasedRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateRateBasedRuleCommandOutput>;
   public updateRateBasedRule(
     args: UpdateRateBasedRuleCommandInput,
@@ -3654,18 +3520,16 @@ export class WAF extends WAFClient {
   ): void;
   public updateRateBasedRule(
     args: UpdateRateBasedRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRateBasedRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRateBasedRuleCommandOutput) => void),
     cb?: (err: any, data?: UpdateRateBasedRuleCommandOutput) => void
   ): Promise<UpdateRateBasedRuleCommandOutput> | void {
     const command = new UpdateRateBasedRuleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3691,7 +3555,7 @@ export class WAF extends WAFClient {
    *             </li>
    *          </ul>
    * 		       <p> For example, you can create a <code>RegexPatternSet</code> that matches any requests with <code>User-Agent</code> headers
-   *          that contain the string <code>B[a@]dB[o0]t</code>. You can then configure AWS WAF to reject those requests.</p>
+   *          that contain the string <code>B[a@]dB[o0]t</code>. You can then configure AWS WAF to reject those requests.</p>		
    * 		       <p>To create and configure a <code>RegexMatchSet</code>, perform the following steps:</p>
    * 		       <ol>
    *             <li>
@@ -3712,7 +3576,7 @@ export class WAF extends WAFClient {
    */
   public updateRegexMatchSet(
     args: UpdateRegexMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateRegexMatchSetCommandOutput>;
   public updateRegexMatchSet(
     args: UpdateRegexMatchSetCommandInput,
@@ -3725,18 +3589,16 @@ export class WAF extends WAFClient {
   ): void;
   public updateRegexMatchSet(
     args: UpdateRegexMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRegexMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRegexMatchSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateRegexMatchSetCommandOutput) => void
   ): Promise<UpdateRegexMatchSetCommandOutput> | void {
     const command = new UpdateRegexMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3788,7 +3650,7 @@ export class WAF extends WAFClient {
    */
   public updateRegexPatternSet(
     args: UpdateRegexPatternSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateRegexPatternSetCommandOutput>;
   public updateRegexPatternSet(
     args: UpdateRegexPatternSetCommandInput,
@@ -3801,18 +3663,16 @@ export class WAF extends WAFClient {
   ): void;
   public updateRegexPatternSet(
     args: UpdateRegexPatternSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRegexPatternSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRegexPatternSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateRegexPatternSetCommandOutput) => void
   ): Promise<UpdateRegexPatternSetCommandOutput> | void {
     const command = new UpdateRegexPatternSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3826,7 +3686,7 @@ export class WAF extends WAFClient {
    *             <code>Rule</code>, a request must match all of the specifications to be allowed,
    *          blocked, or counted. For example, suppose
    *          that
-   *          you add the following to a <code>Rule</code>: </p>
+   *          you add the following to a <code>Rule</code>: </p>		
    * 		       <ul>
    *             <li>
    *                <p>A <code>ByteMatchSet</code> that matches the value <code>BadBot</code> in the <code>User-Agent</code> header</p>
@@ -3835,10 +3695,10 @@ export class WAF extends WAFClient {
    *                <p>An <code>IPSet</code> that matches the IP address <code>192.0.2.44</code>
    *                </p>
    *             </li>
-   *          </ul>
+   *          </ul>		
    * 		       <p>You then add the <code>Rule</code> to a <code>WebACL</code> and specify that you want to block requests that satisfy the <code>Rule</code>.
    * 			For a request to be blocked, the <code>User-Agent</code> header in the request must contain the value <code>BadBot</code>
-   * 			         <i>and</i> the request must originate from the IP address 192.0.2.44.</p>
+   * 			         <i>and</i> the request must originate from the IP address 192.0.2.44.</p>		
    * 		       <p>To create and configure a <code>Rule</code>, perform the following steps:</p>
    * 		       <ol>
    *             <li>
@@ -3859,14 +3719,14 @@ export class WAF extends WAFClient {
    *             </li>
    *          </ol>
    * 		       <p>If you want to replace one <code>ByteMatchSet</code> or <code>IPSet</code> with another, you delete the existing one and
-   * 			add the new one.</p>
+   * 			add the new one.</p>		
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
+   * 	
    */
   public updateRule(
     args: UpdateRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateRuleCommandOutput>;
   public updateRule(
     args: UpdateRuleCommandInput,
@@ -3879,18 +3739,16 @@ export class WAF extends WAFClient {
   ): void;
   public updateRule(
     args: UpdateRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRuleCommandOutput) => void),
     cb?: (err: any, data?: UpdateRuleCommandOutput) => void
   ): Promise<UpdateRuleCommandOutput> | void {
     const command = new UpdateRuleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3901,8 +3759,8 @@ export class WAF extends WAFClient {
    *          <p>Inserts or deletes <a>ActivatedRule</a> objects in a <code>RuleGroup</code>.</p>
    * 	        <p>You can only insert <code>REGULAR</code> rules into a rule group.</p>
    *          <p>You can have a maximum of ten rules per rule group.</p>
-   *
-   *
+   * 	  	
+   *      	
    *          <p>To create and configure a <code>RuleGroup</code>, perform the following steps:</p>
    *          <ol>
    *             <li>
@@ -3920,14 +3778,14 @@ export class WAF extends WAFClient {
    *             </li>
    *          </ol>
    *          <p>If you want to replace one <code>Rule</code> with another, you delete the existing one and
-   *          add the new one.</p>
+   *          add the new one.</p>		
    *          <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
    *
    */
   public updateRuleGroup(
     args: UpdateRuleGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateRuleGroupCommandOutput>;
   public updateRuleGroup(
     args: UpdateRuleGroupCommandInput,
@@ -3940,18 +3798,16 @@ export class WAF extends WAFClient {
   ): void;
   public updateRuleGroup(
     args: UpdateRuleGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRuleGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRuleGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateRuleGroupCommandOutput) => void
   ): Promise<UpdateRuleGroupCommandOutput> | void {
     const command = new UpdateRuleGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4002,11 +3858,11 @@ export class WAF extends WAFClient {
    *          </ol>
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
+   * 	
    */
   public updateSizeConstraintSet(
     args: UpdateSizeConstraintSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateSizeConstraintSetCommandOutput>;
   public updateSizeConstraintSet(
     args: UpdateSizeConstraintSetCommandInput,
@@ -4019,18 +3875,16 @@ export class WAF extends WAFClient {
   ): void;
   public updateSizeConstraintSet(
     args: UpdateSizeConstraintSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSizeConstraintSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSizeConstraintSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateSizeConstraintSetCommandOutput) => void
   ): Promise<UpdateSizeConstraintSetCommandOutput> | void {
     const command = new UpdateSizeConstraintSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4080,11 +3934,11 @@ export class WAF extends WAFClient {
    *          </ol>
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
+   * 	
    */
   public updateSqlInjectionMatchSet(
     args: UpdateSqlInjectionMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateSqlInjectionMatchSetCommandOutput>;
   public updateSqlInjectionMatchSet(
     args: UpdateSqlInjectionMatchSetCommandInput,
@@ -4097,18 +3951,16 @@ export class WAF extends WAFClient {
   ): void;
   public updateSqlInjectionMatchSet(
     args: UpdateSqlInjectionMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSqlInjectionMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSqlInjectionMatchSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateSqlInjectionMatchSetCommandOutput) => void
   ): Promise<UpdateSqlInjectionMatchSetCommandOutput> | void {
     const command = new UpdateSqlInjectionMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4147,7 +3999,7 @@ export class WAF extends WAFClient {
    *                the <code>WebACL</code>, if any. </p>
    *             </li>
    *          </ul>
-   *
+   * 		
    * 		       <p>To create and configure a <code>WebACL</code>, perform the following steps:</p>
    * 		       <ol>
    *             <li>
@@ -4184,13 +4036,13 @@ export class WAF extends WAFClient {
    *                </p>
    *             </li>
    *          </ol>
-   *          <p>Be aware that if you try to add a RATE_BASED rule to a web ACL without setting the rule type when first creating the rule, the  <a>UpdateWebACL</a> request will fail because the request tries to add a REGULAR rule (the default rule type) with the specified ID, which does not exist. 		</p>
+   *          <p>Be aware that if you try to add a RATE_BASED rule to a web ACL without setting the rule type when first creating the rule, the  <a>UpdateWebACL</a> request will fail because the request tries to add a REGULAR rule (the default rule type) with the specified ID, which does not exist. 		</p>			
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
+   * 	
    */
   public updateWebACL(
     args: UpdateWebACLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateWebACLCommandOutput>;
   public updateWebACL(
     args: UpdateWebACLCommandInput,
@@ -4203,18 +4055,16 @@ export class WAF extends WAFClient {
   ): void;
   public updateWebACL(
     args: UpdateWebACLCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateWebACLCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWebACLCommandOutput) => void),
     cb?: (err: any, data?: UpdateWebACLCommandOutput) => void
   ): Promise<UpdateWebACLCommandOutput> | void {
     const command = new UpdateWebACLCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4249,7 +4099,7 @@ export class WAF extends WAFClient {
    *          you want to allow, block, or count. For example, if you're receiving
    *          requests that contain cross-site scripting attacks in the request body and you want to
    *          block the requests, you can create an <code>XssMatchSet</code> with the applicable
-   *          settings, and then configure AWS WAF to block the requests. </p>
+   *          settings, and then configure AWS WAF to block the requests. </p>		
    * 		       <p>To create and configure an <code>XssMatchSet</code>, perform the following steps:</p>
    * 		       <ol>
    *             <li>
@@ -4266,11 +4116,11 @@ export class WAF extends WAFClient {
    *          </ol>
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
-   *
+   * 	
    */
   public updateXssMatchSet(
     args: UpdateXssMatchSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateXssMatchSetCommandOutput>;
   public updateXssMatchSet(
     args: UpdateXssMatchSetCommandInput,
@@ -4283,20 +4133,19 @@ export class WAF extends WAFClient {
   ): void;
   public updateXssMatchSet(
     args: UpdateXssMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateXssMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateXssMatchSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateXssMatchSetCommandOutput) => void
   ): Promise<UpdateXssMatchSetCommandOutput> | void {
     const command = new UpdateXssMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

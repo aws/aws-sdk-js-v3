@@ -27,5 +27,5 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   runtime: "node",
   signingName: "firehose",
   credentialDefaultProvider,
-  regionDefaultProvider
+  regionDefaultProvider,
 };

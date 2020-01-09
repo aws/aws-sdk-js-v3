@@ -2,22 +2,22 @@ import { CodeGuruReviewerClient } from "./CodeGuruReviewerClient";
 import {
   AssociateRepositoryCommand,
   AssociateRepositoryCommandInput,
-  AssociateRepositoryCommandOutput
+  AssociateRepositoryCommandOutput,
 } from "./commands/AssociateRepositoryCommand";
 import {
   DescribeRepositoryAssociationCommand,
   DescribeRepositoryAssociationCommandInput,
-  DescribeRepositoryAssociationCommandOutput
+  DescribeRepositoryAssociationCommandOutput,
 } from "./commands/DescribeRepositoryAssociationCommand";
 import {
   DisassociateRepositoryCommand,
   DisassociateRepositoryCommandInput,
-  DisassociateRepositoryCommandOutput
+  DisassociateRepositoryCommandOutput,
 } from "./commands/DisassociateRepositoryCommand";
 import {
   ListRepositoryAssociationsCommand,
   ListRepositoryAssociationsCommandInput,
-  ListRepositoryAssociationsCommandOutput
+  ListRepositoryAssociationsCommandOutput,
 } from "./commands/ListRepositoryAssociationsCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -37,7 +37,7 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
    */
   public associateRepository(
     args: AssociateRepositoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<AssociateRepositoryCommandOutput>;
   public associateRepository(
     args: AssociateRepositoryCommandInput,
@@ -50,18 +50,16 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
   ): void;
   public associateRepository(
     args: AssociateRepositoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateRepositoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateRepositoryCommandOutput) => void),
     cb?: (err: any, data?: AssociateRepositoryCommandOutput) => void
   ): Promise<AssociateRepositoryCommandOutput> | void {
     const command = new AssociateRepositoryCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -74,7 +72,7 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
    */
   public describeRepositoryAssociation(
     args: DescribeRepositoryAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeRepositoryAssociationCommandOutput>;
   public describeRepositoryAssociation(
     args: DescribeRepositoryAssociationCommandInput,
@@ -87,18 +85,16 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
   ): void;
   public describeRepositoryAssociation(
     args: DescribeRepositoryAssociationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeRepositoryAssociationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRepositoryAssociationCommandOutput) => void),
     cb?: (err: any, data?: DescribeRepositoryAssociationCommandOutput) => void
   ): Promise<DescribeRepositoryAssociationCommandOutput> | void {
     const command = new DescribeRepositoryAssociationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -111,7 +107,7 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
    */
   public disassociateRepository(
     args: DisassociateRepositoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DisassociateRepositoryCommandOutput>;
   public disassociateRepository(
     args: DisassociateRepositoryCommandInput,
@@ -124,18 +120,16 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
   ): void;
   public disassociateRepository(
     args: DisassociateRepositoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateRepositoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateRepositoryCommandOutput) => void),
     cb?: (err: any, data?: DisassociateRepositoryCommandOutput) => void
   ): Promise<DisassociateRepositoryCommandOutput> | void {
     const command = new DisassociateRepositoryCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -149,7 +143,7 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
    */
   public listRepositoryAssociations(
     args: ListRepositoryAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListRepositoryAssociationsCommandOutput>;
   public listRepositoryAssociations(
     args: ListRepositoryAssociationsCommandInput,
@@ -162,20 +156,19 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
   ): void;
   public listRepositoryAssociations(
     args: ListRepositoryAssociationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRepositoryAssociationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRepositoryAssociationsCommandOutput) => void),
     cb?: (err: any, data?: ListRepositoryAssociationsCommandOutput) => void
   ): Promise<ListRepositoryAssociationsCommandOutput> | void {
     const command = new ListRepositoryAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

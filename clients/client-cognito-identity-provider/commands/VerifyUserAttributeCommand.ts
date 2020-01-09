@@ -1,20 +1,20 @@
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import {
   VerifyUserAttributeRequest,
-  VerifyUserAttributeResponse
+  VerifyUserAttributeResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1VerifyUserAttributeCommand,
-  serializeAws_json1_1VerifyUserAttributeCommand
+  serializeAws_json1_1VerifyUserAttributeCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type VerifyUserAttributeCommandInput = VerifyUserAttributeRequest;
 export type VerifyUserAttributeCommandOutput = VerifyUserAttributeResponse;
 
-export class VerifyUserAttributeCommand extends $Command<
-  VerifyUserAttributeCommandInput,
-  VerifyUserAttributeCommandOutput,
-  CognitoIdentityProviderClientResolvedConfig
-> {
+export class VerifyUserAttributeCommand extends $Command<VerifyUserAttributeCommandInput, VerifyUserAttributeCommandOutput, CognitoIdentityProviderClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class VerifyUserAttributeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    VerifyUserAttributeCommandInput,
-    VerifyUserAttributeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<VerifyUserAttributeCommandInput, VerifyUserAttributeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

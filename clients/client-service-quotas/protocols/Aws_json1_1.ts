@@ -510,7 +510,7 @@ async function deserializeAws_json1_1AssociateServiceQuotaTemplateCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -547,7 +547,6 @@ async function deserializeAws_json1_1AssociateServiceQuotaTemplateCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
@@ -585,7 +584,7 @@ async function deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTempla
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -626,7 +625,6 @@ async function deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTempla
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
@@ -664,7 +662,7 @@ async function deserializeAws_json1_1DisassociateServiceQuotaTemplateCommandErro
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -701,7 +699,6 @@ async function deserializeAws_json1_1DisassociateServiceQuotaTemplateCommandErro
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
@@ -739,7 +736,7 @@ async function deserializeAws_json1_1GetAWSDefaultServiceQuotaCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -764,7 +761,6 @@ async function deserializeAws_json1_1GetAWSDefaultServiceQuotaCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
@@ -802,7 +798,7 @@ async function deserializeAws_json1_1GetAssociationForServiceQuotaTemplateComman
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -839,7 +835,6 @@ async function deserializeAws_json1_1GetAssociationForServiceQuotaTemplateComman
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
@@ -877,7 +872,7 @@ async function deserializeAws_json1_1GetRequestedServiceQuotaChangeCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -902,7 +897,6 @@ async function deserializeAws_json1_1GetRequestedServiceQuotaChangeCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
@@ -940,7 +934,7 @@ async function deserializeAws_json1_1GetServiceQuotaCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -965,7 +959,6 @@ async function deserializeAws_json1_1GetServiceQuotaCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
@@ -1003,7 +996,7 @@ async function deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateC
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1044,7 +1037,6 @@ async function deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateC
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
@@ -1082,7 +1074,7 @@ async function deserializeAws_json1_1ListAWSDefaultServiceQuotasCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1111,7 +1103,6 @@ async function deserializeAws_json1_1ListAWSDefaultServiceQuotasCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
@@ -1149,7 +1140,7 @@ async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryComma
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1178,7 +1169,6 @@ async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryComma
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
@@ -1216,7 +1206,7 @@ async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuo
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1245,7 +1235,6 @@ async function deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuo
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
@@ -1283,7 +1272,7 @@ async function deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateC
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1320,7 +1309,6 @@ async function deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateC
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
@@ -1358,7 +1346,7 @@ async function deserializeAws_json1_1ListServiceQuotasCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1387,7 +1375,6 @@ async function deserializeAws_json1_1ListServiceQuotasCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
@@ -1425,7 +1412,7 @@ async function deserializeAws_json1_1ListServicesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1450,7 +1437,6 @@ async function deserializeAws_json1_1ListServicesCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
@@ -1488,7 +1474,7 @@ async function deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateC
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1533,7 +1519,6 @@ async function deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateC
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",
@@ -1571,7 +1556,7 @@ async function deserializeAws_json1_1RequestServiceQuotaIncreaseCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1612,7 +1597,6 @@ async function deserializeAws_json1_1RequestServiceQuotaIncreaseCommandError(
       response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servicequotas#${errorCode}`,
         $fault: "client",

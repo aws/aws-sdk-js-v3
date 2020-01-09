@@ -6,9 +6,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>An internal failure occured.</p>
  *
  */
-export interface InternalFailureException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalFailureException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalFailureException";
   $fault: "server";
   /**
@@ -30,9 +28,7 @@ export namespace InternalFailureException {
  *          <p>The request was invalid.</p>
  *
  */
-export interface InvalidRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRequestException";
   $fault: "client";
   /**
@@ -54,9 +50,7 @@ export namespace InvalidRequestException {
  *          <p>The resource was not found.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -78,9 +72,7 @@ export namespace ResourceNotFoundException {
  *          <p>The service is currently unavailable.</p>
  *
  */
-export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceUnavailableException";
   $fault: "server";
   /**
@@ -102,9 +94,7 @@ export namespace ServiceUnavailableException {
  *          <p>The request could not be completed due to throttling.</p>
  *
  */
-export interface ThrottlingException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ThrottlingException";
   $fault: "client";
   /**
@@ -510,7 +500,7 @@ export enum ErrorCode {
   InvalidRequestException = "InvalidRequestException",
   ResourceNotFoundException = "ResourceNotFoundException",
   ServiceUnavailableException = "ServiceUnavailableException",
-  ThrottlingException = "ThrottlingException"
+  ThrottlingException = "ThrottlingException",
 }
 
 export interface ListDetectorsRequest {

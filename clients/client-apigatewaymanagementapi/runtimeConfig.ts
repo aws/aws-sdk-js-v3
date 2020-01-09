@@ -27,5 +27,5 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   runtime: "node",
   signingName: "execute-api",
   credentialDefaultProvider,
-  regionDefaultProvider
+  regionDefaultProvider,
 };

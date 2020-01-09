@@ -2,242 +2,242 @@ import { ECSClient } from "./ECSClient";
 import {
   CreateCapacityProviderCommand,
   CreateCapacityProviderCommandInput,
-  CreateCapacityProviderCommandOutput
+  CreateCapacityProviderCommandOutput,
 } from "./commands/CreateCapacityProviderCommand";
 import {
   CreateClusterCommand,
   CreateClusterCommandInput,
-  CreateClusterCommandOutput
+  CreateClusterCommandOutput,
 } from "./commands/CreateClusterCommand";
 import {
   CreateServiceCommand,
   CreateServiceCommandInput,
-  CreateServiceCommandOutput
+  CreateServiceCommandOutput,
 } from "./commands/CreateServiceCommand";
 import {
   CreateTaskSetCommand,
   CreateTaskSetCommandInput,
-  CreateTaskSetCommandOutput
+  CreateTaskSetCommandOutput,
 } from "./commands/CreateTaskSetCommand";
 import {
   DeleteAccountSettingCommand,
   DeleteAccountSettingCommandInput,
-  DeleteAccountSettingCommandOutput
+  DeleteAccountSettingCommandOutput,
 } from "./commands/DeleteAccountSettingCommand";
 import {
   DeleteAttributesCommand,
   DeleteAttributesCommandInput,
-  DeleteAttributesCommandOutput
+  DeleteAttributesCommandOutput,
 } from "./commands/DeleteAttributesCommand";
 import {
   DeleteClusterCommand,
   DeleteClusterCommandInput,
-  DeleteClusterCommandOutput
+  DeleteClusterCommandOutput,
 } from "./commands/DeleteClusterCommand";
 import {
   DeleteServiceCommand,
   DeleteServiceCommandInput,
-  DeleteServiceCommandOutput
+  DeleteServiceCommandOutput,
 } from "./commands/DeleteServiceCommand";
 import {
   DeleteTaskSetCommand,
   DeleteTaskSetCommandInput,
-  DeleteTaskSetCommandOutput
+  DeleteTaskSetCommandOutput,
 } from "./commands/DeleteTaskSetCommand";
 import {
   DeregisterContainerInstanceCommand,
   DeregisterContainerInstanceCommandInput,
-  DeregisterContainerInstanceCommandOutput
+  DeregisterContainerInstanceCommandOutput,
 } from "./commands/DeregisterContainerInstanceCommand";
 import {
   DeregisterTaskDefinitionCommand,
   DeregisterTaskDefinitionCommandInput,
-  DeregisterTaskDefinitionCommandOutput
+  DeregisterTaskDefinitionCommandOutput,
 } from "./commands/DeregisterTaskDefinitionCommand";
 import {
   DescribeCapacityProvidersCommand,
   DescribeCapacityProvidersCommandInput,
-  DescribeCapacityProvidersCommandOutput
+  DescribeCapacityProvidersCommandOutput,
 } from "./commands/DescribeCapacityProvidersCommand";
 import {
   DescribeClustersCommand,
   DescribeClustersCommandInput,
-  DescribeClustersCommandOutput
+  DescribeClustersCommandOutput,
 } from "./commands/DescribeClustersCommand";
 import {
   DescribeContainerInstancesCommand,
   DescribeContainerInstancesCommandInput,
-  DescribeContainerInstancesCommandOutput
+  DescribeContainerInstancesCommandOutput,
 } from "./commands/DescribeContainerInstancesCommand";
 import {
   DescribeServicesCommand,
   DescribeServicesCommandInput,
-  DescribeServicesCommandOutput
+  DescribeServicesCommandOutput,
 } from "./commands/DescribeServicesCommand";
 import {
   DescribeTaskDefinitionCommand,
   DescribeTaskDefinitionCommandInput,
-  DescribeTaskDefinitionCommandOutput
+  DescribeTaskDefinitionCommandOutput,
 } from "./commands/DescribeTaskDefinitionCommand";
 import {
   DescribeTaskSetsCommand,
   DescribeTaskSetsCommandInput,
-  DescribeTaskSetsCommandOutput
+  DescribeTaskSetsCommandOutput,
 } from "./commands/DescribeTaskSetsCommand";
 import {
   DescribeTasksCommand,
   DescribeTasksCommandInput,
-  DescribeTasksCommandOutput
+  DescribeTasksCommandOutput,
 } from "./commands/DescribeTasksCommand";
 import {
   DiscoverPollEndpointCommand,
   DiscoverPollEndpointCommandInput,
-  DiscoverPollEndpointCommandOutput
+  DiscoverPollEndpointCommandOutput,
 } from "./commands/DiscoverPollEndpointCommand";
 import {
   ListAccountSettingsCommand,
   ListAccountSettingsCommandInput,
-  ListAccountSettingsCommandOutput
+  ListAccountSettingsCommandOutput,
 } from "./commands/ListAccountSettingsCommand";
 import {
   ListAttributesCommand,
   ListAttributesCommandInput,
-  ListAttributesCommandOutput
+  ListAttributesCommandOutput,
 } from "./commands/ListAttributesCommand";
 import {
   ListClustersCommand,
   ListClustersCommandInput,
-  ListClustersCommandOutput
+  ListClustersCommandOutput,
 } from "./commands/ListClustersCommand";
 import {
   ListContainerInstancesCommand,
   ListContainerInstancesCommandInput,
-  ListContainerInstancesCommandOutput
+  ListContainerInstancesCommandOutput,
 } from "./commands/ListContainerInstancesCommand";
 import {
   ListServicesCommand,
   ListServicesCommandInput,
-  ListServicesCommandOutput
+  ListServicesCommandOutput,
 } from "./commands/ListServicesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   ListTaskDefinitionFamiliesCommand,
   ListTaskDefinitionFamiliesCommandInput,
-  ListTaskDefinitionFamiliesCommandOutput
+  ListTaskDefinitionFamiliesCommandOutput,
 } from "./commands/ListTaskDefinitionFamiliesCommand";
 import {
   ListTaskDefinitionsCommand,
   ListTaskDefinitionsCommandInput,
-  ListTaskDefinitionsCommandOutput
+  ListTaskDefinitionsCommandOutput,
 } from "./commands/ListTaskDefinitionsCommand";
 import {
   ListTasksCommand,
   ListTasksCommandInput,
-  ListTasksCommandOutput
+  ListTasksCommandOutput,
 } from "./commands/ListTasksCommand";
 import {
   PutAccountSettingCommand,
   PutAccountSettingCommandInput,
-  PutAccountSettingCommandOutput
+  PutAccountSettingCommandOutput,
 } from "./commands/PutAccountSettingCommand";
 import {
   PutAccountSettingDefaultCommand,
   PutAccountSettingDefaultCommandInput,
-  PutAccountSettingDefaultCommandOutput
+  PutAccountSettingDefaultCommandOutput,
 } from "./commands/PutAccountSettingDefaultCommand";
 import {
   PutAttributesCommand,
   PutAttributesCommandInput,
-  PutAttributesCommandOutput
+  PutAttributesCommandOutput,
 } from "./commands/PutAttributesCommand";
 import {
   PutClusterCapacityProvidersCommand,
   PutClusterCapacityProvidersCommandInput,
-  PutClusterCapacityProvidersCommandOutput
+  PutClusterCapacityProvidersCommandOutput,
 } from "./commands/PutClusterCapacityProvidersCommand";
 import {
   RegisterContainerInstanceCommand,
   RegisterContainerInstanceCommandInput,
-  RegisterContainerInstanceCommandOutput
+  RegisterContainerInstanceCommandOutput,
 } from "./commands/RegisterContainerInstanceCommand";
 import {
   RegisterTaskDefinitionCommand,
   RegisterTaskDefinitionCommandInput,
-  RegisterTaskDefinitionCommandOutput
+  RegisterTaskDefinitionCommandOutput,
 } from "./commands/RegisterTaskDefinitionCommand";
 import {
   RunTaskCommand,
   RunTaskCommandInput,
-  RunTaskCommandOutput
+  RunTaskCommandOutput,
 } from "./commands/RunTaskCommand";
 import {
   StartTaskCommand,
   StartTaskCommandInput,
-  StartTaskCommandOutput
+  StartTaskCommandOutput,
 } from "./commands/StartTaskCommand";
 import {
   StopTaskCommand,
   StopTaskCommandInput,
-  StopTaskCommandOutput
+  StopTaskCommandOutput,
 } from "./commands/StopTaskCommand";
 import {
   SubmitAttachmentStateChangesCommand,
   SubmitAttachmentStateChangesCommandInput,
-  SubmitAttachmentStateChangesCommandOutput
+  SubmitAttachmentStateChangesCommandOutput,
 } from "./commands/SubmitAttachmentStateChangesCommand";
 import {
   SubmitContainerStateChangeCommand,
   SubmitContainerStateChangeCommandInput,
-  SubmitContainerStateChangeCommandOutput
+  SubmitContainerStateChangeCommandOutput,
 } from "./commands/SubmitContainerStateChangeCommand";
 import {
   SubmitTaskStateChangeCommand,
   SubmitTaskStateChangeCommandInput,
-  SubmitTaskStateChangeCommandOutput
+  SubmitTaskStateChangeCommandOutput,
 } from "./commands/SubmitTaskStateChangeCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateClusterSettingsCommand,
   UpdateClusterSettingsCommandInput,
-  UpdateClusterSettingsCommandOutput
+  UpdateClusterSettingsCommandOutput,
 } from "./commands/UpdateClusterSettingsCommand";
 import {
   UpdateContainerAgentCommand,
   UpdateContainerAgentCommandInput,
-  UpdateContainerAgentCommandOutput
+  UpdateContainerAgentCommandOutput,
 } from "./commands/UpdateContainerAgentCommand";
 import {
   UpdateContainerInstancesStateCommand,
   UpdateContainerInstancesStateCommandInput,
-  UpdateContainerInstancesStateCommandOutput
+  UpdateContainerInstancesStateCommandOutput,
 } from "./commands/UpdateContainerInstancesStateCommand";
 import {
   UpdateServiceCommand,
   UpdateServiceCommandInput,
-  UpdateServiceCommandOutput
+  UpdateServiceCommandOutput,
 } from "./commands/UpdateServiceCommand";
 import {
   UpdateServicePrimaryTaskSetCommand,
   UpdateServicePrimaryTaskSetCommandInput,
-  UpdateServicePrimaryTaskSetCommandOutput
+  UpdateServicePrimaryTaskSetCommandOutput,
 } from "./commands/UpdateServicePrimaryTaskSetCommand";
 import {
   UpdateTaskSetCommand,
   UpdateTaskSetCommandInput,
-  UpdateTaskSetCommandOutput
+  UpdateTaskSetCommandOutput,
 } from "./commands/UpdateTaskSetCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -274,7 +274,7 @@ export class ECS extends ECSClient {
    */
   public createCapacityProvider(
     args: CreateCapacityProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateCapacityProviderCommandOutput>;
   public createCapacityProvider(
     args: CreateCapacityProviderCommandInput,
@@ -287,18 +287,16 @@ export class ECS extends ECSClient {
   ): void;
   public createCapacityProvider(
     args: CreateCapacityProviderCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateCapacityProviderCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCapacityProviderCommandOutput) => void),
     cb?: (err: any, data?: CreateCapacityProviderCommandOutput) => void
   ): Promise<CreateCapacityProviderCommandOutput> | void {
     const command = new CreateCapacityProviderCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -323,7 +321,7 @@ export class ECS extends ECSClient {
    */
   public createCluster(
     args: CreateClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateClusterCommandOutput>;
   public createCluster(
     args: CreateClusterCommandInput,
@@ -336,18 +334,16 @@ export class ECS extends ECSClient {
   ): void;
   public createCluster(
     args: CreateClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateClusterCommandOutput) => void),
     cb?: (err: any, data?: CreateClusterCommandOutput) => void
   ): Promise<CreateClusterCommandOutput> | void {
     const command = new CreateClusterCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -464,7 +460,7 @@ export class ECS extends ECSClient {
    */
   public createService(
     args: CreateServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateServiceCommandOutput>;
   public createService(
     args: CreateServiceCommandInput,
@@ -477,18 +473,16 @@ export class ECS extends ECSClient {
   ): void;
   public createService(
     args: CreateServiceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateServiceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateServiceCommandOutput) => void),
     cb?: (err: any, data?: CreateServiceCommandOutput) => void
   ): Promise<CreateServiceCommandOutput> | void {
     const command = new CreateServiceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -504,7 +498,7 @@ export class ECS extends ECSClient {
    */
   public createTaskSet(
     args: CreateTaskSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateTaskSetCommandOutput>;
   public createTaskSet(
     args: CreateTaskSetCommandInput,
@@ -517,18 +511,16 @@ export class ECS extends ECSClient {
   ): void;
   public createTaskSet(
     args: CreateTaskSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTaskSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTaskSetCommandOutput) => void),
     cb?: (err: any, data?: CreateTaskSetCommandOutput) => void
   ): Promise<CreateTaskSetCommandOutput> | void {
     const command = new CreateTaskSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -542,7 +534,7 @@ export class ECS extends ECSClient {
    */
   public deleteAccountSetting(
     args: DeleteAccountSettingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteAccountSettingCommandOutput>;
   public deleteAccountSetting(
     args: DeleteAccountSettingCommandInput,
@@ -555,18 +547,16 @@ export class ECS extends ECSClient {
   ): void;
   public deleteAccountSetting(
     args: DeleteAccountSettingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAccountSettingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAccountSettingCommandOutput) => void),
     cb?: (err: any, data?: DeleteAccountSettingCommandOutput) => void
   ): Promise<DeleteAccountSettingCommandOutput> | void {
     const command = new DeleteAccountSettingCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -580,7 +570,7 @@ export class ECS extends ECSClient {
    */
   public deleteAttributes(
     args: DeleteAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteAttributesCommandOutput>;
   public deleteAttributes(
     args: DeleteAttributesCommandInput,
@@ -593,18 +583,16 @@ export class ECS extends ECSClient {
   ): void;
   public deleteAttributes(
     args: DeleteAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAttributesCommandOutput) => void),
     cb?: (err: any, data?: DeleteAttributesCommandOutput) => void
   ): Promise<DeleteAttributesCommandOutput> | void {
     const command = new DeleteAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -620,7 +608,7 @@ export class ECS extends ECSClient {
    */
   public deleteCluster(
     args: DeleteClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteClusterCommandOutput>;
   public deleteCluster(
     args: DeleteClusterCommandInput,
@@ -633,18 +621,16 @@ export class ECS extends ECSClient {
   ): void;
   public deleteCluster(
     args: DeleteClusterCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteClusterCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteClusterCommandOutput) => void),
     cb?: (err: any, data?: DeleteClusterCommandOutput) => void
   ): Promise<DeleteClusterCommandOutput> | void {
     const command = new DeleteClusterCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -678,7 +664,7 @@ export class ECS extends ECSClient {
    */
   public deleteService(
     args: DeleteServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteServiceCommandOutput>;
   public deleteService(
     args: DeleteServiceCommandInput,
@@ -691,18 +677,16 @@ export class ECS extends ECSClient {
   ): void;
   public deleteService(
     args: DeleteServiceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteServiceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteServiceCommandOutput) => void),
     cb?: (err: any, data?: DeleteServiceCommandOutput) => void
   ): Promise<DeleteServiceCommandOutput> | void {
     const command = new DeleteServiceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -716,7 +700,7 @@ export class ECS extends ECSClient {
    */
   public deleteTaskSet(
     args: DeleteTaskSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteTaskSetCommandOutput>;
   public deleteTaskSet(
     args: DeleteTaskSetCommandInput,
@@ -729,18 +713,16 @@ export class ECS extends ECSClient {
   ): void;
   public deleteTaskSet(
     args: DeleteTaskSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTaskSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTaskSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteTaskSetCommandOutput) => void
   ): Promise<DeleteTaskSetCommandOutput> | void {
     const command = new DeleteTaskSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -766,7 +748,7 @@ export class ECS extends ECSClient {
    */
   public deregisterContainerInstance(
     args: DeregisterContainerInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeregisterContainerInstanceCommandOutput>;
   public deregisterContainerInstance(
     args: DeregisterContainerInstanceCommandInput,
@@ -779,18 +761,16 @@ export class ECS extends ECSClient {
   ): void;
   public deregisterContainerInstance(
     args: DeregisterContainerInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterContainerInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterContainerInstanceCommandOutput) => void),
     cb?: (err: any, data?: DeregisterContainerInstanceCommandOutput) => void
   ): Promise<DeregisterContainerInstanceCommandOutput> | void {
     const command = new DeregisterContainerInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -819,7 +799,7 @@ export class ECS extends ECSClient {
    */
   public deregisterTaskDefinition(
     args: DeregisterTaskDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeregisterTaskDefinitionCommandOutput>;
   public deregisterTaskDefinition(
     args: DeregisterTaskDefinitionCommandInput,
@@ -832,18 +812,16 @@ export class ECS extends ECSClient {
   ): void;
   public deregisterTaskDefinition(
     args: DeregisterTaskDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterTaskDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterTaskDefinitionCommandOutput) => void),
     cb?: (err: any, data?: DeregisterTaskDefinitionCommandOutput) => void
   ): Promise<DeregisterTaskDefinitionCommandOutput> | void {
     const command = new DeregisterTaskDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -856,7 +834,7 @@ export class ECS extends ECSClient {
    */
   public describeCapacityProviders(
     args: DescribeCapacityProvidersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeCapacityProvidersCommandOutput>;
   public describeCapacityProviders(
     args: DescribeCapacityProvidersCommandInput,
@@ -869,18 +847,16 @@ export class ECS extends ECSClient {
   ): void;
   public describeCapacityProviders(
     args: DescribeCapacityProvidersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCapacityProvidersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCapacityProvidersCommandOutput) => void),
     cb?: (err: any, data?: DescribeCapacityProvidersCommandOutput) => void
   ): Promise<DescribeCapacityProvidersCommandOutput> | void {
     const command = new DescribeCapacityProvidersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -894,7 +870,7 @@ export class ECS extends ECSClient {
    */
   public describeClusters(
     args: DescribeClustersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeClustersCommandOutput>;
   public describeClusters(
     args: DescribeClustersCommandInput,
@@ -907,18 +883,16 @@ export class ECS extends ECSClient {
   ): void;
   public describeClusters(
     args: DescribeClustersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeClustersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClustersCommandOutput) => void),
     cb?: (err: any, data?: DescribeClustersCommandOutput) => void
   ): Promise<DescribeClustersCommandOutput> | void {
     const command = new DescribeClustersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -933,7 +907,7 @@ export class ECS extends ECSClient {
    */
   public describeContainerInstances(
     args: DescribeContainerInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeContainerInstancesCommandOutput>;
   public describeContainerInstances(
     args: DescribeContainerInstancesCommandInput,
@@ -946,18 +920,16 @@ export class ECS extends ECSClient {
   ): void;
   public describeContainerInstances(
     args: DescribeContainerInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeContainerInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeContainerInstancesCommandOutput) => void),
     cb?: (err: any, data?: DescribeContainerInstancesCommandOutput) => void
   ): Promise<DescribeContainerInstancesCommandOutput> | void {
     const command = new DescribeContainerInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -971,7 +943,7 @@ export class ECS extends ECSClient {
    */
   public describeServices(
     args: DescribeServicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeServicesCommandOutput>;
   public describeServices(
     args: DescribeServicesCommandInput,
@@ -984,18 +956,16 @@ export class ECS extends ECSClient {
   ): void;
   public describeServices(
     args: DescribeServicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeServicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeServicesCommandOutput) => void),
     cb?: (err: any, data?: DescribeServicesCommandOutput) => void
   ): Promise<DescribeServicesCommandOutput> | void {
     const command = new DescribeServicesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1016,7 +986,7 @@ export class ECS extends ECSClient {
    */
   public describeTaskDefinition(
     args: DescribeTaskDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeTaskDefinitionCommandOutput>;
   public describeTaskDefinition(
     args: DescribeTaskDefinitionCommandInput,
@@ -1029,18 +999,16 @@ export class ECS extends ECSClient {
   ): void;
   public describeTaskDefinition(
     args: DescribeTaskDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTaskDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTaskDefinitionCommandOutput) => void),
     cb?: (err: any, data?: DescribeTaskDefinitionCommandOutput) => void
   ): Promise<DescribeTaskDefinitionCommandOutput> | void {
     const command = new DescribeTaskDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1056,7 +1024,7 @@ export class ECS extends ECSClient {
    */
   public describeTaskSets(
     args: DescribeTaskSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeTaskSetsCommandOutput>;
   public describeTaskSets(
     args: DescribeTaskSetsCommandInput,
@@ -1069,18 +1037,16 @@ export class ECS extends ECSClient {
   ): void;
   public describeTaskSets(
     args: DescribeTaskSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTaskSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTaskSetsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTaskSetsCommandOutput) => void
   ): Promise<DescribeTaskSetsCommandOutput> | void {
     const command = new DescribeTaskSetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1094,7 +1060,7 @@ export class ECS extends ECSClient {
    */
   public describeTasks(
     args: DescribeTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeTasksCommandOutput>;
   public describeTasks(
     args: DescribeTasksCommandInput,
@@ -1107,18 +1073,16 @@ export class ECS extends ECSClient {
   ): void;
   public describeTasks(
     args: DescribeTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTasksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTasksCommandOutput) => void),
     cb?: (err: any, data?: DescribeTasksCommandOutput) => void
   ): Promise<DescribeTasksCommandOutput> | void {
     const command = new DescribeTasksCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1135,7 +1099,7 @@ export class ECS extends ECSClient {
    */
   public discoverPollEndpoint(
     args: DiscoverPollEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DiscoverPollEndpointCommandOutput>;
   public discoverPollEndpoint(
     args: DiscoverPollEndpointCommandInput,
@@ -1148,18 +1112,16 @@ export class ECS extends ECSClient {
   ): void;
   public discoverPollEndpoint(
     args: DiscoverPollEndpointCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DiscoverPollEndpointCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DiscoverPollEndpointCommandOutput) => void),
     cb?: (err: any, data?: DiscoverPollEndpointCommandOutput) => void
   ): Promise<DiscoverPollEndpointCommandOutput> | void {
     const command = new DiscoverPollEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1172,7 +1134,7 @@ export class ECS extends ECSClient {
    */
   public listAccountSettings(
     args: ListAccountSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListAccountSettingsCommandOutput>;
   public listAccountSettings(
     args: ListAccountSettingsCommandInput,
@@ -1185,18 +1147,16 @@ export class ECS extends ECSClient {
   ): void;
   public listAccountSettings(
     args: ListAccountSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAccountSettingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAccountSettingsCommandOutput) => void),
     cb?: (err: any, data?: ListAccountSettingsCommandOutput) => void
   ): Promise<ListAccountSettingsCommandOutput> | void {
     const command = new ListAccountSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1216,7 +1176,7 @@ export class ECS extends ECSClient {
    */
   public listAttributes(
     args: ListAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListAttributesCommandOutput>;
   public listAttributes(
     args: ListAttributesCommandInput,
@@ -1229,18 +1189,16 @@ export class ECS extends ECSClient {
   ): void;
   public listAttributes(
     args: ListAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAttributesCommandOutput) => void),
     cb?: (err: any, data?: ListAttributesCommandOutput) => void
   ): Promise<ListAttributesCommandOutput> | void {
     const command = new ListAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1254,7 +1212,7 @@ export class ECS extends ECSClient {
    */
   public listClusters(
     args: ListClustersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListClustersCommandOutput>;
   public listClusters(
     args: ListClustersCommandInput,
@@ -1267,18 +1225,16 @@ export class ECS extends ECSClient {
   ): void;
   public listClusters(
     args: ListClustersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListClustersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListClustersCommandOutput) => void),
     cb?: (err: any, data?: ListClustersCommandOutput) => void
   ): Promise<ListClustersCommandOutput> | void {
     const command = new ListClustersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1295,7 +1251,7 @@ export class ECS extends ECSClient {
    */
   public listContainerInstances(
     args: ListContainerInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListContainerInstancesCommandOutput>;
   public listContainerInstances(
     args: ListContainerInstancesCommandInput,
@@ -1308,18 +1264,16 @@ export class ECS extends ECSClient {
   ): void;
   public listContainerInstances(
     args: ListContainerInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListContainerInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListContainerInstancesCommandOutput) => void),
     cb?: (err: any, data?: ListContainerInstancesCommandOutput) => void
   ): Promise<ListContainerInstancesCommandOutput> | void {
     const command = new ListContainerInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1333,7 +1287,7 @@ export class ECS extends ECSClient {
    */
   public listServices(
     args: ListServicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListServicesCommandOutput>;
   public listServices(
     args: ListServicesCommandInput,
@@ -1346,18 +1300,16 @@ export class ECS extends ECSClient {
   ): void;
   public listServices(
     args: ListServicesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListServicesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListServicesCommandOutput) => void),
     cb?: (err: any, data?: ListServicesCommandOutput) => void
   ): Promise<ListServicesCommandOutput> | void {
     const command = new ListServicesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1371,7 +1323,7 @@ export class ECS extends ECSClient {
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListTagsForResourceCommandOutput>;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1384,18 +1336,16 @@ export class ECS extends ECSClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1415,7 +1365,7 @@ export class ECS extends ECSClient {
    */
   public listTaskDefinitionFamilies(
     args: ListTaskDefinitionFamiliesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListTaskDefinitionFamiliesCommandOutput>;
   public listTaskDefinitionFamilies(
     args: ListTaskDefinitionFamiliesCommandInput,
@@ -1428,18 +1378,16 @@ export class ECS extends ECSClient {
   ): void;
   public listTaskDefinitionFamilies(
     args: ListTaskDefinitionFamiliesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTaskDefinitionFamiliesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTaskDefinitionFamiliesCommandOutput) => void),
     cb?: (err: any, data?: ListTaskDefinitionFamiliesCommandOutput) => void
   ): Promise<ListTaskDefinitionFamiliesCommandOutput> | void {
     const command = new ListTaskDefinitionFamiliesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1455,7 +1403,7 @@ export class ECS extends ECSClient {
    */
   public listTaskDefinitions(
     args: ListTaskDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListTaskDefinitionsCommandOutput>;
   public listTaskDefinitions(
     args: ListTaskDefinitionsCommandInput,
@@ -1468,18 +1416,16 @@ export class ECS extends ECSClient {
   ): void;
   public listTaskDefinitions(
     args: ListTaskDefinitionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTaskDefinitionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTaskDefinitionsCommandOutput) => void),
     cb?: (err: any, data?: ListTaskDefinitionsCommandOutput) => void
   ): Promise<ListTaskDefinitionsCommandOutput> | void {
     const command = new ListTaskDefinitionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1498,7 +1444,7 @@ export class ECS extends ECSClient {
    */
   public listTasks(
     args: ListTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListTasksCommandOutput>;
   public listTasks(
     args: ListTasksCommandInput,
@@ -1511,18 +1457,16 @@ export class ECS extends ECSClient {
   ): void;
   public listTasks(
     args: ListTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTasksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTasksCommandOutput) => void),
     cb?: (err: any, data?: ListTasksCommandOutput) => void
   ): Promise<ListTasksCommandOutput> | void {
     const command = new ListTasksCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1558,7 +1502,7 @@ export class ECS extends ECSClient {
    */
   public putAccountSetting(
     args: PutAccountSettingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<PutAccountSettingCommandOutput>;
   public putAccountSetting(
     args: PutAccountSettingCommandInput,
@@ -1571,18 +1515,16 @@ export class ECS extends ECSClient {
   ): void;
   public putAccountSetting(
     args: PutAccountSettingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutAccountSettingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAccountSettingCommandOutput) => void),
     cb?: (err: any, data?: PutAccountSettingCommandOutput) => void
   ): Promise<PutAccountSettingCommandOutput> | void {
     const command = new PutAccountSettingCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1597,7 +1539,7 @@ export class ECS extends ECSClient {
    */
   public putAccountSettingDefault(
     args: PutAccountSettingDefaultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<PutAccountSettingDefaultCommandOutput>;
   public putAccountSettingDefault(
     args: PutAccountSettingDefaultCommandInput,
@@ -1610,18 +1552,16 @@ export class ECS extends ECSClient {
   ): void;
   public putAccountSettingDefault(
     args: PutAccountSettingDefaultCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutAccountSettingDefaultCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAccountSettingDefaultCommandOutput) => void),
     cb?: (err: any, data?: PutAccountSettingDefaultCommandOutput) => void
   ): Promise<PutAccountSettingDefaultCommandOutput> | void {
     const command = new PutAccountSettingDefaultCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1639,7 +1579,7 @@ export class ECS extends ECSClient {
    */
   public putAttributes(
     args: PutAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<PutAttributesCommandOutput>;
   public putAttributes(
     args: PutAttributesCommandInput,
@@ -1652,18 +1592,16 @@ export class ECS extends ECSClient {
   ): void;
   public putAttributes(
     args: PutAttributesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutAttributesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAttributesCommandOutput) => void),
     cb?: (err: any, data?: PutAttributesCommandOutput) => void
   ): Promise<PutAttributesCommandOutput> | void {
     const command = new PutAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1689,7 +1627,7 @@ export class ECS extends ECSClient {
    */
   public putClusterCapacityProviders(
     args: PutClusterCapacityProvidersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<PutClusterCapacityProvidersCommandOutput>;
   public putClusterCapacityProviders(
     args: PutClusterCapacityProvidersCommandInput,
@@ -1702,18 +1640,16 @@ export class ECS extends ECSClient {
   ): void;
   public putClusterCapacityProviders(
     args: PutClusterCapacityProvidersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutClusterCapacityProvidersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutClusterCapacityProvidersCommandOutput) => void),
     cb?: (err: any, data?: PutClusterCapacityProvidersCommandOutput) => void
   ): Promise<PutClusterCapacityProvidersCommandOutput> | void {
     const command = new PutClusterCapacityProvidersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1731,7 +1667,7 @@ export class ECS extends ECSClient {
    */
   public registerContainerInstance(
     args: RegisterContainerInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<RegisterContainerInstanceCommandOutput>;
   public registerContainerInstance(
     args: RegisterContainerInstanceCommandInput,
@@ -1744,18 +1680,16 @@ export class ECS extends ECSClient {
   ): void;
   public registerContainerInstance(
     args: RegisterContainerInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterContainerInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterContainerInstanceCommandOutput) => void),
     cb?: (err: any, data?: RegisterContainerInstanceCommandOutput) => void
   ): Promise<RegisterContainerInstanceCommandOutput> | void {
     const command = new RegisterContainerInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1786,7 +1720,7 @@ export class ECS extends ECSClient {
    */
   public registerTaskDefinition(
     args: RegisterTaskDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<RegisterTaskDefinitionCommandOutput>;
   public registerTaskDefinition(
     args: RegisterTaskDefinitionCommandInput,
@@ -1799,18 +1733,16 @@ export class ECS extends ECSClient {
   ): void;
   public registerTaskDefinition(
     args: RegisterTaskDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterTaskDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterTaskDefinitionCommandOutput) => void),
     cb?: (err: any, data?: RegisterTaskDefinitionCommandOutput) => void
   ): Promise<RegisterTaskDefinitionCommandOutput> | void {
     const command = new RegisterTaskDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1853,7 +1785,7 @@ export class ECS extends ECSClient {
    */
   public runTask(
     args: RunTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<RunTaskCommandOutput>;
   public runTask(
     args: RunTaskCommandInput,
@@ -1866,18 +1798,16 @@ export class ECS extends ECSClient {
   ): void;
   public runTask(
     args: RunTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RunTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RunTaskCommandOutput) => void),
     cb?: (err: any, data?: RunTaskCommandOutput) => void
   ): Promise<RunTaskCommandOutput> | void {
     const command = new RunTaskCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1895,7 +1825,7 @@ export class ECS extends ECSClient {
    */
   public startTask(
     args: StartTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<StartTaskCommandOutput>;
   public startTask(
     args: StartTaskCommandInput,
@@ -1908,18 +1838,16 @@ export class ECS extends ECSClient {
   ): void;
   public startTask(
     args: StartTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartTaskCommandOutput) => void),
     cb?: (err: any, data?: StartTaskCommandOutput) => void
   ): Promise<StartTaskCommandOutput> | void {
     const command = new StartTaskCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1945,7 +1873,7 @@ export class ECS extends ECSClient {
    */
   public stopTask(
     args: StopTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<StopTaskCommandOutput>;
   public stopTask(
     args: StopTaskCommandInput,
@@ -1958,18 +1886,16 @@ export class ECS extends ECSClient {
   ): void;
   public stopTask(
     args: StopTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopTaskCommandOutput) => void),
     cb?: (err: any, data?: StopTaskCommandOutput) => void
   ): Promise<StopTaskCommandOutput> | void {
     const command = new StopTaskCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1986,7 +1912,7 @@ export class ECS extends ECSClient {
    */
   public submitAttachmentStateChanges(
     args: SubmitAttachmentStateChangesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<SubmitAttachmentStateChangesCommandOutput>;
   public submitAttachmentStateChanges(
     args: SubmitAttachmentStateChangesCommandInput,
@@ -1999,18 +1925,16 @@ export class ECS extends ECSClient {
   ): void;
   public submitAttachmentStateChanges(
     args: SubmitAttachmentStateChangesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SubmitAttachmentStateChangesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SubmitAttachmentStateChangesCommandOutput) => void),
     cb?: (err: any, data?: SubmitAttachmentStateChangesCommandOutput) => void
   ): Promise<SubmitAttachmentStateChangesCommandOutput> | void {
     const command = new SubmitAttachmentStateChangesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2027,7 +1951,7 @@ export class ECS extends ECSClient {
    */
   public submitContainerStateChange(
     args: SubmitContainerStateChangeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<SubmitContainerStateChangeCommandOutput>;
   public submitContainerStateChange(
     args: SubmitContainerStateChangeCommandInput,
@@ -2040,18 +1964,16 @@ export class ECS extends ECSClient {
   ): void;
   public submitContainerStateChange(
     args: SubmitContainerStateChangeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SubmitContainerStateChangeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SubmitContainerStateChangeCommandOutput) => void),
     cb?: (err: any, data?: SubmitContainerStateChangeCommandOutput) => void
   ): Promise<SubmitContainerStateChangeCommandOutput> | void {
     const command = new SubmitContainerStateChangeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2068,7 +1990,7 @@ export class ECS extends ECSClient {
    */
   public submitTaskStateChange(
     args: SubmitTaskStateChangeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<SubmitTaskStateChangeCommandOutput>;
   public submitTaskStateChange(
     args: SubmitTaskStateChangeCommandInput,
@@ -2081,18 +2003,16 @@ export class ECS extends ECSClient {
   ): void;
   public submitTaskStateChange(
     args: SubmitTaskStateChangeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SubmitTaskStateChangeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SubmitTaskStateChangeCommandOutput) => void),
     cb?: (err: any, data?: SubmitTaskStateChangeCommandOutput) => void
   ): Promise<SubmitTaskStateChangeCommandOutput> | void {
     const command = new SubmitTaskStateChangeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2109,7 +2029,7 @@ export class ECS extends ECSClient {
    */
   public tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<TagResourceCommandOutput>;
   public tagResource(
     args: TagResourceCommandInput,
@@ -2122,18 +2042,16 @@ export class ECS extends ECSClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2147,7 +2065,7 @@ export class ECS extends ECSClient {
    */
   public untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UntagResourceCommandOutput>;
   public untagResource(
     args: UntagResourceCommandInput,
@@ -2160,18 +2078,16 @@ export class ECS extends ECSClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2184,7 +2100,7 @@ export class ECS extends ECSClient {
    */
   public updateClusterSettings(
     args: UpdateClusterSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateClusterSettingsCommandOutput>;
   public updateClusterSettings(
     args: UpdateClusterSettingsCommandInput,
@@ -2197,18 +2113,16 @@ export class ECS extends ECSClient {
   ): void;
   public updateClusterSettings(
     args: UpdateClusterSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateClusterSettingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateClusterSettingsCommandOutput) => void),
     cb?: (err: any, data?: UpdateClusterSettingsCommandOutput) => void
   ): Promise<UpdateClusterSettingsCommandOutput> | void {
     const command = new UpdateClusterSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2230,7 +2144,7 @@ export class ECS extends ECSClient {
    */
   public updateContainerAgent(
     args: UpdateContainerAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateContainerAgentCommandOutput>;
   public updateContainerAgent(
     args: UpdateContainerAgentCommandInput,
@@ -2243,18 +2157,16 @@ export class ECS extends ECSClient {
   ): void;
   public updateContainerAgent(
     args: UpdateContainerAgentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateContainerAgentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateContainerAgentCommandOutput) => void),
     cb?: (err: any, data?: UpdateContainerAgentCommandOutput) => void
   ): Promise<UpdateContainerAgentCommandOutput> | void {
     const command = new UpdateContainerAgentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2316,7 +2228,7 @@ export class ECS extends ECSClient {
    */
   public updateContainerInstancesState(
     args: UpdateContainerInstancesStateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateContainerInstancesStateCommandOutput>;
   public updateContainerInstancesState(
     args: UpdateContainerInstancesStateCommandInput,
@@ -2329,18 +2241,16 @@ export class ECS extends ECSClient {
   ): void;
   public updateContainerInstancesState(
     args: UpdateContainerInstancesStateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateContainerInstancesStateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateContainerInstancesStateCommandOutput) => void),
     cb?: (err: any, data?: UpdateContainerInstancesStateCommandOutput) => void
   ): Promise<UpdateContainerInstancesStateCommandOutput> | void {
     const command = new UpdateContainerInstancesStateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2455,7 +2365,7 @@ export class ECS extends ECSClient {
    */
   public updateService(
     args: UpdateServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateServiceCommandOutput>;
   public updateService(
     args: UpdateServiceCommandInput,
@@ -2468,18 +2378,16 @@ export class ECS extends ECSClient {
   ): void;
   public updateService(
     args: UpdateServiceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateServiceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateServiceCommandOutput) => void),
     cb?: (err: any, data?: UpdateServiceCommandOutput) => void
   ): Promise<UpdateServiceCommandOutput> | void {
     const command = new UpdateServiceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2496,7 +2404,7 @@ export class ECS extends ECSClient {
    */
   public updateServicePrimaryTaskSet(
     args: UpdateServicePrimaryTaskSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateServicePrimaryTaskSetCommandOutput>;
   public updateServicePrimaryTaskSet(
     args: UpdateServicePrimaryTaskSetCommandInput,
@@ -2509,18 +2417,16 @@ export class ECS extends ECSClient {
   ): void;
   public updateServicePrimaryTaskSet(
     args: UpdateServicePrimaryTaskSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateServicePrimaryTaskSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateServicePrimaryTaskSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateServicePrimaryTaskSetCommandOutput) => void
   ): Promise<UpdateServicePrimaryTaskSetCommandOutput> | void {
     const command = new UpdateServicePrimaryTaskSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2535,7 +2441,7 @@ export class ECS extends ECSClient {
    */
   public updateTaskSet(
     args: UpdateTaskSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateTaskSetCommandOutput>;
   public updateTaskSet(
     args: UpdateTaskSetCommandInput,
@@ -2548,20 +2454,19 @@ export class ECS extends ECSClient {
   ): void;
   public updateTaskSet(
     args: UpdateTaskSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTaskSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTaskSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateTaskSetCommandOutput) => void
   ): Promise<UpdateTaskSetCommandOutput> | void {
     const command = new UpdateTaskSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

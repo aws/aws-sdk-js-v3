@@ -6,9 +6,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>You do not have permission to perform this operation.</p>
  *
  */
-export interface AccessDeniedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -205,9 +203,7 @@ export namespace InstanceTypeItem {
  *          <p>An internal error has occurred.</p>
  *
  */
-export interface InternalServerException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerException";
   $fault: "server";
   Message?: string;
@@ -316,9 +312,7 @@ export namespace ListSitesOutput {
  *          <p>The specified request is not valid.</p>
  *
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   Message?: string;
@@ -412,9 +406,7 @@ export namespace Outpost {
  *          <p>You have exceeded a service quota.</p>
  *
  */
-export interface ServiceQuotaExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceQuotaExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceQuotaExceededException";
   $fault: "client";
   Message?: string;
@@ -473,9 +465,7 @@ export namespace Site {
  *          <p>A parameter is not valid.</p>
  *
  */
-export interface ValidationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ValidationException";
   $fault: "client";
   Message?: string;

@@ -1,20 +1,20 @@
 import {
   AlexaForBusinessClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../AlexaForBusinessClient";
 import {
   UpdateBusinessReportScheduleRequest,
-  UpdateBusinessReportScheduleResponse
+  UpdateBusinessReportScheduleResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1UpdateBusinessReportScheduleCommand,
-  serializeAws_json1_1UpdateBusinessReportScheduleCommand
+  serializeAws_json1_1UpdateBusinessReportScheduleCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type UpdateBusinessReportScheduleCommandInput = UpdateBusinessReportScheduleRequest;
 export type UpdateBusinessReportScheduleCommandOutput = UpdateBusinessReportScheduleResponse;
 
-export class UpdateBusinessReportScheduleCommand extends $Command<
-  UpdateBusinessReportScheduleCommandInput,
-  UpdateBusinessReportScheduleCommandOutput,
-  AlexaForBusinessClientResolvedConfig
-> {
+export class UpdateBusinessReportScheduleCommand extends $Command<UpdateBusinessReportScheduleCommandInput, UpdateBusinessReportScheduleCommandOutput, AlexaForBusinessClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class UpdateBusinessReportScheduleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateBusinessReportScheduleCommandInput,
-    UpdateBusinessReportScheduleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateBusinessReportScheduleCommandInput, UpdateBusinessReportScheduleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class UpdateBusinessReportScheduleCommand extends $Command<
     input: UpdateBusinessReportScheduleCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateBusinessReportScheduleCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1UpdateBusinessReportScheduleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UpdateBusinessReportScheduleCommandOutput> {
-    return deserializeAws_json1_1UpdateBusinessReportScheduleCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateBusinessReportScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

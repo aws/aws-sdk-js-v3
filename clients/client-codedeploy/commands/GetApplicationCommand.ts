@@ -1,17 +1,20 @@
 import {
   CodeDeployClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CodeDeployClient";
-import { GetApplicationInput, GetApplicationOutput } from "../models/index";
+import {
+  GetApplicationInput,
+  GetApplicationOutput,
+} from "../models/index";
 import {
   deserializeAws_json1_1GetApplicationCommand,
-  serializeAws_json1_1GetApplicationCommand
+  serializeAws_json1_1GetApplicationCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type GetApplicationCommandInput = GetApplicationInput;
 export type GetApplicationCommandOutput = GetApplicationOutput;
 
-export class GetApplicationCommand extends $Command<
-  GetApplicationCommandInput,
-  GetApplicationCommandOutput,
-  CodeDeployClientResolvedConfig
-> {
+export class GetApplicationCommand extends $Command<GetApplicationCommandInput, GetApplicationCommandOutput, CodeDeployClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class GetApplicationCommand extends $Command<
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetApplicationCommandInput, GetApplicationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

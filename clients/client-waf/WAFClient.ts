@@ -150,7 +150,7 @@ import {
   UpdateWebACLRequest,
   UpdateWebACLResponse,
   UpdateXssMatchSetRequest,
-  UpdateXssMatchSetResponse
+  UpdateXssMatchSetResponse,
 } from "./models/index";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -159,38 +159,38 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import {
   RetryInputConfig,
   RetryResolvedConfig,
   getRetryPlugin,
-  resolveRetryConfig
+  resolveRetryConfig,
 } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -201,7 +201,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -439,35 +439,31 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type WAFClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
-  ClientDefaults &
-  RegionInputConfig &
-  EndpointsInputConfig &
-  AwsAuthInputConfig &
-  RetryInputConfig &
-  UserAgentInputConfig &
-  HostHeaderInputConfig;
+export type WAFClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>>
+  & ClientDefaults
+  & RegionInputConfig
+  & EndpointsInputConfig
+  & AwsAuthInputConfig
+  & RetryInputConfig
+  & UserAgentInputConfig
+  & HostHeaderInputConfig
 
-export type WAFClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
-  Required<ClientDefaults> &
-  RegionResolvedConfig &
-  EndpointsResolvedConfig &
-  AwsAuthResolvedConfig &
-  RetryResolvedConfig &
-  UserAgentResolvedConfig &
-  HostHeaderResolvedConfig;
+export type WAFClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions>
+  & Required<ClientDefaults>
+  & RegionResolvedConfig
+  & EndpointsResolvedConfig
+  & AwsAuthResolvedConfig
+  & RetryResolvedConfig
+  & UserAgentResolvedConfig
+  & HostHeaderResolvedConfig
 
 /**
  *
- *
+ * 		
  * 		       <p>This is the <i>AWS WAF API Reference</i> for using AWS WAF with Amazon CloudFront. The AWS WAF actions and data types listed in the reference are available for protecting Amazon CloudFront distributions. You can use these actions and data types via the endpoint <i>waf.amazonaws.com</i>. This guide is for developers who need detailed information about the AWS WAF API actions,
  * 			data types, and errors. For detailed information about AWS WAF features and an overview of how to use the AWS WAF API, see the
- * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
- *
+ * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>		
+ * 	
  */
 export class WAFClient extends __Client<
   __HttpHandlerOptions,
@@ -497,5 +493,6 @@ export class WAFClient extends __Client<
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
   }
 
-  destroy(): void {}
+  destroy(): void {
+  }
 }

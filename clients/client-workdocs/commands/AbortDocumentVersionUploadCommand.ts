@@ -1,17 +1,17 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  WorkDocsClientResolvedConfig
+  WorkDocsClientResolvedConfig,
 } from "../WorkDocsClient";
 import { AbortDocumentVersionUploadRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1AbortDocumentVersionUploadCommand,
-  serializeAws_restJson1_1AbortDocumentVersionUploadCommand
+  serializeAws_restJson1_1AbortDocumentVersionUploadCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,17 +21,13 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
 } from "@aws-sdk/types";
 
 export type AbortDocumentVersionUploadCommandInput = AbortDocumentVersionUploadRequest;
-export type AbortDocumentVersionUploadCommandOutput = __MetadataBearer;
+export type AbortDocumentVersionUploadCommandOutput = __MetadataBearer
 
-export class AbortDocumentVersionUploadCommand extends $Command<
-  AbortDocumentVersionUploadCommandInput,
-  AbortDocumentVersionUploadCommandOutput,
-  WorkDocsClientResolvedConfig
-> {
+export class AbortDocumentVersionUploadCommand extends $Command<AbortDocumentVersionUploadCommandInput, AbortDocumentVersionUploadCommandOutput, WorkDocsClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,19 +41,14 @@ export class AbortDocumentVersionUploadCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AbortDocumentVersionUploadCommandInput,
-    AbortDocumentVersionUploadCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AbortDocumentVersionUploadCommandInput, AbortDocumentVersionUploadCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,20 +61,14 @@ export class AbortDocumentVersionUploadCommand extends $Command<
     input: AbortDocumentVersionUploadCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AbortDocumentVersionUploadCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1AbortDocumentVersionUploadCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<AbortDocumentVersionUploadCommandOutput> {
-    return deserializeAws_restJson1_1AbortDocumentVersionUploadCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1AbortDocumentVersionUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

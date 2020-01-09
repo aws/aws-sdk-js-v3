@@ -1,20 +1,20 @@
 import {
   QuickSightClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../QuickSightClient";
 import {
   DeleteTemplateAliasRequest,
-  DeleteTemplateAliasResponse
+  DeleteTemplateAliasResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteTemplateAliasCommand,
-  serializeAws_restJson1_1DeleteTemplateAliasCommand
+  serializeAws_restJson1_1DeleteTemplateAliasCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DeleteTemplateAliasCommandInput = DeleteTemplateAliasRequest;
 export type DeleteTemplateAliasCommandOutput = DeleteTemplateAliasResponse;
 
-export class DeleteTemplateAliasCommand extends $Command<
-  DeleteTemplateAliasCommandInput,
-  DeleteTemplateAliasCommandOutput,
-  QuickSightClientResolvedConfig
-> {
+export class DeleteTemplateAliasCommand extends $Command<DeleteTemplateAliasCommandInput, DeleteTemplateAliasCommandOutput, QuickSightClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class DeleteTemplateAliasCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteTemplateAliasCommandInput,
-    DeleteTemplateAliasCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteTemplateAliasCommandInput, DeleteTemplateAliasCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -79,10 +70,7 @@ export class DeleteTemplateAliasCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DeleteTemplateAliasCommandOutput> {
-    return deserializeAws_restJson1_1DeleteTemplateAliasCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteTemplateAliasCommand(output, context);
   }
 
   // Start section: command_body_extra

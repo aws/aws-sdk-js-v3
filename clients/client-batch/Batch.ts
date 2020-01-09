@@ -2,82 +2,82 @@ import { BatchClient } from "./BatchClient";
 import {
   CancelJobCommand,
   CancelJobCommandInput,
-  CancelJobCommandOutput
+  CancelJobCommandOutput,
 } from "./commands/CancelJobCommand";
 import {
   CreateComputeEnvironmentCommand,
   CreateComputeEnvironmentCommandInput,
-  CreateComputeEnvironmentCommandOutput
+  CreateComputeEnvironmentCommandOutput,
 } from "./commands/CreateComputeEnvironmentCommand";
 import {
   CreateJobQueueCommand,
   CreateJobQueueCommandInput,
-  CreateJobQueueCommandOutput
+  CreateJobQueueCommandOutput,
 } from "./commands/CreateJobQueueCommand";
 import {
   DeleteComputeEnvironmentCommand,
   DeleteComputeEnvironmentCommandInput,
-  DeleteComputeEnvironmentCommandOutput
+  DeleteComputeEnvironmentCommandOutput,
 } from "./commands/DeleteComputeEnvironmentCommand";
 import {
   DeleteJobQueueCommand,
   DeleteJobQueueCommandInput,
-  DeleteJobQueueCommandOutput
+  DeleteJobQueueCommandOutput,
 } from "./commands/DeleteJobQueueCommand";
 import {
   DeregisterJobDefinitionCommand,
   DeregisterJobDefinitionCommandInput,
-  DeregisterJobDefinitionCommandOutput
+  DeregisterJobDefinitionCommandOutput,
 } from "./commands/DeregisterJobDefinitionCommand";
 import {
   DescribeComputeEnvironmentsCommand,
   DescribeComputeEnvironmentsCommandInput,
-  DescribeComputeEnvironmentsCommandOutput
+  DescribeComputeEnvironmentsCommandOutput,
 } from "./commands/DescribeComputeEnvironmentsCommand";
 import {
   DescribeJobDefinitionsCommand,
   DescribeJobDefinitionsCommandInput,
-  DescribeJobDefinitionsCommandOutput
+  DescribeJobDefinitionsCommandOutput,
 } from "./commands/DescribeJobDefinitionsCommand";
 import {
   DescribeJobQueuesCommand,
   DescribeJobQueuesCommandInput,
-  DescribeJobQueuesCommandOutput
+  DescribeJobQueuesCommandOutput,
 } from "./commands/DescribeJobQueuesCommand";
 import {
   DescribeJobsCommand,
   DescribeJobsCommandInput,
-  DescribeJobsCommandOutput
+  DescribeJobsCommandOutput,
 } from "./commands/DescribeJobsCommand";
 import {
   ListJobsCommand,
   ListJobsCommandInput,
-  ListJobsCommandOutput
+  ListJobsCommandOutput,
 } from "./commands/ListJobsCommand";
 import {
   RegisterJobDefinitionCommand,
   RegisterJobDefinitionCommandInput,
-  RegisterJobDefinitionCommandOutput
+  RegisterJobDefinitionCommandOutput,
 } from "./commands/RegisterJobDefinitionCommand";
 import {
   SubmitJobCommand,
   SubmitJobCommandInput,
-  SubmitJobCommandOutput
+  SubmitJobCommandOutput,
 } from "./commands/SubmitJobCommand";
 import {
   TerminateJobCommand,
   TerminateJobCommandInput,
-  TerminateJobCommandOutput
+  TerminateJobCommandOutput,
 } from "./commands/TerminateJobCommand";
 import {
   UpdateComputeEnvironmentCommand,
   UpdateComputeEnvironmentCommandInput,
-  UpdateComputeEnvironmentCommandOutput
+  UpdateComputeEnvironmentCommandOutput,
 } from "./commands/UpdateComputeEnvironmentCommand";
 import {
   UpdateJobQueueCommand,
   UpdateJobQueueCommandInput,
-  UpdateJobQueueCommandOutput
+  UpdateJobQueueCommandOutput,
 } from "./commands/UpdateJobQueueCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -108,7 +108,7 @@ export class Batch extends BatchClient {
    */
   public cancelJob(
     args: CancelJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CancelJobCommandOutput>;
   public cancelJob(
     args: CancelJobCommandInput,
@@ -121,18 +121,16 @@ export class Batch extends BatchClient {
   ): void;
   public cancelJob(
     args: CancelJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelJobCommandOutput) => void),
     cb?: (err: any, data?: CancelJobCommandOutput) => void
   ): Promise<CancelJobCommandOutput> | void {
     const command = new CancelJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -182,7 +180,7 @@ export class Batch extends BatchClient {
    */
   public createComputeEnvironment(
     args: CreateComputeEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateComputeEnvironmentCommandOutput>;
   public createComputeEnvironment(
     args: CreateComputeEnvironmentCommandInput,
@@ -195,18 +193,16 @@ export class Batch extends BatchClient {
   ): void;
   public createComputeEnvironment(
     args: CreateComputeEnvironmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateComputeEnvironmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateComputeEnvironmentCommandOutput) => void),
     cb?: (err: any, data?: CreateComputeEnvironmentCommandOutput) => void
   ): Promise<CreateComputeEnvironmentCommandOutput> | void {
     const command = new CreateComputeEnvironmentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -225,7 +221,7 @@ export class Batch extends BatchClient {
    */
   public createJobQueue(
     args: CreateJobQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateJobQueueCommandOutput>;
   public createJobQueue(
     args: CreateJobQueueCommandInput,
@@ -238,18 +234,16 @@ export class Batch extends BatchClient {
   ): void;
   public createJobQueue(
     args: CreateJobQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateJobQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateJobQueueCommandOutput) => void),
     cb?: (err: any, data?: CreateJobQueueCommandOutput) => void
   ): Promise<CreateJobQueueCommandOutput> | void {
     const command = new CreateJobQueueCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -264,7 +258,7 @@ export class Batch extends BatchClient {
    */
   public deleteComputeEnvironment(
     args: DeleteComputeEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteComputeEnvironmentCommandOutput>;
   public deleteComputeEnvironment(
     args: DeleteComputeEnvironmentCommandInput,
@@ -277,18 +271,16 @@ export class Batch extends BatchClient {
   ): void;
   public deleteComputeEnvironment(
     args: DeleteComputeEnvironmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteComputeEnvironmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteComputeEnvironmentCommandOutput) => void),
     cb?: (err: any, data?: DeleteComputeEnvironmentCommandOutput) => void
   ): Promise<DeleteComputeEnvironmentCommandOutput> | void {
     const command = new DeleteComputeEnvironmentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -304,7 +296,7 @@ export class Batch extends BatchClient {
    */
   public deleteJobQueue(
     args: DeleteJobQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteJobQueueCommandOutput>;
   public deleteJobQueue(
     args: DeleteJobQueueCommandInput,
@@ -317,18 +309,16 @@ export class Batch extends BatchClient {
   ): void;
   public deleteJobQueue(
     args: DeleteJobQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteJobQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteJobQueueCommandOutput) => void),
     cb?: (err: any, data?: DeleteJobQueueCommandOutput) => void
   ): Promise<DeleteJobQueueCommandOutput> | void {
     const command = new DeleteJobQueueCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -342,7 +332,7 @@ export class Batch extends BatchClient {
    */
   public deregisterJobDefinition(
     args: DeregisterJobDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeregisterJobDefinitionCommandOutput>;
   public deregisterJobDefinition(
     args: DeregisterJobDefinitionCommandInput,
@@ -355,18 +345,16 @@ export class Batch extends BatchClient {
   ): void;
   public deregisterJobDefinition(
     args: DeregisterJobDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterJobDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterJobDefinitionCommandOutput) => void),
     cb?: (err: any, data?: DeregisterJobDefinitionCommandOutput) => void
   ): Promise<DeregisterJobDefinitionCommandOutput> | void {
     const command = new DeregisterJobDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -383,7 +371,7 @@ export class Batch extends BatchClient {
    */
   public describeComputeEnvironments(
     args: DescribeComputeEnvironmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeComputeEnvironmentsCommandOutput>;
   public describeComputeEnvironments(
     args: DescribeComputeEnvironmentsCommandInput,
@@ -396,18 +384,16 @@ export class Batch extends BatchClient {
   ): void;
   public describeComputeEnvironments(
     args: DescribeComputeEnvironmentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeComputeEnvironmentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeComputeEnvironmentsCommandOutput) => void),
     cb?: (err: any, data?: DescribeComputeEnvironmentsCommandOutput) => void
   ): Promise<DescribeComputeEnvironmentsCommandOutput> | void {
     const command = new DescribeComputeEnvironmentsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -422,7 +408,7 @@ export class Batch extends BatchClient {
    */
   public describeJobDefinitions(
     args: DescribeJobDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeJobDefinitionsCommandOutput>;
   public describeJobDefinitions(
     args: DescribeJobDefinitionsCommandInput,
@@ -435,18 +421,16 @@ export class Batch extends BatchClient {
   ): void;
   public describeJobDefinitions(
     args: DescribeJobDefinitionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeJobDefinitionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeJobDefinitionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeJobDefinitionsCommandOutput) => void
   ): Promise<DescribeJobDefinitionsCommandOutput> | void {
     const command = new DescribeJobDefinitionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -460,7 +444,7 @@ export class Batch extends BatchClient {
    */
   public describeJobQueues(
     args: DescribeJobQueuesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeJobQueuesCommandOutput>;
   public describeJobQueues(
     args: DescribeJobQueuesCommandInput,
@@ -473,18 +457,16 @@ export class Batch extends BatchClient {
   ): void;
   public describeJobQueues(
     args: DescribeJobQueuesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeJobQueuesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeJobQueuesCommandOutput) => void),
     cb?: (err: any, data?: DescribeJobQueuesCommandOutput) => void
   ): Promise<DescribeJobQueuesCommandOutput> | void {
     const command = new DescribeJobQueuesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -498,7 +480,7 @@ export class Batch extends BatchClient {
    */
   public describeJobs(
     args: DescribeJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeJobsCommandOutput>;
   public describeJobs(
     args: DescribeJobsCommandInput,
@@ -511,18 +493,16 @@ export class Batch extends BatchClient {
   ): void;
   public describeJobs(
     args: DescribeJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeJobsCommandOutput) => void),
     cb?: (err: any, data?: DescribeJobsCommandOutput) => void
   ): Promise<DescribeJobsCommandOutput> | void {
     const command = new DescribeJobsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -550,7 +530,7 @@ export class Batch extends BatchClient {
    */
   public listJobs(
     args: ListJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListJobsCommandOutput>;
   public listJobs(
     args: ListJobsCommandInput,
@@ -563,18 +543,16 @@ export class Batch extends BatchClient {
   ): void;
   public listJobs(
     args: ListJobsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListJobsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJobsCommandOutput) => void),
     cb?: (err: any, data?: ListJobsCommandOutput) => void
   ): Promise<ListJobsCommandOutput> | void {
     const command = new ListJobsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -588,7 +566,7 @@ export class Batch extends BatchClient {
    */
   public registerJobDefinition(
     args: RegisterJobDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<RegisterJobDefinitionCommandOutput>;
   public registerJobDefinition(
     args: RegisterJobDefinitionCommandInput,
@@ -601,18 +579,16 @@ export class Batch extends BatchClient {
   ): void;
   public registerJobDefinition(
     args: RegisterJobDefinitionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterJobDefinitionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterJobDefinitionCommandOutput) => void),
     cb?: (err: any, data?: RegisterJobDefinitionCommandOutput) => void
   ): Promise<RegisterJobDefinitionCommandOutput> | void {
     const command = new RegisterJobDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -627,7 +603,7 @@ export class Batch extends BatchClient {
    */
   public submitJob(
     args: SubmitJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<SubmitJobCommandOutput>;
   public submitJob(
     args: SubmitJobCommandInput,
@@ -640,18 +616,16 @@ export class Batch extends BatchClient {
   ): void;
   public submitJob(
     args: SubmitJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SubmitJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SubmitJobCommandOutput) => void),
     cb?: (err: any, data?: SubmitJobCommandOutput) => void
   ): Promise<SubmitJobCommandOutput> | void {
     const command = new SubmitJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -667,7 +641,7 @@ export class Batch extends BatchClient {
    */
   public terminateJob(
     args: TerminateJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<TerminateJobCommandOutput>;
   public terminateJob(
     args: TerminateJobCommandInput,
@@ -680,18 +654,16 @@ export class Batch extends BatchClient {
   ): void;
   public terminateJob(
     args: TerminateJobCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TerminateJobCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TerminateJobCommandOutput) => void),
     cb?: (err: any, data?: TerminateJobCommandOutput) => void
   ): Promise<TerminateJobCommandOutput> | void {
     const command = new TerminateJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -705,7 +677,7 @@ export class Batch extends BatchClient {
    */
   public updateComputeEnvironment(
     args: UpdateComputeEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateComputeEnvironmentCommandOutput>;
   public updateComputeEnvironment(
     args: UpdateComputeEnvironmentCommandInput,
@@ -718,18 +690,16 @@ export class Batch extends BatchClient {
   ): void;
   public updateComputeEnvironment(
     args: UpdateComputeEnvironmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateComputeEnvironmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateComputeEnvironmentCommandOutput) => void),
     cb?: (err: any, data?: UpdateComputeEnvironmentCommandOutput) => void
   ): Promise<UpdateComputeEnvironmentCommandOutput> | void {
     const command = new UpdateComputeEnvironmentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -743,7 +713,7 @@ export class Batch extends BatchClient {
    */
   public updateJobQueue(
     args: UpdateJobQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateJobQueueCommandOutput>;
   public updateJobQueue(
     args: UpdateJobQueueCommandInput,
@@ -756,20 +726,19 @@ export class Batch extends BatchClient {
   ): void;
   public updateJobQueue(
     args: UpdateJobQueueCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateJobQueueCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateJobQueueCommandOutput) => void),
     cb?: (err: any, data?: UpdateJobQueueCommandOutput) => void
   ): Promise<UpdateJobQueueCommandOutput> | void {
     const command = new UpdateJobQueueCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

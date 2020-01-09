@@ -3895,12 +3895,11 @@ async function deserializeAws_json1_1AddTagsCommandError(
 ): Promise<AddTagsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -3938,7 +3937,7 @@ async function deserializeAws_json1_1AssociateTrialComponentCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -3951,7 +3950,6 @@ async function deserializeAws_json1_1AssociateTrialComponentCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -3985,12 +3983,11 @@ async function deserializeAws_json1_1CreateAlgorithmCommandError(
 ): Promise<CreateAlgorithmCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -4028,7 +4025,7 @@ async function deserializeAws_json1_1CreateAppCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4041,7 +4038,6 @@ async function deserializeAws_json1_1CreateAppCommandError(
       response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -4079,7 +4075,7 @@ async function deserializeAws_json1_1CreateAutoMLJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4092,7 +4088,6 @@ async function deserializeAws_json1_1CreateAutoMLJobCommandError(
       response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -4126,12 +4121,11 @@ async function deserializeAws_json1_1CreateCodeRepositoryCommandError(
 ): Promise<CreateCodeRepositoryCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -4169,7 +4163,7 @@ async function deserializeAws_json1_1CreateCompilationJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4182,7 +4176,6 @@ async function deserializeAws_json1_1CreateCompilationJobCommandError(
       response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -4220,7 +4213,7 @@ async function deserializeAws_json1_1CreateDomainCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4233,7 +4226,6 @@ async function deserializeAws_json1_1CreateDomainCommandError(
       response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -4271,7 +4263,7 @@ async function deserializeAws_json1_1CreateEndpointCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4280,7 +4272,6 @@ async function deserializeAws_json1_1CreateEndpointCommandError(
       response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -4318,7 +4309,7 @@ async function deserializeAws_json1_1CreateEndpointConfigCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4327,7 +4318,6 @@ async function deserializeAws_json1_1CreateEndpointConfigCommandError(
       response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -4365,7 +4355,7 @@ async function deserializeAws_json1_1CreateExperimentCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4374,7 +4364,6 @@ async function deserializeAws_json1_1CreateExperimentCommandError(
       response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -4412,7 +4401,7 @@ async function deserializeAws_json1_1CreateFlowDefinitionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4425,7 +4414,6 @@ async function deserializeAws_json1_1CreateFlowDefinitionCommandError(
       response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -4463,7 +4451,7 @@ async function deserializeAws_json1_1CreateHumanTaskUiCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4476,7 +4464,6 @@ async function deserializeAws_json1_1CreateHumanTaskUiCommandError(
       response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -4514,7 +4501,7 @@ async function deserializeAws_json1_1CreateHyperParameterTuningJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4527,7 +4514,6 @@ async function deserializeAws_json1_1CreateHyperParameterTuningJobCommandError(
       response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -4565,7 +4551,7 @@ async function deserializeAws_json1_1CreateLabelingJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4578,7 +4564,6 @@ async function deserializeAws_json1_1CreateLabelingJobCommandError(
       response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -4616,7 +4601,7 @@ async function deserializeAws_json1_1CreateModelCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4625,7 +4610,6 @@ async function deserializeAws_json1_1CreateModelCommandError(
       response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -4659,12 +4643,11 @@ async function deserializeAws_json1_1CreateModelPackageCommandError(
 ): Promise<CreateModelPackageCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -4702,7 +4685,7 @@ async function deserializeAws_json1_1CreateMonitoringScheduleCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4715,7 +4698,6 @@ async function deserializeAws_json1_1CreateMonitoringScheduleCommandError(
       response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -4753,7 +4735,7 @@ async function deserializeAws_json1_1CreateNotebookInstanceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4762,7 +4744,6 @@ async function deserializeAws_json1_1CreateNotebookInstanceCommandError(
       response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -4800,7 +4781,7 @@ async function deserializeAws_json1_1CreateNotebookInstanceLifecycleConfigComman
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4809,7 +4790,6 @@ async function deserializeAws_json1_1CreateNotebookInstanceLifecycleConfigComman
       response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -4843,12 +4823,11 @@ async function deserializeAws_json1_1CreatePresignedDomainUrlCommandError(
 ): Promise<CreatePresignedDomainUrlCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -4882,12 +4861,11 @@ async function deserializeAws_json1_1CreatePresignedNotebookInstanceUrlCommandEr
 ): Promise<CreatePresignedNotebookInstanceUrlCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -4925,7 +4903,7 @@ async function deserializeAws_json1_1CreateProcessingJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4942,7 +4920,6 @@ async function deserializeAws_json1_1CreateProcessingJobCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -4980,7 +4957,7 @@ async function deserializeAws_json1_1CreateTrainingJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -4997,7 +4974,6 @@ async function deserializeAws_json1_1CreateTrainingJobCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -5035,7 +5011,7 @@ async function deserializeAws_json1_1CreateTransformJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5052,7 +5028,6 @@ async function deserializeAws_json1_1CreateTransformJobCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -5090,7 +5065,7 @@ async function deserializeAws_json1_1CreateTrialCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5103,7 +5078,6 @@ async function deserializeAws_json1_1CreateTrialCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -5141,7 +5115,7 @@ async function deserializeAws_json1_1CreateTrialComponentCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5150,7 +5124,6 @@ async function deserializeAws_json1_1CreateTrialComponentCommandError(
       response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -5188,7 +5161,7 @@ async function deserializeAws_json1_1CreateUserProfileCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5201,7 +5174,6 @@ async function deserializeAws_json1_1CreateUserProfileCommandError(
       response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -5239,7 +5211,7 @@ async function deserializeAws_json1_1CreateWorkteamCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5252,7 +5224,6 @@ async function deserializeAws_json1_1CreateWorkteamCommandError(
       response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -5281,12 +5252,11 @@ async function deserializeAws_json1_1DeleteAlgorithmCommandError(
 ): Promise<DeleteAlgorithmCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -5319,7 +5289,7 @@ async function deserializeAws_json1_1DeleteAppCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5332,7 +5302,6 @@ async function deserializeAws_json1_1DeleteAppCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -5361,12 +5330,11 @@ async function deserializeAws_json1_1DeleteCodeRepositoryCommandError(
 ): Promise<DeleteCodeRepositoryCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -5399,7 +5367,7 @@ async function deserializeAws_json1_1DeleteDomainCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5412,7 +5380,6 @@ async function deserializeAws_json1_1DeleteDomainCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -5441,12 +5408,11 @@ async function deserializeAws_json1_1DeleteEndpointCommandError(
 ): Promise<DeleteEndpointCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -5475,12 +5441,11 @@ async function deserializeAws_json1_1DeleteEndpointConfigCommandError(
 ): Promise<DeleteEndpointConfigCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -5518,7 +5483,7 @@ async function deserializeAws_json1_1DeleteExperimentCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5527,7 +5492,6 @@ async function deserializeAws_json1_1DeleteExperimentCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -5565,7 +5529,7 @@ async function deserializeAws_json1_1DeleteFlowDefinitionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5574,7 +5538,6 @@ async function deserializeAws_json1_1DeleteFlowDefinitionCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -5603,12 +5566,11 @@ async function deserializeAws_json1_1DeleteModelCommandError(
 ): Promise<DeleteModelCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -5637,12 +5599,11 @@ async function deserializeAws_json1_1DeleteModelPackageCommandError(
 ): Promise<DeleteModelPackageCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -5675,7 +5636,7 @@ async function deserializeAws_json1_1DeleteMonitoringScheduleCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5684,7 +5645,6 @@ async function deserializeAws_json1_1DeleteMonitoringScheduleCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -5713,12 +5673,11 @@ async function deserializeAws_json1_1DeleteNotebookInstanceCommandError(
 ): Promise<DeleteNotebookInstanceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -5747,12 +5706,11 @@ async function deserializeAws_json1_1DeleteNotebookInstanceLifecycleConfigComman
 ): Promise<DeleteNotebookInstanceLifecycleConfigCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -5786,12 +5744,11 @@ async function deserializeAws_json1_1DeleteTagsCommandError(
 ): Promise<DeleteTagsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -5829,7 +5786,7 @@ async function deserializeAws_json1_1DeleteTrialCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5838,7 +5795,6 @@ async function deserializeAws_json1_1DeleteTrialCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -5876,7 +5832,7 @@ async function deserializeAws_json1_1DeleteTrialComponentCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5885,7 +5841,6 @@ async function deserializeAws_json1_1DeleteTrialComponentCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -5918,7 +5873,7 @@ async function deserializeAws_json1_1DeleteUserProfileCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5931,7 +5886,6 @@ async function deserializeAws_json1_1DeleteUserProfileCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -5969,7 +5923,7 @@ async function deserializeAws_json1_1DeleteWorkteamCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -5978,7 +5932,6 @@ async function deserializeAws_json1_1DeleteWorkteamCommandError(
       response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -6012,12 +5965,11 @@ async function deserializeAws_json1_1DescribeAlgorithmCommandError(
 ): Promise<DescribeAlgorithmCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -6055,7 +6007,7 @@ async function deserializeAws_json1_1DescribeAppCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -6064,7 +6016,6 @@ async function deserializeAws_json1_1DescribeAppCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -6102,7 +6053,7 @@ async function deserializeAws_json1_1DescribeAutoMLJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -6111,7 +6062,6 @@ async function deserializeAws_json1_1DescribeAutoMLJobCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -6145,12 +6095,11 @@ async function deserializeAws_json1_1DescribeCodeRepositoryCommandError(
 ): Promise<DescribeCodeRepositoryCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -6188,7 +6137,7 @@ async function deserializeAws_json1_1DescribeCompilationJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -6197,7 +6146,6 @@ async function deserializeAws_json1_1DescribeCompilationJobCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -6235,7 +6183,7 @@ async function deserializeAws_json1_1DescribeDomainCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -6244,7 +6192,6 @@ async function deserializeAws_json1_1DescribeDomainCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -6278,12 +6225,11 @@ async function deserializeAws_json1_1DescribeEndpointCommandError(
 ): Promise<DescribeEndpointCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -6317,12 +6263,11 @@ async function deserializeAws_json1_1DescribeEndpointConfigCommandError(
 ): Promise<DescribeEndpointConfigCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -6360,7 +6305,7 @@ async function deserializeAws_json1_1DescribeExperimentCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -6369,7 +6314,6 @@ async function deserializeAws_json1_1DescribeExperimentCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -6407,7 +6351,7 @@ async function deserializeAws_json1_1DescribeFlowDefinitionCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -6416,7 +6360,6 @@ async function deserializeAws_json1_1DescribeFlowDefinitionCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -6454,7 +6397,7 @@ async function deserializeAws_json1_1DescribeHumanTaskUiCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -6463,7 +6406,6 @@ async function deserializeAws_json1_1DescribeHumanTaskUiCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -6501,7 +6443,7 @@ async function deserializeAws_json1_1DescribeHyperParameterTuningJobCommandError
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -6510,7 +6452,6 @@ async function deserializeAws_json1_1DescribeHyperParameterTuningJobCommandError
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -6548,7 +6489,7 @@ async function deserializeAws_json1_1DescribeLabelingJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -6557,7 +6498,6 @@ async function deserializeAws_json1_1DescribeLabelingJobCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -6591,12 +6531,11 @@ async function deserializeAws_json1_1DescribeModelCommandError(
 ): Promise<DescribeModelCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -6630,12 +6569,11 @@ async function deserializeAws_json1_1DescribeModelPackageCommandError(
 ): Promise<DescribeModelPackageCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -6673,7 +6611,7 @@ async function deserializeAws_json1_1DescribeMonitoringScheduleCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -6682,7 +6620,6 @@ async function deserializeAws_json1_1DescribeMonitoringScheduleCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -6716,12 +6653,11 @@ async function deserializeAws_json1_1DescribeNotebookInstanceCommandError(
 ): Promise<DescribeNotebookInstanceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -6755,12 +6691,11 @@ async function deserializeAws_json1_1DescribeNotebookInstanceLifecycleConfigComm
 ): Promise<DescribeNotebookInstanceLifecycleConfigCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -6798,7 +6733,7 @@ async function deserializeAws_json1_1DescribeProcessingJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -6807,7 +6742,6 @@ async function deserializeAws_json1_1DescribeProcessingJobCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -6841,12 +6775,11 @@ async function deserializeAws_json1_1DescribeSubscribedWorkteamCommandError(
 ): Promise<DescribeSubscribedWorkteamCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -6884,7 +6817,7 @@ async function deserializeAws_json1_1DescribeTrainingJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -6893,7 +6826,6 @@ async function deserializeAws_json1_1DescribeTrainingJobCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -6931,7 +6863,7 @@ async function deserializeAws_json1_1DescribeTransformJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -6940,7 +6872,6 @@ async function deserializeAws_json1_1DescribeTransformJobCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -6978,7 +6909,7 @@ async function deserializeAws_json1_1DescribeTrialCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -6987,7 +6918,6 @@ async function deserializeAws_json1_1DescribeTrialCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -7025,7 +6955,7 @@ async function deserializeAws_json1_1DescribeTrialComponentCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -7034,7 +6964,6 @@ async function deserializeAws_json1_1DescribeTrialComponentCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -7072,7 +7001,7 @@ async function deserializeAws_json1_1DescribeUserProfileCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -7081,7 +7010,6 @@ async function deserializeAws_json1_1DescribeUserProfileCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -7115,12 +7043,11 @@ async function deserializeAws_json1_1DescribeWorkteamCommandError(
 ): Promise<DescribeWorkteamCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -7158,7 +7085,7 @@ async function deserializeAws_json1_1DisassociateTrialComponentCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -7167,7 +7094,6 @@ async function deserializeAws_json1_1DisassociateTrialComponentCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -7201,12 +7127,11 @@ async function deserializeAws_json1_1GetSearchSuggestionsCommandError(
 ): Promise<GetSearchSuggestionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -7240,12 +7165,11 @@ async function deserializeAws_json1_1ListAlgorithmsCommandError(
 ): Promise<ListAlgorithmsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -7279,12 +7203,11 @@ async function deserializeAws_json1_1ListAppsCommandError(
 ): Promise<ListAppsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -7318,12 +7241,11 @@ async function deserializeAws_json1_1ListAutoMLJobsCommandError(
 ): Promise<ListAutoMLJobsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -7361,7 +7283,7 @@ async function deserializeAws_json1_1ListCandidatesForAutoMLJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -7370,7 +7292,6 @@ async function deserializeAws_json1_1ListCandidatesForAutoMLJobCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -7404,12 +7325,11 @@ async function deserializeAws_json1_1ListCodeRepositoriesCommandError(
 ): Promise<ListCodeRepositoriesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -7443,12 +7363,11 @@ async function deserializeAws_json1_1ListCompilationJobsCommandError(
 ): Promise<ListCompilationJobsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -7482,12 +7401,11 @@ async function deserializeAws_json1_1ListDomainsCommandError(
 ): Promise<ListDomainsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -7521,12 +7439,11 @@ async function deserializeAws_json1_1ListEndpointConfigsCommandError(
 ): Promise<ListEndpointConfigsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -7560,12 +7477,11 @@ async function deserializeAws_json1_1ListEndpointsCommandError(
 ): Promise<ListEndpointsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -7599,12 +7515,11 @@ async function deserializeAws_json1_1ListExperimentsCommandError(
 ): Promise<ListExperimentsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -7638,12 +7553,11 @@ async function deserializeAws_json1_1ListFlowDefinitionsCommandError(
 ): Promise<ListFlowDefinitionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -7677,12 +7591,11 @@ async function deserializeAws_json1_1ListHumanTaskUisCommandError(
 ): Promise<ListHumanTaskUisCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -7716,12 +7629,11 @@ async function deserializeAws_json1_1ListHyperParameterTuningJobsCommandError(
 ): Promise<ListHyperParameterTuningJobsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -7755,12 +7667,11 @@ async function deserializeAws_json1_1ListLabelingJobsCommandError(
 ): Promise<ListLabelingJobsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -7798,7 +7709,7 @@ async function deserializeAws_json1_1ListLabelingJobsForWorkteamCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -7807,7 +7718,6 @@ async function deserializeAws_json1_1ListLabelingJobsForWorkteamCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -7841,12 +7751,11 @@ async function deserializeAws_json1_1ListModelPackagesCommandError(
 ): Promise<ListModelPackagesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -7880,12 +7789,11 @@ async function deserializeAws_json1_1ListModelsCommandError(
 ): Promise<ListModelsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -7919,12 +7827,11 @@ async function deserializeAws_json1_1ListMonitoringExecutionsCommandError(
 ): Promise<ListMonitoringExecutionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -7958,12 +7865,11 @@ async function deserializeAws_json1_1ListMonitoringSchedulesCommandError(
 ): Promise<ListMonitoringSchedulesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -7997,12 +7903,11 @@ async function deserializeAws_json1_1ListNotebookInstanceLifecycleConfigsCommand
 ): Promise<ListNotebookInstanceLifecycleConfigsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -8036,12 +7941,11 @@ async function deserializeAws_json1_1ListNotebookInstancesCommandError(
 ): Promise<ListNotebookInstancesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -8075,12 +7979,11 @@ async function deserializeAws_json1_1ListProcessingJobsCommandError(
 ): Promise<ListProcessingJobsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -8114,12 +8017,11 @@ async function deserializeAws_json1_1ListSubscribedWorkteamsCommandError(
 ): Promise<ListSubscribedWorkteamsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -8153,12 +8055,11 @@ async function deserializeAws_json1_1ListTagsCommandError(
 ): Promise<ListTagsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -8192,12 +8093,11 @@ async function deserializeAws_json1_1ListTrainingJobsCommandError(
 ): Promise<ListTrainingJobsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -8235,7 +8135,7 @@ async function deserializeAws_json1_1ListTrainingJobsForHyperParameterTuningJobC
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -8244,7 +8144,6 @@ async function deserializeAws_json1_1ListTrainingJobsForHyperParameterTuningJobC
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -8278,12 +8177,11 @@ async function deserializeAws_json1_1ListTransformJobsCommandError(
 ): Promise<ListTransformJobsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -8317,12 +8215,11 @@ async function deserializeAws_json1_1ListTrialComponentsCommandError(
 ): Promise<ListTrialComponentsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -8356,12 +8253,11 @@ async function deserializeAws_json1_1ListTrialsCommandError(
 ): Promise<ListTrialsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -8395,12 +8291,11 @@ async function deserializeAws_json1_1ListUserProfilesCommandError(
 ): Promise<ListUserProfilesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -8434,12 +8329,11 @@ async function deserializeAws_json1_1ListWorkteamsCommandError(
 ): Promise<ListWorkteamsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -8473,12 +8367,11 @@ async function deserializeAws_json1_1RenderUiTemplateCommandError(
 ): Promise<RenderUiTemplateCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -8512,12 +8405,11 @@ async function deserializeAws_json1_1SearchCommandError(
 ): Promise<SearchCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -8550,7 +8442,7 @@ async function deserializeAws_json1_1StartMonitoringScheduleCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -8559,7 +8451,6 @@ async function deserializeAws_json1_1StartMonitoringScheduleCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -8592,7 +8483,7 @@ async function deserializeAws_json1_1StartNotebookInstanceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -8601,7 +8492,6 @@ async function deserializeAws_json1_1StartNotebookInstanceCommandError(
       response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -8634,7 +8524,7 @@ async function deserializeAws_json1_1StopAutoMLJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -8643,7 +8533,6 @@ async function deserializeAws_json1_1StopAutoMLJobCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -8676,7 +8565,7 @@ async function deserializeAws_json1_1StopCompilationJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -8685,7 +8574,6 @@ async function deserializeAws_json1_1StopCompilationJobCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -8718,7 +8606,7 @@ async function deserializeAws_json1_1StopHyperParameterTuningJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -8727,7 +8615,6 @@ async function deserializeAws_json1_1StopHyperParameterTuningJobCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -8760,7 +8647,7 @@ async function deserializeAws_json1_1StopLabelingJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -8769,7 +8656,6 @@ async function deserializeAws_json1_1StopLabelingJobCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -8802,7 +8688,7 @@ async function deserializeAws_json1_1StopMonitoringScheduleCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -8811,7 +8697,6 @@ async function deserializeAws_json1_1StopMonitoringScheduleCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -8840,12 +8725,11 @@ async function deserializeAws_json1_1StopNotebookInstanceCommandError(
 ): Promise<StopNotebookInstanceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -8878,7 +8762,7 @@ async function deserializeAws_json1_1StopProcessingJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -8887,7 +8771,6 @@ async function deserializeAws_json1_1StopProcessingJobCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -8920,7 +8803,7 @@ async function deserializeAws_json1_1StopTrainingJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -8929,7 +8812,6 @@ async function deserializeAws_json1_1StopTrainingJobCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -8962,7 +8844,7 @@ async function deserializeAws_json1_1StopTransformJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -8971,7 +8853,6 @@ async function deserializeAws_json1_1StopTransformJobCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -9005,12 +8886,11 @@ async function deserializeAws_json1_1UpdateCodeRepositoryCommandError(
 ): Promise<UpdateCodeRepositoryCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -9048,7 +8928,7 @@ async function deserializeAws_json1_1UpdateDomainCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -9065,7 +8945,6 @@ async function deserializeAws_json1_1UpdateDomainCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -9103,7 +8982,7 @@ async function deserializeAws_json1_1UpdateEndpointCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -9112,7 +8991,6 @@ async function deserializeAws_json1_1UpdateEndpointCommandError(
       response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -9150,7 +9028,7 @@ async function deserializeAws_json1_1UpdateEndpointWeightsAndCapacitiesCommandEr
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -9159,7 +9037,6 @@ async function deserializeAws_json1_1UpdateEndpointWeightsAndCapacitiesCommandEr
       response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -9197,7 +9074,7 @@ async function deserializeAws_json1_1UpdateExperimentCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -9210,7 +9087,6 @@ async function deserializeAws_json1_1UpdateExperimentCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -9248,7 +9124,7 @@ async function deserializeAws_json1_1UpdateMonitoringScheduleCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -9261,7 +9137,6 @@ async function deserializeAws_json1_1UpdateMonitoringScheduleCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -9299,7 +9174,7 @@ async function deserializeAws_json1_1UpdateNotebookInstanceCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -9308,7 +9183,6 @@ async function deserializeAws_json1_1UpdateNotebookInstanceCommandError(
       response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -9346,7 +9220,7 @@ async function deserializeAws_json1_1UpdateNotebookInstanceLifecycleConfigComman
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -9355,7 +9229,6 @@ async function deserializeAws_json1_1UpdateNotebookInstanceLifecycleConfigComman
       response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -9393,7 +9266,7 @@ async function deserializeAws_json1_1UpdateTrialCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -9406,7 +9279,6 @@ async function deserializeAws_json1_1UpdateTrialCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -9444,7 +9316,7 @@ async function deserializeAws_json1_1UpdateTrialComponentCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -9457,7 +9329,6 @@ async function deserializeAws_json1_1UpdateTrialComponentCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -9495,7 +9366,7 @@ async function deserializeAws_json1_1UpdateUserProfileCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -9512,7 +9383,6 @@ async function deserializeAws_json1_1UpdateUserProfileCommandError(
       response = await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",
@@ -9550,7 +9420,7 @@ async function deserializeAws_json1_1UpdateWorkteamCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -9559,7 +9429,6 @@ async function deserializeAws_json1_1UpdateWorkteamCommandError(
       response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.api#${errorCode}`,
         $fault: "client",

@@ -1,17 +1,20 @@
-import { TagResourceRequest, TagResourceResponse } from "../models/index";
+import {
+  TagResourceRequest,
+  TagResourceResponse,
+} from "../models/index";
 import {
   deserializeAws_restJson1_1TagResourceCommand,
-  serializeAws_restJson1_1TagResourceCommand
+  serializeAws_restJson1_1TagResourceCommand,
 } from "../protocols/Aws_restJson1_1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  signerClientResolvedConfig
+  signerClientResolvedConfig,
 } from "../signerClient";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type TagResourceCommandInput = TagResourceRequest;
 export type TagResourceCommandOutput = TagResourceResponse;
 
-export class TagResourceCommand extends $Command<
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-  signerClientResolvedConfig
-> {
+export class TagResourceCommand extends $Command<TagResourceCommandInput, TagResourceCommandOutput, signerClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class TagResourceCommand extends $Command<
     configuration: signerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TagResourceCommandInput, TagResourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

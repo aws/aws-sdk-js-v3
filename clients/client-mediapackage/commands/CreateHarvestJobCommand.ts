@@ -1,20 +1,20 @@
 import {
   MediaPackageClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../MediaPackageClient";
 import {
   CreateHarvestJobRequest,
-  CreateHarvestJobResponse
+  CreateHarvestJobResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateHarvestJobCommand,
-  serializeAws_restJson1_1CreateHarvestJobCommand
+  serializeAws_restJson1_1CreateHarvestJobCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type CreateHarvestJobCommandInput = CreateHarvestJobRequest;
 export type CreateHarvestJobCommandOutput = CreateHarvestJobResponse;
 
-export class CreateHarvestJobCommand extends $Command<
-  CreateHarvestJobCommandInput,
-  CreateHarvestJobCommandOutput,
-  MediaPackageClientResolvedConfig
-> {
+export class CreateHarvestJobCommand extends $Command<CreateHarvestJobCommandInput, CreateHarvestJobCommandOutput, MediaPackageClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,15 +44,13 @@ export class CreateHarvestJobCommand extends $Command<
     configuration: MediaPackageClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateHarvestJobCommandInput, CreateHarvestJobCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

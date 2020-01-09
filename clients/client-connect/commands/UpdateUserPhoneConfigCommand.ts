@@ -1,17 +1,17 @@
 import {
   ConnectClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ConnectClient";
 import { UpdateUserPhoneConfigRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateUserPhoneConfigCommand,
-  serializeAws_restJson1_1UpdateUserPhoneConfigCommand
+  serializeAws_restJson1_1UpdateUserPhoneConfigCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,17 +21,13 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
 } from "@aws-sdk/types";
 
 export type UpdateUserPhoneConfigCommandInput = UpdateUserPhoneConfigRequest;
-export type UpdateUserPhoneConfigCommandOutput = __MetadataBearer;
+export type UpdateUserPhoneConfigCommandOutput = __MetadataBearer
 
-export class UpdateUserPhoneConfigCommand extends $Command<
-  UpdateUserPhoneConfigCommandInput,
-  UpdateUserPhoneConfigCommandOutput,
-  ConnectClientResolvedConfig
-> {
+export class UpdateUserPhoneConfigCommand extends $Command<UpdateUserPhoneConfigCommandInput, UpdateUserPhoneConfigCommandOutput, ConnectClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,19 +41,14 @@ export class UpdateUserPhoneConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateUserPhoneConfigCommandInput,
-    UpdateUserPhoneConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateUserPhoneConfigCommandInput, UpdateUserPhoneConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -77,10 +68,7 @@ export class UpdateUserPhoneConfigCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UpdateUserPhoneConfigCommandOutput> {
-    return deserializeAws_restJson1_1UpdateUserPhoneConfigCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateUserPhoneConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

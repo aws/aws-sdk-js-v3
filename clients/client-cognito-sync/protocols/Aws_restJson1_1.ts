@@ -1,70 +1,70 @@
 import {
   BulkPublishCommandInput,
-  BulkPublishCommandOutput
+  BulkPublishCommandOutput,
 } from "../commands/BulkPublishCommand";
 import {
   DeleteDatasetCommandInput,
-  DeleteDatasetCommandOutput
+  DeleteDatasetCommandOutput,
 } from "../commands/DeleteDatasetCommand";
 import {
   DescribeDatasetCommandInput,
-  DescribeDatasetCommandOutput
+  DescribeDatasetCommandOutput,
 } from "../commands/DescribeDatasetCommand";
 import {
   DescribeIdentityPoolUsageCommandInput,
-  DescribeIdentityPoolUsageCommandOutput
+  DescribeIdentityPoolUsageCommandOutput,
 } from "../commands/DescribeIdentityPoolUsageCommand";
 import {
   DescribeIdentityUsageCommandInput,
-  DescribeIdentityUsageCommandOutput
+  DescribeIdentityUsageCommandOutput,
 } from "../commands/DescribeIdentityUsageCommand";
 import {
   GetBulkPublishDetailsCommandInput,
-  GetBulkPublishDetailsCommandOutput
+  GetBulkPublishDetailsCommandOutput,
 } from "../commands/GetBulkPublishDetailsCommand";
 import {
   GetCognitoEventsCommandInput,
-  GetCognitoEventsCommandOutput
+  GetCognitoEventsCommandOutput,
 } from "../commands/GetCognitoEventsCommand";
 import {
   GetIdentityPoolConfigurationCommandInput,
-  GetIdentityPoolConfigurationCommandOutput
+  GetIdentityPoolConfigurationCommandOutput,
 } from "../commands/GetIdentityPoolConfigurationCommand";
 import {
   ListDatasetsCommandInput,
-  ListDatasetsCommandOutput
+  ListDatasetsCommandOutput,
 } from "../commands/ListDatasetsCommand";
 import {
   ListIdentityPoolUsageCommandInput,
-  ListIdentityPoolUsageCommandOutput
+  ListIdentityPoolUsageCommandOutput,
 } from "../commands/ListIdentityPoolUsageCommand";
 import {
   ListRecordsCommandInput,
-  ListRecordsCommandOutput
+  ListRecordsCommandOutput,
 } from "../commands/ListRecordsCommand";
 import {
   RegisterDeviceCommandInput,
-  RegisterDeviceCommandOutput
+  RegisterDeviceCommandOutput,
 } from "../commands/RegisterDeviceCommand";
 import {
   SetCognitoEventsCommandInput,
-  SetCognitoEventsCommandOutput
+  SetCognitoEventsCommandOutput,
 } from "../commands/SetCognitoEventsCommand";
 import {
   SetIdentityPoolConfigurationCommandInput,
-  SetIdentityPoolConfigurationCommandOutput
+  SetIdentityPoolConfigurationCommandOutput,
 } from "../commands/SetIdentityPoolConfigurationCommand";
 import {
   SubscribeToDatasetCommandInput,
-  SubscribeToDatasetCommandOutput
+  SubscribeToDatasetCommandOutput,
 } from "../commands/SubscribeToDatasetCommand";
 import {
   UnsubscribeFromDatasetCommandInput,
-  UnsubscribeFromDatasetCommandOutput
+  UnsubscribeFromDatasetCommandOutput,
 } from "../commands/UnsubscribeFromDatasetCommand";
 import {
   UpdateRecordsCommandInput,
-  UpdateRecordsCommandOutput
+  UpdateRecordsCommandOutput,
 } from "../commands/UpdateRecordsCommand";
 import {
   AlreadyStreamedException,
@@ -87,18 +87,18 @@ import {
   ResourceConflictException,
   ResourceNotFoundException,
   TooManyRequestsException,
-  _Record
+  _Record,
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext
+  SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
 export async function serializeAws_restJson1_1BulkPublishCommand(
@@ -106,25 +106,23 @@ export async function serializeAws_restJson1_1BulkPublishCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/identitypools/{IdentityPoolId}/bulkpublish";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: any = input.IdentityPoolId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error('Empty value provided for input HTTP label: IdentityPoolId.');
     }
-    resolvedPath = resolvedPath.replace("{IdentityPoolId}", labelValue);
+    resolvedPath = resolvedPath.replace('{IdentityPoolId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: IdentityPoolId.");
+    throw new Error('No value provided for input HTTP label: IdentityPoolId.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -133,46 +131,41 @@ export async function serializeAws_restJson1_1DeleteDatasetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
-  let resolvedPath =
-    "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
+  headers['Content-Type'] = "";
+  let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
   if (input.DatasetName !== undefined) {
     const labelValue: any = input.DatasetName.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DatasetName."
-      );
+      throw new Error('Empty value provided for input HTTP label: DatasetName.');
     }
-    resolvedPath = resolvedPath.replace("{DatasetName}", labelValue);
+    resolvedPath = resolvedPath.replace('{DatasetName}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: DatasetName.");
+    throw new Error('No value provided for input HTTP label: DatasetName.');
   }
   if (input.IdentityId !== undefined) {
     const labelValue: any = input.IdentityId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: IdentityId.");
+      throw new Error('Empty value provided for input HTTP label: IdentityId.');
     }
-    resolvedPath = resolvedPath.replace("{IdentityId}", labelValue);
+    resolvedPath = resolvedPath.replace('{IdentityId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: IdentityId.");
+    throw new Error('No value provided for input HTTP label: IdentityId.');
   }
   if (input.IdentityPoolId !== undefined) {
     const labelValue: any = input.IdentityPoolId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error('Empty value provided for input HTTP label: IdentityPoolId.');
     }
-    resolvedPath = resolvedPath.replace("{IdentityPoolId}", labelValue);
+    resolvedPath = resolvedPath.replace('{IdentityPoolId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: IdentityPoolId.");
+    throw new Error('No value provided for input HTTP label: IdentityPoolId.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -181,46 +174,41 @@ export async function serializeAws_restJson1_1DescribeDatasetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
-  let resolvedPath =
-    "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
+  headers['Content-Type'] = "";
+  let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
   if (input.DatasetName !== undefined) {
     const labelValue: any = input.DatasetName.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DatasetName."
-      );
+      throw new Error('Empty value provided for input HTTP label: DatasetName.');
     }
-    resolvedPath = resolvedPath.replace("{DatasetName}", labelValue);
+    resolvedPath = resolvedPath.replace('{DatasetName}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: DatasetName.");
+    throw new Error('No value provided for input HTTP label: DatasetName.');
   }
   if (input.IdentityId !== undefined) {
     const labelValue: any = input.IdentityId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: IdentityId.");
+      throw new Error('Empty value provided for input HTTP label: IdentityId.');
     }
-    resolvedPath = resolvedPath.replace("{IdentityId}", labelValue);
+    resolvedPath = resolvedPath.replace('{IdentityId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: IdentityId.");
+    throw new Error('No value provided for input HTTP label: IdentityId.');
   }
   if (input.IdentityPoolId !== undefined) {
     const labelValue: any = input.IdentityPoolId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error('Empty value provided for input HTTP label: IdentityPoolId.');
     }
-    resolvedPath = resolvedPath.replace("{IdentityPoolId}", labelValue);
+    resolvedPath = resolvedPath.replace('{IdentityPoolId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: IdentityPoolId.");
+    throw new Error('No value provided for input HTTP label: IdentityPoolId.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -229,25 +217,23 @@ export async function serializeAws_restJson1_1DescribeIdentityPoolUsageCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/identitypools/{IdentityPoolId}";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: any = input.IdentityPoolId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error('Empty value provided for input HTTP label: IdentityPoolId.');
     }
-    resolvedPath = resolvedPath.replace("{IdentityPoolId}", labelValue);
+    resolvedPath = resolvedPath.replace('{IdentityPoolId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: IdentityPoolId.");
+    throw new Error('No value provided for input HTTP label: IdentityPoolId.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -256,34 +242,32 @@ export async function serializeAws_restJson1_1DescribeIdentityUsageCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}";
   if (input.IdentityId !== undefined) {
     const labelValue: any = input.IdentityId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: IdentityId.");
+      throw new Error('Empty value provided for input HTTP label: IdentityId.');
     }
-    resolvedPath = resolvedPath.replace("{IdentityId}", labelValue);
+    resolvedPath = resolvedPath.replace('{IdentityId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: IdentityId.");
+    throw new Error('No value provided for input HTTP label: IdentityId.');
   }
   if (input.IdentityPoolId !== undefined) {
     const labelValue: any = input.IdentityPoolId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error('Empty value provided for input HTTP label: IdentityPoolId.');
     }
-    resolvedPath = resolvedPath.replace("{IdentityPoolId}", labelValue);
+    resolvedPath = resolvedPath.replace('{IdentityPoolId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: IdentityPoolId.");
+    throw new Error('No value provided for input HTTP label: IdentityPoolId.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -292,25 +276,23 @@ export async function serializeAws_restJson1_1GetBulkPublishDetailsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/identitypools/{IdentityPoolId}/getBulkPublishDetails";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: any = input.IdentityPoolId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error('Empty value provided for input HTTP label: IdentityPoolId.');
     }
-    resolvedPath = resolvedPath.replace("{IdentityPoolId}", labelValue);
+    resolvedPath = resolvedPath.replace('{IdentityPoolId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: IdentityPoolId.");
+    throw new Error('No value provided for input HTTP label: IdentityPoolId.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -319,25 +301,23 @@ export async function serializeAws_restJson1_1GetCognitoEventsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/identitypools/{IdentityPoolId}/events";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: any = input.IdentityPoolId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error('Empty value provided for input HTTP label: IdentityPoolId.');
     }
-    resolvedPath = resolvedPath.replace("{IdentityPoolId}", labelValue);
+    resolvedPath = resolvedPath.replace('{IdentityPoolId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: IdentityPoolId.");
+    throw new Error('No value provided for input HTTP label: IdentityPoolId.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -346,25 +326,23 @@ export async function serializeAws_restJson1_1GetIdentityPoolConfigurationComman
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/identitypools/{IdentityPoolId}/configuration";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: any = input.IdentityPoolId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error('Empty value provided for input HTTP label: IdentityPoolId.');
     }
-    resolvedPath = resolvedPath.replace("{IdentityPoolId}", labelValue);
+    resolvedPath = resolvedPath.replace('{IdentityPoolId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: IdentityPoolId.");
+    throw new Error('No value provided for input HTTP label: IdentityPoolId.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -373,35 +351,32 @@ export async function serializeAws_restJson1_1ListDatasetsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
-  let resolvedPath =
-    "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets";
+  headers['Content-Type'] = "";
+  let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets";
   if (input.IdentityId !== undefined) {
     const labelValue: any = input.IdentityId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: IdentityId.");
+      throw new Error('Empty value provided for input HTTP label: IdentityId.');
     }
-    resolvedPath = resolvedPath.replace("{IdentityId}", labelValue);
+    resolvedPath = resolvedPath.replace('{IdentityId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: IdentityId.");
+    throw new Error('No value provided for input HTTP label: IdentityId.');
   }
   if (input.IdentityPoolId !== undefined) {
     const labelValue: any = input.IdentityPoolId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error('Empty value provided for input HTTP label: IdentityPoolId.');
     }
-    resolvedPath = resolvedPath.replace("{IdentityPoolId}", labelValue);
+    resolvedPath = resolvedPath.replace('{IdentityPoolId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: IdentityPoolId.");
+    throw new Error('No value provided for input HTTP label: IdentityPoolId.');
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query['maxResults'] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query['nextToken'] = input.NextToken.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -409,7 +384,7 @@ export async function serializeAws_restJson1_1ListDatasetsCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -418,14 +393,14 @@ export async function serializeAws_restJson1_1ListIdentityPoolUsageCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
+  headers['Content-Type'] = "";
   let resolvedPath = "/identitypools";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query['maxResults'] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query['nextToken'] = input.NextToken.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -433,7 +408,7 @@ export async function serializeAws_restJson1_1ListIdentityPoolUsageCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -442,52 +417,47 @@ export async function serializeAws_restJson1_1ListRecordsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
-  let resolvedPath =
-    "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/records";
+  headers['Content-Type'] = "";
+  let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/records";
   if (input.DatasetName !== undefined) {
     const labelValue: any = input.DatasetName.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DatasetName."
-      );
+      throw new Error('Empty value provided for input HTTP label: DatasetName.');
     }
-    resolvedPath = resolvedPath.replace("{DatasetName}", labelValue);
+    resolvedPath = resolvedPath.replace('{DatasetName}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: DatasetName.");
+    throw new Error('No value provided for input HTTP label: DatasetName.');
   }
   if (input.IdentityId !== undefined) {
     const labelValue: any = input.IdentityId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: IdentityId.");
+      throw new Error('Empty value provided for input HTTP label: IdentityId.');
     }
-    resolvedPath = resolvedPath.replace("{IdentityId}", labelValue);
+    resolvedPath = resolvedPath.replace('{IdentityId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: IdentityId.");
+    throw new Error('No value provided for input HTTP label: IdentityId.');
   }
   if (input.IdentityPoolId !== undefined) {
     const labelValue: any = input.IdentityPoolId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error('Empty value provided for input HTTP label: IdentityPoolId.');
     }
-    resolvedPath = resolvedPath.replace("{IdentityPoolId}", labelValue);
+    resolvedPath = resolvedPath.replace('{IdentityPoolId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: IdentityPoolId.");
+    throw new Error('No value provided for input HTTP label: IdentityPoolId.');
   }
   const query: any = {};
   if (input.LastSyncCount !== undefined) {
-    query["lastSyncCount"] = input.LastSyncCount.toString();
+    query['lastSyncCount'] = input.LastSyncCount.toString();
   }
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query['maxResults'] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query['nextToken'] = input.NextToken.toString();
   }
   if (input.SyncSessionToken !== undefined) {
-    query["syncSessionToken"] = input.SyncSessionToken.toString();
+    query['syncSessionToken'] = input.SyncSessionToken.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -495,7 +465,7 @@ export async function serializeAws_restJson1_1ListRecordsCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query
+    query: query,
   });
 }
 
@@ -504,36 +474,33 @@ export async function serializeAws_restJson1_1RegisterDeviceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
-  let resolvedPath =
-    "/identitypools/{IdentityPoolId}/identity/{IdentityId}/device";
+  headers['Content-Type'] = "application/json";
+  let resolvedPath = "/identitypools/{IdentityPoolId}/identity/{IdentityId}/device";
   if (input.IdentityId !== undefined) {
     const labelValue: any = input.IdentityId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: IdentityId.");
+      throw new Error('Empty value provided for input HTTP label: IdentityId.');
     }
-    resolvedPath = resolvedPath.replace("{IdentityId}", labelValue);
+    resolvedPath = resolvedPath.replace('{IdentityId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: IdentityId.");
+    throw new Error('No value provided for input HTTP label: IdentityId.');
   }
   if (input.IdentityPoolId !== undefined) {
     const labelValue: any = input.IdentityPoolId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error('Empty value provided for input HTTP label: IdentityPoolId.');
     }
-    resolvedPath = resolvedPath.replace("{IdentityPoolId}", labelValue);
+    resolvedPath = resolvedPath.replace('{IdentityPoolId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: IdentityPoolId.");
+    throw new Error('No value provided for input HTTP label: IdentityPoolId.');
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.Platform !== undefined) {
-    bodyParams["Platform"] = input.Platform;
+    bodyParams['Platform'] = input.Platform;
   }
   if (input.Token !== undefined) {
-    bodyParams["Token"] = input.Token;
+    bodyParams['Token'] = input.Token;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -542,7 +509,7 @@ export async function serializeAws_restJson1_1RegisterDeviceCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -551,26 +518,21 @@ export async function serializeAws_restJson1_1SetCognitoEventsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/identitypools/{IdentityPoolId}/events";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: any = input.IdentityPoolId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error('Empty value provided for input HTTP label: IdentityPoolId.');
     }
-    resolvedPath = resolvedPath.replace("{IdentityPoolId}", labelValue);
+    resolvedPath = resolvedPath.replace('{IdentityPoolId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: IdentityPoolId.");
+    throw new Error('No value provided for input HTTP label: IdentityPoolId.');
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.Events !== undefined) {
-    bodyParams["Events"] = serializeAws_restJson1_1Events(
-      input.Events,
-      context
-    );
+    bodyParams['Events'] = serializeAws_restJson1_1Events(input.Events, context);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -579,7 +541,7 @@ export async function serializeAws_restJson1_1SetCognitoEventsCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -588,32 +550,24 @@ export async function serializeAws_restJson1_1SetIdentityPoolConfigurationComman
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   let resolvedPath = "/identitypools/{IdentityPoolId}/configuration";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: any = input.IdentityPoolId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error('Empty value provided for input HTTP label: IdentityPoolId.');
     }
-    resolvedPath = resolvedPath.replace("{IdentityPoolId}", labelValue);
+    resolvedPath = resolvedPath.replace('{IdentityPoolId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: IdentityPoolId.");
+    throw new Error('No value provided for input HTTP label: IdentityPoolId.');
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.CognitoStreams !== undefined) {
-    bodyParams["CognitoStreams"] = serializeAws_restJson1_1CognitoStreams(
-      input.CognitoStreams,
-      context
-    );
+    bodyParams['CognitoStreams'] = serializeAws_restJson1_1CognitoStreams(input.CognitoStreams, context);
   }
   if (input.PushSync !== undefined) {
-    bodyParams["PushSync"] = serializeAws_restJson1_1PushSync(
-      input.PushSync,
-      context
-    );
+    bodyParams['PushSync'] = serializeAws_restJson1_1PushSync(input.PushSync, context);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -622,7 +576,7 @@ export async function serializeAws_restJson1_1SetIdentityPoolConfigurationComman
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -631,55 +585,50 @@ export async function serializeAws_restJson1_1SubscribeToDatasetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
-  let resolvedPath =
-    "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/subscriptions/{DeviceId}";
+  headers['Content-Type'] = "";
+  let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/subscriptions/{DeviceId}";
   if (input.DatasetName !== undefined) {
     const labelValue: any = input.DatasetName.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DatasetName."
-      );
+      throw new Error('Empty value provided for input HTTP label: DatasetName.');
     }
-    resolvedPath = resolvedPath.replace("{DatasetName}", labelValue);
+    resolvedPath = resolvedPath.replace('{DatasetName}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: DatasetName.");
+    throw new Error('No value provided for input HTTP label: DatasetName.');
   }
   if (input.DeviceId !== undefined) {
     const labelValue: any = input.DeviceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DeviceId.");
+      throw new Error('Empty value provided for input HTTP label: DeviceId.');
     }
-    resolvedPath = resolvedPath.replace("{DeviceId}", labelValue);
+    resolvedPath = resolvedPath.replace('{DeviceId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: DeviceId.");
+    throw new Error('No value provided for input HTTP label: DeviceId.');
   }
   if (input.IdentityId !== undefined) {
     const labelValue: any = input.IdentityId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: IdentityId.");
+      throw new Error('Empty value provided for input HTTP label: IdentityId.');
     }
-    resolvedPath = resolvedPath.replace("{IdentityId}", labelValue);
+    resolvedPath = resolvedPath.replace('{IdentityId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: IdentityId.");
+    throw new Error('No value provided for input HTTP label: IdentityId.');
   }
   if (input.IdentityPoolId !== undefined) {
     const labelValue: any = input.IdentityPoolId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error('Empty value provided for input HTTP label: IdentityPoolId.');
     }
-    resolvedPath = resolvedPath.replace("{IdentityPoolId}", labelValue);
+    resolvedPath = resolvedPath.replace('{IdentityPoolId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: IdentityPoolId.");
+    throw new Error('No value provided for input HTTP label: IdentityPoolId.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -688,55 +637,50 @@ export async function serializeAws_restJson1_1UnsubscribeFromDatasetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "";
-  let resolvedPath =
-    "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/subscriptions/{DeviceId}";
+  headers['Content-Type'] = "";
+  let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/subscriptions/{DeviceId}";
   if (input.DatasetName !== undefined) {
     const labelValue: any = input.DatasetName.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DatasetName."
-      );
+      throw new Error('Empty value provided for input HTTP label: DatasetName.');
     }
-    resolvedPath = resolvedPath.replace("{DatasetName}", labelValue);
+    resolvedPath = resolvedPath.replace('{DatasetName}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: DatasetName.");
+    throw new Error('No value provided for input HTTP label: DatasetName.');
   }
   if (input.DeviceId !== undefined) {
     const labelValue: any = input.DeviceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DeviceId.");
+      throw new Error('Empty value provided for input HTTP label: DeviceId.');
     }
-    resolvedPath = resolvedPath.replace("{DeviceId}", labelValue);
+    resolvedPath = resolvedPath.replace('{DeviceId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: DeviceId.");
+    throw new Error('No value provided for input HTTP label: DeviceId.');
   }
   if (input.IdentityId !== undefined) {
     const labelValue: any = input.IdentityId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: IdentityId.");
+      throw new Error('Empty value provided for input HTTP label: IdentityId.');
     }
-    resolvedPath = resolvedPath.replace("{IdentityId}", labelValue);
+    resolvedPath = resolvedPath.replace('{IdentityId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: IdentityId.");
+    throw new Error('No value provided for input HTTP label: IdentityId.');
   }
   if (input.IdentityPoolId !== undefined) {
     const labelValue: any = input.IdentityPoolId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error('Empty value provided for input HTTP label: IdentityPoolId.');
     }
-    resolvedPath = resolvedPath.replace("{IdentityPoolId}", labelValue);
+    resolvedPath = resolvedPath.replace('{IdentityPoolId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: IdentityPoolId.");
+    throw new Error('No value provided for input HTTP label: IdentityPoolId.');
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath
+    path: resolvedPath,
   });
 }
 
@@ -745,56 +689,48 @@ export async function serializeAws_restJson1_1UpdateRecordsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers["Content-Type"] = "application/json";
+  headers['Content-Type'] = "application/json";
   if (input.ClientContext !== undefined) {
     headers["x-amz-Client-Context"] = input.ClientContext.toString();
   }
-  let resolvedPath =
-    "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
+  let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
   if (input.DatasetName !== undefined) {
     const labelValue: any = input.DatasetName.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DatasetName."
-      );
+      throw new Error('Empty value provided for input HTTP label: DatasetName.');
     }
-    resolvedPath = resolvedPath.replace("{DatasetName}", labelValue);
+    resolvedPath = resolvedPath.replace('{DatasetName}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: DatasetName.");
+    throw new Error('No value provided for input HTTP label: DatasetName.');
   }
   if (input.IdentityId !== undefined) {
     const labelValue: any = input.IdentityId.toString();
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: IdentityId.");
+      throw new Error('Empty value provided for input HTTP label: IdentityId.');
     }
-    resolvedPath = resolvedPath.replace("{IdentityId}", labelValue);
+    resolvedPath = resolvedPath.replace('{IdentityId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: IdentityId.");
+    throw new Error('No value provided for input HTTP label: IdentityId.');
   }
   if (input.IdentityPoolId !== undefined) {
     const labelValue: any = input.IdentityPoolId.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error('Empty value provided for input HTTP label: IdentityPoolId.');
     }
-    resolvedPath = resolvedPath.replace("{IdentityPoolId}", labelValue);
+    resolvedPath = resolvedPath.replace('{IdentityPoolId}', labelValue);
   } else {
-    throw new Error("No value provided for input HTTP label: IdentityPoolId.");
+    throw new Error('No value provided for input HTTP label: IdentityPoolId.');
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.DeviceId !== undefined) {
-    bodyParams["DeviceId"] = input.DeviceId;
+    bodyParams['DeviceId'] = input.DeviceId;
   }
   if (input.RecordPatches !== undefined) {
-    bodyParams["RecordPatches"] = serializeAws_restJson1_1RecordPatchList(
-      input.RecordPatches,
-      context
-    );
+    bodyParams['RecordPatches'] = serializeAws_restJson1_1RecordPatchList(input.RecordPatches, context);
   }
   if (input.SyncSessionToken !== undefined) {
-    bodyParams["SyncSessionToken"] = input.SyncSessionToken;
+    bodyParams['SyncSessionToken'] = input.SyncSessionToken;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -803,7 +739,7 @@ export async function serializeAws_restJson1_1UpdateRecordsCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body
+    body: body,
   });
 }
 
@@ -817,7 +753,7 @@ export async function deserializeAws_restJson1_1BulkPublishCommand(
   const contents: BulkPublishCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BulkPublishResponse",
-    IdentityPoolId: undefined
+    IdentityPoolId: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.IdentityPoolId !== undefined) {
@@ -828,67 +764,48 @@ export async function deserializeAws_restJson1_1BulkPublishCommand(
 
 async function deserializeAws_restJson1_1BulkPublishCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<BulkPublishCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "AlreadyStreamedException":
     case "com.amazonaws.cognito.sync.model#AlreadyStreamedException":
-      response = await deserializeAws_restJson1_1AlreadyStreamedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1AlreadyStreamedExceptionResponse(parsedOutput, context);
       break;
     case "DuplicateRequestException":
     case "com.amazonaws.cognito.sync.model#DuplicateRequestException":
-      response = await deserializeAws_restJson1_1DuplicateRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1DuplicateRequestExceptionResponse(parsedOutput, context);
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -904,7 +821,7 @@ export async function deserializeAws_restJson1_1DeleteDatasetCommand(
   const contents: DeleteDatasetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteDatasetResponse",
-    Dataset: undefined
+    Dataset: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Dataset !== undefined) {
@@ -915,67 +832,48 @@ export async function deserializeAws_restJson1_1DeleteDatasetCommand(
 
 async function deserializeAws_restJson1_1DeleteDatasetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DeleteDatasetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceConflictException":
     case "com.amazonaws.cognito.sync.model#ResourceConflictException":
-      response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -986,15 +884,12 @@ export async function deserializeAws_restJson1_1DescribeDatasetCommand(
   context: __SerdeContext
 ): Promise<DescribeDatasetCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeDatasetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeDatasetCommandError(output, context);
   }
   const contents: DescribeDatasetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeDatasetResponse",
-    Dataset: undefined
+    Dataset: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Dataset !== undefined) {
@@ -1005,60 +900,44 @@ export async function deserializeAws_restJson1_1DescribeDatasetCommand(
 
 async function deserializeAws_restJson1_1DescribeDatasetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeDatasetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1069,82 +948,60 @@ export async function deserializeAws_restJson1_1DescribeIdentityPoolUsageCommand
   context: __SerdeContext
 ): Promise<DescribeIdentityPoolUsageCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeIdentityPoolUsageCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeIdentityPoolUsageCommandError(output, context);
   }
   const contents: DescribeIdentityPoolUsageCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeIdentityPoolUsageResponse",
-    IdentityPoolUsage: undefined
+    IdentityPoolUsage: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.IdentityPoolUsage !== undefined) {
-    contents.IdentityPoolUsage = deserializeAws_restJson1_1IdentityPoolUsage(
-      data.IdentityPoolUsage,
-      context
-    );
+    contents.IdentityPoolUsage = deserializeAws_restJson1_1IdentityPoolUsage(data.IdentityPoolUsage, context);
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DescribeIdentityPoolUsageCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeIdentityPoolUsageCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1155,82 +1012,60 @@ export async function deserializeAws_restJson1_1DescribeIdentityUsageCommand(
   context: __SerdeContext
 ): Promise<DescribeIdentityUsageCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeIdentityUsageCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeIdentityUsageCommandError(output, context);
   }
   const contents: DescribeIdentityUsageCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeIdentityUsageResponse",
-    IdentityUsage: undefined
+    IdentityUsage: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.IdentityUsage !== undefined) {
-    contents.IdentityUsage = deserializeAws_restJson1_1IdentityUsage(
-      data.IdentityUsage,
-      context
-    );
+    contents.IdentityUsage = deserializeAws_restJson1_1IdentityUsage(data.IdentityUsage, context);
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DescribeIdentityUsageCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<DescribeIdentityUsageCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1241,10 +1076,7 @@ export async function deserializeAws_restJson1_1GetBulkPublishDetailsCommand(
   context: __SerdeContext
 ): Promise<GetBulkPublishDetailsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetBulkPublishDetailsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetBulkPublishDetailsCommandError(output, context);
   }
   const contents: GetBulkPublishDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1253,22 +1085,14 @@ export async function deserializeAws_restJson1_1GetBulkPublishDetailsCommand(
     BulkPublishStartTime: undefined,
     BulkPublishStatus: undefined,
     FailureMessage: undefined,
-    IdentityPoolId: undefined
+    IdentityPoolId: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.BulkPublishCompleteTime !== undefined) {
-    contents.BulkPublishCompleteTime = new Date(
-      data.BulkPublishCompleteTime % 1 != 0
-        ? Math.round(data.BulkPublishCompleteTime * 1000)
-        : data.BulkPublishCompleteTime
-    );
+    contents.BulkPublishCompleteTime = new Date(data.BulkPublishCompleteTime % 1 != 0 ? Math.round(data.BulkPublishCompleteTime * 1000) : data.BulkPublishCompleteTime);
   }
   if (data.BulkPublishStartTime !== undefined) {
-    contents.BulkPublishStartTime = new Date(
-      data.BulkPublishStartTime % 1 != 0
-        ? Math.round(data.BulkPublishStartTime * 1000)
-        : data.BulkPublishStartTime
-    );
+    contents.BulkPublishStartTime = new Date(data.BulkPublishStartTime % 1 != 0 ? Math.round(data.BulkPublishStartTime * 1000) : data.BulkPublishStartTime);
   }
   if (data.BulkPublishStatus !== undefined) {
     contents.BulkPublishStatus = data.BulkPublishStatus;
@@ -1284,53 +1108,40 @@ export async function deserializeAws_restJson1_1GetBulkPublishDetailsCommand(
 
 async function deserializeAws_restJson1_1GetBulkPublishDetailsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetBulkPublishDetailsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1341,15 +1152,12 @@ export async function deserializeAws_restJson1_1GetCognitoEventsCommand(
   context: __SerdeContext
 ): Promise<GetCognitoEventsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetCognitoEventsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetCognitoEventsCommandError(output, context);
   }
   const contents: GetCognitoEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetCognitoEventsResponse",
-    Events: undefined
+    Events: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Events !== undefined) {
@@ -1360,60 +1168,44 @@ export async function deserializeAws_restJson1_1GetCognitoEventsCommand(
 
 async function deserializeAws_restJson1_1GetCognitoEventsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetCognitoEventsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1424,93 +1216,68 @@ export async function deserializeAws_restJson1_1GetIdentityPoolConfigurationComm
   context: __SerdeContext
 ): Promise<GetIdentityPoolConfigurationCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetIdentityPoolConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetIdentityPoolConfigurationCommandError(output, context);
   }
   const contents: GetIdentityPoolConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetIdentityPoolConfigurationResponse",
     CognitoStreams: undefined,
     IdentityPoolId: undefined,
-    PushSync: undefined
+    PushSync: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.CognitoStreams !== undefined) {
-    contents.CognitoStreams = deserializeAws_restJson1_1CognitoStreams(
-      data.CognitoStreams,
-      context
-    );
+    contents.CognitoStreams = deserializeAws_restJson1_1CognitoStreams(data.CognitoStreams, context);
   }
   if (data.IdentityPoolId !== undefined) {
     contents.IdentityPoolId = data.IdentityPoolId;
   }
   if (data.PushSync !== undefined) {
-    contents.PushSync = deserializeAws_restJson1_1PushSync(
-      data.PushSync,
-      context
-    );
+    contents.PushSync = deserializeAws_restJson1_1PushSync(data.PushSync, context);
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1GetIdentityPoolConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<GetIdentityPoolConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1528,17 +1295,14 @@ export async function deserializeAws_restJson1_1ListDatasetsCommand(
     __type: "ListDatasetsResponse",
     Count: undefined,
     Datasets: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Count !== undefined) {
     contents.Count = data.Count;
   }
   if (data.Datasets !== undefined) {
-    contents.Datasets = deserializeAws_restJson1_1DatasetList(
-      data.Datasets,
-      context
-    );
+    contents.Datasets = deserializeAws_restJson1_1DatasetList(data.Datasets, context);
   }
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
@@ -1548,53 +1312,40 @@ export async function deserializeAws_restJson1_1ListDatasetsCommand(
 
 async function deserializeAws_restJson1_1ListDatasetsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListDatasetsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1605,10 +1356,7 @@ export async function deserializeAws_restJson1_1ListIdentityPoolUsageCommand(
   context: __SerdeContext
 ): Promise<ListIdentityPoolUsageCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListIdentityPoolUsageCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListIdentityPoolUsageCommandError(output, context);
   }
   const contents: ListIdentityPoolUsageCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1616,17 +1364,14 @@ export async function deserializeAws_restJson1_1ListIdentityPoolUsageCommand(
     Count: undefined,
     IdentityPoolUsages: undefined,
     MaxResults: undefined,
-    NextToken: undefined
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Count !== undefined) {
     contents.Count = data.Count;
   }
   if (data.IdentityPoolUsages !== undefined) {
-    contents.IdentityPoolUsages = deserializeAws_restJson1_1IdentityPoolUsageList(
-      data.IdentityPoolUsages,
-      context
-    );
+    contents.IdentityPoolUsages = deserializeAws_restJson1_1IdentityPoolUsageList(data.IdentityPoolUsages, context);
   }
   if (data.MaxResults !== undefined) {
     contents.MaxResults = data.MaxResults;
@@ -1639,53 +1384,40 @@ export async function deserializeAws_restJson1_1ListIdentityPoolUsageCommand(
 
 async function deserializeAws_restJson1_1ListIdentityPoolUsageCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListIdentityPoolUsageCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1709,15 +1441,14 @@ export async function deserializeAws_restJson1_1ListRecordsCommand(
     MergedDatasetNames: undefined,
     NextToken: undefined,
     Records: undefined,
-    SyncSessionToken: undefined
+    SyncSessionToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Count !== undefined) {
     contents.Count = data.Count;
   }
   if (data.DatasetDeletedAfterRequestedSyncCount !== undefined) {
-    contents.DatasetDeletedAfterRequestedSyncCount =
-      data.DatasetDeletedAfterRequestedSyncCount;
+    contents.DatasetDeletedAfterRequestedSyncCount = data.DatasetDeletedAfterRequestedSyncCount;
   }
   if (data.DatasetExists !== undefined) {
     contents.DatasetExists = data.DatasetExists;
@@ -1729,19 +1460,13 @@ export async function deserializeAws_restJson1_1ListRecordsCommand(
     contents.LastModifiedBy = data.LastModifiedBy;
   }
   if (data.MergedDatasetNames !== undefined) {
-    contents.MergedDatasetNames = deserializeAws_restJson1_1MergedDatasetNameList(
-      data.MergedDatasetNames,
-      context
-    );
+    contents.MergedDatasetNames = deserializeAws_restJson1_1MergedDatasetNameList(data.MergedDatasetNames, context);
   }
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
   }
   if (data.Records !== undefined) {
-    contents.Records = deserializeAws_restJson1_1RecordList(
-      data.Records,
-      context
-    );
+    contents.Records = deserializeAws_restJson1_1RecordList(data.Records, context);
   }
   if (data.SyncSessionToken !== undefined) {
     contents.SyncSessionToken = data.SyncSessionToken;
@@ -1751,53 +1476,40 @@ export async function deserializeAws_restJson1_1ListRecordsCommand(
 
 async function deserializeAws_restJson1_1ListRecordsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<ListRecordsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1808,15 +1520,12 @@ export async function deserializeAws_restJson1_1RegisterDeviceCommand(
   context: __SerdeContext
 ): Promise<RegisterDeviceCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1RegisterDeviceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RegisterDeviceCommandError(output, context);
   }
   const contents: RegisterDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RegisterDeviceResponse",
-    DeviceId: undefined
+    DeviceId: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.DeviceId !== undefined) {
@@ -1827,67 +1536,48 @@ export async function deserializeAws_restJson1_1RegisterDeviceCommand(
 
 async function deserializeAws_restJson1_1RegisterDeviceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<RegisterDeviceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidConfigurationException":
     case "com.amazonaws.cognito.sync.model#InvalidConfigurationException":
-      response = await deserializeAws_restJson1_1InvalidConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidConfigurationExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1898,73 +1588,54 @@ export async function deserializeAws_restJson1_1SetCognitoEventsCommand(
   context: __SerdeContext
 ): Promise<SetCognitoEventsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1SetCognitoEventsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1SetCognitoEventsCommandError(output, context);
   }
   const contents: SetCognitoEventsCommandOutput = {
-    $metadata: deserializeMetadata(output)
+    $metadata: deserializeMetadata(output),
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1SetCognitoEventsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<SetCognitoEventsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1975,100 +1646,72 @@ export async function deserializeAws_restJson1_1SetIdentityPoolConfigurationComm
   context: __SerdeContext
 ): Promise<SetIdentityPoolConfigurationCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1SetIdentityPoolConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1SetIdentityPoolConfigurationCommandError(output, context);
   }
   const contents: SetIdentityPoolConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SetIdentityPoolConfigurationResponse",
     CognitoStreams: undefined,
     IdentityPoolId: undefined,
-    PushSync: undefined
+    PushSync: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.CognitoStreams !== undefined) {
-    contents.CognitoStreams = deserializeAws_restJson1_1CognitoStreams(
-      data.CognitoStreams,
-      context
-    );
+    contents.CognitoStreams = deserializeAws_restJson1_1CognitoStreams(data.CognitoStreams, context);
   }
   if (data.IdentityPoolId !== undefined) {
     contents.IdentityPoolId = data.IdentityPoolId;
   }
   if (data.PushSync !== undefined) {
-    contents.PushSync = deserializeAws_restJson1_1PushSync(
-      data.PushSync,
-      context
-    );
+    contents.PushSync = deserializeAws_restJson1_1PushSync(data.PushSync, context);
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1SetIdentityPoolConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<SetIdentityPoolConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.cognito.sync.model#ConcurrentModificationException":
-      response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2079,81 +1722,59 @@ export async function deserializeAws_restJson1_1SubscribeToDatasetCommand(
   context: __SerdeContext
 ): Promise<SubscribeToDatasetCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1SubscribeToDatasetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1SubscribeToDatasetCommandError(output, context);
   }
   const contents: SubscribeToDatasetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SubscribeToDatasetResponse"
+    __type: "SubscribeToDatasetResponse",
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1SubscribeToDatasetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<SubscribeToDatasetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidConfigurationException":
     case "com.amazonaws.cognito.sync.model#InvalidConfigurationException":
-      response = await deserializeAws_restJson1_1InvalidConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidConfigurationExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2164,81 +1785,59 @@ export async function deserializeAws_restJson1_1UnsubscribeFromDatasetCommand(
   context: __SerdeContext
 ): Promise<UnsubscribeFromDatasetCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1UnsubscribeFromDatasetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UnsubscribeFromDatasetCommandError(output, context);
   }
   const contents: UnsubscribeFromDatasetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UnsubscribeFromDatasetResponse"
+    __type: "UnsubscribeFromDatasetResponse",
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UnsubscribeFromDatasetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UnsubscribeFromDatasetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidConfigurationException":
     case "com.amazonaws.cognito.sync.model#InvalidConfigurationException":
-      response = await deserializeAws_restJson1_1InvalidConfigurationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidConfigurationExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2254,109 +1853,75 @@ export async function deserializeAws_restJson1_1UpdateRecordsCommand(
   const contents: UpdateRecordsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateRecordsResponse",
-    Records: undefined
+    Records: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Records !== undefined) {
-    contents.Records = deserializeAws_restJson1_1RecordList(
-      data.Records,
-      context
-    );
+    contents.Records = deserializeAws_restJson1_1RecordList(data.Records, context);
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UpdateRecordsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext,
 ): Promise<UpdateRecordsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data
+    body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
   }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context);
       break;
     case "InvalidLambdaFunctionOutputException":
     case "com.amazonaws.cognito.sync.model#InvalidLambdaFunctionOutputException":
-      response = await deserializeAws_restJson1_1InvalidLambdaFunctionOutputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidLambdaFunctionOutputExceptionResponse(parsedOutput, context);
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
       break;
     case "LambdaSocketTimeoutException":
     case "com.amazonaws.cognito.sync.model#LambdaSocketTimeoutException":
-      response = await deserializeAws_restJson1_1LambdaSocketTimeoutExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1LambdaSocketTimeoutExceptionResponse(parsedOutput, context);
       break;
     case "LambdaThrottledException":
     case "com.amazonaws.cognito.sync.model#LambdaThrottledException":
-      response = await deserializeAws_restJson1_1LambdaThrottledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1LambdaThrottledExceptionResponse(parsedOutput, context);
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.sync.model#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context);
       break;
     case "ResourceConflictException":
     case "com.amazonaws.cognito.sync.model#ResourceConflictException":
-      response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(parsedOutput, context);
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output)
+        $metadata: deserializeMetadata(output),
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2370,7 +1935,7 @@ const deserializeAws_restJson1_1AlreadyStreamedExceptionResponse = async (
     __type: "AlreadyStreamedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined
+    message: undefined,
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -2387,7 +1952,7 @@ const deserializeAws_restJson1_1ConcurrentModificationExceptionResponse = async 
     __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined
+    message: undefined,
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -2404,7 +1969,7 @@ const deserializeAws_restJson1_1DuplicateRequestExceptionResponse = async (
     __type: "DuplicateRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined
+    message: undefined,
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -2421,7 +1986,7 @@ const deserializeAws_restJson1_1InternalErrorExceptionResponse = async (
     __type: "InternalErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    message: undefined
+    message: undefined,
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -2438,7 +2003,7 @@ const deserializeAws_restJson1_1InvalidConfigurationExceptionResponse = async (
     __type: "InvalidConfigurationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined
+    message: undefined,
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -2455,7 +2020,7 @@ const deserializeAws_restJson1_1InvalidLambdaFunctionOutputExceptionResponse = a
     __type: "InvalidLambdaFunctionOutputException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined
+    message: undefined,
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -2472,7 +2037,7 @@ const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
     __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined
+    message: undefined,
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -2489,7 +2054,7 @@ const deserializeAws_restJson1_1LambdaSocketTimeoutExceptionResponse = async (
     __type: "LambdaSocketTimeoutException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined
+    message: undefined,
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -2506,7 +2071,7 @@ const deserializeAws_restJson1_1LambdaThrottledExceptionResponse = async (
     __type: "LambdaThrottledException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined
+    message: undefined,
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -2523,7 +2088,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined
+    message: undefined,
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -2540,7 +2105,7 @@ const deserializeAws_restJson1_1NotAuthorizedExceptionResponse = async (
     __type: "NotAuthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined
+    message: undefined,
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -2557,7 +2122,7 @@ const deserializeAws_restJson1_1ResourceConflictExceptionResponse = async (
     __type: "ResourceConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined
+    message: undefined,
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -2574,7 +2139,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined
+    message: undefined,
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -2591,7 +2156,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
     __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined
+    message: undefined,
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -2604,8 +2169,10 @@ const serializeAws_restJson1_1ApplicationArnList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry => entry);
-};
+  return (input || []).map(entry =>
+    entry
+  );
+}
 
 const serializeAws_restJson1_1CognitoStreams = (
   input: CognitoStreams,
@@ -2613,19 +2180,19 @@ const serializeAws_restJson1_1CognitoStreams = (
 ): any => {
   let bodyParams: any = {};
   if (input.DisabledReason !== undefined) {
-    bodyParams["DisabledReason"] = input.DisabledReason;
+    bodyParams['DisabledReason'] = input.DisabledReason;
   }
   if (input.RoleArn !== undefined) {
-    bodyParams["RoleArn"] = input.RoleArn;
+    bodyParams['RoleArn'] = input.RoleArn;
   }
   if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
+    bodyParams['StreamName'] = input.StreamName;
   }
   if (input.StreamingStatus !== undefined) {
-    bodyParams["StreamingStatus"] = input.StreamingStatus;
+    bodyParams['StreamingStatus'] = input.StreamingStatus;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1Events = (
   input: { [key: string]: string },
@@ -2636,7 +2203,7 @@ const serializeAws_restJson1_1Events = (
     mapParams[key] = input[key];
   });
   return mapParams;
-};
+}
 
 const serializeAws_restJson1_1PushSync = (
   input: PushSync,
@@ -2644,16 +2211,13 @@ const serializeAws_restJson1_1PushSync = (
 ): any => {
   let bodyParams: any = {};
   if (input.ApplicationArns !== undefined) {
-    bodyParams["ApplicationArns"] = serializeAws_restJson1_1ApplicationArnList(
-      input.ApplicationArns,
-      context
-    );
+    bodyParams['ApplicationArns'] = serializeAws_restJson1_1ApplicationArnList(input.ApplicationArns, context);
   }
   if (input.RoleArn !== undefined) {
-    bodyParams["RoleArn"] = input.RoleArn;
+    bodyParams['RoleArn'] = input.RoleArn;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1RecordPatch = (
   input: RecordPatch,
@@ -2661,24 +2225,22 @@ const serializeAws_restJson1_1RecordPatch = (
 ): any => {
   let bodyParams: any = {};
   if (input.DeviceLastModifiedDate !== undefined) {
-    bodyParams["DeviceLastModifiedDate"] = Math.round(
-      input.DeviceLastModifiedDate.getTime() / 1000
-    );
+    bodyParams['DeviceLastModifiedDate'] = Math.round(input.DeviceLastModifiedDate.getTime() / 1000);
   }
   if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
+    bodyParams['Key'] = input.Key;
   }
   if (input.Op !== undefined) {
-    bodyParams["Op"] = input.Op;
+    bodyParams['Op'] = input.Op;
   }
   if (input.SyncCount !== undefined) {
-    bodyParams["SyncCount"] = input.SyncCount;
+    bodyParams['SyncCount'] = input.SyncCount;
   }
   if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
+    bodyParams['Value'] = input.Value;
   }
   return bodyParams;
-};
+}
 
 const serializeAws_restJson1_1RecordPatchList = (
   input: Array<RecordPatch>,
@@ -2687,14 +2249,16 @@ const serializeAws_restJson1_1RecordPatchList = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1RecordPatch(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1ApplicationArnList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_restJson1_1CognitoStreams = (
   output: any,
@@ -2705,7 +2269,7 @@ const deserializeAws_restJson1_1CognitoStreams = (
     DisabledReason: undefined,
     RoleArn: undefined,
     StreamName: undefined,
-    StreamingStatus: undefined
+    StreamingStatus: undefined,
   };
   if (output.DisabledReason !== undefined) {
     contents.DisabledReason = output.DisabledReason;
@@ -2720,7 +2284,7 @@ const deserializeAws_restJson1_1CognitoStreams = (
     contents.StreamingStatus = output.StreamingStatus;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1Dataset = (
   output: any,
@@ -2734,14 +2298,10 @@ const deserializeAws_restJson1_1Dataset = (
     IdentityId: undefined,
     LastModifiedBy: undefined,
     LastModifiedDate: undefined,
-    NumRecords: undefined
+    NumRecords: undefined,
   };
   if (output.CreationDate !== undefined) {
-    contents.CreationDate = new Date(
-      output.CreationDate % 1 != 0
-        ? Math.round(output.CreationDate * 1000)
-        : output.CreationDate
-    );
+    contents.CreationDate = new Date(output.CreationDate % 1 != 0 ? Math.round(output.CreationDate * 1000) : output.CreationDate);
   }
   if (output.DataStorage !== undefined) {
     contents.DataStorage = output.DataStorage;
@@ -2756,17 +2316,13 @@ const deserializeAws_restJson1_1Dataset = (
     contents.LastModifiedBy = output.LastModifiedBy;
   }
   if (output.LastModifiedDate !== undefined) {
-    contents.LastModifiedDate = new Date(
-      output.LastModifiedDate % 1 != 0
-        ? Math.round(output.LastModifiedDate * 1000)
-        : output.LastModifiedDate
-    );
+    contents.LastModifiedDate = new Date(output.LastModifiedDate % 1 != 0 ? Math.round(output.LastModifiedDate * 1000) : output.LastModifiedDate);
   }
   if (output.NumRecords !== undefined) {
     contents.NumRecords = output.NumRecords;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1DatasetList = (
   output: any,
@@ -2775,7 +2331,7 @@ const deserializeAws_restJson1_1DatasetList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Dataset(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1Events = (
   output: any,
@@ -2786,7 +2342,7 @@ const deserializeAws_restJson1_1Events = (
     mapParams[key] = output[key];
   });
   return mapParams;
-};
+}
 
 const deserializeAws_restJson1_1IdentityPoolUsage = (
   output: any,
@@ -2797,7 +2353,7 @@ const deserializeAws_restJson1_1IdentityPoolUsage = (
     DataStorage: undefined,
     IdentityPoolId: undefined,
     LastModifiedDate: undefined,
-    SyncSessionsCount: undefined
+    SyncSessionsCount: undefined,
   };
   if (output.DataStorage !== undefined) {
     contents.DataStorage = output.DataStorage;
@@ -2806,17 +2362,13 @@ const deserializeAws_restJson1_1IdentityPoolUsage = (
     contents.IdentityPoolId = output.IdentityPoolId;
   }
   if (output.LastModifiedDate !== undefined) {
-    contents.LastModifiedDate = new Date(
-      output.LastModifiedDate % 1 != 0
-        ? Math.round(output.LastModifiedDate * 1000)
-        : output.LastModifiedDate
-    );
+    contents.LastModifiedDate = new Date(output.LastModifiedDate % 1 != 0 ? Math.round(output.LastModifiedDate * 1000) : output.LastModifiedDate);
   }
   if (output.SyncSessionsCount !== undefined) {
     contents.SyncSessionsCount = output.SyncSessionsCount;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1IdentityPoolUsageList = (
   output: any,
@@ -2825,7 +2377,7 @@ const deserializeAws_restJson1_1IdentityPoolUsageList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1IdentityPoolUsage(entry, context)
   );
-};
+}
 
 const deserializeAws_restJson1_1IdentityUsage = (
   output: any,
@@ -2837,7 +2389,7 @@ const deserializeAws_restJson1_1IdentityUsage = (
     DatasetCount: undefined,
     IdentityId: undefined,
     IdentityPoolId: undefined,
-    LastModifiedDate: undefined
+    LastModifiedDate: undefined,
   };
   if (output.DataStorage !== undefined) {
     contents.DataStorage = output.DataStorage;
@@ -2852,21 +2404,19 @@ const deserializeAws_restJson1_1IdentityUsage = (
     contents.IdentityPoolId = output.IdentityPoolId;
   }
   if (output.LastModifiedDate !== undefined) {
-    contents.LastModifiedDate = new Date(
-      output.LastModifiedDate % 1 != 0
-        ? Math.round(output.LastModifiedDate * 1000)
-        : output.LastModifiedDate
-    );
+    contents.LastModifiedDate = new Date(output.LastModifiedDate % 1 != 0 ? Math.round(output.LastModifiedDate * 1000) : output.LastModifiedDate);
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1MergedDatasetNameList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) => entry);
-};
+  return (output || []).map((entry: any) =>
+    entry
+  );
+}
 
 const deserializeAws_restJson1_1PushSync = (
   output: any,
@@ -2875,19 +2425,16 @@ const deserializeAws_restJson1_1PushSync = (
   let contents: any = {
     __type: "PushSync",
     ApplicationArns: undefined,
-    RoleArn: undefined
+    RoleArn: undefined,
   };
   if (output.ApplicationArns !== undefined) {
-    contents.ApplicationArns = deserializeAws_restJson1_1ApplicationArnList(
-      output.ApplicationArns,
-      context
-    );
+    contents.ApplicationArns = deserializeAws_restJson1_1ApplicationArnList(output.ApplicationArns, context);
   }
   if (output.RoleArn !== undefined) {
     contents.RoleArn = output.RoleArn;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1_Record = (
   output: any,
@@ -2900,14 +2447,10 @@ const deserializeAws_restJson1_1_Record = (
     LastModifiedBy: undefined,
     LastModifiedDate: undefined,
     SyncCount: undefined,
-    Value: undefined
+    Value: undefined,
   };
   if (output.DeviceLastModifiedDate !== undefined) {
-    contents.DeviceLastModifiedDate = new Date(
-      output.DeviceLastModifiedDate % 1 != 0
-        ? Math.round(output.DeviceLastModifiedDate * 1000)
-        : output.DeviceLastModifiedDate
-    );
+    contents.DeviceLastModifiedDate = new Date(output.DeviceLastModifiedDate % 1 != 0 ? Math.round(output.DeviceLastModifiedDate * 1000) : output.DeviceLastModifiedDate);
   }
   if (output.Key !== undefined) {
     contents.Key = output.Key;
@@ -2916,11 +2459,7 @@ const deserializeAws_restJson1_1_Record = (
     contents.LastModifiedBy = output.LastModifiedBy;
   }
   if (output.LastModifiedDate !== undefined) {
-    contents.LastModifiedDate = new Date(
-      output.LastModifiedDate % 1 != 0
-        ? Math.round(output.LastModifiedDate * 1000)
-        : output.LastModifiedDate
-    );
+    contents.LastModifiedDate = new Date(output.LastModifiedDate % 1 != 0 ? Math.round(output.LastModifiedDate * 1000) : output.LastModifiedDate);
   }
   if (output.SyncCount !== undefined) {
     contents.SyncCount = output.SyncCount;
@@ -2929,7 +2468,7 @@ const deserializeAws_restJson1_1_Record = (
     contents.Value = output.Value;
   }
   return contents;
-};
+}
 
 const deserializeAws_restJson1_1RecordList = (
   output: any,
@@ -2938,7 +2477,7 @@ const deserializeAws_restJson1_1RecordList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1_Record(entry, context)
   );
-};
+}
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

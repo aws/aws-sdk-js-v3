@@ -101,7 +101,7 @@ export namespace DescribeVoicesOutput {
 
 export enum Engine {
   NEURAL = "neural",
-  STANDARD = "standard"
+  STANDARD = "standard",
 }
 
 /**
@@ -110,9 +110,7 @@ export enum Engine {
  *       and restart the operation.</p>
  *
  */
-export interface EngineNotSupportedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface EngineNotSupportedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "EngineNotSupportedException";
   $fault: "client";
   message?: string;
@@ -124,7 +122,7 @@ export namespace EngineNotSupportedException {
   }
 }
 
-export type Gender = "Female" | "Male";
+export type Gender = "Female" | "Male"
 
 export interface GetLexiconInput {
   __type?: "GetLexiconInput";
@@ -206,9 +204,7 @@ export namespace GetSpeechSynthesisTaskOutput {
  *       Verify that the lexicon's name is spelled correctly, and then try again.</p>
  *
  */
-export interface InvalidLexiconException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidLexiconException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidLexiconException";
   $fault: "client";
   message?: string;
@@ -226,9 +222,7 @@ export namespace InvalidLexiconException {
  *       Verify that it's spelled correctly, and then try again.</p>
  *
  */
-export interface InvalidNextTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidNextTokenException";
   $fault: "client";
   message?: string;
@@ -246,9 +240,7 @@ export namespace InvalidNextTokenException {
  *       naming requirements and try again.</p>
  *
  */
-export interface InvalidS3BucketException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidS3BucketException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidS3BucketException";
   $fault: "client";
   message?: string;
@@ -265,9 +257,7 @@ export namespace InvalidS3BucketException {
  *          <p>The provided Amazon S3 key prefix is invalid. Please provide a valid S3 object key name.</p>
  *
  */
-export interface InvalidS3KeyException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidS3KeyException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidS3KeyException";
   $fault: "client";
   message?: string;
@@ -284,9 +274,7 @@ export namespace InvalidS3KeyException {
  *          <p>The specified sample rate is not valid.</p>
  *
  */
-export interface InvalidSampleRateException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidSampleRateException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidSampleRateException";
   $fault: "client";
   message?: string;
@@ -303,9 +291,7 @@ export namespace InvalidSampleRateException {
  *          <p>The provided SNS topic ARN is invalid. Please provide a valid SNS topic ARN and try again.</p>
  *
  */
-export interface InvalidSnsTopicArnException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidSnsTopicArnException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidSnsTopicArnException";
   $fault: "client";
   message?: string;
@@ -323,9 +309,7 @@ export namespace InvalidSnsTopicArnException {
  *       Verify the SSML syntax, spelling of tags and values, and then try again.</p>
  *
  */
-export interface InvalidSsmlException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidSsmlException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidSsmlException";
   $fault: "client";
   message?: string;
@@ -342,9 +326,7 @@ export namespace InvalidSsmlException {
  *          <p>The provided Task ID is not valid. Please provide a valid Task ID and try again.</p>
  *
  */
-export interface InvalidTaskIdException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidTaskIdException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidTaskIdException";
   $fault: "client";
   message?: string;
@@ -356,45 +338,14 @@ export namespace InvalidTaskIdException {
   }
 }
 
-export type LanguageCode =
-  | "arb"
-  | "cmn-CN"
-  | "cy-GB"
-  | "da-DK"
-  | "de-DE"
-  | "en-AU"
-  | "en-GB"
-  | "en-GB-WLS"
-  | "en-IN"
-  | "en-US"
-  | "es-ES"
-  | "es-MX"
-  | "es-US"
-  | "fr-CA"
-  | "fr-FR"
-  | "hi-IN"
-  | "is-IS"
-  | "it-IT"
-  | "ja-JP"
-  | "ko-KR"
-  | "nb-NO"
-  | "nl-NL"
-  | "pl-PL"
-  | "pt-BR"
-  | "pt-PT"
-  | "ro-RO"
-  | "ru-RU"
-  | "sv-SE"
-  | "tr-TR";
+export type LanguageCode = "arb" | "cmn-CN" | "cy-GB" | "da-DK" | "de-DE" | "en-AU" | "en-GB" | "en-GB-WLS" | "en-IN" | "en-US" | "es-ES" | "es-MX" | "es-US" | "fr-CA" | "fr-FR" | "hi-IN" | "is-IS" | "it-IT" | "ja-JP" | "ko-KR" | "nb-NO" | "nl-NL" | "pl-PL" | "pt-BR" | "pt-PT" | "ro-RO" | "ru-RU" | "sv-SE" | "tr-TR"
 
 /**
  *
  *          <p>The language specified is not currently supported by Amazon Polly in this capacity.</p>
  *
  */
-export interface LanguageNotSupportedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LanguageNotSupportedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LanguageNotSupportedException";
   $fault: "client";
   message?: string;
@@ -535,9 +486,7 @@ export namespace LexiconDescription {
  *       and that you spelled its name is spelled correctly. Then try again.</p>
  *
  */
-export interface LexiconNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LexiconNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LexiconNotFoundException";
   $fault: "client";
   message?: string;
@@ -554,9 +503,7 @@ export namespace LexiconNotFoundException {
  *          <p>The maximum size of the specified lexicon would be exceeded by this operation.</p>
  *
  */
-export interface LexiconSizeExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LexiconSizeExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LexiconSizeExceededException";
   $fault: "client";
   message?: string;
@@ -673,9 +620,7 @@ export namespace ListSpeechSynthesisTasksOutput {
  *       Speech marks are only available for content in <code>json</code> format.</p>
  *
  */
-export interface MarksNotSupportedForFormatException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MarksNotSupportedForFormatException extends _smithy.SmithyException, $MetadataBearer {
   __type: "MarksNotSupportedForFormatException";
   $fault: "client";
   message?: string;
@@ -692,9 +637,7 @@ export namespace MarksNotSupportedForFormatException {
  *          <p>The maximum size of the lexeme would be exceeded by this operation.</p>
  *
  */
-export interface MaxLexemeLengthExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MaxLexemeLengthExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "MaxLexemeLengthExceededException";
   $fault: "client";
   message?: string;
@@ -711,9 +654,7 @@ export namespace MaxLexemeLengthExceededException {
  *          <p>The maximum number of lexicons would be exceeded by this operation.</p>
  *
  */
-export interface MaxLexiconsNumberExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MaxLexiconsNumberExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "MaxLexiconsNumberExceededException";
   $fault: "client";
   message?: string;
@@ -729,7 +670,7 @@ export enum OutputFormat {
   JSON = "json",
   MP3 = "mp3",
   OGG_VORBIS = "ogg_vorbis",
-  PCM = "pcm"
+  PCM = "pcm",
 }
 
 export interface PutLexiconInput {
@@ -773,9 +714,7 @@ export namespace PutLexiconOutput {
  *          <p>An unknown condition has caused a service failure.</p>
  *
  */
-export interface ServiceFailureException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceFailureException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceFailureException";
   $fault: "server";
   message?: string;
@@ -791,7 +730,7 @@ export enum SpeechMarkType {
   SENTENCE = "sentence",
   SSML = "ssml",
   VISEME = "viseme",
-  WORD = "word"
+  WORD = "word",
 }
 
 /**
@@ -799,9 +738,7 @@ export enum SpeechMarkType {
  *          <p>SSML speech marks are not supported for plain text-type input.</p>
  *
  */
-export interface SsmlMarksNotSupportedForTextTypeException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface SsmlMarksNotSupportedForTextTypeException extends _smithy.SmithyException, $MetadataBearer {
   __type: "SsmlMarksNotSupportedForTextTypeException";
   $fault: "client";
   message?: string;
@@ -1073,9 +1010,7 @@ export namespace SynthesisTask {
  *          <p>The Speech Synthesis task with requested Task ID cannot be found.</p>
  *
  */
-export interface SynthesisTaskNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface SynthesisTaskNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "SynthesisTaskNotFoundException";
   $fault: "client";
   message?: string;
@@ -1253,7 +1188,7 @@ export enum TaskStatus {
   COMPLETED = "completed",
   FAILED = "failed",
   IN_PROGRESS = "inProgress",
-  SCHEDULED = "scheduled"
+  SCHEDULED = "scheduled",
 }
 
 /**
@@ -1264,9 +1199,7 @@ export enum TaskStatus {
  *       SSML tags are not counted as billed characters.</p>
  *
  */
-export interface TextLengthExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TextLengthExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TextLengthExceededException";
   $fault: "client";
   message?: string;
@@ -1280,7 +1213,7 @@ export namespace TextLengthExceededException {
 
 export enum TextType {
   SSML = "ssml",
-  TEXT = "text"
+  TEXT = "text",
 }
 
 /**
@@ -1289,9 +1222,7 @@ export enum TextType {
  *       Valid values are <code>x-sampa</code> and <code>ipa</code>.</p>
  *
  */
-export interface UnsupportedPlsAlphabetException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnsupportedPlsAlphabetException extends _smithy.SmithyException, $MetadataBearer {
   __type: "UnsupportedPlsAlphabetException";
   $fault: "client";
   message?: string;
@@ -1309,9 +1240,7 @@ export namespace UnsupportedPlsAlphabetException {
  *       supported languages, see <a href="https://docs.aws.amazon.com/polly/latest/dg/API_LexiconAttributes.html">Lexicon Attributes</a>.</p>
  *
  */
-export interface UnsupportedPlsLanguageException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnsupportedPlsLanguageException extends _smithy.SmithyException, $MetadataBearer {
   __type: "UnsupportedPlsLanguageException";
   $fault: "client";
   message?: string;
@@ -1391,64 +1320,4 @@ export namespace Voice {
   }
 }
 
-export type VoiceId =
-  | "Aditi"
-  | "Amy"
-  | "Astrid"
-  | "Bianca"
-  | "Brian"
-  | "Camila"
-  | "Carla"
-  | "Carmen"
-  | "Celine"
-  | "Chantal"
-  | "Conchita"
-  | "Cristiano"
-  | "Dora"
-  | "Emma"
-  | "Enrique"
-  | "Ewa"
-  | "Filiz"
-  | "Geraint"
-  | "Giorgio"
-  | "Gwyneth"
-  | "Hans"
-  | "Ines"
-  | "Ivy"
-  | "Jacek"
-  | "Jan"
-  | "Joanna"
-  | "Joey"
-  | "Justin"
-  | "Karl"
-  | "Kendra"
-  | "Kimberly"
-  | "Lea"
-  | "Liv"
-  | "Lotte"
-  | "Lucia"
-  | "Lupe"
-  | "Mads"
-  | "Maja"
-  | "Marlene"
-  | "Mathieu"
-  | "Matthew"
-  | "Maxim"
-  | "Mia"
-  | "Miguel"
-  | "Mizuki"
-  | "Naja"
-  | "Nicole"
-  | "Penelope"
-  | "Raveena"
-  | "Ricardo"
-  | "Ruben"
-  | "Russell"
-  | "Salli"
-  | "Seoyeon"
-  | "Takumi"
-  | "Tatyana"
-  | "Vicki"
-  | "Vitoria"
-  | "Zeina"
-  | "Zhiyu";
+export type VoiceId = "Aditi" | "Amy" | "Astrid" | "Bianca" | "Brian" | "Camila" | "Carla" | "Carmen" | "Celine" | "Chantal" | "Conchita" | "Cristiano" | "Dora" | "Emma" | "Enrique" | "Ewa" | "Filiz" | "Geraint" | "Giorgio" | "Gwyneth" | "Hans" | "Ines" | "Ivy" | "Jacek" | "Jan" | "Joanna" | "Joey" | "Justin" | "Karl" | "Kendra" | "Kimberly" | "Lea" | "Liv" | "Lotte" | "Lucia" | "Lupe" | "Mads" | "Maja" | "Marlene" | "Mathieu" | "Matthew" | "Maxim" | "Mia" | "Miguel" | "Mizuki" | "Naja" | "Nicole" | "Penelope" | "Raveena" | "Ricardo" | "Ruben" | "Russell" | "Salli" | "Seoyeon" | "Takumi" | "Tatyana" | "Vicki" | "Vitoria" | "Zeina" | "Zhiyu"

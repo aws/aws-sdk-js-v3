@@ -1,20 +1,20 @@
 import {
   ComprehendClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ComprehendClient";
 import {
   StopKeyPhrasesDetectionJobRequest,
-  StopKeyPhrasesDetectionJobResponse
+  StopKeyPhrasesDetectionJobResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1StopKeyPhrasesDetectionJobCommand,
-  serializeAws_json1_1StopKeyPhrasesDetectionJobCommand
+  serializeAws_json1_1StopKeyPhrasesDetectionJobCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type StopKeyPhrasesDetectionJobCommandInput = StopKeyPhrasesDetectionJobRequest;
 export type StopKeyPhrasesDetectionJobCommandOutput = StopKeyPhrasesDetectionJobResponse;
 
-export class StopKeyPhrasesDetectionJobCommand extends $Command<
-  StopKeyPhrasesDetectionJobCommandInput,
-  StopKeyPhrasesDetectionJobCommandOutput,
-  ComprehendClientResolvedConfig
-> {
+export class StopKeyPhrasesDetectionJobCommand extends $Command<StopKeyPhrasesDetectionJobCommandInput, StopKeyPhrasesDetectionJobCommandOutput, ComprehendClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class StopKeyPhrasesDetectionJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopKeyPhrasesDetectionJobCommandInput,
-    StopKeyPhrasesDetectionJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopKeyPhrasesDetectionJobCommandInput, StopKeyPhrasesDetectionJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class StopKeyPhrasesDetectionJobCommand extends $Command<
     input: StopKeyPhrasesDetectionJobCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopKeyPhrasesDetectionJobCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1StopKeyPhrasesDetectionJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<StopKeyPhrasesDetectionJobCommandOutput> {
-    return deserializeAws_json1_1StopKeyPhrasesDetectionJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StopKeyPhrasesDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

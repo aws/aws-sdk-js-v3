@@ -1,20 +1,20 @@
 import {
   ConfigServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ConfigServiceClient";
 import {
   DescribeDeliveryChannelStatusRequest,
-  DescribeDeliveryChannelStatusResponse
+  DescribeDeliveryChannelStatusResponse,
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeDeliveryChannelStatusCommand,
-  serializeAws_json1_1DescribeDeliveryChannelStatusCommand
+  serializeAws_json1_1DescribeDeliveryChannelStatusCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DescribeDeliveryChannelStatusCommandInput = DescribeDeliveryChannelStatusRequest;
 export type DescribeDeliveryChannelStatusCommandOutput = DescribeDeliveryChannelStatusResponse;
 
-export class DescribeDeliveryChannelStatusCommand extends $Command<
-  DescribeDeliveryChannelStatusCommandInput,
-  DescribeDeliveryChannelStatusCommandOutput,
-  ConfigServiceClientResolvedConfig
-> {
+export class DescribeDeliveryChannelStatusCommand extends $Command<DescribeDeliveryChannelStatusCommandInput, DescribeDeliveryChannelStatusCommandOutput, ConfigServiceClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class DescribeDeliveryChannelStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDeliveryChannelStatusCommandInput,
-    DescribeDeliveryChannelStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDeliveryChannelStatusCommandInput, DescribeDeliveryChannelStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class DescribeDeliveryChannelStatusCommand extends $Command<
     input: DescribeDeliveryChannelStatusCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDeliveryChannelStatusCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeDeliveryChannelStatusCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeDeliveryChannelStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeDeliveryChannelStatusCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeDeliveryChannelStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

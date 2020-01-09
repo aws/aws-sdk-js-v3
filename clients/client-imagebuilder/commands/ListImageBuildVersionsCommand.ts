@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  imagebuilderClientResolvedConfig
+  imagebuilderClientResolvedConfig,
 } from "../imagebuilderClient";
 import {
   ListImageBuildVersionsRequest,
-  ListImageBuildVersionsResponse
+  ListImageBuildVersionsResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1ListImageBuildVersionsCommand,
-  serializeAws_restJson1_1ListImageBuildVersionsCommand
+  serializeAws_restJson1_1ListImageBuildVersionsCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type ListImageBuildVersionsCommandInput = ListImageBuildVersionsRequest;
 export type ListImageBuildVersionsCommandOutput = ListImageBuildVersionsResponse;
 
-export class ListImageBuildVersionsCommand extends $Command<
-  ListImageBuildVersionsCommandInput,
-  ListImageBuildVersionsCommandOutput,
-  imagebuilderClientResolvedConfig
-> {
+export class ListImageBuildVersionsCommand extends $Command<ListImageBuildVersionsCommandInput, ListImageBuildVersionsCommandOutput, imagebuilderClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class ListImageBuildVersionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: imagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListImageBuildVersionsCommandInput,
-    ListImageBuildVersionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListImageBuildVersionsCommandInput, ListImageBuildVersionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class ListImageBuildVersionsCommand extends $Command<
     input: ListImageBuildVersionsCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListImageBuildVersionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListImageBuildVersionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListImageBuildVersionsCommandOutput> {
-    return deserializeAws_restJson1_1ListImageBuildVersionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListImageBuildVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

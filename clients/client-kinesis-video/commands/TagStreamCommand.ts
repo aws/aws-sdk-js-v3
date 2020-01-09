@@ -1,17 +1,20 @@
 import {
   KinesisVideoClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../KinesisVideoClient";
-import { TagStreamInput, TagStreamOutput } from "../models/index";
+import {
+  TagStreamInput,
+  TagStreamOutput,
+} from "../models/index";
 import {
   deserializeAws_restJson1_1TagStreamCommand,
-  serializeAws_restJson1_1TagStreamCommand
+  serializeAws_restJson1_1TagStreamCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type TagStreamCommandInput = TagStreamInput;
 export type TagStreamCommandOutput = TagStreamOutput;
 
-export class TagStreamCommand extends $Command<
-  TagStreamCommandInput,
-  TagStreamCommandOutput,
-  KinesisVideoClientResolvedConfig
-> {
+export class TagStreamCommand extends $Command<TagStreamCommandInput, TagStreamCommandOutput, KinesisVideoClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class TagStreamCommand extends $Command<
     configuration: KinesisVideoClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TagStreamCommandInput, TagStreamCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -6,9 +6,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>The required resource already exists.</p>
  *
  */
-export interface AlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AlreadyExistsException";
   $fault: "client";
   /**
@@ -224,7 +222,7 @@ export enum BackupJobState {
   EXPIRED = "EXPIRED",
   FAILED = "FAILED",
   PENDING = "PENDING",
-  RUNNING = "RUNNING"
+  RUNNING = "RUNNING",
 }
 
 /**
@@ -683,7 +681,7 @@ export enum BackupVaultEvent {
   BACKUP_PLAN_MODIFIED = "BACKUP_PLAN_MODIFIED",
   RECOVERY_POINT_MODIFIED = "RECOVERY_POINT_MODIFIED",
   RESTORE_JOB_COMPLETED = "RESTORE_JOB_COMPLETED",
-  RESTORE_JOB_STARTED = "RESTORE_JOB_STARTED"
+  RESTORE_JOB_STARTED = "RESTORE_JOB_STARTED",
 }
 
 /**
@@ -834,7 +832,7 @@ export namespace Condition {
 }
 
 export enum ConditionType {
-  STRINGEQUALS = "STRINGEQUALS"
+  STRINGEQUALS = "STRINGEQUALS",
 }
 
 export interface CreateBackupPlanInput {
@@ -1240,9 +1238,7 @@ export namespace DeleteRecoveryPointInput {
  *          action cannot be completed.</p>
  *
  */
-export interface DependencyFailureException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DependencyFailureException extends _smithy.SmithyException, $MetadataBearer {
   __type: "DependencyFailureException";
   $fault: "server";
   Code?: string;
@@ -2414,9 +2410,7 @@ export namespace GetSupportedResourceTypesOutput {
  *          out of range.</p>
  *
  */
-export interface InvalidParameterValueException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterValueException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidParameterValueException";
   $fault: "client";
   Code?: string;
@@ -2448,9 +2442,7 @@ export namespace InvalidParameterValueException {
  *          parameter is of the wrong type.</p>
  *
  */
-export interface InvalidRequestException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRequestException";
   $fault: "client";
   Code?: string;
@@ -2513,9 +2505,7 @@ export namespace Lifecycle {
  *          in a request.</p>
  *
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   Code?: string;
@@ -3284,9 +3274,7 @@ export namespace ListTagsOutput {
  *          <p>Indicates that a required parameter is missing.</p>
  *
  */
-export interface MissingParameterValueException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MissingParameterValueException extends _smithy.SmithyException, $MetadataBearer {
   __type: "MissingParameterValueException";
   $fault: "client";
   Code?: string;
@@ -3711,7 +3699,7 @@ export enum RecoveryPointStatus {
   COMPLETED = "COMPLETED",
   DELETING = "DELETING",
   EXPIRED = "EXPIRED",
-  PARTIAL = "PARTIAL"
+  PARTIAL = "PARTIAL",
 }
 
 /**
@@ -3719,9 +3707,7 @@ export enum RecoveryPointStatus {
  *          <p>A resource that is required for the action doesn't exist.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Code?: string;
@@ -3752,7 +3738,7 @@ export enum RestoreJobStatus {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
   PENDING = "PENDING",
-  RUNNING = "RUNNING"
+  RUNNING = "RUNNING",
 }
 
 /**
@@ -3863,9 +3849,7 @@ export namespace RestoreJobsListMember {
  *          <p>The request failed due to a temporary failure of the server.</p>
  *
  */
-export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceUnavailableException";
   $fault: "server";
   Code?: string;
@@ -4122,7 +4106,7 @@ export namespace StopBackupJobInput {
 export enum StorageClass {
   COLD = "COLD",
   DELETED = "DELETED",
-  WARM = "WARM"
+  WARM = "WARM",
 }
 
 export interface TagResourceInput {

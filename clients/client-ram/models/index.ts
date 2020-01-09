@@ -86,8 +86,7 @@ export namespace AssociateResourceSharePermissionRequest {
   }
 }
 
-export interface AssociateResourceSharePermissionResponse
-  extends $MetadataBearer {
+export interface AssociateResourceSharePermissionResponse extends $MetadataBearer {
   __type?: "AssociateResourceSharePermissionResponse";
   /**
    *
@@ -330,8 +329,7 @@ export namespace DisassociateResourceSharePermissionRequest {
   }
 }
 
-export interface DisassociateResourceSharePermissionResponse
-  extends $MetadataBearer {
+export interface DisassociateResourceSharePermissionResponse extends $MetadataBearer {
   __type?: "DisassociateResourceSharePermissionResponse";
   /**
    *
@@ -349,9 +347,7 @@ export interface DisassociateResourceSharePermissionResponse
 }
 
 export namespace DisassociateResourceSharePermissionResponse {
-  export function isa(
-    o: any
-  ): o is DisassociateResourceSharePermissionResponse {
+  export function isa(o: any): o is DisassociateResourceSharePermissionResponse {
     return _smithy.isa(o, "DisassociateResourceSharePermissionResponse");
   }
 }
@@ -426,8 +422,7 @@ export namespace EnableSharingWithAwsOrganizationRequest {
   }
 }
 
-export interface EnableSharingWithAwsOrganizationResponse
-  extends $MetadataBearer {
+export interface EnableSharingWithAwsOrganizationResponse extends $MetadataBearer {
   __type?: "EnableSharingWithAwsOrganizationResponse";
   /**
    *
@@ -778,9 +773,7 @@ export namespace GetResourceSharesResponse {
  *         the other input parameters is different from the previous call to the operation.</p>
  *
  */
-export interface IdempotentParameterMismatchException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface IdempotentParameterMismatchException extends _smithy.SmithyException, $MetadataBearer {
   __type: "IdempotentParameterMismatchException";
   $fault: "client";
   message: string | undefined;
@@ -797,9 +790,7 @@ export namespace IdempotentParameterMismatchException {
  *          <p>A client token is not valid.</p>
  *
  */
-export interface InvalidClientTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidClientTokenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidClientTokenException";
   $fault: "client";
   message: string | undefined;
@@ -816,9 +807,7 @@ export namespace InvalidClientTokenException {
  *          <p>The specified value for MaxResults is not valid.</p>
  *
  */
-export interface InvalidMaxResultsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidMaxResultsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidMaxResultsException";
   $fault: "client";
   message: string | undefined;
@@ -835,9 +824,7 @@ export namespace InvalidMaxResultsException {
  *          <p>The specified value for NextToken is not valid.</p>
  *
  */
-export interface InvalidNextTokenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidNextTokenException";
   $fault: "client";
   message: string | undefined;
@@ -854,9 +841,7 @@ export namespace InvalidNextTokenException {
  *          <p>A parameter is not valid.</p>
  *
  */
-export interface InvalidParameterException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidParameterException";
   $fault: "client";
   message: string | undefined;
@@ -873,9 +858,7 @@ export namespace InvalidParameterException {
  *          <p>The specified resource type is not valid.</p>
  *
  */
-export interface InvalidResourceTypeException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidResourceTypeException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidResourceTypeException";
   $fault: "client";
   message: string | undefined;
@@ -892,9 +875,7 @@ export namespace InvalidResourceTypeException {
  *          <p>The requested state transition is not valid.</p>
  *
  */
-export interface InvalidStateTransitionException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidStateTransitionException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidStateTransitionException";
   $fault: "client";
   message: string | undefined;
@@ -937,8 +918,7 @@ export namespace ListPendingInvitationResourcesRequest {
   }
 }
 
-export interface ListPendingInvitationResourcesResponse
-  extends $MetadataBearer {
+export interface ListPendingInvitationResourcesResponse extends $MetadataBearer {
   __type?: "ListPendingInvitationResourcesResponse";
   /**
    *
@@ -1251,9 +1231,7 @@ export namespace ListResourcesResponse {
  *          <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
  *
  */
-export interface MalformedArnException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MalformedArnException extends _smithy.SmithyException, $MetadataBearer {
   __type: "MalformedArnException";
   $fault: "client";
   message: string | undefined;
@@ -1270,9 +1248,7 @@ export namespace MalformedArnException {
  *          <p>A required input parameter is missing.</p>
  *
  */
-export interface MissingRequiredParameterException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MissingRequiredParameterException extends _smithy.SmithyException, $MetadataBearer {
   __type: "MissingRequiredParameterException";
   $fault: "client";
   message: string | undefined;
@@ -1289,9 +1265,7 @@ export namespace MissingRequiredParameterException {
  *          <p>The requested operation is not permitted.</p>
  *
  */
-export interface OperationNotPermittedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface OperationNotPermittedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "OperationNotPermittedException";
   $fault: "client";
   message: string | undefined;
@@ -1363,15 +1337,12 @@ export interface PromoteResourceShareCreatedFromPolicyRequest {
 }
 
 export namespace PromoteResourceShareCreatedFromPolicyRequest {
-  export function isa(
-    o: any
-  ): o is PromoteResourceShareCreatedFromPolicyRequest {
+  export function isa(o: any): o is PromoteResourceShareCreatedFromPolicyRequest {
     return _smithy.isa(o, "PromoteResourceShareCreatedFromPolicyRequest");
   }
 }
 
-export interface PromoteResourceShareCreatedFromPolicyResponse
-  extends $MetadataBearer {
+export interface PromoteResourceShareCreatedFromPolicyResponse extends $MetadataBearer {
   __type?: "PromoteResourceShareCreatedFromPolicyResponse";
   /**
    *
@@ -1382,9 +1353,7 @@ export interface PromoteResourceShareCreatedFromPolicyResponse
 }
 
 export namespace PromoteResourceShareCreatedFromPolicyResponse {
-  export function isa(
-    o: any
-  ): o is PromoteResourceShareCreatedFromPolicyResponse {
+  export function isa(o: any): o is PromoteResourceShareCreatedFromPolicyResponse {
     return _smithy.isa(o, "PromoteResourceShareCreatedFromPolicyResponse");
   }
 }
@@ -1511,9 +1480,7 @@ export namespace Resource {
  *          <p>An Amazon Resource Name (ARN) was not found.</p>
  *
  */
-export interface ResourceArnNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceArnNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceArnNotFoundException";
   $fault: "client";
   message: string | undefined;
@@ -1527,7 +1494,7 @@ export namespace ResourceArnNotFoundException {
 
 export enum ResourceOwner {
   OTHER_ACCOUNTS = "OTHER-ACCOUNTS",
-  SELF = "SELF"
+  SELF = "SELF",
 }
 
 /**
@@ -1575,7 +1542,7 @@ export interface ResourceShare {
    * 					in AWS RAM.</p>
    * 		          </li>
    *          </ul>
-   *
+   * 	
    */
   featureSet?: ResourceShareFeatureSet | string;
 
@@ -1714,19 +1681,11 @@ export namespace ResourceShareAssociation {
   }
 }
 
-export type ResourceShareAssociationStatus =
-  | "ASSOCIATED"
-  | "ASSOCIATING"
-  | "DISASSOCIATED"
-  | "DISASSOCIATING"
-  | "FAILED";
+export type ResourceShareAssociationStatus = "ASSOCIATED" | "ASSOCIATING" | "DISASSOCIATED" | "DISASSOCIATING" | "FAILED"
 
-export type ResourceShareAssociationType = "PRINCIPAL" | "RESOURCE";
+export type ResourceShareAssociationType = "PRINCIPAL" | "RESOURCE"
 
-export type ResourceShareFeatureSet =
-  | "CREATED_FROM_POLICY"
-  | "PROMOTING_TO_STANDARD"
-  | "STANDARD";
+export type ResourceShareFeatureSet = "CREATED_FROM_POLICY" | "PROMOTING_TO_STANDARD" | "STANDARD"
 
 /**
  *
@@ -1805,18 +1764,14 @@ export namespace ResourceShareInvitation {
  *          <p>The invitation was already accepted.</p>
  *
  */
-export interface ResourceShareInvitationAlreadyAcceptedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceShareInvitationAlreadyAcceptedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceShareInvitationAlreadyAcceptedException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace ResourceShareInvitationAlreadyAcceptedException {
-  export function isa(
-    o: any
-  ): o is ResourceShareInvitationAlreadyAcceptedException {
+  export function isa(o: any): o is ResourceShareInvitationAlreadyAcceptedException {
     return _smithy.isa(o, "ResourceShareInvitationAlreadyAcceptedException");
   }
 }
@@ -1826,18 +1781,14 @@ export namespace ResourceShareInvitationAlreadyAcceptedException {
  *          <p>The invitation was already rejected.</p>
  *
  */
-export interface ResourceShareInvitationAlreadyRejectedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceShareInvitationAlreadyRejectedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceShareInvitationAlreadyRejectedException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace ResourceShareInvitationAlreadyRejectedException {
-  export function isa(
-    o: any
-  ): o is ResourceShareInvitationAlreadyRejectedException {
+  export function isa(o: any): o is ResourceShareInvitationAlreadyRejectedException {
     return _smithy.isa(o, "ResourceShareInvitationAlreadyRejectedException");
   }
 }
@@ -1847,18 +1798,14 @@ export namespace ResourceShareInvitationAlreadyRejectedException {
  *          <p>The Amazon Resource Name (ARN) for an invitation was not found.</p>
  *
  */
-export interface ResourceShareInvitationArnNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceShareInvitationArnNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceShareInvitationArnNotFoundException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace ResourceShareInvitationArnNotFoundException {
-  export function isa(
-    o: any
-  ): o is ResourceShareInvitationArnNotFoundException {
+  export function isa(o: any): o is ResourceShareInvitationArnNotFoundException {
     return _smithy.isa(o, "ResourceShareInvitationArnNotFoundException");
   }
 }
@@ -1868,9 +1815,7 @@ export namespace ResourceShareInvitationArnNotFoundException {
  *          <p>The invitation is expired.</p>
  *
  */
-export interface ResourceShareInvitationExpiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceShareInvitationExpiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceShareInvitationExpiredException";
   $fault: "client";
   message: string | undefined;
@@ -1882,20 +1827,14 @@ export namespace ResourceShareInvitationExpiredException {
   }
 }
 
-export type ResourceShareInvitationStatus =
-  | "ACCEPTED"
-  | "EXPIRED"
-  | "PENDING"
-  | "REJECTED";
+export type ResourceShareInvitationStatus = "ACCEPTED" | "EXPIRED" | "PENDING" | "REJECTED"
 
 /**
  *
  *          <p>The requested resource share exceeds the limit for your account.</p>
  *
  */
-export interface ResourceShareLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceShareLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceShareLimitExceededException";
   $fault: "client";
   message: string | undefined;
@@ -2050,28 +1989,16 @@ export namespace ResourceSharePermissionSummary {
   }
 }
 
-export type ResourceShareStatus =
-  | "ACTIVE"
-  | "DELETED"
-  | "DELETING"
-  | "FAILED"
-  | "PENDING";
+export type ResourceShareStatus = "ACTIVE" | "DELETED" | "DELETING" | "FAILED" | "PENDING"
 
-export type ResourceStatus =
-  | "AVAILABLE"
-  | "LIMIT_EXCEEDED"
-  | "PENDING"
-  | "UNAVAILABLE"
-  | "ZONAL_RESOURCE_INACCESSIBLE";
+export type ResourceStatus = "AVAILABLE" | "LIMIT_EXCEEDED" | "PENDING" | "UNAVAILABLE" | "ZONAL_RESOURCE_INACCESSIBLE"
 
 /**
  *
  *          <p>The service could not respond to the request due to an internal problem.</p>
  *
  */
-export interface ServerInternalException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServerInternalException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServerInternalException";
   $fault: "server";
   message: string | undefined;
@@ -2088,9 +2015,7 @@ export namespace ServerInternalException {
  *          <p>The service is not available.</p>
  *
  */
-export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceUnavailableException";
   $fault: "server";
   message: string | undefined;
@@ -2163,9 +2088,7 @@ export namespace TagFilter {
  *          <p>The requested tags exceed the limit for your account.</p>
  *
  */
-export interface TagLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TagLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TagLimitExceededException";
   $fault: "client";
   message: string | undefined;
@@ -2182,9 +2105,7 @@ export namespace TagLimitExceededException {
  * 	        <p>The specified tag is a reserved word and cannot be used.</p>
  *
  */
-export interface TagPolicyViolationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TagPolicyViolationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TagPolicyViolationException";
   $fault: "client";
   message: string | undefined;
@@ -2234,9 +2155,7 @@ export namespace TagResourceResponse {
  *          <p>A specified resource was not found.</p>
  *
  */
-export interface UnknownResourceException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnknownResourceException extends _smithy.SmithyException, $MetadataBearer {
   __type: "UnknownResourceException";
   $fault: "client";
   message: string | undefined;

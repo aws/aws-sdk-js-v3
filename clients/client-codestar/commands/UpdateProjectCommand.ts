@@ -1,17 +1,20 @@
 import {
   CodeStarClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../CodeStarClient";
-import { UpdateProjectRequest, UpdateProjectResult } from "../models/index";
+import {
+  UpdateProjectRequest,
+  UpdateProjectResult,
+} from "../models/index";
 import {
   deserializeAws_json1_1UpdateProjectCommand,
-  serializeAws_json1_1UpdateProjectCommand
+  serializeAws_json1_1UpdateProjectCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type UpdateProjectCommandInput = UpdateProjectRequest;
 export type UpdateProjectCommandOutput = UpdateProjectResult;
 
-export class UpdateProjectCommand extends $Command<
-  UpdateProjectCommandInput,
-  UpdateProjectCommandOutput,
-  CodeStarClientResolvedConfig
-> {
+export class UpdateProjectCommand extends $Command<UpdateProjectCommandInput, UpdateProjectCommandOutput, CodeStarClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class UpdateProjectCommand extends $Command<
     configuration: CodeStarClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateProjectCommandInput, UpdateProjectCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

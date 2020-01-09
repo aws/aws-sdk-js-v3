@@ -1,20 +1,20 @@
 import {
   ApiGatewayV2ClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ApiGatewayV2Client";
 import {
   GetIntegrationResponsesRequest,
-  GetIntegrationResponsesResponse
+  GetIntegrationResponsesResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1GetIntegrationResponsesCommand,
-  serializeAws_restJson1_1GetIntegrationResponsesCommand
+  serializeAws_restJson1_1GetIntegrationResponsesCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type GetIntegrationResponsesCommandInput = GetIntegrationResponsesRequest;
 export type GetIntegrationResponsesCommandOutput = GetIntegrationResponsesResponse;
 
-export class GetIntegrationResponsesCommand extends $Command<
-  GetIntegrationResponsesCommandInput,
-  GetIntegrationResponsesCommandOutput,
-  ApiGatewayV2ClientResolvedConfig
-> {
+export class GetIntegrationResponsesCommand extends $Command<GetIntegrationResponsesCommandInput, GetIntegrationResponsesCommandOutput, ApiGatewayV2ClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class GetIntegrationResponsesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetIntegrationResponsesCommandInput,
-    GetIntegrationResponsesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetIntegrationResponsesCommandInput, GetIntegrationResponsesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -72,20 +63,14 @@ export class GetIntegrationResponsesCommand extends $Command<
     input: GetIntegrationResponsesCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetIntegrationResponsesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetIntegrationResponsesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<GetIntegrationResponsesCommandOutput> {
-    return deserializeAws_restJson1_1GetIntegrationResponsesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetIntegrationResponsesCommand(output, context);
   }
 
   // Start section: command_body_extra

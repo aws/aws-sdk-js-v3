@@ -1,20 +1,20 @@
 import {
   KafkaClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../KafkaClient";
 import {
   ListClusterOperationsRequest,
-  ListClusterOperationsResponse
+  ListClusterOperationsResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1ListClusterOperationsCommand,
-  serializeAws_restJson1_1ListClusterOperationsCommand
+  serializeAws_restJson1_1ListClusterOperationsCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type ListClusterOperationsCommandInput = ListClusterOperationsRequest;
 export type ListClusterOperationsCommandOutput = ListClusterOperationsResponse;
 
-export class ListClusterOperationsCommand extends $Command<
-  ListClusterOperationsCommandInput,
-  ListClusterOperationsCommandOutput,
-  KafkaClientResolvedConfig
-> {
+export class ListClusterOperationsCommand extends $Command<ListClusterOperationsCommandInput, ListClusterOperationsCommandOutput, KafkaClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class ListClusterOperationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListClusterOperationsCommandInput,
-    ListClusterOperationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListClusterOperationsCommandInput, ListClusterOperationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -79,10 +70,7 @@ export class ListClusterOperationsCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListClusterOperationsCommandOutput> {
-    return deserializeAws_restJson1_1ListClusterOperationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListClusterOperationsCommand(output, context);
   }
 
   // Start section: command_body_extra

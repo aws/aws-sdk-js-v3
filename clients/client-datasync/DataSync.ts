@@ -2,137 +2,137 @@ import { DataSyncClient } from "./DataSyncClient";
 import {
   CancelTaskExecutionCommand,
   CancelTaskExecutionCommandInput,
-  CancelTaskExecutionCommandOutput
+  CancelTaskExecutionCommandOutput,
 } from "./commands/CancelTaskExecutionCommand";
 import {
   CreateAgentCommand,
   CreateAgentCommandInput,
-  CreateAgentCommandOutput
+  CreateAgentCommandOutput,
 } from "./commands/CreateAgentCommand";
 import {
   CreateLocationEfsCommand,
   CreateLocationEfsCommandInput,
-  CreateLocationEfsCommandOutput
+  CreateLocationEfsCommandOutput,
 } from "./commands/CreateLocationEfsCommand";
 import {
   CreateLocationNfsCommand,
   CreateLocationNfsCommandInput,
-  CreateLocationNfsCommandOutput
+  CreateLocationNfsCommandOutput,
 } from "./commands/CreateLocationNfsCommand";
 import {
   CreateLocationS3Command,
   CreateLocationS3CommandInput,
-  CreateLocationS3CommandOutput
+  CreateLocationS3CommandOutput,
 } from "./commands/CreateLocationS3Command";
 import {
   CreateLocationSmbCommand,
   CreateLocationSmbCommandInput,
-  CreateLocationSmbCommandOutput
+  CreateLocationSmbCommandOutput,
 } from "./commands/CreateLocationSmbCommand";
 import {
   CreateTaskCommand,
   CreateTaskCommandInput,
-  CreateTaskCommandOutput
+  CreateTaskCommandOutput,
 } from "./commands/CreateTaskCommand";
 import {
   DeleteAgentCommand,
   DeleteAgentCommandInput,
-  DeleteAgentCommandOutput
+  DeleteAgentCommandOutput,
 } from "./commands/DeleteAgentCommand";
 import {
   DeleteLocationCommand,
   DeleteLocationCommandInput,
-  DeleteLocationCommandOutput
+  DeleteLocationCommandOutput,
 } from "./commands/DeleteLocationCommand";
 import {
   DeleteTaskCommand,
   DeleteTaskCommandInput,
-  DeleteTaskCommandOutput
+  DeleteTaskCommandOutput,
 } from "./commands/DeleteTaskCommand";
 import {
   DescribeAgentCommand,
   DescribeAgentCommandInput,
-  DescribeAgentCommandOutput
+  DescribeAgentCommandOutput,
 } from "./commands/DescribeAgentCommand";
 import {
   DescribeLocationEfsCommand,
   DescribeLocationEfsCommandInput,
-  DescribeLocationEfsCommandOutput
+  DescribeLocationEfsCommandOutput,
 } from "./commands/DescribeLocationEfsCommand";
 import {
   DescribeLocationNfsCommand,
   DescribeLocationNfsCommandInput,
-  DescribeLocationNfsCommandOutput
+  DescribeLocationNfsCommandOutput,
 } from "./commands/DescribeLocationNfsCommand";
 import {
   DescribeLocationS3Command,
   DescribeLocationS3CommandInput,
-  DescribeLocationS3CommandOutput
+  DescribeLocationS3CommandOutput,
 } from "./commands/DescribeLocationS3Command";
 import {
   DescribeLocationSmbCommand,
   DescribeLocationSmbCommandInput,
-  DescribeLocationSmbCommandOutput
+  DescribeLocationSmbCommandOutput,
 } from "./commands/DescribeLocationSmbCommand";
 import {
   DescribeTaskCommand,
   DescribeTaskCommandInput,
-  DescribeTaskCommandOutput
+  DescribeTaskCommandOutput,
 } from "./commands/DescribeTaskCommand";
 import {
   DescribeTaskExecutionCommand,
   DescribeTaskExecutionCommandInput,
-  DescribeTaskExecutionCommandOutput
+  DescribeTaskExecutionCommandOutput,
 } from "./commands/DescribeTaskExecutionCommand";
 import {
   ListAgentsCommand,
   ListAgentsCommandInput,
-  ListAgentsCommandOutput
+  ListAgentsCommandOutput,
 } from "./commands/ListAgentsCommand";
 import {
   ListLocationsCommand,
   ListLocationsCommandInput,
-  ListLocationsCommandOutput
+  ListLocationsCommandOutput,
 } from "./commands/ListLocationsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput
+  ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
   ListTaskExecutionsCommand,
   ListTaskExecutionsCommandInput,
-  ListTaskExecutionsCommandOutput
+  ListTaskExecutionsCommandOutput,
 } from "./commands/ListTaskExecutionsCommand";
 import {
   ListTasksCommand,
   ListTasksCommandInput,
-  ListTasksCommandOutput
+  ListTasksCommandOutput,
 } from "./commands/ListTasksCommand";
 import {
   StartTaskExecutionCommand,
   StartTaskExecutionCommandInput,
-  StartTaskExecutionCommandOutput
+  StartTaskExecutionCommandOutput,
 } from "./commands/StartTaskExecutionCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput
+  TagResourceCommandOutput,
 } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput
+  UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
   UpdateAgentCommand,
   UpdateAgentCommandInput,
-  UpdateAgentCommandOutput
+  UpdateAgentCommandOutput,
 } from "./commands/UpdateAgentCommand";
 import {
   UpdateTaskCommand,
   UpdateTaskCommandInput,
-  UpdateTaskCommandOutput
+  UpdateTaskCommandOutput,
 } from "./commands/UpdateTaskCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -163,7 +163,7 @@ export class DataSync extends DataSyncClient {
    */
   public cancelTaskExecution(
     args: CancelTaskExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CancelTaskExecutionCommandOutput>;
   public cancelTaskExecution(
     args: CancelTaskExecutionCommandInput,
@@ -176,18 +176,16 @@ export class DataSync extends DataSyncClient {
   ): void;
   public cancelTaskExecution(
     args: CancelTaskExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelTaskExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelTaskExecutionCommandOutput) => void),
     cb?: (err: any, data?: CancelTaskExecutionCommandOutput) => void
   ): Promise<CancelTaskExecutionCommandOutput> | void {
     const command = new CancelTaskExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -216,7 +214,7 @@ export class DataSync extends DataSyncClient {
    */
   public createAgent(
     args: CreateAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateAgentCommandOutput>;
   public createAgent(
     args: CreateAgentCommandInput,
@@ -229,18 +227,16 @@ export class DataSync extends DataSyncClient {
   ): void;
   public createAgent(
     args: CreateAgentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAgentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAgentCommandOutput) => void),
     cb?: (err: any, data?: CreateAgentCommandOutput) => void
   ): Promise<CreateAgentCommandOutput> | void {
     const command = new CreateAgentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -254,7 +250,7 @@ export class DataSync extends DataSyncClient {
    */
   public createLocationEfs(
     args: CreateLocationEfsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateLocationEfsCommandOutput>;
   public createLocationEfs(
     args: CreateLocationEfsCommandInput,
@@ -267,18 +263,16 @@ export class DataSync extends DataSyncClient {
   ): void;
   public createLocationEfs(
     args: CreateLocationEfsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLocationEfsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLocationEfsCommandOutput) => void),
     cb?: (err: any, data?: CreateLocationEfsCommandOutput) => void
   ): Promise<CreateLocationEfsCommandOutput> | void {
     const command = new CreateLocationEfsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -293,7 +287,7 @@ export class DataSync extends DataSyncClient {
    */
   public createLocationNfs(
     args: CreateLocationNfsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateLocationNfsCommandOutput>;
   public createLocationNfs(
     args: CreateLocationNfsCommandInput,
@@ -306,18 +300,16 @@ export class DataSync extends DataSyncClient {
   ): void;
   public createLocationNfs(
     args: CreateLocationNfsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLocationNfsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLocationNfsCommandOutput) => void),
     cb?: (err: any, data?: CreateLocationNfsCommandOutput) => void
   ): Promise<CreateLocationNfsCommandOutput> | void {
     const command = new CreateLocationNfsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -344,7 +336,7 @@ export class DataSync extends DataSyncClient {
    */
   public createLocationS3(
     args: CreateLocationS3CommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateLocationS3CommandOutput>;
   public createLocationS3(
     args: CreateLocationS3CommandInput,
@@ -357,18 +349,16 @@ export class DataSync extends DataSyncClient {
   ): void;
   public createLocationS3(
     args: CreateLocationS3CommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLocationS3CommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLocationS3CommandOutput) => void),
     cb?: (err: any, data?: CreateLocationS3CommandOutput) => void
   ): Promise<CreateLocationS3CommandOutput> | void {
     const command = new CreateLocationS3Command(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -383,7 +373,7 @@ export class DataSync extends DataSyncClient {
    */
   public createLocationSmb(
     args: CreateLocationSmbCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateLocationSmbCommandOutput>;
   public createLocationSmb(
     args: CreateLocationSmbCommandInput,
@@ -396,18 +386,16 @@ export class DataSync extends DataSyncClient {
   ): void;
   public createLocationSmb(
     args: CreateLocationSmbCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateLocationSmbCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLocationSmbCommandOutput) => void),
     cb?: (err: any, data?: CreateLocationSmbCommandOutput) => void
   ): Promise<CreateLocationSmbCommandOutput> | void {
     const command = new CreateLocationSmbCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -432,7 +420,7 @@ export class DataSync extends DataSyncClient {
    */
   public createTask(
     args: CreateTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateTaskCommandOutput>;
   public createTask(
     args: CreateTaskCommandInput,
@@ -445,18 +433,16 @@ export class DataSync extends DataSyncClient {
   ): void;
   public createTask(
     args: CreateTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTaskCommandOutput) => void),
     cb?: (err: any, data?: CreateTaskCommandOutput) => void
   ): Promise<CreateTaskCommandOutput> | void {
     const command = new CreateTaskCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -472,7 +458,7 @@ export class DataSync extends DataSyncClient {
    */
   public deleteAgent(
     args: DeleteAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteAgentCommandOutput>;
   public deleteAgent(
     args: DeleteAgentCommandInput,
@@ -485,18 +471,16 @@ export class DataSync extends DataSyncClient {
   ): void;
   public deleteAgent(
     args: DeleteAgentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAgentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAgentCommandOutput) => void),
     cb?: (err: any, data?: DeleteAgentCommandOutput) => void
   ): Promise<DeleteAgentCommandOutput> | void {
     const command = new DeleteAgentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -509,7 +493,7 @@ export class DataSync extends DataSyncClient {
    */
   public deleteLocation(
     args: DeleteLocationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteLocationCommandOutput>;
   public deleteLocation(
     args: DeleteLocationCommandInput,
@@ -522,18 +506,16 @@ export class DataSync extends DataSyncClient {
   ): void;
   public deleteLocation(
     args: DeleteLocationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLocationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLocationCommandOutput) => void),
     cb?: (err: any, data?: DeleteLocationCommandOutput) => void
   ): Promise<DeleteLocationCommandOutput> | void {
     const command = new DeleteLocationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -546,7 +528,7 @@ export class DataSync extends DataSyncClient {
    */
   public deleteTask(
     args: DeleteTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteTaskCommandOutput>;
   public deleteTask(
     args: DeleteTaskCommandInput,
@@ -559,18 +541,16 @@ export class DataSync extends DataSyncClient {
   ): void;
   public deleteTask(
     args: DeleteTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTaskCommandOutput) => void),
     cb?: (err: any, data?: DeleteTaskCommandOutput) => void
   ): Promise<DeleteTaskCommandOutput> | void {
     const command = new DeleteTaskCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -586,7 +566,7 @@ export class DataSync extends DataSyncClient {
    */
   public describeAgent(
     args: DescribeAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeAgentCommandOutput>;
   public describeAgent(
     args: DescribeAgentCommandInput,
@@ -599,18 +579,16 @@ export class DataSync extends DataSyncClient {
   ): void;
   public describeAgent(
     args: DescribeAgentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAgentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAgentCommandOutput) => void),
     cb?: (err: any, data?: DescribeAgentCommandOutput) => void
   ): Promise<DescribeAgentCommandOutput> | void {
     const command = new DescribeAgentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -624,7 +602,7 @@ export class DataSync extends DataSyncClient {
    */
   public describeLocationEfs(
     args: DescribeLocationEfsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeLocationEfsCommandOutput>;
   public describeLocationEfs(
     args: DescribeLocationEfsCommandInput,
@@ -637,18 +615,16 @@ export class DataSync extends DataSyncClient {
   ): void;
   public describeLocationEfs(
     args: DescribeLocationEfsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLocationEfsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLocationEfsCommandOutput) => void),
     cb?: (err: any, data?: DescribeLocationEfsCommandOutput) => void
   ): Promise<DescribeLocationEfsCommandOutput> | void {
     const command = new DescribeLocationEfsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -662,7 +638,7 @@ export class DataSync extends DataSyncClient {
    */
   public describeLocationNfs(
     args: DescribeLocationNfsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeLocationNfsCommandOutput>;
   public describeLocationNfs(
     args: DescribeLocationNfsCommandInput,
@@ -675,18 +651,16 @@ export class DataSync extends DataSyncClient {
   ): void;
   public describeLocationNfs(
     args: DescribeLocationNfsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLocationNfsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLocationNfsCommandOutput) => void),
     cb?: (err: any, data?: DescribeLocationNfsCommandOutput) => void
   ): Promise<DescribeLocationNfsCommandOutput> | void {
     const command = new DescribeLocationNfsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -700,7 +674,7 @@ export class DataSync extends DataSyncClient {
    */
   public describeLocationS3(
     args: DescribeLocationS3CommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeLocationS3CommandOutput>;
   public describeLocationS3(
     args: DescribeLocationS3CommandInput,
@@ -713,18 +687,16 @@ export class DataSync extends DataSyncClient {
   ): void;
   public describeLocationS3(
     args: DescribeLocationS3CommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLocationS3CommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLocationS3CommandOutput) => void),
     cb?: (err: any, data?: DescribeLocationS3CommandOutput) => void
   ): Promise<DescribeLocationS3CommandOutput> | void {
     const command = new DescribeLocationS3Command(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -738,7 +710,7 @@ export class DataSync extends DataSyncClient {
    */
   public describeLocationSmb(
     args: DescribeLocationSmbCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeLocationSmbCommandOutput>;
   public describeLocationSmb(
     args: DescribeLocationSmbCommandInput,
@@ -751,18 +723,16 @@ export class DataSync extends DataSyncClient {
   ): void;
   public describeLocationSmb(
     args: DescribeLocationSmbCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLocationSmbCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLocationSmbCommandOutput) => void),
     cb?: (err: any, data?: DescribeLocationSmbCommandOutput) => void
   ): Promise<DescribeLocationSmbCommandOutput> | void {
     const command = new DescribeLocationSmbCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -776,7 +746,7 @@ export class DataSync extends DataSyncClient {
    */
   public describeTask(
     args: DescribeTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeTaskCommandOutput>;
   public describeTask(
     args: DescribeTaskCommandInput,
@@ -789,18 +759,16 @@ export class DataSync extends DataSyncClient {
   ): void;
   public describeTask(
     args: DescribeTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTaskCommandOutput) => void),
     cb?: (err: any, data?: DescribeTaskCommandOutput) => void
   ): Promise<DescribeTaskCommandOutput> | void {
     const command = new DescribeTaskCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -814,7 +782,7 @@ export class DataSync extends DataSyncClient {
    */
   public describeTaskExecution(
     args: DescribeTaskExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeTaskExecutionCommandOutput>;
   public describeTaskExecution(
     args: DescribeTaskExecutionCommandInput,
@@ -827,18 +795,16 @@ export class DataSync extends DataSyncClient {
   ): void;
   public describeTaskExecution(
     args: DescribeTaskExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTaskExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTaskExecutionCommandOutput) => void),
     cb?: (err: any, data?: DescribeTaskExecutionCommandOutput) => void
   ): Promise<DescribeTaskExecutionCommandOutput> | void {
     const command = new DescribeTaskExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -858,7 +824,7 @@ export class DataSync extends DataSyncClient {
    */
   public listAgents(
     args: ListAgentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListAgentsCommandOutput>;
   public listAgents(
     args: ListAgentsCommandInput,
@@ -871,18 +837,16 @@ export class DataSync extends DataSyncClient {
   ): void;
   public listAgents(
     args: ListAgentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAgentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAgentsCommandOutput) => void),
     cb?: (err: any, data?: ListAgentsCommandOutput) => void
   ): Promise<ListAgentsCommandOutput> | void {
     const command = new ListAgentsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -898,7 +862,7 @@ export class DataSync extends DataSyncClient {
    */
   public listLocations(
     args: ListLocationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListLocationsCommandOutput>;
   public listLocations(
     args: ListLocationsCommandInput,
@@ -911,18 +875,16 @@ export class DataSync extends DataSyncClient {
   ): void;
   public listLocations(
     args: ListLocationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListLocationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLocationsCommandOutput) => void),
     cb?: (err: any, data?: ListLocationsCommandOutput) => void
   ): Promise<ListLocationsCommandOutput> | void {
     const command = new ListLocationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -935,7 +897,7 @@ export class DataSync extends DataSyncClient {
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListTagsForResourceCommandOutput>;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -948,18 +910,16 @@ export class DataSync extends DataSyncClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -972,7 +932,7 @@ export class DataSync extends DataSyncClient {
    */
   public listTaskExecutions(
     args: ListTaskExecutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListTaskExecutionsCommandOutput>;
   public listTaskExecutions(
     args: ListTaskExecutionsCommandInput,
@@ -985,18 +945,16 @@ export class DataSync extends DataSyncClient {
   ): void;
   public listTaskExecutions(
     args: ListTaskExecutionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTaskExecutionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTaskExecutionsCommandOutput) => void),
     cb?: (err: any, data?: ListTaskExecutionsCommandOutput) => void
   ): Promise<ListTaskExecutionsCommandOutput> | void {
     const command = new ListTaskExecutionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1009,7 +967,7 @@ export class DataSync extends DataSyncClient {
    */
   public listTasks(
     args: ListTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListTasksCommandOutput>;
   public listTasks(
     args: ListTasksCommandInput,
@@ -1022,18 +980,16 @@ export class DataSync extends DataSyncClient {
   ): void;
   public listTasks(
     args: ListTasksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTasksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTasksCommandOutput) => void),
     cb?: (err: any, data?: ListTasksCommandOutput) => void
   ): Promise<ListTasksCommandOutput> | void {
     const command = new ListTasksCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1055,7 +1011,7 @@ export class DataSync extends DataSyncClient {
    */
   public startTaskExecution(
     args: StartTaskExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<StartTaskExecutionCommandOutput>;
   public startTaskExecution(
     args: StartTaskExecutionCommandInput,
@@ -1068,18 +1024,16 @@ export class DataSync extends DataSyncClient {
   ): void;
   public startTaskExecution(
     args: StartTaskExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartTaskExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartTaskExecutionCommandOutput) => void),
     cb?: (err: any, data?: StartTaskExecutionCommandOutput) => void
   ): Promise<StartTaskExecutionCommandOutput> | void {
     const command = new StartTaskExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1092,7 +1046,7 @@ export class DataSync extends DataSyncClient {
    */
   public tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<TagResourceCommandOutput>;
   public tagResource(
     args: TagResourceCommandInput,
@@ -1105,18 +1059,16 @@ export class DataSync extends DataSyncClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1129,7 +1081,7 @@ export class DataSync extends DataSyncClient {
    */
   public untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UntagResourceCommandOutput>;
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1142,18 +1094,16 @@ export class DataSync extends DataSyncClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1166,7 +1116,7 @@ export class DataSync extends DataSyncClient {
    */
   public updateAgent(
     args: UpdateAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateAgentCommandOutput>;
   public updateAgent(
     args: UpdateAgentCommandInput,
@@ -1179,18 +1129,16 @@ export class DataSync extends DataSyncClient {
   ): void;
   public updateAgent(
     args: UpdateAgentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateAgentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAgentCommandOutput) => void),
     cb?: (err: any, data?: UpdateAgentCommandOutput) => void
   ): Promise<UpdateAgentCommandOutput> | void {
     const command = new UpdateAgentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1203,7 +1151,7 @@ export class DataSync extends DataSyncClient {
    */
   public updateTask(
     args: UpdateTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateTaskCommandOutput>;
   public updateTask(
     args: UpdateTaskCommandInput,
@@ -1216,20 +1164,19 @@ export class DataSync extends DataSyncClient {
   ): void;
   public updateTask(
     args: UpdateTaskCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTaskCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTaskCommandOutput) => void),
     cb?: (err: any, data?: UpdateTaskCommandOutput) => void
   ): Promise<UpdateTaskCommandOutput> | void {
     const command = new UpdateTaskCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

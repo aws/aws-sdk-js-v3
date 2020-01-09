@@ -36,7 +36,7 @@ import {
   ListCostCategoryDefinitionsRequest,
   ListCostCategoryDefinitionsResponse,
   UpdateCostCategoryDefinitionRequest,
-  UpdateCostCategoryDefinitionResponse
+  UpdateCostCategoryDefinitionResponse,
 } from "./models/index";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -45,38 +45,38 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig
+  resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig
+  resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import {
   RetryInputConfig,
   RetryResolvedConfig,
   getRetryPlugin,
-  resolveRetryConfig
+  resolveRetryConfig,
 } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig
+  resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig
+  resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -87,7 +87,7 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser
+  UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -211,27 +211,23 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CostExplorerClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
-  ClientDefaults &
-  RegionInputConfig &
-  EndpointsInputConfig &
-  AwsAuthInputConfig &
-  RetryInputConfig &
-  UserAgentInputConfig &
-  HostHeaderInputConfig;
+export type CostExplorerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>>
+  & ClientDefaults
+  & RegionInputConfig
+  & EndpointsInputConfig
+  & AwsAuthInputConfig
+  & RetryInputConfig
+  & UserAgentInputConfig
+  & HostHeaderInputConfig
 
-export type CostExplorerClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
-  Required<ClientDefaults> &
-  RegionResolvedConfig &
-  EndpointsResolvedConfig &
-  AwsAuthResolvedConfig &
-  RetryResolvedConfig &
-  UserAgentResolvedConfig &
-  HostHeaderResolvedConfig;
+export type CostExplorerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions>
+  & Required<ClientDefaults>
+  & RegionResolvedConfig
+  & EndpointsResolvedConfig
+  & AwsAuthResolvedConfig
+  & RetryResolvedConfig
+  & UserAgentResolvedConfig
+  & HostHeaderResolvedConfig
 
 /**
  *
@@ -249,7 +245,7 @@ export type CostExplorerClientResolvedConfig = __SmithyResolvedConfiguration<
  *          </ul>
  * 		       <p>For information about costs associated with the Cost Explorer API, see
  * 			<a href="https://aws.amazon.com/aws-cost-management/pricing/">AWS Cost Management Pricing</a>.</p>
- *
+ * 	
  */
 export class CostExplorerClient extends __Client<
   __HttpHandlerOptions,
@@ -279,5 +275,6 @@ export class CostExplorerClient extends __Client<
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
   }
 
-  destroy(): void {}
+  destroy(): void {
+  }
 }

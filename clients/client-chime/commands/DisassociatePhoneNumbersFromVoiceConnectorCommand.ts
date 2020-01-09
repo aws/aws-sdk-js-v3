@@ -1,20 +1,20 @@
 import {
   ChimeClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../ChimeClient";
 import {
   DisassociatePhoneNumbersFromVoiceConnectorRequest,
-  DisassociatePhoneNumbersFromVoiceConnectorResponse
+  DisassociatePhoneNumbersFromVoiceConnectorResponse,
 } from "../models/index";
 import {
   deserializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnectorCommand,
-  serializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnectorCommand
+  serializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnectorCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,23 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DisassociatePhoneNumbersFromVoiceConnectorCommandInput = DisassociatePhoneNumbersFromVoiceConnectorRequest;
 export type DisassociatePhoneNumbersFromVoiceConnectorCommandOutput = DisassociatePhoneNumbersFromVoiceConnectorResponse;
 
-export class DisassociatePhoneNumbersFromVoiceConnectorCommand extends $Command<
-  DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
-  DisassociatePhoneNumbersFromVoiceConnectorCommandOutput,
-  ChimeClientResolvedConfig
-> {
+export class DisassociatePhoneNumbersFromVoiceConnectorCommand extends $Command<DisassociatePhoneNumbersFromVoiceConnectorCommandInput, DisassociatePhoneNumbersFromVoiceConnectorCommandOutput, ChimeClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DisassociatePhoneNumbersFromVoiceConnectorCommandInput
-  ) {
+  constructor(readonly input: DisassociatePhoneNumbersFromVoiceConnectorCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -49,19 +43,14 @@ export class DisassociatePhoneNumbersFromVoiceConnectorCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
-    DisassociatePhoneNumbersFromVoiceConnectorCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociatePhoneNumbersFromVoiceConnectorCommandInput, DisassociatePhoneNumbersFromVoiceConnectorCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -74,20 +63,14 @@ export class DisassociatePhoneNumbersFromVoiceConnectorCommand extends $Command<
     input: DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnectorCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnectorCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DisassociatePhoneNumbersFromVoiceConnectorCommandOutput> {
-    return deserializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnectorCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnectorCommand(output, context);
   }
 
   // Start section: command_body_extra

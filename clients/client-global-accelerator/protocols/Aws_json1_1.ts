@@ -534,7 +534,7 @@ async function deserializeAws_json1_1CreateAcceleratorCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -551,7 +551,6 @@ async function deserializeAws_json1_1CreateAcceleratorCommandError(
       response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -589,7 +588,7 @@ async function deserializeAws_json1_1CreateEndpointGroupCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -622,7 +621,6 @@ async function deserializeAws_json1_1CreateEndpointGroupCommandError(
       response = await deserializeAws_json1_1ListenerNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -660,7 +658,7 @@ async function deserializeAws_json1_1CreateListenerCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -685,7 +683,6 @@ async function deserializeAws_json1_1CreateListenerCommandError(
       response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -718,7 +715,7 @@ async function deserializeAws_json1_1DeleteAcceleratorCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -743,7 +740,6 @@ async function deserializeAws_json1_1DeleteAcceleratorCommandError(
       response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -776,7 +772,7 @@ async function deserializeAws_json1_1DeleteEndpointGroupCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -793,7 +789,6 @@ async function deserializeAws_json1_1DeleteEndpointGroupCommandError(
       response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -826,7 +821,7 @@ async function deserializeAws_json1_1DeleteListenerCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -847,7 +842,6 @@ async function deserializeAws_json1_1DeleteListenerCommandError(
       response = await deserializeAws_json1_1ListenerNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -885,7 +879,7 @@ async function deserializeAws_json1_1DescribeAcceleratorCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -902,7 +896,6 @@ async function deserializeAws_json1_1DescribeAcceleratorCommandError(
       response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -940,7 +933,7 @@ async function deserializeAws_json1_1DescribeAcceleratorAttributesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -957,7 +950,6 @@ async function deserializeAws_json1_1DescribeAcceleratorAttributesCommandError(
       response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -995,7 +987,7 @@ async function deserializeAws_json1_1DescribeEndpointGroupCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1012,7 +1004,6 @@ async function deserializeAws_json1_1DescribeEndpointGroupCommandError(
       response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -1050,7 +1041,7 @@ async function deserializeAws_json1_1DescribeListenerCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1067,7 +1058,6 @@ async function deserializeAws_json1_1DescribeListenerCommandError(
       response = await deserializeAws_json1_1ListenerNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -1105,7 +1095,7 @@ async function deserializeAws_json1_1ListAcceleratorsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1122,7 +1112,6 @@ async function deserializeAws_json1_1ListAcceleratorsCommandError(
       response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -1160,7 +1149,7 @@ async function deserializeAws_json1_1ListEndpointGroupsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1181,7 +1170,6 @@ async function deserializeAws_json1_1ListEndpointGroupsCommandError(
       response = await deserializeAws_json1_1ListenerNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -1219,7 +1207,7 @@ async function deserializeAws_json1_1ListListenersCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1240,7 +1228,6 @@ async function deserializeAws_json1_1ListListenersCommandError(
       response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -1278,7 +1265,7 @@ async function deserializeAws_json1_1UpdateAcceleratorCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1295,7 +1282,6 @@ async function deserializeAws_json1_1UpdateAcceleratorCommandError(
       response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -1333,7 +1319,7 @@ async function deserializeAws_json1_1UpdateAcceleratorAttributesCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1354,7 +1340,6 @@ async function deserializeAws_json1_1UpdateAcceleratorAttributesCommandError(
       response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -1392,7 +1377,7 @@ async function deserializeAws_json1_1UpdateEndpointGroupCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1417,7 +1402,6 @@ async function deserializeAws_json1_1UpdateEndpointGroupCommandError(
       response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -1455,7 +1439,7 @@ async function deserializeAws_json1_1UpdateListenerCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1480,7 +1464,6 @@ async function deserializeAws_json1_1UpdateListenerCommandError(
       response = await deserializeAws_json1_1ListenerNotFoundExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",

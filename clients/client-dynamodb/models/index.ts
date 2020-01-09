@@ -55,9 +55,7 @@ export namespace Endpoint {
   }
 }
 
-export interface InvalidEndpointException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidEndpointException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidEndpointException";
   $fault: "client";
   Message?: string;
@@ -119,7 +117,7 @@ export namespace ArchivalSummary {
   }
 }
 
-export type AttributeAction = "ADD" | "DELETE" | "PUT";
+export type AttributeAction = "ADD" | "DELETE" | "PUT"
 
 /**
  *
@@ -455,9 +453,7 @@ export interface AutoScalingPolicyUpdate {
    *          <p>Represents a target tracking scaling policy configuration.</p>
    *
    */
-  TargetTrackingScalingPolicyConfiguration:
-    | AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
-    | undefined;
+  TargetTrackingScalingPolicyConfiguration: AutoScalingTargetTrackingScalingPolicyConfigurationUpdate | undefined;
 }
 
 export namespace AutoScalingPolicyUpdate {
@@ -615,13 +611,8 @@ export interface AutoScalingTargetTrackingScalingPolicyConfigurationDescription 
 }
 
 export namespace AutoScalingTargetTrackingScalingPolicyConfigurationDescription {
-  export function isa(
-    o: any
-  ): o is AutoScalingTargetTrackingScalingPolicyConfigurationDescription {
-    return _smithy.isa(
-      o,
-      "AutoScalingTargetTrackingScalingPolicyConfigurationDescription"
-    );
+  export function isa(o: any): o is AutoScalingTargetTrackingScalingPolicyConfigurationDescription {
+    return _smithy.isa(o, "AutoScalingTargetTrackingScalingPolicyConfigurationDescription");
   }
 }
 
@@ -674,13 +665,8 @@ export interface AutoScalingTargetTrackingScalingPolicyConfigurationUpdate {
 }
 
 export namespace AutoScalingTargetTrackingScalingPolicyConfigurationUpdate {
-  export function isa(
-    o: any
-  ): o is AutoScalingTargetTrackingScalingPolicyConfigurationUpdate {
-    return _smithy.isa(
-      o,
-      "AutoScalingTargetTrackingScalingPolicyConfigurationUpdate"
-    );
+  export function isa(o: any): o is AutoScalingTargetTrackingScalingPolicyConfigurationUpdate {
+    return _smithy.isa(o, "AutoScalingTargetTrackingScalingPolicyConfigurationUpdate");
   }
 }
 
@@ -805,9 +791,7 @@ export namespace BackupDetails {
  *          <p>There is another ongoing conflicting backup control plane operation on the table. The backup is either being created, deleted or restored to a table.</p>
  *
  */
-export interface BackupInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BackupInUseException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BackupInUseException";
   $fault: "client";
   message?: string;
@@ -824,9 +808,7 @@ export namespace BackupInUseException {
  *          <p>Backup not found for the given BackupARN. </p>
  *
  */
-export interface BackupNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BackupNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "BackupNotFoundException";
   $fault: "client";
   message?: string;
@@ -838,7 +820,7 @@ export namespace BackupNotFoundException {
   }
 }
 
-export type BackupStatus = "AVAILABLE" | "CREATING" | "DELETED";
+export type BackupStatus = "AVAILABLE" | "CREATING" | "DELETED"
 
 /**
  *
@@ -946,14 +928,14 @@ export namespace BackupSummary {
 export enum BackupType {
   AWS_BACKUP = "AWS_BACKUP",
   SYSTEM = "SYSTEM",
-  USER = "USER"
+  USER = "USER",
 }
 
 export enum BackupTypeFilter {
   ALL = "ALL",
   AWS_BACKUP = "AWS_BACKUP",
   SYSTEM = "SYSTEM",
-  USER = "USER"
+  USER = "USER",
 }
 
 /**
@@ -1340,7 +1322,7 @@ export namespace BatchWriteItemOutput {
   }
 }
 
-export type BillingMode = "PAY_PER_REQUEST" | "PROVISIONED";
+export type BillingMode = "PAY_PER_REQUEST" | "PROVISIONED"
 
 /**
  *
@@ -1455,20 +1437,7 @@ export namespace Capacity {
   }
 }
 
-export type ComparisonOperator =
-  | "BEGINS_WITH"
-  | "BETWEEN"
-  | "CONTAINS"
-  | "EQ"
-  | "GE"
-  | "GT"
-  | "IN"
-  | "LE"
-  | "LT"
-  | "NE"
-  | "NOT_CONTAINS"
-  | "NOT_NULL"
-  | "NULL";
+export type ComparisonOperator = "BEGINS_WITH" | "BETWEEN" | "CONTAINS" | "EQ" | "GE" | "GT" | "IN" | "LE" | "LT" | "NE" | "NOT_CONTAINS" | "NOT_NULL" | "NULL"
 
 /**
  *
@@ -1714,9 +1683,7 @@ export interface ConditionCheck {
    *         values are: NONE and ALL_OLD.</p>
    *
    */
-  ReturnValuesOnConditionCheckFailure?:
-    | ReturnValuesOnConditionCheckFailure
-    | string;
+  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | string;
 
   /**
    *
@@ -1737,9 +1704,7 @@ export namespace ConditionCheck {
  *          <p>A condition specified in the operation could not be evaluated.</p>
  *
  */
-export interface ConditionalCheckFailedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConditionalCheckFailedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ConditionalCheckFailedException";
   $fault: "client";
   /**
@@ -1756,7 +1721,7 @@ export namespace ConditionalCheckFailedException {
   }
 }
 
-export type ConditionalOperator = "AND" | "OR";
+export type ConditionalOperator = "AND" | "OR"
 
 /**
  *
@@ -1855,16 +1820,14 @@ export namespace ContinuousBackupsDescription {
   }
 }
 
-export type ContinuousBackupsStatus = "DISABLED" | "ENABLED";
+export type ContinuousBackupsStatus = "DISABLED" | "ENABLED"
 
 /**
  *
  *          <p>Backups have not yet been enabled for this table.</p>
  *
  */
-export interface ContinuousBackupsUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ContinuousBackupsUnavailableException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ContinuousBackupsUnavailableException";
   $fault: "client";
   message?: string;
@@ -1876,14 +1839,9 @@ export namespace ContinuousBackupsUnavailableException {
   }
 }
 
-export type ContributorInsightsAction = "DISABLE" | "ENABLE";
+export type ContributorInsightsAction = "DISABLE" | "ENABLE"
 
-export type ContributorInsightsStatus =
-  | "DISABLED"
-  | "DISABLING"
-  | "ENABLED"
-  | "ENABLING"
-  | "FAILED";
+export type ContributorInsightsStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING" | "FAILED"
 
 /**
  *
@@ -2462,9 +2420,7 @@ export interface Delete {
    *         values are: NONE and ALL_OLD.</p>
    *
    */
-  ReturnValuesOnConditionCheckFailure?:
-    | ReturnValuesOnConditionCheckFailure
-    | string;
+  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | string;
 
   /**
    *
@@ -4172,9 +4128,7 @@ export namespace GlobalTable {
  *          <p>The specified global table already exists.</p>
  *
  */
-export interface GlobalTableAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface GlobalTableAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "GlobalTableAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -4285,9 +4239,7 @@ export interface GlobalTableGlobalSecondaryIndexSettingsUpdate {
 }
 
 export namespace GlobalTableGlobalSecondaryIndexSettingsUpdate {
-  export function isa(
-    o: any
-  ): o is GlobalTableGlobalSecondaryIndexSettingsUpdate {
+  export function isa(o: any): o is GlobalTableGlobalSecondaryIndexSettingsUpdate {
     return _smithy.isa(o, "GlobalTableGlobalSecondaryIndexSettingsUpdate");
   }
 }
@@ -4297,9 +4249,7 @@ export namespace GlobalTableGlobalSecondaryIndexSettingsUpdate {
  *          <p>The specified global table does not exist.</p>
  *
  */
-export interface GlobalTableNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface GlobalTableNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "GlobalTableNotFoundException";
   $fault: "client";
   message?: string;
@@ -4311,7 +4261,7 @@ export namespace GlobalTableNotFoundException {
   }
 }
 
-export type GlobalTableStatus = "ACTIVE" | "CREATING" | "DELETING" | "UPDATING";
+export type GlobalTableStatus = "ACTIVE" | "CREATING" | "DELETING" | "UPDATING"
 
 /**
  *
@@ -4319,9 +4269,7 @@ export type GlobalTableStatus = "ACTIVE" | "CREATING" | "DELETING" | "UPDATING";
  *       with an idempotent token that was already used.</p>
  *
  */
-export interface IdempotentParameterMismatchException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface IdempotentParameterMismatchException extends _smithy.SmithyException, $MetadataBearer {
   __type: "IdempotentParameterMismatchException";
   $fault: "client";
   Message?: string;
@@ -4338,9 +4286,7 @@ export namespace IdempotentParameterMismatchException {
  *          <p>The operation tried to access a nonexistent index.</p>
  *
  */
-export interface IndexNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface IndexNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "IndexNotFoundException";
   $fault: "client";
   message?: string;
@@ -4352,16 +4298,14 @@ export namespace IndexNotFoundException {
   }
 }
 
-export type IndexStatus = "ACTIVE" | "CREATING" | "DELETING" | "UPDATING";
+export type IndexStatus = "ACTIVE" | "CREATING" | "DELETING" | "UPDATING"
 
 /**
  *
  *          <p>An error occurred on the server side.</p>
  *
  */
-export interface InternalServerError
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerError extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerError";
   $fault: "server";
   /**
@@ -4383,9 +4327,7 @@ export namespace InternalServerError {
  *          <p>An invalid restore time was specified. RestoreDateTime must be between EarliestRestorableDateTime and LatestRestorableDateTime.</p>
  *
  */
-export interface InvalidRestoreTimeException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidRestoreTimeException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidRestoreTimeException";
   $fault: "client";
   message?: string;
@@ -4433,9 +4375,7 @@ export namespace ItemCollectionMetrics {
  *          <p>An item collection is too large. This exception is only returned for tables that have one or more local secondary indexes.</p>
  *
  */
-export interface ItemCollectionSizeLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ItemCollectionSizeLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ItemCollectionSizeLimitExceededException";
   $fault: "client";
   /**
@@ -4526,7 +4466,7 @@ export namespace KeySchemaElement {
   }
 }
 
-export type KeyType = "HASH" | "RANGE";
+export type KeyType = "HASH" | "RANGE"
 
 /**
  *
@@ -4638,9 +4578,7 @@ export namespace KeysAndAttributes {
  *         <p>There is a soft account limit of 256 tables.</p>
  *
  */
-export interface LimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   /**
@@ -5239,16 +5177,14 @@ export namespace PointInTimeRecoverySpecification {
   }
 }
 
-export type PointInTimeRecoveryStatus = "DISABLED" | "ENABLED";
+export type PointInTimeRecoveryStatus = "DISABLED" | "ENABLED"
 
 /**
  *
  *          <p>Point in time recovery has not yet been enabled for this source table.</p>
  *
  */
-export interface PointInTimeRecoveryUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface PointInTimeRecoveryUnavailableException extends _smithy.SmithyException, $MetadataBearer {
   __type: "PointInTimeRecoveryUnavailableException";
   $fault: "client";
   message?: string;
@@ -5307,7 +5243,7 @@ export namespace Projection {
   }
 }
 
-export type ProjectionType = "ALL" | "INCLUDE" | "KEYS_ONLY";
+export type ProjectionType = "ALL" | "INCLUDE" | "KEYS_ONLY"
 
 /**
  *
@@ -5408,9 +5344,7 @@ export namespace ProvisionedThroughputDescription {
  *         Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  *
  */
-export interface ProvisionedThroughputExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ProvisionedThroughputExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ProvisionedThroughputExceededException";
   $fault: "client";
   /**
@@ -5497,9 +5431,7 @@ export interface Put {
    *         values are: NONE and ALL_OLD.</p>
    *
    */
-  ReturnValuesOnConditionCheckFailure?:
-    | ReturnValuesOnConditionCheckFailure
-    | string;
+  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | string;
 
   /**
    *
@@ -6303,9 +6235,7 @@ export namespace Replica {
  *          <p>The specified replica is already part of the global table.</p>
  *
  */
-export interface ReplicaAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ReplicaAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ReplicaAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -6329,9 +6259,7 @@ export interface ReplicaAutoScalingDescription {
    *          <p>Replica-specific global secondary index auto scaling settings.</p>
    *
    */
-  GlobalSecondaryIndexes?: Array<
-    ReplicaGlobalSecondaryIndexAutoScalingDescription
-  >;
+  GlobalSecondaryIndexes?: Array<ReplicaGlobalSecondaryIndexAutoScalingDescription>;
 
   /**
    *
@@ -6408,9 +6336,7 @@ export interface ReplicaAutoScalingUpdate {
    *          be modified.</p>
    *
    */
-  ReplicaGlobalSecondaryIndexUpdates?: Array<
-    ReplicaGlobalSecondaryIndexAutoScalingUpdate
-  >;
+  ReplicaGlobalSecondaryIndexUpdates?: Array<ReplicaGlobalSecondaryIndexAutoScalingUpdate>;
 
   /**
    *
@@ -6597,9 +6523,7 @@ export interface ReplicaGlobalSecondaryIndexAutoScalingDescription {
 }
 
 export namespace ReplicaGlobalSecondaryIndexAutoScalingDescription {
-  export function isa(
-    o: any
-  ): o is ReplicaGlobalSecondaryIndexAutoScalingDescription {
+  export function isa(o: any): o is ReplicaGlobalSecondaryIndexAutoScalingDescription {
     return _smithy.isa(o, "ReplicaGlobalSecondaryIndexAutoScalingDescription");
   }
 }
@@ -6629,9 +6553,7 @@ export interface ReplicaGlobalSecondaryIndexAutoScalingUpdate {
 }
 
 export namespace ReplicaGlobalSecondaryIndexAutoScalingUpdate {
-  export function isa(
-    o: any
-  ): o is ReplicaGlobalSecondaryIndexAutoScalingUpdate {
+  export function isa(o: any): o is ReplicaGlobalSecondaryIndexAutoScalingUpdate {
     return _smithy.isa(o, "ReplicaGlobalSecondaryIndexAutoScalingUpdate");
   }
 }
@@ -6735,9 +6657,7 @@ export interface ReplicaGlobalSecondaryIndexSettingsDescription {
 }
 
 export namespace ReplicaGlobalSecondaryIndexSettingsDescription {
-  export function isa(
-    o: any
-  ): o is ReplicaGlobalSecondaryIndexSettingsDescription {
+  export function isa(o: any): o is ReplicaGlobalSecondaryIndexSettingsDescription {
     return _smithy.isa(o, "ReplicaGlobalSecondaryIndexSettingsDescription");
   }
 }
@@ -6783,9 +6703,7 @@ export namespace ReplicaGlobalSecondaryIndexSettingsUpdate {
  *          <p>The specified replica is no longer part of the global table.</p>
  *
  */
-export interface ReplicaNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ReplicaNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ReplicaNotFoundException";
   $fault: "client";
   message?: string;
@@ -6823,9 +6741,7 @@ export interface ReplicaSettingsDescription {
    *          <p>Replica global secondary index settings for the global table.</p>
    *
    */
-  ReplicaGlobalSecondaryIndexSettings?: Array<
-    ReplicaGlobalSecondaryIndexSettingsDescription
-  >;
+  ReplicaGlobalSecondaryIndexSettings?: Array<ReplicaGlobalSecondaryIndexSettingsDescription>;
 
   /**
    *
@@ -6911,9 +6827,7 @@ export interface ReplicaSettingsUpdate {
    *          <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
    *
    */
-  ReplicaGlobalSecondaryIndexSettingsUpdate?: Array<
-    ReplicaGlobalSecondaryIndexSettingsUpdate
-  >;
+  ReplicaGlobalSecondaryIndexSettingsUpdate?: Array<ReplicaGlobalSecondaryIndexSettingsUpdate>;
 
   /**
    *
@@ -6939,12 +6853,7 @@ export namespace ReplicaSettingsUpdate {
   }
 }
 
-export type ReplicaStatus =
-  | "ACTIVE"
-  | "CREATING"
-  | "CREATION_FAILED"
-  | "DELETING"
-  | "UPDATING";
+export type ReplicaStatus = "ACTIVE" | "CREATING" | "CREATION_FAILED" | "DELETING" | "UPDATING"
 
 /**
  *
@@ -7041,9 +6950,7 @@ export namespace ReplicationGroupUpdate {
  *          <p>Throughput exceeds the current throughput limit for your account. Please contact AWS Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a limit increase.</p>
  *
  */
-export interface RequestLimitExceeded
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface RequestLimitExceeded extends _smithy.SmithyException, $MetadataBearer {
   __type: "RequestLimitExceeded";
   $fault: "client";
   message?: string;
@@ -7062,9 +6969,7 @@ export namespace RequestLimitExceeded {
  *       state.</p>
  *
  */
-export interface ResourceInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   /**
@@ -7087,9 +6992,7 @@ export namespace ResourceInUseException {
  *       correctly, or its status might not be <code>ACTIVE</code>.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -7305,18 +7208,13 @@ export namespace RestoreTableToPointInTimeOutput {
   }
 }
 
-export type ReturnConsumedCapacity = "INDEXES" | "NONE" | "TOTAL";
+export type ReturnConsumedCapacity = "INDEXES" | "NONE" | "TOTAL"
 
-export type ReturnItemCollectionMetrics = "NONE" | "SIZE";
+export type ReturnItemCollectionMetrics = "NONE" | "SIZE"
 
-export type ReturnValue =
-  | "ALL_NEW"
-  | "ALL_OLD"
-  | "NONE"
-  | "UPDATED_NEW"
-  | "UPDATED_OLD";
+export type ReturnValue = "ALL_NEW" | "ALL_OLD" | "NONE" | "UPDATED_NEW" | "UPDATED_OLD"
 
-export type ReturnValuesOnConditionCheckFailure = "ALL_OLD" | "NONE";
+export type ReturnValuesOnConditionCheckFailure = "ALL_OLD" | "NONE"
 
 /**
  *
@@ -7430,16 +7328,11 @@ export namespace SSESpecification {
   }
 }
 
-export type SSEStatus =
-  | "DISABLED"
-  | "DISABLING"
-  | "ENABLED"
-  | "ENABLING"
-  | "UPDATING";
+export type SSEStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING" | "UPDATING"
 
-export type SSEType = "AES256" | "KMS";
+export type SSEType = "AES256" | "KMS"
 
-export type ScalarAttributeType = "B" | "N" | "S";
+export type ScalarAttributeType = "B" | "N" | "S"
 
 /**
  *
@@ -7822,11 +7715,7 @@ export namespace ScanOutput {
   }
 }
 
-export type Select =
-  | "ALL_ATTRIBUTES"
-  | "ALL_PROJECTED_ATTRIBUTES"
-  | "COUNT"
-  | "SPECIFIC_ATTRIBUTES";
+export type Select = "ALL_ATTRIBUTES" | "ALL_PROJECTED_ATTRIBUTES" | "COUNT" | "SPECIFIC_ATTRIBUTES"
 
 /**
  *
@@ -8019,20 +7908,14 @@ export namespace StreamSpecification {
   }
 }
 
-export type StreamViewType =
-  | "KEYS_ONLY"
-  | "NEW_AND_OLD_IMAGES"
-  | "NEW_IMAGE"
-  | "OLD_IMAGE";
+export type StreamViewType = "KEYS_ONLY" | "NEW_AND_OLD_IMAGES" | "NEW_IMAGE" | "OLD_IMAGE"
 
 /**
  *
  *          <p>A target table with the specified name already exists. </p>
  *
  */
-export interface TableAlreadyExistsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TableAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TableAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -8529,9 +8412,7 @@ export namespace TableDescription {
  *          <p>A target table with the specified name is either being created or deleted. </p>
  *
  */
-export interface TableInUseException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TableInUseException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TableInUseException";
   $fault: "client";
   message?: string;
@@ -8548,9 +8429,7 @@ export namespace TableInUseException {
  *          <p>A source table with the name <code>TableName</code> does not currently exist within the subscriber's account.</p>
  *
  */
-export interface TableNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TableNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TableNotFoundException";
   $fault: "client";
   message?: string;
@@ -8562,14 +8441,7 @@ export namespace TableNotFoundException {
   }
 }
 
-export type TableStatus =
-  | "ACTIVE"
-  | "ARCHIVED"
-  | "ARCHIVING"
-  | "CREATING"
-  | "DELETING"
-  | "INACCESSIBLE_ENCRYPTION_CREDENTIALS"
-  | "UPDATING";
+export type TableStatus = "ACTIVE" | "ARCHIVED" | "ARCHIVING" | "CREATING" | "DELETING" | "INACCESSIBLE_ENCRYPTION_CREDENTIALS" | "UPDATING"
 
 /**
  *
@@ -8690,11 +8562,7 @@ export namespace TimeToLiveSpecification {
   }
 }
 
-export type TimeToLiveStatus =
-  | "DISABLED"
-  | "DISABLING"
-  | "ENABLED"
-  | "ENABLING";
+export type TimeToLiveStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING"
 
 /**
  *
@@ -9132,9 +9000,7 @@ export namespace TransactWriteItemsOutput {
  *          </ul>
  *
  */
-export interface TransactionCanceledException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TransactionCanceledException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TransactionCanceledException";
   $fault: "client";
   /**
@@ -9158,9 +9024,7 @@ export namespace TransactionCanceledException {
  *          <p>Operation was rejected because there is an ongoing transaction for the item.</p>
  *
  */
-export interface TransactionConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TransactionConflictException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TransactionConflictException";
   $fault: "client";
   message?: string;
@@ -9177,9 +9041,7 @@ export namespace TransactionConflictException {
  *          <p>The transaction with the given request token is already in progress.</p>
  *
  */
-export interface TransactionInProgressException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TransactionInProgressException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TransactionInProgressException";
   $fault: "client";
   Message?: string;
@@ -9261,9 +9123,7 @@ export interface Update {
    *         values are: NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW.</p>
    *
    */
-  ReturnValuesOnConditionCheckFailure?:
-    | ReturnValuesOnConditionCheckFailure
-    | string;
+  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | string;
 
   /**
    *
@@ -9294,9 +9154,7 @@ export interface UpdateContinuousBackupsInput {
    *          <p>Represents the settings used to enable point in time recovery.</p>
    *
    */
-  PointInTimeRecoverySpecification:
-    | PointInTimeRecoverySpecification
-    | undefined;
+  PointInTimeRecoverySpecification: PointInTimeRecoverySpecification | undefined;
 
   /**
    *
@@ -9482,9 +9340,7 @@ export interface UpdateGlobalTableSettingsInput {
    *          <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
    *
    */
-  GlobalTableGlobalSecondaryIndexSettingsUpdate?: Array<
-    GlobalTableGlobalSecondaryIndexSettingsUpdate
-  >;
+  GlobalTableGlobalSecondaryIndexSettingsUpdate?: Array<GlobalTableGlobalSecondaryIndexSettingsUpdate>;
 
   /**
    *

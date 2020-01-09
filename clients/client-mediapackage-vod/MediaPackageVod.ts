@@ -2,62 +2,62 @@ import { MediaPackageVodClient } from "./MediaPackageVodClient";
 import {
   CreateAssetCommand,
   CreateAssetCommandInput,
-  CreateAssetCommandOutput
+  CreateAssetCommandOutput,
 } from "./commands/CreateAssetCommand";
 import {
   CreatePackagingConfigurationCommand,
   CreatePackagingConfigurationCommandInput,
-  CreatePackagingConfigurationCommandOutput
+  CreatePackagingConfigurationCommandOutput,
 } from "./commands/CreatePackagingConfigurationCommand";
 import {
   CreatePackagingGroupCommand,
   CreatePackagingGroupCommandInput,
-  CreatePackagingGroupCommandOutput
+  CreatePackagingGroupCommandOutput,
 } from "./commands/CreatePackagingGroupCommand";
 import {
   DeleteAssetCommand,
   DeleteAssetCommandInput,
-  DeleteAssetCommandOutput
+  DeleteAssetCommandOutput,
 } from "./commands/DeleteAssetCommand";
 import {
   DeletePackagingConfigurationCommand,
   DeletePackagingConfigurationCommandInput,
-  DeletePackagingConfigurationCommandOutput
+  DeletePackagingConfigurationCommandOutput,
 } from "./commands/DeletePackagingConfigurationCommand";
 import {
   DeletePackagingGroupCommand,
   DeletePackagingGroupCommandInput,
-  DeletePackagingGroupCommandOutput
+  DeletePackagingGroupCommandOutput,
 } from "./commands/DeletePackagingGroupCommand";
 import {
   DescribeAssetCommand,
   DescribeAssetCommandInput,
-  DescribeAssetCommandOutput
+  DescribeAssetCommandOutput,
 } from "./commands/DescribeAssetCommand";
 import {
   DescribePackagingConfigurationCommand,
   DescribePackagingConfigurationCommandInput,
-  DescribePackagingConfigurationCommandOutput
+  DescribePackagingConfigurationCommandOutput,
 } from "./commands/DescribePackagingConfigurationCommand";
 import {
   DescribePackagingGroupCommand,
   DescribePackagingGroupCommandInput,
-  DescribePackagingGroupCommandOutput
+  DescribePackagingGroupCommandOutput,
 } from "./commands/DescribePackagingGroupCommand";
 import {
   ListAssetsCommand,
   ListAssetsCommandInput,
-  ListAssetsCommandOutput
+  ListAssetsCommandOutput,
 } from "./commands/ListAssetsCommand";
 import {
   ListPackagingConfigurationsCommand,
   ListPackagingConfigurationsCommandInput,
-  ListPackagingConfigurationsCommandOutput
+  ListPackagingConfigurationsCommandOutput,
 } from "./commands/ListPackagingConfigurationsCommand";
 import {
   ListPackagingGroupsCommand,
   ListPackagingGroupsCommandInput,
-  ListPackagingGroupsCommandOutput
+  ListPackagingGroupsCommandOutput,
 } from "./commands/ListPackagingGroupsCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -70,7 +70,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
    */
   public createAsset(
     args: CreateAssetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateAssetCommandOutput>;
   public createAsset(
     args: CreateAssetCommandInput,
@@ -83,18 +83,16 @@ export class MediaPackageVod extends MediaPackageVodClient {
   ): void;
   public createAsset(
     args: CreateAssetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateAssetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAssetCommandOutput) => void),
     cb?: (err: any, data?: CreateAssetCommandOutput) => void
   ): Promise<CreateAssetCommandOutput> | void {
     const command = new CreateAssetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -105,7 +103,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
    */
   public createPackagingConfiguration(
     args: CreatePackagingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreatePackagingConfigurationCommandOutput>;
   public createPackagingConfiguration(
     args: CreatePackagingConfigurationCommandInput,
@@ -118,18 +116,16 @@ export class MediaPackageVod extends MediaPackageVodClient {
   ): void;
   public createPackagingConfiguration(
     args: CreatePackagingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePackagingConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePackagingConfigurationCommandOutput) => void),
     cb?: (err: any, data?: CreatePackagingConfigurationCommandOutput) => void
   ): Promise<CreatePackagingConfigurationCommandOutput> | void {
     const command = new CreatePackagingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -140,7 +136,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
    */
   public createPackagingGroup(
     args: CreatePackagingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreatePackagingGroupCommandOutput>;
   public createPackagingGroup(
     args: CreatePackagingGroupCommandInput,
@@ -153,18 +149,16 @@ export class MediaPackageVod extends MediaPackageVodClient {
   ): void;
   public createPackagingGroup(
     args: CreatePackagingGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePackagingGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePackagingGroupCommandOutput) => void),
     cb?: (err: any, data?: CreatePackagingGroupCommandOutput) => void
   ): Promise<CreatePackagingGroupCommandOutput> | void {
     const command = new CreatePackagingGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -175,7 +169,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
    */
   public deleteAsset(
     args: DeleteAssetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteAssetCommandOutput>;
   public deleteAsset(
     args: DeleteAssetCommandInput,
@@ -188,18 +182,16 @@ export class MediaPackageVod extends MediaPackageVodClient {
   ): void;
   public deleteAsset(
     args: DeleteAssetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteAssetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAssetCommandOutput) => void),
     cb?: (err: any, data?: DeleteAssetCommandOutput) => void
   ): Promise<DeleteAssetCommandOutput> | void {
     const command = new DeleteAssetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -210,7 +202,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
    */
   public deletePackagingConfiguration(
     args: DeletePackagingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeletePackagingConfigurationCommandOutput>;
   public deletePackagingConfiguration(
     args: DeletePackagingConfigurationCommandInput,
@@ -223,18 +215,16 @@ export class MediaPackageVod extends MediaPackageVodClient {
   ): void;
   public deletePackagingConfiguration(
     args: DeletePackagingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePackagingConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePackagingConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DeletePackagingConfigurationCommandOutput) => void
   ): Promise<DeletePackagingConfigurationCommandOutput> | void {
     const command = new DeletePackagingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -245,7 +235,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
    */
   public deletePackagingGroup(
     args: DeletePackagingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeletePackagingGroupCommandOutput>;
   public deletePackagingGroup(
     args: DeletePackagingGroupCommandInput,
@@ -258,18 +248,16 @@ export class MediaPackageVod extends MediaPackageVodClient {
   ): void;
   public deletePackagingGroup(
     args: DeletePackagingGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePackagingGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePackagingGroupCommandOutput) => void),
     cb?: (err: any, data?: DeletePackagingGroupCommandOutput) => void
   ): Promise<DeletePackagingGroupCommandOutput> | void {
     const command = new DeletePackagingGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -280,7 +268,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
    */
   public describeAsset(
     args: DescribeAssetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeAssetCommandOutput>;
   public describeAsset(
     args: DescribeAssetCommandInput,
@@ -293,18 +281,16 @@ export class MediaPackageVod extends MediaPackageVodClient {
   ): void;
   public describeAsset(
     args: DescribeAssetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAssetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAssetCommandOutput) => void),
     cb?: (err: any, data?: DescribeAssetCommandOutput) => void
   ): Promise<DescribeAssetCommandOutput> | void {
     const command = new DescribeAssetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -315,7 +301,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
    */
   public describePackagingConfiguration(
     args: DescribePackagingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribePackagingConfigurationCommandOutput>;
   public describePackagingConfiguration(
     args: DescribePackagingConfigurationCommandInput,
@@ -328,21 +314,16 @@ export class MediaPackageVod extends MediaPackageVodClient {
   ): void;
   public describePackagingConfiguration(
     args: DescribePackagingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribePackagingConfigurationCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePackagingConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DescribePackagingConfigurationCommandOutput) => void
   ): Promise<DescribePackagingConfigurationCommandOutput> | void {
     const command = new DescribePackagingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -353,7 +334,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
    */
   public describePackagingGroup(
     args: DescribePackagingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribePackagingGroupCommandOutput>;
   public describePackagingGroup(
     args: DescribePackagingGroupCommandInput,
@@ -366,18 +347,16 @@ export class MediaPackageVod extends MediaPackageVodClient {
   ): void;
   public describePackagingGroup(
     args: DescribePackagingGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribePackagingGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePackagingGroupCommandOutput) => void),
     cb?: (err: any, data?: DescribePackagingGroupCommandOutput) => void
   ): Promise<DescribePackagingGroupCommandOutput> | void {
     const command = new DescribePackagingGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -388,7 +367,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
    */
   public listAssets(
     args: ListAssetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListAssetsCommandOutput>;
   public listAssets(
     args: ListAssetsCommandInput,
@@ -401,18 +380,16 @@ export class MediaPackageVod extends MediaPackageVodClient {
   ): void;
   public listAssets(
     args: ListAssetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAssetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssetsCommandOutput) => void),
     cb?: (err: any, data?: ListAssetsCommandOutput) => void
   ): Promise<ListAssetsCommandOutput> | void {
     const command = new ListAssetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -423,7 +400,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
    */
   public listPackagingConfigurations(
     args: ListPackagingConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListPackagingConfigurationsCommandOutput>;
   public listPackagingConfigurations(
     args: ListPackagingConfigurationsCommandInput,
@@ -436,18 +413,16 @@ export class MediaPackageVod extends MediaPackageVodClient {
   ): void;
   public listPackagingConfigurations(
     args: ListPackagingConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPackagingConfigurationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPackagingConfigurationsCommandOutput) => void),
     cb?: (err: any, data?: ListPackagingConfigurationsCommandOutput) => void
   ): Promise<ListPackagingConfigurationsCommandOutput> | void {
     const command = new ListPackagingConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -458,7 +433,7 @@ export class MediaPackageVod extends MediaPackageVodClient {
    */
   public listPackagingGroups(
     args: ListPackagingGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListPackagingGroupsCommandOutput>;
   public listPackagingGroups(
     args: ListPackagingGroupsCommandInput,
@@ -471,20 +446,19 @@ export class MediaPackageVod extends MediaPackageVodClient {
   ): void;
   public listPackagingGroups(
     args: ListPackagingGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPackagingGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPackagingGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListPackagingGroupsCommandOutput) => void
   ): Promise<ListPackagingGroupsCommandOutput> | void {
     const command = new ListPackagingGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

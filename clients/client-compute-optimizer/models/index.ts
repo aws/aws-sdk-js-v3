@@ -6,9 +6,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *         <p>You do not have sufficient access to perform this action.</p>
  *
  */
-export interface AccessDeniedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   message?: string;
@@ -258,14 +256,14 @@ export namespace Filter {
 
 export enum FilterName {
   FINDING = "Finding",
-  RECOMMENDATION_SOURCE_TYPE = "RecommendationSourceType"
+  RECOMMENDATION_SOURCE_TYPE = "RecommendationSourceType",
 }
 
 export enum Finding {
   NOT_OPTIMIZED = "NotOptimized",
   OPTIMIZED = "Optimized",
   OVER_PROVISIONED = "Overprovisioned",
-  UNDER_PROVISIONED = "Underprovisioned"
+  UNDER_PROVISIONED = "Underprovisioned",
 }
 
 export interface GetAutoScalingGroupRecommendationsRequest {
@@ -317,8 +315,7 @@ export namespace GetAutoScalingGroupRecommendationsRequest {
   }
 }
 
-export interface GetAutoScalingGroupRecommendationsResponse
-  extends $MetadataBearer {
+export interface GetAutoScalingGroupRecommendationsResponse extends $MetadataBearer {
   __type?: "GetAutoScalingGroupRecommendationsResponse";
   /**
    *
@@ -475,15 +472,12 @@ export interface GetEC2RecommendationProjectedMetricsRequest {
 }
 
 export namespace GetEC2RecommendationProjectedMetricsRequest {
-  export function isa(
-    o: any
-  ): o is GetEC2RecommendationProjectedMetricsRequest {
+  export function isa(o: any): o is GetEC2RecommendationProjectedMetricsRequest {
     return _smithy.isa(o, "GetEC2RecommendationProjectedMetricsRequest");
   }
 }
 
-export interface GetEC2RecommendationProjectedMetricsResponse
-  extends $MetadataBearer {
+export interface GetEC2RecommendationProjectedMetricsResponse extends $MetadataBearer {
   __type?: "GetEC2RecommendationProjectedMetricsResponse";
   /**
    *
@@ -494,9 +488,7 @@ export interface GetEC2RecommendationProjectedMetricsResponse
 }
 
 export namespace GetEC2RecommendationProjectedMetricsResponse {
-  export function isa(
-    o: any
-  ): o is GetEC2RecommendationProjectedMetricsResponse {
+  export function isa(o: any): o is GetEC2RecommendationProjectedMetricsResponse {
     return _smithy.isa(o, "GetEC2RecommendationProjectedMetricsResponse");
   }
 }
@@ -818,9 +810,7 @@ export namespace InstanceRecommendationOption {
  *             failure.</p>
  *
  */
-export interface InternalServerException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerException";
   $fault: "server";
   message?: string;
@@ -837,9 +827,7 @@ export namespace InternalServerException {
  *         <p>An invalid or out-of-range value was supplied for the input parameter.</p>
  *
  */
-export interface InvalidParameterValueException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterValueException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidParameterValueException";
   $fault: "client";
   message?: string;
@@ -853,12 +841,12 @@ export namespace InvalidParameterValueException {
 
 export enum MetricName {
   CPU = "Cpu",
-  MEMORY = "Memory"
+  MEMORY = "Memory",
 }
 
 export enum MetricStatistic {
   AVERAGE = "Average",
-  MAXIMUM = "Maximum"
+  MAXIMUM = "Maximum",
 }
 
 /**
@@ -867,9 +855,7 @@ export enum MetricStatistic {
  *             certificate.</p>
  *
  */
-export interface MissingAuthenticationToken
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MissingAuthenticationToken extends _smithy.SmithyException, $MetadataBearer {
   __type: "MissingAuthenticationToken";
   $fault: "client";
   message?: string;
@@ -886,9 +872,7 @@ export namespace MissingAuthenticationToken {
  *         <p>You must opt in to the service to perform this action.</p>
  *
  */
-export interface OptInRequiredException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface OptInRequiredException extends _smithy.SmithyException, $MetadataBearer {
   __type: "OptInRequiredException";
   $fault: "client";
   message?: string;
@@ -971,7 +955,7 @@ export namespace RecommendationSource {
 
 export enum RecommendationSourceType {
   AUTO_SCALING_GROUP = "AutoScalingGroup",
-  EC2_INSTANCE = "Ec2Instance"
+  EC2_INSTANCE = "Ec2Instance",
 }
 
 /**
@@ -1053,9 +1037,7 @@ export namespace RecommendedOptionProjectedMetric {
  *         <p>The specified resource was not found.</p>
  *
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -1072,9 +1054,7 @@ export namespace ResourceNotFoundException {
  *         <p>The request has failed due to a temporary failure of the server.</p>
  *
  */
-export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceUnavailableException";
   $fault: "server";
   message?: string;
@@ -1090,7 +1070,7 @@ export enum Status {
   ACTIVE = "Active",
   FAILED = "Failed",
   INACTIVE = "Inactive",
-  PENDING = "Pending"
+  PENDING = "Pending",
 }
 
 /**
@@ -1126,9 +1106,7 @@ export namespace Summary {
  *         <p>The limit on the number of requests per second was exceeded.</p>
  *
  */
-export interface ThrottlingException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ThrottlingException";
   $fault: "client";
   message: string | undefined;

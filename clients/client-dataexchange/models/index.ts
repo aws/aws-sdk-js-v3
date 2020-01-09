@@ -4,9 +4,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 /**
  * <p>Access to the resource is denied.</p>
  */
-export interface AccessDeniedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   /**
@@ -147,7 +145,7 @@ export namespace AssetSourceEntry {
 }
 
 export enum AssetType {
-  S3_SNAPSHOT = "S3_SNAPSHOT"
+  S3_SNAPSHOT = "S3_SNAPSHOT",
 }
 
 export interface CancelJobRequest {
@@ -171,15 +169,13 @@ export enum Code {
   MALWARE_SCAN_ENCRYPTED_FILE = "MALWARE_SCAN_ENCRYPTED_FILE",
   RESOURCE_NOT_FOUND_EXCEPTION = "RESOURCE_NOT_FOUND_EXCEPTION",
   SERVICE_QUOTA_EXCEEDED_EXCEPTION = "SERVICE_QUOTA_EXCEEDED_EXCEPTION",
-  VALIDATION_EXCEPTION = "VALIDATION_EXCEPTION"
+  VALIDATION_EXCEPTION = "VALIDATION_EXCEPTION",
 }
 
 /**
  * <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
  */
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConflictException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ConflictException";
   $fault: "client";
   /**
@@ -1146,9 +1142,7 @@ export namespace ImportAssetsFromS3ResponseDetails {
 /**
  * An exception occurred with the service.
  */
-export interface InternalServerException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerException";
   $fault: "server";
   /**
@@ -1260,12 +1254,12 @@ export namespace JobError {
 
 export enum JobErrorLimitName {
   Asset_size_in_GB = "Asset size in GB",
-  Assets_per_revision = "Assets per revision"
+  Assets_per_revision = "Assets per revision",
 }
 
 export enum JobErrorResourceTypes {
   ASSET = "ASSET",
-  REVISION = "REVISION"
+  REVISION = "REVISION",
 }
 
 export enum LimitName {
@@ -1280,7 +1274,7 @@ export enum LimitName {
   Data_sets_per_account = "Data sets per account",
   Data_sets_per_product = "Data sets per product",
   Products_per_account = "Products per account",
-  Revisions_per_data_set = "Revisions per data set"
+  Revisions_per_data_set = "Revisions per data set",
 }
 
 export interface ListDataSetRevisionsRequest {
@@ -1495,7 +1489,7 @@ export namespace ListTagsForResourceResponse {
 
 export enum Origin {
   ENTITLED = "ENTITLED",
-  OWNED = "OWNED"
+  OWNED = "OWNED",
 }
 
 export interface OriginDetails {
@@ -1544,9 +1538,7 @@ export namespace RequestDetails {
 /**
  * <p>The resource couldn't be found.</p>
  */
-export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -1575,7 +1567,7 @@ export enum ResourceType {
   ASSET = "ASSET",
   DATA_SET = "DATA_SET",
   JOB = "JOB",
-  REVISION = "REVISION"
+  REVISION = "REVISION",
 }
 
 /**
@@ -1682,9 +1674,7 @@ export namespace S3SnapshotAsset {
 /**
  * <p>The request has exceeded the quotas imposed by the service.</p>
  */
-export interface ServiceLimitExceededException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceLimitExceededException";
   $fault: "client";
   /**
@@ -1739,7 +1729,7 @@ export enum State {
   ERROR = "ERROR",
   IN_PROGRESS = "IN_PROGRESS",
   TIMED_OUT = "TIMED_OUT",
-  WAITING = "WAITING"
+  WAITING = "WAITING",
 }
 
 /**
@@ -1767,9 +1757,7 @@ export namespace TagResourceRequest {
 /**
  * <p>The limit on the number of requests per second was exceeded.</p>
  */
-export interface ThrottlingException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ThrottlingException";
   $fault: "client";
   /**
@@ -1788,7 +1776,7 @@ export enum Type {
   EXPORT_ASSETS_TO_S3 = "EXPORT_ASSETS_TO_S3",
   EXPORT_ASSET_TO_SIGNED_URL = "EXPORT_ASSET_TO_SIGNED_URL",
   IMPORT_ASSETS_FROM_S3 = "IMPORT_ASSETS_FROM_S3",
-  IMPORT_ASSET_FROM_SIGNED_URL = "IMPORT_ASSET_FROM_SIGNED_URL"
+  IMPORT_ASSET_FROM_SIGNED_URL = "IMPORT_ASSET_FROM_SIGNED_URL",
 }
 
 export interface UntagResourceRequest {
@@ -2071,9 +2059,7 @@ export namespace UpdateRevisionResponse {
 /**
  * <p>The request was invalid.</p>
  */
-export interface ValidationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ValidationException";
   $fault: "client";
   /**

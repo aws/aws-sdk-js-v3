@@ -1,20 +1,20 @@
 import {
   AppStreamClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../AppStreamClient";
 import {
   DescribeImagePermissionsRequest,
-  DescribeImagePermissionsResult
+  DescribeImagePermissionsResult,
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeImagePermissionsCommand,
-  serializeAws_json1_1DescribeImagePermissionsCommand
+  serializeAws_json1_1DescribeImagePermissionsCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type DescribeImagePermissionsCommandInput = DescribeImagePermissionsRequest;
 export type DescribeImagePermissionsCommandOutput = DescribeImagePermissionsResult;
 
-export class DescribeImagePermissionsCommand extends $Command<
-  DescribeImagePermissionsCommandInput,
-  DescribeImagePermissionsCommandOutput,
-  AppStreamClientResolvedConfig
-> {
+export class DescribeImagePermissionsCommand extends $Command<DescribeImagePermissionsCommandInput, DescribeImagePermissionsCommandOutput, AppStreamClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,19 +43,14 @@ export class DescribeImagePermissionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeImagePermissionsCommandInput,
-    DescribeImagePermissionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeImagePermissionsCommandInput, DescribeImagePermissionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -79,10 +70,7 @@ export class DescribeImagePermissionsCommand extends $Command<
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeImagePermissionsCommandOutput> {
-    return deserializeAws_json1_1DescribeImagePermissionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeImagePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

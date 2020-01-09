@@ -854,7 +854,7 @@ async function deserializeAws_json1_1CreateAppCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -879,7 +879,6 @@ async function deserializeAws_json1_1CreateAppCommandError(
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",
@@ -917,7 +916,7 @@ async function deserializeAws_json1_1CreateReplicationJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -958,7 +957,6 @@ async function deserializeAws_json1_1CreateReplicationJobCommandError(
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",
@@ -996,7 +994,7 @@ async function deserializeAws_json1_1DeleteAppCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1021,7 +1019,6 @@ async function deserializeAws_json1_1DeleteAppCommandError(
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",
@@ -1059,7 +1056,7 @@ async function deserializeAws_json1_1DeleteAppLaunchConfigurationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1084,7 +1081,6 @@ async function deserializeAws_json1_1DeleteAppLaunchConfigurationCommandError(
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",
@@ -1122,7 +1118,7 @@ async function deserializeAws_json1_1DeleteAppReplicationConfigurationCommandErr
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1147,7 +1143,6 @@ async function deserializeAws_json1_1DeleteAppReplicationConfigurationCommandErr
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",
@@ -1185,7 +1180,7 @@ async function deserializeAws_json1_1DeleteReplicationJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1210,7 +1205,6 @@ async function deserializeAws_json1_1DeleteReplicationJobCommandError(
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",
@@ -1248,7 +1242,7 @@ async function deserializeAws_json1_1DeleteServerCatalogCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1269,7 +1263,6 @@ async function deserializeAws_json1_1DeleteServerCatalogCommandError(
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",
@@ -1307,7 +1300,7 @@ async function deserializeAws_json1_1DisassociateConnectorCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1328,7 +1321,6 @@ async function deserializeAws_json1_1DisassociateConnectorCommandError(
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",
@@ -1366,7 +1358,7 @@ async function deserializeAws_json1_1GenerateChangeSetCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1391,7 +1383,6 @@ async function deserializeAws_json1_1GenerateChangeSetCommandError(
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",
@@ -1429,7 +1420,7 @@ async function deserializeAws_json1_1GenerateTemplateCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1454,7 +1445,6 @@ async function deserializeAws_json1_1GenerateTemplateCommandError(
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",
@@ -1492,7 +1482,7 @@ async function deserializeAws_json1_1GetAppCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1517,7 +1507,6 @@ async function deserializeAws_json1_1GetAppCommandError(
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",
@@ -1555,7 +1544,7 @@ async function deserializeAws_json1_1GetAppLaunchConfigurationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1580,7 +1569,6 @@ async function deserializeAws_json1_1GetAppLaunchConfigurationCommandError(
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",
@@ -1618,7 +1606,7 @@ async function deserializeAws_json1_1GetAppReplicationConfigurationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1643,7 +1631,6 @@ async function deserializeAws_json1_1GetAppReplicationConfigurationCommandError(
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",
@@ -1681,7 +1668,7 @@ async function deserializeAws_json1_1GetConnectorsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1690,7 +1677,6 @@ async function deserializeAws_json1_1GetConnectorsCommandError(
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",
@@ -1728,7 +1714,7 @@ async function deserializeAws_json1_1GetReplicationJobsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1745,7 +1731,6 @@ async function deserializeAws_json1_1GetReplicationJobsCommandError(
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",
@@ -1783,7 +1768,7 @@ async function deserializeAws_json1_1GetReplicationRunsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1800,7 +1785,6 @@ async function deserializeAws_json1_1GetReplicationRunsCommandError(
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",
@@ -1838,7 +1822,7 @@ async function deserializeAws_json1_1GetServersCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1847,7 +1831,6 @@ async function deserializeAws_json1_1GetServersCommandError(
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",
@@ -1885,7 +1868,7 @@ async function deserializeAws_json1_1ImportServerCatalogCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1910,7 +1893,6 @@ async function deserializeAws_json1_1ImportServerCatalogCommandError(
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",
@@ -1948,7 +1930,7 @@ async function deserializeAws_json1_1LaunchAppCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -1973,7 +1955,6 @@ async function deserializeAws_json1_1LaunchAppCommandError(
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",
@@ -2011,7 +1992,7 @@ async function deserializeAws_json1_1ListAppsCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2036,7 +2017,6 @@ async function deserializeAws_json1_1ListAppsCommandError(
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",
@@ -2074,7 +2054,7 @@ async function deserializeAws_json1_1PutAppLaunchConfigurationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2099,7 +2079,6 @@ async function deserializeAws_json1_1PutAppLaunchConfigurationCommandError(
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",
@@ -2137,7 +2116,7 @@ async function deserializeAws_json1_1PutAppReplicationConfigurationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2162,7 +2141,6 @@ async function deserializeAws_json1_1PutAppReplicationConfigurationCommandError(
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",
@@ -2200,7 +2178,7 @@ async function deserializeAws_json1_1StartAppReplicationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2225,7 +2203,6 @@ async function deserializeAws_json1_1StartAppReplicationCommandError(
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",
@@ -2263,7 +2240,7 @@ async function deserializeAws_json1_1StartOnDemandReplicationRunCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2288,7 +2265,6 @@ async function deserializeAws_json1_1StartOnDemandReplicationRunCommandError(
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",
@@ -2326,7 +2302,7 @@ async function deserializeAws_json1_1StopAppReplicationCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2351,7 +2327,6 @@ async function deserializeAws_json1_1StopAppReplicationCommandError(
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",
@@ -2389,7 +2364,7 @@ async function deserializeAws_json1_1TerminateAppCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2414,7 +2389,6 @@ async function deserializeAws_json1_1TerminateAppCommandError(
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",
@@ -2452,7 +2426,7 @@ async function deserializeAws_json1_1UpdateAppCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2477,7 +2451,6 @@ async function deserializeAws_json1_1UpdateAppCommandError(
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",
@@ -2515,7 +2488,7 @@ async function deserializeAws_json1_1UpdateReplicationJobCommandError(
     body: data,
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split('#');
   errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
@@ -2552,7 +2525,6 @@ async function deserializeAws_json1_1UpdateReplicationJobCommandError(
       response = await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.servermigration.V2016_10_24#${errorCode}`,
         $fault: "client",

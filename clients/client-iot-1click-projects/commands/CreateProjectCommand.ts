@@ -1,17 +1,20 @@
 import {
   IoT1ClickProjectsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient";
-import { CreateProjectRequest, CreateProjectResponse } from "../models/index";
+import {
+  CreateProjectRequest,
+  CreateProjectResponse,
+} from "../models/index";
 import {
   deserializeAws_restJson1_1CreateProjectCommand,
-  serializeAws_restJson1_1CreateProjectCommand
+  serializeAws_restJson1_1CreateProjectCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,17 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
 } from "@aws-sdk/types";
 
 export type CreateProjectCommandInput = CreateProjectRequest;
 export type CreateProjectCommandOutput = CreateProjectResponse;
 
-export class CreateProjectCommand extends $Command<
-  CreateProjectCommandInput,
-  CreateProjectCommandOutput,
-  IoT1ClickProjectsClientResolvedConfig
-> {
+export class CreateProjectCommand extends $Command<CreateProjectCommandInput, CreateProjectCommandOutput, IoT1ClickProjectsClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,15 +44,13 @@ export class CreateProjectCommand extends $Command<
     configuration: IoT1ClickProjectsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateProjectCommandInput, CreateProjectCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

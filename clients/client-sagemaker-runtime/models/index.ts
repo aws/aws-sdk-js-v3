@@ -6,9 +6,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *         <p> An internal failure occurred. </p>
  *
  */
-export interface InternalFailure
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalFailure extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalFailure";
   $fault: "server";
   Message?: string;
@@ -174,9 +172,7 @@ export namespace ModelError {
  *         <p> The service is unavailable. Try your call again. </p>
  *
  */
-export interface ServiceUnavailable
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailable extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceUnavailable";
   $fault: "server";
   Message?: string;
@@ -193,9 +189,7 @@ export namespace ServiceUnavailable {
  *         <p> Inspect your request and try again. </p>
  *
  */
-export interface ValidationError
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ValidationError extends _smithy.SmithyException, $MetadataBearer {
   __type: "ValidationError";
   $fault: "client";
   Message?: string;

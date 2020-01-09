@@ -2,197 +2,197 @@ import { MTurkClient } from "./MTurkClient";
 import {
   AcceptQualificationRequestCommand,
   AcceptQualificationRequestCommandInput,
-  AcceptQualificationRequestCommandOutput
+  AcceptQualificationRequestCommandOutput,
 } from "./commands/AcceptQualificationRequestCommand";
 import {
   ApproveAssignmentCommand,
   ApproveAssignmentCommandInput,
-  ApproveAssignmentCommandOutput
+  ApproveAssignmentCommandOutput,
 } from "./commands/ApproveAssignmentCommand";
 import {
   AssociateQualificationWithWorkerCommand,
   AssociateQualificationWithWorkerCommandInput,
-  AssociateQualificationWithWorkerCommandOutput
+  AssociateQualificationWithWorkerCommandOutput,
 } from "./commands/AssociateQualificationWithWorkerCommand";
 import {
   CreateAdditionalAssignmentsForHITCommand,
   CreateAdditionalAssignmentsForHITCommandInput,
-  CreateAdditionalAssignmentsForHITCommandOutput
+  CreateAdditionalAssignmentsForHITCommandOutput,
 } from "./commands/CreateAdditionalAssignmentsForHITCommand";
 import {
   CreateHITCommand,
   CreateHITCommandInput,
-  CreateHITCommandOutput
+  CreateHITCommandOutput,
 } from "./commands/CreateHITCommand";
 import {
   CreateHITTypeCommand,
   CreateHITTypeCommandInput,
-  CreateHITTypeCommandOutput
+  CreateHITTypeCommandOutput,
 } from "./commands/CreateHITTypeCommand";
 import {
   CreateHITWithHITTypeCommand,
   CreateHITWithHITTypeCommandInput,
-  CreateHITWithHITTypeCommandOutput
+  CreateHITWithHITTypeCommandOutput,
 } from "./commands/CreateHITWithHITTypeCommand";
 import {
   CreateQualificationTypeCommand,
   CreateQualificationTypeCommandInput,
-  CreateQualificationTypeCommandOutput
+  CreateQualificationTypeCommandOutput,
 } from "./commands/CreateQualificationTypeCommand";
 import {
   CreateWorkerBlockCommand,
   CreateWorkerBlockCommandInput,
-  CreateWorkerBlockCommandOutput
+  CreateWorkerBlockCommandOutput,
 } from "./commands/CreateWorkerBlockCommand";
 import {
   DeleteHITCommand,
   DeleteHITCommandInput,
-  DeleteHITCommandOutput
+  DeleteHITCommandOutput,
 } from "./commands/DeleteHITCommand";
 import {
   DeleteQualificationTypeCommand,
   DeleteQualificationTypeCommandInput,
-  DeleteQualificationTypeCommandOutput
+  DeleteQualificationTypeCommandOutput,
 } from "./commands/DeleteQualificationTypeCommand";
 import {
   DeleteWorkerBlockCommand,
   DeleteWorkerBlockCommandInput,
-  DeleteWorkerBlockCommandOutput
+  DeleteWorkerBlockCommandOutput,
 } from "./commands/DeleteWorkerBlockCommand";
 import {
   DisassociateQualificationFromWorkerCommand,
   DisassociateQualificationFromWorkerCommandInput,
-  DisassociateQualificationFromWorkerCommandOutput
+  DisassociateQualificationFromWorkerCommandOutput,
 } from "./commands/DisassociateQualificationFromWorkerCommand";
 import {
   GetAccountBalanceCommand,
   GetAccountBalanceCommandInput,
-  GetAccountBalanceCommandOutput
+  GetAccountBalanceCommandOutput,
 } from "./commands/GetAccountBalanceCommand";
 import {
   GetAssignmentCommand,
   GetAssignmentCommandInput,
-  GetAssignmentCommandOutput
+  GetAssignmentCommandOutput,
 } from "./commands/GetAssignmentCommand";
 import {
   GetFileUploadURLCommand,
   GetFileUploadURLCommandInput,
-  GetFileUploadURLCommandOutput
+  GetFileUploadURLCommandOutput,
 } from "./commands/GetFileUploadURLCommand";
 import {
   GetHITCommand,
   GetHITCommandInput,
-  GetHITCommandOutput
+  GetHITCommandOutput,
 } from "./commands/GetHITCommand";
 import {
   GetQualificationScoreCommand,
   GetQualificationScoreCommandInput,
-  GetQualificationScoreCommandOutput
+  GetQualificationScoreCommandOutput,
 } from "./commands/GetQualificationScoreCommand";
 import {
   GetQualificationTypeCommand,
   GetQualificationTypeCommandInput,
-  GetQualificationTypeCommandOutput
+  GetQualificationTypeCommandOutput,
 } from "./commands/GetQualificationTypeCommand";
 import {
   ListAssignmentsForHITCommand,
   ListAssignmentsForHITCommandInput,
-  ListAssignmentsForHITCommandOutput
+  ListAssignmentsForHITCommandOutput,
 } from "./commands/ListAssignmentsForHITCommand";
 import {
   ListBonusPaymentsCommand,
   ListBonusPaymentsCommandInput,
-  ListBonusPaymentsCommandOutput
+  ListBonusPaymentsCommandOutput,
 } from "./commands/ListBonusPaymentsCommand";
 import {
   ListHITsCommand,
   ListHITsCommandInput,
-  ListHITsCommandOutput
+  ListHITsCommandOutput,
 } from "./commands/ListHITsCommand";
 import {
   ListHITsForQualificationTypeCommand,
   ListHITsForQualificationTypeCommandInput,
-  ListHITsForQualificationTypeCommandOutput
+  ListHITsForQualificationTypeCommandOutput,
 } from "./commands/ListHITsForQualificationTypeCommand";
 import {
   ListQualificationRequestsCommand,
   ListQualificationRequestsCommandInput,
-  ListQualificationRequestsCommandOutput
+  ListQualificationRequestsCommandOutput,
 } from "./commands/ListQualificationRequestsCommand";
 import {
   ListQualificationTypesCommand,
   ListQualificationTypesCommandInput,
-  ListQualificationTypesCommandOutput
+  ListQualificationTypesCommandOutput,
 } from "./commands/ListQualificationTypesCommand";
 import {
   ListReviewPolicyResultsForHITCommand,
   ListReviewPolicyResultsForHITCommandInput,
-  ListReviewPolicyResultsForHITCommandOutput
+  ListReviewPolicyResultsForHITCommandOutput,
 } from "./commands/ListReviewPolicyResultsForHITCommand";
 import {
   ListReviewableHITsCommand,
   ListReviewableHITsCommandInput,
-  ListReviewableHITsCommandOutput
+  ListReviewableHITsCommandOutput,
 } from "./commands/ListReviewableHITsCommand";
 import {
   ListWorkerBlocksCommand,
   ListWorkerBlocksCommandInput,
-  ListWorkerBlocksCommandOutput
+  ListWorkerBlocksCommandOutput,
 } from "./commands/ListWorkerBlocksCommand";
 import {
   ListWorkersWithQualificationTypeCommand,
   ListWorkersWithQualificationTypeCommandInput,
-  ListWorkersWithQualificationTypeCommandOutput
+  ListWorkersWithQualificationTypeCommandOutput,
 } from "./commands/ListWorkersWithQualificationTypeCommand";
 import {
   NotifyWorkersCommand,
   NotifyWorkersCommandInput,
-  NotifyWorkersCommandOutput
+  NotifyWorkersCommandOutput,
 } from "./commands/NotifyWorkersCommand";
 import {
   RejectAssignmentCommand,
   RejectAssignmentCommandInput,
-  RejectAssignmentCommandOutput
+  RejectAssignmentCommandOutput,
 } from "./commands/RejectAssignmentCommand";
 import {
   RejectQualificationRequestCommand,
   RejectQualificationRequestCommandInput,
-  RejectQualificationRequestCommandOutput
+  RejectQualificationRequestCommandOutput,
 } from "./commands/RejectQualificationRequestCommand";
 import {
   SendBonusCommand,
   SendBonusCommandInput,
-  SendBonusCommandOutput
+  SendBonusCommandOutput,
 } from "./commands/SendBonusCommand";
 import {
   SendTestEventNotificationCommand,
   SendTestEventNotificationCommandInput,
-  SendTestEventNotificationCommandOutput
+  SendTestEventNotificationCommandOutput,
 } from "./commands/SendTestEventNotificationCommand";
 import {
   UpdateExpirationForHITCommand,
   UpdateExpirationForHITCommandInput,
-  UpdateExpirationForHITCommandOutput
+  UpdateExpirationForHITCommandOutput,
 } from "./commands/UpdateExpirationForHITCommand";
 import {
   UpdateHITReviewStatusCommand,
   UpdateHITReviewStatusCommandInput,
-  UpdateHITReviewStatusCommandOutput
+  UpdateHITReviewStatusCommandOutput,
 } from "./commands/UpdateHITReviewStatusCommand";
 import {
   UpdateHITTypeOfHITCommand,
   UpdateHITTypeOfHITCommandInput,
-  UpdateHITTypeOfHITCommandOutput
+  UpdateHITTypeOfHITCommandOutput,
 } from "./commands/UpdateHITTypeOfHITCommand";
 import {
   UpdateNotificationSettingsCommand,
   UpdateNotificationSettingsCommandInput,
-  UpdateNotificationSettingsCommandOutput
+  UpdateNotificationSettingsCommandOutput,
 } from "./commands/UpdateNotificationSettingsCommand";
 import {
   UpdateQualificationTypeCommand,
   UpdateQualificationTypeCommandInput,
-  UpdateQualificationTypeCommandOutput
+  UpdateQualificationTypeCommandOutput,
 } from "./commands/UpdateQualificationTypeCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -219,7 +219,7 @@ export class MTurk extends MTurkClient {
    */
   public acceptQualificationRequest(
     args: AcceptQualificationRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<AcceptQualificationRequestCommandOutput>;
   public acceptQualificationRequest(
     args: AcceptQualificationRequestCommandInput,
@@ -232,18 +232,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public acceptQualificationRequest(
     args: AcceptQualificationRequestCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AcceptQualificationRequestCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptQualificationRequestCommandOutput) => void),
     cb?: (err: any, data?: AcceptQualificationRequestCommandOutput) => void
   ): Promise<AcceptQualificationRequestCommandOutput> | void {
     const command = new AcceptQualificationRequestCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -285,7 +283,7 @@ export class MTurk extends MTurkClient {
    */
   public approveAssignment(
     args: ApproveAssignmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ApproveAssignmentCommandOutput>;
   public approveAssignment(
     args: ApproveAssignmentCommandInput,
@@ -298,18 +296,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public approveAssignment(
     args: ApproveAssignmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ApproveAssignmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ApproveAssignmentCommandOutput) => void),
     cb?: (err: any, data?: ApproveAssignmentCommandOutput) => void
   ): Promise<ApproveAssignmentCommandOutput> | void {
     const command = new ApproveAssignmentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -343,7 +339,7 @@ export class MTurk extends MTurkClient {
    */
   public associateQualificationWithWorker(
     args: AssociateQualificationWithWorkerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<AssociateQualificationWithWorkerCommandOutput>;
   public associateQualificationWithWorker(
     args: AssociateQualificationWithWorkerCommandInput,
@@ -356,24 +352,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public associateQualificationWithWorker(
     args: AssociateQualificationWithWorkerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: AssociateQualificationWithWorkerCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: AssociateQualificationWithWorkerCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateQualificationWithWorkerCommandOutput) => void),
+    cb?: (err: any, data?: AssociateQualificationWithWorkerCommandOutput) => void
   ): Promise<AssociateQualificationWithWorkerCommandOutput> | void {
     const command = new AssociateQualificationWithWorkerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -409,43 +397,29 @@ export class MTurk extends MTurkClient {
    */
   public createAdditionalAssignmentsForHIT(
     args: CreateAdditionalAssignmentsForHITCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateAdditionalAssignmentsForHITCommandOutput>;
   public createAdditionalAssignmentsForHIT(
     args: CreateAdditionalAssignmentsForHITCommandInput,
-    cb: (
-      err: any,
-      data?: CreateAdditionalAssignmentsForHITCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateAdditionalAssignmentsForHITCommandOutput) => void
   ): void;
   public createAdditionalAssignmentsForHIT(
     args: CreateAdditionalAssignmentsForHITCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateAdditionalAssignmentsForHITCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateAdditionalAssignmentsForHITCommandOutput) => void
   ): void;
   public createAdditionalAssignmentsForHIT(
     args: CreateAdditionalAssignmentsForHITCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateAdditionalAssignmentsForHITCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateAdditionalAssignmentsForHITCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAdditionalAssignmentsForHITCommandOutput) => void),
+    cb?: (err: any, data?: CreateAdditionalAssignmentsForHITCommandOutput) => void
   ): Promise<CreateAdditionalAssignmentsForHITCommandOutput> | void {
     const command = new CreateAdditionalAssignmentsForHITCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -476,7 +450,7 @@ export class MTurk extends MTurkClient {
    */
   public createHIT(
     args: CreateHITCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateHITCommandOutput>;
   public createHIT(
     args: CreateHITCommandInput,
@@ -489,18 +463,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public createHIT(
     args: CreateHITCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateHITCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateHITCommandOutput) => void),
     cb?: (err: any, data?: CreateHITCommandOutput) => void
   ): Promise<CreateHITCommandOutput> | void {
     const command = new CreateHITCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -519,7 +491,7 @@ export class MTurk extends MTurkClient {
    */
   public createHITType(
     args: CreateHITTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateHITTypeCommandOutput>;
   public createHITType(
     args: CreateHITTypeCommandInput,
@@ -532,18 +504,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public createHITType(
     args: CreateHITTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateHITTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateHITTypeCommandOutput) => void),
     cb?: (err: any, data?: CreateHITTypeCommandOutput) => void
   ): Promise<CreateHITTypeCommandOutput> | void {
     const command = new CreateHITTypeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -574,7 +544,7 @@ export class MTurk extends MTurkClient {
    */
   public createHITWithHITType(
     args: CreateHITWithHITTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateHITWithHITTypeCommandOutput>;
   public createHITWithHITType(
     args: CreateHITWithHITTypeCommandInput,
@@ -587,18 +557,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public createHITWithHITType(
     args: CreateHITWithHITTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateHITWithHITTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateHITWithHITTypeCommandOutput) => void),
     cb?: (err: any, data?: CreateHITWithHITTypeCommandOutput) => void
   ): Promise<CreateHITWithHITTypeCommandOutput> | void {
     const command = new CreateHITWithHITTypeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -618,7 +586,7 @@ export class MTurk extends MTurkClient {
    */
   public createQualificationType(
     args: CreateQualificationTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateQualificationTypeCommandOutput>;
   public createQualificationType(
     args: CreateQualificationTypeCommandInput,
@@ -631,18 +599,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public createQualificationType(
     args: CreateQualificationTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateQualificationTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateQualificationTypeCommandOutput) => void),
     cb?: (err: any, data?: CreateQualificationTypeCommandOutput) => void
   ): Promise<CreateQualificationTypeCommandOutput> | void {
     const command = new CreateQualificationTypeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -656,7 +622,7 @@ export class MTurk extends MTurkClient {
    */
   public createWorkerBlock(
     args: CreateWorkerBlockCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateWorkerBlockCommandOutput>;
   public createWorkerBlock(
     args: CreateWorkerBlockCommandInput,
@@ -669,18 +635,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public createWorkerBlock(
     args: CreateWorkerBlockCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateWorkerBlockCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWorkerBlockCommandOutput) => void),
     cb?: (err: any, data?: CreateWorkerBlockCommandOutput) => void
   ): Promise<CreateWorkerBlockCommandOutput> | void {
     const command = new CreateWorkerBlockCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -728,7 +692,7 @@ export class MTurk extends MTurkClient {
    */
   public deleteHIT(
     args: DeleteHITCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteHITCommandOutput>;
   public deleteHIT(
     args: DeleteHITCommandInput,
@@ -741,18 +705,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public deleteHIT(
     args: DeleteHITCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteHITCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteHITCommandOutput) => void),
     cb?: (err: any, data?: DeleteHITCommandOutput) => void
   ): Promise<DeleteHITCommandOutput> | void {
     const command = new DeleteHITCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -784,7 +746,7 @@ export class MTurk extends MTurkClient {
    */
   public deleteQualificationType(
     args: DeleteQualificationTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteQualificationTypeCommandOutput>;
   public deleteQualificationType(
     args: DeleteQualificationTypeCommandInput,
@@ -797,18 +759,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public deleteQualificationType(
     args: DeleteQualificationTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteQualificationTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteQualificationTypeCommandOutput) => void),
     cb?: (err: any, data?: DeleteQualificationTypeCommandOutput) => void
   ): Promise<DeleteQualificationTypeCommandOutput> | void {
     const command = new DeleteQualificationTypeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -823,7 +783,7 @@ export class MTurk extends MTurkClient {
    */
   public deleteWorkerBlock(
     args: DeleteWorkerBlockCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteWorkerBlockCommandOutput>;
   public deleteWorkerBlock(
     args: DeleteWorkerBlockCommandInput,
@@ -836,18 +796,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public deleteWorkerBlock(
     args: DeleteWorkerBlockCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteWorkerBlockCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWorkerBlockCommandOutput) => void),
     cb?: (err: any, data?: DeleteWorkerBlockCommandOutput) => void
   ): Promise<DeleteWorkerBlockCommandOutput> | void {
     const command = new DeleteWorkerBlockCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -868,43 +826,29 @@ export class MTurk extends MTurkClient {
    */
   public disassociateQualificationFromWorker(
     args: DisassociateQualificationFromWorkerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DisassociateQualificationFromWorkerCommandOutput>;
   public disassociateQualificationFromWorker(
     args: DisassociateQualificationFromWorkerCommandInput,
-    cb: (
-      err: any,
-      data?: DisassociateQualificationFromWorkerCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateQualificationFromWorkerCommandOutput) => void
   ): void;
   public disassociateQualificationFromWorker(
     args: DisassociateQualificationFromWorkerCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DisassociateQualificationFromWorkerCommandOutput
-    ) => void
+    cb: (err: any, data?: DisassociateQualificationFromWorkerCommandOutput) => void
   ): void;
   public disassociateQualificationFromWorker(
     args: DisassociateQualificationFromWorkerCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DisassociateQualificationFromWorkerCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DisassociateQualificationFromWorkerCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateQualificationFromWorkerCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateQualificationFromWorkerCommandOutput) => void
   ): Promise<DisassociateQualificationFromWorkerCommandOutput> | void {
     const command = new DisassociateQualificationFromWorkerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -917,7 +861,7 @@ export class MTurk extends MTurkClient {
    */
   public getAccountBalance(
     args: GetAccountBalanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetAccountBalanceCommandOutput>;
   public getAccountBalance(
     args: GetAccountBalanceCommandInput,
@@ -930,18 +874,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public getAccountBalance(
     args: GetAccountBalanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAccountBalanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAccountBalanceCommandOutput) => void),
     cb?: (err: any, data?: GetAccountBalanceCommandOutput) => void
   ): Promise<GetAccountBalanceCommandOutput> | void {
     const command = new GetAccountBalanceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -956,7 +898,7 @@ export class MTurk extends MTurkClient {
    */
   public getAssignment(
     args: GetAssignmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetAssignmentCommandOutput>;
   public getAssignment(
     args: GetAssignmentCommandInput,
@@ -969,18 +911,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public getAssignment(
     args: GetAssignmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetAssignmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAssignmentCommandOutput) => void),
     cb?: (err: any, data?: GetAssignmentCommandOutput) => void
   ): Promise<GetAssignmentCommandOutput> | void {
     const command = new GetAssignmentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1011,7 +951,7 @@ export class MTurk extends MTurkClient {
    */
   public getFileUploadURL(
     args: GetFileUploadURLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetFileUploadURLCommandOutput>;
   public getFileUploadURL(
     args: GetFileUploadURLCommandInput,
@@ -1024,18 +964,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public getFileUploadURL(
     args: GetFileUploadURLCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetFileUploadURLCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFileUploadURLCommandOutput) => void),
     cb?: (err: any, data?: GetFileUploadURLCommandOutput) => void
   ): Promise<GetFileUploadURLCommandOutput> | void {
     const command = new GetFileUploadURLCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1050,7 +988,7 @@ export class MTurk extends MTurkClient {
    */
   public getHIT(
     args: GetHITCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetHITCommandOutput>;
   public getHIT(
     args: GetHITCommandInput,
@@ -1063,18 +1001,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public getHIT(
     args: GetHITCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetHITCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHITCommandOutput) => void),
     cb?: (err: any, data?: GetHITCommandOutput) => void
   ): Promise<GetHITCommandOutput> | void {
     const command = new GetHITCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1101,7 +1037,7 @@ export class MTurk extends MTurkClient {
    */
   public getQualificationScore(
     args: GetQualificationScoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetQualificationScoreCommandOutput>;
   public getQualificationScore(
     args: GetQualificationScoreCommandInput,
@@ -1114,18 +1050,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public getQualificationScore(
     args: GetQualificationScoreCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetQualificationScoreCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetQualificationScoreCommandOutput) => void),
     cb?: (err: any, data?: GetQualificationScoreCommandOutput) => void
   ): Promise<GetQualificationScoreCommandOutput> | void {
     const command = new GetQualificationScoreCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1141,7 +1075,7 @@ export class MTurk extends MTurkClient {
    */
   public getQualificationType(
     args: GetQualificationTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetQualificationTypeCommandOutput>;
   public getQualificationType(
     args: GetQualificationTypeCommandInput,
@@ -1154,18 +1088,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public getQualificationType(
     args: GetQualificationTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetQualificationTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetQualificationTypeCommandOutput) => void),
     cb?: (err: any, data?: GetQualificationTypeCommandOutput) => void
   ): Promise<GetQualificationTypeCommandOutput> | void {
     const command = new GetQualificationTypeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1205,7 +1137,7 @@ export class MTurk extends MTurkClient {
    */
   public listAssignmentsForHIT(
     args: ListAssignmentsForHITCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListAssignmentsForHITCommandOutput>;
   public listAssignmentsForHIT(
     args: ListAssignmentsForHITCommandInput,
@@ -1218,18 +1150,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public listAssignmentsForHIT(
     args: ListAssignmentsForHITCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAssignmentsForHITCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssignmentsForHITCommandOutput) => void),
     cb?: (err: any, data?: ListAssignmentsForHITCommandOutput) => void
   ): Promise<ListAssignmentsForHITCommandOutput> | void {
     const command = new ListAssignmentsForHITCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1248,7 +1178,7 @@ export class MTurk extends MTurkClient {
    */
   public listBonusPayments(
     args: ListBonusPaymentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListBonusPaymentsCommandOutput>;
   public listBonusPayments(
     args: ListBonusPaymentsCommandInput,
@@ -1261,18 +1191,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public listBonusPayments(
     args: ListBonusPaymentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListBonusPaymentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBonusPaymentsCommandOutput) => void),
     cb?: (err: any, data?: ListBonusPaymentsCommandOutput) => void
   ): Promise<ListBonusPaymentsCommandOutput> | void {
     const command = new ListBonusPaymentsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1291,7 +1219,7 @@ export class MTurk extends MTurkClient {
    */
   public listHITs(
     args: ListHITsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListHITsCommandOutput>;
   public listHITs(
     args: ListHITsCommandInput,
@@ -1304,18 +1232,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public listHITs(
     args: ListHITsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListHITsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHITsCommandOutput) => void),
     cb?: (err: any, data?: ListHITsCommandOutput) => void
   ): Promise<ListHITsCommandOutput> | void {
     const command = new ListHITsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1333,7 +1259,7 @@ export class MTurk extends MTurkClient {
    */
   public listHITsForQualificationType(
     args: ListHITsForQualificationTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListHITsForQualificationTypeCommandOutput>;
   public listHITsForQualificationType(
     args: ListHITsForQualificationTypeCommandInput,
@@ -1346,18 +1272,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public listHITsForQualificationType(
     args: ListHITsForQualificationTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListHITsForQualificationTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHITsForQualificationTypeCommandOutput) => void),
     cb?: (err: any, data?: ListHITsForQualificationTypeCommandOutput) => void
   ): Promise<ListHITsForQualificationTypeCommandOutput> | void {
     const command = new ListHITsForQualificationTypeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1379,7 +1303,7 @@ export class MTurk extends MTurkClient {
    */
   public listQualificationRequests(
     args: ListQualificationRequestsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListQualificationRequestsCommandOutput>;
   public listQualificationRequests(
     args: ListQualificationRequestsCommandInput,
@@ -1392,18 +1316,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public listQualificationRequests(
     args: ListQualificationRequestsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListQualificationRequestsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListQualificationRequestsCommandOutput) => void),
     cb?: (err: any, data?: ListQualificationRequestsCommandOutput) => void
   ): Promise<ListQualificationRequestsCommandOutput> | void {
     const command = new ListQualificationRequestsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1422,7 +1344,7 @@ export class MTurk extends MTurkClient {
    */
   public listQualificationTypes(
     args: ListQualificationTypesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListQualificationTypesCommandOutput>;
   public listQualificationTypes(
     args: ListQualificationTypesCommandInput,
@@ -1435,18 +1357,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public listQualificationTypes(
     args: ListQualificationTypesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListQualificationTypesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListQualificationTypesCommandOutput) => void),
     cb?: (err: any, data?: ListQualificationTypesCommandOutput) => void
   ): Promise<ListQualificationTypesCommandOutput> | void {
     const command = new ListQualificationTypesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1466,7 +1386,7 @@ export class MTurk extends MTurkClient {
    */
   public listReviewPolicyResultsForHIT(
     args: ListReviewPolicyResultsForHITCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListReviewPolicyResultsForHITCommandOutput>;
   public listReviewPolicyResultsForHIT(
     args: ListReviewPolicyResultsForHITCommandInput,
@@ -1479,18 +1399,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public listReviewPolicyResultsForHIT(
     args: ListReviewPolicyResultsForHITCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListReviewPolicyResultsForHITCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReviewPolicyResultsForHITCommandOutput) => void),
     cb?: (err: any, data?: ListReviewPolicyResultsForHITCommandOutput) => void
   ): Promise<ListReviewPolicyResultsForHITCommandOutput> | void {
     const command = new ListReviewPolicyResultsForHITCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1506,7 +1424,7 @@ export class MTurk extends MTurkClient {
    */
   public listReviewableHITs(
     args: ListReviewableHITsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListReviewableHITsCommandOutput>;
   public listReviewableHITs(
     args: ListReviewableHITsCommandInput,
@@ -1519,18 +1437,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public listReviewableHITs(
     args: ListReviewableHITsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListReviewableHITsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReviewableHITsCommandOutput) => void),
     cb?: (err: any, data?: ListReviewableHITsCommandOutput) => void
   ): Promise<ListReviewableHITsCommandOutput> | void {
     const command = new ListReviewableHITsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1543,7 +1459,7 @@ export class MTurk extends MTurkClient {
    */
   public listWorkerBlocks(
     args: ListWorkerBlocksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListWorkerBlocksCommandOutput>;
   public listWorkerBlocks(
     args: ListWorkerBlocksCommandInput,
@@ -1556,18 +1472,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public listWorkerBlocks(
     args: ListWorkerBlocksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListWorkerBlocksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWorkerBlocksCommandOutput) => void),
     cb?: (err: any, data?: ListWorkerBlocksCommandOutput) => void
   ): Promise<ListWorkerBlocksCommandOutput> | void {
     const command = new ListWorkerBlocksCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1583,7 +1497,7 @@ export class MTurk extends MTurkClient {
    */
   public listWorkersWithQualificationType(
     args: ListWorkersWithQualificationTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListWorkersWithQualificationTypeCommandOutput>;
   public listWorkersWithQualificationType(
     args: ListWorkersWithQualificationTypeCommandInput,
@@ -1596,24 +1510,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public listWorkersWithQualificationType(
     args: ListWorkersWithQualificationTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListWorkersWithQualificationTypeCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListWorkersWithQualificationTypeCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWorkersWithQualificationTypeCommandOutput) => void),
+    cb?: (err: any, data?: ListWorkersWithQualificationTypeCommandOutput) => void
   ): Promise<ListWorkersWithQualificationTypeCommandOutput> | void {
     const command = new ListWorkersWithQualificationTypeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1635,7 +1541,7 @@ export class MTurk extends MTurkClient {
    */
   public notifyWorkers(
     args: NotifyWorkersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<NotifyWorkersCommandOutput>;
   public notifyWorkers(
     args: NotifyWorkersCommandInput,
@@ -1648,18 +1554,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public notifyWorkers(
     args: NotifyWorkersCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: NotifyWorkersCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: NotifyWorkersCommandOutput) => void),
     cb?: (err: any, data?: NotifyWorkersCommandOutput) => void
   ): Promise<NotifyWorkersCommandOutput> | void {
     const command = new NotifyWorkersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1684,7 +1588,7 @@ export class MTurk extends MTurkClient {
    */
   public rejectAssignment(
     args: RejectAssignmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<RejectAssignmentCommandOutput>;
   public rejectAssignment(
     args: RejectAssignmentCommandInput,
@@ -1697,18 +1601,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public rejectAssignment(
     args: RejectAssignmentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RejectAssignmentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RejectAssignmentCommandOutput) => void),
     cb?: (err: any, data?: RejectAssignmentCommandOutput) => void
   ): Promise<RejectAssignmentCommandOutput> | void {
     const command = new RejectAssignmentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1728,7 +1630,7 @@ export class MTurk extends MTurkClient {
    */
   public rejectQualificationRequest(
     args: RejectQualificationRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<RejectQualificationRequestCommandOutput>;
   public rejectQualificationRequest(
     args: RejectQualificationRequestCommandInput,
@@ -1741,18 +1643,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public rejectQualificationRequest(
     args: RejectQualificationRequestCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RejectQualificationRequestCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RejectQualificationRequestCommandOutput) => void),
     cb?: (err: any, data?: RejectQualificationRequestCommandOutput) => void
   ): Promise<RejectQualificationRequestCommandOutput> | void {
     const command = new RejectQualificationRequestCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1780,7 +1680,7 @@ export class MTurk extends MTurkClient {
    */
   public sendBonus(
     args: SendBonusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<SendBonusCommandOutput>;
   public sendBonus(
     args: SendBonusCommandInput,
@@ -1793,18 +1693,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public sendBonus(
     args: SendBonusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendBonusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendBonusCommandOutput) => void),
     cb?: (err: any, data?: SendBonusCommandOutput) => void
   ): Promise<SendBonusCommandOutput> | void {
     const command = new SendBonusCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1823,7 +1721,7 @@ export class MTurk extends MTurkClient {
    */
   public sendTestEventNotification(
     args: SendTestEventNotificationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<SendTestEventNotificationCommandOutput>;
   public sendTestEventNotification(
     args: SendTestEventNotificationCommandInput,
@@ -1836,18 +1734,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public sendTestEventNotification(
     args: SendTestEventNotificationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SendTestEventNotificationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendTestEventNotificationCommandOutput) => void),
     cb?: (err: any, data?: SendTestEventNotificationCommandOutput) => void
   ): Promise<SendTestEventNotificationCommandOutput> | void {
     const command = new SendTestEventNotificationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1863,7 +1759,7 @@ export class MTurk extends MTurkClient {
    */
   public updateExpirationForHIT(
     args: UpdateExpirationForHITCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateExpirationForHITCommandOutput>;
   public updateExpirationForHIT(
     args: UpdateExpirationForHITCommandInput,
@@ -1876,18 +1772,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public updateExpirationForHIT(
     args: UpdateExpirationForHITCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateExpirationForHITCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateExpirationForHITCommandOutput) => void),
     cb?: (err: any, data?: UpdateExpirationForHITCommandOutput) => void
   ): Promise<UpdateExpirationForHITCommandOutput> | void {
     const command = new UpdateExpirationForHITCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1904,7 +1798,7 @@ export class MTurk extends MTurkClient {
    */
   public updateHITReviewStatus(
     args: UpdateHITReviewStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateHITReviewStatusCommandOutput>;
   public updateHITReviewStatus(
     args: UpdateHITReviewStatusCommandInput,
@@ -1917,18 +1811,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public updateHITReviewStatus(
     args: UpdateHITReviewStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateHITReviewStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateHITReviewStatusCommandOutput) => void),
     cb?: (err: any, data?: UpdateHITReviewStatusCommandOutput) => void
   ): Promise<UpdateHITReviewStatusCommandOutput> | void {
     const command = new UpdateHITReviewStatusCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1949,7 +1841,7 @@ export class MTurk extends MTurkClient {
    */
   public updateHITTypeOfHIT(
     args: UpdateHITTypeOfHITCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateHITTypeOfHITCommandOutput>;
   public updateHITTypeOfHIT(
     args: UpdateHITTypeOfHITCommandInput,
@@ -1962,18 +1854,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public updateHITTypeOfHIT(
     args: UpdateHITTypeOfHITCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateHITTypeOfHITCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateHITTypeOfHITCommandOutput) => void),
     cb?: (err: any, data?: UpdateHITTypeOfHITCommandOutput) => void
   ): Promise<UpdateHITTypeOfHITCommandOutput> | void {
     const command = new UpdateHITTypeOfHITCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1998,7 +1888,7 @@ export class MTurk extends MTurkClient {
    */
   public updateNotificationSettings(
     args: UpdateNotificationSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateNotificationSettingsCommandOutput>;
   public updateNotificationSettings(
     args: UpdateNotificationSettingsCommandInput,
@@ -2011,18 +1901,16 @@ export class MTurk extends MTurkClient {
   ): void;
   public updateNotificationSettings(
     args: UpdateNotificationSettingsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateNotificationSettingsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateNotificationSettingsCommandOutput) => void),
     cb?: (err: any, data?: UpdateNotificationSettingsCommandOutput) => void
   ): Promise<UpdateNotificationSettingsCommandOutput> | void {
     const command = new UpdateNotificationSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2068,7 +1956,7 @@ export class MTurk extends MTurkClient {
    */
   public updateQualificationType(
     args: UpdateQualificationTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateQualificationTypeCommandOutput>;
   public updateQualificationType(
     args: UpdateQualificationTypeCommandInput,
@@ -2081,20 +1969,19 @@ export class MTurk extends MTurkClient {
   ): void;
   public updateQualificationType(
     args: UpdateQualificationTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateQualificationTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateQualificationTypeCommandOutput) => void),
     cb?: (err: any, data?: UpdateQualificationTypeCommandOutput) => void
   ): Promise<UpdateQualificationTypeCommandOutput> | void {
     const command = new UpdateQualificationTypeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

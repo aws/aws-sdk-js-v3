@@ -4,7 +4,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export enum AdMarkers {
   NONE = "NONE",
   PASSTHROUGH = "PASSTHROUGH",
-  SCTE35_ENHANCED = "SCTE35_ENHANCED"
+  SCTE35_ENHANCED = "SCTE35_ENHANCED",
 }
 
 /**
@@ -540,8 +540,7 @@ export namespace DescribePackagingConfigurationRequest {
   }
 }
 
-export interface DescribePackagingConfigurationResponse
-  extends $MetadataBearer {
+export interface DescribePackagingConfigurationResponse extends $MetadataBearer {
   __type?: "DescribePackagingConfigurationResponse";
   /**
    * The ARN of the PackagingConfiguration.
@@ -647,15 +646,13 @@ export namespace EgressEndpoint {
 
 export enum EncryptionMethod {
   AES_128 = "AES_128",
-  SAMPLE_AES = "SAMPLE_AES"
+  SAMPLE_AES = "SAMPLE_AES",
 }
 
 /**
  * The client is not authorized to access the requested resource.
  */
-export interface ForbiddenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ForbiddenException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ForbiddenException";
   $fault: "client";
   Message?: string;
@@ -790,9 +787,7 @@ export namespace HlsPackage {
 /**
  * An unexpected error occurred.
  */
-export interface InternalServerErrorException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerErrorException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerErrorException";
   $fault: "server";
   Message?: string;
@@ -997,9 +992,7 @@ export namespace MssPackage {
 /**
  * The requested resource does not exist.
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   Message?: string;
@@ -1087,15 +1080,13 @@ export namespace PackagingGroup {
 
 export enum Profile {
   HBBTV_1_5 = "HBBTV_1_5",
-  NONE = "NONE"
+  NONE = "NONE",
 }
 
 /**
  * An unexpected error occurred.
  */
-export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
@@ -1139,7 +1130,7 @@ export namespace SpekeKeyProvider {
 export enum StreamOrder {
   ORIGINAL = "ORIGINAL",
   VIDEO_BITRATE_ASCENDING = "VIDEO_BITRATE_ASCENDING",
-  VIDEO_BITRATE_DESCENDING = "VIDEO_BITRATE_DESCENDING"
+  VIDEO_BITRATE_DESCENDING = "VIDEO_BITRATE_DESCENDING",
 }
 
 /**
@@ -1172,9 +1163,7 @@ export namespace StreamSelection {
 /**
  * The client has exceeded their resource or throttling limits.
  */
-export interface TooManyRequestsException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends _smithy.SmithyException, $MetadataBearer {
   __type: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
@@ -1189,9 +1178,7 @@ export namespace TooManyRequestsException {
 /**
  * The parameters sent in the request are not valid.
  */
-export interface UnprocessableEntityException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnprocessableEntityException extends _smithy.SmithyException, $MetadataBearer {
   __type: "UnprocessableEntityException";
   $fault: "client";
   Message?: string;

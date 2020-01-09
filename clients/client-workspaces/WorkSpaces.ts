@@ -2,202 +2,202 @@ import { WorkSpacesClient } from "./WorkSpacesClient";
 import {
   AssociateIpGroupsCommand,
   AssociateIpGroupsCommandInput,
-  AssociateIpGroupsCommandOutput
+  AssociateIpGroupsCommandOutput,
 } from "./commands/AssociateIpGroupsCommand";
 import {
   AuthorizeIpRulesCommand,
   AuthorizeIpRulesCommandInput,
-  AuthorizeIpRulesCommandOutput
+  AuthorizeIpRulesCommandOutput,
 } from "./commands/AuthorizeIpRulesCommand";
 import {
   CopyWorkspaceImageCommand,
   CopyWorkspaceImageCommandInput,
-  CopyWorkspaceImageCommandOutput
+  CopyWorkspaceImageCommandOutput,
 } from "./commands/CopyWorkspaceImageCommand";
 import {
   CreateIpGroupCommand,
   CreateIpGroupCommandInput,
-  CreateIpGroupCommandOutput
+  CreateIpGroupCommandOutput,
 } from "./commands/CreateIpGroupCommand";
 import {
   CreateTagsCommand,
   CreateTagsCommandInput,
-  CreateTagsCommandOutput
+  CreateTagsCommandOutput,
 } from "./commands/CreateTagsCommand";
 import {
   CreateWorkspacesCommand,
   CreateWorkspacesCommandInput,
-  CreateWorkspacesCommandOutput
+  CreateWorkspacesCommandOutput,
 } from "./commands/CreateWorkspacesCommand";
 import {
   DeleteIpGroupCommand,
   DeleteIpGroupCommandInput,
-  DeleteIpGroupCommandOutput
+  DeleteIpGroupCommandOutput,
 } from "./commands/DeleteIpGroupCommand";
 import {
   DeleteTagsCommand,
   DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
+  DeleteTagsCommandOutput,
 } from "./commands/DeleteTagsCommand";
 import {
   DeleteWorkspaceImageCommand,
   DeleteWorkspaceImageCommandInput,
-  DeleteWorkspaceImageCommandOutput
+  DeleteWorkspaceImageCommandOutput,
 } from "./commands/DeleteWorkspaceImageCommand";
 import {
   DeregisterWorkspaceDirectoryCommand,
   DeregisterWorkspaceDirectoryCommandInput,
-  DeregisterWorkspaceDirectoryCommandOutput
+  DeregisterWorkspaceDirectoryCommandOutput,
 } from "./commands/DeregisterWorkspaceDirectoryCommand";
 import {
   DescribeAccountCommand,
   DescribeAccountCommandInput,
-  DescribeAccountCommandOutput
+  DescribeAccountCommandOutput,
 } from "./commands/DescribeAccountCommand";
 import {
   DescribeAccountModificationsCommand,
   DescribeAccountModificationsCommandInput,
-  DescribeAccountModificationsCommandOutput
+  DescribeAccountModificationsCommandOutput,
 } from "./commands/DescribeAccountModificationsCommand";
 import {
   DescribeClientPropertiesCommand,
   DescribeClientPropertiesCommandInput,
-  DescribeClientPropertiesCommandOutput
+  DescribeClientPropertiesCommandOutput,
 } from "./commands/DescribeClientPropertiesCommand";
 import {
   DescribeIpGroupsCommand,
   DescribeIpGroupsCommandInput,
-  DescribeIpGroupsCommandOutput
+  DescribeIpGroupsCommandOutput,
 } from "./commands/DescribeIpGroupsCommand";
 import {
   DescribeTagsCommand,
   DescribeTagsCommandInput,
-  DescribeTagsCommandOutput
+  DescribeTagsCommandOutput,
 } from "./commands/DescribeTagsCommand";
 import {
   DescribeWorkspaceBundlesCommand,
   DescribeWorkspaceBundlesCommandInput,
-  DescribeWorkspaceBundlesCommandOutput
+  DescribeWorkspaceBundlesCommandOutput,
 } from "./commands/DescribeWorkspaceBundlesCommand";
 import {
   DescribeWorkspaceDirectoriesCommand,
   DescribeWorkspaceDirectoriesCommandInput,
-  DescribeWorkspaceDirectoriesCommandOutput
+  DescribeWorkspaceDirectoriesCommandOutput,
 } from "./commands/DescribeWorkspaceDirectoriesCommand";
 import {
   DescribeWorkspaceImagesCommand,
   DescribeWorkspaceImagesCommandInput,
-  DescribeWorkspaceImagesCommandOutput
+  DescribeWorkspaceImagesCommandOutput,
 } from "./commands/DescribeWorkspaceImagesCommand";
 import {
   DescribeWorkspaceSnapshotsCommand,
   DescribeWorkspaceSnapshotsCommandInput,
-  DescribeWorkspaceSnapshotsCommandOutput
+  DescribeWorkspaceSnapshotsCommandOutput,
 } from "./commands/DescribeWorkspaceSnapshotsCommand";
 import {
   DescribeWorkspacesCommand,
   DescribeWorkspacesCommandInput,
-  DescribeWorkspacesCommandOutput
+  DescribeWorkspacesCommandOutput,
 } from "./commands/DescribeWorkspacesCommand";
 import {
   DescribeWorkspacesConnectionStatusCommand,
   DescribeWorkspacesConnectionStatusCommandInput,
-  DescribeWorkspacesConnectionStatusCommandOutput
+  DescribeWorkspacesConnectionStatusCommandOutput,
 } from "./commands/DescribeWorkspacesConnectionStatusCommand";
 import {
   DisassociateIpGroupsCommand,
   DisassociateIpGroupsCommandInput,
-  DisassociateIpGroupsCommandOutput
+  DisassociateIpGroupsCommandOutput,
 } from "./commands/DisassociateIpGroupsCommand";
 import {
   ImportWorkspaceImageCommand,
   ImportWorkspaceImageCommandInput,
-  ImportWorkspaceImageCommandOutput
+  ImportWorkspaceImageCommandOutput,
 } from "./commands/ImportWorkspaceImageCommand";
 import {
   ListAvailableManagementCidrRangesCommand,
   ListAvailableManagementCidrRangesCommandInput,
-  ListAvailableManagementCidrRangesCommandOutput
+  ListAvailableManagementCidrRangesCommandOutput,
 } from "./commands/ListAvailableManagementCidrRangesCommand";
 import {
   ModifyAccountCommand,
   ModifyAccountCommandInput,
-  ModifyAccountCommandOutput
+  ModifyAccountCommandOutput,
 } from "./commands/ModifyAccountCommand";
 import {
   ModifyClientPropertiesCommand,
   ModifyClientPropertiesCommandInput,
-  ModifyClientPropertiesCommandOutput
+  ModifyClientPropertiesCommandOutput,
 } from "./commands/ModifyClientPropertiesCommand";
 import {
   ModifySelfservicePermissionsCommand,
   ModifySelfservicePermissionsCommandInput,
-  ModifySelfservicePermissionsCommandOutput
+  ModifySelfservicePermissionsCommandOutput,
 } from "./commands/ModifySelfservicePermissionsCommand";
 import {
   ModifyWorkspaceAccessPropertiesCommand,
   ModifyWorkspaceAccessPropertiesCommandInput,
-  ModifyWorkspaceAccessPropertiesCommandOutput
+  ModifyWorkspaceAccessPropertiesCommandOutput,
 } from "./commands/ModifyWorkspaceAccessPropertiesCommand";
 import {
   ModifyWorkspaceCreationPropertiesCommand,
   ModifyWorkspaceCreationPropertiesCommandInput,
-  ModifyWorkspaceCreationPropertiesCommandOutput
+  ModifyWorkspaceCreationPropertiesCommandOutput,
 } from "./commands/ModifyWorkspaceCreationPropertiesCommand";
 import {
   ModifyWorkspacePropertiesCommand,
   ModifyWorkspacePropertiesCommandInput,
-  ModifyWorkspacePropertiesCommandOutput
+  ModifyWorkspacePropertiesCommandOutput,
 } from "./commands/ModifyWorkspacePropertiesCommand";
 import {
   ModifyWorkspaceStateCommand,
   ModifyWorkspaceStateCommandInput,
-  ModifyWorkspaceStateCommandOutput
+  ModifyWorkspaceStateCommandOutput,
 } from "./commands/ModifyWorkspaceStateCommand";
 import {
   RebootWorkspacesCommand,
   RebootWorkspacesCommandInput,
-  RebootWorkspacesCommandOutput
+  RebootWorkspacesCommandOutput,
 } from "./commands/RebootWorkspacesCommand";
 import {
   RebuildWorkspacesCommand,
   RebuildWorkspacesCommandInput,
-  RebuildWorkspacesCommandOutput
+  RebuildWorkspacesCommandOutput,
 } from "./commands/RebuildWorkspacesCommand";
 import {
   RegisterWorkspaceDirectoryCommand,
   RegisterWorkspaceDirectoryCommandInput,
-  RegisterWorkspaceDirectoryCommandOutput
+  RegisterWorkspaceDirectoryCommandOutput,
 } from "./commands/RegisterWorkspaceDirectoryCommand";
 import {
   RestoreWorkspaceCommand,
   RestoreWorkspaceCommandInput,
-  RestoreWorkspaceCommandOutput
+  RestoreWorkspaceCommandOutput,
 } from "./commands/RestoreWorkspaceCommand";
 import {
   RevokeIpRulesCommand,
   RevokeIpRulesCommandInput,
-  RevokeIpRulesCommandOutput
+  RevokeIpRulesCommandOutput,
 } from "./commands/RevokeIpRulesCommand";
 import {
   StartWorkspacesCommand,
   StartWorkspacesCommandInput,
-  StartWorkspacesCommandOutput
+  StartWorkspacesCommandOutput,
 } from "./commands/StartWorkspacesCommand";
 import {
   StopWorkspacesCommand,
   StopWorkspacesCommandInput,
-  StopWorkspacesCommandOutput
+  StopWorkspacesCommandOutput,
 } from "./commands/StopWorkspacesCommand";
 import {
   TerminateWorkspacesCommand,
   TerminateWorkspacesCommandInput,
-  TerminateWorkspacesCommandOutput
+  TerminateWorkspacesCommandOutput,
 } from "./commands/TerminateWorkspacesCommand";
 import {
   UpdateRulesOfIpGroupCommand,
   UpdateRulesOfIpGroupCommandInput,
-  UpdateRulesOfIpGroupCommandOutput
+  UpdateRulesOfIpGroupCommandOutput,
 } from "./commands/UpdateRulesOfIpGroupCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -216,7 +216,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public associateIpGroups(
     args: AssociateIpGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<AssociateIpGroupsCommandOutput>;
   public associateIpGroups(
     args: AssociateIpGroupsCommandInput,
@@ -229,18 +229,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public associateIpGroups(
     args: AssociateIpGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateIpGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateIpGroupsCommandOutput) => void),
     cb?: (err: any, data?: AssociateIpGroupsCommandOutput) => void
   ): Promise<AssociateIpGroupsCommandOutput> | void {
     const command = new AssociateIpGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -255,7 +253,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public authorizeIpRules(
     args: AuthorizeIpRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<AuthorizeIpRulesCommandOutput>;
   public authorizeIpRules(
     args: AuthorizeIpRulesCommandInput,
@@ -268,18 +266,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public authorizeIpRules(
     args: AuthorizeIpRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AuthorizeIpRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AuthorizeIpRulesCommandOutput) => void),
     cb?: (err: any, data?: AuthorizeIpRulesCommandOutput) => void
   ): Promise<AuthorizeIpRulesCommandOutput> | void {
     const command = new AuthorizeIpRulesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -292,7 +288,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public copyWorkspaceImage(
     args: CopyWorkspaceImageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CopyWorkspaceImageCommandOutput>;
   public copyWorkspaceImage(
     args: CopyWorkspaceImageCommandInput,
@@ -305,18 +301,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public copyWorkspaceImage(
     args: CopyWorkspaceImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CopyWorkspaceImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopyWorkspaceImageCommandOutput) => void),
     cb?: (err: any, data?: CopyWorkspaceImageCommandOutput) => void
   ): Promise<CopyWorkspaceImageCommandOutput> | void {
     const command = new CopyWorkspaceImageCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -338,7 +332,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public createIpGroup(
     args: CreateIpGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateIpGroupCommandOutput>;
   public createIpGroup(
     args: CreateIpGroupCommandInput,
@@ -351,18 +345,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public createIpGroup(
     args: CreateIpGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateIpGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIpGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateIpGroupCommandOutput) => void
   ): Promise<CreateIpGroupCommandOutput> | void {
     const command = new CreateIpGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -375,7 +367,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public createTags(
     args: CreateTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateTagsCommandOutput>;
   public createTags(
     args: CreateTagsCommandInput,
@@ -388,18 +380,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public createTags(
     args: CreateTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTagsCommandOutput) => void),
     cb?: (err: any, data?: CreateTagsCommandOutput) => void
   ): Promise<CreateTagsCommandOutput> | void {
     const command = new CreateTagsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -413,7 +403,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public createWorkspaces(
     args: CreateWorkspacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<CreateWorkspacesCommandOutput>;
   public createWorkspaces(
     args: CreateWorkspacesCommandInput,
@@ -426,18 +416,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public createWorkspaces(
     args: CreateWorkspacesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateWorkspacesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWorkspacesCommandOutput) => void),
     cb?: (err: any, data?: CreateWorkspacesCommandOutput) => void
   ): Promise<CreateWorkspacesCommandOutput> | void {
     const command = new CreateWorkspacesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -451,7 +439,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public deleteIpGroup(
     args: DeleteIpGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteIpGroupCommandOutput>;
   public deleteIpGroup(
     args: DeleteIpGroupCommandInput,
@@ -464,18 +452,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public deleteIpGroup(
     args: DeleteIpGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteIpGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIpGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteIpGroupCommandOutput) => void
   ): Promise<DeleteIpGroupCommandOutput> | void {
     const command = new DeleteIpGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -488,7 +474,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public deleteTags(
     args: DeleteTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteTagsCommandOutput>;
   public deleteTags(
     args: DeleteTagsCommandInput,
@@ -501,18 +487,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public deleteTags(
     args: DeleteTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTagsCommandOutput) => void),
     cb?: (err: any, data?: DeleteTagsCommandOutput) => void
   ): Promise<DeleteTagsCommandOutput> | void {
     const command = new DeleteTagsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -527,7 +511,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public deleteWorkspaceImage(
     args: DeleteWorkspaceImageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteWorkspaceImageCommandOutput>;
   public deleteWorkspaceImage(
     args: DeleteWorkspaceImageCommandInput,
@@ -540,18 +524,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public deleteWorkspaceImage(
     args: DeleteWorkspaceImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteWorkspaceImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWorkspaceImageCommandOutput) => void),
     cb?: (err: any, data?: DeleteWorkspaceImageCommandOutput) => void
   ): Promise<DeleteWorkspaceImageCommandOutput> | void {
     const command = new DeleteWorkspaceImageCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -566,7 +548,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public deregisterWorkspaceDirectory(
     args: DeregisterWorkspaceDirectoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeregisterWorkspaceDirectoryCommandOutput>;
   public deregisterWorkspaceDirectory(
     args: DeregisterWorkspaceDirectoryCommandInput,
@@ -579,18 +561,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public deregisterWorkspaceDirectory(
     args: DeregisterWorkspaceDirectoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterWorkspaceDirectoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterWorkspaceDirectoryCommandOutput) => void),
     cb?: (err: any, data?: DeregisterWorkspaceDirectoryCommandOutput) => void
   ): Promise<DeregisterWorkspaceDirectoryCommandOutput> | void {
     const command = new DeregisterWorkspaceDirectoryCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -604,7 +584,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public describeAccount(
     args: DescribeAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeAccountCommandOutput>;
   public describeAccount(
     args: DescribeAccountCommandInput,
@@ -617,18 +597,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public describeAccount(
     args: DescribeAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAccountCommandOutput) => void),
     cb?: (err: any, data?: DescribeAccountCommandOutput) => void
   ): Promise<DescribeAccountCommandOutput> | void {
     const command = new DescribeAccountCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -642,7 +620,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public describeAccountModifications(
     args: DescribeAccountModificationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeAccountModificationsCommandOutput>;
   public describeAccountModifications(
     args: DescribeAccountModificationsCommandInput,
@@ -655,18 +633,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public describeAccountModifications(
     args: DescribeAccountModificationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAccountModificationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAccountModificationsCommandOutput) => void),
     cb?: (err: any, data?: DescribeAccountModificationsCommandOutput) => void
   ): Promise<DescribeAccountModificationsCommandOutput> | void {
     const command = new DescribeAccountModificationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -679,7 +655,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public describeClientProperties(
     args: DescribeClientPropertiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeClientPropertiesCommandOutput>;
   public describeClientProperties(
     args: DescribeClientPropertiesCommandInput,
@@ -692,18 +668,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public describeClientProperties(
     args: DescribeClientPropertiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeClientPropertiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClientPropertiesCommandOutput) => void),
     cb?: (err: any, data?: DescribeClientPropertiesCommandOutput) => void
   ): Promise<DescribeClientPropertiesCommandOutput> | void {
     const command = new DescribeClientPropertiesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -716,7 +690,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public describeIpGroups(
     args: DescribeIpGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeIpGroupsCommandOutput>;
   public describeIpGroups(
     args: DescribeIpGroupsCommandInput,
@@ -729,18 +703,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public describeIpGroups(
     args: DescribeIpGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeIpGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeIpGroupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeIpGroupsCommandOutput) => void
   ): Promise<DescribeIpGroupsCommandOutput> | void {
     const command = new DescribeIpGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -753,7 +725,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public describeTags(
     args: DescribeTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeTagsCommandOutput>;
   public describeTags(
     args: DescribeTagsCommandInput,
@@ -766,18 +738,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public describeTags(
     args: DescribeTagsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTagsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTagsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTagsCommandOutput) => void
   ): Promise<DescribeTagsCommandOutput> | void {
     const command = new DescribeTagsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -791,7 +761,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public describeWorkspaceBundles(
     args: DescribeWorkspaceBundlesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeWorkspaceBundlesCommandOutput>;
   public describeWorkspaceBundles(
     args: DescribeWorkspaceBundlesCommandInput,
@@ -804,18 +774,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public describeWorkspaceBundles(
     args: DescribeWorkspaceBundlesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeWorkspaceBundlesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeWorkspaceBundlesCommandOutput) => void),
     cb?: (err: any, data?: DescribeWorkspaceBundlesCommandOutput) => void
   ): Promise<DescribeWorkspaceBundlesCommandOutput> | void {
     const command = new DescribeWorkspaceBundlesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -829,7 +797,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public describeWorkspaceDirectories(
     args: DescribeWorkspaceDirectoriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeWorkspaceDirectoriesCommandOutput>;
   public describeWorkspaceDirectories(
     args: DescribeWorkspaceDirectoriesCommandInput,
@@ -842,18 +810,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public describeWorkspaceDirectories(
     args: DescribeWorkspaceDirectoriesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeWorkspaceDirectoriesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeWorkspaceDirectoriesCommandOutput) => void),
     cb?: (err: any, data?: DescribeWorkspaceDirectoriesCommandOutput) => void
   ): Promise<DescribeWorkspaceDirectoriesCommandOutput> | void {
     const command = new DescribeWorkspaceDirectoriesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -867,7 +833,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public describeWorkspaceImages(
     args: DescribeWorkspaceImagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeWorkspaceImagesCommandOutput>;
   public describeWorkspaceImages(
     args: DescribeWorkspaceImagesCommandInput,
@@ -880,18 +846,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public describeWorkspaceImages(
     args: DescribeWorkspaceImagesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeWorkspaceImagesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeWorkspaceImagesCommandOutput) => void),
     cb?: (err: any, data?: DescribeWorkspaceImagesCommandOutput) => void
   ): Promise<DescribeWorkspaceImagesCommandOutput> | void {
     const command = new DescribeWorkspaceImagesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -904,7 +868,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public describeWorkspaceSnapshots(
     args: DescribeWorkspaceSnapshotsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeWorkspaceSnapshotsCommandOutput>;
   public describeWorkspaceSnapshots(
     args: DescribeWorkspaceSnapshotsCommandInput,
@@ -917,18 +881,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public describeWorkspaceSnapshots(
     args: DescribeWorkspaceSnapshotsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeWorkspaceSnapshotsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeWorkspaceSnapshotsCommandOutput) => void),
     cb?: (err: any, data?: DescribeWorkspaceSnapshotsCommandOutput) => void
   ): Promise<DescribeWorkspaceSnapshotsCommandOutput> | void {
     const command = new DescribeWorkspaceSnapshotsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -943,7 +905,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public describeWorkspaces(
     args: DescribeWorkspacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeWorkspacesCommandOutput>;
   public describeWorkspaces(
     args: DescribeWorkspacesCommandInput,
@@ -956,18 +918,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public describeWorkspaces(
     args: DescribeWorkspacesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeWorkspacesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeWorkspacesCommandOutput) => void),
     cb?: (err: any, data?: DescribeWorkspacesCommandOutput) => void
   ): Promise<DescribeWorkspacesCommandOutput> | void {
     const command = new DescribeWorkspacesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -980,43 +940,29 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public describeWorkspacesConnectionStatus(
     args: DescribeWorkspacesConnectionStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeWorkspacesConnectionStatusCommandOutput>;
   public describeWorkspacesConnectionStatus(
     args: DescribeWorkspacesConnectionStatusCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeWorkspacesConnectionStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeWorkspacesConnectionStatusCommandOutput) => void
   ): void;
   public describeWorkspacesConnectionStatus(
     args: DescribeWorkspacesConnectionStatusCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeWorkspacesConnectionStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeWorkspacesConnectionStatusCommandOutput) => void
   ): void;
   public describeWorkspacesConnectionStatus(
     args: DescribeWorkspacesConnectionStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeWorkspacesConnectionStatusCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeWorkspacesConnectionStatusCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeWorkspacesConnectionStatusCommandOutput) => void),
+    cb?: (err: any, data?: DescribeWorkspacesConnectionStatusCommandOutput) => void
   ): Promise<DescribeWorkspacesConnectionStatusCommandOutput> | void {
     const command = new DescribeWorkspacesConnectionStatusCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1029,7 +975,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public disassociateIpGroups(
     args: DisassociateIpGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DisassociateIpGroupsCommandOutput>;
   public disassociateIpGroups(
     args: DisassociateIpGroupsCommandInput,
@@ -1042,18 +988,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public disassociateIpGroups(
     args: DisassociateIpGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateIpGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateIpGroupsCommandOutput) => void),
     cb?: (err: any, data?: DisassociateIpGroupsCommandOutput) => void
   ): Promise<DisassociateIpGroupsCommandOutput> | void {
     const command = new DisassociateIpGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1068,7 +1012,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public importWorkspaceImage(
     args: ImportWorkspaceImageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ImportWorkspaceImageCommandOutput>;
   public importWorkspaceImage(
     args: ImportWorkspaceImageCommandInput,
@@ -1081,18 +1025,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public importWorkspaceImage(
     args: ImportWorkspaceImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportWorkspaceImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportWorkspaceImageCommandOutput) => void),
     cb?: (err: any, data?: ImportWorkspaceImageCommandOutput) => void
   ): Promise<ImportWorkspaceImageCommandOutput> | void {
     const command = new ImportWorkspaceImageCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1109,43 +1051,29 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public listAvailableManagementCidrRanges(
     args: ListAvailableManagementCidrRangesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListAvailableManagementCidrRangesCommandOutput>;
   public listAvailableManagementCidrRanges(
     args: ListAvailableManagementCidrRangesCommandInput,
-    cb: (
-      err: any,
-      data?: ListAvailableManagementCidrRangesCommandOutput
-    ) => void
+    cb: (err: any, data?: ListAvailableManagementCidrRangesCommandOutput) => void
   ): void;
   public listAvailableManagementCidrRanges(
     args: ListAvailableManagementCidrRangesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ListAvailableManagementCidrRangesCommandOutput
-    ) => void
+    cb: (err: any, data?: ListAvailableManagementCidrRangesCommandOutput) => void
   ): void;
   public listAvailableManagementCidrRanges(
     args: ListAvailableManagementCidrRangesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListAvailableManagementCidrRangesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListAvailableManagementCidrRangesCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAvailableManagementCidrRangesCommandOutput) => void),
+    cb?: (err: any, data?: ListAvailableManagementCidrRangesCommandOutput) => void
   ): Promise<ListAvailableManagementCidrRangesCommandOutput> | void {
     const command = new ListAvailableManagementCidrRangesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1159,7 +1087,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public modifyAccount(
     args: ModifyAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ModifyAccountCommandOutput>;
   public modifyAccount(
     args: ModifyAccountCommandInput,
@@ -1172,18 +1100,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public modifyAccount(
     args: ModifyAccountCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyAccountCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyAccountCommandOutput) => void),
     cb?: (err: any, data?: ModifyAccountCommandOutput) => void
   ): Promise<ModifyAccountCommandOutput> | void {
     const command = new ModifyAccountCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1196,7 +1122,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public modifyClientProperties(
     args: ModifyClientPropertiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ModifyClientPropertiesCommandOutput>;
   public modifyClientProperties(
     args: ModifyClientPropertiesCommandInput,
@@ -1209,18 +1135,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public modifyClientProperties(
     args: ModifyClientPropertiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyClientPropertiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyClientPropertiesCommandOutput) => void),
     cb?: (err: any, data?: ModifyClientPropertiesCommandOutput) => void
   ): Promise<ModifyClientPropertiesCommandOutput> | void {
     const command = new ModifyClientPropertiesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1234,7 +1158,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public modifySelfservicePermissions(
     args: ModifySelfservicePermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ModifySelfservicePermissionsCommandOutput>;
   public modifySelfservicePermissions(
     args: ModifySelfservicePermissionsCommandInput,
@@ -1247,18 +1171,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public modifySelfservicePermissions(
     args: ModifySelfservicePermissionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifySelfservicePermissionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifySelfservicePermissionsCommandOutput) => void),
     cb?: (err: any, data?: ModifySelfservicePermissionsCommandOutput) => void
   ): Promise<ModifySelfservicePermissionsCommandOutput> | void {
     const command = new ModifySelfservicePermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1273,7 +1195,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public modifyWorkspaceAccessProperties(
     args: ModifyWorkspaceAccessPropertiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ModifyWorkspaceAccessPropertiesCommandOutput>;
   public modifyWorkspaceAccessProperties(
     args: ModifyWorkspaceAccessPropertiesCommandInput,
@@ -1286,21 +1208,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public modifyWorkspaceAccessProperties(
     args: ModifyWorkspaceAccessPropertiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyWorkspaceAccessPropertiesCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyWorkspaceAccessPropertiesCommandOutput) => void),
     cb?: (err: any, data?: ModifyWorkspaceAccessPropertiesCommandOutput) => void
   ): Promise<ModifyWorkspaceAccessPropertiesCommandOutput> | void {
     const command = new ModifyWorkspaceAccessPropertiesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1313,43 +1230,29 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public modifyWorkspaceCreationProperties(
     args: ModifyWorkspaceCreationPropertiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ModifyWorkspaceCreationPropertiesCommandOutput>;
   public modifyWorkspaceCreationProperties(
     args: ModifyWorkspaceCreationPropertiesCommandInput,
-    cb: (
-      err: any,
-      data?: ModifyWorkspaceCreationPropertiesCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyWorkspaceCreationPropertiesCommandOutput) => void
   ): void;
   public modifyWorkspaceCreationProperties(
     args: ModifyWorkspaceCreationPropertiesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: ModifyWorkspaceCreationPropertiesCommandOutput
-    ) => void
+    cb: (err: any, data?: ModifyWorkspaceCreationPropertiesCommandOutput) => void
   ): void;
   public modifyWorkspaceCreationProperties(
     args: ModifyWorkspaceCreationPropertiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ModifyWorkspaceCreationPropertiesCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ModifyWorkspaceCreationPropertiesCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyWorkspaceCreationPropertiesCommandOutput) => void),
+    cb?: (err: any, data?: ModifyWorkspaceCreationPropertiesCommandOutput) => void
   ): Promise<ModifyWorkspaceCreationPropertiesCommandOutput> | void {
     const command = new ModifyWorkspaceCreationPropertiesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1362,7 +1265,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public modifyWorkspaceProperties(
     args: ModifyWorkspacePropertiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ModifyWorkspacePropertiesCommandOutput>;
   public modifyWorkspaceProperties(
     args: ModifyWorkspacePropertiesCommandInput,
@@ -1375,18 +1278,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public modifyWorkspaceProperties(
     args: ModifyWorkspacePropertiesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyWorkspacePropertiesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyWorkspacePropertiesCommandOutput) => void),
     cb?: (err: any, data?: ModifyWorkspacePropertiesCommandOutput) => void
   ): Promise<ModifyWorkspacePropertiesCommandOutput> | void {
     const command = new ModifyWorkspacePropertiesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1404,7 +1305,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public modifyWorkspaceState(
     args: ModifyWorkspaceStateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ModifyWorkspaceStateCommandOutput>;
   public modifyWorkspaceState(
     args: ModifyWorkspaceStateCommandInput,
@@ -1417,18 +1318,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public modifyWorkspaceState(
     args: ModifyWorkspaceStateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ModifyWorkspaceStateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyWorkspaceStateCommandOutput) => void),
     cb?: (err: any, data?: ModifyWorkspaceStateCommandOutput) => void
   ): Promise<ModifyWorkspaceStateCommandOutput> | void {
     const command = new ModifyWorkspaceStateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1444,7 +1343,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public rebootWorkspaces(
     args: RebootWorkspacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<RebootWorkspacesCommandOutput>;
   public rebootWorkspaces(
     args: RebootWorkspacesCommandInput,
@@ -1457,18 +1356,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public rebootWorkspaces(
     args: RebootWorkspacesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RebootWorkspacesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RebootWorkspacesCommandOutput) => void),
     cb?: (err: any, data?: RebootWorkspacesCommandOutput) => void
   ): Promise<RebootWorkspacesCommandOutput> | void {
     const command = new RebootWorkspacesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1488,7 +1385,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public rebuildWorkspaces(
     args: RebuildWorkspacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<RebuildWorkspacesCommandOutput>;
   public rebuildWorkspaces(
     args: RebuildWorkspacesCommandInput,
@@ -1501,18 +1398,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public rebuildWorkspaces(
     args: RebuildWorkspacesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RebuildWorkspacesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RebuildWorkspacesCommandOutput) => void),
     cb?: (err: any, data?: RebuildWorkspacesCommandOutput) => void
   ): Promise<RebuildWorkspacesCommandOutput> | void {
     const command = new RebuildWorkspacesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1529,7 +1424,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public registerWorkspaceDirectory(
     args: RegisterWorkspaceDirectoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<RegisterWorkspaceDirectoryCommandOutput>;
   public registerWorkspaceDirectory(
     args: RegisterWorkspaceDirectoryCommandInput,
@@ -1542,18 +1437,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public registerWorkspaceDirectory(
     args: RegisterWorkspaceDirectoryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterWorkspaceDirectoryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterWorkspaceDirectoryCommandOutput) => void),
     cb?: (err: any, data?: RegisterWorkspaceDirectoryCommandOutput) => void
   ): Promise<RegisterWorkspaceDirectoryCommandOutput> | void {
     const command = new RegisterWorkspaceDirectoryCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1573,7 +1466,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public restoreWorkspace(
     args: RestoreWorkspaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<RestoreWorkspaceCommandOutput>;
   public restoreWorkspace(
     args: RestoreWorkspaceCommandInput,
@@ -1586,18 +1479,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public restoreWorkspace(
     args: RestoreWorkspaceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RestoreWorkspaceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreWorkspaceCommandOutput) => void),
     cb?: (err: any, data?: RestoreWorkspaceCommandOutput) => void
   ): Promise<RestoreWorkspaceCommandOutput> | void {
     const command = new RestoreWorkspaceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1610,7 +1501,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public revokeIpRules(
     args: RevokeIpRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<RevokeIpRulesCommandOutput>;
   public revokeIpRules(
     args: RevokeIpRulesCommandInput,
@@ -1623,18 +1514,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public revokeIpRules(
     args: RevokeIpRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RevokeIpRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RevokeIpRulesCommandOutput) => void),
     cb?: (err: any, data?: RevokeIpRulesCommandOutput) => void
   ): Promise<RevokeIpRulesCommandOutput> | void {
     const command = new RevokeIpRulesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1649,7 +1538,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public startWorkspaces(
     args: StartWorkspacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<StartWorkspacesCommandOutput>;
   public startWorkspaces(
     args: StartWorkspacesCommandInput,
@@ -1662,18 +1551,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public startWorkspaces(
     args: StartWorkspacesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartWorkspacesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartWorkspacesCommandOutput) => void),
     cb?: (err: any, data?: StartWorkspacesCommandOutput) => void
   ): Promise<StartWorkspacesCommandOutput> | void {
     const command = new StartWorkspacesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1689,7 +1576,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public stopWorkspaces(
     args: StopWorkspacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<StopWorkspacesCommandOutput>;
   public stopWorkspaces(
     args: StopWorkspacesCommandInput,
@@ -1702,18 +1589,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public stopWorkspaces(
     args: StopWorkspacesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopWorkspacesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopWorkspacesCommandOutput) => void),
     cb?: (err: any, data?: StopWorkspacesCommandOutput) => void
   ): Promise<StopWorkspacesCommandOutput> | void {
     const command = new StopWorkspacesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1732,7 +1617,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public terminateWorkspaces(
     args: TerminateWorkspacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<TerminateWorkspacesCommandOutput>;
   public terminateWorkspaces(
     args: TerminateWorkspacesCommandInput,
@@ -1745,18 +1630,16 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public terminateWorkspaces(
     args: TerminateWorkspacesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TerminateWorkspacesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TerminateWorkspacesCommandOutput) => void),
     cb?: (err: any, data?: TerminateWorkspacesCommandOutput) => void
   ): Promise<TerminateWorkspacesCommandOutput> | void {
     const command = new TerminateWorkspacesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1770,7 +1653,7 @@ export class WorkSpaces extends WorkSpacesClient {
    */
   public updateRulesOfIpGroup(
     args: UpdateRulesOfIpGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateRulesOfIpGroupCommandOutput>;
   public updateRulesOfIpGroup(
     args: UpdateRulesOfIpGroupCommandInput,
@@ -1783,20 +1666,19 @@ export class WorkSpaces extends WorkSpacesClient {
   ): void;
   public updateRulesOfIpGroup(
     args: UpdateRulesOfIpGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRulesOfIpGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRulesOfIpGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateRulesOfIpGroupCommandOutput) => void
   ): Promise<UpdateRulesOfIpGroupCommandOutput> | void {
     const command = new UpdateRulesOfIpGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

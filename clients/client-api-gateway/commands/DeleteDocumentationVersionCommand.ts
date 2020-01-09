@@ -1,17 +1,17 @@
 import {
   APIGatewayClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes
+  ServiceOutputTypes,
 } from "../APIGatewayClient";
 import { DeleteDocumentationVersionRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteDocumentationVersionCommand,
-  serializeAws_restJson1_1DeleteDocumentationVersionCommand
+  serializeAws_restJson1_1DeleteDocumentationVersionCommand,
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
+  HttpResponse as __HttpResponse,
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,17 +21,13 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
 } from "@aws-sdk/types";
 
 export type DeleteDocumentationVersionCommandInput = DeleteDocumentationVersionRequest;
-export type DeleteDocumentationVersionCommandOutput = __MetadataBearer;
+export type DeleteDocumentationVersionCommandOutput = __MetadataBearer
 
-export class DeleteDocumentationVersionCommand extends $Command<
-  DeleteDocumentationVersionCommandInput,
-  DeleteDocumentationVersionCommandOutput,
-  APIGatewayClientResolvedConfig
-> {
+export class DeleteDocumentationVersionCommand extends $Command<DeleteDocumentationVersionCommandInput, DeleteDocumentationVersionCommandOutput, APIGatewayClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,19 +41,14 @@ export class DeleteDocumentationVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteDocumentationVersionCommandInput,
-    DeleteDocumentationVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteDocumentationVersionCommandInput, DeleteDocumentationVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any
-    };
+      logger: {} as any,
+    }
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,20 +61,14 @@ export class DeleteDocumentationVersionCommand extends $Command<
     input: DeleteDocumentationVersionCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteDocumentationVersionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteDocumentationVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DeleteDocumentationVersionCommandOutput> {
-    return deserializeAws_restJson1_1DeleteDocumentationVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteDocumentationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

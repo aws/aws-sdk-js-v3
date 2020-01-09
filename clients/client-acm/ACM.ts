@@ -2,67 +2,67 @@ import { ACMClient } from "./ACMClient";
 import {
   AddTagsToCertificateCommand,
   AddTagsToCertificateCommandInput,
-  AddTagsToCertificateCommandOutput
+  AddTagsToCertificateCommandOutput,
 } from "./commands/AddTagsToCertificateCommand";
 import {
   DeleteCertificateCommand,
   DeleteCertificateCommandInput,
-  DeleteCertificateCommandOutput
+  DeleteCertificateCommandOutput,
 } from "./commands/DeleteCertificateCommand";
 import {
   DescribeCertificateCommand,
   DescribeCertificateCommandInput,
-  DescribeCertificateCommandOutput
+  DescribeCertificateCommandOutput,
 } from "./commands/DescribeCertificateCommand";
 import {
   ExportCertificateCommand,
   ExportCertificateCommandInput,
-  ExportCertificateCommandOutput
+  ExportCertificateCommandOutput,
 } from "./commands/ExportCertificateCommand";
 import {
   GetCertificateCommand,
   GetCertificateCommandInput,
-  GetCertificateCommandOutput
+  GetCertificateCommandOutput,
 } from "./commands/GetCertificateCommand";
 import {
   ImportCertificateCommand,
   ImportCertificateCommandInput,
-  ImportCertificateCommandOutput
+  ImportCertificateCommandOutput,
 } from "./commands/ImportCertificateCommand";
 import {
   ListCertificatesCommand,
   ListCertificatesCommandInput,
-  ListCertificatesCommandOutput
+  ListCertificatesCommandOutput,
 } from "./commands/ListCertificatesCommand";
 import {
   ListTagsForCertificateCommand,
   ListTagsForCertificateCommandInput,
-  ListTagsForCertificateCommandOutput
+  ListTagsForCertificateCommandOutput,
 } from "./commands/ListTagsForCertificateCommand";
 import {
   RemoveTagsFromCertificateCommand,
   RemoveTagsFromCertificateCommandInput,
-  RemoveTagsFromCertificateCommandOutput
+  RemoveTagsFromCertificateCommandOutput,
 } from "./commands/RemoveTagsFromCertificateCommand";
 import {
   RenewCertificateCommand,
   RenewCertificateCommandInput,
-  RenewCertificateCommandOutput
+  RenewCertificateCommandOutput,
 } from "./commands/RenewCertificateCommand";
 import {
   RequestCertificateCommand,
   RequestCertificateCommandInput,
-  RequestCertificateCommandOutput
+  RequestCertificateCommandOutput,
 } from "./commands/RequestCertificateCommand";
 import {
   ResendValidationEmailCommand,
   ResendValidationEmailCommandInput,
-  ResendValidationEmailCommandOutput
+  ResendValidationEmailCommandOutput,
 } from "./commands/ResendValidationEmailCommand";
 import {
   UpdateCertificateOptionsCommand,
   UpdateCertificateOptionsCommandInput,
-  UpdateCertificateOptionsCommandOutput
+  UpdateCertificateOptionsCommandOutput,
 } from "./commands/UpdateCertificateOptionsCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -101,7 +101,7 @@ export class ACM extends ACMClient {
    */
   public addTagsToCertificate(
     args: AddTagsToCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<AddTagsToCertificateCommandOutput>;
   public addTagsToCertificate(
     args: AddTagsToCertificateCommandInput,
@@ -114,18 +114,16 @@ export class ACM extends ACMClient {
   ): void;
   public addTagsToCertificate(
     args: AddTagsToCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AddTagsToCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsToCertificateCommandOutput) => void),
     cb?: (err: any, data?: AddTagsToCertificateCommandOutput) => void
   ): Promise<AddTagsToCertificateCommandOutput> | void {
     const command = new AddTagsToCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -146,7 +144,7 @@ export class ACM extends ACMClient {
    */
   public deleteCertificate(
     args: DeleteCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DeleteCertificateCommandOutput>;
   public deleteCertificate(
     args: DeleteCertificateCommandInput,
@@ -159,18 +157,16 @@ export class ACM extends ACMClient {
   ): void;
   public deleteCertificate(
     args: DeleteCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCertificateCommandOutput) => void),
     cb?: (err: any, data?: DeleteCertificateCommandOutput) => void
   ): Promise<DeleteCertificateCommandOutput> | void {
     const command = new DeleteCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -184,7 +180,7 @@ export class ACM extends ACMClient {
    */
   public describeCertificate(
     args: DescribeCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<DescribeCertificateCommandOutput>;
   public describeCertificate(
     args: DescribeCertificateCommandInput,
@@ -197,18 +193,16 @@ export class ACM extends ACMClient {
   ): void;
   public describeCertificate(
     args: DescribeCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCertificateCommandOutput) => void),
     cb?: (err: any, data?: DescribeCertificateCommandOutput) => void
   ): Promise<DescribeCertificateCommandOutput> | void {
     const command = new DescribeCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -228,7 +222,7 @@ export class ACM extends ACMClient {
    */
   public exportCertificate(
     args: ExportCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ExportCertificateCommandOutput>;
   public exportCertificate(
     args: ExportCertificateCommandInput,
@@ -241,18 +235,16 @@ export class ACM extends ACMClient {
   ): void;
   public exportCertificate(
     args: ExportCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ExportCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExportCertificateCommandOutput) => void),
     cb?: (err: any, data?: ExportCertificateCommandOutput) => void
   ): Promise<ExportCertificateCommandOutput> | void {
     const command = new ExportCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -271,7 +263,7 @@ export class ACM extends ACMClient {
    */
   public getCertificate(
     args: GetCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetCertificateCommandOutput>;
   public getCertificate(
     args: GetCertificateCommandInput,
@@ -284,18 +276,16 @@ export class ACM extends ACMClient {
   ): void;
   public getCertificate(
     args: GetCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCertificateCommandOutput) => void),
     cb?: (err: any, data?: GetCertificateCommandOutput) => void
   ): Promise<GetCertificateCommandOutput> | void {
     const command = new GetCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -378,7 +368,7 @@ export class ACM extends ACMClient {
    */
   public importCertificate(
     args: ImportCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ImportCertificateCommandOutput>;
   public importCertificate(
     args: ImportCertificateCommandInput,
@@ -391,18 +381,16 @@ export class ACM extends ACMClient {
   ): void;
   public importCertificate(
     args: ImportCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportCertificateCommandOutput) => void),
     cb?: (err: any, data?: ImportCertificateCommandOutput) => void
   ): Promise<ImportCertificateCommandOutput> | void {
     const command = new ImportCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -420,7 +408,7 @@ export class ACM extends ACMClient {
    */
   public listCertificates(
     args: ListCertificatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListCertificatesCommandOutput>;
   public listCertificates(
     args: ListCertificatesCommandInput,
@@ -433,18 +421,16 @@ export class ACM extends ACMClient {
   ): void;
   public listCertificates(
     args: ListCertificatesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListCertificatesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCertificatesCommandOutput) => void),
     cb?: (err: any, data?: ListCertificatesCommandOutput) => void
   ): Promise<ListCertificatesCommandOutput> | void {
     const command = new ListCertificatesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -461,7 +447,7 @@ export class ACM extends ACMClient {
    */
   public listTagsForCertificate(
     args: ListTagsForCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListTagsForCertificateCommandOutput>;
   public listTagsForCertificate(
     args: ListTagsForCertificateCommandInput,
@@ -474,18 +460,16 @@ export class ACM extends ACMClient {
   ): void;
   public listTagsForCertificate(
     args: ListTagsForCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForCertificateCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForCertificateCommandOutput) => void
   ): Promise<ListTagsForCertificateCommandOutput> | void {
     const command = new ListTagsForCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -506,7 +490,7 @@ export class ACM extends ACMClient {
    */
   public removeTagsFromCertificate(
     args: RemoveTagsFromCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<RemoveTagsFromCertificateCommandOutput>;
   public removeTagsFromCertificate(
     args: RemoveTagsFromCertificateCommandInput,
@@ -519,18 +503,16 @@ export class ACM extends ACMClient {
   ): void;
   public removeTagsFromCertificate(
     args: RemoveTagsFromCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RemoveTagsFromCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTagsFromCertificateCommandOutput) => void),
     cb?: (err: any, data?: RemoveTagsFromCertificateCommandOutput) => void
   ): Promise<RemoveTagsFromCertificateCommandOutput> | void {
     const command = new RemoveTagsFromCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -548,7 +530,7 @@ export class ACM extends ACMClient {
    */
   public renewCertificate(
     args: RenewCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<RenewCertificateCommandOutput>;
   public renewCertificate(
     args: RenewCertificateCommandInput,
@@ -561,18 +543,16 @@ export class ACM extends ACMClient {
   ): void;
   public renewCertificate(
     args: RenewCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RenewCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RenewCertificateCommandOutput) => void),
     cb?: (err: any, data?: RenewCertificateCommandOutput) => void
   ): Promise<RenewCertificateCommandOutput> | void {
     const command = new RenewCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -596,7 +576,7 @@ export class ACM extends ACMClient {
    */
   public requestCertificate(
     args: RequestCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<RequestCertificateCommandOutput>;
   public requestCertificate(
     args: RequestCertificateCommandInput,
@@ -609,18 +589,16 @@ export class ACM extends ACMClient {
   ): void;
   public requestCertificate(
     args: RequestCertificateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RequestCertificateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RequestCertificateCommandOutput) => void),
     cb?: (err: any, data?: RequestCertificateCommandOutput) => void
   ): Promise<RequestCertificateCommandOutput> | void {
     const command = new RequestCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -644,7 +622,7 @@ export class ACM extends ACMClient {
    */
   public resendValidationEmail(
     args: ResendValidationEmailCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ResendValidationEmailCommandOutput>;
   public resendValidationEmail(
     args: ResendValidationEmailCommandInput,
@@ -657,18 +635,16 @@ export class ACM extends ACMClient {
   ): void;
   public resendValidationEmail(
     args: ResendValidationEmailCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ResendValidationEmailCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResendValidationEmailCommandOutput) => void),
     cb?: (err: any, data?: ResendValidationEmailCommandOutput) => void
   ): Promise<ResendValidationEmailCommandOutput> | void {
     const command = new ResendValidationEmailCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -686,7 +662,7 @@ export class ACM extends ACMClient {
    */
   public updateCertificateOptions(
     args: UpdateCertificateOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<UpdateCertificateOptionsCommandOutput>;
   public updateCertificateOptions(
     args: UpdateCertificateOptionsCommandInput,
@@ -699,20 +675,19 @@ export class ACM extends ACMClient {
   ): void;
   public updateCertificateOptions(
     args: UpdateCertificateOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateCertificateOptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCertificateOptionsCommandOutput) => void),
     cb?: (err: any, data?: UpdateCertificateOptionsCommandOutput) => void
   ): Promise<UpdateCertificateOptionsCommandOutput> | void {
     const command = new UpdateCertificateOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

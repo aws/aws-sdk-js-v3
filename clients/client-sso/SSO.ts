@@ -2,22 +2,22 @@ import { SSOClient } from "./SSOClient";
 import {
   GetRoleCredentialsCommand,
   GetRoleCredentialsCommandInput,
-  GetRoleCredentialsCommandOutput
+  GetRoleCredentialsCommandOutput,
 } from "./commands/GetRoleCredentialsCommand";
 import {
   ListAccountRolesCommand,
   ListAccountRolesCommandInput,
-  ListAccountRolesCommandOutput
+  ListAccountRolesCommandOutput,
 } from "./commands/ListAccountRolesCommand";
 import {
   ListAccountsCommand,
   ListAccountsCommandInput,
-  ListAccountsCommandOutput
+  ListAccountsCommandOutput,
 } from "./commands/ListAccountsCommand";
 import {
   LogoutCommand,
   LogoutCommandInput,
-  LogoutCommandOutput
+  LogoutCommandOutput,
 } from "./commands/LogoutCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -50,7 +50,7 @@ export class SSO extends SSOClient {
    */
   public getRoleCredentials(
     args: GetRoleCredentialsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<GetRoleCredentialsCommandOutput>;
   public getRoleCredentials(
     args: GetRoleCredentialsCommandInput,
@@ -63,18 +63,16 @@ export class SSO extends SSOClient {
   ): void;
   public getRoleCredentials(
     args: GetRoleCredentialsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRoleCredentialsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRoleCredentialsCommandOutput) => void),
     cb?: (err: any, data?: GetRoleCredentialsCommandOutput) => void
   ): Promise<GetRoleCredentialsCommandOutput> | void {
     const command = new GetRoleCredentialsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -87,7 +85,7 @@ export class SSO extends SSOClient {
    */
   public listAccountRoles(
     args: ListAccountRolesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListAccountRolesCommandOutput>;
   public listAccountRoles(
     args: ListAccountRolesCommandInput,
@@ -100,18 +98,16 @@ export class SSO extends SSOClient {
   ): void;
   public listAccountRoles(
     args: ListAccountRolesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAccountRolesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAccountRolesCommandOutput) => void),
     cb?: (err: any, data?: ListAccountRolesCommandOutput) => void
   ): Promise<ListAccountRolesCommandOutput> | void {
     const command = new ListAccountRolesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -126,7 +122,7 @@ export class SSO extends SSOClient {
    */
   public listAccounts(
     args: ListAccountsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<ListAccountsCommandOutput>;
   public listAccounts(
     args: ListAccountsCommandInput,
@@ -139,18 +135,16 @@ export class SSO extends SSOClient {
   ): void;
   public listAccounts(
     args: ListAccountsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListAccountsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAccountsCommandOutput) => void),
     cb?: (err: any, data?: ListAccountsCommandOutput) => void
   ): Promise<ListAccountsCommandOutput> | void {
     const command = new ListAccountsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -163,7 +157,7 @@ export class SSO extends SSOClient {
    */
   public logout(
     args: LogoutCommandInput,
-    options?: __HttpHandlerOptions
+    options?: __HttpHandlerOptions,
   ): Promise<LogoutCommandOutput>;
   public logout(
     args: LogoutCommandInput,
@@ -176,20 +170,19 @@ export class SSO extends SSOClient {
   ): void;
   public logout(
     args: LogoutCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: LogoutCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: LogoutCommandOutput) => void),
     cb?: (err: any, data?: LogoutCommandOutput) => void
   ): Promise<LogoutCommandOutput> | void {
     const command = new LogoutCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
+      this.send(command, optionsOrCb)
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
+      this.send(command, optionsOrCb || {}, cb)
     } else {
       return this.send(command, optionsOrCb);
     }
   }
+
 }

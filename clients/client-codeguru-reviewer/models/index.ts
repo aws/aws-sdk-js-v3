@@ -6,9 +6,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>You do not have sufficient access to perform this action.</p>
  *
  */
-export interface AccessDeniedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -104,9 +102,7 @@ export namespace CodeCommitRepository {
  *       </p>
  *
  */
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConflictException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ConflictException";
   $fault: "client";
   Message?: string;
@@ -187,9 +183,7 @@ export namespace DisassociateRepositoryResponse {
  *          <p>The server encountered an internal error and is unable to complete the request.</p>
  *
  */
-export interface InternalServerException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerException";
   $fault: "server";
   Message?: string;
@@ -299,9 +293,7 @@ export namespace ListRepositoryAssociationsResponse {
  *          <p>The resource specified in the request was not found.</p>
  *
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   Message?: string;
@@ -315,7 +307,7 @@ export namespace NotFoundException {
 
 export enum ProviderType {
   CODE_COMMIT = "CodeCommit",
-  GIT_HUB = "GitHub"
+  GIT_HUB = "GitHub",
 }
 
 /**
@@ -420,7 +412,7 @@ export enum RepositoryAssociationState {
   ASSOCIATED = "Associated",
   ASSOCIATING = "Associating",
   DISASSOCIATING = "Disassociating",
-  FAILED = "Failed"
+  FAILED = "Failed",
 }
 
 /**
@@ -516,9 +508,7 @@ export namespace RepositoryAssociationSummary {
  *          <p>The request was denied due to request throttling.</p>
  *
  */
-export interface ThrottlingException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ThrottlingException";
   $fault: "client";
   Message?: string;
@@ -535,9 +525,7 @@ export namespace ThrottlingException {
  *          <p>The input fails to satisfy the specified constraints.</p>
  *
  */
-export interface ValidationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ValidationException";
   $fault: "client";
   Message?: string;

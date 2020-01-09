@@ -6,9 +6,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *         <p>You do not have sufficient access to perform this action.</p>
  *
  */
-export interface AccessDeniedException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   Message: string | undefined;
@@ -197,9 +195,7 @@ export namespace GetTranscriptResponse {
  *         <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
  *
  */
-export interface InternalServerException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends _smithy.SmithyException, $MetadataBearer {
   __type: "InternalServerException";
   $fault: "server";
   Message: string | undefined;
@@ -353,9 +349,7 @@ export namespace SendMessageResponse {
  *         <p>The request was denied due to request throttling.</p>
  *
  */
-export interface ThrottlingException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ThrottlingException";
   $fault: "client";
   Message: string | undefined;
@@ -372,9 +366,7 @@ export namespace ThrottlingException {
  *         <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
  *
  */
-export interface ValidationException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends _smithy.SmithyException, $MetadataBearer {
   __type: "ValidationException";
   $fault: "client";
   Message: string | undefined;
@@ -389,7 +381,7 @@ export namespace ValidationException {
 export enum ChatItemType {
   CONNECTION_ACK = "CONNECTION_ACK",
   EVENT = "EVENT",
-  MESSAGE = "MESSAGE"
+  MESSAGE = "MESSAGE",
 }
 
 /**
@@ -466,12 +458,12 @@ export namespace Item {
 
 export enum ScanDirection {
   BACKWARD = "BACKWARD",
-  FORWARD = "FORWARD"
+  FORWARD = "FORWARD",
 }
 
 export enum SortKey {
   ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING"
+  DESCENDING = "DESCENDING",
 }
 
 /**
@@ -544,13 +536,13 @@ export namespace ConnectionCredentials {
 
 export enum ConnectionType {
   CONNECTION_CREDENTIALS = "CONNECTION_CREDENTIALS",
-  WEBSOCKET = "WEBSOCKET"
+  WEBSOCKET = "WEBSOCKET",
 }
 
 export enum ParticipantRole {
   AGENT = "AGENT",
   CUSTOMER = "CUSTOMER",
-  SYSTEM = "SYSTEM"
+  SYSTEM = "SYSTEM",
 }
 
 /**
